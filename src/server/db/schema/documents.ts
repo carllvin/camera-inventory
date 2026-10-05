@@ -1,6 +1,7 @@
 import { sql } from "drizzle-orm";
 import {
   bigint,
+  boolean,
   check,
   date,
   foreignKey,
@@ -127,6 +128,8 @@ export const documentLine = pgTable(
     matchConfidence: real(),
     matchReason: text(),
     resolution: documentLineResolution().notNull().default("pending"),
+    /** The reviewer picked the type/item by hand; re-matching keeps that choice. */
+    reviewerChoice: boolean().notNull().default(false),
     confirmedQuantity: integer(),
     createdAt: createdAt(),
     updatedAt: updatedAt(),

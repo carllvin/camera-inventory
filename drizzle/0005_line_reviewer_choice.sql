@@ -1,0 +1,1 @@
+ALTER TABLE "document_line" ADD COLUMN "reviewer_choice" boolean DEFAULT false NOT NULL;

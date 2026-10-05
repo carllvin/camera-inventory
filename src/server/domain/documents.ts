@@ -13,6 +13,7 @@ import { recordEvent } from "./audit";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
 import { expandExtractedLines, findRentalHouse, matchLine, type MatchContext, type ProposedLine } from "./document-matching";
 import { ensureProjectRentalHouse, itemLabel, lockItem } from "./equipment-items";
+import { expandReturnLines, loadProjectItems, matchReturnLines, type ReturnLine } from "./return-matching";
 import { optionalDate, optionalText, optionalUuid } from "./validation";
 
 export const MAX_DOCUMENT_FILES = 20;
@@ -189,17 +190,24 @@ async function extractionContext(db: DbOrTx, ws: string, kind: DocumentKind) {
 }
 
 /** Match all proposed lines against the inventory and replace the document's lines. */
-async function storeLines(tx: DbOrTx, doc: typeof s.document.$inferSelect, lines: ProposedLine[]) {
+async function storeLines(tx: DbOrTx, doc: typeof s.document.$inferSelect, input: ProposedLine[]) {
   await tx.delete(s.documentLine).where(eq(s.documentLine.documentId, doc.id));
-  const mctx: MatchContext = { workspaceId: doc.workspaceId, projectId: doc.projectId, rentalHouseId: doc.rentalHouseId, kind: doc.kind };
-  const seen = new Set<string>();
-  let n = 0;
-  for (const line of lines) {
-    const m = await matchLine(tx, mctx, line, { seenSerials: seen });
+  let lines = input;
+  let matches;
+  if (doc.kind === "return_note") {
+    lines = await expandReturnLines(tx, doc.workspaceId, input);
+    matches = await matchReturnLines(tx, doc, lines.map((l) => ({ ...l, ignored: false, chosenItemId: null, chosenTypeId: null })));
+  } else {
+    const mctx: MatchContext = { workspaceId: doc.workspaceId, projectId: doc.projectId, rentalHouseId: doc.rentalHouseId, kind: doc.kind };
+    const seen = new Set<string>();
+    matches = [];
+    for (const line of lines) matches.push(await matchLine(tx, mctx, line, { seenSerials: seen }));
+  }
+  for (const [i, line] of lines.entries()) {
     await tx.insert(s.documentLine).values({
       workspaceId: doc.workspaceId,
       documentId: doc.id,
-      lineNumber: ++n,
+      lineNumber: i + 1,
       rawText: line.rawText,
       description: line.description.slice(0, 500),
       manufacturer: line.manufacturer,
@@ -208,7 +216,7 @@ async function storeLines(tx: DbOrTx, doc: typeof s.document.$inferSelect, lines
       serialNumber: line.serialNumber,
       assetNumber: line.assetNumber,
       aiConfidence: line.aiConfidence,
-      ...m,
+      ...matches[i]!,
     });
   }
 }
@@ -324,15 +332,33 @@ export const headerInput = z.object({
   documentDate: optionalDate,
 });
 
+/** Re-run matching for every line, keeping the reviewer's explicit choices. */
 async function rematchAll(tx: DbOrTx, doc: typeof s.document.$inferSelect) {
   const lines = await tx.select().from(s.documentLine).where(eq(s.documentLine.documentId, doc.id)).orderBy(asc(s.documentLine.lineNumber));
+  if (doc.kind === "return_note") {
+    const results = await matchReturnLines(tx, doc, lines.map(toReturnLine));
+    for (const [i, l] of lines.entries()) await tx.update(s.documentLine).set(results[i]!).where(eq(s.documentLine.id, l.id));
+    return;
+  }
   const mctx: MatchContext = { workspaceId: doc.workspaceId, projectId: doc.projectId, rentalHouseId: doc.rentalHouseId, kind: doc.kind };
   const seen = new Set<string>();
   for (const l of lines) {
     if (l.resolution === "ignore") continue;
-    const m = await matchLine(tx, mctx, toProposed(l), { seenSerials: seen, forcedTypeId: l.matchReason === "type chosen by reviewer" || l.resolution === "create_new" ? l.matchedEquipmentTypeId : null });
+    // Keep a type that was chosen by the reviewer or matched confidently before (e.g. AI catalog match).
+    const keepType = l.reviewerChoice || l.resolution === "create_new" ? l.matchedEquipmentTypeId : null;
+    const m = await matchLine(tx, mctx, toProposed(l), { seenSerials: seen, forcedTypeId: keepType });
     await tx.update(s.documentLine).set(m).where(eq(s.documentLine.id, l.id));
   }
+}
+
+function toReturnLine(l: typeof s.documentLine.$inferSelect): ReturnLine {
+  return {
+    ...toProposed(l),
+    ignored: l.resolution === "ignore",
+    chosenItemId: l.reviewerChoice ? l.matchedEquipmentItemId : null,
+    chosenTypeId: l.reviewerChoice ? l.matchedEquipmentTypeId : null,
+    hintTypeId: l.resolution === "match_existing" || l.resolution === "pending" ? l.matchedEquipmentTypeId : null,
+  };
 }
 
 function toProposed(l: typeof s.documentLine.$inferSelect): ProposedLine {
@@ -378,10 +404,12 @@ export const lineInput = z.object({
   serialNumber: optionalText(100),
   assetNumber: optionalText(100),
   equipmentTypeId: optionalUuid,
+  /** Return notes: the exact item on the project this line returns. */
+  equipmentItemId: optionalUuid,
   ignore: z.preprocess((v) => v === "1" || v === "on" || v === true, z.boolean()).default(false),
 });
 
-/** Save a reviewer's edit of one line and re-run matching for it. */
+/** Save a reviewer's edit of one line and re-run matching. */
 export async function updateLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.input<typeof lineInput>) {
   requireRole(ctx, "member");
   const data = lineInput.parse(input);
@@ -394,7 +422,37 @@ export async function updateLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.
       const [t] = await tx.select({ id: s.equipmentType.id }).from(s.equipmentType).where(and(eq(s.equipmentType.id, data.equipmentTypeId), eq(s.equipmentType.workspaceId, ctx.workspaceId)));
       if (!t) notFound("Equipment type");
     }
-    const proposed: ProposedLine = { ...toProposed(line), description: data.description, quantity: data.quantity, serialNumber: data.serialNumber ?? null, assetNumber: data.assetNumber ?? null };
+    let chosenTypeId = data.equipmentTypeId ?? null;
+    if (data.equipmentItemId) {
+      const [it] = await tx.select({ typeId: s.equipmentItem.equipmentTypeId }).from(s.equipmentItem).where(and(eq(s.equipmentItem.id, data.equipmentItemId), eq(s.equipmentItem.workspaceId, ctx.workspaceId)));
+      if (!it) notFound("Equipment item");
+      chosenTypeId = it.typeId;
+    }
+    const fields = {
+      description: data.description,
+      quantity: data.quantity,
+      serialNumber: data.serialNumber ?? null,
+      assetNumber: data.assetNumber ?? null,
+      reviewerChoice: Boolean(data.equipmentTypeId || data.equipmentItemId),
+    };
+
+    if (doc.kind === "return_note") {
+      // Lines compete for the same project items, so re-match the whole note.
+      await tx
+        .update(s.documentLine)
+        .set({
+          ...fields,
+          matchedEquipmentTypeId: chosenTypeId ?? (fields.reviewerChoice ? null : line.matchedEquipmentTypeId),
+          matchedEquipmentItemId: data.equipmentItemId ?? null,
+          resolution: data.ignore ? "ignore" : "pending",
+        })
+        .where(eq(s.documentLine.id, lineId));
+      await rematchAll(tx, doc);
+      const [updated] = await tx.select().from(s.documentLine).where(eq(s.documentLine.id, lineId));
+      return updated!;
+    }
+
+    const proposed: ProposedLine = { ...toProposed(line), ...fields };
     // Serials already used by other lines of this document.
     const others = await tx
       .select({ serial: s.documentLine.serialNumber })
@@ -402,11 +460,11 @@ export async function updateLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.
       .where(and(eq(s.documentLine.documentId, doc.id), ne(s.documentLine.id, lineId), ne(s.documentLine.resolution, "ignore")));
     const seen = new Set(others.map((o) => o.serial?.toUpperCase().replace(/[^A-Z0-9]/g, "")).filter((x): x is string => Boolean(x)));
     const m = data.ignore
-      ? { matchedEquipmentTypeId: data.equipmentTypeId ?? line.matchedEquipmentTypeId, matchedEquipmentItemId: null, matchConfidence: null, matchReason: "ignored by reviewer", resolution: "ignore" as const }
-      : await matchLine(tx, { workspaceId: doc.workspaceId, projectId: doc.projectId, rentalHouseId: doc.rentalHouseId, kind: doc.kind }, proposed, { forcedTypeId: data.equipmentTypeId ?? null, seenSerials: seen });
+      ? { matchedEquipmentTypeId: chosenTypeId ?? line.matchedEquipmentTypeId, matchedEquipmentItemId: null, matchConfidence: null, matchReason: "ignored by reviewer", resolution: "ignore" as const }
+      : await matchLine(tx, { workspaceId: doc.workspaceId, projectId: doc.projectId, rentalHouseId: doc.rentalHouseId, kind: doc.kind }, proposed, { forcedTypeId: chosenTypeId, seenSerials: seen });
     const [updated] = await tx
       .update(s.documentLine)
-      .set({ description: proposed.description, quantity: proposed.quantity, serialNumber: proposed.serialNumber, assetNumber: proposed.assetNumber, ...m })
+      .set({ ...fields, ...m })
       .where(eq(s.documentLine.id, lineId))
       .returning();
     return updated!;
@@ -467,13 +525,17 @@ export interface ConfirmBlocker {
   message: string;
 }
 
-export function deliveryBlockers(doc: { projectId: string | null; rentalHouseId: string | null; status: string }, lines: { id: string; lineNumber: number; resolution: string; matchReason: string | null; matchedEquipmentTypeId: string | null }[]): ConfirmBlocker[] {
+export function documentBlockers(
+  doc: { kind: string; projectId: string | null; rentalHouseId: string | null; status: string },
+  lines: { id: string; lineNumber: number; resolution: string; matchReason: string | null; matchedEquipmentTypeId: string | null }[],
+): ConfirmBlocker[] {
   const out: ConfirmBlocker[] = [];
+  const isReturn = doc.kind === "return_note";
   if (!doc.projectId) out.push({ message: "Choose the project." });
-  if (!doc.rentalHouseId) out.push({ message: "Choose the rental house that delivered the equipment." });
+  if (!doc.rentalHouseId) out.push({ message: isReturn ? "Choose the rental house the equipment goes back to." : "Choose the rental house that delivered the equipment." });
   if (lines.filter((l) => l.resolution !== "ignore").length === 0) out.push({ message: "There are no equipment lines to confirm." });
   for (const l of lines) {
-    if (l.resolution === "pending") out.push({ lineId: l.id, message: `Line ${l.lineNumber}: choose the equipment type (or ignore the line).` });
+    if (l.resolution === "pending") out.push({ lineId: l.id, message: `Line ${l.lineNumber}: ${isReturn ? "choose the item that is returned" : "choose the equipment type"} (or ignore the line).` });
     if (l.resolution === "discrepancy") out.push({ lineId: l.id, message: `Line ${l.lineNumber}: ${l.matchReason ?? "resolve the conflict"} — fix it or ignore the line.` });
   }
   return out;
@@ -493,7 +555,7 @@ export async function confirmDelivery(db: DbOrTx, ctx: Ctx, id: string) {
     // Re-check every line against the current inventory: things may have changed since review.
     await rematchAll(tx, doc);
     const lines = await tx.select().from(s.documentLine).where(eq(s.documentLine.documentId, id)).orderBy(asc(s.documentLine.lineNumber));
-    const blockers = deliveryBlockers(doc, lines);
+    const blockers = documentBlockers(doc, lines);
     if (blockers.length) throw new DomainError("VALIDATION", blockers[0]!.message, { blockers });
     const [project] = await tx.select().from(s.project).where(eq(s.project.id, doc.projectId!));
     if (!project || project.status === "closed") throw new DomainError("VALIDATION", "The project is closed.");
@@ -617,6 +679,233 @@ export async function confirmDelivery(db: DbOrTx, ctx: Ctx, id: string) {
 }
 
 // ---------------------------------------------------------------------------
+// Return notes: the only place equipment leaves a project for a rental house
+// ---------------------------------------------------------------------------
+
+/**
+ * Apply a reviewed return note. Matched items leave the project (status returned,
+ * out of their case, assignment closed with the note). Bulk lines that return
+ * part of an item split it: the returned units become their own item.
+ * Everything not on the note stays on the project - partial returns are normal.
+ */
+export async function confirmReturn(db: DbOrTx, ctx: Ctx, id: string) {
+  requireRole(ctx, "member");
+  const correlationId = randomUUID();
+  return db.transaction(async (tx) => {
+    const doc = await lockDocument(tx, ctx, id);
+    if (doc.kind !== "return_note") throw new DomainError("VALIDATION", "Only return notes can be confirmed as a return.");
+    assertEditable(doc);
+    await rematchAll(tx, doc); // inventory may have changed since the review
+    const lines = await tx.select().from(s.documentLine).where(eq(s.documentLine.documentId, id)).orderBy(asc(s.documentLine.lineNumber));
+    const blockers = documentBlockers(doc, lines);
+    if (blockers.length) throw new DomainError("VALIDATION", blockers[0]!.message, { blockers });
+    const [project] = await tx.select().from(s.project).where(eq(s.project.id, doc.projectId!));
+    const now = new Date();
+    let returned = 0;
+
+    const closeAssignment = async (itemId: string) =>
+      tx
+        .update(s.projectAssignment)
+        .set({ endedAt: now, endedById: ctx.userId, endReason: "returned", returnDocumentId: id })
+        .where(and(eq(s.projectAssignment.equipmentItemId, itemId), isNull(s.projectAssignment.endedAt)));
+
+    for (const l of lines) {
+      if (l.resolution !== "match_existing") continue;
+      const item = await lockItem(tx, ctx, l.matchedEquipmentItemId!);
+      if (item.projectId !== project!.id) throw new DomainError("CONFLICT", `Line ${l.lineNumber}: ${item.label} is no longer on this project. Reload the note.`);
+      const units = item.trackingMode === "bulk" ? l.quantity : 1;
+
+      if (item.trackingMode === "bulk" && units < item.quantity) {
+        // Partial bulk return: keep the rest on the project, split off the returned units.
+        await tx.update(s.equipmentItem).set({ quantity: item.quantity - units, version: sql`${s.equipmentItem.version} + 1` }).where(eq(s.equipmentItem.id, item.id));
+        await tx.update(s.projectAssignment).set({ quantity: item.quantity - units }).where(and(eq(s.projectAssignment.equipmentItemId, item.id), isNull(s.projectAssignment.endedAt)));
+        const [open] = await tx.select().from(s.projectAssignment).where(and(eq(s.projectAssignment.equipmentItemId, item.id), isNull(s.projectAssignment.endedAt)));
+        const [split] = await tx
+          .insert(s.equipmentItem)
+          .values({
+            workspaceId: ctx.workspaceId,
+            equipmentTypeId: item.equipmentTypeId,
+            trackingMode: "bulk",
+            quantity: units,
+            rentalHouseId: item.rentalHouseId,
+            status: "returned",
+            condition: item.condition,
+            splitFromItemId: item.id,
+          })
+          .returning();
+        await tx.insert(s.projectAssignment).values({
+          workspaceId: ctx.workspaceId,
+          equipmentItemId: split!.id,
+          projectId: project!.id,
+          rentalHouseId: item.rentalHouseId,
+          quantity: units,
+          deliveryDocumentId: open?.deliveryDocumentId ?? null,
+          returnDocumentId: id,
+          assignedAt: open?.assignedAt ?? now,
+          assignedById: open?.assignedById ?? ctx.userId,
+          endedAt: now,
+          endedById: ctx.userId,
+          endReason: "returned",
+        });
+        await recordEvent(tx, ctx, {
+          action: "equipment_item.split",
+          entityType: "equipment_item",
+          entityId: item.id,
+          equipmentItemId: item.id,
+          projectId: project!.id,
+          documentId: id,
+          summary: `${item.typeName}: ${units} of ${item.quantity} split off for return`,
+          changes: { quantity: { from: item.quantity, to: item.quantity - units } },
+          metadata: { splitItemId: split!.id },
+          correlationId,
+        });
+        await recordEvent(tx, ctx, {
+          action: "equipment_item.returned",
+          entityType: "equipment_item",
+          entityId: split!.id,
+          equipmentItemId: split!.id,
+          projectId: project!.id,
+          documentId: id,
+          rentalHouseId: item.rentalHouseId,
+          summary: `${item.typeName} × ${units} returned to rental house`,
+          changes: { status: { from: item.status, to: "returned" } },
+          metadata: { splitFromItemId: item.id },
+          correlationId,
+        });
+        await tx.update(s.documentLine).set({ confirmedQuantity: units }).where(eq(s.documentLine.id, l.id));
+        returned += units;
+        continue;
+      }
+
+      await tx
+        .update(s.equipmentItem)
+        .set({ projectId: null, caseId: null, status: "returned", version: sql`${s.equipmentItem.version} + 1` })
+        .where(eq(s.equipmentItem.id, item.id));
+      await closeAssignment(item.id);
+      if (item.caseId) {
+        await recordEvent(tx, ctx, {
+          action: "equipment_item.removed_from_case",
+          entityType: "equipment_item",
+          entityId: item.id,
+          equipmentItemId: item.id,
+          caseId: item.caseId,
+          projectId: project!.id,
+          documentId: id,
+          summary: `${item.label} unpacked for return`,
+          changes: { case_id: { from: item.caseId, to: null } },
+          correlationId,
+        });
+      }
+      await recordEvent(tx, ctx, {
+        action: "equipment_item.returned",
+        entityType: "equipment_item",
+        entityId: item.id,
+        equipmentItemId: item.id,
+        projectId: project!.id,
+        documentId: id,
+        rentalHouseId: item.rentalHouseId,
+        summary: `${item.label} returned to rental house`,
+        changes: { status: { from: item.status, to: "returned" }, project_id: { from: project!.id, to: null } },
+        correlationId,
+      });
+      await tx.update(s.documentLine).set({ confirmedQuantity: item.quantity }).where(eq(s.documentLine.id, l.id));
+      returned += item.quantity;
+    }
+
+    await tx.update(s.documentLine).set({ confirmedQuantity: 0 }).where(and(eq(s.documentLine.documentId, id), eq(s.documentLine.resolution, "ignore")));
+    const [confirmed] = await tx.update(s.document).set({ status: "confirmed", confirmedAt: now, confirmedById: ctx.userId }).where(eq(s.document.id, id)).returning();
+    const [{ remaining }] = (await tx.execute<{ remaining: number }>(
+      sql`SELECT coalesce(sum(quantity),0)::int AS remaining FROM equipment_item WHERE project_id = ${project!.id} AND rental_house_id = ${doc.rentalHouseId}`,
+    )) as unknown as [{ remaining: number }];
+    const [rh] = await tx.select({ name: s.rentalHouse.name }).from(s.rentalHouse).where(eq(s.rentalHouse.id, doc.rentalHouseId!));
+    await recordEvent(tx, ctx, {
+      action: "document.confirmed",
+      entityType: "document",
+      entityId: id,
+      documentId: id,
+      projectId: project!.id,
+      rentalHouseId: doc.rentalHouseId,
+      summary: `Return note ${doc.documentNumber ?? ""} confirmed`.replace("  ", " "),
+      correlationId,
+    });
+    await recordEvent(tx, ctx, {
+      action: "return_note.imported",
+      entityType: "document",
+      entityId: id,
+      documentId: id,
+      projectId: project!.id,
+      rentalHouseId: doc.rentalHouseId,
+      summary:
+        remaining > 0
+          ? `Return ${doc.documentNumber ?? ""}: ${returned} returned to ${rh?.name ?? "rental house"}, ${remaining} still on the project (partial return)`.replace("  ", " ")
+          : `Return ${doc.documentNumber ?? ""}: ${returned} returned to ${rh?.name ?? "rental house"} — nothing from them left on the project`.replace("  ", " "),
+      metadata: { returned, remaining },
+      correlationId,
+    });
+    return { document: confirmed!, returned, remaining };
+  });
+}
+
+/** Turn a problem line into an issue (return/delivery mismatch) linked to the note. */
+export async function reportLineIssue(db: DbOrTx, ctx: Ctx, lineId: string, note: string | null) {
+  requireRole(ctx, "member");
+  return db.transaction(async (tx) => {
+    const [line] = await tx.select().from(s.documentLine).where(and(eq(s.documentLine.id, lineId), eq(s.documentLine.workspaceId, ctx.workspaceId))).for("update");
+    if (!line) notFound("Line");
+    const doc = await lockDocument(tx, ctx, line.documentId);
+    const isReturn = doc.kind === "return_note";
+    const [issue] = await tx
+      .insert(s.issue)
+      .values({
+        workspaceId: ctx.workspaceId,
+        type: isReturn ? "return_mismatch" : "delivery_mismatch",
+        severity: "medium",
+        title: `${isReturn ? "Return" : "Delivery"} note ${doc.documentNumber ?? ""}, line ${line.lineNumber}: ${line.description}`.replace("  ", " ").slice(0, 300),
+        description: [line.matchReason, note?.trim()].filter(Boolean).join("\n\n") || null,
+        projectId: doc.projectId,
+        equipmentItemId: line.matchedEquipmentItemId,
+        documentId: doc.id,
+        createdById: ctx.userId,
+      })
+      .returning();
+    await recordEvent(tx, ctx, {
+      action: "issue.created",
+      entityType: "issue",
+      entityId: issue!.id,
+      issueId: issue!.id,
+      projectId: doc.projectId,
+      documentId: doc.id,
+      equipmentItemId: line.matchedEquipmentItemId,
+      summary: `Issue opened: ${issue!.title}`,
+    });
+    await tx
+      .update(s.documentLine)
+      .set({ matchReason: `${line.matchReason ?? ""} · issue reported`.replace(/^ · /, "") })
+      .where(eq(s.documentLine.id, lineId));
+    return issue!;
+  });
+}
+
+/** Return notes: which equipment from this rental house stays on the project after the note. */
+async function returnOverview(db: DbOrTx, doc: typeof s.document.$inferSelect, lines: { resolution: string; matchedEquipmentItemId: string | null; quantity: number }[]) {
+  if (doc.kind !== "return_note" || !doc.projectId) return null;
+  const items = (await loadProjectItems(db, doc.workspaceId, doc.projectId)).filter((i) => !doc.rentalHouseId || i.rentalHouseId === doc.rentalHouseId);
+  const claimed = new Map<string, number>();
+  for (const l of lines) if (l.resolution === "match_existing" && l.matchedEquipmentItemId) claimed.set(l.matchedEquipmentItemId, (claimed.get(l.matchedEquipmentItemId) ?? 0) + l.quantity);
+  const staying = items
+    .map((i) => ({ id: i.id, label: itemLabel(i), typeName: i.typeName, units: i.trackingMode === "bulk" ? i.quantity - (claimed.get(i.id) ?? 0) : claimed.has(i.id) ? 0 : 1 }))
+    .filter((i) => i.units > 0);
+  const returning = [...claimed.values()].reduce((n, u) => n + u, 0);
+  return { staying, returning, onProject: items.reduce((n, i) => n + i.quantity, 0) };
+}
+
+/** Items a return line may point at (everything on the project, optionally of one type). */
+export async function listReturnableItems(db: DbOrTx, ctx: Ctx, projectId: string) {
+  const items = await loadProjectItems(db, ctx.workspaceId, projectId);
+  return items.map((i) => ({ id: i.id, equipmentTypeId: i.equipmentTypeId, label: `${itemLabel(i)}${i.rentalHouseName ? ` · ${i.rentalHouseName}` : ""}` }));
+}
+
+// ---------------------------------------------------------------------------
 // Read model for the review page
 // ---------------------------------------------------------------------------
 
@@ -653,6 +942,7 @@ export async function getDocumentReview(db: DbOrTx, ctx: Ctx, id: string) {
       : Promise.resolve(null),
   ]);
   const flat = lines.map((l) => ({ ...l.line, typeName: l.typeName, itemSerial: l.itemSerial, itemProjectId: l.itemProjectId, itemStatus: l.itemStatus }));
+  const overview = row.doc.status === "confirmed" ? null : await returnOverview(db, row.doc, flat);
   const extraction = row.doc.extraction as (Extraction & { _meta?: Record<string, unknown> }) | null;
   return {
     ...row,
@@ -660,7 +950,8 @@ export async function getDocumentReview(db: DbOrTx, ctx: Ctx, id: string) {
     lines: flat,
     duplicate,
     warnings: extraction?.warnings ?? [],
-    blockers: row.doc.kind === "delivery_note" ? deliveryBlockers(row.doc, flat) : [],
+    blockers: documentBlockers(row.doc, flat),
+    returnOverview: overview,
     counts: {
       create: flat.filter((l) => l.resolution === "create_new").reduce((n, l) => n + l.quantity, 0),
       existing: flat.filter((l) => l.resolution === "match_existing").length,
