@@ -5,7 +5,7 @@ projects, cases, AI-assisted recognition and a complete audit trail.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for architecture, data model and roadmap.
 
-**Status:** Phase 3 complete: usable without AI (projects, rental houses, categories, equipment, search, scan by code).
+**Status:** Phase 4 complete: usable without AI (projects, rental houses, categories, equipment, cases and templates, photos, search, scan by code).
 
 ## Run with Docker (self-hosted)
 
@@ -31,6 +31,17 @@ set `DOMAIN` and `PUBLIC_URL=https://…` in `.env` and start with `docker compo
 
 The first person to sign up creates the workspace and becomes its owner. Add the rest of the team under
 **Settings → Team**, then set `ALLOW_SIGNUP=false`.
+
+### Backups
+
+Two volumes hold everything: `pgdata` (database) and `storage` (photos, later documents).
+
+```bash
+docker compose exec -T postgres pg_dump -U camera camera_inventory > backup-$(date +%F).sql
+docker run --rm -v camera-inventory_storage:/data -v "$PWD":/backup alpine tar czf /backup/storage-$(date +%F).tgz -C /data .
+```
+
+(The volume name is `<stack name>_storage`; check with `docker volume ls`.)
 
 ## Local development
 
@@ -67,7 +78,7 @@ Demo logins (password `camera-demo`): `alex@nordlicht.example` (owner), `mira@�
 | `npm run db:reset` | **Dev only:** drop everything, migrate, seed |
 | `npm run dev` / `build` / `start` | Next.js dev server / production build / production server |
 | `npm test` | Integration tests (recreates the schema in `TEST_DATABASE_URL`) |
-| `npm run test:e2e` | Browser tests (Playwright) against a running app with demo data |
+| `npm run test:e2e` | Browser tests (Playwright) against a running app with demo data (set `PW_CHROMIUM_PATH` to use a preinstalled Chromium) |
 | `npm run typecheck` | TypeScript check |
 
 ## Demo data
