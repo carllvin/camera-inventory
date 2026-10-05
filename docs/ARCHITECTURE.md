@@ -127,8 +127,29 @@ workspace ─┬─ workspace_member ── user (session, account, verification
 | 2 | **AI provider and keys** | **Decided: Claude**, behind `DocumentExtractor`/`VisionRecognizer`. `ANTHROPIC_API_KEY` lives only in the server/worker environment. The mock provider is still used in tests and when no key is set. |
 | 3 | **Long-running AI jobs** | Extraction can take 10–60 s. Phase 5 starts with async processing plus a status poll. Add a Postgres-backed queue (pg-boss) if needed. |
 | 4 | **Serial OCR reliability** | Engraved or tiny serial plates will often fail. The UI must make manual correction fast. AI stays advisory. |
-| 5 | **Reference images** | **Proposed: automatic, but not "first Google result".** Find candidates on the manufacturer's own product page first and an image-search API second, rank them with Claude vision (exact product? alone? clean background? no watermark?), keep the best one in our own storage with `source_url`, and let the user replace it in one tap. Details in the reference-image section once implemented. |
+| 5 | **Reference images** | **Decided:** see section 6. |
 | 6 | **Global equipment catalog** | Equipment types are workspace-scoped for now (isolation first). A shared global catalog can be added later as a separate table that workspace types link to. |
 | 7 | **Document language** | Delivery notes are often German ("Lieferschein", "Stück"). Extraction prompts and matching should be multilingual. |
 | 8 | **Same serial, different rental house** | Treated as the same physical item only if type and serial match. Owner changes are flagged as a `serial_conflict` issue for the user, never merged automatically. |
 | 9 | **Roles** | `owner/admin/member/viewer` per workspace. Fine-grained per-project permissions are deferred. |
+
+## 6. Reference images (decided, built with Phase 5)
+
+Reference images belong to the **equipment type** (choose once, every ALEXA 35 shows it). Physical items only carry photos the crew takes (damage, labels, case contents).
+
+**Automatic selection**
+
+1. Candidates come from the manufacturer's product page (found via Claude web search; product images read from the page) and the **Brave Image Search API** (official API, own key).
+2. Claude vision ranks candidates: exact product, shown alone, clean background, no watermark, not rigged.
+3. The best candidate is downloaded into MinIO with `source_url`/attribution and applied with an "auto-selected" badge. Below the confidence threshold: no image, "choose image" prompt.
+
+**Picker on the equipment-type page ("Change image")**
+
+* Grid of cached candidates, suggested one marked, source domain under each thumbnail, editable query with "search again" and "load more".
+* **Open in Google Images**: opens real Google results in a new tab with the query pre-filled (Google cannot be embedded and has no usable official API; scraping services such as SerpAPI are deliberately not used).
+* **Paste image URL** (e.g. copied from Google Images) and **Upload / take photo**.
+* Choosing an image downloads it server-side; the previous image stays in the photo history; an audit event records the change.
+
+**Safety**: server-side fetching only accepts image content types, caps size, follows a limited number of redirects and refuses private/loopback addresses (SSRF). Thumbnails are served through our own proxy, never hotlinked.
+
+**Schema addition (Phase 5)**: `image_candidate` cache table (equipment type, query, source, URL, thumbnail, rank/score, fetched_at).
