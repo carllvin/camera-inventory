@@ -3,6 +3,7 @@
 #   cp deploy/.env.example .env   # then edit secrets
 #   docker compose up -d --build                     # app on http://localhost:3000
 #   docker compose --profile proxy up -d --build     # + HTTPS via Caddy on $DOMAIN
+#                                                    #   (or COMPOSE_PROFILES=proxy in .env, e.g. for Dockge)
 #   docker compose run --rm migrate npm run db:seed  # optional demo data (empty DB only)
 #
 # Object storage (MinIO) and the AI worker are added with Phase 5.
