@@ -260,7 +260,7 @@ async function getActiveProject(tx: DbOrTx, ctx: Ctx, projectId: string) {
 }
 
 /** Make sure the project ↔ rental-house relationship exists (never closed by returns). */
-async function ensureProjectRentalHouse(tx: DbOrTx, ctx: Ctx, projectId: string, rentalHouseId: string | null) {
+export async function ensureProjectRentalHouse(tx: DbOrTx, ctx: Ctx, projectId: string, rentalHouseId: string | null) {
   if (!rentalHouseId) return;
   const inserted = await tx
     .insert(s.projectRentalHouse)

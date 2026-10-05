@@ -1,0 +1,83 @@
+/**
+ * AI provider contracts. Domain code depends only on these interfaces, so the
+ * provider (Claude today) can be swapped or mocked without touching business logic.
+ * AI output is always a proposal: nothing here writes to the database.
+ */
+import { z } from "zod";
+
+export const extractedLineSchema = z.object({
+  /** Text of the line as printed, for traceability. */
+  raw_text: z.string(),
+  /** Item description as printed (normalized whitespace). */
+  description: z.string(),
+  manufacturer: z.string().nullable(),
+  model: z.string().nullable(),
+  quantity: z.number().int(),
+  /** Serial numbers printed for this line (one per physical unit when listed). */
+  serial_numbers: z.array(z.string()),
+  /** Rental-house inventory / asset numbers printed for this line. */
+  asset_numbers: z.array(z.string()),
+  /** Exact name from the provided equipment catalog when clearly the same product, else null. */
+  catalog_match: z.string().nullable(),
+  /** False for non-equipment lines: transport, insurance, deposits, subtotals, notes. */
+  is_equipment: z.boolean(),
+  /** 0–1: how sure the reading of this line is. */
+  confidence: z.number(),
+});
+
+export const extractionSchema = z.object({
+  document_type: z.enum(["delivery_note", "return_note", "other"]),
+  rental_house_name: z.string().nullable(),
+  /** Exact name from the provided rental-house list when clearly the same company, else null. */
+  rental_house_match: z.string().nullable(),
+  document_number: z.string().nullable(),
+  /** ISO date (YYYY-MM-DD) of the document, if printed. */
+  document_date: z.string().nullable(),
+  /** Production / project / job name or reference printed on the document. */
+  project_reference: z.string().nullable(),
+  lines: z.array(extractedLineSchema),
+  /** Anything the reviewer should know: unreadable parts, handwritten corrections, missing pages. */
+  warnings: z.array(z.string()),
+});
+
+export type ExtractedLine = z.infer<typeof extractedLineSchema>;
+export type Extraction = z.infer<typeof extractionSchema>;
+
+export interface ExtractionInputFile {
+  name: string;
+  mimeType: string;
+  bytes: Buffer;
+}
+
+export interface ExtractionContext {
+  /** What the user said they uploaded. */
+  expectedKind: "delivery_note" | "return_note";
+  /** Known rental houses (names + aliases) to help identify the sender. */
+  rentalHouses: string[];
+  /** Known equipment type names (+ aliases) for normalization. */
+  catalog: string[];
+}
+
+export interface ExtractionResult {
+  extraction: Extraction;
+  provider: string;
+  model: string;
+  /** Raw provider metadata kept for traceability (usage, stop reason, fallback info). */
+  meta: Record<string, unknown>;
+}
+
+export interface DocumentExtractor {
+  readonly provider: string;
+  readonly model: string;
+  /** False when no AI is configured: documents are then entered manually. */
+  readonly available: boolean;
+  extract(files: ExtractionInputFile[], ctx: ExtractionContext): Promise<ExtractionResult>;
+}
+
+/** A provider failure the user should see (refusal, unreadable document, missing key …). */
+export class ExtractionError extends Error {
+  constructor(message: string, public readonly retryable: boolean) {
+    super(message);
+    this.name = "ExtractionError";
+  }
+}
