@@ -123,11 +123,11 @@ workspace ─┬─ workspace_member ── user (session, account, verification
 
 | # | Topic | Recommendation / question |
 |---|---|---|
-| 1 | **Hosting** | Vercel + Neon/Supabase Postgres + Cloudflare R2, **or** self-hosted Docker (Postgres + MinIO). This affects storage config and background jobs. Default: provider-agnostic code with S3 API and `DATABASE_URL`. |
-| 2 | **AI provider and keys** | Recommend Claude (vision plus native PDF input) behind `DocumentExtractor`/`VisionRecognizer`. Needs an API key in server env. The mock provider keeps everything working without one. |
+| 1 | **Hosting** | **Decided: self-hosted Docker.** `docker compose` with `app` (Next.js standalone), `worker` (background jobs for AI extraction/recognition, pg-boss on Postgres), `postgres`, `minio` (S3-compatible storage) and a reverse proxy with TLS. Storage code stays on the S3 API, so moving to R2/S3 later only changes configuration. |
+| 2 | **AI provider and keys** | **Decided: Claude**, behind `DocumentExtractor`/`VisionRecognizer`. `ANTHROPIC_API_KEY` lives only in the server/worker environment. The mock provider is still used in tests and when no key is set. |
 | 3 | **Long-running AI jobs** | Extraction can take 10–60 s. Phase 5 starts with async processing plus a status poll. Add a Postgres-backed queue (pg-boss) if needed. |
 | 4 | **Serial OCR reliability** | Engraved or tiny serial plates will often fail. The UI must make manual correction fast. AI stays advisory. |
-| 5 | **Reference images** | Manufacturer images may be copyrighted. Proposal: manual upload plus "import from URL" (with stored `source_url`/attribution) first. An image-search API (Brave/Bing/SerpAPI) is an open choice and needs a key. |
+| 5 | **Reference images** | **Proposed: automatic, but not "first Google result".** Find candidates on the manufacturer's own product page first and an image-search API second, rank them with Claude vision (exact product? alone? clean background? no watermark?), keep the best one in our own storage with `source_url`, and let the user replace it in one tap. Details in the reference-image section once implemented. |
 | 6 | **Global equipment catalog** | Equipment types are workspace-scoped for now (isolation first). A shared global catalog can be added later as a separate table that workspace types link to. |
 | 7 | **Document language** | Delivery notes are often German ("Lieferschein", "Stück"). Extraction prompts and matching should be multilingual. |
 | 8 | **Same serial, different rental house** | Treated as the same physical item only if type and serial match. Owner changes are flagged as a `serial_conflict` issue for the user, never merged automatically. |
