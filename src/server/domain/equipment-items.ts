@@ -98,7 +98,14 @@ export async function listItems(db: DbOrTx, ctx: Ctx, rawFilters: ItemFilters = 
     .leftJoin(s.project, eq(s.project.id, s.equipmentItem.projectId))
     .leftJoin(s.equipmentCase, eq(s.equipmentCase.id, s.equipmentItem.caseId))
     .where(and(...where))
-    .orderBy(asc(s.category.sortOrder), asc(s.equipmentType.name), asc(s.equipmentItem.serialNumber))
+    .orderBy(
+      // Group by top-level category, then subcategory (both in the user's chosen order).
+      sql`coalesce((SELECT p.sort_order FROM category p WHERE p.id = ${s.category.parentId}), ${s.category.sortOrder}, 999)`,
+      sql`${s.category.parentId} IS NOT NULL`,
+      asc(s.category.sortOrder),
+      asc(s.equipmentType.name),
+      asc(s.equipmentItem.serialNumber),
+    )
     .limit(f.limit);
 }
 export type ItemRow = Awaited<ReturnType<typeof listItems>>[number];

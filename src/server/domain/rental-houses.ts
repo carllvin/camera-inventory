@@ -27,8 +27,8 @@ export async function listRentalHouses(db: DbOrTx, ctx: Ctx) {
       aliases: s.rentalHouse.aliases,
       phone: s.rentalHouse.phone,
       email: s.rentalHouse.email,
-      onProjects: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.rental_house_id = ${s.rentalHouse.id} AND i.project_id IS NOT NULL)`,
-      projectCount: sql<number>`(SELECT count(DISTINCT i.project_id)::int FROM equipment_item i WHERE i.rental_house_id = ${s.rentalHouse.id} AND i.project_id IS NOT NULL)`,
+      onProjects: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.rental_house_id = "rental_house"."id" AND i.project_id IS NOT NULL)`,
+      projectCount: sql<number>`(SELECT count(DISTINCT i.project_id)::int FROM equipment_item i WHERE i.rental_house_id = "rental_house"."id" AND i.project_id IS NOT NULL)`,
     })
     .from(s.rentalHouse)
     .where(and(eq(s.rentalHouse.workspaceId, ctx.workspaceId), isNull(s.rentalHouse.archivedAt)))

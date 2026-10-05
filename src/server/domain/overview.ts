@@ -26,15 +26,19 @@ export async function getDashboard(db: DbOrTx, ctx: Ctx) {
   return { counts: counts!, recent, issues };
 }
 
-export async function listActivity(db: DbOrTx, ctx: Ctx, opts: { projectId?: string; caseId?: string; limit?: number; before?: number } = {}) {
+export async function listActivity(db: DbOrTx, ctx: Ctx, opts: { projectId?: string; caseId?: string; limit?: number; before?: { atMicros: string; id: number } } = {}) {
   const where: SQL[] = [eq(s.auditEvent.workspaceId, ctx.workspaceId)];
   if (opts.projectId) where.push(eq(s.auditEvent.projectId, opts.projectId));
   if (opts.caseId) where.push(eq(s.auditEvent.caseId, opts.caseId));
-  if (opts.before) where.push(sql`${s.auditEvent.id} < ${opts.before}`);
+  if (opts.before) {
+    where.push(sql`(${s.auditEvent.occurredAt}, ${s.auditEvent.id}) < (to_timestamp(${opts.before.atMicros}::numeric / 1000000), ${opts.before.id})`);
+  }
   return db
     .select({
       id: s.auditEvent.id,
       occurredAt: s.auditEvent.occurredAt,
+      /** Microsecond timestamp for keyset pagination (JS Dates only hold milliseconds). */
+      cursorMicros: sql<string>`(extract(epoch from ${s.auditEvent.occurredAt}) * 1000000)::bigint::text`,
       action: s.auditEvent.action,
       summary: s.auditEvent.summary,
       actorType: s.auditEvent.actorType,
@@ -52,7 +56,7 @@ export async function listActivity(db: DbOrTx, ctx: Ctx, opts: { projectId?: str
     .leftJoin(s.user, eq(s.user.id, s.auditEvent.actorUserId))
     .leftJoin(s.project, eq(s.project.id, s.auditEvent.projectId))
     .where(and(...where))
-    // Order by insertion id: imported events can carry an earlier occurred_at, but id is a stable total order.
+    // Keyset order (occurred_at, id): stable even when events share a timestamp.
     .orderBy(desc(s.auditEvent.occurredAt), desc(s.auditEvent.id))
     .limit(opts.limit ?? 100);
 }
@@ -104,7 +108,7 @@ export async function listDocuments(db: DbOrTx, ctx: Ctx, opts: { projectId?: st
       projectName: s.project.name,
       rentalHouseName: s.rentalHouse.name,
       confirmedAt: s.document.confirmedAt,
-      lineCount: sql<number>`(SELECT count(*)::int FROM document_line l WHERE l.document_id = ${s.document.id})`,
+      lineCount: sql<number>`(SELECT count(*)::int FROM document_line l WHERE l.document_id = "document"."id")`,
     })
     .from(s.document)
     .leftJoin(s.project, eq(s.project.id, s.document.projectId))

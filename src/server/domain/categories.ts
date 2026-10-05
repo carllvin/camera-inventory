@@ -26,7 +26,7 @@ export async function getCategoryTree(db: DbOrTx, ctx: Ctx) {
       name: s.category.name,
       parentId: s.category.parentId,
       sortOrder: s.category.sortOrder,
-      typeCount: sql<number>`(SELECT count(*)::int FROM equipment_type t WHERE t.category_id = ${s.category.id})`,
+      typeCount: sql<number>`(SELECT count(*)::int FROM equipment_type t WHERE t.category_id = "category"."id")`,
     })
     .from(s.category)
     .where(eq(s.category.workspaceId, ctx.workspaceId))

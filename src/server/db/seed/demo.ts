@@ -1,12 +1,13 @@
 /**
  * Realistic demo data for a camera department.
  *
- * Writes go straight to the tables (domain services arrive in Phase 3), but every
+ * Writes go straight to the tables (to control timestamps), but every
  * state change still produces the audit events a service would write, so timelines
  * in the UI look like real usage. The deferred assignment-consistency trigger is
  * satisfied because everything runs in one transaction.
  */
 import { randomUUID } from "node:crypto";
+import { hashPassword } from "better-auth/crypto";
 import { and, eq, isNull } from "drizzle-orm";
 import type { Database, DbOrTx } from "../client";
 import * as s from "../schema";
@@ -16,6 +17,9 @@ type Tx = DbOrTx;
 type UserKey = "alex" | "mira" | "jonas" | "sam";
 
 const at = (iso: string) => new Date(iso);
+
+/** Password for all demo accounts (development only). */
+export const DEMO_PASSWORD = "camera-demo";
 
 export interface SeedResult {
   workspaceId: string;
@@ -107,6 +111,7 @@ class DemoSeeder {
       { key: "jonas", name: "Jonas Weber", email: "jonas@nordlicht.example", role: "member" as const },
       { key: "sam", name: "Sam Lindqvist", email: "sam@nordlicht.example", role: "viewer" as const },
     ];
+    const passwordHash = await hashPassword(DEMO_PASSWORD);
     for (const p of people) {
       const [u] = await this.tx
         .insert(s.user)
@@ -114,6 +119,8 @@ class DemoSeeder {
         .returning();
       this.users[p.key as UserKey] = u!.id;
       await this.tx.insert(s.workspaceMember).values({ workspaceId: this.ws, userId: u!.id, role: p.role });
+      // Better Auth email/password credential.
+      await this.tx.insert(s.account).values({ userId: u!.id, accountId: u!.id, providerId: "credential", password: passwordHash });
     }
   }
 

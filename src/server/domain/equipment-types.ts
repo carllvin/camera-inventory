@@ -53,9 +53,9 @@ export async function listEquipmentTypes(db: DbOrTx, ctx: Ctx, opts: { categoryI
       defaultTrackingMode: s.equipmentType.defaultTrackingMode,
       categoryId: s.equipmentType.categoryId,
       categoryName: s.category.name,
-      itemCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.equipment_type_id = ${s.equipmentType.id})`,
-      onProjectCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.equipment_type_id = ${s.equipmentType.id} AND i.project_id IS NOT NULL)`,
-      imageKey: sql<string | null>`(SELECT p.storage_key FROM photo p WHERE p.equipment_type_id = ${s.equipmentType.id} AND p.kind = 'reference' ORDER BY p.is_primary DESC, p.created_at DESC LIMIT 1)`,
+      itemCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.equipment_type_id = "equipment_type"."id")`,
+      onProjectCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.equipment_type_id = "equipment_type"."id" AND i.project_id IS NOT NULL)`,
+      imageKey: sql<string | null>`(SELECT p.storage_key FROM photo p WHERE p.equipment_type_id = "equipment_type"."id" AND p.kind = 'reference' ORDER BY p.is_primary DESC, p.created_at DESC LIMIT 1)`,
     })
     .from(s.equipmentType)
     .leftJoin(s.category, eq(s.category.id, s.equipmentType.categoryId))

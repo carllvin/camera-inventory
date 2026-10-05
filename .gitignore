@@ -6,3 +6,5 @@ coverage
 storage/
 *.log
 .DS_Store
+.shot.mjs
+*.tsbuildinfo

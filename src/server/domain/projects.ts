@@ -30,9 +30,9 @@ export async function listProjects(db: DbOrTx, ctx: Ctx) {
       productionCompany: s.project.productionCompany,
       startDate: s.project.startDate,
       endDate: s.project.endDate,
-      itemCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.project_id = ${s.project.id})`,
-      rentalHouseCount: sql<number>`(SELECT count(DISTINCT i.rental_house_id)::int FROM equipment_item i WHERE i.project_id = ${s.project.id})`,
-      openIssueCount: sql<number>`(SELECT count(*)::int FROM issue x WHERE x.project_id = ${s.project.id} AND x.status IN ('open','in_progress'))`,
+      itemCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.project_id = "project"."id")`,
+      rentalHouseCount: sql<number>`(SELECT count(DISTINCT i.rental_house_id)::int FROM equipment_item i WHERE i.project_id = "project"."id")`,
+      openIssueCount: sql<number>`(SELECT count(*)::int FROM issue x WHERE x.project_id = "project"."id" AND x.status IN ('open','in_progress'))`,
     })
     .from(s.project)
     .where(and(eq(s.project.workspaceId, ctx.workspaceId), isNull(s.project.archivedAt)))
