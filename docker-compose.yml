@@ -1,0 +1,67 @@
+# Self-hosted stack: Postgres + one-shot migrations + app (+ optional Caddy for HTTPS).
+#
+#   cp deploy/.env.example .env   # then edit secrets
+#   docker compose up -d --build                     # app on http://localhost:3000
+#   docker compose --profile proxy up -d --build     # + HTTPS via Caddy on $DOMAIN
+#   docker compose run --rm migrate npm run db:seed  # optional demo data (empty DB only)
+#
+# Object storage (MinIO) and the AI worker are added with Phase 5.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: camera_inventory
+      POSTGRES_USER: camera
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U camera -d camera_inventory"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    build: { context: ., target: migrate }
+    environment:
+      DATABASE_URL: postgres://camera:${POSTGRES_PASSWORD}@postgres:5432/camera_inventory
+    depends_on:
+      postgres: { condition: service_healthy }
+    restart: "no"
+
+  app:
+    build: { context: ., target: app }
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://camera:${POSTGRES_PASSWORD}@postgres:5432/camera_inventory
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?set BETTER_AUTH_SECRET in .env}
+      BETTER_AUTH_URL: ${PUBLIC_URL:-http://localhost:3000}
+      ALLOW_SIGNUP: ${ALLOW_SIGNUP:-true}
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    depends_on:
+      postgres: { condition: service_healthy }
+      migrate: { condition: service_completed_successfully }
+
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["proxy"]
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app: { condition: service_healthy }
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:

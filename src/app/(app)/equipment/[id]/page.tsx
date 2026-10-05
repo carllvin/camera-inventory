@@ -98,7 +98,6 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
           {canEdit && (
             <Card className="p-4">
               <ItemActions
-                key={`${item.version}`}
                 itemId={item.id}
                 version={item.version}
                 status={item.status}

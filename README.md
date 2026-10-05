@@ -5,14 +5,31 @@ projects, cases, AI-assisted recognition and a complete audit trail.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for architecture, data model and roadmap.
 
-**Status:** Phase 2 (data model). There is no UI yet.
+**Status:** Phase 3 complete: usable without AI (projects, rental houses, categories, equipment, search, scan by code).
 
-## Requirements
+## Run with Docker (self-hosted)
+
+```bash
+cp deploy/.env.example .env      # set POSTGRES_PASSWORD, BETTER_AUTH_SECRET, PUBLIC_URL
+docker compose up -d --build     # Postgres + migrations + app on :3000
+docker compose run --rm migrate npm run db:seed   # optional demo data
+```
+
+For phones on set you need HTTPS (browsers only allow the camera on secure origins):
+set `DOMAIN` and `PUBLIC_URL=https://…` in `.env` and start with `docker compose --profile proxy up -d --build`
+(Caddy fetches certificates automatically; see `deploy/Caddyfile` for LAN-only setups).
+
+The first person to sign up creates the workspace and becomes its owner. Add the rest of the team under
+**Settings → Team**, then set `ALLOW_SIGNUP=false`.
+
+## Local development
+
+### Requirements
 
 - Node.js ≥ 22
 - PostgreSQL ≥ 15 (16 recommended), with the `pg_trgm` and `unaccent` extensions available (both ship with the standard contrib package)
 
-## Setup
+### Setup
 
 ```bash
 npm install
@@ -25,9 +42,12 @@ sudo -u postgres psql -c "create database camera_inventory_test owner camera;"
 
 npm run db:migrate              # apply migrations
 npm run db:seed                 # load demo data (only into an empty database)
+npm run dev                     # http://localhost:3000
 ```
 
-## Scripts
+Demo logins (password `camera-demo`): `alex@nordlicht.example` (owner), `mira@…` (admin), `jonas@…` (member), `sam@…` (viewer).
+
+### Scripts
 
 | Script | Purpose |
 |---|---|
@@ -35,7 +55,9 @@ npm run db:seed                 # load demo data (only into an empty database)
 | `npm run db:migrate` | Apply pending migrations |
 | `npm run db:seed` | Load demo data into an empty database |
 | `npm run db:reset` | **Dev only:** drop everything, migrate, seed |
+| `npm run dev` / `build` / `start` | Next.js dev server / production build / production server |
 | `npm test` | Integration tests (recreates the schema in `TEST_DATABASE_URL`) |
+| `npm run test:e2e` | Browser tests (Playwright) against a running app with demo data |
 | `npm run typecheck` | TypeScript check |
 
 ## Demo data

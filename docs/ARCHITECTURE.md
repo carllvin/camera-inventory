@@ -111,7 +111,7 @@ workspace ─┬─ workspace_member ── user (session, account, verification
 
 1. **Analysis.** Done (this document).
 2. **Data model.** Done: schema, 3 migrations, seed, 21 integration tests.
-3. **Core app.** Next.js shell (desktop sidebar, mobile bottom nav with a prominent Scan action), Better Auth login, workspace context, domain services with audit (projects, rental houses, categories, types, items), global search, equipment and project pages with filters.
+3. **Core app.** Done: Next.js 16 app with Better Auth (email/password, onboarding, team management with roles), desktop sidebar plus mobile bottom navigation with Scan, domain services with audit (projects, rental houses, categories, equipment types and items), global search (aliases, typos, compact serials), project pages with filters and tabs, equipment detail with timeline, QR/barcode lookup, Docker Compose stack (Postgres, migrations, app, optional Caddy for HTTPS).
 4. **Cases.** Case CRUD, templates, add/remove items (scan or pick), expected vs. actual (`7 / 8`), case photos, case history.
 5. **Delivery notes.** Storage provider, upload (PDF/photos), extraction interface plus mock, matching (serial → asset → alias/trigram), review UI, confirm service (create/reuse items, assign, audit, link document), duplicate-document warning (hash + number).
 6. **Return notes.** Extraction, matching against items currently on the project, discrepancies (unknown, not on project, quantity mismatch), partial returns including bulk splits, confirm service.

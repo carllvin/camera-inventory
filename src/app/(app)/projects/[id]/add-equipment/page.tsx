@@ -15,6 +15,12 @@ export default async function AddEquipmentPage({ params, searchParams }: { param
   const items = await listItems(getDb(), ctx, { location: "off_project", q, limit: 100 });
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_18rem]">
+      <Card className="self-start p-4 lg:order-last">
+        <p className="mb-3 text-sm text-muted">Equipment that is not in the database yet:</p>
+        <LinkButton href={`/equipment/new?projectId=${id}`} variant="primary" className="w-full">
+          <Plus className="size-4" /> Create new item
+        </LinkButton>
+      </Card>
       <Card>
         <CardHeader title="Add equipment from the database" />
         <div className="p-4 pb-0">
@@ -50,12 +56,6 @@ export default async function AddEquipmentPage({ params, searchParams }: { param
             ))}
           </ul>
         )}
-      </Card>
-      <Card className="self-start p-4">
-        <p className="mb-3 text-sm text-muted">Equipment that is not in the database yet:</p>
-        <LinkButton href={`/equipment/new?projectId=${id}`} variant="primary" className="w-full">
-          <Plus className="size-4" /> Create new item
-        </LinkButton>
       </Card>
     </div>
   );

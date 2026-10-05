@@ -17,7 +17,8 @@
     "test:watch": "vitest",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "better-auth": "1.7",

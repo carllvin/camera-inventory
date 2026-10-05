@@ -35,7 +35,7 @@ export function ItemActions({
             options={ON_PROJECT.map((s) => ({ value: s, label: STATUS_LABEL[s]! }))}
             hint="Missing is only ever set by a person — never automatically."
           />
-          <Field name="note" placeholder="Note (optional)" aria-label="Status note" />
+          <Field name="note" id="status-note" placeholder="Note (optional)" aria-label="Status note" />
           <SubmitButton variant="secondary">Update status</SubmitButton>
         </ActionForm>
       ) : (
@@ -55,7 +55,7 @@ export function ItemActions({
           defaultValue={condition}
           options={Object.entries(CONDITION_LABEL).map(([value, label]) => ({ value, label }))}
         />
-        <Field name="note" placeholder="What happened? (optional)" aria-label="Condition note" />
+        <Field name="note" id="condition-note" placeholder="What happened? (optional)" aria-label="Condition note" />
         <SubmitButton variant="secondary">Update condition</SubmitButton>
       </ActionForm>
 

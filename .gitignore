@@ -8,3 +8,5 @@ storage/
 .DS_Store
 .shot.mjs
 *.tsbuildinfo
+test-results/
+playwright-report/

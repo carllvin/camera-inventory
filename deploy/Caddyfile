@@ -1,0 +1,7 @@
+# HTTPS is required for camera access (QR/barcode scanning, photos) on phones.
+# Caddy obtains certificates automatically for a public DOMAIN; for a LAN-only
+# server use `tls internal` and trust Caddy's local CA on the devices.
+{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy app:3000
+}
