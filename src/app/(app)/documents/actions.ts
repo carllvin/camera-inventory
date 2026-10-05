@@ -12,6 +12,8 @@ import { DomainError } from "@/server/domain/context";
 import {
   addLine,
   confirmDelivery,
+  confirmReturn,
+  reportLineIssue,
   createDocumentFromUpload,
   discardDocument,
   removeLine,
@@ -96,5 +98,26 @@ export async function discardDocumentAction(id: string, _: ActionState, fd: Form
     const d = await discardDocument(getDb(), await getCtx(), id, reason?.trim() || null);
     revalidatePath(`/documents/${id}`);
     redirect(d.projectId ? `/projects/${d.projectId}/documents` : "/documents");
+  });
+}
+
+export async function confirmReturnAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const { document, returned, remaining } = await confirmReturn(getDb(), await getCtx(), id);
+    revalidatePath(`/documents/${id}`);
+    revalidatePath(`/projects/${document.projectId}`, "layout");
+    revalidatePath("/equipment");
+    revalidatePath("/cases");
+    return remaining > 0 ? `Return confirmed: ${returned} returned, ${remaining} still on the project.` : `Return confirmed: ${returned} returned.`;
+  });
+}
+
+export async function reportLineIssueAction(id: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const note = z.string().max(2000).optional().parse(fd.get("note") ?? undefined);
+    await reportLineIssue(getDb(), await getCtx(), lineId, note?.trim() || null);
+    revalidatePath(`/documents/${id}`);
+    revalidatePath("/issues");
+    return "Issue reported.";
   });
 }

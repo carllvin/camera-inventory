@@ -3,7 +3,7 @@
  * human review -> confirmation. Inventory changes only in confirmDelivery().
  */
 import { createHash, randomUUID } from "node:crypto";
-import { and, asc, eq, inArray, isNull, ne, sql } from "drizzle-orm";
+import { and, asc, desc, eq, inArray, isNull, ne, sql } from "drizzle-orm";
 import { z } from "zod";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
@@ -943,6 +943,15 @@ export async function getDocumentReview(db: DbOrTx, ctx: Ctx, id: string) {
   ]);
   const flat = lines.map((l) => ({ ...l.line, typeName: l.typeName, itemSerial: l.itemSerial, itemProjectId: l.itemProjectId, itemStatus: l.itemStatus }));
   const overview = row.doc.status === "confirmed" ? null : await returnOverview(db, row.doc, flat);
+  const [outcome] =
+    row.doc.status === "confirmed"
+      ? await db
+          .select({ summary: s.auditEvent.summary, occurredAt: s.auditEvent.occurredAt })
+          .from(s.auditEvent)
+          .where(and(eq(s.auditEvent.documentId, id), inArray(s.auditEvent.action, ["delivery.imported", "return_note.imported"])))
+          .orderBy(desc(s.auditEvent.id))
+          .limit(1)
+      : [];
   const extraction = row.doc.extraction as (Extraction & { _meta?: Record<string, unknown> }) | null;
   return {
     ...row,
@@ -952,6 +961,7 @@ export async function getDocumentReview(db: DbOrTx, ctx: Ctx, id: string) {
     warnings: extraction?.warnings ?? [],
     blockers: documentBlockers(row.doc, flat),
     returnOverview: overview,
+    outcome: outcome ?? null,
     counts: {
       create: flat.filter((l) => l.resolution === "create_new").reduce((n, l) => n + l.quantity, 0),
       existing: flat.filter((l) => l.resolution === "match_existing").length,

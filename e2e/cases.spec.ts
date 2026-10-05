@@ -100,6 +100,8 @@ test("no page scrolls sideways on a phone", async ({ page }, info) => {
   await page.goto("/projects");
   const project = (await page.getByRole("link", { name: /Feature Film X/ }).first().getAttribute("href"))!;
   paths.push(project, `${project}/add-equipment`, `${project}/rental-houses`);
+  await page.goto("/documents");
+  paths.push("/documents", "/documents/new", "/documents/new?kind=return_note", (await page.getByRole("link", { name: /LS-240512/ }).first().getAttribute("href"))!);
   await page.goto("/equipment?q=35-10421");
   paths.push((await page.getByRole("link", { name: "ARRI ALEXA 35" }).first().getAttribute("href"))!);
   for (const p of paths) {

@@ -5,7 +5,7 @@ projects, cases, AI-assisted recognition and a complete audit trail.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for architecture, data model and roadmap.
 
-**Status:** Phase 5 complete: delivery notes are read by Claude (or entered by hand), reviewed and confirmed into inventory. Projects, rental houses, equipment, cases/templates, photos, search and scanning work without AI.
+**Status:** Phase 6 complete: delivery and return notes are read by Claude (or entered by hand), reviewed and confirmed — including partial returns. Projects, rental houses, equipment, cases/templates, photos, search and scanning work without AI.
 
 ## Run with Docker (self-hosted)
 

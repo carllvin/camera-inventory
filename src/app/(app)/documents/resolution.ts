@@ -6,3 +6,10 @@ export const RESOLUTION: Record<string, { label: string; tone: "neutral" | "ok" 
   ignore: { label: "Ignored", tone: "neutral" },
   discrepancy: { label: "Conflict", tone: "danger" },
 };
+
+/** Return notes use different words for the same states. */
+export const RETURN_RESOLUTION: Record<string, { label: string; tone: "neutral" | "ok" | "accent" | "warn" | "danger" | "info" }> = {
+  ...RESOLUTION,
+  pending: { label: "Choose item", tone: "warn" },
+  match_existing: { label: "Returning", tone: "ok" },
+};

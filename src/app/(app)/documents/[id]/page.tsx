@@ -7,7 +7,7 @@ import { getExtractor } from "@/server/ai";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
-import { getDocumentReview, releaseStaleExtractions } from "@/server/domain/documents";
+import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
 import { listEquipmentTypeOptions } from "@/server/domain/equipment-types";
 import { listProjectOptions } from "@/server/domain/projects";
 import { listRentalHouses } from "@/server/domain/rental-houses";
@@ -15,13 +15,15 @@ import { assertUuid, orNotFound } from "@/server/pages";
 import {
   addLineAction,
   confirmDeliveryAction,
+  confirmReturnAction,
   discardDocumentAction,
   removeLineAction,
+  reportLineIssueAction,
   retryExtractionAction,
   updateHeaderAction,
   updateLineAction,
 } from "../actions";
-import { RESOLUTION } from "../resolution";
+import { RESOLUTION, RETURN_RESOLUTION } from "../resolution";
 import { AddLineCard, AutoRefresh, ConfirmButton, LineCard } from "../review";
 
 const STATUS_TONE: Record<string, "ok" | "accent" | "danger" | "neutral" | "info"> = {
@@ -73,6 +75,10 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
     ? await Promise.all([listEquipmentTypeOptions(db, ctx), listProjectOptions(db, ctx, { activeOnly: true }), listRentalHouses(db, ctx)])
     : [[], [], []];
   const typeOptions = types.map((t) => ({ value: t.id, label: t.name }));
+  const isReturn = doc.kind === "return_note";
+  const mode = isReturn ? ("return" as const) : ("delivery" as const);
+  const itemOptions = editable && isReturn && doc.projectId ? (await listReturnableItems(db, ctx, doc.projectId)).map((i) => ({ value: i.id, label: i.label })) : [];
+  const labels = isReturn ? RETURN_RESOLUTION : RESOLUTION;
   const receiveCount = d.lines.filter((l) => l.resolution === "create_new" || l.resolution === "match_existing").reduce((n, l) => n + l.quantity, 0);
 
   return (
@@ -99,6 +105,12 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
             </Link>{" "}
             and discard this one if it is the same delivery.
           </span>
+        </p>
+      )}
+
+      {d.outcome && (
+        <p role="status" className="mb-4 rounded-lg bg-ok/10 px-3 py-2 text-sm text-ok">
+          {d.outcome.summary}
         </p>
       )}
 
@@ -161,8 +173,8 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 {(["create_new", "match_existing", "pending", "discrepancy", "ignore"] as const).map((k) => {
                   const n = d.lines.filter((l) => l.resolution === k).length;
                   return n ? (
-                    <Badge key={k} tone={RESOLUTION[k]!.tone}>
-                      {n} × {RESOLUTION[k]!.label}
+                    <Badge key={k} tone={labels[k]!.tone}>
+                      {n} × {labels[k]!.label}
                     </Badge>
                   ) : null;
                 })}
@@ -171,13 +183,45 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
               <ul className="space-y-2">
                 {d.lines.map((l) => (
                   <LineCard
-                    key={`${l.id}-${l.resolution}-${l.matchedEquipmentTypeId}-${l.serialNumber}`}
+                    key={`${l.id}-${l.resolution}-${l.matchedEquipmentTypeId}-${l.matchedEquipmentItemId}-${l.serialNumber}`}
                     types={typeOptions}
-                    line={{ ...l, updateAction: updateLineAction.bind(null, id, l.id), removeAction: removeLineAction.bind(null, id, l.id) }}
+                    items={itemOptions}
+                    mode={mode}
+                    line={{
+                      ...l,
+                      updateAction: updateLineAction.bind(null, id, l.id),
+                      removeAction: removeLineAction.bind(null, id, l.id),
+                      reportAction: reportLineIssueAction.bind(null, id, l.id),
+                    }}
                   />
                 ))}
               </ul>
-              <AddLineCard action={addLineAction.bind(null, id)} types={typeOptions} />
+              <AddLineCard action={addLineAction.bind(null, id)} types={typeOptions} items={itemOptions} mode={mode} />
+
+              {d.returnOverview && (
+                <Card className="p-4">
+                  <h2 className="text-sm font-semibold">After this return</h2>
+                  <p className="mt-1 text-sm text-muted">
+                    {d.returnOverview.returning} going back to {d.rentalHouseName ?? "the rental house"} ·{" "}
+                    <span className={d.returnOverview.staying.length ? "font-medium text-text" : ""}>
+                      {d.returnOverview.staying.reduce((n, i) => n + i.units, 0)} stay on the project
+                    </span>
+                    {d.returnOverview.staying.length > 0 && " (partial return — that is fine)"}
+                  </p>
+                  {d.returnOverview.staying.length > 0 && (
+                    <ul className="mt-2 max-h-56 space-y-0.5 overflow-y-auto text-sm">
+                      {d.returnOverview.staying.map((i) => (
+                        <li key={i.id} className="flex justify-between gap-2">
+                          <Link href={`/equipment/${i.id}`} className="truncate hover:underline">
+                            {i.label}
+                          </Link>
+                          {i.units > 1 && <span className="text-muted tabular-nums">× {i.units}</span>}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </Card>
+              )}
 
               <Card className="space-y-3 p-4">
                 {d.blockers.length > 0 ? (
@@ -189,10 +233,17 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   </ul>
                 ) : (
                   <p className="text-sm text-muted">
-                    Confirming puts {receiveCount} item{receiveCount === 1 ? "" : "s"} on {d.projectName}: {d.counts.existing} known, the rest created new. Every change is recorded in the history.
+                    {isReturn
+                      ? `Confirming marks ${receiveCount} item${receiveCount === 1 ? "" : "s"} as returned and takes them off ${d.projectName}. Every change is recorded in the history.`
+                      : `Confirming puts ${receiveCount} item${receiveCount === 1 ? "" : "s"} on ${d.projectName}: ${d.counts.existing} known, the rest created new. Every change is recorded in the history.`}
                   </p>
                 )}
-                <ConfirmButton action={confirmDeliveryAction.bind(null, id)} disabled={d.blockers.length > 0} count={receiveCount} />
+                <ConfirmButton
+                  action={(isReturn ? confirmReturnAction : confirmDeliveryAction).bind(null, id)}
+                  disabled={d.blockers.length > 0}
+                  count={receiveCount}
+                  mode={mode}
+                />
                 <details className="text-sm">
                   <summary className="cursor-pointer text-muted">Discard this document</summary>
                   <ActionForm action={discardDocumentAction.bind(null, id)} className="mt-2 flex items-end gap-2">
@@ -248,7 +299,9 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                             {l.matchReason && doc.status !== "confirmed" && <div className="text-xs text-muted">{l.matchReason}</div>}
                           </td>
                           <td className="px-3 py-2">
-                            <Badge tone={RESOLUTION[l.resolution]?.tone}>{doc.status === "confirmed" && l.resolution === "create_new" ? "Created" : RESOLUTION[l.resolution]?.label}</Badge>
+                            <Badge tone={labels[l.resolution]?.tone}>
+                              {doc.status === "confirmed" && l.resolution === "create_new" ? "Created" : doc.status === "confirmed" && isReturn && l.resolution === "match_existing" ? "Returned" : labels[l.resolution]?.label}
+                            </Badge>
                           </td>
                         </tr>
                       ))}

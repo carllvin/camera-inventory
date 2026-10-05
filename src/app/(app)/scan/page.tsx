@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FileUp, Plus } from "lucide-react";
+import { FileDown, FileUp, Plus } from "lucide-react";
 import { Card, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { hasRole } from "@/server/domain/context";
@@ -23,6 +23,13 @@ export default async function ScanPage() {
               <div>
                 <div className="font-medium">Delivery note</div>
                 <div className="text-xs text-muted">Photograph or upload a rental house’s delivery note and receive the equipment</div>
+              </div>
+            </Link>
+            <Link href="/documents/new?kind=return_note" className="flex items-center gap-3 rounded-xl border border-border bg-surface p-4 hover:border-ring/60">
+              <FileDown className="size-5 text-accent" />
+              <div>
+                <div className="font-medium">Return note</div>
+                <div className="text-xs text-muted">Return equipment to a rental house — full or partial</div>
               </div>
             </Link>
             <Link href="/equipment/new" className="flex items-center gap-3 rounded-xl border border-border bg-surface p-4 hover:border-ring/60">

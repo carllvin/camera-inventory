@@ -1,4 +1,4 @@
-import { FileUp } from "lucide-react";
+import { FileDown, FileUp } from "lucide-react";
 import { DocumentList } from "@/components/document-list";
 import { LinkButton, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
@@ -16,7 +16,18 @@ export default async function DocumentsPage() {
       <PageHeader
         title="Documents"
         subtitle="Delivery and return notes"
-        actions={hasRole(ctx, "member") && <LinkButton href="/documents/new" variant="primary"><FileUp className="size-4" /> Upload delivery note</LinkButton>}
+        actions={
+          hasRole(ctx, "member") && (
+            <>
+              <LinkButton href="/documents/new" variant="primary">
+                <FileUp className="size-4" /> Delivery note
+              </LinkButton>
+              <LinkButton href="/documents/new?kind=return_note">
+                <FileDown className="size-4" /> Return note
+              </LinkButton>
+            </>
+          )
+        }
       />
       <DocumentList documents={documents} />
     </>

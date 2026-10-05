@@ -1,4 +1,4 @@
-import { FileUp } from "lucide-react";
+import { FileDown, FileUp } from "lucide-react";
 import { DocumentList } from "@/components/document-list";
 import { LinkButton } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
@@ -13,9 +13,12 @@ export default async function ProjectDocumentsPage({ params }: { params: Promise
   return (
     <>
       {hasRole(ctx, "member") && (
-        <div className="mb-3 flex justify-end">
+        <div className="mb-3 flex flex-wrap justify-end gap-2">
           <LinkButton href={`/documents/new?projectId=${id}`} variant="primary">
-            <FileUp className="size-4" /> Upload delivery note
+            <FileUp className="size-4" /> Delivery note
+          </LinkButton>
+          <LinkButton href={`/documents/new?kind=return_note&projectId=${id}`}>
+            <FileDown className="size-4" /> Return note
           </LinkButton>
         </div>
       )}
