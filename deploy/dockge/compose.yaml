@@ -1,13 +1,10 @@
-# Self-hosted stack: Postgres + one-shot migrations + app (+ optional Caddy for HTTPS).
+# Camera Inventory — pull-only stack for Dockge / Portainer / plain `docker compose`.
+# No source code needed on the server: images are built by GitHub Actions and
+# pulled from GitHub Container Registry. Paste this file and the .env into Dockge.
 #
-#   cp deploy/.env.example .env   # then edit secrets
-#   docker compose up -d --build                     # app on http://localhost:3000
-#   docker compose --profile proxy up -d --build     # + HTTPS via Caddy on $DOMAIN
-#                                                    #   (or COMPOSE_PROFILES=proxy in .env, e.g. for Dockge)
-#   docker compose run --rm migrate npm run db:seed  # optional demo data (empty DB only)
-#
-# Photos/documents live in the `storage` volume (back it up with the database).
-# Prefer ready-made images? See deploy/dockge/compose.yaml.
+# Update: Dockge "Update" (or `docker compose pull && docker compose up -d`).
+# HTTPS:  set COMPOSE_PROFILES=proxy and DOMAIN in .env to start the bundled Caddy,
+#         or point your existing reverse proxy at port ${APP_PORT:-3000}.
 
 services:
   postgres:
@@ -26,7 +23,7 @@ services:
       retries: 20
 
   migrate:
-    build: { context: ., target: migrate }
+    image: ghcr.io/carllvin/camera-inventory-migrate:${IMAGE_TAG:-latest}
     environment:
       DATABASE_URL: postgres://camera:${POSTGRES_PASSWORD}@postgres:5432/camera_inventory
     depends_on:
@@ -34,7 +31,7 @@ services:
     restart: "no"
 
   app:
-    build: { context: ., target: app }
+    image: ghcr.io/carllvin/camera-inventory:${IMAGE_TAG:-latest}
     restart: unless-stopped
     environment:
       DATABASE_URL: postgres://camera:${POSTGRES_PASSWORD}@postgres:5432/camera_inventory
@@ -55,15 +52,12 @@ services:
     image: caddy:2-alpine
     profiles: ["proxy"]
     restart: unless-stopped
-    environment:
-      DOMAIN: ${DOMAIN:-localhost}
+    command: caddy reverse-proxy --from ${DOMAIN:-localhost} --to app:3000
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
-      - caddy_config:/config
     depends_on:
       app: { condition: service_healthy }
 
@@ -71,4 +65,3 @@ volumes:
   pgdata:
   storage:
   caddy_data:
-  caddy_config:

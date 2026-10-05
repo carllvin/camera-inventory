@@ -9,6 +9,16 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for architecture, data model an
 
 ## Run with Docker (self-hosted)
 
+### Option A: ready-made images (Dockge, Portainer, …)
+
+GitHub Actions builds `ghcr.io/carllvin/camera-inventory` (+ `-migrate`) for amd64 and arm64 on every push to `main`.
+Use [`deploy/dockge/compose.yaml`](deploy/dockge/compose.yaml) and [`deploy/dockge/.env.example`](deploy/dockge/.env.example):
+paste both into a new Dockge stack, fill in the secrets, deploy. Updates are a click on "Update".
+While the repository is private, the server must log in to `ghcr.io` once (personal access token with `read:packages`).
+
+### Option B: build from source
+
+
 ```bash
 cp deploy/.env.example .env      # set POSTGRES_PASSWORD, BETTER_AUTH_SECRET, PUBLIC_URL
 docker compose up -d --build     # Postgres + migrations + app on :3000
