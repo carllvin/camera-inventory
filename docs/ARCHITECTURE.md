@@ -1,0 +1,134 @@
+# Camera Inventory: Architecture & Plan
+
+## 1. Phase 1: Repository analysis
+
+| Question | Finding |
+|---|---|
+| Existing structure | The repository was **empty**: no commits, no files. |
+| Existing technologies | None. |
+| Existing functionality | None. |
+| Reusable code | Nothing to reuse. Everything below is a greenfield decision. |
+| Available infrastructure (dev container) | Node 22, npm/pnpm, PostgreSQL 16 (with `pg_trgm`, `unaccent`, `citext`), Docker CLI, Chromium/Playwright. |
+
+## 2. Architecture
+
+One TypeScript codebase, split into layers that do not import "upwards":
+
+```
+src/
+  app/                 UI: Next.js App Router (React Server Components, mobile-first)   [Phase 3]
+  server/
+    domain/            Business services: the ONLY code that mutates inventory.          [Phase 3]
+                       Each service: validate (zod) → transaction → write rows → write audit events.
+    auth/              Session + workspace context (Better Auth, Drizzle adapter)        [Phase 3]
+    storage/           StorageProvider interface: local-disk (dev) / S3-compatible (prod) [Phase 5]
+    ai/                DocumentExtractor + VisionRecognizer interfaces;                  [Phase 5/7]
+                       MockProvider (dev/tests) + Claude provider (server-side key only)
+    search/            Trigram/alias search across entities                              [Phase 3]
+    db/
+      schema/          Drizzle table definitions (source of truth for types)              [done]
+      seed/            Demo data                                                          [done]
+      client.ts        Connection factory
+drizzle/               SQL migrations (generated + hand-written integrity triggers)       [done]
+tests/                 Vitest integration tests against a real Postgres                   [done]
+```
+
+**Stack**
+
+| Concern | Choice | Why |
+|---|---|---|
+| Frontend + backend | **Next.js 16 (App Router), React 19, TypeScript strict** | One deployable unit. Server Components keep DB/AI keys on the server. Server Actions for the web UI, plus a versioned `/api/v1` route layer over the same domain services for future native apps and integrations. |
+| UI | Tailwind CSS + accessible headless components (Radix/shadcn pattern) | Fast, consistent, mobile-first. |
+| Database | **PostgreSQL 16** | Relational integrity (composite FKs, partial unique indexes, deferred constraint triggers), `pg_trgm` fuzzy search, JSONB for AI payloads. |
+| ORM / migrations | **Drizzle ORM + drizzle-kit** | Typed SQL with no runtime magic. Migrations are plain SQL files that get reviewed and committed. |
+| Auth | **Better Auth** (email/password first, OAuth/magic link later) | The schema's `user/session/account/verification` tables already match its Drizzle adapter. |
+| Object storage | S3-compatible (Cloudflare R2 / AWS S3 / MinIO); local disk in dev | Documents and photos go in a private bucket. The DB stores only keys, and downloads use short-lived signed URLs. |
+| AI | Provider interfaces plus a Mock provider, with a Claude provider (vision + native PDF input) | Replaceable. Keys stay server-side. Raw AI output is stored verbatim on the document. AI results are always advisory. |
+| Tests | Vitest (integration against real Postgres), Playwright for E2E later | Constraints are tested where they live. |
+
+**Request flow for any inventory change**
+
+```
+UI (form / scan review) ──► server action / API route
+   └─► auth: resolve user + workspace + role  (ctx)
+        └─► domain service(ctx, input)
+             ├─ zod validation
+             ├─ db.transaction:
+             │    ├─ read current state (FOR UPDATE where needed)
+             │    ├─ write rows
+             │    └─ write audit_event(s) with a shared correlation_id
+             └─ return typed result
+```
+
+AI never calls a domain service directly. It produces a proposal (`document_line` rows, and in Phase 7 detection rows), the user reviews it, and the confirmation is what calls the domain service.
+
+## 3. Database model (Phase 2, implemented)
+
+```
+workspace ─┬─ workspace_member ── user (session, account, verification)
+           ├─ project ─┬─ project_rental_house ── rental_house
+           │           ├─ equipment_case ── case_expected_item
+           │           └─ (documents, issues, assignments …)
+           ├─ category (self-tree)
+           ├─ equipment_type ── photo(kind=reference)
+           ├─ equipment_item ─┬─ project_assignment (history of project stints)
+           │                  └─ photo
+           ├─ case_template ── case_template_item
+           ├─ document ─┬─ document_file
+           │            └─ document_line (extracted line + match + user decision)
+           ├─ issue
+           └─ audit_event (append-only)
+```
+
+### Key decisions
+
+* **Item vs. type.** `equipment_type` is the product (ARRI ALEXA 35, with aliases, specs, category and reference photos). `equipment_item` is the physical object (serial, asset number, barcode, owner rental house, current project/case, status, condition).
+* **Tracking modes.** `serialized` items always have quantity = 1. `bulk` items carry a quantity (12 × BNC). A partial return of a bulk item **splits** it: the returned units become their own row with `split_from_item_id`, so quantities are conserved and each part has its own history.
+* **Status vs. condition.** `status` is lifecycle/location (`available`, `on_project`, `in_use`, `ready_for_return`, `missing`, `returned`). `condition` is physical state (`ok`, `minor_wear`, `damaged`, `defective`, `unknown`).
+* **Project history.** `project_assignment` has one row per stint of an item on a project, with delivery and return documents. A project's relationship to a rental house is never "closed": what is still on the project is derived from the open items.
+* **Workspace isolation in the DB.** Every business table has `workspace_id`, and cross-table references are **composite FKs `(workspace_id, x_id)`**, so a row can never point into another workspace, even if application code has a bug. Postgres RLS can be layered on later.
+* **Audit log.** `audit_event` stores timestamp, actor (user/system/ai), action, entity, denormalized subject columns (project, item, case, document, issue, rental house) for single-query timelines, `changes` (`{field: {from, to}}`), metadata and `correlation_id`. `bigserial` ids give a stable order.
+* **Search.** A trigger maintains `search_text` (lower-case, accent-free, aliases included, serials also compacted) with GIN trigram indexes, so "angenieux optimo", "A35" and "sn77812" all match.
+* **Concurrency / offline-readiness.** UUID keys (client-generatable) and a `version` column on items for optimistic locking and future sync.
+
+### Mandatory rules and where they are enforced
+
+| Rule | Enforcement |
+|---|---|
+| Item in at most one active project | Single `equipment_item.project_id`. Partial unique index: one open `project_assignment` per item. A deferred constraint trigger keeps the two consistent at commit. |
+| Item in at most one case | Single `equipment_item.case_id`. |
+| Cases belong to projects; an item's case is on the item's project | `equipment_case.project_id NOT NULL`; composite FK `equipment_item(project_id, case_id) → equipment_case(project_id, id)`. |
+| Returning removes the item from the project | CHECK: `returned`/`available` ⇒ `project_id IS NULL`; on-project statuses ⇒ `project_id IS NOT NULL`. |
+| Returning does not delete the item | Items are never deleted (no delete path; FKs from history are RESTRICT). `project_assignment` rows cannot be deleted (trigger). |
+| History must not be deleted | `audit_event` UPDATE/DELETE/TRUNCATE are rejected by trigger. |
+| Never silently merge two physical items | Unique `(workspace, type, upper(serial))`, unique asset number per owner, unique barcode. A conflicting import has to become an explicit issue. |
+| AI suggestions require confirmation | `document.status` workflow plus `document_line.resolution` (default `pending`). Only the confirm service writes inventory. Confirmed documents must be linked to a project (CHECK). |
+| Never mark missing from image recognition alone | `missing` is set only by the user-driven status service. AI events are `actor_type = 'ai'` and do not mutate items (enforced in the service layer, Phase 7). |
+| Unlimited rental houses per project | `project_rental_house` plus a per-item `rental_house_id`. |
+| Category tree stays valid | Trigger blocks cycles; sibling names unique. |
+
+## 4. Implementation phases
+
+1. **Analysis.** Done (this document).
+2. **Data model.** Done: schema, 3 migrations, seed, 21 integration tests.
+3. **Core app.** Next.js shell (desktop sidebar, mobile bottom nav with a prominent Scan action), Better Auth login, workspace context, domain services with audit (projects, rental houses, categories, types, items), global search, equipment and project pages with filters.
+4. **Cases.** Case CRUD, templates, add/remove items (scan or pick), expected vs. actual (`7 / 8`), case photos, case history.
+5. **Delivery notes.** Storage provider, upload (PDF/photos), extraction interface plus mock, matching (serial → asset → alias/trigram), review UI, confirm service (create/reuse items, assign, audit, link document), duplicate-document warning (hash + number).
+6. **Return notes.** Extraction, matching against items currently on the project, discrepancies (unknown, not on project, quantity mismatch), partial returns including bulk splits, confirm service.
+7. **Vision.** Photo capture, recognition interface (type, serial/asset OCR, quantity), comparison against expected case contents, advisory review UI, return-check events.
+8. **Polish.** Loading, empty and error states, accessibility, performance, image handling.
+9. **Tests.** Domain-service unit/integration tests, security (workspace isolation, roles), Playwright E2E of the core flows.
+
+## 5. Risks and open decisions
+
+| # | Topic | Recommendation / question |
+|---|---|---|
+| 1 | **Hosting** | Vercel + Neon/Supabase Postgres + Cloudflare R2, **or** self-hosted Docker (Postgres + MinIO). This affects storage config and background jobs. Default: provider-agnostic code with S3 API and `DATABASE_URL`. |
+| 2 | **AI provider and keys** | Recommend Claude (vision plus native PDF input) behind `DocumentExtractor`/`VisionRecognizer`. Needs an API key in server env. The mock provider keeps everything working without one. |
+| 3 | **Long-running AI jobs** | Extraction can take 10–60 s. Phase 5 starts with async processing plus a status poll. Add a Postgres-backed queue (pg-boss) if needed. |
+| 4 | **Serial OCR reliability** | Engraved or tiny serial plates will often fail. The UI must make manual correction fast. AI stays advisory. |
+| 5 | **Reference images** | Manufacturer images may be copyrighted. Proposal: manual upload plus "import from URL" (with stored `source_url`/attribution) first. An image-search API (Brave/Bing/SerpAPI) is an open choice and needs a key. |
+| 6 | **Global equipment catalog** | Equipment types are workspace-scoped for now (isolation first). A shared global catalog can be added later as a separate table that workspace types link to. |
+| 7 | **Document language** | Delivery notes are often German ("Lieferschein", "Stück"). Extraction prompts and matching should be multilingual. |
+| 8 | **Same serial, different rental house** | Treated as the same physical item only if type and serial match. Owner changes are flagged as a `serial_conflict` issue for the user, never merged automatically. |
+| 9 | **Roles** | `owner/admin/member/viewer` per workspace. Fine-grained per-project permissions are deferred. |
