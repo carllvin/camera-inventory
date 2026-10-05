@@ -230,7 +230,7 @@ export async function getItemTimeline(db: DbOrTx, ctx: Ctx, id: string) {
 // ---------------------------------------------------------------------------
 
 /** Lock the item row for the rest of the transaction and load what summaries need. */
-async function lockItem(tx: DbOrTx, ctx: Ctx, id: string) {
+export async function lockItem(tx: DbOrTx, ctx: Ctx, id: string) {
   const [row] = await tx
     .select({ item: s.equipmentItem, typeName: s.equipmentType.name })
     .from(s.equipmentItem)

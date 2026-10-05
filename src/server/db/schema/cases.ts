@@ -27,8 +27,8 @@ export const caseTemplate = pgTable(
 );
 
 /**
- * Expected line in a template. Either a specific equipment type, a category
- * ("any battery"), or a free-text label — label is always present for display.
+ * Expected line in a template: exactly one of a specific equipment type or a
+ * category ("any battery"). The label is what people see.
  */
 export const caseTemplateItem = pgTable(
   "case_template_item",
@@ -46,6 +46,7 @@ export const caseTemplateItem = pgTable(
   (t) => [
     index().on(t.templateId),
     check("case_template_item_quantity_ck", sql`${t.quantity} >= 1`),
+    check("case_template_item_target_ck", sql`num_nonnulls(${t.equipmentTypeId}, ${t.categoryId}) = 1`),
     foreignKey({
       name: "case_template_item_template_fk",
       columns: [t.workspaceId, t.templateId],
@@ -122,6 +123,7 @@ export const caseExpectedItem = pgTable(
   (t) => [
     index().on(t.caseId),
     check("case_expected_item_quantity_ck", sql`${t.quantity} >= 1`),
+    check("case_expected_item_target_ck", sql`num_nonnulls(${t.equipmentTypeId}, ${t.categoryId}) = 1`),
     foreignKey({
       name: "case_expected_item_case_fk",
       columns: [t.workspaceId, t.caseId],

@@ -137,30 +137,6 @@ export async function getDocument(db: DbOrTx, ctx: Ctx, id: string) {
   return { ...doc, lines };
 }
 
-/** Cases with expected vs. actual counts (read-only until Phase 4 adds editing). */
-export async function listCases(db: DbOrTx, ctx: Ctx, opts: { projectId?: string } = {}) {
-  const rows = await db.execute<{
-    id: string;
-    name: string;
-    code: string | null;
-    project_id: string;
-    project_name: string;
-    template_name: string | null;
-    actual: number;
-    expected: number;
-  }>(sql`
-    SELECT c.id, c.name, c.code, c.project_id, p.name AS project_name, t.name AS template_name,
-      (SELECT coalesce(sum(quantity),0)::int FROM equipment_item i WHERE i.case_id = c.id) AS actual,
-      (SELECT coalesce(sum(quantity),0)::int FROM case_expected_item e WHERE e.case_id = c.id) AS expected
-    FROM equipment_case c
-    JOIN project p ON p.id = c.project_id
-    LEFT JOIN case_template t ON t.id = c.template_id
-    WHERE c.workspace_id = ${ctx.workspaceId} AND c.archived_at IS NULL
-      ${opts.projectId ? sql`AND c.project_id = ${opts.projectId}` : sql``}
-    ORDER BY p.name, c.name`);
-  return [...rows];
-}
-
 export async function listMembers(db: DbOrTx, ctx: Ctx) {
   return db
     .select({ id: s.user.id, name: s.user.name, email: s.user.email, role: s.workspaceMember.role })

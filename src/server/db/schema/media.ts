@@ -21,7 +21,10 @@ export const photo = pgTable(
       .notNull()
       .references(() => workspace.id),
     kind: photoKind().notNull(),
+    /** Normalized full-size image (EXIF-rotated, metadata stripped). */
     storageKey: text().notNull(),
+    /** Small preview for lists and grids. */
+    thumbnailKey: text(),
     mimeType: text().notNull(),
     width: integer(),
     height: integer(),
@@ -41,6 +44,9 @@ export const photo = pgTable(
     projectId: uuid(),
     issueId: uuid(),
     createdAt: createdAt(),
+    /** Hidden from galleries; the file and row are kept for the history. */
+    removedAt: tsz(),
+    removedById: uuid().references(() => user.id),
   },
   (t) => [
     index().on(t.equipmentTypeId),

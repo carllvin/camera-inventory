@@ -1,52 +1,58 @@
-import { Card, EmptyState } from "./ui";
+import Link from "next/link";
+import type { CaseSummary } from "@/server/domain/cases";
 import { cn } from "@/lib/format";
+import { EmptyState } from "./ui";
 
-export interface CaseRow {
-  id: string;
-  name: string;
-  code: string | null;
-  project_id: string;
-  project_name: string;
-  template_name: string | null;
-  actual: number;
-  expected: number;
+/** "7 / 8" completeness meter used on case cards. */
+export function CaseProgress({ matched, expected, extra, size = "md" }: { matched: number; expected: number; extra: number; size?: "md" | "lg" }) {
+  const complete = expected > 0 && matched === expected && extra === 0;
+  const pct = expected ? Math.min(100, Math.round((matched / expected) * 100)) : 0;
+  return (
+    <div>
+      <div className={cn("font-semibold tabular-nums", size === "lg" ? "text-3xl" : "text-lg", complete ? "text-ok" : expected ? "text-warn" : "text-text")}>
+        {matched}
+        <span className="text-muted"> / {expected || "–"}</span>
+        {extra > 0 && <span className="ml-2 text-sm font-medium text-danger">+{extra}</span>}
+      </div>
+      {expected > 0 && (
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface-2" aria-hidden>
+          <div className={cn("h-full rounded-full", complete ? "bg-ok" : "bg-warn")} style={{ width: `${pct}%` }} />
+        </div>
+      )}
+    </div>
+  );
 }
 
-/** Cases with "7 / 8" completeness. */
-export function CaseList({ cases, showProject }: { cases: CaseRow[]; showProject?: boolean }) {
-  if (cases.length === 0) return <EmptyState title="No cases yet">Cases and case templates are set up per project.</EmptyState>;
+export function CaseList({ cases, showProject, emptyAction }: { cases: CaseSummary[]; showProject?: boolean; emptyAction?: React.ReactNode }) {
+  if (cases.length === 0) {
+    return (
+      <EmptyState title="No cases yet" action={emptyAction}>
+        Cases group equipment for transport and checks. Create them from a template or start empty.
+      </EmptyState>
+    );
+  }
   return (
     <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {cases.map((c) => {
-        const complete = c.expected > 0 && c.actual === c.expected;
-        const over = c.actual > c.expected && c.expected > 0;
-        const pct = c.expected ? Math.min(100, Math.round((c.actual / c.expected) * 100)) : 0;
+        const cmp = c.comparison;
         return (
           <li key={c.id}>
-            <Card className="p-4">
-              <div className="flex items-start justify-between gap-2">
+            <Link href={`/cases/${c.id}`} className="block h-full rounded-xl border border-border bg-surface p-4 hover:border-ring/60">
+              <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <div className="truncate font-semibold">{c.name}</div>
-                  <div className="text-xs text-muted">
-                    {[c.code, showProject ? c.project_name : null, c.template_name && `Template: ${c.template_name}`].filter(Boolean).join(" · ")}
-                  </div>
+                  <div className="truncate text-xs text-muted">{[c.code, showProject ? c.projectName : null].filter(Boolean).join(" · ") || " "}</div>
                 </div>
-                <div className={cn("text-lg font-semibold tabular-nums", complete ? "text-ok" : "text-warn")}>
-                  {c.actual}
-                  <span className="text-muted"> / {c.expected || "–"}</span>
-                </div>
+                <CaseProgress matched={cmp.matchedTotal} expected={cmp.expectedTotal} extra={cmp.extraTotal} />
               </div>
-              {c.expected > 0 && (
-                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-surface-2" aria-hidden>
-                  <div className={cn("h-full rounded-full", complete ? "bg-ok" : over ? "bg-danger" : "bg-warn")} style={{ width: `${pct}%` }} />
-                </div>
-              )}
-              {!complete && c.expected > 0 && (
-                <p className="mt-2 text-xs text-warn">
-                  {over ? `${c.actual - c.expected} more than expected` : `${c.expected - c.actual} expected item${c.expected - c.actual === 1 ? "" : "s"} not in case`}
-                </p>
-              )}
-            </Card>
+              <p className={cn("mt-3 text-xs", cmp.complete ? "text-ok" : cmp.expectedTotal === 0 ? "text-muted" : "text-warn")}>
+                {cmp.expectedTotal === 0
+                  ? `${cmp.actualTotal} item${cmp.actualTotal === 1 ? "" : "s"} · no expected contents`
+                  : cmp.complete
+                    ? "Complete"
+                    : [cmp.missingTotal > 0 && `${cmp.missingTotal} missing`, cmp.extraTotal > 0 && `${cmp.extraTotal} not expected`].filter(Boolean).join(" · ")}
+              </p>
+            </Link>
           </li>
         );
       })}

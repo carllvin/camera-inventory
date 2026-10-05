@@ -6,7 +6,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getCategoryTree } from "@/server/domain/categories";
 import { listItems } from "@/server/domain/equipment-items";
-import { listCases } from "@/server/domain/overview";
+import { listCases } from "@/server/domain/cases";
 import { getProjectSummary } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
 

@@ -22,6 +22,13 @@
       "when": 1791229407406,
       "tag": "0002_integrity_triggers",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791236514880,
+      "tag": "0003_case_photos",
+      "breakpoints": true
     }
   ]
 }
