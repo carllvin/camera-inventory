@@ -42,7 +42,7 @@ tests/                 Vitest integration tests against a real Postgres         
 | Database | **PostgreSQL 16** | Relational integrity (composite FKs, partial unique indexes, deferred constraint triggers), `pg_trgm` fuzzy search, JSONB for AI payloads. |
 | ORM / migrations | **Drizzle ORM + drizzle-kit** | Typed SQL with no runtime magic. Migrations are plain SQL files that get reviewed and committed. |
 | Auth | **Better Auth** (email/password first, OAuth/magic link later) | The schema's `user/session/account/verification` tables already match its Drizzle adapter. |
-| Object storage | S3-compatible (Cloudflare R2 / AWS S3 / MinIO); local disk in dev | Documents and photos go in a private bucket. The DB stores only keys, and downloads use short-lived signed URLs. |
+| Object storage | `StorageProvider` with two drivers: local volume (default for single-server Docker) and S3-compatible (MinIO / AWS S3 / R2) | Documents and photos go in a private bucket. The DB stores only keys, and downloads use short-lived signed URLs. |
 | AI | Provider interfaces plus a Mock provider, with a Claude provider (vision + native PDF input) | Replaceable. Keys stay server-side. Raw AI output is stored verbatim on the document. AI results are always advisory. |
 | Tests | Vitest (integration against real Postgres), Playwright for E2E later | Constraints are tested where they live. |
 
@@ -112,7 +112,7 @@ workspace ─┬─ workspace_member ── user (session, account, verification
 1. **Analysis.** Done (this document).
 2. **Data model.** Done: schema, 3 migrations, seed, 21 integration tests.
 3. **Core app.** Done: Next.js 16 app with Better Auth (email/password, onboarding, team management with roles), desktop sidebar plus mobile bottom navigation with Scan, domain services with audit (projects, rental houses, categories, equipment types and items), global search (aliases, typos, compact serials), project pages with filters and tabs, equipment detail with timeline, QR/barcode lookup, Docker Compose stack (Postgres, migrations, app, optional Caddy for HTTPS).
-4. **Cases.** Case CRUD, templates, add/remove items (scan or pick), expected vs. actual (`7 / 8`), case photos, case history.
+4. **Cases.** Done: case pages with expected vs. packed (type lines, category lines incl. subcategories, bulk quantities, extras), packing by scan/code or picker with explicit moves between cases and "needed" suggestions, editable expected contents, templates (CRUD, save case as template), photos for cases/items/equipment types, case history. Storage layer (local volume or S3/MinIO) and image normalization (EXIF rotation, GPS stripped, thumbnails) were pulled forward from Phase 5.
 5. **Delivery notes.** Storage provider, upload (PDF/photos), extraction interface plus mock, matching (serial → asset → alias/trigram), review UI, confirm service (create/reuse items, assign, audit, link document), duplicate-document warning (hash + number).
 6. **Return notes.** Extraction, matching against items currently on the project, discrepancies (unknown, not on project, quantity mismatch), partial returns including bulk splits, confirm service.
 7. **Vision.** Photo capture, recognition interface (type, serial/asset OCR, quantity), comparison against expected case contents, advisory review UI, return-check events.

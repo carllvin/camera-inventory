@@ -105,17 +105,17 @@ function useField(name: string, defaultValue?: string | number | null) {
   return { error, value: value === null ? "" : String(value) };
 }
 
-function FieldShell({ label, name, error, hint, children, className }: { label?: string; name: string; error?: string; hint?: ReactNode; children: ReactNode; className?: string }) {
+function FieldShell({ label, id, error, hint, children, className }: { label?: string; id: string; error?: string; hint?: ReactNode; children: ReactNode; className?: string }) {
   return (
     <div className={className}>
       {label && (
-        <label htmlFor={name} className="label">
+        <label htmlFor={id} className="label">
           {label}
         </label>
       )}
       {children}
       {error ? (
-        <p id={`${name}-error`} className="mt-1 text-xs text-danger">
+        <p id={`${id}-error`} className="mt-1 text-xs text-danger">
           {error}
         </p>
       ) : hint ? (
@@ -128,6 +128,7 @@ function FieldShell({ label, name, error, hint, children, className }: { label?:
 export function Field({
   label,
   name,
+  id = name,
   defaultValue,
   hint,
   className,
@@ -135,13 +136,13 @@ export function Field({
 }: Omit<ComponentProps<"input">, "defaultValue"> & { label?: string; name: string; defaultValue?: string | number | null; hint?: ReactNode }) {
   const { error, value } = useField(name, defaultValue);
   return (
-    <FieldShell label={label} name={name} error={error} hint={hint} className={className}>
+    <FieldShell label={label} id={id} error={error} hint={hint} className={className}>
       <input
-        id={name}
+        id={id}
         name={name}
         defaultValue={value}
         aria-invalid={error ? true : undefined}
-        aria-describedby={error ? `${name}-error` : undefined}
+        aria-describedby={error ? `${id}-error` : undefined}
         className={cn("input", error && "border-danger")}
         {...rest}
       />
@@ -152,6 +153,7 @@ export function Field({
 export function TextArea({
   label,
   name,
+  id = name,
   defaultValue,
   hint,
   className,
@@ -159,8 +161,8 @@ export function TextArea({
 }: Omit<ComponentProps<"textarea">, "defaultValue"> & { label?: string; name: string; defaultValue?: string | null; hint?: ReactNode }) {
   const { error, value } = useField(name, defaultValue);
   return (
-    <FieldShell label={label} name={name} error={error} hint={hint} className={className}>
-      <textarea id={name} name={name} defaultValue={value} rows={3} className={cn("input", error && "border-danger")} {...rest} />
+    <FieldShell label={label} id={id} error={error} hint={hint} className={className}>
+      <textarea id={id} name={name} defaultValue={value} rows={3} className={cn("input", error && "border-danger")} {...rest} />
     </FieldShell>
   );
 }
@@ -168,6 +170,7 @@ export function TextArea({
 export function Select({
   label,
   name,
+  id = name,
   defaultValue,
   options,
   placeholder,
@@ -184,8 +187,8 @@ export function Select({
 }) {
   const { error, value } = useField(name, defaultValue);
   return (
-    <FieldShell label={label} name={name} error={error} hint={hint} className={className}>
-      <select id={name} name={name} defaultValue={value} className={cn("input", error && "border-danger")} {...rest}>
+    <FieldShell label={label} id={id} error={error} hint={hint} className={className}>
+      <select id={id} name={name} defaultValue={value} className={cn("input", error && "border-danger")} {...rest}>
         {placeholder !== undefined && <option value="">{placeholder}</option>}
         {options.map((o) => (
           <option key={o.value} value={o.value}>

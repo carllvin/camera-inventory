@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Pencil } from "lucide-react";
 import { ActivityList } from "@/components/activity";
 import { IssueList } from "@/components/issues";
+import { PhotoGallery } from "@/components/photo-gallery";
 import { TypeImage } from "@/components/type-image";
 import { Badge, Card, CardHeader, ConditionBadge, KeyValues, LinkButton, Mono, PageHeader, StatusBadge } from "@/components/ui";
 import { DOCUMENT_KIND_LABEL, formatDate } from "@/lib/format";
@@ -9,6 +10,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { getItemDetail } from "@/server/domain/equipment-items";
+import { listPhotos } from "@/server/domain/photos";
 import { listProjectOptions } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { ItemActions } from "../item-actions";
@@ -25,7 +27,11 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
   assertUuid(id);
   const ctx = await getCtx();
   const db = getDb();
-  const [d, projects] = await Promise.all([orNotFound(getItemDetail(db, ctx, id)), listProjectOptions(db, ctx, { activeOnly: true })]);
+  const [d, projects, photos] = await Promise.all([
+    orNotFound(getItemDetail(db, ctx, id)),
+    listProjectOptions(db, ctx, { activeOnly: true }),
+    listPhotos(db, ctx, { equipmentItemId: id }),
+  ]);
   const { item, type } = d;
   const canEdit = hasRole(ctx, "member");
   return (
@@ -50,11 +56,11 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
         }
       />
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="min-w-0 space-y-6">
           <Card className="grid gap-5 p-4 sm:grid-cols-[14rem_1fr]">
             <Link href={`/equipment/types/${type.id}`} aria-label={`Equipment type ${type.name}`}>
-              <TypeImage name={type.name} storageKey={d.referencePhoto?.storageKey} />
+              <TypeImage name={type.name} photoId={d.referencePhoto?.id} />
             </Link>
             <KeyValues
               items={[
@@ -68,7 +74,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
                   value: d.rentalHouse?.id ? <Link className="hover:underline" href={`/settings/rental-houses/${d.rentalHouse.id}`}>{d.rentalHouse.name}</Link> : "Owned (not rented)",
                 },
                 { label: "Project", value: d.project?.id ? <Link className="hover:underline" href={`/projects/${d.project.id}`}>{d.project.name}</Link> : "Not on a project" },
-                { label: "Case", value: d.case?.id ? `${d.case.name}${d.case.code ? ` (${d.case.code})` : ""}` : null },
+                { label: "Case", value: d.case?.id ? <Link className="hover:underline" href={`/cases/${d.case.id}`}>{d.case.name}{d.case.code ? ` (${d.case.code})` : ""}</Link> : null },
                 { label: "Tracking", value: item.trackingMode === "bulk" ? `Bulk · ${item.quantity} units` : "Individually tracked" },
               ]}
             />
@@ -87,6 +93,8 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
               <IssueList issues={d.issues.map((i) => ({ ...i, projectName: null }))} showProject={false} />
             </Card>
           )}
+
+          <PhotoGallery photos={photos} target={{ kind: "item", id }} canEdit={canEdit} />
 
           <Card>
             <CardHeader title="Timeline" />

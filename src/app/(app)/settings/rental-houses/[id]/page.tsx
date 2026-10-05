@@ -19,7 +19,7 @@ export default async function RentalHousePage({ params }: { params: Promise<{ id
   return (
     <>
       <PageHeader title={rh.name} subtitle={rh.aliases.length ? `Also known as ${rh.aliases.join(", ")}` : undefined} back={{ href: "/settings/rental-houses", label: "Rental houses" }} />
-      <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_22rem]">
         <Card className="p-5">
           {hasRole(ctx, "member") ? (
             <ActionForm action={updateRentalHouseAction.bind(null, id)} className="space-y-5">

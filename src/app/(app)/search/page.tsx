@@ -23,7 +23,7 @@ function href(h: SearchHit) {
     case "type":
       return `/equipment/types/${h.id}`;
     case "case":
-      return `/projects/${h.parentId}/cases`;
+      return `/cases/${h.id}`;
     case "project":
       return `/projects/${h.id}`;
     case "rental_house":

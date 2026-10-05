@@ -174,13 +174,13 @@ export async function getItemDetail(db: DbOrTx, ctx: Ctx, id: string) {
     db
       .select()
       .from(s.photo)
-      .where(and(eq(s.photo.equipmentItemId, id), eq(s.photo.workspaceId, ctx.workspaceId)))
+      .where(and(eq(s.photo.equipmentItemId, id), eq(s.photo.workspaceId, ctx.workspaceId), isNull(s.photo.removedAt)))
       .orderBy(desc(s.photo.createdAt)),
     getItemTimeline(db, ctx, id),
     db
       .select()
       .from(s.photo)
-      .where(and(eq(s.photo.equipmentTypeId, row.type.id), eq(s.photo.kind, "reference")))
+      .where(and(eq(s.photo.equipmentTypeId, row.type.id), eq(s.photo.kind, "reference"), isNull(s.photo.removedAt)))
       .orderBy(desc(s.photo.isPrimary), desc(s.photo.createdAt))
       .limit(1),
     db

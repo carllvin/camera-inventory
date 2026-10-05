@@ -55,7 +55,7 @@ export async function listEquipmentTypes(db: DbOrTx, ctx: Ctx, opts: { categoryI
       categoryName: s.category.name,
       itemCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.equipment_type_id = "equipment_type"."id")`,
       onProjectCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.equipment_type_id = "equipment_type"."id" AND i.project_id IS NOT NULL)`,
-      imageKey: sql<string | null>`(SELECT p.storage_key FROM photo p WHERE p.equipment_type_id = "equipment_type"."id" AND p.kind = 'reference' ORDER BY p.is_primary DESC, p.created_at DESC LIMIT 1)`,
+      imageId: sql<string | null>`(SELECT p.id FROM photo p WHERE p.equipment_type_id = "equipment_type"."id" AND p.kind = 'reference' AND p.removed_at IS NULL ORDER BY p.is_primary DESC, p.created_at DESC LIMIT 1)`,
     })
     .from(s.equipmentType)
     .leftJoin(s.category, eq(s.category.id, s.equipmentType.categoryId))
@@ -73,7 +73,7 @@ export async function getEquipmentType(db: DbOrTx, ctx: Ctx, id: string) {
   const photos = await db
     .select()
     .from(s.photo)
-    .where(and(eq(s.photo.equipmentTypeId, id), eq(s.photo.kind, "reference")))
+    .where(and(eq(s.photo.equipmentTypeId, id), eq(s.photo.kind, "reference"), isNull(s.photo.removedAt)))
     .orderBy(desc(s.photo.isPrimary), desc(s.photo.createdAt));
   return { ...row.type, categoryName: row.categoryName, photos };
 }

@@ -50,7 +50,7 @@ export default async function TypesPage({ searchParams }: { searchParams: Promis
           {types.map((t) => (
             <li key={t.id}>
               <Link href={`/equipment/types/${t.id}`} className="block h-full overflow-hidden rounded-xl border border-border bg-surface hover:border-ring/60">
-                <TypeImage name={t.model} storageKey={t.imageKey} className="rounded-none" />
+                <TypeImage name={t.model} photoId={t.imageId} className="rounded-none" />
                 <div className="p-3">
                   <div className="text-xs text-muted">{t.manufacturer}</div>
                   <div className="truncate text-sm font-medium">{t.model}</div>

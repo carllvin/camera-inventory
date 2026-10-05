@@ -20,7 +20,7 @@ export default async function CategoriesPage() {
   return (
     <>
       <PageHeader title="Categories" subtitle="Used for filtering, templates and matching" back={{ href: "/settings", label: "Settings" }} />
-      <div className="grid gap-6 lg:grid-cols-[1fr_20rem]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_20rem]">
         <Card>
           <ul className="divide-y divide-border">
             {flat.map((c) => {

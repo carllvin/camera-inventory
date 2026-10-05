@@ -14,7 +14,7 @@ export default async function AddEquipmentPage({ params, searchParams }: { param
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const items = await listItems(getDb(), ctx, { location: "off_project", q, limit: 100 });
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_18rem]">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_18rem]">
       <Card className="self-start p-4 lg:order-last">
         <p className="mb-3 text-sm text-muted">Equipment that is not in the database yet:</p>
         <LinkButton href={`/equipment/new?projectId=${id}`} variant="primary" className="w-full">

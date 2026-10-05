@@ -20,10 +20,10 @@ export async function lookupCodeAction(_: ActionState, fd: FormData): Promise<Ac
     if (items.length === 1) redirect(`/equipment/${items[0]!.id}`);
     if (items.length > 1) redirect(`/search?q=${encodeURIComponent(code)}`);
     const [c] = await db
-      .select({ projectId: s.equipmentCase.projectId })
+      .select({ id: s.equipmentCase.id })
       .from(s.equipmentCase)
       .where(and(eq(s.equipmentCase.workspaceId, ctx.workspaceId), eq(s.equipmentCase.barcode, code)));
-    if (c) redirect(`/projects/${c.projectId}/cases`);
+    if (c) redirect(`/cases/${c.id}`);
     throw new DomainError("NOT_FOUND", `No equipment or case with code “${code}”.`, { code });
   });
 }

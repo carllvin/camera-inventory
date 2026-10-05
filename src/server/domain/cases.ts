@@ -196,8 +196,18 @@ export async function getCaseDetail(db: DbOrTx, ctx: Ctx, id: string) {
     items,
     closure,
   );
+  // Equipment types / categories (incl. subcategories) that would fill a gap — used to suggest items to pack.
+  const neededTypeIds = new Set<string>();
+  const neededCategoryIds = new Set<string>();
+  for (const r of comparison.lines) {
+    if (r.missing === 0) continue;
+    if (r.line.equipmentTypeId) neededTypeIds.add(r.line.equipmentTypeId);
+    else if (r.line.categoryId) for (const c of closure.get(r.line.categoryId) ?? [r.line.categoryId]) neededCategoryIds.add(c);
+  }
   return {
     ...row,
+    neededTypeIds,
+    neededCategoryIds,
     lines: lines.map((l) => ({ ...l.line, typeName: l.typeName, categoryName: l.categoryName })),
     items: items.map((i) => ({ ...i, label: itemLabel(i) })),
     comparison,
@@ -215,6 +225,8 @@ export async function listPackCandidates(db: DbOrTx, ctx: Ctx, caseId: string, q
   return db
     .select({
       id: s.equipmentItem.id,
+      equipmentTypeId: s.equipmentItem.equipmentTypeId,
+      categoryId: s.equipmentType.categoryId,
       typeName: s.equipmentType.name,
       serialNumber: s.equipmentItem.serialNumber,
       assetNumber: s.equipmentItem.assetNumber,

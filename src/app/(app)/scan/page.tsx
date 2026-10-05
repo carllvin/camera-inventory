@@ -12,7 +12,7 @@ export default async function ScanPage() {
   return (
     <>
       <PageHeader title="Scan" subtitle="Open equipment or a case by its QR code, barcode, serial or asset number" />
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,32rem)_1fr]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,32rem)_1fr]">
         <Card className="p-4">
           <Scanner />
         </Card>

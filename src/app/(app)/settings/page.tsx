@@ -21,7 +21,7 @@ export default async function SettingsPage() {
   return (
     <>
       <PageHeader title="Settings" />
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="space-y-6">
           <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
             {[

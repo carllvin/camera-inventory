@@ -17,7 +17,7 @@ export default async function ProjectRentalHousesPage({ params }: { params: Prom
   const [summary, all] = await Promise.all([orNotFound(getProjectSummary(db, ctx, id)), listRentalHouses(db, ctx)]);
   const action = linkRentalHouseAction.bind(null, id);
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       <div className="space-y-4">
         {summary.rentalHouses.map((rh) => (
           <Card key={rh.id} className="p-4">

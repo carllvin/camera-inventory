@@ -27,7 +27,7 @@ export default async function DashboardPage() {
         <Stat label="Documents to review" value={counts.pending_documents} href="/documents" />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_minmax(0,24rem)]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_minmax(0,24rem)]">
         <div className="space-y-6">
           <Card>
             <CardHeader title="Active projects" action={<Link href="/projects" className="text-xs text-muted hover:text-text">All projects</Link>} />
