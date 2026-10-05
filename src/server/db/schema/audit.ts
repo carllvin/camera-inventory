@@ -52,6 +52,7 @@ export const AUDIT_ACTIONS = [
   "return_check.performed",
   "photo.added",
   "photo.removed",
+  "photo.primary_changed",
   "issue.created",
   "issue.updated",
   "issue.resolved",

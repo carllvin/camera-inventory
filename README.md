@@ -39,6 +39,13 @@ read by Claude (`claude-opus-5-5`, change with `AI_MODEL` / `AI_EFFORT`); every 
 and **nothing changes until a person confirms the reviewed delivery note**. Without a key, documents are uploaded and the
 lines are entered by hand. Typical cost: a few cents per delivery note.
 
+### Reference images
+
+On an equipment type, **Choose image / Change image** opens the picker: image search results (set `BRAVE_SEARCH_API_KEY`,
+ranked by Claude when `ANTHROPIC_API_KEY` is set, best one marked *suggested*), **Open in Google Images** + paste the image
+address, or upload. Chosen images are downloaded into your own storage with their source; earlier images stay in the history.
+**Find automatically** applies an image only when the AI is confident (badge *auto-selected*).
+
 ### Backups
 
 Two volumes hold everything: `pgdata` (database) and `storage` (photos, later documents).

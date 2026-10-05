@@ -55,7 +55,7 @@ export async function addPhoto(
   ctx: Ctx,
   subject: PhotoSubject,
   file: UploadedFile,
-  opts: { caption?: string | null } = {},
+  opts: { caption?: string | null; sourceUrl?: string | null; attribution?: string | null; makePrimary?: boolean } = {},
 ) {
   requireRole(ctx, "member");
   const target = await resolveSubject(db, ctx, subject);
@@ -74,7 +74,8 @@ export async function addPhoto(
           .select({ id: s.photo.id })
           .from(s.photo)
           .where(and(eq(s.photo.equipmentTypeId, (subject as { equipmentTypeId: string }).equipmentTypeId), eq(s.photo.isPrimary, true), isNull(s.photo.removedAt)));
-        isPrimary = !existing;
+        isPrimary = !existing || Boolean(opts.makePrimary);
+        if (existing && opts.makePrimary) await tx.update(s.photo).set({ isPrimary: false }).where(eq(s.photo.id, existing.id));
       }
       const [photo] = await tx
         .insert(s.photo)
@@ -90,6 +91,8 @@ export async function addPhoto(
           sizeBytes: img.full.length,
           sha256: createHash("sha256").update(file.bytes).digest("hex"),
           caption: opts.caption?.trim() || null,
+          sourceUrl: opts.sourceUrl ?? null,
+          attribution: opts.attribution ?? null,
           isPrimary,
           uploadedById: ctx.userId,
           ...target.values,
@@ -150,6 +153,8 @@ export async function listPhotos(db: DbOrTx, ctx: Ctx, subject: PhotoSubject) {
     .select({
       id: s.photo.id,
       caption: s.photo.caption,
+      sourceUrl: s.photo.sourceUrl,
+      attribution: s.photo.attribution,
       width: s.photo.width,
       height: s.photo.height,
       isPrimary: s.photo.isPrimary,
@@ -187,4 +192,27 @@ export async function countPhotos(db: DbOrTx, ctx: Ctx) {
 
 export function assertImageUpload(file: File | null): asserts file is File {
   if (!file || file.size === 0) throw new DomainError("VALIDATION", "Choose a photo first.");
+}
+
+/** Make a reference photo the main image of its equipment type. */
+export async function setPrimaryReferencePhoto(db: DbOrTx, ctx: Ctx, photoId: string) {
+  requireRole(ctx, "member");
+  return db.transaction(async (tx) => {
+    const [p] = await tx
+      .select()
+      .from(s.photo)
+      .where(and(eq(s.photo.id, photoId), eq(s.photo.workspaceId, ctx.workspaceId), eq(s.photo.kind, "reference"), isNull(s.photo.removedAt)));
+    if (!p || !p.equipmentTypeId) notFound("Reference image");
+    if (p.isPrimary) return p;
+    await tx.update(s.photo).set({ isPrimary: false }).where(and(eq(s.photo.equipmentTypeId, p.equipmentTypeId), eq(s.photo.isPrimary, true)));
+    await tx.update(s.photo).set({ isPrimary: true }).where(eq(s.photo.id, photoId));
+    await recordEvent(tx, ctx, {
+      action: "photo.primary_changed",
+      entityType: "equipment_type",
+      entityId: p.equipmentTypeId,
+      summary: "Reference image changed",
+      metadata: { photoId },
+    });
+    return { ...p, isPrimary: true };
+  });
 }

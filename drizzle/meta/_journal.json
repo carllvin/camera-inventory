@@ -29,6 +29,13 @@
       "when": 1791236514880,
       "tag": "0003_case_photos",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791239792372,
+      "tag": "0004_image_candidates",
+      "breakpoints": true
     }
   ]
 }

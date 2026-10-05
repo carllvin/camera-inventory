@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { bigint, boolean, check, foreignKey, index, integer, pgTable, text, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import { bigint, boolean, check, foreignKey, index, integer, pgTable, real, text, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { createdAt, id, tsz } from "./_shared";
 import { user } from "./auth";
 import { equipmentCase } from "./cases";
@@ -86,5 +86,40 @@ export const photo = pgTable(
       columns: [t.workspaceId, t.issueId],
       foreignColumns: [issue.workspaceId, issue.id],
     }),
+  ],
+);
+
+/**
+ * Cached image-search results for an equipment type's reference image picker,
+ * so reopening the picker is instant and does not cost another search.
+ */
+export const imageCandidate = pgTable(
+  "image_candidate",
+  {
+    id: id(),
+    workspaceId: uuid().notNull(),
+    equipmentTypeId: uuid().notNull(),
+    query: text().notNull(),
+    source: text().notNull(),
+    imageUrl: text().notNull(),
+    thumbnailUrl: text(),
+    pageUrl: text(),
+    title: text(),
+    sourceDomain: text(),
+    width: integer(),
+    height: integer(),
+    rank: integer().notNull(),
+    /** 0–1 suitability from the AI ranking (null when not ranked). */
+    score: real(),
+    aiNote: text(),
+    fetchedAt: createdAt(),
+  },
+  (t) => [
+    index().on(t.equipmentTypeId, t.rank),
+    foreignKey({
+      name: "image_candidate_type_fk",
+      columns: [t.workspaceId, t.equipmentTypeId],
+      foreignColumns: [equipmentType.workspaceId, equipmentType.id],
+    }).onDelete("cascade"),
   ],
 );
