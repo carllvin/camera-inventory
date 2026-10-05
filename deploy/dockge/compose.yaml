@@ -38,6 +38,10 @@ services:
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?set BETTER_AUTH_SECRET in .env}
       BETTER_AUTH_URL: ${PUBLIC_URL:-http://localhost:3000}
       ALLOW_SIGNUP: ${ALLOW_SIGNUP:-true}
+      # AI reading of delivery/return notes; leave empty to enter documents by hand
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-claude-opus-5-5}
+      AI_EFFORT: ${AI_EFFORT:-high}
       STORAGE_DRIVER: local
       STORAGE_LOCAL_DIR: /app/storage
     volumes:

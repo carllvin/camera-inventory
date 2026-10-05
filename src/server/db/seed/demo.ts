@@ -1024,9 +1024,9 @@ class DemoSeeder {
 
     // A new ARRI delivery waiting for review (extracted, not yet confirmed).
     const pending = await this.createDocument({ kind: "delivery_note", projectId: ffx, rhKey: "arri", documentNumber: "LS-240512", documentDate: "2026-10-03", status: "extracted" });
-    await this.addLine(pending, { description: "Angenieux Optimo 24-290", quantity: 1, serialNumber: "OPT-290-1123", typeKey: "optimo", resolution: "pending", matchConfidence: 0.88, matchReason: "fuzzy match (Angenieux → Angénieux)" });
-    await this.addLine(pending, { description: "cforce mini", quantity: 2, typeKey: "cforce", resolution: "pending", matchConfidence: 0.95 });
-    await this.addLine(pending, { description: "Arri Alexa 35 Body", quantity: 1, serialNumber: "35-10577", typeKey: "alexa35", itemId: bBody, resolution: "pending", matchConfidence: 1, matchReason: "serial already on this project (possible duplicate line)" });
+    await this.addLine(pending, { description: "Angenieux Optimo 24-290", quantity: 1, serialNumber: "OPT-290-1123", typeKey: "optimo", resolution: "create_new", matchConfidence: 0.88, matchReason: "similar name: Angénieux Optimo 24-290 (new serial)" });
+    await this.addLine(pending, { description: "cforce mini", quantity: 2, typeKey: "cforce", resolution: "create_new", matchConfidence: 0.95, matchReason: "catalog match: ARRI cforce mini" });
+    await this.addLine(pending, { description: "Arri Alexa 35 Body", quantity: 1, serialNumber: "35-10577", typeKey: "alexa35", itemId: bBody, resolution: "discrepancy", matchConfidence: 1, matchReason: "ARRI ALEXA 35 (SN 35-10577) is already on this project (delivered twice?)" });
 
     void charger;
     void wcu;

@@ -10,6 +10,13 @@ import {
   type ExtractionResult,
 } from "./types";
 
+/**
+ * JSON schema for structured output. We send the plain schema (not the SDK's
+ * auto-parsing format) so stop reasons are checked before parsing: a truncated
+ * or refused response must become a clear message, not a JSON syntax error.
+ */
+const { type: formatType, schema: outputSchema } = betaZodOutputFormat(extractionSchema);
+
 const SYSTEM_PROMPT = `You read rental paperwork for a film camera department: delivery notes (Lieferschein) and return notes (Rücklieferschein / Retoure) from camera, lens, grip and lighting rental houses. Documents are often German or English, sometimes multi-page, sometimes photographed at an angle.
 
 Extract exactly what is printed. The output is reviewed by a camera assistant before any inventory changes, so a blank field is far better than a guess: never invent serial numbers, asset numbers, quantities or dates.
@@ -83,7 +90,7 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
         // On a safety-classifier decline the API retries on Anthropic's recommended fallback model.
         fallbacks: "default",
         thinking: { type: "adaptive" },
-        output_config: { effort: this.effort, format: betaZodOutputFormat(extractionSchema) },
+        output_config: { effort: this.effort, format: { type: formatType, schema: outputSchema } },
         system: SYSTEM_PROMPT,
         messages: [{ role: "user", content }],
       });
@@ -102,8 +109,13 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
     if (message.stop_reason === "max_tokens") {
       throw new ExtractionError("The document is too long to read in one go. Split it into smaller uploads.", false);
     }
-    const parsed = message.parsed_output;
-    if (!parsed) throw new ExtractionError("The AI response could not be read. Try again.", true);
+    const text = message.content.flatMap((b) => (b.type === "text" ? [b.text] : [])).join("");
+    let parsed;
+    try {
+      parsed = extractionSchema.parse(JSON.parse(text));
+    } catch {
+      throw new ExtractionError("The AI response could not be read. Try again.", true);
+    }
     return {
       extraction: parsed,
       provider: this.provider,

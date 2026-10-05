@@ -40,9 +40,10 @@ export function ActionForm({
   }, [state, onSuccess, resetOnSuccess]);
   return (
     <FormStateContext.Provider value={state}>
-      <form action={formAction} className={className} noValidate>
+      <form action={formAction} noValidate>
         <FormMessage />
-        <div key={generation} className="contents">
+        {/* Layout classes go on the keyed wrapper so spacing/grid apply to the fields themselves. */}
+        <div key={generation} className={className}>
           {children}
         </div>
       </form>

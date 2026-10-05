@@ -5,7 +5,7 @@ projects, cases, AI-assisted recognition and a complete audit trail.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for architecture, data model and roadmap.
 
-**Status:** Phase 4 complete: usable without AI (projects, rental houses, categories, equipment, cases and templates, photos, search, scan by code).
+**Status:** Phase 5 complete: delivery notes are read by Claude (or entered by hand), reviewed and confirmed into inventory. Projects, rental houses, equipment, cases/templates, photos, search and scanning work without AI.
 
 ## Run with Docker (self-hosted)
 
@@ -31,6 +31,13 @@ set `DOMAIN` and `PUBLIC_URL=https://…` in `.env` and start with `docker compo
 
 The first person to sign up creates the workspace and becomes its owner. Add the rest of the team under
 **Settings → Team**, then set `ALLOW_SIGNUP=false`.
+
+### AI reading of delivery notes
+
+Set `ANTHROPIC_API_KEY` in `.env` (create a key at console.anthropic.com) and redeploy. Uploaded PDFs/photos are then
+read by Claude (`claude-opus-5-5`, change with `AI_MODEL` / `AI_EFFORT`); every line is matched against your equipment
+and **nothing changes until a person confirms the reviewed delivery note**. Without a key, documents are uploaded and the
+lines are entered by hand. Typical cost: a few cents per delivery note.
 
 ### Backups
 
