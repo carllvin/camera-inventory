@@ -1,13 +1,16 @@
-# Self-hosted stack: Postgres + one-shot migrations + app (+ optional Caddy for HTTPS).
+# Camera Inventory — the only compose file you need (Dockge, Portainer or `docker compose`).
+# Pulls ready-made images from GitHub Container Registry; nothing is built on your server.
 #
-#   cp deploy/.env.example .env   # then edit secrets
-#   docker compose up -d --build                     # app on http://localhost:3000
-#   docker compose --profile proxy up -d --build     # + HTTPS via Caddy on $DOMAIN
-#                                                    #   (or COMPOSE_PROFILES=proxy in .env, e.g. for Dockge)
-#   docker compose run --rm migrate npm run db:seed  # optional demo data (empty DB only)
+#   1. Put this file in a folder (or paste it into Dockge) and create .env next to it
+#      with at least POSTGRES_PASSWORD, BETTER_AUTH_SECRET and PUBLIC_URL
+#      (see compose.env.example in the repository).
+#   2. docker compose up -d          → http://<server>:3000
+#   3. Update: docker compose pull && docker compose up -d   (Dockge: "Update")
 #
-# Photos/documents live in the `storage` volume (back it up with the database).
-# Prefer ready-made images? See deploy/dockge/compose.yaml.
+# The app container applies database migrations and fixes the permissions of the
+# storage volume itself when it starts. HTTPS: point your reverse proxy
+# (Nginx Proxy Manager, Traefik, Caddy …) at port ${APP_PORT:-3000}.
+# Back up both volumes: pgdata (database) and storage (photos and documents).
 
 services:
   postgres:
@@ -25,26 +28,8 @@ services:
       timeout: 3s
       retries: 20
 
-  migrate:
-    build: { context: ., target: migrate }
-    environment:
-      DATABASE_URL: postgres://camera:${POSTGRES_PASSWORD}@postgres:5432/camera_inventory
-    depends_on:
-      postgres: { condition: service_healthy }
-    restart: "no"
-
-  # One-shot: make the storage volume writable for the app user (uid 1001).
-  # Needed when the volume or a bind-mounted folder was created owned by root.
-  storage-permissions:
-    image: busybox:1
-    user: "0:0"
-    command: ["chown", "-R", "1001:1001", "/app/storage"]
-    volumes:
-      - storage:/app/storage
-    restart: "no"
-
   app:
-    build: { context: ., target: app }
+    image: ghcr.io/carllvin/camera-inventory:${IMAGE_TAG:-latest}
     restart: unless-stopped
     environment:
       DATABASE_URL: postgres://camera:${POSTGRES_PASSWORD}@postgres:5432/camera_inventory
@@ -65,27 +50,7 @@ services:
       - "${APP_PORT:-3000}:3000"
     depends_on:
       postgres: { condition: service_healthy }
-      migrate: { condition: service_completed_successfully }
-      storage-permissions: { condition: service_completed_successfully }
-
-  caddy:
-    image: caddy:2-alpine
-    profiles: ["proxy"]
-    restart: unless-stopped
-    environment:
-      DOMAIN: ${DOMAIN:-localhost}
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      app: { condition: service_healthy }
 
 volumes:
   pgdata:
   storage:
-  caddy_data:
-  caddy_config:

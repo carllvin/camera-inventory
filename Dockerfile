@@ -15,26 +15,21 @@ ENV NEXT_TELEMETRY_DISABLED=1 \
     BETTER_AUTH_SECRET=build-time-placeholder-not-used-at-runtime
 RUN npx next build
 
-# ---- migrations / seed (one-shot job; has dev tooling) ----------------------
-FROM deps AS migrate
-COPY drizzle ./drizzle
-COPY scripts ./scripts
-COPY src/server/db ./src/server/db
-COPY src/server/domain ./src/server/domain
-COPY tsconfig.json drizzle.config.ts ./
-CMD ["npx", "tsx", "scripts/migrate.ts"]
-
 # ---- runtime ----------------------------------------------------------------
 FROM node:22-bookworm-slim AS app
 WORKDIR /app
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0
-RUN groupadd --system --gid 1001 app && useradd --system --uid 1001 --gid app app
+RUN groupadd --system --gid 1001 app && useradd --system --uid 1001 --gid app --home /app app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static
-# Mount point for the photo/document volume (named volumes inherit this ownership).
+# Start script: migrations + storage permissions, then the server (see docker/entrypoint.mjs).
+COPY --from=build --chown=app:app /app/drizzle ./drizzle
+COPY --from=build --chown=app:app /app/docker/entrypoint.mjs ./docker/entrypoint.mjs
+COPY --from=deps --chown=app:app /app/node_modules/drizzle-orm ./node_modules/drizzle-orm
+COPY --from=deps --chown=app:app /app/node_modules/postgres ./node_modules/postgres
 RUN mkdir -p /app/storage && chown app:app /app/storage
-USER app
+# Starts as root only to fix volume ownership; the entrypoint then switches to uid 1001.
 EXPOSE 3000
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
   CMD node -e "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
-CMD ["node", "server.js"]
+CMD ["node", "docker/entrypoint.mjs"]

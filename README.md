@@ -9,25 +9,21 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for architecture, data model an
 
 ## Run with Docker (self-hosted)
 
-### Option A: ready-made images (Dockge, Portainer, …)
+One file: [`compose.yaml`](compose.yaml) — two containers, Postgres and the app, both pulled as ready-made
+images (`ghcr.io/carllvin/camera-inventory`, built by GitHub Actions for amd64 and arm64 on every push to `main`).
+Nothing is built on your server and there are no one-off helper containers: when the app starts it applies
+pending database migrations and makes the storage volume writable for itself.
 
-GitHub Actions builds `ghcr.io/carllvin/camera-inventory` (+ `-migrate`) for amd64 and arm64 on every push to `main`.
-Use [`deploy/dockge/compose.yaml`](deploy/dockge/compose.yaml) and [`deploy/dockge/.env.example`](deploy/dockge/.env.example):
-paste both into a new Dockge stack, fill in the secrets, deploy. Updates are a click on "Update".
+1. Create a stack in Dockge (or a folder with `compose.yaml`) and paste [`compose.yaml`](compose.yaml).
+2. Put the settings into `.env` next to it — template: [`compose.env.example`](compose.env.example)
+   (`POSTGRES_PASSWORD`, `BETTER_AUTH_SECRET`, `PUBLIC_URL`; optional `ANTHROPIC_API_KEY`, `BRAVE_SEARCH_API_KEY`).
+3. Deploy (`docker compose up -d`) and open `http://<server>:3000`. Updating: Dockge "Update"
+   (`docker compose pull && docker compose up -d`).
+
 While the repository is private, the server must log in to `ghcr.io` once (personal access token with `read:packages`).
 
-### Option B: build from source
-
-
-```bash
-cp deploy/.env.example .env      # set POSTGRES_PASSWORD, BETTER_AUTH_SECRET, PUBLIC_URL
-docker compose up -d --build     # Postgres + migrations + app on :3000
-docker compose run --rm migrate npm run db:seed   # optional demo data
-```
-
-For phones on set you need HTTPS (browsers only allow the camera on secure origins):
-set `DOMAIN` and `PUBLIC_URL=https://…` in `.env` and start with `docker compose --profile proxy up -d --build`
-(Caddy fetches certificates automatically; see `deploy/Caddyfile` for LAN-only setups).
+HTTPS (needed on phones for the camera/scanner): put your existing reverse proxy (Nginx Proxy Manager,
+Traefik, Caddy …) in front of port 3000 and set `PUBLIC_URL=https://…`.
 
 The first person to sign up creates the workspace and becomes its owner. Add the rest of the team under
 **Settings → Team**, then set `ALLOW_SIGNUP=false`.
@@ -79,9 +75,8 @@ docker run --rm -v camera-inventory_storage:/data -v "$PWD":/backup alpine tar c
 
 (The volume name is `<stack name>_storage`; check with `docker volume ls`.)
 
-The app runs as uid 1001. On every start the one-shot `storage-permissions` service
-makes the `storage` volume writable for it, so a volume or bind-mounted folder created
-by root (e.g. restored from a backup) does not break uploads (`EACCES … /app/storage`).
+The app runs as uid 1001. On every start it makes the `storage` volume writable for that user, so a
+volume or bind-mounted folder created by root (e.g. restored from a backup) does not break uploads.
 
 ## Local development
 
