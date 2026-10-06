@@ -1,0 +1,2 @@
+ALTER TABLE "document" ADD COLUMN "project_source" text;--> statement-breakpoint
+ALTER TABLE "document" ADD CONSTRAINT "document_project_source_ck" CHECK ("document"."project_source" IS NULL OR "document"."project_source" IN ('upload', 'detected', 'reviewer'));

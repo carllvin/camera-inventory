@@ -162,7 +162,7 @@ describe("return notes", () => {
     const p2 = await createProject(db, ctx, { name: "Two left", status: "wrap" });
     for (const n of [1, 2]) await createItem(db, ctx, { equipmentTypeId: f.camType.id, serialNumber: `TWO-${n}`, rentalHouseId: rhA.id, projectId: p2.id });
     const line2: ExtractedLine = { raw_text: "2 ALEXA 35", description: "ALEXA 35", manufacturer: "ARRI", model: "ALEXA 35", quantity: 2, serial_numbers: [], asset_numbers: [], catalog_match: "ARRI ALEXA 35", is_equipment: true, confidence: 0.9 };
-    const ex: Extraction = { document_type: "return_note", rental_house_name: "Rental A", rental_house_match: "Rental A", document_number: "RT-2", document_date: "2026-11-01", project_reference: null, lines: [line2], warnings: [] };
+    const ex: Extraction = { document_type: "return_note", rental_house_name: "Rental A", rental_house_match: "Rental A", document_number: "RT-2", document_date: "2026-11-01", project_reference: null, project_number: null, customer_name: null, project_match: null, rental_start_date: null, rental_end_date: null, lines: [line2], warnings: [] };
     const fake: DocumentExtractor = { provider: "fake", model: "f", available: true, extract: async () => ({ extraction: ex, provider: "fake", model: "f", meta: {} }) };
     const up = await createDocumentFromUpload(db, storage, ctx, fake, { kind: "return_note", projectId: p2.id }, [{ name: "r.pdf", type: "application/pdf", bytes: pdf("two") }]);
     await runExtraction(db, storage, fake, ctx.workspaceId, up.document.id);

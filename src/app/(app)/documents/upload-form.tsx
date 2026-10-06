@@ -40,7 +40,14 @@ export function UploadForm({
     <ActionForm action={uploadDocumentAction} className="space-y-5">
       <input type="hidden" name="kind" value={kind} />
       <div className="grid gap-4 sm:grid-cols-2">
-        <Select label="Project" name="projectId" placeholder="Choose project…" defaultValue={defaultProjectId} options={projects} required />
+        <Select
+          label="Project"
+          name="projectId"
+          placeholder={aiAvailable ? "Detect from document" : "Choose project…"}
+          defaultValue={defaultProjectId}
+          options={projects}
+          required={!aiAvailable}
+        />
         <Select label="Rental house" name="rentalHouseId" placeholder={aiAvailable ? "Detect from document" : "Choose later"} options={rentalHouses} />
       </div>
       <div>

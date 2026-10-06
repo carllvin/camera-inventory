@@ -23,6 +23,11 @@ const extraction: Extraction = {
   document_number: "LS-1",
   document_date: "2026-10-01",
   project_reference: "FFX",
+  project_number: null,
+  customer_name: null,
+  project_match: null,
+  rental_start_date: null,
+  rental_end_date: null,
   lines: [{ raw_text: "1 ALEXA 35 SN 1", description: "ALEXA 35", manufacturer: "ARRI", model: "ALEXA 35", quantity: 1, serial_numbers: ["1"], asset_numbers: [], catalog_match: "ARRI ALEXA 35", is_equipment: true, confidence: 0.98 }],
   warnings: [],
 };
@@ -62,7 +67,7 @@ afterAll(() => new Promise<void>((r) => server.close(() => r())));
 
 const extractor = () => new ClaudeDocumentExtractor("claude-opus-5-5", "high", new Anthropic({ apiKey: "test-key", baseURL, maxRetries: 0 }));
 const pdfFile = { name: "ls.pdf", mimeType: "application/pdf", bytes: Buffer.from("%PDF-1.4 test") };
-const ctx = { expectedKind: "delivery_note" as const, rentalHouses: ["ARRI Rental; ARRI Rental Deutschland GmbH"], catalog: ["ARRI ALEXA 35; A35"] };
+const ctx = { expectedKind: "delivery_note" as const, rentalHouses: ["ARRI Rental; ARRI Rental Deutschland GmbH"], catalog: ["ARRI ALEXA 35; A35"], projects: ["Feature Film X; FFX"] };
 
 describe("Claude document extractor", () => {
   it("sends the PDF with structured output, fallback and adaptive thinking; parses the result", async () => {

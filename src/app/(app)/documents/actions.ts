@@ -15,6 +15,7 @@ import {
   confirmReturn,
   reportLineIssue,
   createDocumentFromUpload,
+  createProjectFromDocument,
   discardDocument,
   removeLine,
   requestExtraction,
@@ -56,6 +57,15 @@ export async function updateHeaderAction(id: string, _: ActionState, fd: FormDat
     await updateDocumentHeader(getDb(), await getCtx(), id, fromForm(fd));
     revalidatePath(`/documents/${id}`);
     return "Saved.";
+  });
+}
+
+export async function createProjectFromDocumentAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const project = await createProjectFromDocument(getDb(), await getCtx(), id, fromForm(fd));
+    revalidatePath("/projects");
+    revalidatePath(`/documents/${id}`);
+    return `Project ${project.name} created.`;
   });
 }
 

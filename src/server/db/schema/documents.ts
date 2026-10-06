@@ -35,6 +35,8 @@ export const document = pgTable(
     kind: documentKind().notNull(),
     status: documentStatus().notNull().default("uploaded"),
     projectId: uuid(),
+    /** How the project was set: chosen at upload, detected from the document, or picked in review. */
+    projectSource: text(),
     rentalHouseId: uuid(),
     documentNumber: text(),
     documentDate: date({ mode: "string" }),
@@ -61,6 +63,7 @@ export const document = pgTable(
       "document_confirmed_ck",
       sql`${t.status} <> 'confirmed' OR (${t.confirmedAt} IS NOT NULL AND ${t.projectId} IS NOT NULL)`,
     ),
+    check("document_project_source_ck", sql`${t.projectSource} IS NULL OR ${t.projectSource} IN ('upload', 'detected', 'reviewer')`),
     foreignKey({
       name: "document_project_fk",
       columns: [t.workspaceId, t.projectId],

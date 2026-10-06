@@ -39,6 +39,11 @@ read by Claude (`claude-opus-5-5`, change with `AI_MODEL` / `AI_EFFORT`); every 
 and **nothing changes until a person confirms the reviewed delivery note**. Without a key, documents are uploaded and the
 lines are entered by hand. Typical cost: a few cents per delivery note.
 
+With AI reading the project can be left on "Detect from document": the production title, the rental house's project
+number and the customer are compared with your open projects, and only a clear match is used. An unknown production is
+offered as "Create project" (prefilled with name, production company and rental period) — it is only created when you
+click. Confirming a note saves the rental house's project number on the project, so later notes match by number.
+
 ### Reference images
 
 On an equipment type, **Choose image / Change image** opens the picker: image search results (set `BRAVE_SEARCH_API_KEY`,

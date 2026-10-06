@@ -34,15 +34,22 @@ Lines
 Header
 - rental_house_name as printed; rental_house_match = exact entry from the provided rental-house list if it is clearly the same company, else null.
 - document_date as YYYY-MM-DD.
+- project_reference = the production / film / job title (e.g. "Produktionstitel", "Projekt", "Job"); project_number = the rental house's project, job or order number for the production (e.g. "Projektnummer", "Auftragsnummer", "Job-Nr.") - never the document number; customer_name = the customer / production company the equipment is rented to (not the rental house).
+- project_match = exact name from the provided project list if the document is clearly for that production (title, code or customer agree), else null. Do not match on the customer alone when the customer has several projects.
+- rental_start_date / rental_end_date = the printed rental period (pickup / return or "Einsatz von / bis") as YYYY-MM-DD.
 - Add a warning for anything a reviewer must check: unreadable parts, handwritten corrections, crossed-out lines, pages that seem to be missing.`;
 
 function contextBlock(ctx: ExtractionContext) {
   const houses = ctx.rentalHouses.length ? ctx.rentalHouses.map((h) => `- ${h}`).join("\n") : "(none yet)";
   const catalog = ctx.catalog.length ? ctx.catalog.map((c) => `- ${c}`).join("\n") : "(empty)";
+  const projects = ctx.projects.length ? ctx.projects.map((p) => `- ${p}`).join("\n") : "(none yet)";
   return `The user uploaded this as a ${ctx.expectedKind === "delivery_note" ? "delivery note" : "return note"}.
 
 Known rental houses (name; aliases):
 ${houses}
+
+Open projects (name; code; production company):
+${projects}
 
 Equipment catalog (name; aliases):
 ${catalog}

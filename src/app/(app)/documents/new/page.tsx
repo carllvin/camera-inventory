@@ -18,7 +18,9 @@ export default async function NewDocumentPage({ searchParams }: { searchParams: 
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const db = getDb();
   const [projects, houses] = await Promise.all([listProjectOptions(db, ctx, { activeOnly: true }), listRentalHouses(db, ctx)]);
-  const defaultProjectId = projectId && UUID_RE.test(projectId) ? projectId : projects.length === 1 ? projects[0]!.id : undefined;
+  const aiAvailable = getExtractor().available;
+  // With AI reading the project is detected from the document unless one was passed in.
+  const defaultProjectId = projectId && UUID_RE.test(projectId) ? projectId : !aiAvailable && projects.length === 1 ? projects[0]!.id : undefined;
   return (
     <>
       <PageHeader
@@ -32,7 +34,7 @@ export default async function NewDocumentPage({ searchParams }: { searchParams: 
           projects={projects.map((p) => ({ value: p.id, label: p.name }))}
           rentalHouses={houses.map((r) => ({ value: r.id, label: r.name }))}
           defaultProjectId={defaultProjectId}
-          aiAvailable={getExtractor().available}
+          aiAvailable={aiAvailable}
         />
       </Card>
     </>

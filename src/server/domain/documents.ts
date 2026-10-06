@@ -12,7 +12,9 @@ import type { StorageProvider } from "../storage";
 import { recordEvent } from "./audit";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
 import { expandExtractedLines, findRentalHouse, matchLine, type MatchContext, type ProposedLine } from "./document-matching";
+import { findProjectForDocument, projectContext, projectHints } from "./document-project";
 import { ensureProjectRentalHouse, itemLabel, lockItem } from "./equipment-items";
+import { createProject, projectInput } from "./projects";
 import { expandReturnLines, loadProjectItems, matchReturnLines, type ReturnLine } from "./return-matching";
 import { optionalDate, optionalText, optionalUuid } from "./validation";
 
@@ -73,7 +75,8 @@ function assertEditable(d: { status: string }) {
 
 export const uploadInput = z.object({
   kind: z.enum(["delivery_note", "return_note"]),
-  projectId: z.uuid("Choose a project"),
+  /** Empty: detect the project from the document (needs AI reading). */
+  projectId: optionalUuid,
   rentalHouseId: optionalUuid,
 });
 
@@ -104,9 +107,15 @@ export async function createDocumentFromUpload(
     return { ...f, mimeType, sha256: createHash("sha256").update(f.bytes).digest("hex") };
   });
 
-  const [project] = await db.select().from(s.project).where(and(eq(s.project.id, data.projectId), eq(s.project.workspaceId, ctx.workspaceId)));
-  if (!project) notFound("Project");
-  if (project.status === "closed") throw new DomainError("VALIDATION", `Project ${project.name} is closed.`);
+  if (!data.projectId && !extractor.available) {
+    throw new DomainError("VALIDATION", "Choose the project (AI reading is not configured, so it cannot be detected from the document).", undefined);
+  }
+  let project: typeof s.project.$inferSelect | null = null;
+  if (data.projectId) {
+    project = (await db.select().from(s.project).where(and(eq(s.project.id, data.projectId), eq(s.project.workspaceId, ctx.workspaceId))))[0] ?? null;
+    if (!project) notFound("Project");
+    if (project.status === "closed") throw new DomainError("VALIDATION", `Project ${project.name} is closed.`);
+  }
   if (data.rentalHouseId) {
     const [rh] = await db.select({ id: s.rentalHouse.id }).from(s.rentalHouse).where(and(eq(s.rentalHouse.id, data.rentalHouseId), eq(s.rentalHouse.workspaceId, ctx.workspaceId)));
     if (!rh) notFound("Rental house");
@@ -137,7 +146,8 @@ export async function createDocumentFromUpload(
           workspaceId: ctx.workspaceId,
           kind: data.kind,
           status,
-          projectId: project.id,
+          projectId: project?.id ?? null,
+          projectSource: project ? "upload" : null,
           rentalHouseId: data.rentalHouseId ?? null,
           title: prepared[0]!.name,
           uploadedById: ctx.userId,
@@ -163,7 +173,7 @@ export async function createDocumentFromUpload(
         entityType: "document",
         entityId: id,
         documentId: id,
-        projectId: project.id,
+        projectId: project?.id ?? null,
         rentalHouseId: data.rentalHouseId ?? null,
         summary: `${data.kind === "delivery_note" ? "Delivery note" : "Return note"} uploaded (${prepared.length} file${prepared.length === 1 ? "" : "s"})`,
         metadata: { files: prepared.map((p) => p.name), possibleDuplicateOf: dup?.documentId ?? null },
@@ -191,7 +201,7 @@ async function extractionContext(db: DbOrTx, ws: string, kind: DocumentKind) {
       .limit(2000),
   ]);
   const fmt = (r: { name: string; aliases: string[] }) => (r.aliases.length ? `${r.name}; ${r.aliases.join("; ")}` : r.name);
-  return { expectedKind: kind, rentalHouses: houses.map(fmt), catalog: types.map(fmt) };
+  return { expectedKind: kind, rentalHouses: houses.map(fmt), catalog: types.map(fmt), projects: await projectContext(db, ws) };
 }
 
 /** Match all proposed lines against the inventory and replace the document's lines. */
@@ -247,6 +257,8 @@ export async function runExtraction(db: DbOrTx, storage: StorageProvider, extrac
     const ex: Extraction = result.extraction;
     const rentalHouseId = doc.rentalHouseId ?? (await findRentalHouse(db, workspaceId, ex.rental_house_name, ex.rental_house_match));
     const documentNumber = ex.document_number?.trim().slice(0, 100) || null;
+    const hints = projectHints(ex);
+    const detected = !doc.projectId && hints ? await findProjectForDocument(db, workspaceId, hints, rentalHouseId) : null;
     await db.transaction(async (tx) => {
       const [current] = await tx.select().from(s.document).where(eq(s.document.id, documentId)).for("update");
       if (!current || current.status !== "processing") return; // discarded meanwhile
@@ -274,9 +286,10 @@ export async function runExtraction(db: DbOrTx, storage: StorageProvider, extrac
         .set({
           status: "extracted",
           rentalHouseId,
+          ...(!current.projectId && detected ? { projectId: detected.id, projectSource: "detected" } : {}),
           documentNumber: current.documentNumber ?? documentNumber,
           documentDate: current.documentDate ?? isIsoDate(ex.document_date),
-          extraction: { ...ex, _meta: result.meta } as unknown as Record<string, unknown>,
+          extraction: { ...ex, _meta: result.meta, _projectDetection: detected } as unknown as Record<string, unknown>,
           extractionProvider: result.provider,
           extractionModel: result.model,
           extractionError: null,
@@ -293,8 +306,14 @@ export async function runExtraction(db: DbOrTx, storage: StorageProvider, extrac
         documentId,
         projectId: updated!.projectId,
         rentalHouseId,
-        summary: `Document ${documentNumber ?? ""} read by AI: ${ex.lines.length} line${ex.lines.length === 1 ? "" : "s"}`.replace("  ", " "),
-        metadata: { provider: result.provider, model: result.model, warnings: ex.warnings, servedByFallback: result.meta.servedByFallback ?? false },
+        summary: `Document ${documentNumber ?? ""} read by AI: ${ex.lines.length} line${ex.lines.length === 1 ? "" : "s"}${detected && updated!.projectSource === "detected" ? ` · project detected: ${detected.name}` : ""}`.replace("  ", " "),
+        metadata: {
+          provider: result.provider,
+          model: result.model,
+          warnings: ex.warnings,
+          servedByFallback: result.meta.servedByFallback ?? false,
+          projectDetection: detected ? { projectId: detected.id, how: detected.how } : null,
+        },
       });
     });
   } catch (err) {
@@ -331,7 +350,7 @@ export async function releaseStaleExtractions(db: DbOrTx, olderThanMinutes = 15)
 // ---------------------------------------------------------------------------
 
 export const headerInput = z.object({
-  projectId: z.uuid("Choose a project"),
+  projectId: optionalUuid,
   rentalHouseId: optionalUuid,
   documentNumber: optionalText(100),
   documentDate: optionalDate,
@@ -352,6 +371,8 @@ async function rematchAll(tx: DbOrTx, doc: typeof s.document.$inferSelect) {
     // Keep a type that was chosen by the reviewer or matched confidently before (e.g. AI catalog match).
     const keepType = l.reviewerChoice || l.resolution === "create_new" ? l.matchedEquipmentTypeId : null;
     const m = await matchLine(tx, mctx, toProposed(l), { seenSerials: seen, forcedTypeId: keepType });
+    // A kept AI / catalog match keeps its original explanation.
+    if (!l.reviewerChoice && keepType && m.matchedEquipmentTypeId === keepType && !m.matchedEquipmentItemId) m.matchReason = l.matchReason;
     await tx.update(s.documentLine).set(m).where(eq(s.documentLine.id, l.id));
   }
 }
@@ -387,19 +408,66 @@ export async function updateDocumentHeader(db: DbOrTx, ctx: Ctx, id: string, inp
   return db.transaction(async (tx) => {
     const d = await lockDocument(tx, ctx, id);
     assertEditable(d);
-    const [project] = await tx.select().from(s.project).where(and(eq(s.project.id, data.projectId), eq(s.project.workspaceId, ctx.workspaceId)));
-    if (!project) notFound("Project");
+    let project: { id: string } | null = null;
+    if (data.projectId) {
+      project = (await tx.select({ id: s.project.id }).from(s.project).where(and(eq(s.project.id, data.projectId), eq(s.project.workspaceId, ctx.workspaceId))))[0] ?? null;
+      if (!project) notFound("Project");
+    }
     if (data.rentalHouseId) {
       const [rh] = await tx.select({ id: s.rentalHouse.id }).from(s.rentalHouse).where(and(eq(s.rentalHouse.id, data.rentalHouseId), eq(s.rentalHouse.workspaceId, ctx.workspaceId)));
       if (!rh) notFound("Rental house");
     }
     const [updated] = await tx
       .update(s.document)
-      .set({ projectId: project.id, rentalHouseId: data.rentalHouseId ?? null, documentNumber: data.documentNumber ?? null, documentDate: data.documentDate ?? null })
+      .set({
+        projectId: project?.id ?? null,
+        projectSource: !project ? null : project.id === d.projectId ? d.projectSource : "reviewer",
+        rentalHouseId: data.rentalHouseId ?? null,
+        documentNumber: data.documentNumber ?? null,
+        documentDate: data.documentDate ?? null,
+      })
       .where(eq(s.document.id, id))
       .returning();
     if (updated!.projectId !== d.projectId || updated!.rentalHouseId !== d.rentalHouseId) await rematchAll(tx, updated!);
     return updated!;
+  });
+}
+
+/**
+ * The production on the document is not a project yet: create it (prefilled from
+ * the document, edited by the user) and assign the document to it.
+ */
+export async function createProjectFromDocument(db: DbOrTx, ctx: Ctx, id: string, input: z.input<typeof projectInput>) {
+  requireRole(ctx, "member");
+  return db.transaction(async (tx) => {
+    const d = await lockDocument(tx, ctx, id);
+    assertEditable(d);
+    const project = await createProject(tx, ctx, input);
+    const [updated] = await tx.update(s.document).set({ projectId: project.id, projectSource: "reviewer" }).where(eq(s.document.id, id)).returning();
+    await rematchAll(tx, updated!);
+    return project;
+  });
+}
+
+/** Remember the rental house's project number so the next note from them matches exactly. */
+async function rememberProjectNumber(tx: DbOrTx, ctx: Ctx, doc: typeof s.document.$inferSelect, correlationId: string) {
+  const number = projectHints(doc.extraction as Partial<Extraction> | null)?.number;
+  if (!number || !doc.projectId || !doc.rentalHouseId) return;
+  const saved = await tx
+    .update(s.projectRentalHouse)
+    .set({ orderReference: number.slice(0, 100) })
+    .where(and(eq(s.projectRentalHouse.projectId, doc.projectId), eq(s.projectRentalHouse.rentalHouseId, doc.rentalHouseId), isNull(s.projectRentalHouse.orderReference)))
+    .returning({ id: s.projectRentalHouse.id });
+  if (saved.length === 0) return;
+  await recordEvent(tx, ctx, {
+    action: "project.updated",
+    entityType: "project",
+    entityId: doc.projectId,
+    projectId: doc.projectId,
+    rentalHouseId: doc.rentalHouseId,
+    documentId: doc.id,
+    summary: `Rental house project number ${number} saved from the document`,
+    correlationId,
   });
 }
 
@@ -656,6 +724,7 @@ export async function confirmDelivery(db: DbOrTx, ctx: Ctx, id: string) {
 
     await ensureProjectRentalHouse(tx, ctx, project.id, rentalHouseId);
     await tx.update(s.documentLine).set({ confirmedQuantity: sql`CASE WHEN ${s.documentLine.resolution} = 'ignore' THEN 0 ELSE ${s.documentLine.quantity} END` }).where(eq(s.documentLine.documentId, id));
+    await rememberProjectNumber(tx, ctx, doc, correlationId);
     const [confirmed] = await tx.update(s.document).set({ status: "confirmed", confirmedAt: now, confirmedById: ctx.userId }).where(eq(s.document.id, id)).returning();
     const [rh] = await tx.select({ name: s.rentalHouse.name }).from(s.rentalHouse).where(eq(s.rentalHouse.id, rentalHouseId));
     await recordEvent(tx, ctx, {
@@ -818,6 +887,7 @@ export async function confirmReturn(db: DbOrTx, ctx: Ctx, id: string) {
     }
 
     await tx.update(s.documentLine).set({ confirmedQuantity: 0 }).where(and(eq(s.documentLine.documentId, id), eq(s.documentLine.resolution, "ignore")));
+    await rememberProjectNumber(tx, ctx, doc, correlationId);
     const [confirmed] = await tx.update(s.document).set({ status: "confirmed", confirmedAt: now, confirmedById: ctx.userId }).where(eq(s.document.id, id)).returning();
     const [{ remaining }] = (await tx.execute<{ remaining: number }>(
       sql`SELECT coalesce(sum(quantity),0)::int AS remaining FROM equipment_item WHERE project_id = ${project!.id} AND rental_house_id = ${doc.rentalHouseId}`,
@@ -958,6 +1028,13 @@ export async function getDocumentReview(db: DbOrTx, ctx: Ctx, id: string) {
           .limit(1)
       : [];
   const extraction = row.doc.extraction as (Extraction & { _meta?: Record<string, unknown> }) | null;
+  const hints = projectHints(extraction);
+  // The document names another existing production than the one chosen by hand: warn, never switch.
+  let projectMismatch: { id: string; name: string } | null = null;
+  if (hints && row.doc.projectId && row.doc.projectSource !== "detected" && row.doc.status !== "confirmed") {
+    const other = await findProjectForDocument(db, ctx.workspaceId, hints, row.doc.rentalHouseId);
+    if (other && other.id !== row.doc.projectId) projectMismatch = { id: other.id, name: other.name };
+  }
   return {
     ...row,
     files,
@@ -965,6 +1042,9 @@ export async function getDocumentReview(db: DbOrTx, ctx: Ctx, id: string) {
     duplicate,
     warnings: extraction?.warnings ?? [],
     blockers: documentBlockers(row.doc, flat),
+    projectHints: hints,
+    projectDetection: row.doc.projectSource === "detected" ? ((extraction as { _projectDetection?: { how: string } } | null)?._projectDetection ?? null) : null,
+    projectMismatch,
     returnOverview: overview,
     outcome: outcome ?? null,
     counts: {

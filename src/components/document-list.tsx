@@ -30,7 +30,7 @@ export function DocumentList({ documents, showProject = true }: { documents: Doc
                 </Badge>
               </div>
               <div className="text-xs text-muted">
-                {[d.rentalHouseName, showProject ? d.projectName : null, `${d.lineCount} lines`].filter(Boolean).join(" · ")}
+                {[d.rentalHouseName, showProject ? (d.projectName ?? "project not set") : null, `${d.lineCount} lines`].filter(Boolean).join(" · ")}
               </div>
             </div>
             <div className="text-xs text-muted">{formatDate(d.documentDate)}</div>

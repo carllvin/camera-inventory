@@ -33,8 +33,17 @@ export const extractionSchema = z.object({
   document_number: z.string().nullable(),
   /** ISO date (YYYY-MM-DD) of the document, if printed. */
   document_date: z.string().nullable(),
-  /** Production / project / job name or reference printed on the document. */
+  /** Production title / project / job name printed on the document. */
   project_reference: z.string().nullable(),
+  /** The rental house's project / job / order number for this production (not the document number). */
+  project_number: z.string().nullable(),
+  /** Customer / production company the equipment is rented to. */
+  customer_name: z.string().nullable(),
+  /** Exact name from the provided project list when clearly the same production, else null. */
+  project_match: z.string().nullable(),
+  /** Rental period (pickup / return dates) as YYYY-MM-DD, if printed. */
+  rental_start_date: z.string().nullable(),
+  rental_end_date: z.string().nullable(),
   lines: z.array(extractedLineSchema),
   /** Anything the reviewer should know: unreadable parts, handwritten corrections, missing pages. */
   warnings: z.array(z.string()),
@@ -56,6 +65,8 @@ export interface ExtractionContext {
   rentalHouses: string[];
   /** Known equipment type names (+ aliases) for normalization. */
   catalog: string[];
+  /** Open projects ("name; code; production company") to recognise the production. */
+  projects: string[];
 }
 
 export interface ExtractionResult {

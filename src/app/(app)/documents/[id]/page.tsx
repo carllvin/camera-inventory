@@ -16,6 +16,7 @@ import {
   addLineAction,
   confirmDeliveryAction,
   confirmReturnAction,
+  createProjectFromDocumentAction,
   discardDocumentAction,
   removeLineAction,
   reportLineIssueAction,
@@ -56,6 +57,64 @@ function Files({ files }: { files: { id: string; fileName: string; mimeType: str
           ),
         )}
       </div>
+    </Card>
+  );
+}
+
+type Review = Awaited<ReturnType<typeof getDocumentReview>>;
+
+/** What the document says about the production, what was detected, and "create project" when it is new. */
+function ProjectPanel({ id, d }: { id: string; d: Review }) {
+  const { doc, projectHints: hints } = d;
+  const printed = hints ? [hints.title, hints.number && `project no. ${hints.number}`, hints.customer].filter(Boolean).join(" · ") : null;
+  return (
+    <Card className="p-4">
+      <h2 className="text-sm font-semibold">Project</h2>
+      {printed && (
+        <p className="mt-1 text-sm text-muted">
+          On the document: <span className="text-text">{printed}</span>
+        </p>
+      )}
+      {doc.projectId && d.projectDetection && (
+        <p className="mt-2 text-sm text-ok">
+          Detected: <span className="font-medium">{d.projectName}</span> ({d.projectDetection.how}). Change it below if it is wrong.
+        </p>
+      )}
+      {doc.projectId && !d.projectDetection && !d.projectMismatch && (
+        <p className="mt-2 text-sm text-ok">
+          Using project <span className="font-medium">{d.projectName}</span>.
+        </p>
+      )}
+      {d.projectMismatch && (
+        <p className="mt-2 flex items-start gap-1.5 text-sm text-warn">
+          <CircleAlert className="mt-0.5 size-4 shrink-0" />
+          <span>
+            This document looks like it is for{" "}
+            <Link href={`/projects/${d.projectMismatch.id}`} className="font-medium underline">
+              {d.projectMismatch.name}
+            </Link>
+            , not {d.projectName}. Check the project below.
+          </span>
+        </p>
+      )}
+      {!doc.projectId && (
+        <>
+          <p className="mt-2 text-sm text-warn">{hints ? "No matching project found. Choose one below, or create it from the document." : "Choose the project below."}</p>
+          <details className="mt-3" open={Boolean(hints?.title)}>
+            <summary className="cursor-pointer text-sm font-medium text-accent">Create project{hints?.title ? ` “${hints.title}”` : ""}</summary>
+            <ActionForm action={createProjectFromDocumentAction.bind(null, id)} className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <Field label="Name" name="name" id="np-name" defaultValue={hints?.title} required />
+              <Field label="Code" name="code" id="np-code" placeholder="Short code (optional)" />
+              <Field label="Production company" name="productionCompany" id="np-company" defaultValue={hints?.customer} className="sm:col-span-2" />
+              <Field label="Start" name="startDate" id="np-start" type="date" defaultValue={hints?.startDate} />
+              <Field label="End" name="endDate" id="np-end" type="date" defaultValue={hints?.endDate} />
+              <div className="sm:col-span-2">
+                <SubmitButton pendingText="Creating…">Create project and use it</SubmitButton>
+              </div>
+            </ActionForm>
+          </details>
+        </>
+      )}
     </Card>
   );
 }
@@ -157,9 +216,10 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         <div className="min-w-0 space-y-4">
           {editable ? (
             <>
+              {(d.projectHints || !doc.projectId) && <ProjectPanel id={id} d={d} />}
               <Card className="p-4">
                 <ActionForm action={updateHeaderAction.bind(null, id)} className="grid gap-3 sm:grid-cols-2">
-                  <Select label="Project" name="projectId" id="h-project" defaultValue={doc.projectId} options={projects.map((p) => ({ value: p.id, label: p.name }))} />
+                  <Select label="Project" name="projectId" id="h-project" placeholder="Choose…" defaultValue={doc.projectId} options={projects.map((p) => ({ value: p.id, label: p.name }))} />
                   <Select label="Rental house" name="rentalHouseId" id="h-rh" placeholder="Choose…" defaultValue={doc.rentalHouseId} options={houses.map((h) => ({ value: h.id, label: h.name }))} />
                   <Field label="Document number" name="documentNumber" id="h-number" defaultValue={doc.documentNumber} spellCheck={false} />
                   <Field label="Date" name="documentDate" id="h-date" type="date" defaultValue={doc.documentDate} />
