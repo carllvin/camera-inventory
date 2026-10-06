@@ -11,7 +11,7 @@ import * as s from "../src/server/db/schema";
 import type { ImageRanker, ImageSearchProvider } from "../src/server/ai/images";
 import { BraveImageSearch } from "../src/server/ai/images";
 import type { Ctx } from "../src/server/domain/context";
-import { applyCandidate, applyImageUrl, autoPickImage, searchCandidates, type PickerDeps } from "../src/server/domain/image-picker";
+import { applyCandidate, applyImageUrl, autoPickImage, defaultImageQuery, searchCandidates, type PickerDeps } from "../src/server/domain/image-picker";
 import { listPhotos, setPrimaryReferencePhoto } from "../src/server/domain/photos";
 import { fetchRemoteImage, isPublicAddress } from "../src/server/media/safe-fetch";
 import { LocalStorage } from "../src/server/storage";
@@ -147,5 +147,18 @@ describe("reference image picker", () => {
     await expect(searchCandidates(db, ctx, deps({ search: null as unknown as ImageSearchProvider }), f.cableType.id, null)).rejects.toThrow(/not configured/);
     const other = await makeFixture();
     await expect(searchCandidates(db, { workspaceId: other.ws.id, userId: other.user.id, role: "owner" }, deps(), f.camType.id, null)).rejects.toThrow(/not found/);
+  });
+});
+
+describe("default image search", () => {
+  it("adds the kind of product from the category, without repeating words", () => {
+    expect(defaultImageQuery({ manufacturer: "ARRI", model: "ALEXA 35", categoryName: "Camera Bodies" })).toBe("ARRI ALEXA 35 Camera Body");
+    expect(defaultImageQuery({ manufacturer: "ARRI", model: "Signature Prime 35mm T1.8", categoryName: "Spherical" })).toBe("ARRI Signature Prime 35mm T1.8 Lens");
+    expect(defaultImageQuery({ manufacturer: "Cooke", model: "Anamorphic/i 40mm T2.3", categoryName: "Anamorphic" })).toBe("Cooke Anamorphic/i 40mm T2.3 Lens");
+    expect(defaultImageQuery({ manufacturer: "OConnor", model: "2575D Fluid Head", categoryName: "Heads" })).toBe("OConnor 2575D Fluid Head");
+    expect(defaultImageQuery({ manufacturer: "bebob", model: "B290cine", categoryName: "Batteries" })).toBe("bebob B290cine Battery");
+    // Unknown or own categories: manufacturer + model only.
+    expect(defaultImageQuery({ manufacturer: "ARRI", model: "LMB-6", categoryName: "Meine Kategorie" })).toBe("ARRI LMB-6");
+    expect(defaultImageQuery({ manufacturer: "ARRI", model: "ALEXA 35" })).toBe("ARRI ALEXA 35");
   });
 });

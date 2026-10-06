@@ -24,13 +24,48 @@ export interface PickerDeps {
 }
 
 async function getType(db: DbOrTx, ctx: Ctx, typeId: string) {
-  const [t] = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.id, typeId), eq(s.equipmentType.workspaceId, ctx.workspaceId)));
-  if (!t) notFound("Equipment type");
-  return t;
+  const [row] = await db
+    .select({ type: s.equipmentType, categoryName: s.category.name })
+    .from(s.equipmentType)
+    .leftJoin(s.category, eq(s.category.id, s.equipmentType.categoryId))
+    .where(and(eq(s.equipmentType.id, typeId), eq(s.equipmentType.workspaceId, ctx.workspaceId)));
+  if (!row) notFound("Equipment type");
+  return { ...row.type, categoryName: row.categoryName };
 }
 
-export function defaultImageQuery(t: { manufacturer: string; model: string }) {
-  return `${t.manufacturer} ${t.model}`.trim();
+/** What kind of product a category holds, as a search engine understands it ("Camera Body", "Zoom Lens" …). */
+const PRODUCT_WORDS: Record<string, string> = {
+  "camera bodies": "Camera Body",
+  viewfinders: "Viewfinder",
+  "video assist": "Recorder",
+  spherical: "Lens",
+  anamorphic: "Anamorphic Lens",
+  zoom: "Zoom Lens",
+  tripods: "Tripod",
+  heads: "Head",
+  gimbals: "Gimbal",
+  monitors: "Monitor",
+  wireless: "Wireless Video",
+  timecode: "Timecode",
+  batteries: "Battery",
+  chargers: "Charger",
+  "video cables": "Cable",
+  "power cables": "Cable",
+  "control cables": "Cable",
+};
+
+/**
+ * Default image search: manufacturer + model + the kind of product, so "ARRI ALEXA 35"
+ * finds the camera body rather than accessories or sample footage. Words already in
+ * the name are not repeated ("O'Connor 2575D Fluid Head" stays as is).
+ */
+export function defaultImageQuery(t: { manufacturer: string; model: string; categoryName?: string | null }) {
+  const base = `${t.manufacturer} ${t.model}`.trim();
+  const kind = t.categoryName ? PRODUCT_WORDS[t.categoryName.trim().toLowerCase()] : undefined;
+  if (!kind) return base;
+  const have = new Set(base.toLowerCase().split(/[^a-z0-9]+/));
+  const missing = kind.split(" ").filter((w) => !have.has(w.toLowerCase()));
+  return missing.length ? `${base} ${missing.join(" ")}` : base;
 }
 
 export function googleImagesUrl(query: string) {
