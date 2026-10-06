@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { bigint, boolean, check, foreignKey, index, integer, pgTable, real, text, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import { bigint, boolean, check, foreignKey, index, integer, pgTable, real, text, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { createdAt, id, tsz } from "./_shared";
 import { user } from "./auth";
 import { equipmentCase } from "./cases";
@@ -121,5 +121,64 @@ export const imageCandidate = pgTable(
       columns: [t.workspaceId, t.equipmentTypeId],
       foreignColumns: [equipmentType.workspaceId, equipmentType.id],
     }).onDelete("cascade"),
+  ],
+);
+
+/**
+ * Background run of "find a reference image automatically" over many equipment
+ * types (Settings → Automatic images). Progress lives here so a restart loses
+ * nothing: the job can be resumed and every type's outcome stays visible.
+ */
+export const imageJob = pgTable(
+  "image_job",
+  {
+    id: id(),
+    workspaceId: uuid()
+      .notNull()
+      .references(() => workspace.id),
+    /** running | done | cancelled | failed | interrupted */
+    status: text().notNull().default("running"),
+    /** in_use: only types with items; all: every type without an image */
+    scope: text().notNull(),
+    total: integer().notNull().default(0),
+    processed: integer().notNull().default(0),
+    applied: integer().notNull().default(0),
+    cancelRequested: boolean().notNull().default(false),
+    lastError: text(),
+    startedById: uuid().references(() => user.id),
+    createdAt: createdAt(),
+    /** Heartbeat while running; a stale running job counts as interrupted. */
+    updatedAt: tsz().notNull().defaultNow(),
+    finishedAt: tsz(),
+  },
+  (t) => [
+    unique("image_job_workspace_id_uq").on(t.workspaceId, t.id),
+    // One running job per workspace.
+    uniqueIndex("image_job_one_running_uq").on(t.workspaceId).where(sql`${t.status} = 'running'`),
+    check("image_job_status_ck", sql`${t.status} IN ('running', 'done', 'cancelled', 'failed', 'interrupted')`),
+    check("image_job_scope_ck", sql`${t.scope} IN ('in_use', 'all')`),
+  ],
+);
+
+export const imageJobItem = pgTable(
+  "image_job_item",
+  {
+    id: id(),
+    workspaceId: uuid().notNull(),
+    jobId: uuid().notNull(),
+    equipmentTypeId: uuid().notNull(),
+    sortOrder: integer().notNull(),
+    /** pending | applied | has_image | not_confident | download_failed | error */
+    result: text().notNull().default("pending"),
+    note: text(),
+    photoId: uuid(),
+    processedAt: tsz(),
+  },
+  (t) => [
+    index().on(t.jobId, t.sortOrder),
+    index().on(t.equipmentTypeId),
+    check("image_job_item_result_ck", sql`${t.result} IN ('pending', 'applied', 'has_image', 'not_confident', 'download_failed', 'error')`),
+    foreignKey({ name: "image_job_item_job_fk", columns: [t.workspaceId, t.jobId], foreignColumns: [imageJob.workspaceId, imageJob.id] }).onDelete("cascade"),
+    foreignKey({ name: "image_job_item_type_fk", columns: [t.workspaceId, t.equipmentTypeId], foreignColumns: [equipmentType.workspaceId, equipmentType.id] }).onDelete("cascade"),
   ],
 );

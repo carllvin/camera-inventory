@@ -70,6 +70,15 @@ ranked by Claude when `ANTHROPIC_API_KEY` is set, best one marked *suggested*), 
 address, or upload. Chosen images are downloaded into your own storage with their source; earlier images stay in the history.
 **Find automatically** applies an image only when the AI is confident (badge *auto-selected*).
 
+### Automatic images for many types
+
+**Settings → Automatic images** finds reference images in bulk (needs `BRAVE_SEARCH_API_KEY` and `ANTHROPIC_API_KEY`):
+choose "types with items" or "all types" and a limit per run (25–500). The server works through the types in the
+background (about one per second), keeps an image only when Claude is confident it shows exactly that product, and
+downloads it into your storage. Uncertain types are listed for you to choose by hand. Progress is saved after every
+type; a run interrupted by a restart can be resumed, and a run stops by itself after repeated errors (invalid key,
+quota used up). Each type costs one image search and one AI check.
+
 ### Backups
 
 Two volumes hold everything: `pgdata` (database) and `storage` (photos and documents).

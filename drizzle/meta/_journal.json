@@ -50,6 +50,13 @@
       "when": 1791296470654,
       "tag": "0006_document_project_source",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1791313947456,
+      "tag": "0007_image_jobs",
+      "breakpoints": true
     }
   ]
 }
