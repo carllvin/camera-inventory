@@ -48,7 +48,7 @@ address, or upload. Chosen images are downloaded into your own storage with thei
 
 ### Backups
 
-Two volumes hold everything: `pgdata` (database) and `storage` (photos, later documents).
+Two volumes hold everything: `pgdata` (database) and `storage` (photos and documents).
 
 ```bash
 docker compose exec -T postgres pg_dump -U camera camera_inventory > backup-$(date +%F).sql
@@ -56,6 +56,10 @@ docker run --rm -v camera-inventory_storage:/data -v "$PWD":/backup alpine tar c
 ```
 
 (The volume name is `<stack name>_storage`; check with `docker volume ls`.)
+
+The app runs as uid 1001. On every start the one-shot `storage-permissions` service
+makes the `storage` volume writable for it, so a volume or bind-mounted folder created
+by root (e.g. restored from a backup) does not break uploads (`EACCES … /app/storage`).
 
 ## Local development
 

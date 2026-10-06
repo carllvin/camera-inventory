@@ -33,6 +33,16 @@ services:
       postgres: { condition: service_healthy }
     restart: "no"
 
+  # One-shot: make the storage volume writable for the app user (uid 1001).
+  # Needed when the volume or a bind-mounted folder was created owned by root.
+  storage-permissions:
+    image: busybox:1
+    user: "0:0"
+    command: ["chown", "-R", "1001:1001", "/app/storage"]
+    volumes:
+      - storage:/app/storage
+    restart: "no"
+
   app:
     build: { context: ., target: app }
     restart: unless-stopped
@@ -56,6 +66,7 @@ services:
     depends_on:
       postgres: { condition: service_healthy }
       migrate: { condition: service_completed_successfully }
+      storage-permissions: { condition: service_completed_successfully }
 
   caddy:
     image: caddy:2-alpine

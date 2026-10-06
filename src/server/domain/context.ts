@@ -23,7 +23,7 @@ export function requireRole(ctx: Ctx, min: WorkspaceRole) {
   }
 }
 
-export type DomainErrorCode = "NOT_FOUND" | "FORBIDDEN" | "CONFLICT" | "VALIDATION";
+export type DomainErrorCode = "NOT_FOUND" | "FORBIDDEN" | "CONFLICT" | "VALIDATION" | "UNAVAILABLE";
 
 export class DomainError extends Error {
   constructor(

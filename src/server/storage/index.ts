@@ -5,6 +5,7 @@
  */
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { DomainError } from "../domain/context";
 import {
   CreateBucketCommand,
   DeleteObjectCommand,
@@ -57,8 +58,17 @@ export class LocalStorage implements StorageProvider {
   }
   async put(key: string, body: Buffer) {
     const p = this.file(key);
-    await mkdir(path.dirname(p), { recursive: true });
-    await writeFile(p, body);
+    try {
+      await mkdir(path.dirname(p), { recursive: true });
+      await writeFile(p, body);
+    } catch (err) {
+      const code = (err as NodeJS.ErrnoException).code;
+      if (code === "EACCES" || code === "EPERM" || code === "EROFS") {
+        console.error(`Storage folder ${this.root} is not writable for this process (${code}).`, err);
+        throw new DomainError("UNAVAILABLE", `The server cannot save files: the storage folder is not writable (${code}). Ask the administrator to fix the permissions of the storage volume.`);
+      }
+      throw err;
+    }
   }
   async get(key: string) {
     try {
