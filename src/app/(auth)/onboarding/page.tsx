@@ -21,7 +21,14 @@ export default async function OnboardingPage() {
           <input type="checkbox" name="standardCatalog" value="on" defaultChecked className="mt-0.5 size-4 accent-[var(--accent)]" />
           <span>
             Start with the standard equipment catalog
-            <span className="block text-xs text-muted">About 400 common cameras, lenses (per focal length) and accessories. You can edit, archive or add to it later.</span>
+            <span className="block text-xs text-muted">About 1,600 common cameras, lenses (per focal length) and accessories. You can edit, archive or add to it later.</span>
+          </span>
+        </label>
+        <label className="flex cursor-pointer items-start gap-3 text-sm">
+          <input type="checkbox" name="standardRentalHouses" value="on" defaultChecked className="mt-0.5 size-4 accent-[var(--accent)]" />
+          <span>
+            Add the camera rental houses in Germany, Austria and Switzerland
+            <span className="block text-xs text-muted">With the names they print on delivery notes. International ones can be added later in Settings.</span>
           </span>
         </label>
         <SubmitButton className="w-full" pendingText="Creating…">

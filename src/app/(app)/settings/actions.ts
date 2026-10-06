@@ -8,7 +8,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { createCategory, updateCategory } from "@/server/domain/categories";
 import { createRentalHouse, updateRentalHouse } from "@/server/domain/rental-houses";
-import { importStandardCatalog } from "@/server/domain/standard-catalog";
+import { importStandardCatalog, importStandardRentalHouses } from "@/server/domain/standard-catalog";
 import { addMember, changeMemberRole, renameWorkspace } from "@/server/domain/workspaces";
 
 export async function renameWorkspaceAction(_: ActionState, fd: FormData): Promise<ActionState> {
@@ -76,5 +76,16 @@ export async function importCatalogAction(_: ActionState, fd: FormData): Promise
     return r.created === 0 && !r.corrected
       ? `Nothing new to add — all ${r.skipped} types of these areas are already in your catalog.`
       : `${r.created} equipment type${r.created === 1 ? "" : "s"} added${r.skipped ? ` (${r.skipped} already present, left unchanged)` : ""}${r.corrected ? `; ${r.corrected} corrected` : ""}.`;
+  });
+}
+
+export async function importRentalHousesAction(_: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const regions = fd.getAll("regions").filter((v): v is string => typeof v === "string");
+    const r = await importStandardRentalHouses(getDb(), await getCtx(), { regions });
+    revalidatePath("/settings", "layout");
+    return r.created === 0
+      ? `Nothing new to add — all ${r.skipped} rental houses of these regions are already in your list.`
+      : `${r.created} rental house${r.created === 1 ? "" : "s"} added${r.skipped ? ` (${r.skipped} already present, left unchanged)` : ""}.`;
   });
 }

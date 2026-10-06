@@ -6,11 +6,12 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { runAction, type ActionState } from "@/server/actions";
 import { auth } from "@/server/auth/auth";
+import { STANDARD_RENTAL_HOUSES } from "@/server/catalog/rental-houses";
 import { STANDARD_CATALOG } from "@/server/catalog/standard-catalog";
 import { getSessionUser, userHasWorkspace } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { DomainError } from "@/server/domain/context";
-import { importStandardCatalog } from "@/server/domain/standard-catalog";
+import { importStandardCatalog, importStandardRentalHouses } from "@/server/domain/standard-catalog";
 import { createWorkspace } from "@/server/domain/workspaces";
 
 const loginInput = z.object({
@@ -63,8 +64,13 @@ export async function createWorkspaceAction(_: ActionState, fd: FormData): Promi
     if (!current) redirect("/login");
     if (await userHasWorkspace(current.user.id)) redirect("/");
     const workspace = await createWorkspace(getDb(), current.user.id, { name: String(fd.get("name") ?? "") });
+    const owner = { workspaceId: workspace.id, userId: current.user.id, role: "owner" as const };
     if (fd.get("standardCatalog") === "on") {
-      await importStandardCatalog(getDb(), { workspaceId: workspace.id, userId: current.user.id, role: "owner" }, { sections: STANDARD_CATALOG.map((c) => c.key) });
+      await importStandardCatalog(getDb(), owner, { sections: STANDARD_CATALOG.map((c) => c.key) });
+    }
+    const local = STANDARD_RENTAL_HOUSES.filter((r) => r.key !== "intl").map((r) => r.key);
+    if (fd.get("standardRentalHouses") === "on" && local.length) {
+      await importStandardRentalHouses(getDb(), owner, { regions: local });
     }
     redirect("/");
   });

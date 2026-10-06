@@ -9,6 +9,7 @@ import { and, eq, sql } from "drizzle-orm";
 import { z } from "zod";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
+import { STANDARD_RENTAL_HOUSES, rentalHouseRegion, type StandardRentalHouse } from "../catalog/rental-houses";
 import { STANDARD_CATALOG, STANDARD_CATALOG_VERSION, catalogSection, sectionEntries } from "../catalog/standard-catalog";
 import { recordEvent } from "./audit";
 import { DomainError, requireRole, type Ctx } from "./context";
@@ -187,5 +188,89 @@ export async function importStandardCatalog(db: DbOrTx, ctx: Ctx, input: z.input
       correlationId,
     });
     return { created: created.length, skipped, corrected, categoriesCreated };
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Standard rental houses
+// ---------------------------------------------------------------------------
+
+/** Every spelling under which the workspace already knows a rental house (archived ones included). */
+async function knownRentalHouseKeys(db: DbOrTx, ws: string) {
+  const rows = await db
+    .select({ name: s.rentalHouse.name, shortName: s.rentalHouse.shortName, aliases: s.rentalHouse.aliases })
+    .from(s.rentalHouse)
+    .where(eq(s.rentalHouse.workspaceId, ws));
+  const keys = new Set<string>();
+  for (const r of rows) for (const v of [r.name, r.shortName ?? "", ...r.aliases]) if (compact(v).length >= 3) keys.add(compact(v));
+  return keys;
+}
+
+const houseKnown = (keys: Set<string>, h: StandardRentalHouse) => [h.name, ...(h.aliases ?? [])].some((v) => keys.has(compact(v)));
+
+export async function standardRentalHouseStatus(db: DbOrTx, ctx: Ctx) {
+  const keys = await knownRentalHouseKeys(db, ctx.workspaceId);
+  return STANDARD_RENTAL_HOUSES.map((r) => ({ key: r.key, label: r.label, description: r.description, total: r.houses.length, present: r.houses.filter((h) => houseKnown(keys, h)).length }));
+}
+
+export const importRentalHousesInput = z.object({
+  regions: z.array(z.string()).min(1, "Choose at least one region to import."),
+});
+
+export async function importStandardRentalHouses(db: DbOrTx, ctx: Ctx, input: z.input<typeof importRentalHousesInput>) {
+  requireRole(ctx, "admin");
+  const { regions } = importRentalHousesInput.parse(input);
+  const chosen = [...new Set(regions)].map((k) => {
+    const region = rentalHouseRegion(k);
+    if (!region) throw new DomainError("VALIDATION", `Unknown region: ${k}`);
+    return region;
+  });
+  const correlationId = randomUUID();
+  return db.transaction(async (tx) => {
+    await tx.select({ id: s.workspace.id }).from(s.workspace).where(eq(s.workspace.id, ctx.workspaceId)).for("update");
+    const keys = await knownRentalHouseKeys(tx, ctx.workspaceId);
+    let created = 0;
+    let skipped = 0;
+    for (const region of chosen) {
+      for (const h of region.houses) {
+        if (houseKnown(keys, h)) {
+          skipped++;
+          continue;
+        }
+        const [row] = await tx
+          .insert(s.rentalHouse)
+          .values({
+            workspaceId: ctx.workspaceId,
+            name: h.name,
+            shortName: h.shortName ?? null,
+            aliases: h.aliases ?? [],
+            website: h.website ?? null,
+            address: h.address ?? null,
+            phone: h.phone ?? null,
+            email: h.email ?? null,
+            notes: h.notes ?? null,
+          })
+          .returning();
+        for (const v of [h.name, ...(h.aliases ?? [])]) keys.add(compact(v));
+        await recordEvent(tx, ctx, {
+          action: "rental_house.created",
+          entityType: "rental_house",
+          entityId: row!.id,
+          rentalHouseId: row!.id,
+          summary: `Rental house ${h.name} created ${CATALOG_MARK}`,
+          correlationId,
+        });
+        created++;
+      }
+    }
+    await recordEvent(tx, ctx, {
+      action: "catalog.imported",
+      entityType: "workspace",
+      entityId: ctx.workspaceId,
+      summary: `Standard rental houses imported (${chosen.map((r) => r.label).join(", ")}): ${created} added, ${skipped} already present`,
+      metadata: { kind: "rental_houses", regions: chosen.map((r) => r.key), created, skipped },
+      correlationId,
+    });
+    return { created, skipped };
   });
 }
