@@ -18,6 +18,8 @@ import { optionalDate, optionalText, optionalUuid } from "./validation";
 
 export const MAX_DOCUMENT_FILES = 20;
 export const MAX_DOCUMENT_FILE_BYTES = 25 * 1024 * 1024;
+/** All files of one upload together (keep next.config.ts body limits just above this). */
+export const MAX_DOCUMENT_UPLOAD_BYTES = 100 * 1024 * 1024;
 const ACCEPTED_TYPES = new Set(["application/pdf", "image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"]);
 
 export interface UploadedDocumentFile {
@@ -91,6 +93,9 @@ export async function createDocumentFromUpload(
   const data = uploadInput.parse(input);
   if (files.length === 0) throw new DomainError("VALIDATION", "Add the PDF or photos of the document.");
   if (files.length > MAX_DOCUMENT_FILES) throw new DomainError("VALIDATION", `At most ${MAX_DOCUMENT_FILES} files per document.`);
+  if (files.reduce((n, f) => n + f.bytes.length, 0) > MAX_DOCUMENT_UPLOAD_BYTES) {
+    throw new DomainError("VALIDATION", "The files are larger than 100 MB together. Upload fewer pages or smaller photos.");
+  }
   const prepared = files.map((f) => {
     const mimeType = detectType(f);
     if (!ACCEPTED_TYPES.has(mimeType)) throw new DomainError("VALIDATION", `${f.name}: use PDF, JPEG, PNG or WebP.`);

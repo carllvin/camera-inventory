@@ -89,11 +89,12 @@ export function SubmitButton({
   variant = "primary",
   className,
   pendingText,
+  disabled,
   ...rest
 }: ComponentProps<"button"> & { variant?: keyof typeof buttonVariants; pendingText?: string }) {
   const { pending } = useFormStatus();
   return (
-    <button type="submit" disabled={pending} className={cn(buttonVariants[variant], className)} {...rest}>
+    <button type="submit" disabled={pending || disabled} className={cn(buttonVariants[variant], className)} {...rest}>
       {pending ? (pendingText ?? "Saving…") : children}
     </button>
   );
