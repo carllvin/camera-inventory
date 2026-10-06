@@ -186,6 +186,78 @@
      "bulk": true
     },
     {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 2.7",
+     "aliases": [
+      "Firecrest 2.7 4x5.65",
+      "Firecrest ND 2.7"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 0.3",
+     "aliases": [
+      "Firecrest Ultra 0.3 4x5.65",
+      "FC Ultra IRND 0.3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 0.6",
+     "aliases": [
+      "Firecrest Ultra 0.6 4x5.65",
+      "FC Ultra IRND 0.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 0.9",
+     "aliases": [
+      "Firecrest Ultra 0.9 4x5.65",
+      "FC Ultra IRND 0.9"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 1.2",
+     "aliases": [
+      "Firecrest Ultra 1.2 4x5.65",
+      "FC Ultra IRND 1.2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 1.5",
+     "aliases": [
+      "Firecrest Ultra 1.5 4x5.65",
+      "FC Ultra IRND 1.5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 1.8",
+     "aliases": [
+      "Firecrest Ultra 1.8 4x5.65",
+      "FC Ultra IRND 1.8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 2.1",
+     "aliases": [
+      "Firecrest Ultra 2.1 4x5.65",
+      "FC Ultra IRND 2.1"
+     ],
+     "bulk": true
+    },
+    {
      "manufacturer": "Lee",
      "model": "ProGlass Cine IRND 4x5.65 0.3",
      "aliases": [
@@ -533,6 +605,15 @@
     },
     {
      "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 2.1",
+     "aliases": [
+      "Platinum IRND 2.1 6.6x6.6",
+      "PIRND 2.1 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
      "model": "Platinum IRND 6.6x6.6 2.4",
      "aliases": [
       "IRND 2.4 6.6x6.6"
@@ -575,6 +656,18 @@
       "Pol Filter",
       "Pol 4x5.65",
       "Polfilter 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Pol 6.6x6.6",
+     "name": "Schneider True-Pol Linear Polarizer 6.6x6.6",
+     "aliases": [
+      "68-013066",
+      "True Pol 6x6",
+      "Polfilter 6.6x6.6",
+      "True-Pol 6.6"
      ],
      "bulk": true
     },
@@ -1208,6 +1301,33 @@
      ]
     },
     {
+     "manufacturer": "cmotion",
+     "model": "cvolution camin 3M",
+     "aliases": [
+      "camin 3M",
+      "cvolution camin",
+      "cmotion camin 3M"
+     ]
+    },
+    {
+     "manufacturer": "cmotion",
+     "model": "cvolution camin 4M",
+     "aliases": [
+      "camin 4M",
+      "cmotion camin 4M"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "cmotion",
+     "model": "cvolution Hand Unit",
+     "aliases": [
+      "cvolution HU",
+      "cvolution Handrad",
+      "cmotion cvolution"
+     ]
+    },
+    {
      "manufacturer": "DJI",
      "model": "Focus Pro Grip",
      "aliases": [
@@ -1246,6 +1366,42 @@
       "DJI LiDAR Range Finder",
       "RS LiDAR",
       "Ronin LiDAR"
+     ]
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Base Sensor UBS-100",
+     "aliases": [
+      "UBS-100",
+      "Focusbug Base Sensor",
+      "Cine RT UBS"
+     ]
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Bug BUG-100",
+     "name": "Focusbug BUG-100 Ultrasonic Transmitter",
+     "aliases": [
+      "BUG-100",
+      "Focusbug Bug",
+      "Cine RT Bug"
+     ]
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Handset HSU-100",
+     "aliases": [
+      "HSU-100",
+      "Focusbug Handset",
+      "Cine RT Handset"
+     ]
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "OV1 Cine RT Overlay Module",
+     "aliases": [
+      "Focusbug OV1",
+      "OV1 Overlay"
      ]
     },
     {
@@ -1358,6 +1514,15 @@
      "aliases": []
     },
     {
+     "manufacturer": "Preston",
+     "model": "MDR-5",
+     "name": "Preston MDR-5 Motor Driver",
+     "aliases": [],
+     "specs": {
+      "channels": 3
+     }
+    },
+    {
      "manufacturer": "Teradek",
      "model": "RT CTRL.1",
      "name": "Teradek RT CTRL.1 Single-Axis Controller",
@@ -1393,6 +1558,31 @@
     },
     {
      "manufacturer": "Teradek",
+     "model": "RT Latitude-MB",
+     "name": "Teradek RT Latitude-MB Receiver (LP-E6 plate)",
+     "aliases": [
+      "Latitude-MB"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT MDR.S",
+     "name": "Teradek RT MDR.S Receiver",
+     "aliases": [
+      "MDR.S"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT MDR.X",
+     "name": "Teradek RT MDR.X Receiver",
+     "aliases": [
+      "MDR.X",
+      "Teradek MDRX"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
      "model": "RT MK3.1 Motor",
      "aliases": [
       "RT Motor",
@@ -1413,6 +1603,41 @@
       "Teradek RT Receiver",
       "MK3.1 Receiver",
       "RT MDR MK3.1"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT MOTR.S",
+     "name": "Teradek RT MOTR.S Motor",
+     "aliases": [
+      "MOTR.S"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT MOTR.X",
+     "name": "Teradek RT MOTR.X Motor",
+     "aliases": [
+      "MOTR.X",
+      "Teradek MOTRX"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "FF-T03 Follow Focus",
+     "name": "Tilta FF-T03 15mm Follow Focus",
+     "aliases": [
+      "FF-T03",
+      "Tilta Follow Focus 15mm"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "FF-T06 Mini Follow Focus",
+     "name": "Tiltaing FF-T06 Mini Follow Focus",
+     "aliases": [
+      "FF-T06",
+      "Tiltaing Mini Follow Focus"
      ]
     },
     {

@@ -269,6 +269,35 @@
      }
     },
     {
+     "manufacturer": "Portkeys",
+     "model": "BM5 III WR",
+     "aliases": [
+      "Portkeys BM5"
+     ]
+    },
+    {
+     "manufacturer": "Portkeys",
+     "model": "BM7 II DS",
+     "aliases": [
+      "Portkeys BM7"
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "Portkeys",
+     "model": "LH5P II",
+     "aliases": [
+      "Portkeys LH5P"
+     ],
+     "specs": {
+      "screen_in": 5.5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
      "manufacturer": "SmallHD",
      "model": "1303 HDR",
      "aliases": [
@@ -323,7 +352,8 @@
      "model": "Action 5",
      "aliases": [],
      "specs": {
-      "screen_in": 5
+      "screen_in": 5.5,
+      "resolution": "1920x1080"
      }
     },
     {
@@ -610,6 +640,25 @@
     },
     {
      "manufacturer": "Ambient",
+     "model": "Lockit Slate Display ACN-LS2D",
+     "name": "Ambient LockitSlate Take 2 display module",
+     "aliases": [
+      "ACN-LS2D",
+      "LockitSlate Display"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "Lockit Slate Take 2",
+     "name": "Ambient LockitSlate Take 2",
+     "aliases": [
+      "ACN-LS2",
+      "Lockit Slate 2",
+      "Timecode-Klappe Ambient"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
      "model": "Lockit+",
      "aliases": [
       "Lockit Plus",
@@ -715,6 +764,36 @@
     "Wireless"
    ],
    "entries": [
+    {
+     "manufacturer": "Accsoon",
+     "model": "CineEye 2",
+     "aliases": [
+      "CineEye II"
+     ],
+     "specs": {
+      "range_m": 150
+     }
+    },
+    {
+     "manufacturer": "Accsoon",
+     "model": "CineEye 2S",
+     "aliases": [
+      "CineEye 2S TX"
+     ],
+     "specs": {
+      "range_m": 150
+     }
+    },
+    {
+     "manufacturer": "Accsoon",
+     "model": "CineEye 2S Pro",
+     "aliases": [
+      "CineEye 2S Pro Kit"
+     ],
+     "specs": {
+      "range_m": 366
+     }
+    },
     {
      "manufacturer": "Accsoon",
      "model": "CineView HE",
@@ -1113,6 +1192,29 @@
       "Atom 500 TX/RX",
       "Atom 500 SDI"
      ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 1000S RX",
+     "aliases": [
+      "Storm 1000s Empfänger",
+      "Storm 1000S Receiver"
+     ],
+     "specs": {
+      "range_m": 350
+     }
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 1000S TX",
+     "aliases": [
+      "Storm 1000s Sender",
+      "Storm 1000S Transmitter",
+      "VS19-1000"
+     ],
+     "specs": {
+      "range_m": 350
+     }
     },
     {
      "manufacturer": "Vaxis",

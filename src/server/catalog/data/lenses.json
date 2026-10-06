@@ -1653,6 +1653,10 @@
       [
        180,
        "T2"
+      ],
+      [
+       300,
+       "T3.3"
       ]
      ],
      "mount": "PL",
@@ -1660,7 +1664,8 @@
      "short": [
       "S7 ",
       "Cooke S7 "
-     ]
+     ],
+     "extraSeries": []
     },
     {
      "manufacturer": "Cooke",
@@ -1668,50 +1673,74 @@
      "focals": [
       [
        18,
-       null
+       "T2.2"
       ],
       [
        21,
-       null
+       "T2.2"
       ],
       [
        25,
-       null
+       "T2.2"
+      ],
+      [
+       27,
+       "T2.2"
       ],
       [
        32,
-       null
+       "T2.2"
       ],
       [
        40,
-       null
+       "T2.2"
       ],
       [
        50,
-       null
+       "T2.2"
       ],
       [
        65,
-       null
+       "T2.4"
       ],
       [
        75,
-       null
+       "T2.2"
       ],
       [
        100,
-       null
+       "T2.6"
       ],
       [
        135,
-       null
+       "T2.8"
+      ],
+      [
+       152,
+       "T3"
       ]
      ],
      "mount": "PL",
-     "format": "Full Frame",
+     "format": "Super 35",
      "short": [
       "Panchro ",
       "Panchro Classic "
+     ],
+     "formerly": {
+      "18": "Panchro/i Classic 18mm",
+      "21": "Panchro/i Classic 21mm",
+      "25": "Panchro/i Classic 25mm",
+      "32": "Panchro/i Classic 32mm",
+      "40": "Panchro/i Classic 40mm",
+      "50": "Panchro/i Classic 50mm",
+      "65": "Panchro/i Classic 65mm",
+      "75": "Panchro/i Classic 75mm",
+      "100": "Panchro/i Classic 100mm",
+      "135": "Panchro/i Classic 135mm"
+     },
+     "extraSeries": [
+      "Cooke Panchro/i Classic",
+      "Panchro Classic"
      ]
     },
     {
@@ -2695,9 +2724,1206 @@
       "Mini Hawk",
       "MiniHawk Hybrid"
      ]
+    },
+    {
+     "manufacturer": "Cooke",
+     "series": "S8/i",
+     "focals": [
+      [
+       18,
+       "T1.4"
+      ],
+      [
+       21,
+       "T1.4"
+      ],
+      [
+       25,
+       "T1.4"
+      ],
+      [
+       27,
+       null
+      ],
+      [
+       32,
+       "T1.4"
+      ],
+      [
+       35,
+       "T1.4"
+      ],
+      [
+       40,
+       "T1.4"
+      ],
+      [
+       50,
+       "T1.4"
+      ],
+      [
+       65,
+       "T1.4"
+      ],
+      [
+       75,
+       "T1.4"
+      ],
+      [
+       100,
+       "T1.4"
+      ],
+      [
+       135,
+       "T1.4"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "short": [
+      "S8 "
+     ],
+     "extraSeries": [
+      "Cooke S8/i",
+      "S8/i FF"
+     ]
+    },
+    {
+     "manufacturer": "Cooke",
+     "series": "miniS4/i",
+     "focals": [
+      [
+       18,
+       "T2.8"
+      ],
+      [
+       25,
+       "T2.8"
+      ],
+      [
+       32,
+       "T2.8"
+      ],
+      [
+       40,
+       "T2.8"
+      ],
+      [
+       50,
+       "T2.8"
+      ],
+      [
+       65,
+       "T2.8"
+      ],
+      [
+       75,
+       "T2.8"
+      ],
+      [
+       100,
+       "T2.8"
+      ],
+      [
+       135,
+       "T2.8"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Super 35",
+     "short": [
+      "Mini S4 "
+     ],
+     "extraSeries": [
+      "Mini S4/i",
+      "Cooke miniS4/i"
+     ]
+    },
+    {
+     "manufacturer": "Cooke",
+     "series": "Panchro/i Classic FF",
+     "focals": [
+      [
+       18,
+       "T2.2"
+      ],
+      [
+       21,
+       "T2.2"
+      ],
+      [
+       25,
+       "T2.2"
+      ],
+      [
+       27,
+       "T2.2"
+      ],
+      [
+       32,
+       "T2.2"
+      ],
+      [
+       40,
+       "T2.2"
+      ],
+      [
+       50,
+       "T2.2"
+      ],
+      [
+       65,
+       "T2.4"
+      ],
+      [
+       75,
+       "T2.2"
+      ],
+      [
+       100,
+       "T2.6"
+      ],
+      [
+       135,
+       "T2.8"
+      ],
+      [
+       152,
+       "T3"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "short": [
+      "Panchro FF "
+     ],
+     "extraSeries": [
+      "Panchro Classic FF",
+      "Cooke Panchro/i Classic FF"
+     ]
+    },
+    {
+     "manufacturer": "Cooke",
+     "series": "SP3",
+     "focals": [
+      [
+       18,
+       "T2.4"
+      ],
+      [
+       25,
+       "T2.4"
+      ],
+      [
+       32,
+       "T2.4"
+      ],
+      [
+       50,
+       "T2.4"
+      ],
+      [
+       75,
+       "T2.4"
+      ],
+      [
+       100,
+       "T2.4"
+      ]
+     ],
+     "mount": "E",
+     "format": "Full Frame",
+     "short": [
+      "SP3 "
+     ],
+     "extraSeries": [
+      "Cooke SP3"
+     ]
+    },
+    {
+     "manufacturer": "Cooke",
+     "series": "Speed Panchro",
+     "focals": [
+      [
+       18,
+       null
+      ],
+      [
+       25,
+       null
+      ],
+      [
+       32,
+       null
+      ],
+      [
+       40,
+       null
+      ],
+      [
+       50,
+       null
+      ],
+      [
+       75,
+       null
+      ],
+      [
+       100,
+       null
+      ]
+     ],
+     "mount": "PL",
+     "format": "Super 35",
+     "short": [
+      "CSP "
+     ],
+     "extraSeries": [
+      "Cooke Speed Panchro",
+      "TLS Speed Panchro"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Leitz",
+     "series": "Thalia",
+     "focals": [
+      [
+       24,
+       "T3.6"
+      ],
+      [
+       30,
+       "T2.9"
+      ],
+      [
+       35,
+       "T2.6"
+      ],
+      [
+       45,
+       "T2.9"
+      ],
+      [
+       55,
+       "T2.8"
+      ],
+      [
+       70,
+       "T2.6"
+      ],
+      [
+       90,
+       "T2.2"
+      ],
+      [
+       100,
+       "T2.2"
+      ],
+      [
+       120,
+       "T2.6"
+      ],
+      [
+       180,
+       "T3.6"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Large Format",
+     "short": [
+      "Thalia "
+     ],
+     "extraSeries": [
+      "Leica Thalia",
+      "Leitz Thalia"
+     ]
+    },
+    {
+     "manufacturer": "Leitz",
+     "series": "Leitz Prime",
+     "focals": [
+      [
+       18,
+       "T1.8"
+      ],
+      [
+       21,
+       "T1.8"
+      ],
+      [
+       25,
+       "T1.8"
+      ],
+      [
+       29,
+       "T1.8"
+      ],
+      [
+       35,
+       "T1.8"
+      ],
+      [
+       40,
+       "T1.8"
+      ],
+      [
+       50,
+       "T1.8"
+      ],
+      [
+       65,
+       "T1.8"
+      ],
+      [
+       75,
+       "T1.8"
+      ],
+      [
+       100,
+       "T1.8"
+      ],
+      [
+       135,
+       "T1.8"
+      ],
+      [
+       180,
+       "T2"
+      ],
+      [
+       350,
+       "T3.6"
+      ]
+     ],
+     "mount": "LPL",
+     "format": "Full Frame",
+     "short": [
+      "LP "
+     ],
+     "extraSeries": [
+      "Leica Leitz Prime",
+      "L-F Prime"
+     ]
+    },
+    {
+     "manufacturer": "Leitz",
+     "series": "ELSIE",
+     "focals": [
+      [
+       15,
+       "T2.1"
+      ],
+      [
+       18,
+       "T2.1"
+      ],
+      [
+       21,
+       "T2.1"
+      ],
+      [
+       25,
+       "T2.1"
+      ],
+      [
+       29,
+       "T2.1"
+      ],
+      [
+       35,
+       "T2.1"
+      ],
+      [
+       40,
+       "T2.1"
+      ],
+      [
+       50,
+       "T2.1"
+      ],
+      [
+       65,
+       "T2.1"
+      ],
+      [
+       75,
+       "T2.1"
+      ],
+      [
+       100,
+       "T2.1"
+      ],
+      [
+       125,
+       "T2.1"
+      ],
+      [
+       150,
+       "T2.1"
+      ]
+     ],
+     "mount": "LPL",
+     "format": "Full Frame",
+     "short": [
+      "Elsie "
+     ],
+     "extraSeries": [
+      "Leitz ELSIE",
+      "Elsie"
+     ]
+    },
+    {
+     "manufacturer": "Leitz",
+     "series": "HUGO",
+     "focals": [
+      [
+       18,
+       "T1.5"
+      ],
+      [
+       21,
+       "T1.5"
+      ],
+      [
+       24,
+       "T1.5"
+      ],
+      [
+       28,
+       "T1.5"
+      ],
+      [
+       35,
+       "T1.5"
+      ],
+      [
+       40,
+       "T1.5"
+      ],
+      [
+       50,
+       "T1.5"
+      ],
+      [
+       66,
+       "T2.1"
+      ],
+      [
+       75,
+       "T1.5"
+      ],
+      [
+       90,
+       "T1.5"
+      ],
+      [
+       135,
+       null
+      ]
+     ],
+     "mount": "LPL",
+     "format": "Full Frame",
+     "short": [
+      "Hugo "
+     ],
+     "extraSeries": [
+      "Leitz HUGO",
+      "Hugo"
+     ]
+    },
+    {
+     "manufacturer": "Leitz",
+     "series": "M 0.8",
+     "focals": [
+      [
+       21,
+       "T1.4"
+      ],
+      [
+       24,
+       "T1.4"
+      ],
+      [
+       28,
+       "T1.4"
+      ],
+      [
+       35,
+       "T1.4"
+      ],
+      [
+       50,
+       "T0.95"
+      ],
+      [
+       75,
+       "T2"
+      ],
+      [
+       90,
+       "T2"
+      ]
+     ],
+     "mount": "M",
+     "format": "Full Frame",
+     "short": [
+      "M0.8 "
+     ],
+     "extraSeries": [
+      "Leica M 0.8",
+      "Leitz M0.8"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Canon",
+     "series": "K35",
+     "focals": [
+      [
+       18,
+       "T1.5"
+      ],
+      [
+       24,
+       "T1.5"
+      ],
+      [
+       35,
+       null
+      ],
+      [
+       55,
+       "T1.3"
+      ],
+      [
+       85,
+       "T1.3"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Super 35",
+     "short": [
+      "K35 "
+     ],
+     "extraSeries": [
+      "Canon K-35",
+      "K-35"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sigma",
+     "series": "Cine FF Classic",
+     "focals": [
+      [
+       14,
+       "T3.2"
+      ],
+      [
+       20,
+       "T2.5"
+      ],
+      [
+       24,
+       "T2.5"
+      ],
+      [
+       28,
+       "T2.5"
+      ],
+      [
+       35,
+       "T2.5"
+      ],
+      [
+       40,
+       "T2.5"
+      ],
+      [
+       50,
+       "T2.5"
+      ],
+      [
+       85,
+       "T2.5"
+      ],
+      [
+       105,
+       "T2.5"
+      ],
+      [
+       135,
+       "T3.2"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "extraSeries": [
+      "Sigma Classic",
+      "FF Classic Prime"
+     ]
+    },
+    {
+     "manufacturer": "Sigma",
+     "series": "Aizu Prime",
+     "focals": [
+      [
+       18,
+       "T1.3"
+      ],
+      [
+       21,
+       "T1.3"
+      ],
+      [
+       25,
+       "T1.3"
+      ],
+      [
+       27,
+       "T1.3"
+      ],
+      [
+       32,
+       "T1.3"
+      ],
+      [
+       35,
+       "T1.3"
+      ],
+      [
+       40,
+       "T1.3"
+      ],
+      [
+       50,
+       "T1.3"
+      ],
+      [
+       65,
+       "T1.3"
+      ],
+      [
+       75,
+       "T1.3"
+      ],
+      [
+       100,
+       "T1.3"
+      ],
+      [
+       125,
+       "T1.3"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Large Format",
+     "short": [
+      "Aizu "
+     ],
+     "extraSeries": [
+      "Sigma Aizu"
+     ]
+    },
+    {
+     "manufacturer": "Tokina",
+     "series": "Cinema Vista",
+     "focals": [
+      [
+       18,
+       "T1.5"
+      ],
+      [
+       21,
+       "T1.5"
+      ],
+      [
+       25,
+       "T1.5"
+      ],
+      [
+       29,
+       "T1.5"
+      ],
+      [
+       35,
+       "T1.5"
+      ],
+      [
+       40,
+       "T1.5"
+      ],
+      [
+       50,
+       "T1.5"
+      ],
+      [
+       65,
+       "T1.5"
+      ],
+      [
+       85,
+       "T1.5"
+      ],
+      [
+       105,
+       "T1.5"
+      ],
+      [
+       135,
+       "T1.5"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "short": [
+      "Vista "
+     ],
+     "extraSeries": [
+      "Tokina Vista",
+      "Vista"
+     ]
+    },
+    {
+     "manufacturer": "DZOFilm",
+     "series": "Vespid",
+     "focals": [
+      [
+       12,
+       "T2.8"
+      ],
+      [
+       16,
+       "T2.8"
+      ],
+      [
+       21,
+       "T2.1"
+      ],
+      [
+       25,
+       "T2.1"
+      ],
+      [
+       35,
+       "T2.1"
+      ],
+      [
+       40,
+       "T2.1"
+      ],
+      [
+       50,
+       "T2.1"
+      ],
+      [
+       75,
+       "T2.1"
+      ],
+      [
+       90,
+       "T2.8"
+      ],
+      [
+       100,
+       "T2.1"
+      ],
+      [
+       125,
+       "T2.1"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "short": [
+      "Vespid "
+     ],
+     "extraSeries": [
+      "DZO Vespid"
+     ]
+    },
+    {
+     "manufacturer": "DZOFilm",
+     "series": "Vespid Retro",
+     "focals": [
+      [
+       16,
+       "T2.8"
+      ],
+      [
+       25,
+       "T2.1"
+      ],
+      [
+       35,
+       "T2.1"
+      ],
+      [
+       50,
+       "T2.1"
+      ],
+      [
+       75,
+       "T2.1"
+      ],
+      [
+       100,
+       "T2.1"
+      ],
+      [
+       125,
+       "T2.1"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "short": [
+      "Retro "
+     ],
+     "extraSeries": [
+      "DZO Vespid Retro"
+     ]
+    },
+    {
+     "manufacturer": "DZOFilm",
+     "series": "Arles",
+     "focals": [
+      [
+       14,
+       "T1.9"
+      ],
+      [
+       21,
+       "T1.4"
+      ],
+      [
+       25,
+       "T1.4"
+      ],
+      [
+       35,
+       "T1.4"
+      ],
+      [
+       40,
+       "T1.4"
+      ],
+      [
+       50,
+       "T1.4"
+      ],
+      [
+       75,
+       "T1.4"
+      ],
+      [
+       100,
+       "T1.4"
+      ],
+      [
+       135,
+       "T1.4"
+      ],
+      [
+       180,
+       null
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "short": [
+      "Arles "
+     ],
+     "extraSeries": [
+      "DZO Arles"
+     ]
+    },
+    {
+     "manufacturer": "Schneider",
+     "series": "Xenon FF",
+     "focals": [
+      [
+       18,
+       "T2.4"
+      ],
+      [
+       25,
+       "T2.1"
+      ],
+      [
+       35,
+       "T2.1"
+      ],
+      [
+       50,
+       "T2.1"
+      ],
+      [
+       75,
+       "T2.1"
+      ],
+      [
+       100,
+       "T2.1"
+      ],
+      [
+       135,
+       "T2.1"
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "extraSeries": [
+      "Xenon FF-Prime",
+      "Schneider Xenon"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "series": "Athena",
+     "focals": [
+      [
+       14,
+       "T2.4"
+      ],
+      [
+       18,
+       "T2.2"
+      ],
+      [
+       25,
+       "T1.9"
+      ],
+      [
+       35,
+       "T1.9"
+      ],
+      [
+       40,
+       "T1.9"
+      ],
+      [
+       50,
+       "T1.9"
+      ],
+      [
+       85,
+       "T1.9"
+      ],
+      [
+       135,
+       "T2.2"
+      ]
+     ],
+     "mount": "E",
+     "format": "Full Frame",
+     "short": [
+      "Athena "
+     ],
+     "extraSeries": [
+      "NiSi Athena Prime",
+      "Athena Prime"
+     ]
+    },
+    {
+     "manufacturer": "Tribe7",
+     "series": "Blackwing7",
+     "focals": [
+      [
+       20.7,
+       null
+      ],
+      [
+       23.7,
+       null
+      ],
+      [
+       27,
+       null
+      ],
+      [
+       37,
+       null
+      ],
+      [
+       47,
+       null
+      ],
+      [
+       57,
+       null
+      ],
+      [
+       77,
+       null
+      ],
+      [
+       107,
+       null
+      ],
+      [
+       137,
+       null
+      ]
+     ],
+     "mount": "PL",
+     "format": "Full Frame",
+     "short": [
+      "BW7 ",
+      "BW "
+     ],
+     "extraSeries": [
+      "Blackwing",
+      "Tribe7 Blackwing7"
+     ]
+    },
+    {
+     "manufacturer": "Panavision",
+     "series": "Primo",
+     "focals": [
+      [
+       10,
+       "T1.9"
+      ],
+      [
+       14.5,
+       "T1.9"
+      ],
+      [
+       17.5,
+       "T1.9"
+      ],
+      [
+       21,
+       "T1.9"
+      ],
+      [
+       27,
+       "T1.9"
+      ],
+      [
+       35,
+       "T1.9"
+      ],
+      [
+       40,
+       "T1.9"
+      ],
+      [
+       50,
+       "T1.9"
+      ],
+      [
+       75,
+       "T1.9"
+      ],
+      [
+       85,
+       null
+      ],
+      [
+       100,
+       "T1.9"
+      ],
+      [
+       125,
+       null
+      ],
+      [
+       150,
+       "T1.9"
+      ]
+     ],
+     "mount": "PV",
+     "format": "Super 35",
+     "short": [
+      "Primo "
+     ],
+     "extraSeries": [
+      "Panavision Primo"
+     ]
+    },
+    {
+     "manufacturer": "Panavision",
+     "series": "Primo 70",
+     "focals": [
+      [
+       24,
+       "T2"
+      ],
+      [
+       27,
+       "T2"
+      ],
+      [
+       35,
+       "T2"
+      ],
+      [
+       40,
+       "T2"
+      ],
+      [
+       50,
+       "T2"
+      ],
+      [
+       65,
+       "T2"
+      ],
+      [
+       80,
+       "T2"
+      ],
+      [
+       100,
+       "T2"
+      ],
+      [
+       125,
+       "T2"
+      ],
+      [
+       150,
+       "T2"
+      ],
+      [
+       200,
+       "T2.8"
+      ],
+      [
+       250,
+       "T2.8"
+      ]
+     ],
+     "mount": "PV70",
+     "format": "Large Format",
+     "short": [
+      "P70 "
+     ],
+     "extraSeries": [
+      "Panavision Primo 70"
+     ]
     }
    ],
    "entries": [
+    {
+     "manufacturer": "Leitz",
+     "model": "HUGO 50mm T1.0",
+     "aliases": [
+      "Hugo 50 T1.0",
+      "Leitz HUGO 50mm N",
+      "HUGO 50-N"
+     ],
+     "specs": {
+      "mount": "LPL",
+      "format": "Full Frame",
+      "focal_length_mm": 50,
+      "t_stop": "T1.0"
+     }
+    },
     {
      "manufacturer": "ZEISS",
      "model": "CP.2 50mm T2.1 Macro",
@@ -3231,16 +4457,20 @@
     },
     {
      "manufacturer": "Canon",
-     "model": "CN10x25 IAS S 25-250mm T2.95",
+     "model": "CN10x25 IAS S 25-250mm T2.95-3.95",
      "aliases": [
       "CN10x25",
-      "Canon Cine-Servo 25-250"
+      "Canon Cine-Servo 25-250",
+      "CN10x25 IAS S 25-250mm T2.95"
      ],
      "specs": {
       "focal_length_mm": "25-250",
-      "t_stop": "T2.95",
+      "t_stop": "2.95-3.95",
       "format": "Super 35"
-     }
+     },
+     "formerly": [
+      "CN10x25 IAS S 25-250mm T2.95"
+     ]
     },
     {
      "manufacturer": "Canon",
@@ -3264,7 +4494,8 @@
      ],
      "specs": {
       "mount": "PL / EF",
-      "format": "Super 35"
+      "format": "Super 35",
+      "t_stop": "2.95-3.9"
      }
     },
     {
@@ -3297,6 +4528,38 @@
     },
     {
      "manufacturer": "Cooke",
+     "model": "25-250mm T3.7 MkIII",
+     "name": "Cooke Cinetal 25-250mm T3.7 Mk III",
+     "aliases": [
+      "Cooke 25-250",
+      "Cinetal 25-250",
+      "Cooke 25-250 Mk3"
+     ],
+     "specs": {
+      "focal_length_mm": "25-250",
+      "t_stop": "T3.7",
+      "mount": "PL",
+      "weight_kg": 8.2
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Cooke",
+     "model": "Varotal 20-100mm T3.1",
+     "aliases": [
+      "Cooke 20-100",
+      "Varotal 20-100",
+      "Cooke Zoom 20-100"
+     ],
+     "specs": {
+      "focal_length_mm": "20-100",
+      "t_stop": "T3.1",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Cooke",
      "model": "Varotal/i FF 19-40mm T2.8",
      "aliases": [
       "Varotal 19-40",
@@ -3321,15 +4584,19 @@
     },
     {
      "manufacturer": "Cooke",
-     "model": "Varotal/i FF 85-215mm T2.8",
+     "model": "Varotal/i FF 85-215mm T2.9",
      "aliases": [
       "Varotal 85-215",
-      "Cooke 85-215"
+      "Cooke 85-215",
+      "Varotal/i FF 85-215mm T2.8"
      ],
      "specs": {
       "mount": "PL",
       "format": "Full Frame"
-     }
+     },
+     "formerly": [
+      "Varotal/i FF 85-215mm T2.8"
+     ]
     },
     {
      "manufacturer": "DZOFilm",
@@ -3368,6 +4635,19 @@
       "focal_length_mm": "70-135",
       "t_stop": "T2.9",
       "format": "Full Frame"
+     }
+    },
+    {
+     "manufacturer": "DZOFilm",
+     "model": "Pictor 12-25mm T2.8",
+     "aliases": [
+      "Pictor 12-25",
+      "DZO Pictor 12-25"
+     ],
+     "specs": {
+      "focal_length_mm": "12-25",
+      "t_stop": "T2.8",
+      "format": "Super 35"
      }
     },
     {
@@ -3477,14 +4757,34 @@
     },
     {
      "manufacturer": "Fujinon",
-     "model": "Duvo 24-1300mm",
+     "model": "Duvo 14-100mm T2.9-3.9",
+     "name": "Fujinon Duvo HZK14-100mm T2.9-3.9",
      "aliases": [
-      "HZK24-1300",
-      "Duvo HZK24-1300"
+      "HZK14-100",
+      "Duvo HZK14-100",
+      "Duvo 14-100",
+      "Fujinon 14-100"
      ],
      "specs": {
-      "focal_length_mm": "24-1300",
+      "focal_length_mm": "14-100",
+      "t_stop": "T2.9-3.9",
       "mount": "PL"
+     }
+    },
+    {
+     "manufacturer": "Fujinon",
+     "model": "Duvo 24-300mm",
+     "name": "Fujinon Duvo HZK24-300mm Portable",
+     "aliases": [
+      "HZK24-300",
+      "Duvo Portable",
+      "Duvo HZK24-300",
+      "Fujinon 24-300"
+     ],
+     "specs": {
+      "focal_length_mm": "24-300",
+      "mount": "PL",
+      "format": "Large format (dual-format)"
      }
     },
     {
@@ -3645,6 +4945,21 @@
     },
     {
      "manufacturer": "Sigma",
+     "model": "AF Cine 28-45mm T2 FF",
+     "aliases": [
+      "Sigma 28-45 Cine",
+      "AF Cine 28-45",
+      "Sigma 28-45mm T2"
+     ],
+     "specs": {
+      "focal_length_mm": "28-45",
+      "t_stop": "T2",
+      "format": "Full Frame",
+      "mount": "Sony E / L-Mount"
+     }
+    },
+    {
+     "manufacturer": "Sigma",
      "model": "Cine FF Zoom 24-35mm T2.2",
      "aliases": [
       "Sigma 24-35 Cine",
@@ -3704,7 +5019,8 @@
      ],
      "specs": {
       "focal_length_mm": "16-28",
-      "t_stop": "T3"
+      "t_stop": "T3",
+      "format": "Full Frame"
      }
     },
     {
@@ -3716,7 +5032,8 @@
      ],
      "specs": {
       "focal_length_mm": "25-75",
-      "t_stop": "T2.9"
+      "t_stop": "T2.9",
+      "format": "Super 35"
      }
     },
     {

@@ -129,12 +129,11 @@
      "manufacturer": "ARRI",
      "model": "LBUS Cable 1.5 m",
      "aliases": [
-      "LBUS 1.5m",
-      "LBUS 49ft"
+      "LBUS 1.5m"
      ],
      "bulk": true,
      "specs": {
-      "length_m": 15
+      "length_m": 1.5
      },
      "name": "ARRI Cable LBUS - LBUS 15 m"
     },
@@ -402,6 +401,47 @@
      "aliases": [
       "4-pin XLR",
       "XLR4 Power"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "D-Tap to 2-pin Power Cable 36\"",
+     "aliases": [
+      "SmallHD D-Tap Cable",
+      "SmallHD D-Tap 2-pin 91cm",
+      "17-3000"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "2-pin LEMO to 2-pin LEMO Cable 18\"",
+     "aliases": [
+      "11-0719",
+      "Teradek Lemo 2-pin 18in",
+      "Teradek ARRI Power Cable"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "2-pin LEMO to 2-pin LEMO Cable 6\"",
+     "aliases": [
+      "11-0708",
+      "BIT-708",
+      "Teradek Lemo 2-pin 6in"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "2-pin LEMO to D-Tap Cable 11\"",
+     "aliases": [
+      "11-0109",
+      "BIT-109",
+      "Teradek D-Tap Cable",
+      "Teradek P-Tap Kabel"
      ],
      "bulk": true
     }

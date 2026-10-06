@@ -552,6 +552,20 @@
      "aliases": []
     },
     {
+     "manufacturer": "Mo-Sys",
+     "model": "L40",
+     "name": "Mo-Sys L40 Remote Head",
+     "aliases": [
+      "Lambda L40",
+      "L40 Remotekopf"
+     ],
+     "specs": {
+      "weight_kg": 18,
+      "capacity": "40 kg payload",
+      "axes": "2-axis (3rd roll axis optional)"
+     }
+    },
+    {
      "manufacturer": "OConnor",
      "model": "1030D Fluid Head",
      "name": "O'Connor 1030D",
@@ -623,6 +637,15 @@
      "aliases": [
       "2575E",
       "Ultimate 2575E"
+     ]
+    },
+    {
+     "manufacturer": "Panavision",
+     "model": "Panahead",
+     "name": "Panavision Panahead Geared Head",
+     "aliases": [
+      "Panavision Gearhead",
+      "Panahead Getriebeneiger"
      ]
     },
     {
@@ -767,6 +790,54 @@
     "Tripods"
    ],
    "entries": [
+    {
+     "manufacturer": "Cartoni",
+     "model": "H603 Carbon Tripod 100mm",
+     "aliases": [
+      "Cartoni H603",
+      "T723/C",
+      "H603 CF Legs"
+     ],
+     "specs": {
+      "mount": "100mm bowl"
+     }
+    },
+    {
+     "manufacturer": "Cartoni",
+     "model": "K712 Carbon Tripod 150mm",
+     "aliases": [
+      "Cartoni K712",
+      "K712",
+      "Cartoni CF 150 Stativ"
+     ],
+     "specs": {
+      "mount": "150mm bowl"
+     }
+    },
+    {
+     "manufacturer": "Cartoni",
+     "model": "Red Lock Tripod 100mm",
+     "aliases": [
+      "Cartoni Red Lock",
+      "T631/2",
+      "Red Lock 3-Tube Tripod"
+     ],
+     "specs": {
+      "mount": "100mm bowl"
+     }
+    },
+    {
+     "manufacturer": "Cartoni",
+     "model": "Tripod Cine 150mm",
+     "aliases": [
+      "Cartoni Cine Legs",
+      "Cartoni Cine Tripod",
+      "Cartoni Cine Stativ"
+     ],
+     "specs": {
+      "mount": "150mm bowl"
+     }
+    },
     {
      "manufacturer": "Generic",
      "model": "Ground Spreader",

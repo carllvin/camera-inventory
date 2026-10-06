@@ -361,6 +361,79 @@
      }
     },
     {
+     "manufacturer": "BlueShape",
+     "model": "BB145",
+     "aliases": [
+      "Granite BB145",
+      "BlueShape B-Mount 145"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 145
+     }
+    },
+    {
+     "manufacturer": "BlueShape",
+     "model": "BB145HS",
+     "aliases": [
+      "Granite BB145HS",
+      "BB145 Hotswap"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 145
+     }
+    },
+    {
+     "manufacturer": "BlueShape",
+     "model": "BB290",
+     "aliases": [
+      "Granite BB290",
+      "BlueShape B-Mount 290"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 290
+     }
+    },
+    {
+     "manufacturer": "BlueShape",
+     "model": "BB435",
+     "aliases": [
+      "Granite BB435",
+      "BlueShape B-Mount 435"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 435
+     }
+    },
+    {
+     "manufacturer": "BlueShape",
+     "model": "BV150 Granite Two",
+     "aliases": [
+      "Granite Two 150",
+      "BlueShape Granite Two",
+      "BV150 Akku"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 150
+     }
+    },
+    {
+     "manufacturer": "BlueShape",
+     "model": "Granite Mini",
+     "aliases": [
+      "BlueShape Granite Mini 140",
+      "Granite Mini Akku"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 140
+     }
+    },
+    {
      "manufacturer": "Core SWX",
      "model": "Helix 9 Max",
      "aliases": [
@@ -440,6 +513,184 @@
      }
     },
     {
+     "manufacturer": "Core SWX",
+     "model": "NANO-V150",
+     "aliases": [
+      "Core Nano 150",
+      "Nano Micro V150"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 147
+     }
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "NANO-V150X",
+     "aliases": [
+      "NanoX V150",
+      "Nano X 150"
+     ],
+     "specs": {
+      "mount": "V-Mount"
+     }
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "NANO-V50",
+     "aliases": [
+      "Core Nano 50"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 49
+     }
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "NANO-V98X",
+     "aliases": [
+      "NanoX V98",
+      "Nano X 98",
+      "Core NanoX 98"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 98
+     }
+    },
+    {
+     "manufacturer": "Fxlion",
+     "model": "Nano One",
+     "aliases": [
+      "Fxlion Nano 1",
+      "Nano One Wireless"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 50
+     }
+    },
+    {
+     "manufacturer": "Fxlion",
+     "model": "Nano Three",
+     "aliases": [
+      "Fxlion Nano 3",
+      "Nano Three Wireless"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 150
+     }
+    },
+    {
+     "manufacturer": "Fxlion",
+     "model": "Nano Two",
+     "aliases": [
+      "Fxlion Nano 2",
+      "Nano Two Wireless"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 98
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "BL-150",
+     "aliases": [
+      "B-Lok 150",
+      "Hawk-Woods B-Lok 150Wh"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 150
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "BL-350",
+     "aliases": [
+      "B-Lok 350",
+      "Hawk-Woods B-Lok 350Wh"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 350
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "BL-98",
+     "aliases": [
+      "B-Lok 98",
+      "Hawk-Woods B-Lok 98Wh"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 98
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "RP-100H",
+     "aliases": [
+      "Reel Power 100",
+      "RP-100H Akku"
+     ],
+     "specs": {
+      "mount": "Reel Power",
+      "capacity_wh": 100
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "RP-150H",
+     "aliases": [
+      "Reel Power 150",
+      "RP-150H Akku"
+     ],
+     "specs": {
+      "mount": "Reel Power"
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "RP-200H",
+     "aliases": [
+      "Reel Power 200",
+      "RP-200H Akku"
+     ],
+     "specs": {
+      "mount": "Reel Power",
+      "capacity_wh": 200
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "RP-250N",
+     "aliases": [
+      "Reel Power 250",
+      "RP-250N Akku"
+     ],
+     "specs": {
+      "mount": "Reel Power",
+      "capacity_wh": 250
+     }
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "RP-350N",
+     "aliases": [
+      "Reel Power 350",
+      "RP-350N Akku"
+     ],
+     "specs": {
+      "mount": "Reel Power",
+      "capacity_wh": 350
+     }
+    },
+    {
      "manufacturer": "Hawk-Woods",
      "model": "VL-M98",
      "aliases": [
@@ -460,6 +711,43 @@
      "specs": {
       "mount": "V-Mount",
       "capacity_wh": 98
+     }
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "CUE-D150",
+     "aliases": [
+      "CUE-D150 Akku",
+      "IDX CUE 150",
+      "Endura CUE-D150"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 147
+     }
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "CUE-D75",
+     "aliases": [
+      "CUE-D75 Akku",
+      "IDX CUE 75"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 73
+     }
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "CUE-D95",
+     "aliases": [
+      "CUE-D95 Akku",
+      "IDX CUE 95"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 91
      }
     },
     {
@@ -522,7 +810,8 @@
      "model": "Imicro-150",
      "aliases": [],
      "specs": {
-      "mount": "V-Mount"
+      "mount": "V-Mount",
+      "capacity_wh": 145
      }
     },
     {
@@ -549,7 +838,7 @@
      ],
      "specs": {
       "mount": "V-Mount",
-      "capacity_wh": 98
+      "capacity_wh": 97
      }
     },
     {
@@ -558,6 +847,65 @@
      "aliases": [],
      "specs": {
       "mount": "V-Mount"
+     }
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "SL-F50PD",
+     "aliases": [
+      "IDX NP-F 48Wh",
+      "SL-F50PD Akku"
+     ],
+     "specs": {
+      "mount": "Sony L-Series (NP-F)",
+      "capacity_wh": 48
+     }
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "SL-F70",
+     "aliases": [
+      "IDX NP-F 70",
+      "SL-F70 Akku"
+     ],
+     "specs": {
+      "mount": "Sony L-Series (NP-F)"
+     }
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "HB-A290B",
+     "aliases": [
+      "SWIT B-Mount 290",
+      "HB-A290B Akku"
+     ],
+     "specs": {
+      "mount": "B-Mount",
+      "capacity_wh": 290
+     }
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-S290S",
+     "aliases": [
+      "SWIT 290Wh",
+      "PB-S290S Akku"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 290
+     }
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-S98S",
+     "aliases": [
+      "SWIT 98Wh",
+      "PB-S98S Akku"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 98
      }
     }
    ]
@@ -568,6 +916,18 @@
     "Chargers"
    ],
    "entries": [
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Dionic 26V LP4 Quad B-Mount",
+     "aliases": [
+      "LP4 B-Mount",
+      "Dionic LP4 Quad B-Mount Ladegerät",
+      "Anton Bauer LP4 B-Mount"
+     ],
+     "specs": {
+      "mount": "B-Mount"
+     }
+    },
     {
      "manufacturer": "Anton/Bauer",
      "model": "LP2 Dual",
@@ -858,6 +1218,24 @@
      "specs": {
       "capacity_wh": 630
      }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "PDM-1",
+     "aliases": [
+      "K2.0024101",
+      "Power Distribution Module PDM-1",
+      "ALEXA 35 PDM"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Power Supply Light 24V",
+     "aliases": [
+      "K2.0034493",
+      "ARRI Netzteil 24V",
+      "ARRI PSU Light"
+     ]
     },
     {
      "manufacturer": "bebob",

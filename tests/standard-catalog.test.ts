@@ -46,7 +46,9 @@ describe("catalog data", () => {
     expect(all.find((e) => e.model === "Master Anamorphic 180mm T2.8")!.formerly).toEqual(["Master Anamorphic 180mm T1.9"]);
     expect(all.find((e) => e.model === "Ultra 16 6mm T1.3")!.specs!.availability).toBe("discontinued");
     expect(all.find((e) => e.manufacturer === "bebob" && e.model === "B90cine")!.formerly).toContain("B98cine");
-    expect(all.length).toBeGreaterThan(1100);
+    expect(all.length).toBeGreaterThan(1500);
+    // A T-stop learned later renames the generated model; the old one is kept as "formerly".
+    expect(all.find((e) => e.model === "Panchro/i Classic 32mm T2.2")!.formerly).toEqual(["Panchro/i Classic 32mm"]);
   });
 
   it("lists lenses per focal length", () => {

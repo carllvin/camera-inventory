@@ -11,6 +11,14 @@
    "entries": [
     {
      "manufacturer": "ARRI",
+     "model": "Adjustable Top Plate for MoVI",
+     "aliases": [
+      "ALEXA 35 MoVI Top Plate",
+      "MoVI Top Plate A35"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Balance Utility Dovetail BUD-1",
      "aliases": [
       "BUD-1"
@@ -95,7 +103,8 @@
      "model": "EF Mount (LBUS)",
      "aliases": [
       "EF LBUS",
-      "EF Bajonett LBUS"
+      "EF Bajonett LBUS",
+      "K2.0019965"
      ]
     },
     {
@@ -131,18 +140,23 @@
     },
     {
      "manufacturer": "ARRI",
-     "model": "LPL Mount (LBUS)",
+     "model": "LPL Lens Mount for ALEXA",
      "aliases": [
-      "LPL LBUS",
-      "LPL Bajonett LBUS"
+      "LPL Mount",
+      "LPL/M-ALEXA",
+      "K2.0019072"
+     ],
+     "formerly": [
+      "LPL Mount LPL-1"
      ]
     },
     {
      "manufacturer": "ARRI",
-     "model": "LPL Mount LPL-1",
+     "model": "LPL Mount (LBUS)",
      "aliases": [
-      "LPL Mount",
-      "LPL-1"
+      "LPL LBUS",
+      "LPL Bajonett LBUS",
+      "K2.0018983"
      ]
     },
     {
@@ -221,6 +235,14 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "Vertical Top Plate",
+     "aliases": [
+      "ALEXA 35 Vertical Top Plate",
+      "A35 Vertical Plate"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Viewfinder Adapter VFA-3",
      "aliases": [
       "VFA-3"
@@ -245,12 +267,55 @@
      ]
     },
     {
-     "manufacturer": "RED",
-     "model": "DSMC3 V-Lock I/O Expander",
+     "manufacturer": "Bright Tangerine",
+     "model": "LeftField 3 Baseplate",
      "aliases": [
-      "V-Lock I/O Expander",
-      "V-Raptor I/O Expander",
-      "DSMC3 V-Mount Expander"
+      "LeftField 3",
+      "BT LeftField 3",
+      "LeftField Baseplate"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "LeftField Base Cine Kit for Sony BURANO",
+     "aliases": [
+      "B4004.0040",
+      "BT Burano Kit",
+      "LeftField Burano Kit"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "LeftField Mini Baseplate",
+     "aliases": [
+      "LeftField Mini",
+      "BT LeftField Mini"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "Top Handle for RED DSMC3",
+     "aliases": [
+      "B4002.1052",
+      "BT DSMC3 Top Handle",
+      "Bright Tangerine V-Raptor Griff"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "Compact Top Handle",
+     "aliases": [
+      "RED Compact Top Handle and Extensions",
+      "KOMODO-X Top Handle",
+      "Komodo-X Griff"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC3 Adapter A",
+     "aliases": [
+      "Adapter A DSMC3",
+      "DSMC3 Monitor Adapter A"
      ]
     },
     {
@@ -259,6 +324,68 @@
      "aliases": [
       "Komodo Link",
       "Komodo Link Adapter"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "KOMODO Outrigger Handle",
+     "aliases": [
+      "Komodo Outrigger",
+      "Komodo Seitengriff"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "PRO I/O Module Gold Mount",
+     "aliases": [
+      "RED Pro Gold Mount I/O Module",
+      "Pro I/O Gold Mount",
+      "KOMODO-X Pro I/O Gold"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "PRO I/O Module V-Lock",
+     "aliases": [
+      "RED Pro V-Lock I/O Module",
+      "Pro I/O V-Lock",
+      "KOMODO-X Pro I/O V-Lock"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR Expander Blade",
+     "aliases": [
+      "Raptor Expander Blade",
+      "V-Raptor Expander",
+      "DSMC3 Expander Blade"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR Top Handle",
+     "aliases": [
+      "790-0689",
+      "V-Raptor Griff",
+      "Raptor Top Handle"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR Top Handle w/ Extensions",
+     "aliases": [
+      "790-0698",
+      "V-Raptor Top Handle Kit",
+      "V-Raptor Griff mit Verlängerungen"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR XL Top Handle w/ Extensions",
+     "aliases": [
+      "790-0716",
+      "V-Raptor XL Top Handle",
+      "Raptor XL Griff"
      ]
     },
     {
@@ -289,12 +416,143 @@
      ]
     },
     {
+     "manufacturer": "Sony",
+     "model": "VENICE Extension System Mini",
+     "aliases": [
+      "CBK-3621XS",
+      "Rialto Mini",
+      "VENICE Extension Mini",
+      "Venice Mini Extension"
+     ],
+     "specs": {
+      "sensor": "VENICE 2 8.6K Full Frame",
+      "mount": "E (PL with adapter)",
+      "weight_kg": 0.655
+     }
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Camera Cage for ALEXA Mini LF/Mini",
+     "aliases": [
+      "ESR-T07",
+      "Tilta Mini LF Cage",
+      "Tilta Alexa Mini Cage",
+      "Tilta Käfig Mini LF"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Camera Cage for RED KOMODO",
+     "aliases": [
+      "TA-T08-FCC",
+      "Tilta Komodo Cage",
+      "Tilta Käfig Komodo"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Camera Cage for Sony BURANO Advanced Kit (V-Mount)",
+     "aliases": [
+      "ESR-T18-C-V",
+      "Tilta Burano Cage",
+      "Tilta Käfig Burano"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Camera Cage for Sony FX6",
+     "aliases": [
+      "ES-T20-A",
+      "Tilta FX6 Cage",
+      "Tilta Käfig FX6"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Camera Cage for Sony FX9",
+     "aliases": [
+      "ES-T18",
+      "Tilta FX9 Cage",
+      "Tilta Käfig FX9"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Full Camera Cage for RED KOMODO-X",
+     "aliases": [
+      "TA-T53-FCC-B",
+      "Tilta Komodo-X Cage",
+      "Tilta Käfig Komodo-X"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Full Camera Cage for RED V-RAPTOR",
+     "aliases": [
+      "Tilta V-Raptor Cage",
+      "Tilta Käfig V-Raptor"
+     ]
+    },
+    {
      "manufacturer": "Wooden Camera",
      "model": "ARRI Alexa Mini LF Unified Accessory Kit (Pro, 19mm)",
      "aliases": [
       "WC Mini LF UAK Pro",
       "Mini LF UAK 19mm",
       "Wooden Camera Mini LF Kit"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Elite Accessory System for ARRI ALEXA 35",
+     "aliases": [
+      "WC A35 Elite Kit",
+      "Wooden Camera ALEXA 35 Elite",
+      "ALEXA 35 Elite Accessory System"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Elite Accessory System for RED KOMODO-X",
+     "aliases": [
+      "WC Komodo-X Elite Kit",
+      "Wooden Camera KOMODO-X Elite",
+      "KOMODO-X Elite Accessory System"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Elite Accessory System for Sony BURANO",
+     "aliases": [
+      "WC Burano Elite Kit",
+      "Wooden Camera BURANO Elite",
+      "BURANO Elite Accessory System"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Elite Accessory System for Sony VENICE/VENICE 2",
+     "aliases": [
+      "WC Venice 2 Elite Kit",
+      "Wooden Camera VENICE 2 Elite",
+      "VENICE 2 Elite Accessory System"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Top Plate System (ALEXA 35)",
+     "aliases": [
+      "WC A35 Top Plate",
+      "ALEXA 35 Top Plate System"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Ultra Handle Kit for RED DSMC3",
+     "aliases": [
+      "WC Ultra Handle DSMC3",
+      "Ultra Handle 4in Kit RED",
+      "Ultra Handle V-Raptor"
      ]
     }
    ]
@@ -1072,7 +1330,8 @@
      "model": "VariCam Pure",
      "aliases": [
       "Varicam Pure Kamera",
-      "VariCam 35 Pure"
+      "VariCam 35 Pure",
+      "AU-VCXRAW2"
      ],
      "specs": {
       "sensor": "Super 35 4K",
@@ -1123,7 +1382,8 @@
      "manufacturer": "Phantom",
      "model": "VEO 4K 990",
      "aliases": [
-      "Phantom VEO 990"
+      "Phantom VEO 990",
+      "VEO4K 990S"
      ],
      "specs": {
       "sensor": "Super 35 4K"
@@ -1679,10 +1939,25 @@
     },
     {
      "manufacturer": "Codex",
+     "model": "Capture Drive 2.0 Dock",
+     "aliases": [
+      "CD 2.0 Dock",
+      "Codex Dock 2.0"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
      "model": "Capture Drive Dock",
      "aliases": [
-      "Codex Dock",
-      "Capture Drive Dock USB-3"
+      "Codex Dock"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "CFexpress Type B Reader",
+     "aliases": [
+      "Codex CFexpress Reader",
+      "Codex CFe B Reader USB4"
      ]
     },
     {
@@ -1705,6 +1980,26 @@
      ],
      "specs": {
       "capacity": "2TB"
+     }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Compact Drive Adapter",
+     "aliases": [
+      "K2.0024131",
+      "CCD Adapter",
+      "Compact Drive Adapter Capture Drive"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Compact Drive Express 1TB",
+     "aliases": [
+      "CCD Express 1TB",
+      "Compact Drive Express"
+     ],
+     "specs": {
+      "capacity": "1TB"
      }
     },
     {
@@ -1742,6 +2037,34 @@
     },
     {
      "manufacturer": "Codex",
+     "model": "SXR Capture Drive Adapter",
+     "aliases": [
+      "K2.0008429",
+      "SXR Adapter"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "SXR Capture Drive Dock TB3",
+     "aliases": [
+      "SXR Dock",
+      "SXR Capture Drive Dock Thunderbolt 3"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "XR Capture Drive 1TB",
+     "aliases": [
+      "XR Drive 1TB",
+      "XR 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Codex",
      "model": "XR Capture Drive 512GB",
      "aliases": [
       "XR Drive 512GB",
@@ -1751,6 +2074,32 @@
       "capacity": "512GB"
      },
      "discontinued": true
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "XR Capture Drive Dock USB-3",
+     "aliases": [
+      "XR Dock USB-3",
+      "XR Capture Drive Dock"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ProGrade",
+     "model": "CFexpress Type B & SD Dual-Slot Reader PG05.5",
+     "aliases": [
+      "PG05.5",
+      "ProGrade Dual Reader",
+      "PGRWCFXSDANA"
+     ]
+    },
+    {
+     "manufacturer": "ProGrade",
+     "model": "CFexpress Type B & XQD Thunderbolt 3 Reader PG04",
+     "aliases": [
+      "PG04",
+      "ProGrade TB3 Reader"
+     ]
     },
     {
      "manufacturer": "ProGrade",
@@ -1776,6 +2125,17 @@
     },
     {
      "manufacturer": "ProGrade",
+     "model": "CFexpress Type B Gold 128GB",
+     "aliases": [
+      "ProGrade Gold 128GB",
+      "ProGrade CFe B 128"
+     ],
+     "specs": {
+      "capacity": "128GB"
+     }
+    },
+    {
+     "manufacturer": "ProGrade",
      "model": "CFexpress Type B Gold 1TB",
      "aliases": [
       "ProGrade Gold 1TB",
@@ -1783,6 +2143,17 @@
      ],
      "specs": {
       "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "ProGrade",
+     "model": "CFexpress Type B Gold 256GB",
+     "aliases": [
+      "ProGrade Gold 256GB",
+      "ProGrade CFe B 256"
+     ],
+     "specs": {
+      "capacity": "256GB"
      }
     },
     {
@@ -1795,6 +2166,14 @@
      "specs": {
       "capacity": "512GB"
      }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "CFexpress Card Reader",
+     "aliases": [
+      "RED CFexpress Reader",
+      "RED CFe Reader USB-C"
+     ]
     },
     {
      "manufacturer": "RED",
@@ -1820,6 +2199,17 @@
     },
     {
      "manufacturer": "RED",
+     "model": "PRO CFexpress 1.3TB",
+     "aliases": [
+      "RED CFexpress 1.3TB",
+      "RED Pro CFE 1.3TB"
+     ],
+     "specs": {
+      "capacity": "1.3TB"
+     }
+    },
+    {
+     "manufacturer": "RED",
      "model": "PRO CFexpress 1TB",
      "aliases": [
       "RED CFexpress 1TB",
@@ -1839,6 +2229,25 @@
      "specs": {
       "capacity": "2TB"
      }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "PRO CFexpress 660GB",
+     "aliases": [
+      "RED CFexpress 660GB",
+      "RED Pro CFE 660GB"
+     ],
+     "specs": {
+      "capacity": "660GB"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "PRO CFexpress v4 Type B Card Reader",
+     "aliases": [
+      "RED CFexpress v4 Reader",
+      "RED PRO CFe v4 Reader"
+     ]
     },
     {
      "manufacturer": "RED",
@@ -1982,6 +2391,28 @@
     },
     {
      "manufacturer": "Sony",
+     "model": "CEA-G1920T",
+     "aliases": [
+      "Sony CFexpress A 1920GB",
+      "CEA-G1920"
+     ],
+     "specs": {
+      "capacity": "1920GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEA-G240T",
+     "aliases": [
+      "Sony CFexpress A 240GB",
+      "CEA-G240"
+     ],
+     "specs": {
+      "capacity": "240GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
      "model": "CEA-G320T",
      "aliases": [
       "Sony CFexpress A 320GB",
@@ -1989,6 +2420,17 @@
      ],
      "specs": {
       "capacity": "320GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEA-G480T",
+     "aliases": [
+      "Sony CFexpress A 480GB",
+      "CEA-G480"
+     ],
+     "specs": {
+      "capacity": "480GB"
      }
     },
     {
@@ -2011,6 +2453,17 @@
      ],
      "specs": {
       "capacity": "80GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEA-G960T",
+     "aliases": [
+      "Sony CFexpress A 960GB",
+      "CEA-G960"
+     ],
+     "specs": {
+      "capacity": "960GB"
      }
     },
     {
@@ -2061,6 +2514,39 @@
       "Sony CFexpress A Reader",
       "MRW-G2 Reader"
      ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "SBP-128E",
+     "aliases": [
+      "SxS PRO+ 128GB",
+      "SxS 128GB E Series"
+     ],
+     "specs": {
+      "capacity": "128GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "SBP-256E",
+     "aliases": [
+      "SxS PRO+ 256GB",
+      "SxS 256GB E Series"
+     ],
+     "specs": {
+      "capacity": "256GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "SBP-64E",
+     "aliases": [
+      "SxS PRO+ 64GB",
+      "SxS 64GB E Series"
+     ],
+     "specs": {
+      "capacity": "64GB"
+     }
     }
    ]
   },
@@ -2137,12 +2623,35 @@
     },
     {
      "manufacturer": "Blackmagic Design",
+     "model": "URSA Cine Studio Viewfinder",
+     "aliases": [
+      "URSA Cine Studio VF",
+      "BMD URSA Cine Studio Sucher"
+     ],
+     "specs": {
+      "screen_in": 7
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
      "model": "URSA Studio Viewfinder",
      "aliases": [
       "URSA Studio VF",
       "BMD Studio Viewfinder",
       "URSA Studio Sucher"
-     ]
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Studio Viewfinder G2",
+     "aliases": [
+      "URSA Studio VF G2",
+      "BMD Studio Viewfinder G2"
+     ],
+     "specs": {
+      "screen_in": 7
+     }
     },
     {
      "manufacturer": "Blackmagic Design",
@@ -2158,7 +2667,8 @@
      "model": "EVF-V50",
      "name": "Canon EVF-V50 OLED Viewfinder",
      "aliases": [
-      "C300 Sucher"
+      "C300 Sucher",
+      "C500 Mark II Sucher"
      ]
     },
     {
