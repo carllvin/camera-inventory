@@ -1,0 +1,117 @@
+/** Standard equipment catalog: data sanity and an idempotent, audited import. */
+import { and, eq, isNull } from "drizzle-orm";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import * as s from "../src/server/db/schema";
+import { STANDARD_CATALOG, sectionEntries } from "../src/server/catalog/standard-catalog";
+import { DomainError, type Ctx } from "../src/server/domain/context";
+import { findType } from "../src/server/domain/document-matching";
+import { createEquipmentType } from "../src/server/domain/equipment-types";
+import { importStandardCatalog, standardCatalogStatus } from "../src/server/domain/standard-catalog";
+import { client, db, makeFixture, type Fixture } from "./helpers/db";
+
+let f: Fixture;
+let ctx: Ctx;
+
+const compact = (v: string) => v.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const all = STANDARD_CATALOG.flatMap(sectionEntries);
+
+beforeAll(async () => {
+  f = await makeFixture();
+  ctx = { workspaceId: f.ws.id, userId: f.user.id, role: "owner" };
+});
+
+afterAll(async () => {
+  await client.end();
+});
+
+describe("catalog data", () => {
+  it("has unique sections, models and names, and a category for every entry", () => {
+    expect(new Set(STANDARD_CATALOG.map((c) => c.key)).size).toBe(STANDARD_CATALOG.length);
+    expect(all.length).toBeGreaterThan(350);
+    const models = all.map((e) => compact(`${e.manufacturer} ${e.model}`));
+    expect(new Set(models).size).toBe(models.length);
+    const names = all.map((e) => compact(e.name ?? `${e.manufacturer} ${e.model}`));
+    expect(new Set(names).size).toBe(names.length);
+    for (const e of all) {
+      expect(e.category[0]).toBeTruthy();
+      expect(e.category[1]).toBeTruthy();
+      expect(e.model.trim()).toBe(e.model);
+      for (const a of e.aliases ?? []) expect(a).toBe(a.replace(/\s+/g, " ").trim());
+    }
+  });
+
+  it("lists lenses per focal length", () => {
+    const sp = all.filter((e) => e.model.startsWith("Signature Prime "));
+    expect(sp.map((e) => e.model)).toContain("Signature Prime 35mm T1.8");
+    expect(sp.length).toBeGreaterThanOrEqual(16);
+    expect(sp.find((e) => e.model === "Signature Prime 35mm T1.8")!.aliases).toEqual(expect.arrayContaining(["SP35", "Signature Prime 35"]));
+  });
+});
+
+describe("import", () => {
+  it("adds the chosen areas, reuses categories and skips types the workspace already has", async () => {
+    // The fixture has "ARRI ALEXA 35" and a "Camera" root category; add a differently spelled Bolt and an archived Hi-5.
+    await createEquipmentType(db, ctx, { manufacturer: "Teradek", model: "Bolt6 XT-750 TX" });
+    const hi5 = await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "Hi 5", name: "ARRI Hi-5 Hand Unit" });
+    await db.update(s.equipmentType).set({ archivedAt: new Date() }).where(eq(s.equipmentType.id, hi5.id));
+
+    const before = await standardCatalogStatus(db, ctx);
+    expect(before.find((x) => x.key === "cameras")!.present).toBe(1);
+
+    const r = await importStandardCatalog(db, ctx, { sections: ["cameras", "video", "lens-control"] });
+    const expected = ["cameras", "video", "lens-control"].reduce((n, k) => n + sectionEntries(STANDARD_CATALOG.find((c) => c.key === k)!).length, 0);
+    expect(r.skipped).toBe(3); // ALEXA 35, Bolt TX, archived Hi-5
+    expect(r.created).toBe(expected - 3);
+
+    const types = await db.select().from(s.equipmentType).where(eq(s.equipmentType.workspaceId, ctx.workspaceId));
+    expect(types.filter((t) => t.manufacturer === "ARRI" && t.model === "ALEXA 35")).toHaveLength(1);
+    expect(types.filter((t) => compact(t.manufacturer + t.model) === "teradekbolt6xt750tx")).toHaveLength(1);
+    expect(types.filter((t) => t.name === "ARRI Hi-5 Hand Unit")).toHaveLength(1); // archived one is not re-created
+    const mini = types.find((t) => t.model === "ALEXA Mini LF")!;
+    expect(mini.aliases).toContain("ALEXA Mini LF Body");
+    expect(types.find((t) => t.model === "Black Pro-Mist 1/8 4x5.65")!.defaultTrackingMode).toBe("bulk");
+
+    // Existing "Camera" root reused; missing subcategories created under it.
+    const cats = await db.select().from(s.category).where(eq(s.category.workspaceId, ctx.workspaceId));
+    expect(cats.filter((c) => c.name === "Camera" && c.parentId === null)).toHaveLength(1);
+    const bodies = cats.find((c) => c.name === "Camera Bodies")!;
+    expect(bodies.parentId).toBe(f.category.id);
+    expect(mini.categoryId).toBe(bodies.id);
+
+    // History: one summary event and one per created type, sharing a correlation id.
+    const [summary] = await db.select().from(s.auditEvent).where(and(eq(s.auditEvent.workspaceId, ctx.workspaceId), eq(s.auditEvent.action, "catalog.imported")));
+    expect(summary!.summary).toContain(`${r.created} equipment types added`);
+    const typeEvents = await db
+      .select()
+      .from(s.auditEvent)
+      .where(and(eq(s.auditEvent.correlationId, summary!.correlationId!), eq(s.auditEvent.action, "equipment_type.created")));
+    expect(typeEvents).toHaveLength(r.created);
+  });
+
+  it("is safe to run again and never changes existing types", async () => {
+    const [mini] = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), eq(s.equipmentType.model, "ALEXA Mini LF")));
+    await db.update(s.equipmentType).set({ aliases: ["my own alias"] }).where(eq(s.equipmentType.id, mini!.id));
+    const again = await importStandardCatalog(db, ctx, { sections: ["cameras"] });
+    expect(again.created).toBe(0);
+    const [after] = await db.select().from(s.equipmentType).where(eq(s.equipmentType.id, mini!.id));
+    expect(after!.aliases).toEqual(["my own alias"]);
+    expect((await standardCatalogStatus(db, ctx)).find((x) => x.key === "cameras")!.present).toBe(sectionEntries(STANDARD_CATALOG[0]!).length);
+  });
+
+  it("makes delivery-note spellings match the imported lenses", async () => {
+    await importStandardCatalog(db, ctx, { sections: ["lenses"] });
+    const byAlias = await findType(db, ctx.workspaceId, { catalogMatch: "SP35", description: "", manufacturer: null, model: null });
+    expect(byAlias?.name).toBe("ARRI Signature Prime 35mm T1.8");
+    const fuzzy = await findType(db, ctx.workspaceId, { catalogMatch: null, description: "ARRI Signature Prime 47mm", manufacturer: "ARRI", model: null });
+    expect(fuzzy?.name).toBe("ARRI Signature Prime 47mm T1.8");
+  });
+
+  it("needs an admin and known areas", async () => {
+    await expect(importStandardCatalog(db, { ...ctx, role: "member" }, { sections: ["power"] })).rejects.toBeInstanceOf(DomainError);
+    await expect(importStandardCatalog(db, ctx, { sections: ["nope"] })).rejects.toThrow(/Unknown catalog area/);
+    await expect(importStandardCatalog(db, ctx, { sections: [] })).rejects.toThrow();
+    const other = await makeFixture();
+    const before = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.workspaceId, other.ws.id), isNull(s.equipmentType.archivedAt)));
+    expect(before).toHaveLength(2); // nothing leaked into another workspace
+  });
+});

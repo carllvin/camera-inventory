@@ -4,7 +4,7 @@ import type { Ctx } from "./context";
 
 export interface AuditInput {
   action: AuditAction;
-  entityType: "project" | "rental_house" | "category" | "equipment_type" | "equipment_item" | "case" | "case_template" | "document" | "issue";
+  entityType: "workspace" | "project" | "rental_house" | "category" | "equipment_type" | "equipment_item" | "case" | "case_template" | "document" | "issue";
   entityId: string;
   summary: string;
   projectId?: string | null;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Building2, ChevronRight, FolderTree } from "lucide-react";
+import { Building2, ChevronRight, FolderTree, Library } from "lucide-react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
 import { Card, CardHeader, PageHeader } from "@/components/ui";
 import { ROLE_LABEL } from "@/lib/format";
@@ -27,6 +27,7 @@ export default async function SettingsPage() {
             {[
               { href: "/settings/rental-houses", label: "Rental houses", icon: Building2, hint: "Contacts and aliases used on documents" },
               { href: "/settings/categories", label: "Categories", icon: FolderTree, hint: "Hierarchical equipment categories" },
+              { href: "/settings/catalog", label: "Standard equipment catalog", icon: Library, hint: "Import common cameras, lenses and accessories" },
             ].map(({ href, label, icon: Icon, hint }) => (
               <li key={href}>
                 <Link href={href} className="flex items-center gap-3 px-4 py-3.5 hover:bg-surface-2">

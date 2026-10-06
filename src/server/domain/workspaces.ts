@@ -9,13 +9,13 @@ import { requiredText } from "./validation";
 
 /** Default category tree for a new workspace (fully editable afterwards). */
 export const DEFAULT_CATEGORIES: Record<string, string[]> = {
-  Camera: ["Camera Bodies", "Viewfinders", "Camera Accessories", "Video Assist"],
+  Camera: ["Camera Bodies", "Viewfinders", "Camera Accessories", "Matte Boxes & Filters", "Media & Readers", "Video Assist"],
   Lenses: ["Spherical", "Anamorphic", "Zoom"],
   Support: ["Tripods", "Heads", "Gimbals"],
   Electronics: ["Monitors", "Wireless", "Timecode", "Lens Control"],
-  Power: ["Batteries", "Chargers"],
-  Grip: ["Stands", "Rigging"],
-  Cables: [],
+  Power: ["Batteries", "Chargers", "Power Distribution"],
+  Grip: ["Stands", "Rigging", "Weights"],
+  Cables: ["Video Cables", "Power Cables", "Control Cables"],
 };
 
 export const workspaceInput = z.object({ name: requiredText(120) });

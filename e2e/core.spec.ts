@@ -86,10 +86,21 @@ test("new user signs up, creates a workspace and sees an empty, isolated dashboa
   await page.getByRole("button", { name: "Create account" }).click();
   await expect(page).toHaveURL(/\/onboarding/);
   await page.getByLabel("Department or company name").fill("Second Unit Camera");
+  const withCatalog = info.project.name === "desktop";
+  if (!withCatalog) await page.getByLabel(/standard equipment catalog/).uncheck();
   await page.getByRole("button", { name: "Create workspace" }).click();
   await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
   await expect(page.getByText("No active projects")).toBeVisible();
   // Demo workspace data must not leak into the new workspace.
-  await page.goto("/search?q=alexa");
+  await page.goto("/search?q=35-10421");
   await expect(page.getByText("Nothing found")).toBeVisible();
+  await page.goto("/search?q=alexa");
+  if (withCatalog) {
+    // Standard catalog: equipment types only, no items.
+    await expect(page.getByText("ARRI ALEXA Mini LF").first()).toBeVisible();
+    await page.goto("/settings/catalog");
+    await expect(page.getByText("all 226 present")).toBeVisible();
+  } else {
+    await expect(page.getByText("Nothing found")).toBeVisible();
+  }
 });

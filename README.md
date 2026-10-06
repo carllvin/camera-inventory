@@ -44,6 +44,15 @@ number and the customer are compared with your open projects, and only a clear m
 offered as "Create project" (prefilled with name, production company and rental period) — it is only created when you
 click. Confirming a note saves the rental house's project number on the project, so later notes match by number.
 
+### Standard equipment catalog
+
+About 400 common equipment types (ARRI, Sony, RED, Canon, Blackmagic cameras; Signature/Master/Ultra/Supreme
+Primes, Cooke, Leitz, Sigma, Canon lenses — one type per focal length; anamorphics, zooms; lens control, matte
+boxes, filters, monitors, wireless video, timecode, batteries, support, cables) with the aliases rental houses
+use on delivery notes. Offered when a workspace is created, or later under **Settings → Standard equipment
+catalog** per area. Types you already have are skipped and never changed; the import is recorded in the history.
+The list lives in `src/server/catalog/standard-catalog.ts` — corrections are welcome there or directly in the app.
+
 ### Reference images
 
 On an equipment type, **Choose image / Change image** opens the picker: image search results (set `BRAVE_SEARCH_API_KEY`,

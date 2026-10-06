@@ -6,9 +6,11 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { runAction, type ActionState } from "@/server/actions";
 import { auth } from "@/server/auth/auth";
+import { STANDARD_CATALOG } from "@/server/catalog/standard-catalog";
 import { getSessionUser, userHasWorkspace } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { DomainError } from "@/server/domain/context";
+import { importStandardCatalog } from "@/server/domain/standard-catalog";
 import { createWorkspace } from "@/server/domain/workspaces";
 
 const loginInput = z.object({
@@ -60,7 +62,10 @@ export async function createWorkspaceAction(_: ActionState, fd: FormData): Promi
     const current = await getSessionUser();
     if (!current) redirect("/login");
     if (await userHasWorkspace(current.user.id)) redirect("/");
-    await createWorkspace(getDb(), current.user.id, { name: String(fd.get("name") ?? "") });
+    const workspace = await createWorkspace(getDb(), current.user.id, { name: String(fd.get("name") ?? "") });
+    if (fd.get("standardCatalog") === "on") {
+      await importStandardCatalog(getDb(), { workspaceId: workspace.id, userId: current.user.id, role: "owner" }, { sections: STANDARD_CATALOG.map((c) => c.key) });
+    }
     redirect("/");
   });
 }
