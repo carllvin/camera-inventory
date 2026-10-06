@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ActionForm, Field, Select, SubmitButton, TextArea } from "@/components/forms";
+import { TypePicker } from "@/components/type-picker";
 import { CONDITION_LABEL } from "@/lib/format";
 import { createItemAction } from "./actions";
 
@@ -12,33 +13,30 @@ interface Option {
 }
 
 export function ItemCreateForm({
-  types,
+  defaultType,
   rentalHouses,
   projects,
   defaults,
 }: {
-  types: { id: string; name: string; defaultTrackingMode: "serialized" | "bulk" }[];
+  /** Preselected type (e.g. after "create a new type" or from a type page). */
+  defaultType: { id: string; name: string; defaultTrackingMode: "serialized" | "bulk" } | null;
   rentalHouses: Option[];
   projects: Option[];
-  defaults: { typeId?: string; projectId?: string; rentalHouseId?: string };
+  defaults: { projectId?: string; rentalHouseId?: string };
 }) {
-  const [typeId, setTypeId] = useState(defaults.typeId ?? "");
-  const type = types.find((t) => t.id === typeId);
-  const bulk = type?.defaultTrackingMode === "bulk";
+  const [tracking, setTracking] = useState(defaultType?.defaultTrackingMode ?? "serialized");
+  const bulk = tracking === "bulk";
   const returnTo = `/equipment/new?${new URLSearchParams(
     Object.entries({ projectId: defaults.projectId ?? "", rentalHouseId: defaults.rentalHouseId ?? "" }).filter(([, v]) => v),
   )}`;
   return (
     <ActionForm action={createItemAction} className="space-y-5">
       <div>
-        <Select
+        <TypePicker
           label="Equipment type"
           name="equipmentTypeId"
-          placeholder="Choose a model…"
-          defaultValue={typeId}
-          onChange={(e) => setTypeId(e.target.value)}
-          options={types.map((t) => ({ value: t.id, label: t.name }))}
-          required
+          defaultValue={defaultType}
+          onChange={(t) => setTracking(t?.tracking ?? "serialized")}
         />
         <p className="mt-1 text-xs text-muted">
           Not listed?{" "}

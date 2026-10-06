@@ -796,20 +796,11 @@ export async function removeTemplateLine(db: DbOrTx, ctx: Ctx, lineId: string) {
 
 /** Options for "what should this line expect?" selects: types and categories. */
 export async function listLineTargets(db: DbOrTx, ctx: Ctx) {
-  const [types, cats] = await Promise.all([
-    db
-      .select({ id: s.equipmentType.id, name: s.equipmentType.name })
-      .from(s.equipmentType)
-      .where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), isNull(s.equipmentType.archivedAt)))
-      .orderBy(asc(s.equipmentType.name)),
-    db
-      .select({ id: s.category.id, name: s.category.name })
-      .from(s.category)
-      .where(eq(s.category.workspaceId, ctx.workspaceId))
-      .orderBy(asc(s.category.name)),
-  ]);
-  return {
-    types: types.map((t) => ({ value: `type:${t.id}`, label: t.name })),
-    categories: cats.map((c) => ({ value: `category:${c.id}`, label: `Any ${c.name}` })),
-  };
+  // Equipment types are searched on demand (TypePicker); categories are few enough to list.
+  const cats = await db
+    .select({ id: s.category.id, name: s.category.name })
+    .from(s.category)
+    .where(eq(s.category.workspaceId, ctx.workspaceId))
+    .orderBy(asc(s.category.name));
+  return { categories: cats.map((c) => ({ value: `category:${c.id}`, label: `Any ${c.name}` })) };
 }

@@ -1,0 +1,631 @@
+{
+ "key": "cables",
+ "label": "Cables",
+ "description": "Video, power and control cables (tracked as bulk quantities)",
+ "groups": [
+  {
+   "category": [
+    "Cables",
+    "Control Cables"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA Mini EXT to EXT Cable 1.5 m",
+     "aliases": [
+      "EXT-EXT Cable",
+      "Mini EXT Cable",
+      "K2.0009051"
+     ],
+     "specs": {
+      "length_m": 1.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Ethernet Cable KC-153-S",
+     "name": "ARRI Cable ALEXA ETH/RJ45 KC 153-S 3 m",
+     "aliases": [
+      "KC 153-S",
+      "K2.72021.0",
+      "ETH RJ45 Cable"
+     ],
+     "specs": {
+      "length_m": 3
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Ethernet Remote Cable KC-158-S",
+     "aliases": [
+      "KC 158-S",
+      "ALEXA Ethernet Remote Cable"
+     ],
+     "specs": {
+      "length_m": 1
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "EXT to EXT Cable KC-155-S",
+     "name": "ARRI ALEXA EXT to EXT Cable KC 155-S 2 m",
+     "aliases": [
+      "KC 155-S",
+      "ALEXA EXT Cable"
+     ],
+     "specs": {
+      "length_m": 2
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 0.3 m",
+     "aliases": [
+      "LBUS 0.3m",
+      "LBUS 30cm"
+     ],
+     "bulk": true,
+     "specs": {
+      "length_m": 0.3
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 0.35 m",
+     "name": "ARRI Cable LBUS (angled) - LBUS (straight) 0.35 m",
+     "aliases": [
+      "LBUS 0.35m",
+      "LBUS 35cm",
+      "LBUS angled 0.35m"
+     ],
+     "specs": {
+      "length_m": 0.35
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 0.5 m",
+     "name": "ARRI Cable LBUS (straight) - LBUS (straight) 0.5 m",
+     "aliases": [
+      "LBUS 0.5m",
+      "LBUS 50cm"
+     ],
+     "specs": {
+      "length_m": 0.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 0.8 m",
+     "aliases": [
+      "LBUS 0.8m",
+      "LBUS 80cm"
+     ],
+     "bulk": true,
+     "specs": {
+      "length_m": 0.8
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 1 m",
+     "name": "ARRI Cable LBUS (angled) - LBUS (straight) 1 m",
+     "aliases": [
+      "LBUS 1m",
+      "LBUS angled 1m"
+     ],
+     "specs": {
+      "length_m": 1
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 1.5 m",
+     "aliases": [
+      "LBUS 1.5m",
+      "LBUS 49ft"
+     ],
+     "bulk": true,
+     "specs": {
+      "length_m": 15
+     },
+     "name": "ARRI Cable LBUS - LBUS 15 m"
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 3 m",
+     "name": "ARRI Cable LBUS - LBUS 3 m",
+     "aliases": [
+      "LBUS 3m",
+      "LBUS 10ft"
+     ],
+     "specs": {
+      "length_m": 3
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 6 m",
+     "name": "ARRI Cable LBUS - LBUS 6 m",
+     "aliases": [
+      "LBUS 6m",
+      "LBUS 20ft"
+     ],
+     "specs": {
+      "length_m": 6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS to D-Tap Cable",
+     "name": "ARRI Cable LBUS - D-Tap",
+     "aliases": [
+      "Cable LBUS D-Tap",
+      "LBUS D-Tap",
+      "LBUS Power Cable"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS to RS Cable",
+     "name": "ARRI Cable LBUS - RS",
+     "aliases": [
+      "Cable LBUS RS",
+      "LBUS RS"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ethernet Cable 1 m",
+     "aliases": [
+      "LAN Cable 1m",
+      "Ethernet 1m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ethernet Cable 10 m",
+     "aliases": [
+      "LAN Cable 10m",
+      "Ethernet 10m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ethernet Cable 20 m",
+     "aliases": [
+      "LAN Cable 20m",
+      "Ethernet 20m",
+      "Netzwerkkabel 20 m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ethernet Cable 3 m",
+     "aliases": [
+      "LAN Cable 3m",
+      "Ethernet 3m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ethernet Cable 5 m",
+     "aliases": [
+      "LAN Cable 5m",
+      "Ethernet 5m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "LEMO 5-pin to BNC Timecode Cable",
+     "aliases": [
+      "TC Cable Lemo 5",
+      "Timecode Kabel",
+      "Lemo5 BNC TC"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "RS 3-pin Run/Stop Cable",
+     "aliases": [
+      "RS Cable",
+      "3-pin Fischer RS",
+      "Run Stop Cable"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "USB-C to USB-A Cable",
+     "aliases": [
+      "USB-A to USB-C",
+      "USB C to A",
+      "USB-C Kabel A"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "USB-C to USB-C Cable",
+     "aliases": [
+      "USB-C Kabel",
+      "USB C to C",
+      "USBC Cable"
+     ],
+     "bulk": true
+    }
+   ]
+  },
+  {
+   "category": [
+    "Cables",
+    "Power Cables"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "Accessory Cable KC-154-SP-S A",
+     "name": "ARRI KC 154-SP-S A 12V coiled accessory cable, 2-pin LEMO to 4-pin XLR",
+     "aliases": [
+      "KC 154-SP-S A",
+      "KC154",
+      "K2.72031.0"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Power Cable KC-20",
+     "name": "ARRI KC-20 Power Cable straight 2 m (XLR 3-pin to 2-pin Fischer)",
+     "aliases": [
+      "KC-20",
+      "K2.41966.0",
+      "ARRI Kabel Power KC-20"
+     ],
+     "specs": {
+      "length_m": 2
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Power Cable KC-50-S",
+     "name": "ARRI KC-50-S Power Cable 24V straight",
+     "aliases": [
+      "KC-50-S",
+      "ARRI Kabel Power KC-50-S",
+      "KC-50",
+      "K2.75007.0"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Power Cable KC-50-SP-S",
+     "name": "ARRI KC-50-SP-S Power Cable 24V coiled",
+     "aliases": [
+      "KC-50-SP-S",
+      "ARRI Kabel Power KC-50-SP-S",
+      "AMIRA Power Cable Coiled",
+      "K2.0001275"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "2-pin LEMO to 2-pin LEMO Cable",
+     "aliases": [
+      "Lemo 2pin Cable",
+      "2-pin Lemo"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "2-pin LEMO to 4-pin XLR Cable",
+     "aliases": [
+      "Lemo 2pin to XLR4",
+      "2-pin to 4-pin XLR"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "D-Tap Extension Cable",
+     "aliases": [
+      "D-Tap Verlängerung",
+      "P-Tap Extension",
+      "DTap Extension"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "D-Tap to 2-pin LEMO Cable",
+     "aliases": [
+      "D-Tap to Lemo 2pin",
+      "DTap Lemo 2",
+      "P-Tap to 2-pin"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "D-Tap to 4-pin XLR Cable",
+     "aliases": [
+      "D-Tap to XLR4",
+      "DTap XLR 4pin",
+      "P-Tap to 4-pin XLR"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "D-Tap to 8-pin LEMO Cable",
+     "aliases": [
+      "D-Tap to Lemo 8pin",
+      "DTap Lemo 8",
+      "Mini Power Cable D-Tap"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "D-Tap to USB-C Cable",
+     "aliases": [
+      "D-Tap USB-C",
+      "DTap to USB C",
+      "P-Tap USB-C"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "XLR 4-pin Power Cable",
+     "aliases": [
+      "4-pin XLR",
+      "XLR4 Power"
+     ],
+     "bulk": true
+    }
+   ]
+  },
+  {
+   "category": [
+    "Cables",
+    "Video Cables"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Cable KC-150-S",
+     "name": "ARRI KC 150-S Viewfinder Cable Short 0.35 m",
+     "aliases": [
+      "KC 150-S",
+      "K2.72012.0",
+      "VF Cable Short 0.35m"
+     ],
+     "specs": {
+      "length_m": 0.35
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Cable KC-151-S",
+     "name": "ARRI KC 151-S Viewfinder Cable Medium 0.65 m",
+     "aliases": [
+      "KC 151-S",
+      "VF Cable Medium 0.65m"
+     ],
+     "specs": {
+      "length_m": 0.65
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Cable KC-152-S",
+     "name": "ARRI KC 152-S Viewfinder Cable Long 2 m",
+     "aliases": [
+      "KC 152-S",
+      "K2.72014.0",
+      "VF Cable Long 2m"
+     ],
+     "specs": {
+      "length_m": 2
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 0.3 m",
+     "name": "BNC Cable 0.3 m",
+     "aliases": [
+      "BNC 30cm",
+      "BNC 0.3m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 0.5 m",
+     "name": "BNC Cable 0.5 m",
+     "aliases": [
+      "BNC 50cm",
+      "BNC 0.5m",
+      "SDI Cable 0.5m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 1 m",
+     "name": "BNC Cable 1 m (12G)",
+     "aliases": [
+      "12G BNC 1m",
+      "12G SDI 1m",
+      "BNC-Kabel 1 m 12G"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 10 m",
+     "name": "BNC Cable 10 m",
+     "aliases": [
+      "BNC 10m",
+      "SDI Cable 10m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 2 m",
+     "name": "BNC Cable 2 m",
+     "aliases": [
+      "BNC 2m",
+      "SDI Cable 2m",
+      "BNC-Kabel 2 m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 20 m",
+     "name": "BNC Cable 20 m",
+     "aliases": [
+      "BNC 20m",
+      "SDI Cable 20m",
+      "BNC-Kabel 20 m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 3 m",
+     "name": "BNC Cable 3 m",
+     "aliases": [
+      "BNC 3m",
+      "SDI Cable 3m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 30 m",
+     "name": "BNC Cable 30 m",
+     "aliases": [
+      "BNC 30m",
+      "SDI Cable 30m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 5 m",
+     "name": "BNC Cable 5 m",
+     "aliases": [
+      "BNC 5m",
+      "SDI Cable 5m",
+      "BNC-Kabel 5 m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "12G-SDI BNC Cable 50 m",
+     "name": "BNC Cable 50 m",
+     "aliases": [
+      "BNC 50m",
+      "SDI Cable 50m",
+      "BNC-Kabel 50 m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "3G-SDI BNC Cable 1 m",
+     "name": "BNC Cable 1 m",
+     "aliases": [
+      "BNC 1m",
+      "SDI Cable 1m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "BNC Barrel Adapter",
+     "aliases": [
+      "BNC Female-Female",
+      "BNC Verbinder",
+      "BNC Kupplung"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "HDMI Cable 0.5 m",
+     "aliases": [
+      "HDMI 0.5m",
+      "HDMI 50cm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "HDMI Cable 1 m",
+     "aliases": [
+      "HDMI 1m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "HDMI Cable 2 m",
+     "aliases": [
+      "HDMI 2m",
+      "HDMI-Kabel 2 m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "HDMI Cable 5 m",
+     "aliases": [
+      "HDMI 5m",
+      "HDMI-Kabel 5 m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Micro HDMI to HDMI Cable",
+     "aliases": [
+      "Micro HDMI",
+      "HDMI D to A",
+      "Micro-HDMI Kabel"
+     ],
+     "bulk": true
+    }
+   ]
+  }
+ ]
+}

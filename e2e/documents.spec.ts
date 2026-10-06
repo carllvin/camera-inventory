@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { pickType } from "./helpers";
 
 async function login(page: Page) {
   await page.goto("/login");
@@ -29,7 +30,7 @@ test("upload a delivery note, enter lines by hand, resolve a conflict, confirm",
   await page.getByRole("button", { name: "+ Add a line by hand" }).click();
   await page.locator("#new-description").fill("SmallHD Cine 7 spare");
   await page.locator("#new-serial").fill(`C7-${tag}`);
-  await page.locator("#new-type").selectOption({ label: "SmallHD Cine 7" });
+  await pickType(page.locator("#new-type"), "cine 7", "SmallHD Cine 7");
   await page.getByRole("button", { name: "Add line" }).click();
   await expect(page.getByText("New item").first()).toBeVisible();
 

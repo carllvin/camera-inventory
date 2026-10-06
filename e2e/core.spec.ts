@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { pickType } from "./helpers";
 
 async function login(page: Page, email = "alex@nordlicht.example") {
   await page.goto("/login");
@@ -25,7 +26,7 @@ test("create project, add a new item, change status, see it in the timeline", as
 
   await page.getByRole("link", { name: "Add equipment" }).first().click();
   await page.getByRole("link", { name: "Create new item" }).click();
-  await page.getByLabel("Equipment type").selectOption({ label: "SmallHD Cine 7" });
+  await pickType(page.getByLabel("Equipment type"), "cine 7", "SmallHD Cine 7");
   await page.getByLabel("Serial number").fill(`E2E-${tag}`);
   await page.getByLabel("Rental house").selectOption({ label: "MBF Filmtechnik" });
   await page.getByRole("button", { name: "Create item", exact: true }).click();
@@ -43,7 +44,7 @@ test("create project, add a new item, change status, see it in the timeline", as
 test("duplicate serial is refused with a link to the existing item", async ({ page }) => {
   await login(page);
   await page.goto("/equipment/new");
-  await page.getByLabel("Equipment type").selectOption({ label: "ARRI ALEXA 35" });
+  await pickType(page.getByLabel("Equipment type"), "alexa 35", "ARRI ALEXA 35");
   await page.getByLabel("Serial number").fill("35-10421");
   await page.getByRole("button", { name: "Create item", exact: true }).click();
   await expect(page.getByRole("alert").filter({ hasText: "never merged automatically" })).toBeVisible();
@@ -99,7 +100,7 @@ test("new user signs up, creates a workspace and sees an empty, isolated dashboa
     // Standard catalog: equipment types only, no items.
     await expect(page.getByText("ARRI ALEXA Mini LF").first()).toBeVisible();
     await page.goto("/settings/catalog");
-    await expect(page.getByText("all 226 present")).toBeVisible();
+    await expect(page.getByText(/^all \d+ present$/).first()).toBeVisible();
   } else {
     await expect(page.getByText("Nothing found")).toBeVisible();
   }

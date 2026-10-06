@@ -16,7 +16,8 @@ export function FilterBar({ children, hasFilters }: { children: ReactNode; hasFi
     const next = new URLSearchParams();
     for (const [k, v] of fd.entries()) if (typeof v === "string" && v !== "") next.set(k, v);
     // Preserve params that are not part of the filter form (e.g. tab).
-    for (const [k, v] of params.entries()) if (!fd.has(k) && !next.has(k)) next.set(k, v);
+    // A changed filter starts again at the first page.
+    for (const [k, v] of params.entries()) if (k !== "page" && !fd.has(k) && !next.has(k)) next.set(k, v);
     startTransition(() => router.replace(`${pathname}${next.size ? `?${next}` : ""}`, { scroll: false }));
   };
   return (

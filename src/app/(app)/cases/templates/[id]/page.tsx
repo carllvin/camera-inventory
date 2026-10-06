@@ -44,7 +44,7 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
                 />
                 <div className="border-t border-border pt-4">
                   <h3 className="mb-2 text-sm font-medium">Add item</h3>
-                  <AddLineForm action={addTemplateLineAction.bind(null, id)} types={targets.types} categories={targets.categories} />
+                  <AddLineForm action={addTemplateLineAction.bind(null, id)} categories={targets.categories} />
                 </div>
               </>
             ) : (

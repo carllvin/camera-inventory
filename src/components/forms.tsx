@@ -100,14 +100,14 @@ export function SubmitButton({
   );
 }
 
-function useField(name: string, defaultValue?: string | number | null) {
+export function useField(name: string, defaultValue?: string | number | null) {
   const state = useFormState();
   const error = state?.fieldErrors?.[name];
   const value = state && !state.ok && state.values && name in state.values ? state.values[name] : (defaultValue ?? "");
   return { error, value: value === null ? "" : String(value) };
 }
 
-function FieldShell({ label, id, error, hint, children, className }: { label?: string; id: string; error?: string; hint?: ReactNode; children: ReactNode; className?: string }) {
+export function FieldShell({ label, id, error, hint, children, className }: { label?: string; id: string; error?: string; hint?: ReactNode; children: ReactNode; className?: string }) {
   return (
     <div className={className}>
       {label && (

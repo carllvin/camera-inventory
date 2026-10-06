@@ -8,7 +8,6 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
-import { listEquipmentTypeOptions } from "@/server/domain/equipment-types";
 import { listProjectOptions } from "@/server/domain/projects";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { assertUuid, orNotFound } from "@/server/pages";
@@ -130,10 +129,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   const canEdit = hasRole(ctx, "member");
   const editable = canEdit && (doc.status === "uploaded" || doc.status === "extracted" || doc.status === "failed");
   const aiAvailable = getExtractor().available;
-  const [types, projects, houses] = editable
-    ? await Promise.all([listEquipmentTypeOptions(db, ctx), listProjectOptions(db, ctx, { activeOnly: true }), listRentalHouses(db, ctx)])
-    : [[], [], []];
-  const typeOptions = types.map((t) => ({ value: t.id, label: t.name }));
+  const [projects, houses] = editable ? await Promise.all([listProjectOptions(db, ctx, { activeOnly: true }), listRentalHouses(db, ctx)]) : [[], []];
   const isReturn = doc.kind === "return_note";
   const mode = isReturn ? ("return" as const) : ("delivery" as const);
   const itemOptions = editable && isReturn && doc.projectId ? (await listReturnableItems(db, ctx, doc.projectId)).map((i) => ({ value: i.id, label: i.label })) : [];
@@ -244,7 +240,6 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 {d.lines.map((l) => (
                   <LineCard
                     key={`${l.id}-${l.resolution}-${l.matchedEquipmentTypeId}-${l.matchedEquipmentItemId}-${l.serialNumber}`}
-                    types={typeOptions}
                     items={itemOptions}
                     mode={mode}
                     line={{
@@ -256,7 +251,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   />
                 ))}
               </ul>
-              <AddLineCard action={addLineAction.bind(null, id)} types={typeOptions} items={itemOptions} mode={mode} />
+              <AddLineCard action={addLineAction.bind(null, id)} items={itemOptions} mode={mode} />
 
               {d.returnOverview && (
                 <Card className="p-4">

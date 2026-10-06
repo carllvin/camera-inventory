@@ -33,7 +33,11 @@ export const equipmentTypeInput = z.object({
 });
 export type EquipmentTypeInput = z.input<typeof equipmentTypeInput>;
 
-export async function listEquipmentTypes(db: DbOrTx, ctx: Ctx, opts: { categoryId?: string | null; q?: string | null } = {}) {
+export async function listEquipmentTypes(
+  db: DbOrTx,
+  ctx: Ctx,
+  opts: { categoryId?: string | null; q?: string | null; inUse?: boolean; limit?: number; offset?: number } = {},
+) {
   const where = [eq(s.equipmentType.workspaceId, ctx.workspaceId), isNull(s.equipmentType.archivedAt)];
   if (opts.categoryId) {
     const ids = await categoryWithDescendants(db, ctx, opts.categoryId);
@@ -43,6 +47,8 @@ export async function listEquipmentTypes(db: DbOrTx, ctx: Ctx, opts: { categoryI
   if (q) {
     where.push(sql`(${s.equipmentType.searchText} LIKE '%' || search_normalize(${q}) || '%' OR ${s.equipmentType.searchText} % search_normalize(${q}))`);
   }
+  const hasItems = sql`EXISTS (SELECT 1 FROM equipment_item i WHERE i.equipment_type_id = "equipment_type"."id")`;
+  if (opts.inUse) where.push(hasItems);
   return db
     .select({
       id: s.equipmentType.id,
@@ -60,7 +66,10 @@ export async function listEquipmentTypes(db: DbOrTx, ctx: Ctx, opts: { categoryI
     .from(s.equipmentType)
     .leftJoin(s.category, eq(s.category.id, s.equipmentType.categoryId))
     .where(and(...where))
-    .orderBy(asc(s.equipmentType.manufacturer), asc(s.equipmentType.model));
+    // Types with items first: with a large standard catalog, the ones in use matter most.
+    .orderBy(desc(hasItems), asc(s.equipmentType.manufacturer), asc(s.equipmentType.model))
+    .limit(opts.limit ?? 100000)
+    .offset(opts.offset ?? 0);
 }
 
 export async function getEquipmentType(db: DbOrTx, ctx: Ctx, id: string) {
@@ -145,4 +154,41 @@ export async function listEquipmentTypeOptions(db: DbOrTx, ctx: Ctx) {
     .from(s.equipmentType)
     .where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), isNull(s.equipmentType.archivedAt)))
     .orderBy(asc(s.equipmentType.name));
+}
+
+/**
+ * Type picker search: every word must appear (accents, case and "-"/spaces ignored),
+ * or the text is similar enough (typos). Exact name / alias hits rank first, then
+ * types that are actually in use. Without a query: the most used types.
+ */
+export async function searchEquipmentTypes(db: DbOrTx, ctx: Ctx, q: string | null | undefined, limit = 20) {
+  const query = (q ?? "").trim().slice(0, 100);
+  const words = query.split(/\s+/).filter(Boolean).slice(0, 6);
+  const used = sql`(SELECT count(*) FROM equipment_item i WHERE i.equipment_type_id = t.id)`;
+  if (words.length === 0) {
+    return db.execute<{ id: string; name: string; category: string | null; tracking: "serialized" | "bulk" }>(sql`
+      SELECT t.id, t.name, c.name AS category, t.default_tracking_mode AS tracking
+      FROM equipment_type t LEFT JOIN category c ON c.id = t.category_id
+      WHERE t.workspace_id = ${ctx.workspaceId} AND t.archived_at IS NULL
+      ORDER BY ${used} DESC, t.name
+      LIMIT ${limit}`);
+  }
+  const allWords = sql.join(
+    words.map((w) => sql`(t.search_text LIKE '%' || search_normalize(${w}) || '%' OR search_compact(t.search_text) LIKE '%' || search_compact(${w}) || '%')`),
+    sql` AND `,
+  );
+  return db.execute<{ id: string; name: string; category: string | null; tracking: "serialized" | "bulk" }>(sql`
+    SELECT t.id, t.name, c.name AS category, t.default_tracking_mode AS tracking
+    FROM equipment_type t LEFT JOIN category c ON c.id = t.category_id
+    WHERE t.workspace_id = ${ctx.workspaceId} AND t.archived_at IS NULL
+      AND ((${allWords}) OR word_similarity(search_normalize(${query}), t.search_text) >= 0.45)
+    ORDER BY
+      (search_compact(t.name) = search_compact(${query})
+        OR search_compact(t.model) = search_compact(${query})
+        OR EXISTS (SELECT 1 FROM unnest(t.aliases) a WHERE search_compact(a) = search_compact(${query}))) DESC,
+      (${allWords}) DESC,
+      (${used} > 0) DESC,
+      word_similarity(search_normalize(${query}), t.search_text) DESC,
+      t.name
+    LIMIT ${limit}`);
 }

@@ -5,6 +5,7 @@ import * as s from "../src/server/db/schema";
 import { STANDARD_CATALOG, sectionEntries } from "../src/server/catalog/standard-catalog";
 import { DomainError, type Ctx } from "../src/server/domain/context";
 import { findType } from "../src/server/domain/document-matching";
+import { searchEquipmentTypes } from "../src/server/domain/equipment-types";
 import { createEquipmentType } from "../src/server/domain/equipment-types";
 import { importStandardCatalog, standardCatalogStatus } from "../src/server/domain/standard-catalog";
 import { client, db, makeFixture, type Fixture } from "./helpers/db";
@@ -38,6 +39,14 @@ describe("catalog data", () => {
       expect(e.model.trim()).toBe(e.model);
       for (const a of e.aliases ?? []) expect(a).toBe(a.replace(/\s+/g, " ").trim());
     }
+  });
+
+  it("expands lens series, keeps non-numeric focal lengths and marks discontinued models", () => {
+    expect(all.find((e) => e.model === "Ultra Prime 8R T2.8")).toBeTruthy();
+    expect(all.find((e) => e.model === "Master Anamorphic 180mm T2.8")!.formerly).toEqual(["Master Anamorphic 180mm T1.9"]);
+    expect(all.find((e) => e.model === "Ultra 16 6mm T1.3")!.specs!.availability).toBe("discontinued");
+    expect(all.find((e) => e.manufacturer === "bebob" && e.model === "B90cine")!.formerly).toContain("B98cine");
+    expect(all.length).toBeGreaterThan(1100);
   });
 
   it("lists lenses per focal length", () => {
@@ -104,6 +113,39 @@ describe("import", () => {
     expect(byAlias?.name).toBe("ARRI Signature Prime 35mm T1.8");
     const fuzzy = await findType(db, ctx.workspaceId, { catalogMatch: null, description: "ARRI Signature Prime 47mm", manufacturer: "ARRI", model: null });
     expect(fuzzy?.name).toBe("ARRI Signature Prime 47mm T1.8");
+  });
+
+  it("corrects untouched types imported under an earlier, wrong name — never edited ones", async () => {
+    const ws = await makeFixture();
+    const c: Ctx = { workspaceId: ws.ws.id, userId: ws.user.id, role: "owner" };
+    // As imported by catalog v1: two wrong names, one of them edited by a person afterwards.
+    for (const model of ["B98cine", "VS2-Cine Charger"]) {
+      const [t] = await db.insert(s.equipmentType).values({ workspaceId: c.workspaceId, manufacturer: "bebob", model, name: `bebob ${model}` }).returning();
+      await db.insert(s.auditEvent).values({ workspaceId: c.workspaceId, actorType: "user", actorUserId: c.userId, action: "equipment_type.created", entityType: "equipment_type", entityId: t!.id, summary: `Equipment type bebob ${model} created (standard catalog)` });
+      if (model === "VS2-Cine Charger") {
+        await db.insert(s.auditEvent).values({ workspaceId: c.workspaceId, actorType: "user", actorUserId: c.userId, action: "equipment_type.updated", entityType: "equipment_type", entityId: t!.id, summary: "edited by hand" });
+      }
+    }
+    const r = await importStandardCatalog(db, c, { sections: ["power"] });
+    expect(r.corrected).toBe(1);
+    const bebob = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.workspaceId, c.workspaceId), eq(s.equipmentType.manufacturer, "bebob")));
+    expect(bebob.filter((t) => t.model === "B98cine")).toHaveLength(0);
+    expect(bebob.filter((t) => t.model === "B90cine")).toHaveLength(1);
+    // The edited one stays, and its corrected name is not created next to it.
+    expect(bebob.filter((t) => t.model === "VS2-Cine Charger")).toHaveLength(1);
+    expect(bebob.filter((t) => t.model === "VS2")).toHaveLength(0);
+    const [ev] = await db.select().from(s.auditEvent).where(and(eq(s.auditEvent.workspaceId, c.workspaceId), eq(s.auditEvent.action, "equipment_type.updated"), eq(s.auditEvent.summary, "bebob B98cine corrected to bebob B90cine (standard catalog)")));
+    expect(ev!.changes).toMatchObject({ model: { from: "B98cine", to: "B90cine" } });
+  });
+
+  it("type picker search: words in any order, aliases and typos", async () => {
+    const names = async (q: string) => (await searchEquipmentTypes(db, ctx, q, 5)).map((r) => r.name);
+    expect((await names("SP35"))[0]).toBe("ARRI Signature Prime 35mm T1.8");
+    expect(await names("35 signature")).toContain("ARRI Signature Prime 35mm T1.8");
+    expect(await names("supreme 29")).toContain("ZEISS Supreme Prime 29mm T1.5");
+    expect((await names("Mini LF"))[0]).toBe("ARRI ALEXA Mini LF");
+    expect(await names("Signiture Prime 47")).toContain("ARRI Signature Prime 47mm T1.8");
+    expect(await names("")).toHaveLength(5);
   });
 
   it("needs an admin and known areas", async () => {

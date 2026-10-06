@@ -4,7 +4,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { getItemDetail } from "@/server/domain/equipment-items";
-import { listEquipmentTypeOptions } from "@/server/domain/equipment-types";
+import { getEquipmentType } from "@/server/domain/equipment-types";
 import { listProjectOptions } from "@/server/domain/projects";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { UUID_RE } from "@/server/pages";
@@ -21,8 +21,8 @@ export default async function NewItemPage({
   const ctx = await getCtx();
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const db = getDb();
-  const [types, rentalHouses, projects, created] = await Promise.all([
-    listEquipmentTypeOptions(db, ctx),
+  const [defaultType, rentalHouses, projects, created] = await Promise.all([
+    sp.typeId && UUID_RE.test(sp.typeId) ? getEquipmentType(db, ctx, sp.typeId).then((t) => ({ id: t.id, name: t.name, defaultTrackingMode: t.defaultTrackingMode })).catch(() => null) : null,
     listRentalHouses(db, ctx),
     listProjectOptions(db, ctx, { activeOnly: true }),
     sp.created && UUID_RE.test(sp.created) ? getItemDetail(db, ctx, sp.created).catch(() => null) : null,
@@ -46,11 +46,10 @@ export default async function NewItemPage({
       <Card className="max-w-2xl p-5">
         <ItemCreateForm
           key={sp.created ?? "new"}
-          types={types}
+          defaultType={defaultType}
           rentalHouses={rentalHouses.map((r) => ({ value: r.id, label: r.name }))}
           projects={projects.map((p) => ({ value: p.id, label: p.name }))}
           defaults={{
-            typeId: sp.typeId && UUID_RE.test(sp.typeId) ? sp.typeId : undefined,
             projectId: sp.projectId && UUID_RE.test(sp.projectId) ? sp.projectId : undefined,
             rentalHouseId: sp.rentalHouseId && UUID_RE.test(sp.rentalHouseId) ? sp.rentalHouseId : undefined,
           }}

@@ -157,7 +157,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
               />
               <div className="border-t border-border pt-4">
                 <h3 className="mb-2 text-sm font-medium">Add expected item</h3>
-                <AddLineForm action={addLineAction.bind(null, id)} types={targets.types} categories={targets.categories} />
+                <AddLineForm action={addLineAction.bind(null, id)} categories={targets.categories} />
               </div>
             </div>
           ) : cmp.lines.length === 0 ? (

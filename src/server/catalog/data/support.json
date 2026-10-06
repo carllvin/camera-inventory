@@ -1,0 +1,934 @@
+{
+ "key": "support",
+ "label": "Support & grip",
+ "description": "Tripods, heads, gimbals, stabilisers, remote heads and camera-department grip",
+ "groups": [
+  {
+   "category": [
+    "Grip",
+    "Rigging"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Generic",
+     "model": "Cheeseborough Clamp",
+     "aliases": [
+      "Speedrail Clamp",
+      "Cheese Borough",
+      "Rohrschelle",
+      "Speed-Rail Klemme"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Euro Adapter",
+     "aliases": [
+      "Euro Plate",
+      "Mitchell Euro Adapter"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Hostess Tray",
+     "aliases": [
+      "Hostess Tray Car Mount",
+      "Door Mount",
+      "Türhalterung"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Mitchell Plate",
+     "aliases": [
+      "Mitchell Platte",
+      "Mitchell Mount Plate",
+      "Mitchell Base Plate"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Mitchell to 100mm Bowl Adapter",
+     "aliases": [
+      "Mitchell 100mm Adapter",
+      "Mitchell auf 100er Halbschale",
+      "100 Bowl to Mitchell"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Mitchell to 150mm Bowl Adapter",
+     "aliases": [
+      "Mitchell 150mm Adapter",
+      "Mitchell auf 150er Halbschale",
+      "150 Bowl to Mitchell"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Rocker Plate",
+     "aliases": [
+      "Rocker",
+      "Wippe",
+      "Rocker Plate Mitchell"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Suction Cup Mount",
+     "aliases": [
+      "Suction Mount",
+      "Saugnapf",
+      "Vacuum Cup",
+      "Saugfuss"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Manfrotto",
+     "model": "035 Super Clamp",
+     "aliases": [
+      "Super Clamp",
+      "Mafer Clamp",
+      "Manfrotto 035"
+     ]
+    },
+    {
+     "manufacturer": "Manfrotto",
+     "model": "244 Magic Arm",
+     "aliases": [
+      "Magic Arm",
+      "Manfrotto 244"
+     ]
+    },
+    {
+     "manufacturer": "Manfrotto",
+     "model": "386B-1 Nano Clamp",
+     "aliases": [
+      "Nano Clamp",
+      "Manfrotto 386B",
+      "386B-1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Matthews",
+     "model": "Cardellini Clamp",
+     "aliases": [
+      "Cardellini",
+      "End Jaw Clamp"
+     ]
+    },
+    {
+     "manufacturer": "Noga",
+     "model": "Holdit Arm",
+     "aliases": [
+      "Noga Arm",
+      "Noga"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Grip",
+    "Stands"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Avenger",
+     "model": "C-Stand 20\"",
+     "aliases": [
+      "C Stand 20 inch"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Avenger",
+     "model": "C-Stand 30\"",
+     "aliases": [
+      "C Stand 30 inch"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Avenger",
+     "model": "C-Stand 40\"",
+     "aliases": [
+      "C Stand",
+      "Century Stand"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Apple Box Full",
+     "aliases": [
+      "Apple Box",
+      "Full Apple"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Apple Box Half",
+     "aliases": [
+      "Half Apple"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Apple Box Pancake",
+     "aliases": [
+      "Pancake",
+      "Eighth Apple"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Apple Box Quarter",
+     "aliases": [
+      "Quarter Apple"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Matthews",
+     "model": "C-Stand 40\"",
+     "aliases": [
+      "Hollywood C-Stand",
+      "Matthews Century Stand",
+      "Matthews C-Stand"
+     ],
+     "bulk": true
+    }
+   ]
+  },
+  {
+   "category": [
+    "Grip",
+    "Weights"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Generic",
+     "model": "Sandbag 10 kg",
+     "aliases": [
+      "Sandsack 10 kg"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Sandbag 15 kg",
+     "aliases": [
+      "Sandsack 15 kg"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Sandbag 5 kg",
+     "aliases": [
+      "Sandsack 5 kg"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Matthews",
+     "model": "Sandbag 15 lb",
+     "aliases": [
+      "Shot Bag",
+      "Sand Bag",
+      "Sandsack"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Matthews",
+     "model": "Sandbag 25 lb",
+     "aliases": [
+      "Sandbag 25",
+      "Sandsack 25 lb"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Matthews",
+     "model": "Sandbag 35 lb",
+     "aliases": [
+      "Sandbag 35",
+      "Sandsack 35 lb"
+     ],
+     "bulk": true
+    }
+   ]
+  },
+  {
+   "category": [
+    "Support",
+    "Gimbals"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "360 EVO",
+     "aliases": [
+      "SRH 360 EVO"
+     ],
+     "specs": {
+      "payload_kg": 30
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Artemis 2",
+     "aliases": [
+      "ARRI Artemis"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Maxima",
+     "aliases": [
+      "Maxima Gimbal",
+      "MAXIMA MX"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH-3",
+     "aliases": [
+      "Stabilized Remote Head 3"
+     ],
+     "specs": {
+      "payload_kg": 30,
+      "weight_kg": 9
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH-360",
+     "aliases": [
+      "Stabilized Remote Head 360"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Trinity",
+     "aliases": [
+      "Trinity 1",
+      "ARRI Artemis Trinity",
+      "Trinity Gen 1"
+     ],
+     "specs": {
+      "payload_kg": 30
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Trinity 2",
+     "aliases": [
+      "ARRI Trinity"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Ronin 2",
+     "aliases": [
+      "DJI Ronin II"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "RS 2",
+     "aliases": [
+      "Ronin RS 2"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "RS 3 Pro",
+     "aliases": [
+      "Ronin RS 3 Pro"
+     ],
+     "specs": {
+      "payload_kg": 4.5
+     }
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "RS 4 Pro",
+     "aliases": [
+      "Ronin RS 4 Pro"
+     ],
+     "specs": {
+      "payload_kg": 4.5
+     }
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Minimax",
+     "aliases": [],
+     "specs": {
+      "payload_kg": "2-7"
+     }
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Vario 5",
+     "aliases": [
+      "Easyrig"
+     ],
+     "specs": {
+      "payload_kg": "5-17"
+     }
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Vario 5 Strong",
+     "aliases": [
+      "Easyrig Strong",
+      "Vario 5 Strong Support"
+     ],
+     "specs": {
+      "payload_kg": "13.6-24.9"
+     }
+    },
+    {
+     "manufacturer": "Flowcine",
+     "model": "Serene Arm",
+     "aliases": [
+      "Flowcine Serene",
+      "Serene",
+      "Easyrig Serene"
+     ],
+     "specs": {
+      "payload_kg": "6-20"
+     }
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "MoVI Carbon",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "MoVI Pro",
+     "aliases": [
+      "Freefly Movi"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "MoVI XL",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Ready Rig",
+     "model": "GS",
+     "name": "Ready Rig GS Gimbal Support Vest",
+     "aliases": [
+      "ReadyRig"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Steadicam Archer2",
+     "aliases": [
+      "Archer2",
+      "Archer 2 Steadicam"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Steadicam M-1",
+     "aliases": [
+      "M-1 Steadicam",
+      "M1 Volt"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Steadicam M-2",
+     "aliases": [
+      "M-2 Steadicam"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Steadicam Shadow",
+     "aliases": [
+      "Steadicam Shadow-V",
+      "Shadow Steadicam"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Float",
+     "name": "Tilta Float Handheld Support System",
+     "aliases": [
+      "Float Handheld Support System",
+      "Tilta Float Vest"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Support",
+    "Heads"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "ARRIHEAD 2",
+     "aliases": [
+      "Arrihead",
+      "ARRI Geared Head",
+      "Getriebeneiger"
+     ],
+     "specs": {
+      "mount": "Mitchell",
+      "payload_kg": 50
+     }
+    },
+    {
+     "manufacturer": "Cartoni",
+     "model": "Focus 22",
+     "aliases": [],
+     "specs": {
+      "payload_kg": "3-22"
+     }
+    },
+    {
+     "manufacturer": "Cartoni",
+     "model": "Lambda 25",
+     "aliases": [
+      "Cartoni Lambda",
+      "Lambda 25 3rd Axis",
+      "Lambda Nodal Head"
+     ]
+    },
+    {
+     "manufacturer": "Cartoni",
+     "model": "Master MK2",
+     "aliases": [
+      "Cartoni Master",
+      "Master MKII",
+      "Cartoni Master MK II"
+     ]
+    },
+    {
+     "manufacturer": "Cartoni",
+     "model": "Maxima 30",
+     "aliases": [],
+     "specs": {
+      "payload_kg": "3-30"
+     }
+    },
+    {
+     "manufacturer": "Miller",
+     "model": "Arrow 40",
+     "aliases": [],
+     "specs": {
+      "payload_kg": "7-16"
+     }
+    },
+    {
+     "manufacturer": "Miller",
+     "model": "Skyline 70",
+     "aliases": []
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "1030D Fluid Head",
+     "name": "O'Connor 1030D",
+     "aliases": [
+      "1030D",
+      "Ultimate 1030D"
+     ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "1030Ds Fluid Head",
+     "name": "O'Connor 1030Ds",
+     "aliases": [
+      "O'Connor 1030"
+     ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "1030HD Fluid Head",
+     "name": "O'Connor 1030HD",
+     "aliases": [
+      "1030HD",
+      "Ultimate 1030HD"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "1040 Fluid Head",
+     "name": "O'Connor Ultimate 1040",
+     "aliases": [
+      "O'Connor 1040",
+      "Ultimate 1040"
+     ],
+     "specs": {
+      "payload_kg": 20
+     }
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "120EX Fluid Head",
+     "name": "O'Connor 120EX",
+     "aliases": [
+      "O'Connor 120"
+     ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "2560 Fluid Head",
+     "name": "O'Connor 2560",
+     "aliases": []
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "2575D Fluid Head",
+     "name": "O'Connor 2575D",
+     "aliases": [
+      "O'Connor 2575",
+      "2575D"
+     ],
+     "specs": {
+      "payload_kg": 60
+     }
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "2575E Fluid Head",
+     "name": "O'Connor 2575E",
+     "aliases": [
+      "2575E",
+      "Ultimate 2575E"
+     ]
+    },
+    {
+     "manufacturer": "Ronford-Baker",
+     "model": "Atlas 30",
+     "aliases": [
+      "Ronford Atlas 30"
+     ]
+    },
+    {
+     "manufacturer": "Ronford-Baker",
+     "model": "Atlas 40",
+     "aliases": [
+      "Ronford Atlas 40"
+     ],
+     "specs": {
+      "payload_kg": 30
+     }
+    },
+    {
+     "manufacturer": "Ronford-Baker",
+     "model": "Atlas 7",
+     "aliases": [
+      "Ronford Atlas 7"
+     ],
+     "specs": {
+      "mount": "Mitchell"
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Cine 20",
+     "aliases": [
+      "Cine20 Fluid Head"
+     ],
+     "specs": {
+      "payload_kg": "2-22"
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Cine 30",
+     "aliases": [
+      "Sachtler Cine 30 (2024)",
+      "Cine 30 SpeedBalance"
+     ],
+     "specs": {
+      "payload_kg": "3-32"
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Cine 30 HD",
+     "aliases": [
+      "Sachtler Cine 30",
+      "Cine30"
+     ],
+     "specs": {
+      "mount": "150mm bowl"
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Cine 50",
+     "aliases": [],
+     "specs": {
+      "payload_kg": "10-50"
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Cine 7+7 HD",
+     "aliases": [
+      "Cine 7+7",
+      "Sachtler 1910",
+      "Cine 7 plus 7"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Video 18 S2",
+     "aliases": [
+      "Sachtler Video 18",
+      "Video18",
+      "18 S2"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Video 20 S2",
+     "aliases": [
+      "Sachtler Video 20",
+      "Video20"
+     ]
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Video 25 Plus",
+     "aliases": [
+      "Sachtler Video 25",
+      "Video 25+"
+     ]
+    },
+    {
+     "manufacturer": "Vinten",
+     "model": "Vision 100",
+     "aliases": [],
+     "specs": {
+      "mount": "100mm bowl"
+     }
+    },
+    {
+     "manufacturer": "Vinten",
+     "model": "Vision 250",
+     "aliases": []
+    }
+   ]
+  },
+  {
+   "category": [
+    "Support",
+    "Sliders & Dollies"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Dana Dolly",
+     "model": "Universal Rental Kit",
+     "name": "Dana Dolly Universal Rental Kit",
+     "aliases": [
+      "Dana Dolly",
+      "Dana Dolly Kit",
+      "Dana Dolly Rental Kit"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Support",
+    "Tripods"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Generic",
+     "model": "Ground Spreader",
+     "aliases": [
+      "Bodenspinne",
+      "Spinne",
+      "Spider",
+      "Tripod Spreader"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Hi-Hat 100mm Bowl",
+     "aliases": [
+      "Hi Hat 100",
+      "High Hat 100mm",
+      "Hihat 100mm"
+     ],
+     "specs": {
+      "mount": "100mm bowl"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Hi-Hat 150mm Bowl",
+     "aliases": [
+      "Hi Hat 150",
+      "High Hat 150mm",
+      "Hihat 150mm"
+     ],
+     "specs": {
+      "mount": "150mm bowl"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Hi-Hat Mitchell",
+     "name": "Hi-Hat (Mitchell)",
+     "aliases": [
+      "Mitchell Hi Hat",
+      "High Hat Mitchell"
+     ],
+     "specs": {
+      "mount": "Mitchell"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "Manfrotto",
+     "model": "546B",
+     "aliases": [
+      "546B Video Tripod",
+      "Manfrotto 546"
+     ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Cine HD Tripod Legs",
+     "name": "O'Connor Cine HD Tripod",
+     "aliases": [
+      "OConnor Sticks",
+      "Standard Legs",
+      "Cine HD Legs",
+      "O'Connor Cine HD Stativ"
+     ],
+     "specs": {
+      "mount": "150mm bowl"
+     }
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "flowtech 100",
+     "name": "O'Connor flowtech 100 Tripod",
+     "aliases": [
+      "flowtech100 OConnor"
+     ],
+     "specs": {
+      "mount": "100mm bowl",
+      "payload_kg": 30
+     }
+    },
+    {
+     "manufacturer": "Ronford-Baker",
+     "model": "Baby Legs",
+     "aliases": [
+      "Ronford Baby Legs",
+      "Baby Tripod",
+      "Short Legs"
+     ]
+    },
+    {
+     "manufacturer": "Ronford-Baker",
+     "model": "Bazooka",
+     "aliases": [
+      "Ronford Bazooka",
+      "Bazooka Base",
+      "Bazooka Stand"
+     ],
+     "specs": {
+      "mount": "Mitchell"
+     }
+    },
+    {
+     "manufacturer": "Ronford-Baker",
+     "model": "Hi-Hat",
+     "aliases": [
+      "High Hat",
+      "Ronford Hi Hat"
+     ]
+    },
+    {
+     "manufacturer": "Ronford-Baker",
+     "model": "Standard Tripod",
+     "aliases": [
+      "Ronford Standard Legs",
+      "Ronford Tall Legs"
+     ]
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "ENG 2 CF",
+     "aliases": [
+      "Sachtler ENG 2",
+      "ENG 2 CF Stativ"
+     ],
+     "specs": {
+      "mount": "100mm bowl"
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "flowtech 100",
+     "aliases": [
+      "Sachtler Flowtech"
+     ],
+     "specs": {
+      "mount": "100mm bowl",
+      "payload_kg": 30
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "flowtech 75",
+     "aliases": [
+      "FT75"
+     ],
+     "specs": {
+      "mount": "75mm bowl"
+     }
+    },
+    {
+     "manufacturer": "Sachtler",
+     "model": "Speed Lock CF",
+     "aliases": [
+      "Sachtler Speedlock",
+      "Speed Lock Carbon"
+     ]
+    }
+   ]
+  }
+ ]
+}

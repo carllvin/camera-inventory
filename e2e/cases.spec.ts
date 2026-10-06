@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { pickType } from "./helpers";
 import sharp from "sharp";
 
 async function login(page: Page) {
@@ -77,7 +78,7 @@ test("edit expected contents and save the case as a template", async ({ page }, 
   await page.getByRole("button", { name: "Create case" }).click();
   await page.getByRole("link", { name: "Define what belongs in this case" }).click();
   await page.getByLabel("Quantity", { exact: true }).fill("2");
-  await page.getByLabel("Equipment type or category").selectOption({ label: "SmallHD Cine 7" });
+  await pickType(page.getByLabel("Equipment type or category"), "cine 7", "SmallHD Cine 7");
   await page.getByRole("button", { name: "Add", exact: true }).click();
   await expect(page.getByLabel("Quantity of SmallHD Cine 7")).toHaveValue("2");
   await page.getByRole("link", { name: "Done" }).click();

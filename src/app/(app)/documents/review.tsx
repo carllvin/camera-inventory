@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
+import { TypePicker } from "@/components/type-picker";
 import { Badge, Mono } from "@/components/ui";
 import { cn } from "@/lib/format";
 import type { ActionState } from "@/server/actions";
@@ -35,6 +36,7 @@ export interface ReviewLine {
   matchReason: string | null;
   matchedEquipmentTypeId: string | null;
   matchedEquipmentItemId: string | null;
+  typeName: string | null;
   updateAction: Action;
   removeAction: Action;
   reportAction?: Action;
@@ -43,14 +45,14 @@ export interface ReviewLine {
 type Option = { value: string; label: string };
 
 /** One reviewable line: collapsed summary, tap to edit. */
-export function LineCard({ line, types, items, mode = "delivery" }: { line: ReviewLine; types: Option[]; items?: Option[]; mode?: "delivery" | "return" }) {
+export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine; items?: Option[]; mode?: "delivery" | "return" }) {
   const needsAttention = line.resolution === "pending" || line.resolution === "discrepancy";
   const [open, setOpen] = useState(needsAttention);
   const labels = mode === "return" ? RETURN_RESOLUTION : RESOLUTION;
   const r = labels[line.resolution] ?? labels.pending!;
   const typeLabel = mode === "return" && line.matchedEquipmentItemId
     ? items?.find((i) => i.value === line.matchedEquipmentItemId)?.label
-    : types.find((t) => t.value === line.matchedEquipmentTypeId)?.label;
+    : line.typeName;
   return (
     <li className={cn("rounded-xl border bg-surface", needsAttention ? "border-warn/50" : "border-border", line.resolution === "ignore" && "opacity-70")}>
       <button type="button" onClick={() => setOpen((o) => !o)} className="flex w-full items-start gap-3 px-4 py-3 text-left" aria-expanded={open}>
@@ -92,13 +94,12 @@ export function LineCard({ line, types, items, mode = "delivery" }: { line: Revi
                 hint="Pick the exact item when several identical ones are on the project."
               />
             ) : (
-              <Select
+              <TypePicker
                 label="Equipment type"
                 name="equipmentTypeId"
                 id={`t-${line.id}`}
-                placeholder="Detect automatically"
-                defaultValue={line.matchedEquipmentTypeId}
-                options={types}
+                emptyLabel="Detect automatically"
+                defaultValue={line.matchedEquipmentTypeId && line.typeName ? { id: line.matchedEquipmentTypeId, name: line.typeName } : null}
                 className="sm:col-span-6"
                 hint={
                   <>
@@ -135,7 +136,7 @@ export function LineCard({ line, types, items, mode = "delivery" }: { line: Revi
   );
 }
 
-export function AddLineCard({ action, types, items, mode = "delivery" }: { action: Action; types: Option[]; items?: Option[]; mode?: "delivery" | "return" }) {
+export function AddLineCard({ action, items, mode = "delivery" }: { action: Action; items?: Option[]; mode?: "delivery" | "return" }) {
   const [open, setOpen] = useState(false);
   if (!open) {
     return (
@@ -154,7 +155,7 @@ export function AddLineCard({ action, types, items, mode = "delivery" }: { actio
         {mode === "return" ? (
           <Select label="Item on the project" name="equipmentItemId" id="new-item" placeholder="Detect automatically" options={items ?? []} className="sm:col-span-6" />
         ) : (
-          <Select label="Equipment type" name="equipmentTypeId" id="new-type" placeholder="Detect automatically" options={types} className="sm:col-span-6" />
+          <TypePicker label="Equipment type" name="equipmentTypeId" id="new-type" emptyLabel="Detect automatically" className="sm:col-span-6" />
         )}
         <div className="flex gap-2 sm:col-span-6">
           <SubmitButton>Add line</SubmitButton>

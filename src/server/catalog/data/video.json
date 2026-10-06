@@ -1,0 +1,1136 @@
+{
+ "key": "video",
+ "label": "Monitors, wireless video & timecode",
+ "description": "On-board and director's monitors, recorders, wireless video, timecode",
+ "groups": [
+  {
+   "category": [
+    "Camera",
+    "Video Assist"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Video Assist 5\" 12G HDR",
+     "aliases": [
+      "BMD Video Assist 5",
+      "Video Assist 5 12G",
+      "Blackmagic Video Assist 5\""
+     ],
+     "specs": {
+      "screen_in": 5
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Video Assist 7\" 12G HDR",
+     "aliases": [
+      "BMD Video Assist 7",
+      "Video Assist 7 12G",
+      "Blackmagic Video Assist 7\""
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1200"
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Serv Pro",
+     "aliases": [
+      "Teradek Serv"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Electronics",
+    "Monitors"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja",
+     "aliases": [
+      "Ninja (2023)"
+     ],
+     "specs": {
+      "screen_in": 5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja Ultra",
+     "aliases": [],
+     "specs": {
+      "screen_in": 5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja V",
+     "aliases": [
+      "Ninja 5",
+      "Atomos Ninja",
+      "Ninja V Plus"
+     ],
+     "specs": {
+      "screen_in": 5.2,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shinobi",
+     "aliases": [
+      "Shinobi 5"
+     ],
+     "specs": {
+      "screen_in": 5.2
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shinobi 7",
+     "aliases": [],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun 7",
+     "aliases": [
+      "Atomos Shogun"
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1200"
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun Connect",
+     "aliases": [
+      "Shogun Connect 7"
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1200"
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun Inferno",
+     "aliases": [],
+     "specs": {
+      "screen_in": 7
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun Ultra",
+     "aliases": [],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1200"
+     }
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Sumo 19",
+     "aliases": [],
+     "specs": {
+      "screen_in": 19
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Sumo 19 SE",
+     "aliases": [],
+     "specs": {
+      "screen_in": 19
+     }
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "High-Bright Remote Monitor",
+     "aliases": [
+      "DJI Transmission Monitor",
+      "DJI High-Bright Monitor",
+      "DJI Transmission RX"
+     ],
+     "specs": {
+      "screen_in": 7
+     }
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM160",
+     "aliases": [
+      "FSI DM160",
+      "Flanders DM160"
+     ],
+     "specs": {
+      "screen_in": 16
+     }
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM170",
+     "aliases": [
+      "FSI DM170",
+      "Flanders DM170",
+      "FSI 17\""
+     ],
+     "specs": {
+      "screen_in": 17,
+      "resolution": "1920x1080"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM241",
+     "aliases": [
+      "FSI DM241",
+      "FSI 24",
+      "Flanders DM241"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM250",
+     "aliases": [
+      "FSI DM250",
+      "Flanders DM250"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XM311K",
+     "aliases": [
+      "FSI XM311K",
+      "Flanders XM311K"
+     ],
+     "specs": {
+      "screen_in": 31
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP270",
+     "aliases": [
+      "FSI XMP270",
+      "Flanders XMP270"
+     ],
+     "specs": {
+      "screen_in": 26.5,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP310",
+     "aliases": [
+      "FSI XMP310",
+      "Flanders XMP310"
+     ],
+     "specs": {
+      "screen_in": 31.5,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP550",
+     "aliases": [
+      "FSI XMP550",
+      "Flanders XMP550"
+     ],
+     "specs": {
+      "screen_in": 55,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Pyro 7",
+     "aliases": [],
+     "specs": {
+      "screen_in": 7
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "1303 HDR",
+     "aliases": [
+      "1303"
+     ],
+     "specs": {
+      "screen_in": 13,
+      "resolution": "1920x1080"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "2403",
+     "aliases": [
+      "2403 High Bright",
+      "2403 HB"
+     ],
+     "specs": {
+      "screen_in": 24,
+      "resolution": "1920x1080"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "702 Touch",
+     "aliases": [
+      "702T",
+      "702 Touch Monitor"
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1200"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "703 Bolt",
+     "aliases": [
+      "703 Bolt Wireless Monitor"
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1080"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Action 5",
+     "aliases": [],
+     "specs": {
+      "screen_in": 5
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 13",
+     "aliases": [
+      "SmallHD 13",
+      "Cine 13 4K"
+     ],
+     "specs": {
+      "screen_in": 13,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 18",
+     "aliases": [
+      "SmallHD 18",
+      "Cine 18 4K High Bright"
+     ],
+     "specs": {
+      "screen_in": 18,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 24",
+     "aliases": [
+      "MON-CINE-24",
+      "Cine 24 4K High Bright"
+     ],
+     "specs": {
+      "screen_in": 24,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 5",
+     "aliases": [
+      "MON-CINE-5"
+     ],
+     "specs": {
+      "screen_in": 5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 7",
+     "aliases": [
+      "SmallHD 7",
+      "Cine 7 Monitor"
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1200"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Indie 5",
+     "aliases": [
+      "16-0525"
+     ],
+     "specs": {
+      "screen_in": 5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Indie 7",
+     "aliases": [],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 5",
+     "aliases": [],
+     "specs": {
+      "screen_in": 5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 7",
+     "aliases": [],
+     "specs": {
+      "screen_in": 7
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Vision 17",
+     "aliases": [
+      "MON-VISION-17"
+     ],
+     "specs": {
+      "screen_in": 17.3,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Vision 24",
+     "aliases": [
+      "MON-VISION-24"
+     ],
+     "specs": {
+      "screen_in": 24,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BVM-HX310",
+     "aliases": [
+      "Trimaster HX310"
+     ],
+     "specs": {
+      "screen_in": 31
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BVM-X300",
+     "aliases": [
+      "X300 OLED"
+     ],
+     "specs": {
+      "screen_in": 30
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-A170",
+     "aliases": [
+      "Sony 17\" OLED"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-A250",
+     "aliases": [
+      "Sony 25 inch OLED",
+      "Sony 25\" OLED"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-X1800",
+     "aliases": [
+      "Sony 18\" 4K"
+     ],
+     "specs": {
+      "screen_in": 18.4,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-X2400",
+     "aliases": [
+      "Sony 24 inch HDR",
+      "Sony 24\" 4K"
+     ],
+     "specs": {
+      "screen_in": 24,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-X3200",
+     "aliases": [
+      "Sony 32\" 4K"
+     ],
+     "specs": {
+      "screen_in": 32,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "F-5A",
+     "aliases": [],
+     "specs": {
+      "screen_in": 5.5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "F-7H mk2",
+     "aliases": [
+      "F7H",
+      "TV Logic F-7H",
+      "F-7H mkII"
+     ],
+     "specs": {
+      "screen_in": 7,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-171G",
+     "aliases": []
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-181G",
+     "aliases": [],
+     "specs": {
+      "screen_in": 18.5,
+      "resolution": "1920x1080"
+     }
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-242G",
+     "aliases": [],
+     "specs": {
+      "screen_in": 24,
+      "resolution": "3840x2160"
+     }
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-242H",
+     "aliases": []
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-171A",
+     "aliases": []
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-241S",
+     "aliases": []
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-241W",
+     "aliases": []
+    }
+   ]
+  },
+  {
+   "category": [
+    "Electronics",
+    "Timecode"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Ambient",
+     "model": "Lockit ACL 204",
+     "aliases": [
+      "Lockit",
+      "ACL204",
+      "Ambient Lockit"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "Lockit Slate",
+     "aliases": [
+      "ACN-LS",
+      "Ambient Smart Slate",
+      "Timecode-Klappe Ambient"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "Lockit+",
+     "aliases": [
+      "Lockit Plus",
+      "ACL 205"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LockitBT",
+     "aliases": [
+      "Lockit Bluetooth"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "Master Lockit",
+     "aliases": [
+      "ACN-ML"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "NanoLockit",
+     "aliases": [
+      "ACN-NL"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "Tiny Lockit",
+     "aliases": [
+      "ACN-TL"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "UltraSync Blue",
+     "aliases": []
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "UltraSync One",
+     "aliases": [
+      "Ultrasync",
+      "UltraSync 1"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "TC-1",
+     "aliases": [
+      "Deity Timecode Box"
+     ]
+    },
+    {
+     "manufacturer": "Denecke",
+     "model": "TS-3",
+     "aliases": [
+      "Denecke Smart Slate",
+      "Timecode-Klappe Denecke"
+     ]
+    },
+    {
+     "manufacturer": "Denecke",
+     "model": "TS-C",
+     "aliases": [
+      "Denecke Compact Slate"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "Tentacle Sync E",
+     "aliases": [
+      "Tentacle",
+      "TC Box",
+      "Tentacle E",
+      "Sync E",
+      "Timecode Tentacle"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "Timebar",
+     "aliases": [
+      "Tentacle Timebar",
+      "Timecode Display Tentacle"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "Track E",
+     "aliases": [
+      "Tentacle Track E",
+      "Tentacle Track"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Electronics",
+    "Wireless"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Accsoon",
+     "model": "CineView HE",
+     "aliases": [
+      "CineView HE Kit"
+     ]
+    },
+    {
+     "manufacturer": "Accsoon",
+     "model": "CineView Master 4K",
+     "aliases": [
+      "CineView Master",
+      "ACC-WIT07"
+     ]
+    },
+    {
+     "manufacturer": "Accsoon",
+     "model": "CineView SE",
+     "aliases": [
+      "CineView SE Kit"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "SDR Transmission RX",
+     "aliases": [
+      "DJI SDR Transmission Receiver",
+      "DJI SDR Transmission Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "SDR Transmission TX",
+     "aliases": [
+      "DJI SDR Transmission Transmitter",
+      "DJI SDR Transmission Sender"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Transmission TX",
+     "aliases": [
+      "DJI Transmission Transmitter",
+      "DJI Transmission Sender"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Mars 400S Pro",
+     "aliases": [
+      "Mars 400S"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Mars 400S Pro II",
+     "aliases": [
+      "Mars 400S Pro 2",
+      "Mars 400S II"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Mars 4K RX",
+     "aliases": [
+      "Mars 4K Receiver",
+      "Hollyland Mars 4K Receiver",
+      "Hollyland Mars 4K Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Mars 4K TX",
+     "aliases": [
+      "Mars 4K Transmitter",
+      "Hollyland Mars 4K Transmitter",
+      "Hollyland Mars 4K Sender"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Pyro H",
+     "aliases": []
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Pyro S",
+     "aliases": []
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 3000 XT RX",
+     "aliases": [
+      "Teradek Bolt 3000 XT Receiver",
+      "Teradek Bolt 3000 XT Empfänger"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 3000 XT TX",
+     "aliases": [
+      "Teradek Bolt 3000 XT Transmitter",
+      "Teradek Bolt 3000 XT Sender"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K 1500 RX",
+     "aliases": [
+      "Teradek Bolt 4K 1500 Receiver",
+      "Teradek Bolt 4K 1500 Empfänger"
+     ],
+     "specs": {
+      "range_m": 450
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K 1500 TX",
+     "aliases": [
+      "Teradek Bolt 4K 1500 Transmitter",
+      "Teradek Bolt 4K 1500 Sender"
+     ],
+     "specs": {
+      "range_m": 450
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K 750 RX",
+     "aliases": [
+      "Teradek Bolt 4K 750 Receiver",
+      "Teradek Bolt 4K 750 Empfänger"
+     ],
+     "specs": {
+      "range_m": 230
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K 750 TX",
+     "aliases": [
+      "Teradek Bolt 4K 750 Transmitter",
+      "Teradek Bolt 4K 750 Sender"
+     ],
+     "specs": {
+      "range_m": 230
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT 1500 RX",
+     "aliases": [
+      "Teradek Bolt 4K LT 1500 Receiver",
+      "Teradek Bolt 4K LT 1500 Empfänger"
+     ],
+     "specs": {
+      "range_m": 450
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT 1500 TX",
+     "aliases": [
+      "Teradek Bolt 4K LT 1500 Transmitter",
+      "Teradek Bolt 4K LT 1500 Sender"
+     ],
+     "specs": {
+      "range_m": 450
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT 750 RX",
+     "aliases": [
+      "Teradek Bolt 4K LT 750 Receiver",
+      "Teradek Bolt 4K LT 750 Empfänger"
+     ],
+     "specs": {
+      "range_m": 230
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT 750 TX",
+     "aliases": [
+      "Teradek Bolt 4K LT 750 Transmitter",
+      "Teradek Bolt 4K LT 750 Sender"
+     ],
+     "specs": {
+      "range_m": 230
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT MAX RX",
+     "aliases": [
+      "Teradek Bolt 4K LT MAX Receiver",
+      "Teradek Bolt 4K LT MAX Empfänger"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT MAX TX",
+     "aliases": [
+      "Teradek Bolt 4K LT MAX Transmitter",
+      "Teradek Bolt 4K LT MAX Sender"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K MAX RX",
+     "aliases": [
+      "Teradek Bolt 4K MAX Receiver",
+      "Teradek Bolt 4K MAX Empfänger"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K MAX TX",
+     "aliases": [
+      "Teradek Bolt 4K MAX Transmitter",
+      "Teradek Bolt 4K MAX Sender"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT 1500 RX",
+     "aliases": [
+      "Teradek Bolt 6 LT 1500 Receiver",
+      "Teradek Bolt 6 LT 1500 Empfänger"
+     ],
+     "specs": {
+      "range_m": 450
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT 1500 TX",
+     "aliases": [
+      "Teradek Bolt 6 LT 1500 Transmitter",
+      "Teradek Bolt 6 LT 1500 Sender"
+     ],
+     "specs": {
+      "range_m": 450
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT 750 RX",
+     "aliases": [
+      "Bolt LT RX",
+      "Bolt 6 LT RX",
+      "Teradek Bolt 6 LT 750 Receiver",
+      "Teradek Bolt 6 LT 750 Empfänger"
+     ],
+     "specs": {
+      "range_m": 230
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT 750 TX",
+     "aliases": [
+      "Bolt LT TX",
+      "Bolt 6 LT TX",
+      "Teradek Bolt 6 LT 750 Transmitter",
+      "Teradek Bolt 6 LT 750 Sender"
+     ],
+     "specs": {
+      "range_m": 230
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT MAX RX",
+     "aliases": [
+      "Teradek Bolt 6 LT MAX Receiver",
+      "Teradek Bolt 6 LT MAX Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT MAX TX",
+     "aliases": [
+      "Teradek Bolt 6 LT MAX Transmitter",
+      "Teradek Bolt 6 LT MAX Sender"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 XT 1500 RX",
+     "aliases": [
+      "Bolt 1500 RX",
+      "Bolt6 1500 RX",
+      "Teradek Bolt 6 XT 1500 Receiver",
+      "Teradek Bolt 6 XT 1500 Empfänger"
+     ],
+     "specs": {
+      "range_m": 450
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 XT 1500 TX",
+     "aliases": [
+      "Bolt 1500 TX",
+      "Bolt6 1500 TX",
+      "Teradek Bolt 6 XT 1500 Transmitter",
+      "Teradek Bolt 6 XT 1500 Sender"
+     ],
+     "specs": {
+      "range_m": 450
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 XT 750 RX",
+     "aliases": [
+      "Bolt 6 RX",
+      "Bolt RX",
+      "Bolt750 RX",
+      "Teradek Bolt 6 XT 750 Receiver",
+      "Teradek Bolt 6 XT 750 Empfänger"
+     ],
+     "specs": {
+      "range_m": 230
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 XT 750 TX",
+     "aliases": [
+      "Bolt 6 TX",
+      "Bolt TX",
+      "Bolt750 TX",
+      "Teradek Bolt 6 XT 750 Transmitter",
+      "Teradek Bolt 6 XT 750 Sender"
+     ],
+     "specs": {
+      "range_m": 230
+     }
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 XT MAX RX",
+     "aliases": [
+      "Teradek Bolt 6 XT MAX Receiver",
+      "Teradek Bolt 6 XT MAX Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 XT MAX TX",
+     "aliases": [
+      "Teradek Bolt 6 XT MAX Transmitter",
+      "Teradek Bolt 6 XT MAX Sender"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Ranger RX",
+     "aliases": [
+      "Teradek Ranger Receiver",
+      "Teradek Ranger Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Ranger TX",
+     "aliases": [
+      "Teradek Ranger Transmitter",
+      "Teradek Ranger Sender"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Atom 500 SDI Kit",
+     "aliases": [
+      "Vaxis Atom 500",
+      "Atom 500 TX/RX",
+      "Atom 500 SDI"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 3000 RX",
+     "aliases": [
+      "Vaxis Storm 3000 Receiver",
+      "Vaxis Storm 3000 Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 3000 TX",
+     "aliases": [
+      "Vaxis Storm 3000 Transmitter",
+      "Vaxis Storm 3000 Sender"
+     ]
+    }
+   ]
+  }
+ ]
+}

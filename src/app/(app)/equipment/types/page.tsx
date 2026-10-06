@@ -12,12 +12,23 @@ import { UUID_RE } from "@/server/pages";
 
 export const metadata = { title: "Equipment types" };
 
-export default async function TypesPage({ searchParams }: { searchParams: Promise<{ q?: string; categoryId?: string }> }) {
+const PAGE_SIZE = 60;
+
+export default async function TypesPage({ searchParams }: { searchParams: Promise<{ q?: string; categoryId?: string; use?: string; page?: string }> }) {
   const sp = await searchParams;
   const ctx = await getCtx();
   const db = getDb();
   const categoryId = sp.categoryId && UUID_RE.test(sp.categoryId) ? sp.categoryId : null;
-  const [types, { flat }] = await Promise.all([listEquipmentTypes(db, ctx, { q: sp.q, categoryId }), getCategoryTree(db, ctx)]);
+  const inUse = sp.use === "in_use";
+  const page = Math.max(1, Math.min(1000, Number.parseInt(sp.page ?? "1", 10) || 1));
+  const [rows, { flat }] = await Promise.all([
+    listEquipmentTypes(db, ctx, { q: sp.q, categoryId, inUse, limit: PAGE_SIZE + 1, offset: (page - 1) * PAGE_SIZE }),
+    getCategoryTree(db, ctx),
+  ]);
+  const types = rows.slice(0, PAGE_SIZE);
+  const hasNext = rows.length > PAGE_SIZE;
+  const pageHref = (n: number) =>
+    `/equipment/types?${new URLSearchParams(Object.entries({ q: sp.q ?? "", categoryId: categoryId ?? "", use: inUse ? "in_use" : "", page: n > 1 ? String(n) : "" }).filter(([, v]) => v))}`;
   return (
     <>
       <PageHeader
@@ -38,10 +49,11 @@ export default async function TypesPage({ searchParams }: { searchParams: Promis
           { key: "types", href: "/equipment/types", label: "Equipment types" },
         ]}
       />
-      <FilterBar hasFilters={Boolean(sp.q || categoryId)}>
+      <FilterBar hasFilters={Boolean(sp.q || categoryId || inUse)}>
         <FilterSearch value={sp.q} placeholder="Manufacturer, model, alias…" />
         <FilterSelect name="categoryId" label="Category" allLabel="All categories" value={categoryId}
           options={flat.map((c) => ({ value: c.id, label: `${" ".repeat(c.depth)}${c.name}` }))} />
+        <FilterSelect name="use" label="Items" allLabel="All types" value={inUse ? "in_use" : null} options={[{ value: "in_use", label: "With items only" }]} />
       </FilterBar>
       {types.length === 0 ? (
         <EmptyState title="No equipment types found" />
@@ -62,6 +74,25 @@ export default async function TypesPage({ searchParams }: { searchParams: Promis
             </li>
           ))}
         </ul>
+      )}
+      {(page > 1 || hasNext) && (
+        <nav className="mt-6 flex items-center justify-between text-sm" aria-label="Pages">
+          {page > 1 ? (
+            <Link href={pageHref(page - 1)} className="text-accent hover:underline">
+              ← Previous
+            </Link>
+          ) : (
+            <span />
+          )}
+          <span className="text-muted">Page {page}</span>
+          {hasNext ? (
+            <Link href={pageHref(page + 1)} className="text-accent hover:underline">
+              Next →
+            </Link>
+          ) : (
+            <span />
+          )}
+        </nav>
       )}
     </>
   );

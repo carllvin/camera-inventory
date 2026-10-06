@@ -2,6 +2,7 @@
 
 import { Trash2 } from "lucide-react";
 import { ActionForm, Field, SubmitButton } from "./forms";
+import { TypePicker } from "./type-picker";
 import type { ActionState } from "@/server/actions";
 
 type Action = (prev: ActionState, fd: FormData) => Promise<ActionState>;
@@ -45,31 +46,11 @@ export function LineEditor({ lines }: { lines: EditableLine[] }) {
 }
 
 /** Add a line: pick an exact equipment type or "any item of a category". */
-export function AddLineForm({ action, types, categories }: { action: Action; types: { value: string; label: string }[]; categories: { value: string; label: string }[] }) {
+export function AddLineForm({ action, categories }: { action: Action; categories: { value: string; label: string }[] }) {
   return (
     <ActionForm action={action} className="grid gap-2 sm:grid-cols-[5rem_1fr_1fr_auto] sm:items-start" resetOnSuccess>
       <Field name="quantity" id="add-qty" type="number" min={1} max={999} defaultValue={1} aria-label="Quantity" />
-      <div>
-        <select name="target" id="add-target" aria-label="Equipment type or category" className="input" defaultValue="">
-          <option value="" disabled>
-            Equipment type or category…
-          </option>
-          <optgroup label="Equipment types">
-            {types.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </optgroup>
-          <optgroup label="Any item of a category">
-            {categories.map((c) => (
-              <option key={c.value} value={c.value}>
-                {c.label}
-              </option>
-            ))}
-          </optgroup>
-        </select>
-      </div>
+      <TypePicker name="target" id="add-target" valuePrefix="type:" placeholder="Equipment type or category…" extraOptions={categories} extraLabel="any item of category" aria-label="Equipment type or category" />
       <Field name="label" id="add-label" placeholder="Label (optional)" aria-label="Label" />
       <SubmitButton>Add</SubmitButton>
     </ActionForm>

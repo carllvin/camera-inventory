@@ -73,8 +73,8 @@ export async function importCatalogAction(_: ActionState, fd: FormData): Promise
     const r = await importStandardCatalog(getDb(), await getCtx(), { sections });
     revalidatePath("/equipment", "layout");
     revalidatePath("/settings", "layout");
-    return r.created === 0
+    return r.created === 0 && !r.corrected
       ? `Nothing new to add — all ${r.skipped} types of these areas are already in your catalog.`
-      : `${r.created} equipment type${r.created === 1 ? "" : "s"} added${r.skipped ? ` (${r.skipped} already present, left unchanged)` : ""}.`;
+      : `${r.created} equipment type${r.created === 1 ? "" : "s"} added${r.skipped ? ` (${r.skipped} already present, left unchanged)` : ""}${r.corrected ? `; ${r.corrected} corrected` : ""}.`;
   });
 }

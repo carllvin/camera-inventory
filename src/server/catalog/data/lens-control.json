@@ -1,0 +1,1447 @@
+{
+ "key": "lens-control",
+ "label": "Lens control & matte boxes",
+ "description": "Wireless lens control, motors, follow focus, matte boxes and filters",
+ "groups": [
+  {
+   "category": [
+    "Camera",
+    "Matte Boxes & Filters"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Pro Set",
+     "aliases": [
+      "LMB 4x5",
+      "Lightweight Matte Box 4x5",
+      "LMB4x5 Kompendium"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB-25",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB-6",
+     "aliases": [
+      "LMB-6 Matte Box"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MB-14",
+     "name": "ARRI MB-14 Matte Box 6x6",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MB-18",
+     "name": "ARRI MB-18 Studio Matte Box",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MB-19",
+     "name": "ARRI MB-19 Production Matte Box",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MB-20",
+     "name": "ARRI MB-20 Matte Box",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MB-28",
+     "name": "ARRI MB-28 6.6x6.6 Matte Box",
+     "aliases": [
+      "MB-28 Kompendium"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "Misfit Atom",
+     "aliases": [
+      "Atom Matte Box",
+      "Misfit Atom Matte Box",
+      "BT Misfit Atom"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "Misfit Kick",
+     "aliases": [
+      "Kick Matte Box",
+      "Misfit Kick Matte Box",
+      "Misfit Kick Mk II"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "Strummer DNA",
+     "aliases": [
+      "Strummer DNA Matte Box",
+      "BT Strummer DNA"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "Strummer DNA LF",
+     "aliases": [
+      "Strummer DNA",
+      "Strummer LF",
+      "DNA LF"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "Viv",
+     "name": "Bright Tangerine VIV Matte Box",
+     "aliases": [
+      "VIV Matte Box",
+      "BT VIV"
+     ]
+    },
+    {
+     "manufacturer": "Chrosziel",
+     "model": "450-R21",
+     "name": "Chrosziel 450-R21 Dual Stage Matte Box",
+     "aliases": [
+      "MB 450",
+      "Chrosziel 450"
+     ]
+    },
+    {
+     "manufacturer": "Chrosziel",
+     "model": "MB 565",
+     "name": "Chrosziel MB 565 Swing-Away Matte Box",
+     "aliases": [
+      "Chrosziel 565"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 0.3",
+     "aliases": [
+      "Firecrest 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 0.6",
+     "aliases": [
+      "Firecrest 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 0.9",
+     "aliases": [
+      "Firecrest 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 1.2",
+     "aliases": [
+      "Firecrest 1.2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 1.5",
+     "aliases": [
+      "Firecrest 1.5 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 1.8",
+     "aliases": [
+      "Firecrest 1.8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 2.1",
+     "aliases": [
+      "Firecrest 2.1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 4x5.65 0.3",
+     "aliases": [
+      "ProGlass IRND 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 4x5.65 0.6",
+     "aliases": [
+      "ProGlass IRND 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 4x5.65 0.9",
+     "aliases": [
+      "ProGlass IRND 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 4x5.65 1.2",
+     "aliases": [
+      "ProGlass IRND 1.2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 4x5.65 1.5",
+     "aliases": [
+      "ProGlass IRND 1.5 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 4x5.65 1.8",
+     "aliases": [
+      "ProGlass IRND 1.8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 4x5.65 2.1",
+     "aliases": [
+      "ProGlass IRND 2.1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist Black 1 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist 1 4x5.65",
+      "Allure Mist Black 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist Black 1/2 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist 1/2 4x5.65",
+      "Allure Mist Black 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist Black 1/4 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist 1/4 4x5.65",
+      "Allure Mist Black 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist Black 1/8 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist 1/8 4x5.65",
+      "Allure Mist Black 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Black Frost 1 4x5.65",
+     "aliases": [
+      "BF 1 4x5.65",
+      "Black Frost 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Black Frost 1/2 4x5.65",
+     "aliases": [
+      "BF 1/2 4x5.65",
+      "Black Frost 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Black Frost 1/4 4x5.65",
+     "aliases": [
+      "BF 1/4 4x5.65",
+      "Black Frost 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Black Frost 1/8 4x5.65",
+     "aliases": [
+      "BF 1/8 4x5.65",
+      "Black Frost 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Black Frost 2 4x5.65",
+     "aliases": [
+      "BF 2 4x5.65",
+      "Black Frost 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1 4x5.65",
+     "aliases": [
+      "CS 1 4x5.65",
+      "Classic Soft 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1/2 4x5.65",
+     "aliases": [
+      "CS 1/2 4x5.65",
+      "Classic Soft 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1/4 4x5.65",
+     "aliases": [
+      "CS 1/4 4x5.65",
+      "Classic Soft 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1/8 4x5.65",
+     "aliases": [
+      "CS 1/8 4x5.65",
+      "Classic Soft 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 2 4x5.65",
+     "aliases": [
+      "CS 2 4x5.65",
+      "Classic Soft 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1 4x5.65",
+     "aliases": [
+      "HBM 1 4x5.65",
+      "Hollywood Black Magic 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1/2 4x5.65",
+     "aliases": [
+      "HBM 1/2 4x5.65",
+      "Hollywood Black Magic 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1/4 4x5.65",
+     "aliases": [
+      "HBM 1/4 4x5.65",
+      "Hollywood Black Magic 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1/8 4x5.65",
+     "aliases": [
+      "HBM 1/8 4x5.65",
+      "Hollywood Black Magic 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 2 4x5.65",
+     "aliases": [
+      "HBM 2 4x5.65",
+      "Hollywood Black Magic 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 0.3",
+     "aliases": [
+      "IRND 0.3",
+      "ND 0.3 4x5.65",
+      "ND3",
+      "IRND 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 0.6",
+     "aliases": [
+      "IRND 0.6",
+      "ND 0.6 4x5.65",
+      "ND6",
+      "IRND 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 0.9",
+     "aliases": [
+      "IRND 0.9",
+      "ND 0.9 4x5.65",
+      "ND9",
+      "IRND 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 1.2",
+     "aliases": [
+      "IRND 1.2",
+      "ND 1.2 4x5.65",
+      "IRND 1.2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 1.5",
+     "aliases": [
+      "IRND 1.5",
+      "ND 1.5 4x5.65",
+      "IRND 1.5 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 1.8",
+     "aliases": [
+      "IRND 1.8",
+      "ND 1.8 4x5.65",
+      "IRND 1.8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 2.1",
+     "aliases": [
+      "IRND 2.1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 0.3",
+     "aliases": [
+      "IRND 0.3 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 0.6",
+     "aliases": [
+      "IRND 0.6 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 0.9",
+     "aliases": [
+      "IRND 0.9 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 1.2",
+     "aliases": [
+      "IRND 1.2 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 1.5",
+     "aliases": [
+      "IRND 1.5 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 1.8",
+     "aliases": [
+      "IRND 1.8 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 6.6x6.6 2.4",
+     "aliases": [
+      "IRND 2.4 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Soft 1 4x5.65",
+     "aliases": [
+      "RS 1 4x5.65",
+      "Radiant Soft 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Soft 1/2 4x5.65",
+     "aliases": [
+      "RS 1/2 4x5.65",
+      "Radiant Soft 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Soft 1/4 4x5.65",
+     "aliases": [
+      "RS 1/4 4x5.65",
+      "Radiant Soft 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Pol 4x5.65",
+     "aliases": [
+      "Pola 4x5.65",
+      "Polarizer 4x5.65",
+      "Pol Filter",
+      "Pol 4x5.65",
+      "Polfilter 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1/2 4x5.65",
+     "aliases": [
+      "BGG 1/2 4x5.65",
+      "Black Glimmerglass 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1/4 4x5.65",
+     "aliases": [
+      "BGG 1/4 4x5.65",
+      "Black Glimmerglass 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1/8 4x5.65",
+     "aliases": [
+      "BGG 1/8 4x5.65",
+      "Black Glimmerglass 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1 4x5.65",
+     "aliases": [
+      "BPM 1 4x5.65",
+      "Black Pro-Mist 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1 6.6x6.6",
+     "aliases": [
+      "BPM 1 6.6x6.6",
+      "Black Pro-Mist 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/2 4x5.65",
+     "aliases": [
+      "BPM 1/2",
+      "Black Pro Mist 1/2",
+      "BPM 1/2 4x5.65",
+      "Black Pro-Mist 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/2 6.6x6.6",
+     "aliases": [
+      "BPM 1/2 6.6x6.6",
+      "Black Pro-Mist 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/4 4x5.65",
+     "aliases": [
+      "BPM 1/4",
+      "Black Pro Mist 1/4",
+      "BPM 1/4 4x5.65",
+      "Black Pro-Mist 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/4 6.6x6.6",
+     "aliases": [
+      "BPM 1/4 6.6x6.6",
+      "Black Pro-Mist 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/8 4x5.65",
+     "aliases": [
+      "BPM 1/8",
+      "Black Pro Mist 1/8",
+      "BPM 1/8 4x5.65",
+      "Black Pro-Mist 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/8 6.6x6.6",
+     "aliases": [
+      "BPM 1/8 6.6x6.6",
+      "Black Pro-Mist 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 2 4x5.65",
+     "aliases": [
+      "BPM 2 4x5.65",
+      "Black Pro-Mist 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 2 6.6x6.6",
+     "aliases": [
+      "BPM 2 6.6x6.6",
+      "Black Pro-Mist 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1 4x5.65",
+     "aliases": [
+      "BS 1 4x5.65",
+      "Black Satin 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1/2 4x5.65",
+     "aliases": [
+      "BS 1/2 4x5.65",
+      "Black Satin 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1/4 4x5.65",
+     "aliases": [
+      "BS 1/4 4x5.65",
+      "Black Satin 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1/8 4x5.65",
+     "aliases": [
+      "BS 1/8 4x5.65",
+      "Black Satin 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 0.3",
+     "aliases": [
+      "Tiffen IRND 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 0.6",
+     "aliases": [
+      "Tiffen IRND 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 0.9",
+     "aliases": [
+      "Tiffen IRND 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 1.2",
+     "aliases": [
+      "Tiffen IRND 1.2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 1.5",
+     "aliases": [
+      "Tiffen IRND 1.5 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 1.8",
+     "aliases": [
+      "Tiffen IRND 1.8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 2.1",
+     "aliases": [
+      "Tiffen IRND 2.1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x5.65 2.4",
+     "aliases": [
+      "Tiffen IRND 2.4 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/2 4x5.65",
+     "aliases": [
+      "GG 1/2 4x5.65",
+      "Glimmerglass 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1 4x5.65",
+     "aliases": [
+      "Pearl 1 4x5.65",
+      "Pearlescent 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1/2 4x5.65",
+     "aliases": [
+      "Pearl 1/2 4x5.65",
+      "Pearlescent 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1/2 6.6x6.6",
+     "aliases": [
+      "Pearl 1/2 6.6x6.6",
+      "Pearlescent 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1/4 4x5.65",
+     "aliases": [
+      "Pearl 1/4 4x5.65",
+      "Pearlescent 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1/8 4x5.65",
+     "aliases": [
+      "Pearl 1/8 4x5.65",
+      "Pearlescent 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 2 4x5.65",
+     "aliases": [
+      "Pearl 2 4x5.65",
+      "Pearlescent 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Pol 4x5.65",
+     "aliases": [
+      "Ultra Pol",
+      "Tiffen Pol 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Mirage",
+     "name": "Tilta Mirage Matte Box",
+     "aliases": [
+      "Mirage Matte Box",
+      "Tilta Mirage VND Kit"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Mirage Pro",
+     "name": "Tilta Mirage Pro Matte Box",
+     "aliases": [
+      "Mirage Pro Matte Box",
+      "Mirage Pro VND Kit"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "UMB-1",
+     "name": "Wooden Camera UMB-1 Universal Mattebox",
+     "aliases": [
+      "UMB-1 Pro",
+      "Universal Mattebox"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Zip Box Pro",
+     "name": "Wooden Camera Zip Box Pro 4x5.65 Clamp-On Matte Box",
+     "aliases": [
+      "Zip Box"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Electronics",
+    "Lens Control"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "AMC-1",
+     "name": "ARRI AMC-1 Active Motor Control",
+     "aliases": [
+      "Active Motor Control AMC-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce MAX",
+     "name": "ARRI cforce MAX Lens Motor",
+     "aliases": [
+      "cforce MAX Motor"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce mini",
+     "aliases": [
+      "cforce mini motor",
+      "Lens Motor",
+      "K2.0016802"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce mini RF",
+     "aliases": [
+      "cforce RF",
+      "cforce mini RF Motor"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce plus",
+     "aliases": [
+      "cforce+",
+      "cforce plus Motor"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-4",
+     "name": "ARRI CLM-4 Lens Motor",
+     "aliases": [
+      "CLM-4 Motor"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-5",
+     "name": "ARRI CLM-5 Lens Motor",
+     "aliases": [
+      "CLM-5 Motor"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Follow Focus FF-4",
+     "aliases": [
+      "FF-4",
+      "Schärfezieheinrichtung FF-4"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Follow Focus FF-5",
+     "aliases": [
+      "FF-5",
+      "ARRI Follow Focus",
+      "Schärfezieheinrichtung FF-5",
+      "KK.0005757"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5",
+     "name": "ARRI Hi-5 Hand Unit",
+     "aliases": [
+      "Hi-5 Hand Unit",
+      "Hand Unit Hi-5",
+      "Hi-5 Handeinheit",
+      "ARRI Hand Unit Hi-5"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LCUBE CUB-1",
+     "aliases": [
+      "CUB-1",
+      "LCUBE"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LDD-FP",
+     "name": "ARRI LDD-FP Lens Data Display",
+     "aliases": [
+      "LDD",
+      "Lens Data Display FP"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Master Grip MLR-1",
+     "name": "ARRI Master Grip Left Rocker MLR-1",
+     "aliases": [
+      "MLR-1",
+      "Master Grip Left Rocker"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Master Grip MLW-1",
+     "name": "ARRI Master Grip Left Wheel MLW-1",
+     "aliases": [
+      "MLW-1",
+      "Master Grip Left Wheel"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Master Grip MRR-1",
+     "name": "ARRI Master Grip Right Rocker MRR-1",
+     "aliases": [
+      "MRR-1",
+      "Master Grip Right Rocker",
+      "K2.0009493"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Master Grip MRW-1",
+     "name": "ARRI Master Grip Right Wheel MRW-1",
+     "aliases": [
+      "MRW-1",
+      "Master Grip Right Wheel"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mini Follow Focus MFF-2",
+     "aliases": [
+      "MFF-2",
+      "Mini Follow Focus"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "OCU-1",
+     "name": "ARRI OCU-1 Operator Control Unit",
+     "aliases": [
+      "Operator Control Unit",
+      "Operator Control Unit OCU-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RF-EMIP Radio Module",
+     "aliases": [
+      "RF-EMIP",
+      "EMIP Funkmodul"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RIA-1",
+     "name": "ARRI RIA-1 Radio Interface",
+     "aliases": [
+      "Radio Interface Adapter",
+      "Radio Interface Adapter RIA-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SXU-1",
+     "name": "ARRI SXU-1 Single Axis Unit",
+     "aliases": [
+      "Single Axis Unit SXU-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "UDM-1",
+     "name": "ARRI UDM-1 Ultrasonic Distance Measure",
+     "aliases": [
+      "UDM",
+      "Ultrasonic Distance Measure",
+      "P1035618"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "UMC-3A",
+     "name": "ARRI UMC-3A Motor Controller",
+     "aliases": [
+      "Universal Motor Controller UMC-3A"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "UMC-4",
+     "name": "ARRI UMC-4 Motor Controller",
+     "aliases": [
+      "Universal Motor Controller UMC-4"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4",
+     "name": "ARRI WCU-4 Hand Unit",
+     "aliases": [
+      "Wireless Compact Unit WCU-4"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ZMU-4",
+     "name": "ARRI ZMU-4 Zoom Main Unit",
+     "aliases": [
+      "Zoom Main Unit ZMU-4"
+     ]
+    },
+    {
+     "manufacturer": "Bright Tangerine",
+     "model": "Revolvr",
+     "name": "Bright Tangerine Revolvr Follow Focus",
+     "aliases": [
+      "Revolvr Follow Focus",
+      "BT Revolvr"
+     ]
+    },
+    {
+     "manufacturer": "Chrosziel",
+     "model": "DV StudioRig Follow Focus",
+     "aliases": [
+      "DV StudioRig",
+      "206-60S",
+      "Chrosziel Studio Rig"
+     ]
+    },
+    {
+     "manufacturer": "Chrosziel",
+     "model": "MagNum MN-200",
+     "name": "Chrosziel MagNum MN-200 2-Channel Wireless Lens Control",
+     "aliases": [
+      "MN-200",
+      "MagNum 200",
+      "Chrosziel Magnum"
+     ]
+    },
+    {
+     "manufacturer": "Cinematography Electronics",
+     "model": "CineTape",
+     "aliases": [
+      "CineTape Measure"
+     ]
+    },
+    {
+     "manufacturer": "cmotion",
+     "model": "cPRO camin",
+     "aliases": [
+      "camin cPRO"
+     ]
+    },
+    {
+     "manufacturer": "cmotion",
+     "model": "cPRO Hand Unit",
+     "aliases": [
+      "cPRO",
+      "cmotion cPRO",
+      "cPRO HU",
+      "cPRO Handeinheit"
+     ]
+    },
+    {
+     "manufacturer": "cmotion",
+     "model": "cPRO Motor",
+     "aliases": [
+      "cmotion motor",
+      "cPRO Lens Motor",
+      "cPRO RF Motor"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Focus Pro Grip",
+     "aliases": [
+      "Focus Pro Handgriff"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Focus Pro Hand Unit",
+     "aliases": [
+      "DJI Focus Pro HU",
+      "Focus Pro Handeinheit"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Focus Pro LiDAR",
+     "aliases": [
+      "Focus Pro Lidar Rangefinder"
+     ],
+     "specs": {
+      "range_m": 20
+     }
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Focus Pro Motor",
+     "aliases": [
+      "Focus Pro FIZ Motor"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "LiDAR Range Finder (RS)",
+     "aliases": [
+      "DJI LiDAR Range Finder",
+      "RS LiDAR",
+      "Ronin LiDAR"
+     ]
+    },
+    {
+     "manufacturer": "HEDEN",
+     "model": "M21VE-L",
+     "name": "HEDEN M21VE-L Lens Motor",
+     "aliases": [
+      "M21VE"
+     ]
+    },
+    {
+     "manufacturer": "HEDEN",
+     "model": "M26VE",
+     "name": "HEDEN M26VE Lens Motor",
+     "aliases": []
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Digital Micro Force",
+     "name": "Preston Digital Micro Force Zoom Control",
+     "aliases": [
+      "Microforce",
+      "MicroForce Zoom"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "DM1X Motor",
+     "name": "Preston DM1X Digital Motor",
+     "aliases": [
+      "DM1X",
+      "DM1X Digital Motor"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "DM2 Motor",
+     "name": "Preston DM2 Digital Motor",
+     "aliases": [
+      "DM2",
+      "DM2 Digital Motor"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "DM2X Motor",
+     "aliases": [
+      "DM2X",
+      "Preston Motor DM2X",
+      "DM2X Digital Motor"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "DM5 Motor",
+     "name": "Preston DM5 Digital Motor",
+     "aliases": [
+      "DM5",
+      "DM5 Digital Motor"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "FI+Z Hand Unit 3",
+     "name": "Preston HU3 Hand Unit",
+     "aliases": [
+      "HU3",
+      "Preston HU3",
+      "Hand Unit 3"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "FI+Z Hand Unit 4",
+     "name": "Preston HU4 Hand Unit",
+     "aliases": [
+      "HU4",
+      "Preston HU4",
+      "Preston Hand Unit",
+      "Hand Unit 4"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Light Ranger 2",
+     "aliases": [
+      "LR2",
+      "Light Ranger",
+      "Preston LR2"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "MDR-2",
+     "name": "Preston MDR-2 Motor Driver",
+     "aliases": [],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "MDR-3",
+     "name": "Preston MDR-3 Motor Driver",
+     "aliases": []
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "MDR-4",
+     "name": "Preston MDR-4 Motor Driver",
+     "aliases": []
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT CTRL.1",
+     "name": "Teradek RT CTRL.1 Single-Axis Controller",
+     "aliases": [
+      "CTRL.1"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT CTRL.3",
+     "aliases": [
+      "Teradek RT Hand Unit",
+      "CTRL.3"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT CTRL.5",
+     "name": "Teradek RT CTRL.5 3-Axis Controller",
+     "aliases": [
+      "CTRL.5"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Latitude-M",
+     "name": "Teradek RT Latitude-M Receiver",
+     "aliases": [
+      "Latitude-M",
+      "MDR-M",
+      "Latitude MDR-M"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT MK3.1 Motor",
+     "aliases": [
+      "RT Motor",
+      "Teradek RT Motor",
+      "MK3.1 Brushless Lens Motor",
+      "RT Motion Motor"
+     ],
+     "formerly": [
+      "RT Motion Motor"
+     ],
+     "name": "Teradek RT MK3.1 Brushless Lens Motor"
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT MK3.1 Receiver",
+     "aliases": [
+      "RT MK3.1",
+      "Teradek RT Receiver",
+      "MK3.1 Receiver",
+      "RT MDR MK3.1"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Nucleus-M",
+     "aliases": [
+      "Tilta Nucleus",
+      "Nucleus-M Kit"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Nucleus-M II",
+     "name": "Tilta Nucleus-M II Wireless Lens Control System",
+     "aliases": [
+      "Nucleus-M2"
+     ]
+    },
+    {
+     "manufacturer": "Tilta",
+     "model": "Nucleus-Nano II",
+     "name": "Tilta Nucleus-Nano II Wireless Follow Focus",
+     "aliases": [
+      "Nano II",
+      "Nucleus Nano 2"
+     ]
+    }
+   ]
+  }
+ ]
+}

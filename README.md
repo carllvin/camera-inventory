@@ -46,12 +46,20 @@ click. Confirming a note saves the rental house's project number on the project,
 
 ### Standard equipment catalog
 
-About 400 common equipment types (ARRI, Sony, RED, Canon, Blackmagic cameras; Signature/Master/Ultra/Supreme
-Primes, Cooke, Leitz, Sigma, Canon lenses — one type per focal length; anamorphics, zooms; lens control, matte
-boxes, filters, monitors, wireless video, timecode, batteries, support, cables) with the aliases rental houses
-use on delivery notes. Offered when a workspace is created, or later under **Settings → Standard equipment
-catalog** per area. Types you already have are skipped and never changed; the import is recorded in the history.
-The list lives in `src/server/catalog/standard-catalog.ts` — corrections are welcome there or directly in the app.
+About 1,200 equipment types from the common manufacturers — cameras (ARRI, Sony, RED, Canon, Blackmagic,
+Panasonic, Nikon, Fujifilm, Z CAM, Kinefinity, DJI, Phantom …), lenses with one type per focal length (ARRI,
+ZEISS, Cooke, Leitz, Canon, Sigma, Angénieux, Fujinon, Atlas, Vantage Hawk, Laowa, Sirui, DZOFilm, Blazar …),
+lens control, matte boxes and filters, monitors, wireless video, timecode, batteries and chargers, media,
+support and cables — with the aliases and part numbers rental houses use on delivery notes. Researched against
+manufacturer and dealer listings; discontinued models that are still rented are marked as such.
+
+Offered when a workspace is created, or later under **Settings → Standard equipment catalog** per area. Types
+you already have are skipped and never changed; types imported under a name a later catalog version corrected
+are renamed only if nobody edited them. Everything is recorded in the history. The data lives in
+`src/server/catalog/data/*.json` — corrections are welcome there or directly in the app.
+
+Equipment types are chosen with a search field (manufacturer, model, alias, part number; words in any order,
+typos tolerated), so even thousands of types stay quick to pick.
 
 ### Reference images
 

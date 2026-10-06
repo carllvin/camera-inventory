@@ -1,0 +1,2235 @@
+{
+ "key": "cameras",
+ "label": "Cameras",
+ "description": "Camera bodies, viewfinders, camera accessories, recording media and readers",
+ "groups": [
+  {
+   "category": [
+    "Camera",
+    "Camera Accessories"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "Balance Utility Dovetail BUD-1",
+     "aliases": [
+      "BUD-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Plate Adapter BPA-4",
+     "aliases": [
+      "BPA-4",
+      "Bridge Plate Adapter",
+      "K2.0006352"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Plate Adapter BPA-5",
+     "aliases": [
+      "BPA-5"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Plate BP-8",
+     "aliases": [
+      "BP-8",
+      "Bridge Plate 15mm"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Plate BP-9",
+     "aliases": [
+      "BP-9",
+      "Bridge Plate 19mm"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Center Camera Handle CCH-1",
+     "aliases": [
+      "CCH-1",
+      "ARRI Griff CCH-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Center Camera Handle CCH-2",
+     "aliases": [
+      "CCH-2",
+      "Center Camera Handle",
+      "ARRI Griff CCH-2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Center Camera Handle CCH-4",
+     "aliases": [
+      "CCH-4",
+      "ARRI Griff CCH-4"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Center Camera Handle CCH-5",
+     "aliases": [
+      "CCH-5",
+      "K2.0023519",
+      "ARRI Griff CCH-5"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Compact Bridge Plate CBP-1",
+     "aliases": [
+      "CBP-1",
+      "Bridgeplate CBP-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "EF Mount (LBUS)",
+     "aliases": [
+      "EF LBUS",
+      "EF Bajonett LBUS"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension Block HEB-1",
+     "aliases": [
+      "HEB-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension HEX-2",
+     "aliases": [
+      "HEX-2",
+      "Griffverlängerung HEX-2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension HEX-3",
+     "aliases": [
+      "HEX-3",
+      "Griffverlängerung HEX-3"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Leveling Block LB-1",
+     "aliases": [
+      "LB-1",
+      "Leveling Block"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LPL Mount (LBUS)",
+     "aliases": [
+      "LPL LBUS",
+      "LPL Bajonett LBUS"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LPL Mount LPL-1",
+     "aliases": [
+      "LPL Mount",
+      "LPL-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mini Adapter Plate MAP-1",
+     "aliases": [
+      "MAP-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mini Adapter Plate MAP-2",
+     "aliases": [
+      "MAP-2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mini Adapter Plate MAP-2A",
+     "aliases": [
+      "MAP-2A"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mini Side Bracket MSB-1",
+     "aliases": [
+      "MSB-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mini Side Bracket MSB-2",
+     "aliases": [
+      "MSB-2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mini Side Bracket MSB-3",
+     "aliases": [
+      "MSB-3"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "PL Mount",
+     "aliases": [
+      "PL Mount ALEXA Mini",
+      "PL Bajonett"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "PL to LPL Adapter",
+     "aliases": [
+      "PL-LPL Adapter",
+      "PL to LPL",
+      "LPL Adapter",
+      "PL auf LPL Adapter"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Rear Accessory Bracket RAB-1",
+     "aliases": [
+      "RAB-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Side Accessory Bracket SAB-1",
+     "aliases": [
+      "SAB-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Adapter VFA-3",
+     "aliases": [
+      "VFA-3"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Extension Bracket VEB-3",
+     "aliases": [
+      "VEB-3",
+      "K2.74000.0",
+      "Sucherverlängerung VEB-3"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Mounting Bracket VMB-5",
+     "aliases": [
+      "VMB-5",
+      "K2.0033859",
+      "Sucherhalter VMB-5"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC3 V-Lock I/O Expander",
+     "aliases": [
+      "V-Lock I/O Expander",
+      "V-Raptor I/O Expander",
+      "DSMC3 V-Mount Expander"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "KOMODO Link Adaptor",
+     "aliases": [
+      "Komodo Link",
+      "Komodo Link Adapter"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-R7",
+     "aliases": [
+      "R7 Recorder",
+      "F55 Raw Recorder"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "Rialto 2 Extension System",
+     "aliases": [
+      "Rialto 2",
+      "Venice Rialto",
+      "CBK-3620XS",
+      "VENICE Extension System 2"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "Rialto Extension System",
+     "aliases": [
+      "CBK-3610XS",
+      "Rialto 1",
+      "VENICE Extension System"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "ARRI Alexa Mini LF Unified Accessory Kit (Pro, 19mm)",
+     "aliases": [
+      "WC Mini LF UAK Pro",
+      "Mini LF UAK 19mm",
+      "Wooden Camera Mini LF Kit"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Camera",
+    "Camera Bodies"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA 265",
+     "aliases": [
+      "Alexa 265 Body",
+      "A265",
+      "ALEXA 265 Kamera",
+      "ARRI 265"
+     ],
+     "specs": {
+      "sensor": "65 mm",
+      "mount": "LPL",
+      "weight_kg": 3.3
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA 35",
+     "aliases": [
+      "A35",
+      "ALEXA 35 Body",
+      "ARRI A35",
+      "Alexa 35 Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 4.6K ALEV 4",
+      "mount": "LPL"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA 35 Live",
+     "aliases": [
+      "A35 Live",
+      "ALEXA 35 Live Multicam"
+     ],
+     "specs": {
+      "sensor": "Super 35 4.6K ALEV 4",
+      "mount": "LPL"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA 35 Xtreme",
+     "aliases": [
+      "ALEXA 35 Xtreme Body",
+      "A35 Xtreme",
+      "ALEXA 35X",
+      "Alexa 35 Xtreme Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 4.6K ALEV 4",
+      "mount": "LPL"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA 65",
+     "aliases": [
+      "A65",
+      "Alexa 65 Kamera"
+     ],
+     "specs": {
+      "sensor": "65 mm ALEV III A3X",
+      "mount": "XPL",
+      "weight_kg": 10.5
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA Classic EV",
+     "aliases": [
+      "Alexa Classic",
+      "Alexa EV",
+      "Alexa Classic Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA LF",
+     "aliases": [
+      "Alexa LF Body",
+      "ALF",
+      "Alexa LF Kamera"
+     ],
+     "specs": {
+      "sensor": "Large Format ALEV III",
+      "mount": "LPL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA M",
+     "aliases": [
+      "Alexa Classic M",
+      "Alexa M Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA Mini",
+     "aliases": [
+      "Alexa Mini Body",
+      "AMini",
+      "Arri Mini",
+      "Alexa Mini Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA Mini LF",
+     "aliases": [
+      "Mini LF",
+      "AMLF",
+      "ALEXA Mini LF Body",
+      "Alexa Mini LF Kamera"
+     ],
+     "specs": {
+      "sensor": "Large Format ALEV III",
+      "mount": "LPL"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA Plus",
+     "aliases": [
+      "Alexa+",
+      "Alexa Classic Plus",
+      "Alexa Plus 4:3"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA Studio",
+     "aliases": [
+      "Alexa Classic Studio",
+      "Alexa Studio Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA SXT EV",
+     "aliases": [
+      "SXT EV",
+      "Alexa SXT",
+      "Alexa SXT Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA SXT Plus",
+     "aliases": [
+      "SXT Plus",
+      "SXT+",
+      "Alexa SXT+"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA SXT Studio",
+     "aliases": [
+      "SXT Studio",
+      "Alexa SXT Studio Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA SXT W",
+     "aliases": [
+      "SXT W"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA XT",
+     "aliases": [
+      "XT EV",
+      "Alexa XT EV",
+      "Alexa XT Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA XT M",
+     "aliases": [
+      "XT M"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA XT Plus",
+     "aliases": [
+      "XT Plus",
+      "XT+",
+      "Alexa XT+"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA XT Studio",
+     "aliases": [
+      "XT Studio",
+      "Alexa XT Studio Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "AMIRA",
+     "aliases": [
+      "Amira Body",
+      "ARRI Amira Live",
+      "Amira Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 ALEV III",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Cinema Camera 6K",
+     "aliases": [
+      "BMCC 6K",
+      "Blackmagic Cinema Camera 6K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "L-Mount"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Pocket Cinema Camera 4K",
+     "aliases": [
+      "BMPCC 4K",
+      "Pocket 4K",
+      "P4K"
+     ],
+     "specs": {
+      "sensor": "Micro Four Thirds 4K",
+      "mount": "MFT"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Pocket Cinema Camera 6K",
+     "aliases": [
+      "BMPCC 6K",
+      "Pocket 6K",
+      "P6K"
+     ],
+     "specs": {
+      "sensor": "Super 35 6K",
+      "mount": "EF"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Pocket Cinema Camera 6K G2",
+     "aliases": [
+      "BMPCC 6K G2",
+      "Pocket 6K G2",
+      "P6K G2"
+     ],
+     "specs": {
+      "sensor": "Super 35 6K",
+      "mount": "EF"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Pocket Cinema Camera 6K Pro",
+     "aliases": [
+      "BMPCC 6K Pro",
+      "Pocket 6K Pro",
+      "P6K Pro"
+     ],
+     "specs": {
+      "sensor": "Super 35 6K",
+      "mount": "EF"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "PYXIS 12K",
+     "aliases": [
+      "Pyxis 12K Kamera",
+      "BMD Pyxis 12K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 12K RGBW (36 x 24 mm)",
+      "resolution": "12288 x 8040"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "PYXIS 6K",
+     "aliases": [
+      "Pyxis",
+      "Blackmagic Pyxis",
+      "Pyxis 6K Kamera",
+      "BMD Pyxis 6K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Cine 12K LF",
+     "aliases": [
+      "URSA Cine 12K",
+      "Blackmagic URSA Cine",
+      "BMD URSA Cine LF",
+      "Ursa Cine 12K Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 12K RGBW (36 x 24 mm)",
+      "mount": "PL / LPL",
+      "resolution": "12288 x 8040"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Cine 17K 65",
+     "aliases": [
+      "URSA Cine 17K",
+      "BMD URSA 17K",
+      "Ursa Cine 65"
+     ],
+     "specs": {
+      "sensor": "65 mm 17K",
+      "mount": "PL / LPL"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Mini Pro 12K",
+     "aliases": [
+      "UMP 12K",
+      "URSA 12K",
+      "BMD URSA Mini Pro 12K"
+     ],
+     "specs": {
+      "sensor": "Super 35 12K",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Mini Pro 4.6K G2",
+     "aliases": [
+      "UMP 4.6K G2",
+      "URSA Mini Pro G2",
+      "URSA 4.6K G2"
+     ],
+     "specs": {
+      "sensor": "Super 35 4.6K",
+      "mount": "EF"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C200",
+     "aliases": [
+      "C200",
+      "Canon C200 Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K",
+      "mount": "EF"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C300 Mark II",
+     "aliases": [
+      "C300 Mk II",
+      "C300 II",
+      "Canon C300 Mark 2"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C300 Mark III",
+     "aliases": [
+      "C300 MkIII",
+      "C300 Mark 3",
+      "C300III",
+      "Canon C300 Mark 3"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K",
+      "mount": "EF"
+     }
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C400",
+     "aliases": [
+      "C400",
+      "Canon C400 Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C50",
+     "aliases": [
+      "C50",
+      "Canon C50 Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 7K",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C500 Mark II",
+     "aliases": [
+      "C500 MkII",
+      "C500 Mark 2",
+      "C500II",
+      "Canon C500 Mark 2"
+     ],
+     "specs": {
+      "sensor": "Full Frame 5.9K",
+      "mount": "EF"
+     }
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C70",
+     "aliases": [
+      "C70",
+      "Canon C70 Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C700 FF",
+     "aliases": [
+      "C700 FF",
+      "Canon C700 Full Frame"
+     ],
+     "specs": {
+      "sensor": "Full Frame 5.9K"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EOS C80",
+     "aliases": [
+      "C80",
+      "Canon C80 Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Ronin 4D-6K",
+     "aliases": [
+      "R4D 6K",
+      "DJI 4D 6K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K"
+     }
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Ronin 4D-8K",
+     "aliases": [
+      "R4D 8K",
+      "DJI 4D 8K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 8K"
+     }
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Zenmuse X9-6K",
+     "aliases": [
+      "X9-6K",
+      "X9 6K Gimbalkamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K"
+     }
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Zenmuse X9-8K",
+     "aliases": [
+      "X9-8K",
+      "X9 8K Gimbalkamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 8K"
+     }
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "Ember S2.5K",
+     "aliases": [
+      "Ember 2.5K",
+      "Ember S2.5K High Speed"
+     ],
+     "specs": {
+      "sensor": "Super 35 2.5K global shutter",
+      "mount": "EF"
+     }
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "Ember S5K",
+     "aliases": [
+      "Ember 5K",
+      "Freefly Ember",
+      "Ember S5K High Speed"
+     ],
+     "specs": {
+      "sensor": "Super 35 5K global shutter",
+      "mount": "PL / EF"
+     }
+    },
+    {
+     "manufacturer": "Fujifilm",
+     "model": "GFX ETERNA 55",
+     "aliases": [
+      "GFX Eterna",
+      "Eterna 55",
+      "Fuji GFX ETERNA"
+     ],
+     "specs": {
+      "sensor": "Large Format 43.8 x 32.9 mm",
+      "mount": "G Mount / PL"
+     }
+    },
+    {
+     "manufacturer": "Kinefinity",
+     "model": "MAVO Edge 6K",
+     "aliases": [
+      "Mavo Edge 6K Kamera",
+      "Kinefinity Edge 6K",
+      "KineMAVO Edge 6K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K"
+     }
+    },
+    {
+     "manufacturer": "Kinefinity",
+     "model": "MAVO Edge 8K",
+     "aliases": [
+      "Mavo Edge 8K Kamera",
+      "Kinefinity Edge 8K",
+      "KineMAVO Edge 8K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 8K"
+     }
+    },
+    {
+     "manufacturer": "Kinefinity",
+     "model": "MAVO mark2 LF",
+     "aliases": [
+      "MAVO LF mark2",
+      "Mavo Mk2 LF"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K"
+     }
+    },
+    {
+     "manufacturer": "Kinefinity",
+     "model": "MAVO mark2 S35",
+     "aliases": [
+      "MAVO S35 mark2",
+      "Mavo Mk2 S35"
+     ],
+     "specs": {
+      "sensor": "Super 35 6K"
+     }
+    },
+    {
+     "manufacturer": "Nikon",
+     "model": "ZR",
+     "aliases": [
+      "Nikon ZR Cinema",
+      "Z CINEMA ZR"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "Nikon Z"
+     }
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "AU-EVA1",
+     "aliases": [
+      "EVA1",
+      "Panasonic EVA 1"
+     ],
+     "specs": {
+      "sensor": "Super 35 5.7K",
+      "mount": "EF"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "LUMIX BGH1",
+     "aliases": [
+      "DC-BGH1",
+      "BGH1"
+     ],
+     "specs": {
+      "sensor": "Micro Four Thirds",
+      "mount": "MFT"
+     }
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "LUMIX BS1H",
+     "aliases": [
+      "DC-BS1H",
+      "BS1H"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "L-Mount"
+     }
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "LUMIX S1H",
+     "aliases": [
+      "DC-S1H",
+      "S1H"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "L-Mount"
+     }
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "VariCam 35",
+     "aliases": [
+      "AU-V35C1G",
+      "Varicam 35 Kamera",
+      "VC35"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "VariCam LT",
+     "aliases": [
+      "AU-V35LT1G",
+      "Varicam LT Kamera",
+      "VCLT"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "VariCam Pure",
+     "aliases": [
+      "Varicam Pure Kamera",
+      "VariCam 35 Pure"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K",
+      "mount": "PL"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Panavision",
+     "model": "Millennium DXL2",
+     "aliases": [
+      "DXL2",
+      "Panavision DXL 2"
+     ],
+     "specs": {
+      "sensor": "8K Large Format (RED MONSTRO)"
+     }
+    },
+    {
+     "manufacturer": "Phantom",
+     "model": "Flex4K",
+     "aliases": [
+      "Vision Research Flex4K"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K"
+     }
+    },
+    {
+     "manufacturer": "Phantom",
+     "model": "TMX 7510",
+     "aliases": [
+      "Phantom TMX",
+      "Vision Research TMX 7510"
+     ]
+    },
+    {
+     "manufacturer": "Phantom",
+     "model": "VEO 4K 590",
+     "aliases": [
+      "Phantom VEO 590"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K"
+     }
+    },
+    {
+     "manufacturer": "Phantom",
+     "model": "VEO 4K 990",
+     "aliases": [
+      "Phantom VEO 990"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC2 DRAGON-X 6K S35",
+     "aliases": [
+      "Dragon-X",
+      "Dragon X 6K",
+      "RED Dragon-X",
+      "DSMC2 Dragon X"
+     ],
+     "specs": {
+      "sensor": "6K Super 35"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC2 GEMINI 5K S35",
+     "aliases": [
+      "Gemini",
+      "Gemini 5K",
+      "RED Gemini",
+      "DSMC2 Gemini"
+     ],
+     "specs": {
+      "sensor": "5K Super 35"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC2 HELIUM 8K S35",
+     "aliases": [
+      "Helium",
+      "Helium 8K",
+      "RED Helium",
+      "DSMC2 Helium"
+     ],
+     "specs": {
+      "sensor": "8K Super 35"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC2 MONSTRO 8K VV",
+     "aliases": [
+      "Monstro",
+      "Monstro 8K",
+      "RED Monstro",
+      "DSMC2 Monstro"
+     ],
+     "specs": {
+      "sensor": "8K VV"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "KOMODO 6K",
+     "aliases": [
+      "Komodo",
+      "RED Komodo",
+      "Komodo Kamera"
+     ],
+     "specs": {
+      "sensor": "6K Super 35 global shutter",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "KOMODO-X 6K",
+     "aliases": [
+      "Komodo X",
+      "Komodo-X Kamera"
+     ],
+     "specs": {
+      "sensor": "6K Super 35 global shutter",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "KOMODO-X Z Mount",
+     "aliases": [
+      "Komodo X Z"
+     ],
+     "specs": {
+      "sensor": "6K Super 35 global shutter",
+      "mount": "Nikon Z"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RANGER GEMINI 5K S35",
+     "aliases": [
+      "Ranger Gemini",
+      "RED Ranger Gemini"
+     ],
+     "specs": {
+      "sensor": "5K Super 35"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RANGER HELIUM 8K S35",
+     "aliases": [
+      "Ranger Helium",
+      "RED Ranger Helium"
+     ],
+     "specs": {
+      "sensor": "8K Super 35"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RANGER MONSTRO 8K VV",
+     "aliases": [
+      "Ranger Monstro",
+      "RED Ranger Monstro"
+     ],
+     "specs": {
+      "sensor": "8K VV"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR [X] 8K VV",
+     "aliases": [
+      "V-Raptor X",
+      "Raptor X"
+     ],
+     "specs": {
+      "sensor": "8K VV global shutter",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR [X] Z Mount",
+     "aliases": [
+      "V-Raptor X Z",
+      "Raptor X Z Mount"
+     ],
+     "specs": {
+      "sensor": "8K VV global shutter",
+      "mount": "Nikon Z"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR 8K S35",
+     "aliases": [
+      "V-Raptor S35",
+      "Raptor 8K S35"
+     ],
+     "specs": {
+      "sensor": "8K Super 35",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR 8K VV",
+     "aliases": [
+      "V-Raptor",
+      "VRaptor 8K",
+      "Raptor VV",
+      "V-Raptor VV",
+      "Raptor 8K VV"
+     ],
+     "specs": {
+      "sensor": "8K VV",
+      "mount": "RF"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR XL [X] 8K VV",
+     "aliases": [
+      "V-Raptor XL X",
+      "Raptor XL X"
+     ],
+     "specs": {
+      "sensor": "8K VV global shutter",
+      "mount": "PL"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR XL 8K S35",
+     "aliases": [
+      "V-Raptor XL S35",
+      "Raptor XL 8K S35"
+     ],
+     "specs": {
+      "sensor": "8K Super 35",
+      "mount": "PL"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "V-RAPTOR XL 8K VV",
+     "aliases": [
+      "V-Raptor XL",
+      "Raptor XL",
+      "V-Raptor XL VV",
+      "Raptor XL 8K VV"
+     ],
+     "specs": {
+      "sensor": "8K VV",
+      "mount": "PL"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BURANO",
+     "aliases": [
+      "MPC-2610",
+      "Burano Kamera",
+      "Sony Burano 8K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 8.6K",
+      "mount": "PL / E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "FR7",
+     "aliases": [
+      "ILME-FR7",
+      "FR7 PTZ",
+      "Sony FR7 PTZ Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame",
+      "mount": "E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "FX2",
+     "aliases": [
+      "ILME-FX2",
+      "FX2 Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 33MP",
+      "mount": "E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "FX3",
+     "aliases": [
+      "ILME-FX3",
+      "FX3 Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame",
+      "mount": "E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "FX30",
+     "aliases": [
+      "ILME-FX30",
+      "FX30 Kamera"
+     ],
+     "specs": {
+      "sensor": "APS-C",
+      "mount": "E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "FX6",
+     "aliases": [
+      "ILME-FX6",
+      "ILME-FX6V",
+      "FX6 Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame",
+      "mount": "E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "FX9",
+     "aliases": [
+      "PXW-FX9",
+      "FX9 Kamera"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PMW-F5",
+     "aliases": [
+      "F5",
+      "Sony F5",
+      "F5 Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K",
+      "mount": "FZ"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PMW-F55",
+     "aliases": [
+      "F55",
+      "Sony F55",
+      "F55 Kamera"
+     ],
+     "specs": {
+      "sensor": "Super 35 4K",
+      "mount": "FZ"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "VENICE",
+     "aliases": [
+      "Venice 1",
+      "MPC-3610",
+      "Venice Kamera",
+      "Sony Venice 6K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "PL / E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "VENICE 2 6K",
+     "aliases": [
+      "MPC-3626",
+      "Venice 2 6K Kamera",
+      "V2 6K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K",
+      "mount": "PL / E-mount"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "VENICE 2 8K",
+     "aliases": [
+      "Venice 2",
+      "MPC-3628",
+      "Venice 2 8K Kamera",
+      "V2 8K"
+     ],
+     "specs": {
+      "sensor": "Full Frame 8.6K",
+      "mount": "PL / E-mount"
+     }
+    },
+    {
+     "manufacturer": "Z CAM",
+     "model": "E2-F6",
+     "aliases": [
+      "ZCAM F6"
+     ],
+     "specs": {
+      "sensor": "Full Frame 6K"
+     }
+    },
+    {
+     "manufacturer": "Z CAM",
+     "model": "E2-F8",
+     "aliases": [
+      "ZCAM F8"
+     ],
+     "specs": {
+      "sensor": "Full Frame 8K"
+     }
+    },
+    {
+     "manufacturer": "Z CAM",
+     "model": "E2-M4",
+     "aliases": [
+      "ZCAM M4"
+     ],
+     "specs": {
+      "sensor": "Micro Four Thirds 4K"
+     }
+    },
+    {
+     "manufacturer": "Z CAM",
+     "model": "E2-S6",
+     "aliases": [
+      "ZCAM S6"
+     ],
+     "specs": {
+      "sensor": "Super 35 6K"
+     }
+    }
+   ]
+  },
+  {
+   "category": [
+    "Camera",
+    "Media & Readers"
+   ],
+   "entries": [
+    {
+     "manufacturer": "Angelbird",
+     "model": "AV PRO CFast 2.0 128GB",
+     "aliases": [
+      "Angelbird CFast 128GB",
+      "AV PRO CFast 128"
+     ],
+     "specs": {
+      "capacity": "128GB"
+     }
+    },
+    {
+     "manufacturer": "Angelbird",
+     "model": "AV PRO CFast 2.0 256GB",
+     "aliases": [
+      "Angelbird CFast 256GB",
+      "AV PRO CFast 256"
+     ],
+     "specs": {
+      "capacity": "256GB"
+     }
+    },
+    {
+     "manufacturer": "Angelbird",
+     "model": "AV PRO CFast 2.0 512GB",
+     "aliases": [
+      "CFast 512GB",
+      "CFast 2.0 512GB",
+      "Angelbird CFast 512",
+      "Angelbird CFast 512GB",
+      "AV PRO CFast 512"
+     ],
+     "specs": {
+      "capacity": "512GB"
+     }
+    },
+    {
+     "manufacturer": "Angelbird",
+     "model": "AV PRO CFexpress B 1TB",
+     "aliases": [
+      "Angelbird CFexpress 1TB",
+      "CFexpress Type B 1TB",
+      "AV PRO CFe B 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "Angelbird",
+     "model": "AV PRO CFexpress B 2TB",
+     "aliases": [
+      "Angelbird CFexpress 2TB",
+      "AV PRO CFe B 2TB"
+     ],
+     "specs": {
+      "capacity": "2TB"
+     }
+    },
+    {
+     "manufacturer": "Angelbird",
+     "model": "CFexpress B / CFast Card Reader",
+     "aliases": [
+      "CFexpress Reader",
+      "CFast Reader",
+      "Card Reader",
+      "Angelbird Dual Reader",
+      "CFast CFexpress Reader"
+     ]
+    },
+    {
+     "manufacturer": "Angelbird",
+     "model": "SSD2GO PKT MK2",
+     "aliases": [
+      "SSD2GO PKT",
+      "Angelbird SSD2GO"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Blackmagic Media Dock",
+     "aliases": [
+      "Media Dock",
+      "BMD Media Dock"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Blackmagic Media Module 8TB",
+     "aliases": [
+      "URSA Cine Media Module 8TB",
+      "BMD Media Module"
+     ],
+     "specs": {
+      "capacity": "8TB"
+     }
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Blackmagic Media Module CF",
+     "aliases": [
+      "Media Module CF",
+      "URSA Cine Media Module CF"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Capture Drive 2.0 1TB",
+     "aliases": [
+      "Capture Drive 1TB",
+      "CD 2.0 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Capture Drive 2.0 2TB",
+     "aliases": [
+      "Capture Drive 2TB",
+      "CD 2.0 2TB"
+     ],
+     "specs": {
+      "capacity": "2TB"
+     }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Capture Drive Dock",
+     "aliases": [
+      "Codex Dock",
+      "Capture Drive Dock USB-3"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Compact Drive 1TB",
+     "aliases": [
+      "CCD 1TB",
+      "Codex CD 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Compact Drive 2TB",
+     "aliases": [
+      "CCD 2TB",
+      "Codex CD 2TB"
+     ],
+     "specs": {
+      "capacity": "2TB"
+     }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Compact Drive Reader",
+     "aliases": [
+      "Codex Reader",
+      "Compact Drive Reader USB-C",
+      "CDR",
+      "CD Reader",
+      "Codex Reader USB-C"
+     ]
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "SXR Capture Drive 1TB",
+     "aliases": [
+      "SXR 1TB",
+      "SXR Drive 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "SXR Capture Drive 2TB",
+     "aliases": [
+      "SXR 2TB",
+      "SXR Drive 2TB"
+     ],
+     "specs": {
+      "capacity": "2TB"
+     }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "XR Capture Drive 512GB",
+     "aliases": [
+      "XR Drive 512GB",
+      "XR 512"
+     ],
+     "specs": {
+      "capacity": "512GB"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ProGrade",
+     "model": "CFexpress Type B Cobalt 325GB",
+     "aliases": [
+      "ProGrade Cobalt 325GB",
+      "ProGrade CFe B 325"
+     ],
+     "specs": {
+      "capacity": "325GB"
+     }
+    },
+    {
+     "manufacturer": "ProGrade",
+     "model": "CFexpress Type B Cobalt 650GB",
+     "aliases": [
+      "ProGrade Cobalt 650GB",
+      "ProGrade CFe B 650"
+     ],
+     "specs": {
+      "capacity": "650GB"
+     }
+    },
+    {
+     "manufacturer": "ProGrade",
+     "model": "CFexpress Type B Gold 1TB",
+     "aliases": [
+      "ProGrade Gold 1TB",
+      "ProGrade CFe B 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "ProGrade",
+     "model": "CFexpress Type B Gold 512GB",
+     "aliases": [
+      "ProGrade Gold 512GB",
+      "ProGrade CFe B 512"
+     ],
+     "specs": {
+      "capacity": "512GB"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "MINI-MAG 480GB",
+     "aliases": [
+      "RED MINI-MAG 480"
+     ],
+     "specs": {
+      "capacity": "480GB"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "MINI-MAG 960GB",
+     "aliases": [
+      "RED MINI-MAG 960"
+     ],
+     "specs": {
+      "capacity": "960GB"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "PRO CFexpress 1TB",
+     "aliases": [
+      "RED CFexpress 1TB",
+      "RED Pro CFE 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "PRO CFexpress 2TB",
+     "aliases": [
+      "RED CFexpress 2TB",
+      "RED Pro CFE 2TB"
+     ],
+     "specs": {
+      "capacity": "2TB"
+     }
+    },
+    {
+     "manufacturer": "RED",
+     "model": "Station RED MINI-MAG",
+     "aliases": [
+      "RED Station Mini Mag",
+      "Mini Mag Reader"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "SanDisk",
+     "model": "Extreme PRO CFast 2.0 128GB",
+     "aliases": [
+      "SanDisk CFast 128GB",
+      "SanDisk CFast 2.0 128"
+     ],
+     "specs": {
+      "capacity": "128GB"
+     }
+    },
+    {
+     "manufacturer": "SanDisk",
+     "model": "Extreme PRO CFast 2.0 256GB",
+     "aliases": [
+      "SanDisk CFast 256GB",
+      "SanDisk CFast 2.0 256"
+     ],
+     "specs": {
+      "capacity": "256GB"
+     }
+    },
+    {
+     "manufacturer": "SanDisk",
+     "model": "Extreme PRO CFexpress Type B 1TB",
+     "aliases": [
+      "SanDisk CFexpress B 1TB",
+      "SanDisk CFe B 1TB"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "SanDisk",
+     "model": "Extreme PRO CFexpress Type B 512GB",
+     "aliases": [
+      "SanDisk CFexpress B 512GB",
+      "SanDisk CFe B 512GB"
+     ],
+     "specs": {
+      "capacity": "512GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-A1TS24 1TB",
+     "aliases": [
+      "AXS-A1TS24",
+      "AXS 1TB S24"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-A1TS48 1TB",
+     "aliases": [
+      "AXS-A1TS48",
+      "AXS 1TB S48"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-A1TS66 1TB",
+     "aliases": [
+      "AXS 1TB",
+      "AXS Card 1TB",
+      "AXS-A1TS66",
+      "AXS 1TB S66"
+     ],
+     "specs": {
+      "capacity": "1TB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-A512S24 512GB",
+     "aliases": [
+      "AXS-A512S24",
+      "AXS 512GB S24"
+     ],
+     "specs": {
+      "capacity": "512GB"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-A512S48 512GB",
+     "aliases": [
+      "AXS-A512S48",
+      "AXS 512GB S48"
+     ],
+     "specs": {
+      "capacity": "512GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-AR1 Card Reader",
+     "aliases": [
+      "AXS-AR1",
+      "AXS Reader"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AXS-AR3 Card Reader",
+     "aliases": [
+      "AXS-AR3",
+      "AXS Reader",
+      "AXS Reader TB3"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEA-G160T",
+     "aliases": [
+      "Sony CFexpress A 160GB",
+      "CEA-G160"
+     ],
+     "specs": {
+      "capacity": "160GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEA-G320T",
+     "aliases": [
+      "Sony CFexpress A 320GB",
+      "CEA-G320"
+     ],
+     "specs": {
+      "capacity": "320GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEA-G640T",
+     "aliases": [
+      "Sony CFexpress A 640GB",
+      "CEA-G640"
+     ],
+     "specs": {
+      "capacity": "640GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEA-G80T",
+     "aliases": [
+      "Sony CFexpress A 80GB",
+      "CEA-G80"
+     ],
+     "specs": {
+      "capacity": "80GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEB-G128",
+     "aliases": [
+      "Sony CFexpress B 128GB",
+      "CEB-G128 Tough"
+     ],
+     "specs": {
+      "capacity": "128GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEB-G256",
+     "aliases": [
+      "Sony CFexpress B 256GB",
+      "CEB-G256 Tough"
+     ],
+     "specs": {
+      "capacity": "256GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CEB-G512",
+     "aliases": [
+      "Sony CFexpress B 512GB",
+      "CEB-G512 Tough"
+     ],
+     "specs": {
+      "capacity": "512GB"
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "MRW-G1",
+     "aliases": [
+      "Sony CFexpress B Reader",
+      "MRW-G1 Reader"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "MRW-G2",
+     "aliases": [
+      "Sony CFexpress A Reader",
+      "MRW-G2 Reader"
+     ]
+    }
+   ]
+  },
+  {
+   "category": [
+    "Camera",
+    "Viewfinders"
+   ],
+   "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "CCM-1",
+     "name": "ARRI CCM-1 Camera Control Monitor",
+     "aliases": [
+      "Camera Control Monitor CCM-1",
+      "ARRI CCM"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "EVF-1",
+     "name": "ARRI EVF-1 Viewfinder",
+     "aliases": [
+      "Electronic Viewfinder EVF-1",
+      "ARRI Sucher EVF-1"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "EVF-2",
+     "name": "ARRI EVF-2 Viewfinder",
+     "aliases": [
+      "Electronic Viewfinder EVF-2",
+      "ARRI Sucher EVF-2",
+      "K2.0008397"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MVF-1",
+     "name": "ARRI MVF-1 Multi Viewfinder",
+     "aliases": [
+      "Multi Viewfinder MVF-1",
+      "ARRI Sucher MVF-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MVF-2",
+     "name": "ARRI MVF-2 Multi Viewfinder",
+     "aliases": [
+      "Multi Viewfinder MVF-2",
+      "ARRI Multiviewfinder MVF-2",
+      "ARRI Sucher MVF-2"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Pocket Cinema Camera Pro EVF",
+     "aliases": [
+      "Pocket Pro EVF",
+      "BMPCC Pro EVF",
+      "Pocket EVF"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Cine EVF",
+     "aliases": [
+      "URSA Cine Sucher",
+      "BMD URSA Cine VF"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Studio Viewfinder",
+     "aliases": [
+      "URSA Studio VF",
+      "BMD Studio Viewfinder",
+      "URSA Studio Sucher"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "URSA Viewfinder",
+     "aliases": [
+      "BMD URSA VF",
+      "URSA Mini Sucher",
+      "URSA EVF"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EVF-V50",
+     "name": "Canon EVF-V50 OLED Viewfinder",
+     "aliases": [
+      "C300 Sucher"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "EVF-V70",
+     "name": "Canon EVF-V70 Viewfinder",
+     "aliases": [
+      "C700 Sucher"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "LM-V2",
+     "name": "Canon LM-V2 LCD Monitor",
+     "aliases": [
+      "LCD Monitor LM-V2"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC2 RED EVF (OLED)",
+     "aliases": [
+      "RED EVF",
+      "DSMC2 EVF",
+      "RED OLED Sucher"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC3 RED Touch 7\" LCD",
+     "aliases": [
+      "RED Touch 7",
+      "DSMC3 Touch 7",
+      "RED 7 Zoll LCD"
+     ],
+     "specs": {
+      "screen_in": 7
+     }
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "DVF-EL100",
+     "name": "Sony DVF-EL100 OLED Viewfinder",
+     "aliases": [
+      "EL100",
+      "F55 Sucher"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "DVF-EL200",
+     "name": "Sony DVF-EL200 OLED Viewfinder",
+     "aliases": [
+      "Venice Viewfinder",
+      "EL200",
+      "Venice Sucher"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "DVF-L700",
+     "name": "Sony DVF-L700 LCD Viewfinder",
+     "aliases": [
+      "L700",
+      "F55 LCD Sucher"
+     ],
+     "discontinued": true
+    }
+   ]
+  }
+ ]
+}
