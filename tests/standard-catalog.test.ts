@@ -7,7 +7,10 @@ import { DomainError, type Ctx } from "../src/server/domain/context";
 import { findType } from "../src/server/domain/document-matching";
 import { searchEquipmentTypes } from "../src/server/domain/equipment-types";
 import { createEquipmentType } from "../src/server/domain/equipment-types";
-import { importStandardCatalog, standardCatalogStatus } from "../src/server/domain/standard-catalog";
+import { importStandardCatalog, importStandardRentalHouses, standardCatalogStatus, standardRentalHouseStatus } from "../src/server/domain/standard-catalog";
+import { STANDARD_RENTAL_HOUSES } from "../src/server/catalog/rental-houses";
+import { findRentalHouse } from "../src/server/domain/document-matching";
+import { createRentalHouse } from "../src/server/domain/rental-houses";
 import { client, db, makeFixture, type Fixture } from "./helpers/db";
 
 let f: Fixture;
@@ -157,5 +160,53 @@ describe("import", () => {
     const other = await makeFixture();
     const before = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.workspaceId, other.ws.id), isNull(s.equipmentType.archivedAt)));
     expect(before).toHaveLength(2); // nothing leaked into another workspace
+  });
+});
+
+describe("standard rental houses", () => {
+  it("has regions with houses whose names and aliases never collide", () => {
+    expect(STANDARD_RENTAL_HOUSES.map((r) => r.key)).toEqual(["de", "at-ch", "intl"]);
+    const owner = new Map<string, string>();
+    for (const h of STANDARD_RENTAL_HOUSES.flatMap((r) => r.houses)) {
+      for (const v of [h.name, ...(h.aliases ?? [])]) {
+        const k = compact(v);
+        if (owner.has(k)) expect(owner.get(k)).toBe(h.name);
+        owner.set(k, h.name);
+      }
+      expect(h).not.toHaveProperty("sources");
+    }
+  });
+
+  it("imports per region, skips houses the workspace has, matches delivery-note senders", async () => {
+    const ws = await makeFixture();
+    const c: Ctx = { workspaceId: ws.ws.id, userId: ws.user.id, role: "owner" };
+    await createRentalHouse(db, c, { name: "Cinemobil" }); // own spelling of Cine-Mobil
+    const de = STANDARD_RENTAL_HOUSES.find((r) => r.key === "de")!;
+
+    const r = await importStandardRentalHouses(db, c, { regions: ["de"] });
+    expect(r.skipped).toBe(1);
+    expect(r.created).toBe(de.houses.length - 1);
+    const houses = await db.select().from(s.rentalHouse).where(eq(s.rentalHouse.workspaceId, c.workspaceId));
+    expect(houses.filter((h) => compact(h.name).startsWith("cinemobil"))).toHaveLength(1);
+    expect(houses.find((h) => h.name === "MBF Filmtechnik")!.aliases).toContain("MBF Filmtechnik GmbH");
+
+    // A legal name printed on delivery notes finds the imported house.
+    const arri = await findRentalHouse(db, c.workspaceId, "ARRI Rental Deutschland GmbH", null);
+    expect(houses.find((h) => h.id === arri)!.name).toBe("ARRI Rental");
+
+    expect((await importStandardRentalHouses(db, c, { regions: ["de"] })).created).toBe(0);
+    expect((await standardRentalHouseStatus(db, c)).find((x) => x.key === "de")!.present).toBe(de.houses.length);
+    const [ev] = await db.select().from(s.auditEvent).where(and(eq(s.auditEvent.workspaceId, c.workspaceId), eq(s.auditEvent.action, "catalog.imported")));
+    expect(ev!.summary).toContain(`${de.houses.length - 1} added`);
+    await expect(importStandardRentalHouses(db, { ...c, role: "member" }, { regions: ["de"] })).rejects.toBeInstanceOf(DomainError);
+  });
+
+  it("matches the Cine-Mobil branch name from the uploaded delivery note", async () => {
+    const ws = await makeFixture();
+    const c: Ctx = { workspaceId: ws.ws.id, userId: ws.user.id, role: "owner" };
+    await importStandardRentalHouses(db, c, { regions: ["de"] });
+    const id = await findRentalHouse(db, c.workspaceId, "Cine-Mobil GmbH - NL Köln", null);
+    const [h] = await db.select().from(s.rentalHouse).where(eq(s.rentalHouse.id, id!));
+    expect(h!.name).toBe("Cine-Mobil");
   });
 });

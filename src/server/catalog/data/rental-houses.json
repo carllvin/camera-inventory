@@ -1,1 +1,657 @@
-{ "regions": [] }
+{
+ "regions": [
+  {
+   "key": "de",
+   "label": "Germany",
+   "description": "Professional camera rental houses in Germany (features, series, commercials)",
+   "houses": [
+    {
+     "name": "ARRI Rental",
+     "aliases": [
+      "ARRI Rental Deutschland GmbH",
+      "ARRI Rental Munich",
+      "ARRI Rental München",
+      "ARRI Rental Berlin",
+      "ARRI Rental Cologne",
+      "ARRI Rental Köln",
+      "ARRI Rental Europe"
+     ],
+     "website": "https://www.arrirental.com",
+     "address": "Münchener Straße 101, 85737 Ismaning",
+     "phone": "+49 89 3809 1240",
+     "email": "Munich@arrirental.de",
+     "notes": "Standorte: München/Ismaning, Berlin (Gaußstraße 17, 10589 Berlin, +49 30 346 800 0), Köln (Heinrich-Pesch-Straße 7, 50739 Köln, +49 221 9499 1470); außerdem Wien, Prag, Budapest. Kamera, Licht, Grip.",
+     "sources": [
+      "https://www.arrirental.com/en/about/contact",
+      "https://www.crew-united.com/pl/ARRI-Rental-Deutschland-GmbH_29357.html"
+     ]
+    },
+    {
+     "name": "MBF Filmtechnik",
+     "shortName": "MBF",
+     "aliases": [
+      "MBF Filmtechnik GmbH",
+      "MBF Frankfurt",
+      "MBF Berlin",
+      "MBF Hamburg"
+     ],
+     "website": "https://mbf.de",
+     "address": "Westerbachstraße 164, 65936 Frankfurt am Main",
+     "phone": "+49 69 340004-0",
+     "notes": "Standorte: Frankfurt am Main (Zentrale), Berlin (Lützowstraße 102-104), Hamburg (Kedenburgstraße 44). Kamera, Licht, Bühne.",
+     "sources": [
+      "https://www.crew-united.com/de/MBF-Filmtechnik-GmbH_3816.html",
+      "https://www.productionparadise.com/member/frankfurt/mbf-filmtechnik.html",
+      "https://mbf.de/kameras/"
+     ]
+    },
+    {
+     "name": "Cine-Mobil",
+     "aliases": [
+      "Cine-Mobil GmbH",
+      "Cine-Mobil Berlin",
+      "Cine-Mobil Köln",
+      "Cine-Mobil GmbH - NL Köln"
+     ],
+     "website": "https://www.cine-mobil.de",
+     "address": "Bavariafilmplatz 7, 82031 Grünwald (Geiselgasteig)",
+     "phone": "+49 89 999819-10",
+     "email": "info@cine-mobil.de",
+     "notes": "Kamera, Licht, Bühne, Fahrzeuge, Generatoren. Standorte laut Crew United: München/Geiselgasteig, Berlin, Hamburg, Köln, Görlitz, Ludwigsburg, Wien, Innsbruck.",
+     "sources": [
+      "https://www.crew-united.com/de/Cine-Mobil-GmbH_22104.html",
+      "https://www.cine-mobil.de/de/standorte"
+     ]
+    },
+    {
+     "name": "Ludwig Kameraverleih",
+     "shortName": "Ludwig",
+     "aliases": [
+      "Ludwig Kameraverleih GmbH",
+      "Ludwig Kamera",
+      "Ludwig Kameraverleih Berlin",
+      "Ludwig Kameraverleih München"
+     ],
+     "website": "https://ludwigkamera.de",
+     "address": "Lehrer-Götz-Weg 17, 81825 München",
+     "phone": "+49 89 6895920",
+     "notes": "Standorte: München, Berlin, Hamburg, Köln, Leipzig, Erfurt, Aalen (dazu Warschau, Budapest). Exklusiver Panavision-Distributor in Deutschland.",
+     "sources": [
+      "https://www.crew-united.com/pl/Ludwig-Kameraverleih-GmbH_4066.html",
+      "https://www.tvtechnology.com/the-wire-blog/5493-505493",
+      "https://ludwigkamera.de/en/equipment/cameras/large-format-cameras/arri-alexa-mini-lf/"
+     ]
+    },
+    {
+     "name": "Vantage Film",
+     "shortName": "Vantage",
+     "aliases": [
+      "Vantage Film GmbH",
+      "Vantage Berlin",
+      "Vantage Film Berlin",
+      "Vantage Paris",
+      "Vantage Film Prague"
+     ],
+     "website": "https://www.vantagefilm.com",
+     "address": "Altstraße 9, 92637 Weiden",
+     "phone": "+49 961 26795",
+     "email": "bookings@vantagefilm.com",
+     "notes": "Hersteller der Hawk-Anamorphoten, Full-Service-Kameraverleih. Standorte: Weiden (Zentrale), Berlin (Oberlandstraße 13-14, 12099 Berlin, +49 30 2887628-0, berlin@vantagefilm.com), Leipzig; international Prag, Budapest, Paris, Brüssel, Marrakesch, Los Angeles.",
+     "sources": [
+      "https://www.vantagefilm.com/en/contacts",
+      "https://www.vantagefilm.com/en/about-us/about-vantage"
+     ]
+    },
+    {
+     "name": "PRG Cinegate",
+     "shortName": "Cinegate",
+     "aliases": [
+      "CINEGATE GmbH",
+      "PRG Cinegate GmbH",
+      "Cinegate",
+      "Cinegate Hamburg",
+      "Cinegate Berlin",
+      "Cinegate Köln"
+     ],
+     "website": "https://cinegate.prg.com",
+     "address": "Schimmelmannstraße 123a-125, 22043 Hamburg",
+     "phone": "+49 40 654960-0",
+     "notes": "Tochter von PRG. Kamera, Licht, Grip, Studios. Standorte: Hamburg, Berlin (Sophie-Charlotten-Straße 4C), Köln (Mathias-Brüggen-Straße 43); weitere u.a. Leipzig, Potsdam, Flensburg, Hannover, Frankfurt.",
+     "sources": [
+      "https://www.crew-united.com/de/CINEGATE-GmbH_86143.html",
+      "https://www.prg.com/en-gb/news/2022/q1/prg-cinegate-kai-habermann",
+      "https://cinegate.prg.com/de-de/verleih/camera"
+     ]
+    },
+    {
+     "name": "FGV Schmidle",
+     "shortName": "FGV",
+     "aliases": [
+      "FGV Rental",
+      "FGV Schmidle GmbH",
+      "FGV Filmgeräteverleih Schmidle"
+     ],
+     "website": "https://fgv-rental.de",
+     "address": "Aschauer Straße 8-10, 81549 München",
+     "phone": "+49 89 6809090",
+     "notes": "Standorte: München, Berlin. Kamera (digital/Film), Licht, Grip, Studio. Seit 1972.",
+     "sources": [
+      "https://www.productionparadise.com/member/munich/fgv-schmidle/categories/",
+      "https://fgv-rental.de/index.php/en/history-e/"
+     ]
+    },
+    {
+     "name": "Videolink",
+     "aliases": [
+      "Videolink GmbH"
+     ],
+     "address": "Kistlerhofstraße 70 / Geb. 7, 81379 München",
+     "phone": "+49 89 3562773-0",
+     "notes": "Standort: München. Kamera, Ton, Gimbal, Licht, Videoassist.",
+     "sources": [
+      "https://www.crew-united.com/de/Videolink-GmbH_3840.html"
+     ]
+    },
+    {
+     "name": "UFO Filmgerät",
+     "aliases": [
+      "ufo Filmgerät Verleih",
+      "UFO Filmgeräteverleih",
+      "Das Filmgerät",
+      "EEFF Berlin"
+     ],
+     "address": "Wilhelm-Kabus-Straße 77, 10829 Berlin",
+     "notes": "Standorte: Berlin, München. Kamera, Objektive, Licht, Ton. Entstanden aus EEFF Berlin und Das Filmgerät. Website nicht verifiziert.",
+     "sources": [
+      "https://eyca.org/discounts/c88020260120235447810911",
+      "https://digitalproduction.com/2013/06/25/frisch-gelandet-ufo-filmgeraet/"
+     ]
+    },
+    {
+     "name": "RGB Rental",
+     "aliases": [
+      "RGB Rental e.K."
+     ],
+     "address": "Liegnitzer Straße 15, 10999 Berlin",
+     "phone": "+49 30 99404242",
+     "notes": "Standort: Berlin-Kreuzberg. Kamera, Objektive, Licht, Grip, Ton; Fokus Kinofilm und Serie. Website nicht verifiziert.",
+     "sources": [
+      "https://www.crew-united.com/de/RGB-Rental-eK_723630.html"
+     ]
+    },
+    {
+     "name": "Delight Rental Services",
+     "shortName": "DRS",
+     "aliases": [
+      "Delight Rental Services GmbH",
+      "DRS GmbH",
+      "Delight Rental Services Berlin",
+      "Delight Rental Services Stuttgart"
+     ],
+     "address": "Hoppenlaustraße 7, 70174 Stuttgart",
+     "phone": "+49 711 2535945",
+     "notes": "Standorte: Berlin, Stuttgart, Zürich, Marbella. Foto-, Film-, Licht- und Kamerausrüstung (ARRI, RED, Sony, Canon). Adresse = Standort Stuttgart. Website nicht verifiziert.",
+     "sources": [
+      "https://www.productionparadise.com/member/stuttgart/delight-rental-services-gmbh",
+      "https://productionparadise.com/member/berlin/delight-rental-services.html"
+     ]
+    },
+    {
+     "name": "CineOne",
+     "aliases": [
+      "CineOne GmbH"
+     ],
+     "address": "Iggelhorst 17, 44149 Dortmund",
+     "notes": "Standorte: Dortmund (Sitz), Düsseldorf (Flinger Broich 203). Kamera, Objektive, Steadicam, Grip, Licht. Website nicht verifiziert.",
+     "sources": [
+      "https://www.crew-united.com/pl/CineOne-GmbH_755363.html",
+      "https://app.implisense.com/en/companies/cineone-gmbh-dortmund--DENRBF7UEN45"
+     ]
+    },
+    {
+     "name": "Finder TV Kameraverleih",
+     "shortName": "Finder TV",
+     "aliases": [
+      "Finder TV GmbH",
+      "Finder TV GmbH Kameraverleih",
+      "Finder TV"
+     ],
+     "website": "https://www.findertv-kameraverleih.de",
+     "address": "Arnoldsstraße 17, 50679 Köln",
+     "phone": "+49 221 888224-0",
+     "notes": "Standort: Köln-Deutz.",
+     "sources": [
+      "https://www.findertv-kameraverleih.de/kameraverleih/kameras/arri/details/arri-alexa-mini-lf/",
+      "https://www.dasoertliche.de/Themen/Medientechnik-Seite-35.html"
+     ]
+    },
+    {
+     "name": "KLT Rental",
+     "shortName": "KLT",
+     "aliases": [
+      "Kameraverleih Licht und Ton KLT GmbH",
+      "KLT Rental - Film Equipment GmbH",
+      "KLT GmbH"
+     ],
+     "website": "https://www.klt-rental.de",
+     "address": "Dieselstraße 3, 85774 Unterföhring",
+     "notes": "Standorte: Unterföhring bei München, Innsbruck (KLT Rental - Film Equipment GmbH, Feldstraße 1b, 6020 Innsbruck). Kamera, Licht, Ton.",
+     "sources": [
+      "https://www.klt-rental.de/shop/kamera/kameras/digitale-cinematographie/arri-alexa-mini-lf/",
+      "https://www.evi.gv.at/f/652170z"
+     ]
+    },
+    {
+     "name": "18frames",
+     "aliases": [
+      "18frames GmbH",
+      "18frames.rentals",
+      "18frames Kameraverleih Hamburg"
+     ],
+     "website": "https://18frames.rentals",
+     "address": "Mörkenstraße 11, 22767 Hamburg",
+     "phone": "+49 40 75369870",
+     "notes": "Standort: Hamburg-Altona. Kamera- und Filmtechnikverleih.",
+     "sources": [
+      "https://18frames.rentals/kameraverleih-hamburg/",
+      "https://app.implisense.com/en/companies/18frames-gmbh-hamburg--DESIPKUKUV48"
+     ]
+    },
+    {
+     "name": "Hiframes Kameraverleih",
+     "aliases": [
+      "Hiframes"
+     ],
+     "website": "https://hiframes-kameraverleih.de",
+     "notes": "Kameraverleih (u.a. ALEXA Mini LF). Standort nicht verifiziert.",
+     "sources": [
+      "https://hiframes-kameraverleih.de/verleih/arri-alexa-mini-lf/"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "at-ch",
+   "label": "Austria & Switzerland",
+   "description": "Camera rental houses in Austria and Switzerland",
+   "houses": [
+    {
+     "name": "ARRI Rental Vienna",
+     "aliases": [
+      "ARRI Rental Wien",
+      "ARRI Rental Austria",
+      "ARRI Rental Deutschland GmbH Wien"
+     ],
+     "website": "https://www.arrirental.com",
+     "address": "Pottendorfer Straße 23-25, 1120 Wien",
+     "phone": "+43 1 908 44 80 18",
+     "notes": "Kameraabteilung Pottendorfer Straße; Licht & Grip seit 2024 in der Haidequerstraße 6, 1110 Wien (hq7 Studios). Teil der ARRI Rental Deutschland GmbH.",
+     "sources": [
+      "https://www.arrirental.com/en/about/press/arri-rental-opens-new-lighting-and-grip-equipment-facility-in-vienna",
+      "https://www.live-production.tv/news/products/arri-rental-vienna-joins-arri-rental-deutschland-gmbh.html"
+     ]
+    },
+    {
+     "name": "Stöger Kameras",
+     "aliases": [
+      "Stöger Kameras GmbH",
+      "Stoeger Kameras"
+     ],
+     "website": "https://www.stoegerkameras.at",
+     "address": "Ottakringer Straße 16, 1170 Wien",
+     "notes": "Standort: Wien. ALEXA Mini/Mini LF, Venice, RED, 35mm/16mm.",
+     "sources": [
+      "https://www.stoegerkameras.at/en/",
+      "https://www.evi.gv.at/f/177831t"
+     ]
+    },
+    {
+     "name": "DigiRental Wien",
+     "aliases": [
+      "DigiRental",
+      "Digitalkameraverleih",
+      "Kameraverleih DigiRental Wien"
+     ],
+     "website": "https://www.kameraverleih.at",
+     "address": "Rüdigergasse 16/5-6, 1050 Wien",
+     "notes": "Standort: Wien. ARRI, RED, Sony, Canon u.a.",
+     "sources": [
+      "https://www.viennafilmcommission.at/en/industries/digirental-wien",
+      "https://www.kameraverleih.at/"
+     ]
+    },
+    {
+     "name": "AV-Professional",
+     "aliases": [
+      "AV-Professional GmbH"
+     ],
+     "address": "Brunner Straße 63/23, 1230 Wien",
+     "notes": "Standort: Wien. ALEXA Mini LF, ALEXA 35, Venice, RED, Cooke/Zeiss/ARRI Objektive. Website nicht verifiziert.",
+     "sources": [
+      "https://www.viennafilmcommission.at/en/industries/av-professional-gmbh"
+     ]
+    },
+    {
+     "name": "kameraWERK",
+     "aliases": [
+      "kameraWERK Wien"
+     ],
+     "address": "Kochgasse 22, 1080 Wien",
+     "notes": "Standort: Wien. Kameraverleih und Filmproduktion. Website nicht verifiziert.",
+     "sources": [
+      "https://www.viennafilmcommission.at/en/industries/kamerawerk"
+     ]
+    },
+    {
+     "name": "equipment.cafe",
+     "aliases": [
+      "Equipment Cafe Wien"
+     ],
+     "website": "https://equipment.cafe",
+     "notes": "Standort: Wien. Digitale Cine-Kameras (u.a. ALEXA, RED, Sony).",
+     "sources": [
+      "https://equipment.cafe/en/products/cameras/digital-cinema-cameras/?lang=en"
+     ]
+    },
+    {
+     "name": "Cinegrell",
+     "aliases": [
+      "Cinegrell GmbH",
+      "Cinegrell Postproduction GmbH",
+      "Cinegrell Zürich"
+     ],
+     "website": "https://cinegrell.ch",
+     "address": "Saatlenstrasse 261, 8050 Zürich",
+     "notes": "Standort: Zürich (Verleih in Schlieren). Kameraverleih (digital & analog), Filmlabor, Postproduktion. Hat sich vom deutschen Markt zurückgezogen.",
+     "sources": [
+      "https://cinegrell.ch/en/verleih/",
+      "https://www.kodak.com/en/motion/blog-post/cinegrell/",
+      "https://andecfilm.de/en/update"
+     ]
+    },
+    {
+     "name": "OCTAMAS",
+     "aliases": [
+      "OCTAMAS Rental"
+     ],
+     "website": "https://octamas.com",
+     "notes": "Standort: Zürich. Film Equipment Rental & Postproduktion (ALEXA Mini, RED, Objektive). Seit 2008.",
+     "sources": [
+      "https://octamas.com/rental/octamas/?lang=en",
+      "http://octamas.com/octamas-about_e.php"
+     ]
+    },
+    {
+     "name": "Visuals Switzerland",
+     "shortName": "Visuals",
+     "aliases": [
+      "Visuals",
+      "VISUALS e-rent",
+      "Visuals Zürich",
+      "Visuals Genève"
+     ],
+     "website": "https://rent.visuals.ch",
+     "notes": "Standorte: Genf, Zürich. Verkauf, Verleih und Service für Film/TV.",
+     "sources": [
+      "https://rent.visuals.ch/en/",
+      "https://www.productionparadise.com/spotlight/equipment-rental-687/visuals-switzerland-20721"
+     ]
+    },
+    {
+     "name": "Eberle Film Equipment",
+     "shortName": "Eberle",
+     "aliases": [
+      "Eberle Film"
+     ],
+     "website": "https://eberlefilm.com",
+     "address": "Hermetschloostrasse 70, 8048 Zürich",
+     "phone": "+41 44 430 11 45",
+     "email": "info@eberlefilm.com",
+     "notes": "Standort: Zürich. Analoge & digitale Filmkameras, Optiken für Spielfilm, Werbung, TV.",
+     "sources": [
+      "https://www.oeffnungszeitenbuch.de/filiale/Zuerich-Eberle%2520Filmequipment-4010015K.html"
+     ]
+    },
+    {
+     "name": "properrent",
+     "aliases": [
+      "properrent Zürich"
+     ],
+     "notes": "Standort: Zürich. Kamera, Licht, Grip für Kameraleute und Fotografen. Website/Adresse nicht verifiziert.",
+     "sources": [
+      "https://www.productionparadise.com/spotlight/services-for-photography-and-film-1016/drs-gmbh-29894.html"
+     ]
+    },
+    {
+     "name": "Orbit Film Rental",
+     "aliases": [
+      "Orbit Film",
+      "orbitfilm.rent"
+     ],
+     "website": "https://orbitfilm.rent",
+     "notes": "Standort: Basel. Kameras, Objektive (inkl. Anamorphoten), Licht, Ton.",
+     "sources": [
+      "https://orbitfilm.rent/"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "intl",
+   "label": "International",
+   "description": "Large international camera rental houses seen on international and German co-productions",
+   "houses": [
+    {
+     "name": "ARRI Rental UK",
+     "aliases": [
+      "ARRI Rental London",
+      "ARRI Rental Uxbridge",
+      "ARRI Rental UK Ltd"
+     ],
+     "website": "https://www.arrirental.com",
+     "address": "3-4 Highbridge Industrial Estate, Oxford Road, Uxbridge UB8 1LX, UK",
+     "phone": "+44 1895 457100",
+     "notes": "Standort: Uxbridge (London). ARRI Rental auch in Nordamerika, Prag, Budapest.",
+     "sources": [
+      "https://www.arri.com/en/company/about-arri/arri-global-locations/uxbridge",
+      "https://theknowledgeonline.com/profile/ARRI-Rental"
+     ]
+    },
+    {
+     "name": "Panavision",
+     "aliases": [
+      "Panavision UK",
+      "Panavision London",
+      "Panavision Greenford",
+      "Panavision Alga",
+      "Panavision Paris",
+      "Panavision Inc."
+     ],
+     "website": "https://www.panavision.com",
+     "notes": "Weltweit. UK: Greenford (Metropolitan Centre, Bristol Road); Frankreich: Panavision Alga, 45 avenue Victor Hugo, 93300 Aubervilliers. In Deutschland über Ludwig Kameraverleih.",
+     "sources": [
+      "https://www.panavision.com/highlights/highlights-detail/panavision-grip-and-remote-systems-moves-london-operations-into-larger-facility",
+      "https://www.crew-united.com/de/Panavision-Alga_517950.html"
+     ]
+    },
+    {
+     "name": "Keslow Camera",
+     "shortName": "Keslow",
+     "aliases": [
+      "Keslow Camera Inc."
+     ],
+     "website": "https://www.keslowcamera.com",
+     "notes": "Zentrale Culver City; Standorte u.a. Los Angeles, Atlanta, Vancouver, Toronto, Chicago, Santa Fe, Salt Lake City, New Orleans. Übernahm Clairmont (2017) und Sim Camera (2023).",
+     "sources": [
+      "https://www.keslowcamera.com/news/sim-camera-2023/",
+      "https://www.fdtimes.com/2018/05/19/keslow-opens-in-salt-lake-city-and-new-orleans/"
+     ]
+    },
+    {
+     "name": "Movietech",
+     "aliases": [
+      "Movietech Camera Rentals",
+      "Movietech Camera Rentals Ltd",
+      "Movietech Cymru"
+     ],
+     "notes": "Standorte: Pinewood Studios (UK), Great Point Seren Studios (Wales). Gehört zu Sunbelt Rentals / William F. White. Website nicht verifiziert.",
+     "sources": [
+      "https://britishcinematographer.co.uk/sunbelt-rentals-acquires-movietech/",
+      "https://www.newswire.ca/news-releases/william-f-white-international-and-movietech-join-forces-in-the-uk-film-and-television-rental-market-882215195.html"
+     ]
+    },
+    {
+     "name": "VMI",
+     "aliases": [
+      "VMI.TV",
+      "VMI.TV Ltd",
+      "VMI.TV (Bristol) Ltd"
+     ],
+     "website": "https://vmi.tv",
+     "notes": "Standorte: London, Bristol. Kameraverleih seit 1979.",
+     "sources": [
+      "https://vmi.tv/about/a-brief-history-of-vmi/",
+      "https://bristolcreativeindustries.com/members/vmi-tv-bristol-ltd"
+     ]
+    },
+    {
+     "name": "Procam Take 2",
+     "aliases": [
+      "Procam",
+      "Take 2 Films",
+      "Procam Take 2 Ltd",
+      "Procam NY"
+     ],
+     "notes": "Hauptsitz Park Royal, London; auch New York. Website nicht verifiziert.",
+     "sources": [
+      "https://britishcinematographer.co.uk/procam-and-take-2-films-rebrand-as-procam-take-2/",
+      "https://www.broadcastnow.co.uk/tech/procam-and-take-2-films-merge-under-single-brand/5158078.article"
+     ]
+    },
+    {
+     "name": "AbelCine",
+     "aliases": [
+      "Abel Cine Tech",
+      "AbelCine Rental",
+      "AbelCine New York"
+     ],
+     "website": "https://www.abelcine.com",
+     "address": "88 35th Street, 4th Fl., Brooklyn, NY 11232, USA",
+     "phone": "+1 888-223-1599",
+     "notes": "Rental, Sales, Service; Flagship New York (Brooklyn).",
+     "sources": [
+      "https://www.abelcine.com/rental/rental-experience",
+      "https://www.abelcine.com/articles/news/company-news/a-preview-of-abelcines-new-brooklyn-home"
+     ]
+    },
+    {
+     "name": "Otto Nemenz International",
+     "shortName": "Otto Nemenz",
+     "aliases": [
+      "Otto Nemenz",
+      "Otto Nemenz International Inc."
+     ],
+     "notes": "Standort: Culver City, Los Angeles (seit 2020). Website nicht verifiziert.",
+     "sources": [
+      "https://www.fdtimes.com/2025/11/12/otto-nemenz-1941-2025/",
+      "https://theasc.com/news/in-memoriam-otto-nemenz"
+     ]
+    },
+    {
+     "name": "Camtec Motion Picture Cameras",
+     "shortName": "Camtec",
+     "aliases": [
+      "Camtec",
+      "Camtec Motion Picture Cameras Inc."
+     ],
+     "website": "https://camtec.tv",
+     "notes": "Standort: Burbank (Los Angeles). Spezialisiert auf Vintage- und Anamorphot-Objektive.",
+     "sources": [
+      "https://www.motionpictures.org/2025/11/inside-camtec-the-boutique-camera-house-behind-jordan-peeles-nope-denis-villeneuves-arrival-more/"
+     ]
+    },
+    {
+     "name": "Camalot",
+     "aliases": [
+      "Camalot Audiovisual Facilities",
+      "Camalot Amsterdam",
+      "Camalot B.V."
+     ],
+     "notes": "Standort: Amsterdam (NL). Kameras und Objektive für Spielfilm, Serie, Werbung; seit 1997. Website/Adresse nicht verifiziert.",
+     "sources": [
+      "https://www.fdtimes.com/2023/11/30/sebastiaan-van-zuylen-and-yke-erkens-buy-camalot/",
+      "https://www.denormaalstezaak.nl/partners/camalot-audiovisual-facilities/"
+     ]
+    },
+    {
+     "name": "TSF",
+     "aliases": [
+      "Groupe TSF",
+      "TSF Caméra",
+      "TSF Camera",
+      "TSF Lumière",
+      "TSF Grip"
+     ],
+     "website": "https://www.tsf.fr",
+     "address": "30 avenue George Sand, 93210 La Plaine Saint-Denis, France",
+     "phone": "+33 1 49 17 60 00",
+     "notes": "Paris/Saint-Denis. Größter französischer Verleih (Kamera, Licht, Grip).",
+     "sources": [
+      "https://www.artscenico.com/?p=4884",
+      "https://www.afcinema.com/IMG/pdf/5/c/3/Entretien_TSF.pdf"
+     ]
+    },
+    {
+     "name": "Ovide",
+     "aliases": [
+      "Ovide Smart",
+      "Ovide Rental"
+     ],
+     "notes": "Standorte: Barcelona, Madrid (Spanien). Kamera, Licht, Ton; Ovide Smart entwickelt Video-Assist-Systeme. Website nicht verifiziert.",
+     "sources": [
+      "https://www.crew-united.com/en/Ovide_844627.html"
+     ]
+    },
+    {
+     "name": "LITES",
+     "aliases": [
+      "LITES Camera, Lighting & Grip Rental",
+      "Lites Rental"
+     ],
+     "address": "Mechelsesteenweg 319, 1800 Vilvoorde, Belgium",
+     "phone": "+32 2 254 88 00",
+     "notes": "Standort: Vilvoorde bei Brüssel. Kamera, Licht, Grip seit 1990. Website nicht verifiziert.",
+     "sources": [
+      "https://www.thelocationguide.com/belgium/vilvoorde/global-directory/lites-camera-lighting-grip-rental"
+     ]
+    },
+    {
+     "name": "Dagsljus",
+     "aliases": [
+      "Dagsljus Filmequipment AB",
+      "Dagsljus Filmequipment"
+     ],
+     "website": "https://dagsljus.com",
+     "address": "Harpsundsvägen 199-201, 124 59 Bandhagen, Sweden",
+     "phone": "+46 8 503 822 00",
+     "email": "info@dagsljus.com",
+     "notes": "Standorte: Stockholm, Göteborg, Boden. Kamera, Licht, Grip, Ton.",
+     "sources": [
+      "https://filmstockholm.se/stockholm-film-commission/local-resources/rental-houses/"
+     ]
+    },
+    {
+     "name": "Biofilms Rental",
+     "aliases": [
+      "Biofilms",
+      "Biofilms Rental Prague"
+     ],
+     "notes": "Standort: Prag (CZ). Kamera- und Filmequipmentverleih. Website/Adresse nicht verifiziert.",
+     "sources": [
+      "https://filmcommission.gov.cz/director/biofilms-rental/"
+     ]
+    }
+   ]
+  }
+ ]
+}

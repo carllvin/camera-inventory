@@ -50,10 +50,15 @@ lens control, matte boxes and filters, monitors, wireless video, timecode, batte
 support and cables — with the aliases and part numbers rental houses use on delivery notes. Researched against
 manufacturer and dealer listings; discontinued models that are still rented are marked as such.
 
-Offered when a workspace is created, or later under **Settings → Standard equipment catalog** per area. Types
+Offered when a workspace is created, or later under **Settings → Standard catalog** per area. Types
 you already have are skipped and never changed; types imported under a name a later catalog version corrected
 are renamed only if nobody edited them. Everything is recorded in the history. The data lives in
 `src/server/catalog/data/*.json` — corrections are welcome there or directly in the app.
+
+**Rental houses:** the same page imports camera rental houses — Germany, Austria & Switzerland and the large
+international ones (about 40) — with the legal and branch names they print on delivery notes, so documents are
+matched to the right sender. Offered at workspace creation (German-speaking regions); existing entries are never
+changed. Data: `src/server/catalog/data/rental-houses.json`.
 
 Equipment types are chosen with a search field (manufacturer, model, alias, part number; words in any order,
 typos tolerated), so even thousands of types stay quick to pick.
