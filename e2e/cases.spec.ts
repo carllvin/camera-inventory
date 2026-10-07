@@ -169,3 +169,15 @@ test("remove items from a project without a return note, then add them back", as
   await free.first().getByRole("button", { name: "Add" }).click();
   await expect(free).toHaveCount(n - 1);
 });
+
+test("project equipment: one line per type with quantity, serials when opened", async ({ page }) => {
+  await login(page);
+  await page.goto("/projects");
+  await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
+  const line = page.locator("summary").filter({ hasText: "bebob B290cine" });
+  await expect(line).toHaveCount(1);
+  await expect(line.getByLabel(/Quantity/)).toHaveText("6");
+  await expect(page.getByText("SN B290-31131")).toBeHidden();
+  await line.click();
+  await expect(page.getByText("SN B290-31131")).toBeVisible();
+});

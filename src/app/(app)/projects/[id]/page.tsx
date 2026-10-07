@@ -1,4 +1,4 @@
-import { EquipmentTable } from "@/components/equipment-table";
+import { EquipmentByType } from "@/components/equipment-by-type";
 import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
 import { EmptyState, LinkButton } from "@/components/ui";
 import { STATUS_LABEL } from "@/lib/format";
@@ -71,9 +71,13 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
       ) : (
         <>
           <p className="mb-2 text-xs text-muted">
-            {items.length} {items.length === 1 ? "item" : "items"}
+            {(() => {
+              const types = new Set(items.map((i) => i.typeId)).size;
+              const units = items.reduce((n, i) => n + i.quantity, 0);
+              return `${types} ${types === 1 ? "type" : "types"} · ${units} ${units === 1 ? "unit" : "units"} · tap a line for serials and details`;
+            })()}
           </p>
-          <EquipmentTable items={items} showProject={false} />
+          <EquipmentByType items={items} open={Boolean(sp.q)} />
         </>
       )}
     </>

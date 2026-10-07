@@ -75,6 +75,7 @@ export async function listItems(db: DbOrTx, ctx: Ctx, rawFilters: ItemFilters = 
       serialNumber: s.equipmentItem.serialNumber,
       assetNumber: s.equipmentItem.assetNumber,
       barcode: s.equipmentItem.barcode,
+      notes: s.equipmentItem.notes,
       trackingMode: s.equipmentItem.trackingMode,
       quantity: s.equipmentItem.quantity,
       status: s.equipmentItem.status,
