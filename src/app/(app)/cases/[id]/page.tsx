@@ -14,8 +14,9 @@ import { hasRole } from "@/server/domain/context";
 import { listActivity } from "@/server/domain/overview";
 import { listPhotos } from "@/server/domain/photos";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { addLineAction, packByCodeAction, packItemAction, packUnitsAction, removeLineAction, unpackItemAction, unpackUnitsAction, updateLineAction } from "../actions";
-import { PackButton, PackByCode, SmallActionButton, UnitsButton } from "../pack-panel";
+import { addLineAction, packByCodeAction, packChecklistAction, removeLineAction, unpackItemAction, unpackUnitsAction, updateLineAction } from "../actions";
+import { PackChecklist } from "../pack-checklist";
+import { PackByCode, SmallActionButton, UnitsButton } from "../pack-panel";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -42,7 +43,9 @@ export default async function CasePage({ params, searchParams }: { params: Promi
     !c.caseId && c.status !== "missing" && (d.neededTypeIds.has(c.equipmentTypeId) || (c.categoryId !== null && d.neededCategoryIds.has(c.categoryId)));
   // Items without a serial number are interchangeable: one row per group with its unit count.
   // Rows that fill a gap in this case come first.
-  const sortedCandidates = groupUnits(candidates).sort((a, b) => Number(isNeeded(b)) - Number(isNeeded(a)));
+  // Needed first, then what is not packed anywhere, then what sits in other cases.
+  const rank = (c: (typeof candidates)[number]) => (isNeeded(c) ? 0 : c.caseId ? 2 : 1);
+  const sortedCandidates = groupUnits(candidates).sort((a, b) => rank(a) - rank(b));
   const missingByType = new Map<string, number>();
   for (const r of cmp.lines) if (r.line.equipmentTypeId && r.missing > 0) missingByType.set(r.line.equipmentTypeId, (missingByType.get(r.line.equipmentTypeId) ?? 0) + r.missing);
   const packedRows = groupUnits(d.items);
@@ -105,31 +108,21 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                   {candidates.length === 0 ? (
                     <p className="text-sm text-muted">{sp.q ? "Nothing found on this project." : "All project equipment is in this case."}</p>
                   ) : (
-                    <ul className="-mx-1 max-h-[28rem] divide-y divide-border overflow-y-auto">
-                      {sortedCandidates.map((c) => (
-                        <li key={c.id} className="flex flex-wrap items-center gap-2 px-1 py-2">
-                          <div className="min-w-0 flex-1">
-                            <div className="flex items-center gap-1.5">
-                              <Link href={`/equipment/${c.id}`} className="truncate text-sm hover:underline">
-                                {c.typeName}
-                              </Link>
-                              {isNeeded(c) && <Badge tone="warn">needed</Badge>}
-                              {c.status !== "on_project" && <StatusBadge status={c.status} />}
-                            </div>
-                            <div className="truncate text-xs text-muted">
-                              <Mono>{c.serialNumber ? `SN ${c.serialNumber}` : c.units > 1 ? `${c.units} pcs · no serial` : "No serial"}</Mono>
-                              {c.condition !== "ok" && c.condition !== "unknown" && <span className="text-warn"> · {c.condition.replaceAll("_", " ")}</span>}
-                              {c.caseName && <span className="text-warn"> · in {c.caseName}</span>}
-                            </div>
-                          </div>
-                          {c.units > 1 ? (
-                            <UnitsButton action={packUnitsAction.bind(null, id, c.itemIds)} units={c.units} suggested={missingByType.get(c.equipmentTypeId)} move={Boolean(c.caseId)} label="Pack" />
-                          ) : (
-                            <PackButton action={packItemAction.bind(null, id, c.id)} move={Boolean(c.caseId)} />
-                          )}
-                        </li>
-                      ))}
-                    </ul>
+                    <PackChecklist
+                      action={packChecklistAction.bind(null, id)}
+                      rows={sortedCandidates.map((c) => ({
+                        key: c.id,
+                        itemIds: c.itemIds,
+                        typeName: c.typeName,
+                        serialNumber: c.serialNumber,
+                        assetNumber: c.assetNumber,
+                        units: c.units,
+                        caseName: c.caseName,
+                        status: c.status,
+                        condition: c.condition,
+                        needed: isNeeded(c) ? (missingByType.get(c.equipmentTypeId) ?? 1) : 0,
+                      }))}
+                    />
                   )}
                 </div>
               </div>

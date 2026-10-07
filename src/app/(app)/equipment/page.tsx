@@ -8,6 +8,7 @@ import { STATUS_LABEL, cn } from "@/lib/format";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getCategoryTree } from "@/server/domain/categories";
+import { listCases } from "@/server/domain/cases";
 import { hasRole } from "@/server/domain/context";
 import { listItems, type ItemFilters } from "@/server/domain/equipment-items";
 import { listProjectOptions } from "@/server/domain/projects";
@@ -17,7 +18,7 @@ import { ALL_PROJECTS } from "@/server/domain/current-project";
 
 export const metadata = { title: "Equipment" };
 
-type SP = { q?: string; categoryId?: string; rentalHouseId?: string; status?: string; projectId?: string; location?: string; view?: string };
+type SP = { q?: string; categoryId?: string; rentalHouseId?: string; status?: string; projectId?: string; location?: string; caseId?: string; view?: string };
 
 export default async function EquipmentPage({ searchParams }: { searchParams: Promise<SP> }) {
   const sp = await searchParams;
@@ -29,12 +30,16 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
   const focused = projectId && projectId === current?.id ? current : null;
   const view = sp.view === "grid" || sp.view === "types" ? sp.view : "list";
   const { view: _view, ...filterParams } = sp;
-  const [items, { flat: categories }, rentalHouses, projects] = await Promise.all([
+  const [items, { flat: categories }, rentalHouses, projects, cases] = await Promise.all([
     listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, limit: 300 }),
     getCategoryTree(db, ctx),
     listRentalHouses(db, ctx),
     listProjectOptions(db, ctx),
+    projectId ? listCases(db, ctx, { projectId }) : Promise.resolve([]),
   ]);
+  // Case cards filter the list; tapping the active one shows everything again.
+  const caseHref = (caseId: string) =>
+    `/equipment?${new URLSearchParams(Object.entries({ ...sp, caseId: sp.caseId === caseId ? "" : caseId }).filter(([, x]) => x) as [string, string][])}`;
   const hasFilters = Object.entries(filterParams).some(([k, v]) => v && !(k === "projectId" && v === current?.id));
   const viewHref = (v: "list" | "grid" | "types") => `/equipment?${new URLSearchParams(Object.entries({ ...sp, view: v === "list" ? "" : v }).filter(([, x]) => x) as [string, string][])}`;
   const VIEWS = [
@@ -73,6 +78,34 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
           { key: "types", href: "/equipment/types", label: "Equipment types" },
         ]}
       />
+      {cases.length > 0 && (
+        <section aria-label="Cases" className="mb-4">
+          <h2 className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Cases</h2>
+          <ul className="flex gap-2 overflow-x-auto pb-1">
+            {[...cases.map((c) => ({ id: c.id, name: c.name, units: c.comparison.matchedTotal + c.comparison.extraTotal, cmp: c.comparison })), { id: "none", name: "Not in a case", units: null, cmp: null }].map((c) => {
+              const active = sp.caseId === c.id;
+              return (
+                <li key={c.id} className="shrink-0">
+                  <Link
+                    href={caseHref(c.id)}
+                    aria-current={active ? "true" : undefined}
+                    className={cn("block rounded-lg border bg-surface px-3 py-2 text-sm", active ? "border-accent ring-1 ring-accent" : "border-border hover:border-ring/60")}
+                  >
+                    <div className="font-medium">▣ {c.name}</div>
+                    <div className="text-xs text-muted tabular-nums">
+                      {c.cmp
+                        ? c.cmp.expectedTotal
+                          ? `${c.cmp.matchedTotal} / ${c.cmp.expectedTotal}${c.cmp.extraTotal ? ` + ${c.cmp.extraTotal}` : ""}`
+                          : `${c.units} pcs`
+                        : "loose equipment"}
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
       <FilterBar hasFilters={hasFilters}>
         <FilterSearch value={sp.q} placeholder="Name, alias, serial, asset, barcode…" />
         <FilterSelect name="categoryId" label="Category" allLabel="All categories" value={sp.categoryId}

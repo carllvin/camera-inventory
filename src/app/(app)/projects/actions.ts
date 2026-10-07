@@ -6,8 +6,7 @@ import { after } from "next/server";
 import { getExtractor } from "@/server/ai";
 import { createDocumentFromUpload, discardDocument, runExtraction } from "@/server/domain/documents";
 import { removeEquipment, type RemovalSelection } from "@/server/domain/project-removal";
-import { packItem, packUnits } from "@/server/domain/cases";
-import { DomainError } from "@/server/domain/context";
+import { readRows } from "@/server/form-rows";
 import { getStorage } from "@/server/storage";
 import { fromForm, runAction, type ActionState } from "@/server/actions";
 import { getCtx } from "@/server/auth/context";
@@ -48,42 +47,6 @@ export async function addItemToProjectAction(projectId: string, itemId: string, 
     await assignToProject(getDb(), ctx, itemId, { projectId });
     revalidatePath(`/projects/${projectId}`, "layout");
     return "Added to project.";
-  });
-}
-
-/**
- * Ticked rows of an equipment list: `row` = row key, `ids_<key>` = its entries,
- * `units_<key>` = how many (only for units without serial numbers).
- */
-function readRows(fd: FormData) {
-  const items: { id: string }[] = [];
-  const groups: { itemIds: string[]; units: number }[] = [];
-  for (const key of fd.getAll("row").map(String)) {
-    const ids = String(fd.get(`ids_${key}`) ?? "").split(",").filter(Boolean);
-    const raw = fd.get(`units_${key}`);
-    if (raw === null) items.push(...ids.map((id) => ({ id })));
-    else groups.push({ itemIds: ids, units: Math.max(1, Math.floor(Number(raw)) || 1) });
-  }
-  return { items, groups };
-}
-
-/** Pack the ticked entries of the project's equipment list into one case (moving them out of others). */
-export async function packSelectionAction(projectId: string, _: ActionState, fd: FormData): Promise<ActionState> {
-  return runAction(fd, async () => {
-    const caseId = String(fd.get("caseId") ?? "");
-    if (!caseId) throw new DomainError("VALIDATION", "Choose the case.");
-    const { items, groups } = readRows(fd);
-    if (!items.length && !groups.length) throw new DomainError("VALIDATION", "Tick what goes into the case.");
-    const ctx = await getCtx();
-    const units = await getDb().transaction(async (tx) => {
-      let n = 0;
-      for (const { id } of items) n += (await packItem(tx, ctx, caseId, id, { allowMove: true })).item.quantity;
-      for (const g of groups) n += (await packUnits(tx, ctx, caseId, g.itemIds, g.units, { allowMove: true })).packed;
-      return n;
-    });
-    revalidatePath(`/projects/${projectId}`, "layout");
-    revalidatePath(`/cases/${caseId}`);
-    return `${units} ${units === 1 ? "piece" : "pieces"} packed.`;
   });
 }
 

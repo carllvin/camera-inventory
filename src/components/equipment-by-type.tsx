@@ -3,16 +3,10 @@ import { ChevronRight } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { STATUS_LABEL } from "@/lib/format";
 import { groupItems, Thumb } from "./equipment-table";
-import type { ActionState } from "@/server/actions";
-import { ActionForm, SubmitButton } from "./forms";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
 
-/** Ticking entries inside a type line: pack them into a case, or start removing them. */
-export type TypeLineActions = {
-  cases: { value: string; label: string }[];
-  pack: (prev: ActionState, fd: FormData) => Promise<ActionState>;
-  remove: (fd: FormData) => Promise<void>;
-};
+/** Ticking entries inside a type line to start removing them from the project. */
+export type TypeLineActions = { remove: (fd: FormData) => Promise<void> };
 
 type TypeGroup = { typeId: string; typeName: string; categoryName: string | null; imageId: string | null; items: ItemRow[]; units: number };
 
@@ -98,7 +92,7 @@ export function EquipmentByType({ items, open = false, showProject = false, acti
                 <ChevronRight className="size-4 shrink-0 text-muted transition-transform group-open:rotate-90" aria-hidden />
               </summary>
               {actions ? (
-                <ActionForm action={actions.pack} className="border-t border-border bg-surface-2/40">
+                <form action={actions.remove} className="border-t border-border bg-surface-2/40">
                   <ul className="divide-y divide-border">
                     {entries.map((e) => (
                       <li key={e.id} className="flex items-start gap-3 py-2 pr-3 pl-3 sm:pl-6">
@@ -114,28 +108,11 @@ export function EquipmentByType({ items, open = false, showProject = false, acti
                   </ul>
                   <div className="flex flex-wrap items-center gap-2 border-t border-border px-3 py-2 sm:pl-6">
                     <span className="text-xs text-muted">Ticked:</span>
-                    {actions.cases.length > 0 && (
-                      <>
-                        <select name="caseId" aria-label="Case" className="input !w-auto !py-1 text-sm" defaultValue="">
-                          <option value="" disabled>
-                            Into case…
-                          </option>
-                          {actions.cases.map((c) => (
-                            <option key={c.value} value={c.value}>
-                              {c.label}
-                            </option>
-                          ))}
-                        </select>
-                        <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
-                          Pack
-                        </SubmitButton>
-                      </>
-                    )}
-                    <button type="submit" formAction={actions.remove} formNoValidate className="ml-auto text-xs text-muted hover:text-danger">
+                    <button type="submit" formNoValidate className="ml-auto text-xs text-muted hover:text-danger">
                       Remove from project…
                     </button>
                   </div>
-                </ActionForm>
+                </form>
               ) : (
               <ul className="divide-y divide-border border-t border-border bg-surface-2/40">
                 {entries.map((e) => (

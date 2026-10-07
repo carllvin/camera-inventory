@@ -6,6 +6,8 @@ import { z } from "zod";
 import { fromForm, runAction, type ActionState } from "@/server/actions";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
+import { DomainError } from "@/server/domain/context";
+import { readRows } from "@/server/form-rows";
 import {
   addExpectedLine,
   addTemplateLine,
@@ -80,25 +82,7 @@ export async function removeLineAction(caseId: string, lineId: string, _: Action
   });
 }
 
-export async function packItemAction(caseId: string, itemId: string, _: ActionState, fd: FormData): Promise<ActionState> {
-  return runAction(fd, async () => {
-    const r = await packItem(getDb(), await getCtx(), caseId, itemId, { allowMove: fd.get("allowMove") === "1" });
-    refreshCase(caseId, r.item.projectId ?? undefined);
-    return r.moved ? `${r.item.label} moved here.` : `${r.item.label} packed.`;
-  });
-}
-
 const unitsField = z.coerce.number().int().min(1, "At least 1");
-
-/** Pack some or all units of a group of items without serial numbers. */
-export async function packUnitsAction(caseId: string, itemIds: string[], _: ActionState, fd: FormData): Promise<ActionState> {
-  return runAction(fd, async () => {
-    const units = unitsField.parse(fd.get("units") ?? "1");
-    const r = await packUnits(getDb(), await getCtx(), caseId, itemIds, units, { allowMove: fd.get("allowMove") === "1" });
-    refreshCase(caseId, r.projectId);
-    return `${r.label} ${r.moved ? "moved here" : "packed"}.${r.short ? ` ${r.short} fewer than asked were available.` : ""}`;
-  });
-}
 
 export async function unpackUnitsAction(caseId: string, itemIds: string[], _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
@@ -106,6 +90,32 @@ export async function unpackUnitsAction(caseId: string, itemIds: string[], _: Ac
     const r = await unpackUnits(getDb(), await getCtx(), itemIds, units);
     refreshCase(caseId, r.projectId ?? undefined);
     for (const id of itemIds) revalidatePath(`/equipment/${id}`);
+  });
+}
+
+/** Pack everything ticked in the checklist in one go (moving it out of other cases). */
+export async function packChecklistAction(caseId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const { items, groups } = readRows(fd);
+    if (!items.length && !groups.length) throw new DomainError("VALIDATION", "Tick what goes into this case.");
+    const ctx = await getCtx();
+    const r = await getDb().transaction(async (tx) => {
+      let n = 0;
+      let projectId: string | null = null;
+      for (const { id } of items) {
+        const p = await packItem(tx, ctx, caseId, id, { allowMove: true });
+        n += p.item.quantity;
+        projectId = p.item.projectId;
+      }
+      for (const g of groups) {
+        const p = await packUnits(tx, ctx, caseId, g.itemIds, g.units, { allowMove: true });
+        n += p.packed;
+        projectId = p.projectId;
+      }
+      return { n, projectId };
+    });
+    refreshCase(caseId, r.projectId ?? undefined);
+    return `${r.n} ${r.n === 1 ? "piece" : "pieces"} added.`;
   });
 }
 

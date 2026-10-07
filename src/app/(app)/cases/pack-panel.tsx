@@ -53,18 +53,6 @@ export function PackByCode({ action }: { action: Action }) {
   );
 }
 
-/** One-click pack (or explicit move) button for the picker list. */
-export function PackButton({ action, move }: { action: Action; move: boolean }) {
-  return (
-    <ActionForm action={action}>
-      {move && <input type="hidden" name="allowMove" value="1" />}
-      <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
-        {move ? "Move here" : "Pack"}
-      </SubmitButton>
-    </ActionForm>
-  );
-}
-
 export function SmallActionButton({ action, label, variant = "ghost" }: { action: Action; label: string; variant?: "ghost" | "danger" | "secondary" }) {
   return (
     <ActionForm action={action}>

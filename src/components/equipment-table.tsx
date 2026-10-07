@@ -48,7 +48,6 @@ export function EquipmentTable({ items: rows, showProject = true }: { items: Ite
               <th className="px-3 py-2 font-medium">Category</th>
               <th className="px-3 py-2 font-medium">Rental house</th>
               {showProject && <th className="px-3 py-2 font-medium">Project</th>}
-              <th className="px-3 py-2 font-medium">Case</th>
               <th className="px-3 py-2 font-medium">Status</th>
             </tr>
           </thead>
@@ -64,13 +63,13 @@ export function EquipmentTable({ items: rows, showProject = true }: { items: Ite
                   </Link>
                   <div className="text-xs text-muted">
                     <Mono>{identifiers(i).join(" · ") || "No serial"}</Mono>
+                    {i.caseName && <span> · ▣ {i.caseName}</span>}
                   </div>
                 </td>
                 <td className="px-3 py-2 text-right tabular-nums">{i.units}</td>
                 <td className="px-3 py-2 text-muted">{i.categoryName ?? "—"}</td>
                 <td className="px-3 py-2">{i.rentalHouseShort ?? i.rentalHouseName ?? <span className="text-muted">Owned</span>}</td>
                 {showProject && <td className="px-3 py-2">{i.projectName ?? <span className="text-muted">—</span>}</td>}
-                <td className="px-3 py-2">{i.caseName ?? <span className="text-muted">—</span>}</td>
                 <td className="px-3 py-2">
                   <div className="flex flex-col items-start gap-1">
                     <StatusBadge status={i.status} />

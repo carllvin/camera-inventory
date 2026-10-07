@@ -124,11 +124,13 @@ test("items without serial show once with a count and pack by quantity", async (
   await page.getByRole("button", { name: "Create case" }).click();
   await expect(page.getByRole("heading", { name })).toBeVisible();
 
-  const free = page.locator("li").filter({ hasText: "Sandbag" }).filter({ hasNotText: " · in " });
+  // The checklist: one row for all sandbags without serial, ticked with a count.
+  const free = page.locator("li").filter({ hasText: "Sandbag" }).filter({ hasNotText: " · in " }).filter({ has: page.getByRole("checkbox") });
   await expect(free).toHaveCount(1); // one row, not one per unit
   const before = Number((await free.getByText(/pcs · no serial/).textContent())!.match(/\d+/)![0]);
+  await free.getByRole("checkbox").check();
   await free.getByLabel(/How many/).fill("2");
-  await free.getByRole("button", { name: "Pack" }).click();
+  await page.getByRole("button", { name: "Add 2 to this case" }).click();
   await expect(page.getByRole("heading", { name: "In this case (2)" })).toBeVisible();
   await expect(free.getByText(`${before - 2} pcs · no serial`)).toBeVisible();
 
@@ -193,27 +195,12 @@ test("equipment page: by-type view groups serials under one line", async ({ page
   await expect(page.getByText("SN 35-10421")).toBeVisible();
 });
 
-test("project equipment: tick entries in a type line to pack them or start removing them", async ({ page }) => {
+test("project equipment: tick entries in a type line to start removing them", async ({ page }) => {
   await login(page);
   await page.goto("/projects");
   await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
   await page.waitForURL(/\/projects\/[0-9a-f-]{36}/);
   const projectUrl = page.url().split("?")[0]!;
-  const group = page.locator("details").filter({ has: page.locator("summary", { hasText: "ARRI ALEXA 35" }) });
-  await group.locator("summary").click();
-
-  // Move SN 35-10421 from the A-Cam case into the B-Cam case, then back.
-  for (const [from, to] of [["A-Cam Case", "B-Cam Case"], ["B-Cam Case", "A-Cam Case"]] as const) {
-    const row = group.locator("li").filter({ hasText: "SN 35-10421" });
-    await expect(row).toContainText(from);
-    await row.getByRole("checkbox").check();
-    const select = group.getByLabel("Case");
-    await select.selectOption((await select.locator("option", { hasText: to }).first().getAttribute("value"))!);
-    await group.getByRole("button", { name: "Pack" }).click();
-    await expect(group.getByText("1 piece packed.")).toBeVisible();
-    await expect(group.locator("li").filter({ hasText: "SN 35-10421" })).toContainText(to);
-  }
-
   // Remove…: opens the remove page with the ticked entries preselected.
   const bags = page.locator("details").filter({ has: page.locator("summary", { hasText: "Sandbag" }) });
   await bags.locator("summary").click();
@@ -221,4 +208,34 @@ test("project equipment: tick entries in a type line to pack them or start remov
   await bags.getByRole("button", { name: "Remove from project…" }).click();
   await expect(page).toHaveURL(new RegExp(`${projectUrl}/remove\\?items=`));
   await expect(page.locator("li").filter({ hasText: "Sandbag" }).first().getByRole("checkbox")).toBeChecked();
+});
+
+test("case page: tick several things in the checklist and add them in one go", async ({ page }, info) => {
+  const name = `E2E Tick ${info.project.name}-${Date.now().toString(36)}`;
+  await login(page);
+  await page.goto("/cases/new");
+  await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
+  await page.getByLabel("Name").fill(name);
+  await page.getByRole("button", { name: "Create case" }).click();
+  await expect(page.getByRole("heading", { name })).toBeVisible();
+
+  const rowFor = (text: string) => page.locator("li").filter({ hasText: text }).filter({ has: page.getByRole("checkbox") });
+  await rowFor("SN WCU-4471").getByRole("checkbox").check();
+  await rowFor("SN 2575-18832").getByRole("checkbox").check();
+  await page.getByRole("button", { name: "Add 2 to this case" }).click();
+  await expect(page.getByText("2 pieces added.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "In this case (2)" })).toBeVisible();
+  // Put them back where they were (not in a case).
+  for (let n = 0; n < 2; n++) await page.locator("li").filter({ has: page.getByRole("button", { name: "Take out" }) }).first().getByRole("button", { name: "Take out" }).click();
+  await expect(page.getByRole("heading", { name: "In this case (0)" })).toBeVisible();
+});
+
+test("equipment list: case cards instead of a case column", async ({ page }) => {
+  await login(page);
+  await page.goto("/equipment");
+  const cards = page.getByRole("region", { name: "Cases" });
+  await cards.getByRole("link", { name: /A-Cam Case/ }).click();
+  await expect(page).toHaveURL(/caseId=/);
+  await expect(page.getByRole("main").getByText("SN 35-10421").locator("visible=true").first()).toBeVisible();
+  await expect(page.getByRole("main").getByText("SN 35-10577")).toHaveCount(0); // that one is in the B-Cam case
 });
