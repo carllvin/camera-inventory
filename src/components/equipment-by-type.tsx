@@ -3,7 +3,16 @@ import { ChevronRight } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { STATUS_LABEL } from "@/lib/format";
 import { groupItems, Thumb } from "./equipment-table";
+import type { ActionState } from "@/server/actions";
+import { ActionForm, SubmitButton } from "./forms";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
+
+/** Ticking entries inside a type line: pack them into a case, or start removing them. */
+export type TypeLineActions = {
+  cases: { value: string; label: string }[];
+  pack: (prev: ActionState, fd: FormData) => Promise<ActionState>;
+  remove: (fd: FormData) => Promise<void>;
+};
 
 type TypeGroup = { typeId: string; typeName: string; categoryName: string | null; imageId: string | null; items: ItemRow[]; units: number };
 
@@ -29,11 +38,34 @@ function statusSummary(items: ItemRow[]) {
 const where = (i: ItemRow, showProject: boolean) =>
   [showProject && (i.projectName ?? "Not on a project"), i.caseName && `▣ ${i.caseName}`, i.rentalHouseShort ?? i.rentalHouseName ?? "Owned"].filter(Boolean).join(" · ");
 
+type Entry = ReturnType<typeof groupItems>[number];
+
+/** Serial / asset / barcode, place, notes and state of one entry, linking to it. */
+function EntryBody({ e, showProject }: { e: Entry; showProject: boolean }) {
+  return (
+    <Link href={`/equipment/${e.id}`} className="flex min-w-0 flex-1 items-start gap-3 hover:text-accent">
+      <div className="min-w-0 flex-1 text-sm">
+        <div className="flex flex-wrap gap-x-3">
+          <Mono>{e.serialNumber ? `SN ${e.serialNumber}` : e.units > 1 ? `${e.units} pcs · no serial` : "No serial"}</Mono>
+          {e.assetNumber && <span className="text-muted"><Mono>Asset {e.assetNumber}</Mono></span>}
+          {e.barcode && <span className="text-muted"><Mono>Code {e.barcode}</Mono></span>}
+        </div>
+        <div className="text-xs text-muted">{where(e, showProject)}</div>
+        {e.notes && <div className="mt-0.5 line-clamp-2 text-xs text-muted italic">{e.notes}</div>}
+      </div>
+      <div className="flex shrink-0 flex-col items-end gap-1">
+        <StatusBadge status={e.status} />
+        <ConditionBadge condition={e.condition} hideOk />
+      </div>
+    </Link>
+  );
+}
+
 /**
  * One line per equipment type with its quantity; opening it shows the single
  * entries (serials, asset numbers, case, owner, state, notes).
  */
-export function EquipmentByType({ items, open = false, showProject = false }: { items: ItemRow[]; open?: boolean; showProject?: boolean }) {
+export function EquipmentByType({ items, open = false, showProject = false, actions }: { items: ItemRow[]; open?: boolean; showProject?: boolean; actions?: TypeLineActions }) {
   const groups = byType(items);
   return (
     <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
@@ -65,27 +97,54 @@ export function EquipmentByType({ items, open = false, showProject = false }: { 
                 </span>
                 <ChevronRight className="size-4 shrink-0 text-muted transition-transform group-open:rotate-90" aria-hidden />
               </summary>
+              {actions ? (
+                <ActionForm action={actions.pack} className="border-t border-border bg-surface-2/40">
+                  <ul className="divide-y divide-border">
+                    {entries.map((e) => (
+                      <li key={e.id} className="flex items-start gap-3 py-2 pr-3 pl-3 sm:pl-6">
+                        <input type="checkbox" name="row" value={e.id} aria-label={`Select ${e.serialNumber ? `SN ${e.serialNumber}` : g.typeName}`} className="mt-1 size-4 shrink-0" />
+                        <input type="hidden" name={`ids_${e.id}`} value={e.itemIds.join(",")} />
+                        <EntryBody e={e} showProject={showProject} />
+                        {e.units > 1 && (
+                          <input type="number" name={`units_${e.id}`} min={1} max={e.units} defaultValue={e.units} inputMode="numeric"
+                            aria-label={`How many (of ${e.units})`} className="w-14 shrink-0 rounded-md border border-border bg-surface px-1.5 py-1 text-right text-xs tabular-nums" />
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap items-center gap-2 border-t border-border px-3 py-2 sm:pl-6">
+                    <span className="text-xs text-muted">Ticked:</span>
+                    {actions.cases.length > 0 && (
+                      <>
+                        <select name="caseId" aria-label="Case" className="input !w-auto !py-1 text-sm" defaultValue="">
+                          <option value="" disabled>
+                            Into case…
+                          </option>
+                          {actions.cases.map((c) => (
+                            <option key={c.value} value={c.value}>
+                              {c.label}
+                            </option>
+                          ))}
+                        </select>
+                        <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
+                          Pack
+                        </SubmitButton>
+                      </>
+                    )}
+                    <button type="submit" formAction={actions.remove} formNoValidate className="ml-auto text-xs text-muted hover:text-danger">
+                      Remove from project…
+                    </button>
+                  </div>
+                </ActionForm>
+              ) : (
               <ul className="divide-y divide-border border-t border-border bg-surface-2/40">
                 {entries.map((e) => (
-                  <li key={e.id}>
-                    <Link href={`/equipment/${e.id}`} className="flex items-start gap-3 py-2 pr-3 pl-[4.25rem] hover:bg-surface-2">
-                      <div className="min-w-0 flex-1 text-sm">
-                        <div className="flex flex-wrap gap-x-3">
-                          <Mono>{e.serialNumber ? `SN ${e.serialNumber}` : e.units > 1 ? `${e.units} pcs · no serial` : "No serial"}</Mono>
-                          {e.assetNumber && <span className="text-muted"><Mono>Asset {e.assetNumber}</Mono></span>}
-                          {e.barcode && <span className="text-muted"><Mono>Code {e.barcode}</Mono></span>}
-                        </div>
-                        <div className="text-xs text-muted">{where(e, showProject)}</div>
-                        {e.notes && <div className="mt-0.5 line-clamp-2 text-xs text-muted italic">{e.notes}</div>}
-                      </div>
-                      <div className="flex shrink-0 flex-col items-end gap-1">
-                        <StatusBadge status={e.status} />
-                        <ConditionBadge condition={e.condition} hideOk />
-                      </div>
-                    </Link>
+                  <li key={e.id} className="flex py-2 pr-3 pl-[4.25rem] hover:bg-surface-2">
+                    <EntryBody e={e} showProject={showProject} />
                   </li>
                 ))}
               </ul>
+              )}
             </details>
           </li>
         );

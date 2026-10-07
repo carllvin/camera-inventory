@@ -13,7 +13,7 @@ import { removeEquipmentAction } from "../../actions";
 export const metadata = { title: "Remove equipment" };
 
 /** Take cases or items off the project without a full return-note review; optionally attach the note as a double check. */
-export default async function RemoveEquipmentPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ caseId?: string }> }) {
+export default async function RemoveEquipmentPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ caseId?: string; items?: string }> }) {
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   assertUuid(id);
   const ctx = await getCtx();
@@ -22,6 +22,7 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
   const [items, cases] = await Promise.all([listItems(db, ctx, { projectId: id, limit: 500 }), listCases(db, ctx, { projectId: id })]);
   if (items.length === 0) return <EmptyState title="Nothing on this project" />;
   const rows = groupItems(items);
+  const preselected = new Set((sp.items ?? "").split(","));
   const unitsIn = (caseId: string) => items.filter((i) => i.caseId === caseId).reduce((n, i) => n + i.quantity, 0);
   const ai = getExtractor().available;
   const check = "size-4 shrink-0 accent-[var(--color-accent)]";
@@ -51,7 +52,7 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
           <ul className="divide-y divide-border">
             {rows.map((r) => (
               <li key={r.id} className="flex items-center gap-3 px-4 py-2">
-                <input type="checkbox" name="row" value={r.id} id={`row-${r.id}`} aria-label={`Remove ${r.typeName}${r.serialNumber ? ` ${r.serialNumber}` : ""}`} className={check} />
+                <input type="checkbox" name="row" value={r.id} id={`row-${r.id}`} defaultChecked={r.itemIds.some((i) => preselected.has(i))} aria-label={`Remove ${r.typeName}${r.serialNumber ? ` ${r.serialNumber}` : ""}`} className={check} />
                 <input type="hidden" name={`ids_${r.id}`} value={r.itemIds.join(",")} />
                 <Thumb photoId={r.imageId} name={r.typeName} className="size-9" />
                 <label htmlFor={`row-${r.id}`} className="min-w-0 flex-1 cursor-pointer">

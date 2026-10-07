@@ -1,4 +1,6 @@
 import { EquipmentByType } from "@/components/equipment-by-type";
+import { hasRole } from "@/server/domain/context";
+import { packSelectionAction, removeSelectionAction } from "../actions";
 import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
 import { EmptyState, LinkButton } from "@/components/ui";
 import { STATUS_LABEL } from "@/lib/format";
@@ -77,7 +79,19 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
               return `${types} ${types === 1 ? "type" : "types"} · ${units} ${units === 1 ? "unit" : "units"} · tap a line for serials and details`;
             })()}
           </p>
-          <EquipmentByType items={items} open={Boolean(sp.q)} />
+          <EquipmentByType
+            items={items}
+            open={Boolean(sp.q)}
+            actions={
+              hasRole(ctx, "member")
+                ? {
+                    cases: cases.map((c) => ({ value: c.id, label: c.code ? `${c.name} (${c.code})` : c.name })),
+                    pack: packSelectionAction.bind(null, id),
+                    remove: removeSelectionAction.bind(null, id),
+                  }
+                : undefined
+            }
+          />
         </>
       )}
     </>

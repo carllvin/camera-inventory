@@ -192,3 +192,33 @@ test("equipment page: by-type view groups serials under one line", async ({ page
   await line.click();
   await expect(page.getByText("SN 35-10421")).toBeVisible();
 });
+
+test("project equipment: tick entries in a type line to pack them or start removing them", async ({ page }) => {
+  await login(page);
+  await page.goto("/projects");
+  await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
+  await page.waitForURL(/\/projects\/[0-9a-f-]{36}/);
+  const projectUrl = page.url().split("?")[0]!;
+  const group = page.locator("details").filter({ has: page.locator("summary", { hasText: "ARRI ALEXA 35" }) });
+  await group.locator("summary").click();
+
+  // Move SN 35-10421 from the A-Cam case into the B-Cam case, then back.
+  for (const [from, to] of [["A-Cam Case", "B-Cam Case"], ["B-Cam Case", "A-Cam Case"]] as const) {
+    const row = group.locator("li").filter({ hasText: "SN 35-10421" });
+    await expect(row).toContainText(from);
+    await row.getByRole("checkbox").check();
+    const select = group.getByLabel("Case");
+    await select.selectOption((await select.locator("option", { hasText: to }).first().getAttribute("value"))!);
+    await group.getByRole("button", { name: "Pack" }).click();
+    await expect(group.getByText("1 piece packed.")).toBeVisible();
+    await expect(group.locator("li").filter({ hasText: "SN 35-10421" })).toContainText(to);
+  }
+
+  // Remove…: opens the remove page with the ticked entries preselected.
+  const bags = page.locator("details").filter({ has: page.locator("summary", { hasText: "Sandbag" }) });
+  await bags.locator("summary").click();
+  await bags.locator("li").first().getByRole("checkbox").check();
+  await bags.getByRole("button", { name: "Remove from project…" }).click();
+  await expect(page).toHaveURL(new RegExp(`${projectUrl}/remove\\?items=`));
+  await expect(page.locator("li").filter({ hasText: "Sandbag" }).first().getByRole("checkbox")).toBeChecked();
+});
