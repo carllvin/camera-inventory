@@ -5,8 +5,6 @@ import { STATUS_LABEL } from "@/lib/format";
 import { groupItems, Thumb } from "./equipment-table";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
 
-/** Ticking entries inside a type line to start removing them from the project. */
-export type TypeLineActions = { remove: (fd: FormData) => Promise<void> };
 
 type TypeGroup = { typeId: string; typeName: string; categoryName: string | null; imageId: string | null; items: ItemRow[]; units: number };
 
@@ -59,7 +57,7 @@ function EntryBody({ e, showProject }: { e: Entry; showProject: boolean }) {
  * One line per equipment type with its quantity; opening it shows the single
  * entries (serials, asset numbers, case, owner, state, notes).
  */
-export function EquipmentByType({ items, open = false, showProject = false, actions }: { items: ItemRow[]; open?: boolean; showProject?: boolean; actions?: TypeLineActions }) {
+export function EquipmentByType({ items, open = false, showProject = false }: { items: ItemRow[]; open?: boolean; showProject?: boolean }) {
   const groups = byType(items);
   return (
     <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
@@ -91,29 +89,6 @@ export function EquipmentByType({ items, open = false, showProject = false, acti
                 </span>
                 <ChevronRight className="size-4 shrink-0 text-muted transition-transform group-open:rotate-90" aria-hidden />
               </summary>
-              {actions ? (
-                <form action={actions.remove} className="border-t border-border bg-surface-2/40">
-                  <ul className="divide-y divide-border">
-                    {entries.map((e) => (
-                      <li key={e.id} className="flex items-start gap-3 py-2 pr-3 pl-3 sm:pl-6">
-                        <input type="checkbox" name="row" value={e.id} aria-label={`Select ${e.serialNumber ? `SN ${e.serialNumber}` : g.typeName}`} className="mt-1 size-4 shrink-0" />
-                        <input type="hidden" name={`ids_${e.id}`} value={e.itemIds.join(",")} />
-                        <EntryBody e={e} showProject={showProject} />
-                        {e.units > 1 && (
-                          <input type="number" name={`units_${e.id}`} min={1} max={e.units} defaultValue={e.units} inputMode="numeric"
-                            aria-label={`How many (of ${e.units})`} className="w-14 shrink-0 rounded-md border border-border bg-surface px-1.5 py-1 text-right text-xs tabular-nums" />
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap items-center gap-2 border-t border-border px-3 py-2 sm:pl-6">
-                    <span className="text-xs text-muted">Ticked:</span>
-                    <button type="submit" formNoValidate className="ml-auto text-xs text-muted hover:text-danger">
-                      Remove from project…
-                    </button>
-                  </div>
-                </form>
-              ) : (
               <ul className="divide-y divide-border border-t border-border bg-surface-2/40">
                 {entries.map((e) => (
                   <li key={e.id} className="flex py-2 pr-3 pl-[4.25rem] hover:bg-surface-2">
@@ -121,7 +96,6 @@ export function EquipmentByType({ items, open = false, showProject = false, acti
                   </li>
                 ))}
               </ul>
-              )}
             </details>
           </li>
         );

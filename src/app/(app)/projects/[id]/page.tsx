@@ -8,7 +8,6 @@ import { hasRole } from "@/server/domain/context";
 import { listItems, type ItemFilters } from "@/server/domain/equipment-items";
 import { getProjectSummary } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { removeSelectionAction } from "../actions";
 
 const LIMIT = 500;
 
@@ -36,7 +35,6 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
       rentalHouses={summary.rentalHouses.map((r) => ({ id: r.id, name: r.name }))}
       cases={cases}
       hasFilters={Object.values(filters).some(Boolean)}
-      removeAction={hasRole(ctx, "member") ? removeSelectionAction.bind(null, id) : undefined}
       empty={
         <EmptyState
           title="No equipment on this project yet"

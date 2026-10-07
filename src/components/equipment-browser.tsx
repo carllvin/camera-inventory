@@ -46,7 +46,6 @@ export function EquipmentBrowser({
   rentalHouses,
   cases,
   hasFilters,
-  removeAction,
   empty,
 }: {
   /** Where filter and view links point ("/equipment" or "/projects/<id>"). */
@@ -60,8 +59,6 @@ export function EquipmentBrowser({
   rentalHouses: { id: string; name: string }[];
   cases: CaseSummary[];
   hasFilters: boolean;
-  /** Tick entries in "By type" and start removing them from the project. */
-  removeAction?: (fd: FormData) => Promise<void>;
   empty: ReactNode;
 }) {
   const view = browserView(sp);
@@ -143,7 +140,7 @@ export function EquipmentBrowser({
           {view === "grid" ? (
             <TypeGrid items={items} hrefFor={(typeName) => href({ view: "types", q: typeName })} />
           ) : (
-            <EquipmentByType items={items} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} actions={projectId && removeAction ? { remove: removeAction } : undefined} />
+            <EquipmentByType items={items} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} />
           )}
         </>
       )}

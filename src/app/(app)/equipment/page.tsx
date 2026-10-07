@@ -9,7 +9,6 @@ import { hasRole } from "@/server/domain/context";
 import { listItems, type ItemFilters } from "@/server/domain/equipment-items";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { getCurrentProject } from "@/server/current-project";
-import { removeSelectionAction } from "../projects/actions";
 
 export const metadata = { title: "Equipment" };
 
@@ -62,7 +61,6 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         rentalHouses={rentalHouses}
         cases={cases}
         hasFilters={hasFilters}
-        removeAction={projectId && hasRole(ctx, "member") ? removeSelectionAction.bind(null, projectId) : undefined}
         empty={
           <EmptyState title="No equipment yet" action={hasRole(ctx, "member") && <LinkButton href="/equipment/new" variant="primary">Add equipment</LinkButton>} />
         }

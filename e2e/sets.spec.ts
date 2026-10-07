@@ -202,21 +202,6 @@ test("equipment page: one line per type by default, one picture per type as an o
   await expect(page.getByText("SN 35-10421").first()).toBeVisible();
 });
 
-test("project equipment: tick entries in a type line to start removing them", async ({ page }) => {
-  await login(page);
-  await go(page, "/projects");
-  await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
-  await page.waitForURL(/\/projects\/[0-9a-f-]{36}/);
-  const projectUrl = page.url().split("?")[0]!;
-  // Remove…: opens the remove page with the ticked entries preselected.
-  const bags = page.locator("details").filter({ has: page.locator("summary", { hasText: "Sandbag" }) });
-  await bags.locator("summary").click();
-  await bags.locator("li").first().getByRole("checkbox").check();
-  await bags.getByRole("button", { name: "Remove from project…" }).click();
-  await expect(page).toHaveURL(new RegExp(`${projectUrl}/remove\\?items=`));
-  await expect(page.locator("li").filter({ hasText: "Sandbag" }).first().getByRole("checkbox")).toBeChecked();
-});
-
 test("set page: tick several things in the checklist and add them in one go", async ({ page }, info) => {
   const name = `E2E Tick ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);

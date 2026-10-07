@@ -50,12 +50,6 @@ export async function addItemToProjectAction(projectId: string, itemId: string, 
   });
 }
 
-/** "Remove…" with ticked entries: open the remove page with them preselected. */
-export async function removeSelectionAction(projectId: string, fd: FormData) {
-  const ids = fd.getAll("row").flatMap((k) => String(fd.get(`ids_${String(k)}`) ?? "").split(","));
-  redirect(`/projects/${projectId}/remove?items=${[...new Set(ids.filter((id) => /^[0-9a-f-]{36}$/i.test(id)))].join(",")}`);
-}
-
 /**
  * Take selected cases / items off the project. With photos of the return note
  * they are stored as a return-note document that double-checks the removal.
