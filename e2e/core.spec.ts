@@ -34,9 +34,9 @@ test("create project, add a new item, change status, see it in the timeline", as
   await expect(page.getByRole("heading", { name: "SmallHD Cine 7" })).toBeVisible();
   await expect(page.getByText(`SN E2E-${tag}`).first()).toBeVisible();
   await page.getByLabel("Status", { exact: true }).selectOption("in_use");
-  await page.getByLabel("Status note").fill("On the dolly");
-  await page.getByRole("button", { name: "Update status" }).click();
-  await expect(page.getByText("Status updated.")).toBeVisible();
+  await page.getByLabel("Note").fill("On the dolly");
+  await page.getByRole("button", { name: "Save changes" }).click();
+  await expect(page.getByText("Status saved.")).toBeVisible();
   await expect(page.getByText(/on project → in use/)).toBeVisible();
   await expect(page.getByText("“On the dolly”")).toBeVisible();
 });

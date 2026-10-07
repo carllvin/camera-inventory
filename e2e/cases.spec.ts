@@ -227,8 +227,10 @@ test("case page: tick several things in the checklist and add them in one go", a
   await expect(page.getByText("2 pieces added.")).toBeVisible();
   await expect(page.getByRole("heading", { name: "In this case (2)" })).toBeVisible();
   // Put them back where they were (not in a case).
-  for (let n = 0; n < 2; n++) await page.locator("li").filter({ has: page.getByRole("button", { name: "Take out" }) }).first().getByRole("button", { name: "Take out" }).click();
-  await expect(page.getByRole("heading", { name: "In this case (0)" })).toBeVisible();
+  for (const left of [1, 0]) {
+    await page.locator("li").filter({ has: page.getByRole("button", { name: "Take out" }) }).first().getByRole("button", { name: "Take out" }).click();
+    await expect(page.getByRole("heading", { name: `In this case (${left})` })).toBeVisible();
+  }
 });
 
 test("equipment list: case cards instead of a case column", async ({ page }) => {

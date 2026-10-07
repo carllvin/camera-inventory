@@ -125,3 +125,21 @@ describe("changing some units", () => {
     expect((await changeStatus(db, ctx, cam.id, { status: "in_use", units: 1 })).id).toBe(cam.id);
   });
 });
+
+describe("item page: one save for status, condition and case", () => {
+  it("applies all changes to some units of a bulk item via one split", async () => {
+    const { updateItemState } = await import("../src/server/domain/item-state");
+    const c = await createCase(db, ctx, { name: `State ${Date.now()}`, projectId: f.project.id });
+    const a = await bulk(6);
+    const r = await updateItemState(db, ctx, a.id, { status: "in_use", condition: "damaged", caseId: c.id, units: 2, note: "rain" });
+    expect(r).toMatchObject({ split: true, changed: ["status", "condition", "case"] });
+    const [part] = await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.id, r.item.id));
+    expect(part).toMatchObject({ quantity: 2, status: "in_use", condition: "damaged", caseId: c.id, splitFromItemId: a.id });
+    const [rest] = await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.id, a.id));
+    expect(rest).toMatchObject({ quantity: 4, status: "on_project", caseId: null });
+
+    // Unchanged values are no-ops; "" takes it out of the case.
+    expect((await updateItemState(db, ctx, r.item.id, { status: "in_use", condition: "damaged" })).changed).toEqual([]);
+    expect((await updateItemState(db, ctx, r.item.id, { caseId: "" })).changed).toEqual(["case"]);
+  });
+});

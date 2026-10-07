@@ -82,6 +82,22 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
             />
           </Card>
 
+          {canEdit && (
+            <Card className="p-4" aria-label="Status, condition and case">
+              <ItemActions
+                itemId={item.id}
+                version={item.version}
+                status={item.status}
+                condition={item.condition}
+                projectId={item.projectId}
+                projects={projects.map((p) => ({ value: p.id, label: p.name }))}
+                quantity={item.trackingMode === "bulk" ? item.quantity : 1}
+                caseId={item.caseId}
+                cases={cases.map((c) => ({ value: c.id, label: c.code ? `${c.name} (${c.code})` : c.name }))}
+              />
+            </Card>
+          )}
+
           {d.sameUnits.length > 0 && (
             <Card className="p-4 text-sm">
               <h2 className="mb-1 font-semibold">
@@ -125,21 +141,6 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
         </div>
 
         <div className="space-y-6">
-          {canEdit && (
-            <Card className="p-4">
-              <ItemActions
-                itemId={item.id}
-                version={item.version}
-                status={item.status}
-                condition={item.condition}
-                projectId={item.projectId}
-                projects={projects.map((p) => ({ value: p.id, label: p.name }))}
-                quantity={item.trackingMode === "bulk" ? item.quantity : 1}
-                caseId={item.caseId}
-                cases={cases.map((c) => ({ value: c.id, label: c.code ? `${c.name} (${c.code})` : c.name }))}
-              />
-            </Card>
-          )}
 
           <Card>
             <CardHeader title="Project history" />
