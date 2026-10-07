@@ -247,6 +247,7 @@ export async function getItemTimeline(db: DbOrTx, ctx: Ctx, id: string) {
       projectName: s.project.name,
       documentId: s.auditEvent.documentId,
       caseId: s.auditEvent.caseId,
+      correlationId: s.auditEvent.correlationId,
     })
     .from(s.auditEvent)
     .leftJoin(s.user, eq(s.user.id, s.auditEvent.actorUserId))

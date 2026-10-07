@@ -37,7 +37,10 @@ test("create project, add a new item, change status, see it in the timeline", as
   await page.getByLabel("Note").fill("On the dolly");
   await page.getByRole("button", { name: "Save changes" }).click();
   await expect(page.getByText("Status saved.")).toBeVisible();
-  await expect(page.getByText(/on project → in use/)).toBeVisible();
+  // History: one line per change; tap it for the details.
+  const entry = page.locator("summary").filter({ hasText: /on project → in use/ });
+  await expect(entry).toBeVisible();
+  await entry.click();
   await expect(page.getByText("“On the dolly”")).toBeVisible();
 });
 
@@ -129,8 +132,10 @@ test("a change can be undone from the history", async ({ page }) => {
   await page.getByRole("button", { name: "Save changes" }).click();
   await expect(page.getByText("Condition saved.")).toBeVisible();
 
+  await page.locator("summary").filter({ hasText: /ARRI WCU-4.*condition .* → damaged/ }).first().click();
   await page.getByRole("button", { name: /Undo: ARRI WCU-4.*condition .* → damaged/ }).first().click();
-  await expect(page.getByText(/Undo: ARRI WCU-4.*condition damaged → /).first()).toBeVisible();
+  await expect(page.locator("summary").filter({ hasText: /Undo: ARRI WCU-4.*condition damaged → / }).first()).toBeVisible();
   await expect(page.getByLabel("Condition", { exact: true })).not.toHaveValue("damaged");
+  // The original entry (still open) says it was undone.
   await expect(page.getByText("Undone").first()).toBeVisible();
 });

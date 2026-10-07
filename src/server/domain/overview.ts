@@ -52,6 +52,7 @@ export async function listActivity(db: DbOrTx, ctx: Ctx, opts: { projectId?: str
       documentId: s.auditEvent.documentId,
       changes: s.auditEvent.changes,
       metadata: s.auditEvent.metadata,
+      correlationId: s.auditEvent.correlationId,
     })
     .from(s.auditEvent)
     .leftJoin(s.user, eq(s.user.id, s.auditEvent.actorUserId))

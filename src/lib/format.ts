@@ -97,3 +97,17 @@ export function dateRange(start: string | null, end: string | null) {
 export function cn(...parts: (string | false | null | undefined)[]) {
   return parts.filter(Boolean).join(" ");
 }
+
+export function formatTime(d: Date | string) {
+  const date = typeof d === "string" ? new Date(d) : d;
+  return new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: TZ }).format(date);
+}
+
+/** "Today", "Yesterday" or the date, in the app's time zone. */
+export function dayLabel(d: Date | string, now = new Date()) {
+  const date = typeof d === "string" ? new Date(d) : d;
+  const day = todayIso(date);
+  if (day === todayIso(now)) return "Today";
+  if (day === todayIso(new Date(now.getTime() - 86_400_000))) return "Yesterday";
+  return new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric", timeZone: TZ }).format(date);
+}

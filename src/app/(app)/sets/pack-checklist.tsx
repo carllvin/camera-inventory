@@ -34,7 +34,8 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
       else next.delete(key);
       return next;
     });
-  const count = (r: ChecklistRow) => (r.units > 1 ? (counts[r.key] ?? (r.needed ? Math.min(r.needed, r.units) : r.units)) : 1);
+  // Without serials: 1 by default, or as many as the set still expects.
+  const count = (r: ChecklistRow) => (r.units > 1 ? (counts[r.key] ?? (r.needed ? Math.min(r.needed, r.units) : 1)) : 1);
   const total = rows.filter((r) => ticked.has(r.key)).reduce((n, r) => n + count(r), 0);
   const needed = rows.filter((r) => r.needed > 0);
   const moving = rows.filter((r) => ticked.has(r.key) && r.caseName).length;
