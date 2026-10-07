@@ -68,6 +68,13 @@ changed. Data: `src/server/catalog/data/rental-houses.json`.
 Equipment types are chosen with a search field (manufacturer, model, alias, part number; words in any order,
 typos tolerated), so even thousands of types stay quick to pick.
 
+### Serial numbers and quantities
+
+A serial number makes an item an individual; without one, units of the same type are interchangeable. Lists
+(equipment, project, case contents, the *Pack items* picker) show such units once with their count. Packing,
+taking out, or changing status or condition asks *how many*: the chosen units are split off as their own entry
+(linked to the original, history on both), the rest stays as it is. Cases can also be chosen on the item page.
+
 ### Reference images
 
 On an equipment type, **Choose image / Change image** opens the picker: image search results in the search engine's order

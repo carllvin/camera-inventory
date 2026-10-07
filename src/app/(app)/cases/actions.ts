@@ -16,9 +16,11 @@ import {
   createTemplateFromCase,
   packByCode,
   packItem,
+  packUnits,
   removeExpectedLine,
   removeTemplateLine,
   unpackItem,
+  unpackUnits,
   updateCase,
   updateExpectedLine,
   updateTemplate,
@@ -83,6 +85,27 @@ export async function packItemAction(caseId: string, itemId: string, _: ActionSt
     const r = await packItem(getDb(), await getCtx(), caseId, itemId, { allowMove: fd.get("allowMove") === "1" });
     refreshCase(caseId, r.item.projectId ?? undefined);
     return r.moved ? `${r.item.label} moved here.` : `${r.item.label} packed.`;
+  });
+}
+
+const unitsField = z.coerce.number().int().min(1, "At least 1");
+
+/** Pack some or all units of a group of items without serial numbers. */
+export async function packUnitsAction(caseId: string, itemIds: string[], _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const units = unitsField.parse(fd.get("units") ?? "1");
+    const r = await packUnits(getDb(), await getCtx(), caseId, itemIds, units, { allowMove: fd.get("allowMove") === "1" });
+    refreshCase(caseId, r.projectId);
+    return `${r.label} ${r.moved ? "moved here" : "packed"}.${r.short ? ` ${r.short} fewer than asked were available.` : ""}`;
+  });
+}
+
+export async function unpackUnitsAction(caseId: string, itemIds: string[], _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const units = unitsField.parse(fd.get("units") ?? "1");
+    const r = await unpackUnits(getDb(), await getCtx(), itemIds, units);
+    refreshCase(caseId, r.projectId ?? undefined);
+    for (const id of itemIds) revalidatePath(`/equipment/${id}`);
   });
 }
 

@@ -114,3 +114,31 @@ test("no page scrolls sideways on a phone", async ({ page }, info) => {
   await page.goto(`${casePath}?edit=1`);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 });
+
+test("items without serial show once with a count and pack by quantity", async ({ page }, info) => {
+  const name = `E2E Bags ${info.project.name}-${Date.now().toString(36)}`;
+  await login(page);
+  await page.goto("/cases/new");
+  await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
+  await page.getByLabel("Name").fill(name);
+  await page.getByRole("button", { name: "Create case" }).click();
+  await expect(page.getByRole("heading", { name })).toBeVisible();
+
+  const free = page.locator("li").filter({ hasText: "Sandbag" }).filter({ hasNotText: " · in " });
+  await expect(free).toHaveCount(1); // one row, not one per unit
+  const before = Number((await free.getByText(/pcs · no serial/).textContent())!.match(/\d+/)![0]);
+  await free.getByLabel(/How many/).fill("2");
+  await free.getByRole("button", { name: "Pack" }).click();
+  await expect(page.getByRole("heading", { name: "In this case (2)" })).toBeVisible();
+  await expect(free.getByText(`${before - 2} pcs · no serial`)).toBeVisible();
+
+  // Take one out: the rest stays in the case.
+  const packed = page.locator("li").filter({ hasText: "Sandbag" }).filter({ has: page.getByLabel(/How many/) }).filter({ has: page.getByRole("button", { name: "Take out" }) });
+  await packed.getByLabel(/How many/).fill("1");
+  await packed.getByRole("button", { name: "Take out" }).click();
+  await expect(page.getByRole("heading", { name: "In this case (1)" })).toBeVisible();
+  // A single unit left: plain button (the extras list has another one).
+  await page.locator("li").filter({ hasText: "Sandbag" }).getByRole("button", { name: "Take out" }).last().click();
+  await expect(page.getByRole("heading", { name: "In this case (0)" })).toBeVisible();
+  await expect(free.getByText(`${before} pcs · no serial`)).toBeVisible();
+});

@@ -6,6 +6,8 @@ import { recordEvent } from "./audit";
 import { buildCategoryClosure, compareCase, type CaseComparison } from "./case-compare";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
 import { findItemByCode, itemLabel, lockItem } from "./equipment-items";
+import { splitBulkItem } from "./item-split";
+export { groupUnits } from "@/lib/group-units";
 import { optionalText, optionalUuid, requiredText } from "./validation";
 
 // ---------------------------------------------------------------------------
@@ -182,7 +184,9 @@ export async function getCaseDetail(db: DbOrTx, ctx: Ctx, id: string) {
         status: s.equipmentItem.status,
         condition: s.equipmentItem.condition,
         typeName: s.equipmentType.name,
+        rentalHouseId: s.equipmentItem.rentalHouseId,
         rentalHouseName: s.rentalHouse.shortName,
+        caseId: s.equipmentItem.caseId,
       })
       .from(s.equipmentItem)
       .innerJoin(s.equipmentType, eq(s.equipmentType.id, s.equipmentItem.equipmentTypeId))
@@ -233,6 +237,8 @@ export async function listPackCandidates(db: DbOrTx, ctx: Ctx, caseId: string, q
       quantity: s.equipmentItem.quantity,
       trackingMode: s.equipmentItem.trackingMode,
       status: s.equipmentItem.status,
+      condition: s.equipmentItem.condition,
+      rentalHouseId: s.equipmentItem.rentalHouseId,
       caseId: s.equipmentItem.caseId,
       caseName: s.equipmentCase.name,
     })
@@ -548,12 +554,57 @@ export async function packItem(db: DbOrTx, ctx: Ctx, caseId: string, itemId: str
   });
 }
 
-export async function unpackItem(db: DbOrTx, ctx: Ctx, itemId: string) {
+/** Whole small items first, so taking N units splits as rarely as possible. */
+async function smallestFirst(tx: DbOrTx, ctx: Ctx, itemIds: string[]) {
+  if (itemIds.length === 0) return [];
+  const rows = await tx
+    .select({ id: s.equipmentItem.id })
+    .from(s.equipmentItem)
+    .where(and(inArray(s.equipmentItem.id, [...new Set(itemIds)]), eq(s.equipmentItem.workspaceId, ctx.workspaceId)))
+    .orderBy(asc(s.equipmentItem.quantity), asc(s.equipmentItem.id));
+  return rows.map((r) => r.id);
+}
+
+/**
+ * Pack a number of interchangeable units (items without a serial number of one
+ * type) in one go. Whole items are packed as they are; when only part of a bulk
+ * item is needed it is split and the rest stays where it was.
+ */
+export async function packUnits(db: DbOrTx, ctx: Ctx, caseId: string, itemIds: string[], units: number, opts: { allowMove?: boolean } = {}) {
+  requireRole(ctx, "member");
+  if (!Number.isInteger(units) || units < 1) throw new DomainError("VALIDATION", "Choose how many to pack.");
+  return db.transaction(async (tx) => {
+    const c = await lockCase(tx, ctx, caseId);
+    assertOpen(c);
+    let left = units;
+    let moved = false;
+    let typeName = "";
+    for (const id of await smallestFirst(tx, ctx, itemIds)) {
+      if (left === 0) break;
+      const item = await lockItem(tx, ctx, id);
+      if (item.serialNumber) throw new DomainError("VALIDATION", `${item.label} has a serial number. Pack it on its own.`);
+      if (item.caseId === caseId) continue;
+      typeName = item.typeName;
+      const part = item.quantity > left ? await splitBulkItem(tx, ctx, item, left, { reason: "packing", caseId: item.caseId }) : item;
+      const r = await packItem(tx, ctx, caseId, part.id, opts);
+      moved ||= r.moved;
+      left -= part.quantity;
+    }
+    if (left === units) throw new DomainError("CONFLICT", "Nothing left to pack. Reload the page.");
+    const packed = units - left;
+    return { packed, moved, projectId: c.projectId, label: packed > 1 ? `${typeName} × ${packed}` : typeName, short: left };
+  });
+}
+
+/** Take an item out of its case; for bulk items optionally only some units (the rest stays packed). */
+export async function unpackItem(db: DbOrTx, ctx: Ctx, itemId: string, opts: { units?: number } = {}) {
   requireRole(ctx, "member");
   return db.transaction(async (tx) => {
-    const item = await lockItem(tx, ctx, itemId);
-    if (!item.caseId) return item;
-    const c = await lockCase(tx, ctx, item.caseId);
+    const locked = await lockItem(tx, ctx, itemId);
+    if (!locked.caseId) return locked;
+    const c = await lockCase(tx, ctx, locked.caseId);
+    const item = opts.units !== undefined && opts.units < locked.quantity ? await splitBulkItem(tx, ctx, locked, opts.units, { reason: "taken out of case" }) : locked;
+    itemId = item.id;
     await tx
       .update(s.equipmentItem)
       .set({ caseId: null, version: sql`${s.equipmentItem.version} + 1` })
@@ -569,6 +620,27 @@ export async function unpackItem(db: DbOrTx, ctx: Ctx, itemId: string) {
       changes: { case_id: { from: c.id, to: null } },
     });
     return { ...item, caseId: null };
+  });
+}
+
+/** Take a number of interchangeable units (items without serial of one type) out of a case. */
+export async function unpackUnits(db: DbOrTx, ctx: Ctx, itemIds: string[], units: number) {
+  requireRole(ctx, "member");
+  if (!Number.isInteger(units) || units < 1) throw new DomainError("VALIDATION", "Choose how many to take out.");
+  return db.transaction(async (tx) => {
+    let left = units;
+    let projectId: string | null = null;
+    for (const id of await smallestFirst(tx, ctx, itemIds)) {
+      if (left === 0) break;
+      const item = await lockItem(tx, ctx, id);
+      if (!item.caseId) continue;
+      if (item.serialNumber) throw new DomainError("VALIDATION", `${item.label} has a serial number. Take it out on its own.`);
+      projectId = item.projectId;
+      const take = Math.min(left, item.quantity);
+      await unpackItem(tx, ctx, item.id, { units: take });
+      left -= take;
+    }
+    return { taken: units - left, projectId };
   });
 }
 

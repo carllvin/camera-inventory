@@ -9,13 +9,13 @@ import { Badge, Card, CardHeader, ConditionBadge, LinkButton, Mono, PageHeader, 
 import { cn } from "@/lib/format";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
-import { getCaseDetail, listLineTargets, listPackCandidates } from "@/server/domain/cases";
+import { getCaseDetail, groupUnits, listLineTargets, listPackCandidates } from "@/server/domain/cases";
 import { hasRole } from "@/server/domain/context";
 import { listActivity } from "@/server/domain/overview";
 import { listPhotos } from "@/server/domain/photos";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { addLineAction, packByCodeAction, packItemAction, removeLineAction, unpackItemAction, updateLineAction } from "../actions";
-import { PackButton, PackByCode, SmallActionButton } from "../pack-panel";
+import { addLineAction, packByCodeAction, packItemAction, packUnitsAction, removeLineAction, unpackItemAction, unpackUnitsAction, updateLineAction } from "../actions";
+import { PackButton, PackByCode, SmallActionButton, UnitsButton } from "../pack-panel";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -40,8 +40,12 @@ export default async function CasePage({ params, searchParams }: { params: Promi
   const { comparison: cmp } = d;
   const isNeeded = (c: { equipmentTypeId: string; categoryId: string | null; caseId: string | null; status: string }) =>
     !c.caseId && c.status !== "missing" && (d.neededTypeIds.has(c.equipmentTypeId) || (c.categoryId !== null && d.neededCategoryIds.has(c.categoryId)));
-  // Items that fill a gap in this case come first.
-  const sortedCandidates = [...candidates].sort((a, b) => Number(isNeeded(b)) - Number(isNeeded(a)));
+  // Items without a serial number are interchangeable: one row per group with its unit count.
+  // Rows that fill a gap in this case come first.
+  const sortedCandidates = groupUnits(candidates).sort((a, b) => Number(isNeeded(b)) - Number(isNeeded(a)));
+  const missingByType = new Map<string, number>();
+  for (const r of cmp.lines) if (r.line.equipmentTypeId && r.missing > 0) missingByType.set(r.line.equipmentTypeId, (missingByType.get(r.line.equipmentTypeId) ?? 0) + r.missing);
+  const packedRows = groupUnits(d.items);
   const byId = new Map(d.items.map((i) => [i.id, i]));
   const editing = sp.edit === "1" && canEdit;
 
@@ -100,7 +104,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                   ) : (
                     <ul className="-mx-1 max-h-[28rem] divide-y divide-border overflow-y-auto">
                       {sortedCandidates.map((c) => (
-                        <li key={c.id} className="flex items-center gap-2 px-1 py-2">
+                        <li key={c.id} className="flex flex-wrap items-center gap-2 px-1 py-2">
                           <div className="min-w-0 flex-1">
                             <div className="flex items-center gap-1.5">
                               <Link href={`/equipment/${c.id}`} className="truncate text-sm hover:underline">
@@ -110,11 +114,16 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                               {c.status !== "on_project" && <StatusBadge status={c.status} />}
                             </div>
                             <div className="truncate text-xs text-muted">
-                              <Mono>{c.serialNumber ? `SN ${c.serialNumber}` : c.trackingMode === "bulk" ? `Qty ${c.quantity}` : "No serial"}</Mono>
+                              <Mono>{c.serialNumber ? `SN ${c.serialNumber}` : c.units > 1 ? `${c.units} pcs · no serial` : "No serial"}</Mono>
+                              {c.condition !== "ok" && c.condition !== "unknown" && <span className="text-warn"> · {c.condition.replaceAll("_", " ")}</span>}
                               {c.caseName && <span className="text-warn"> · in {c.caseName}</span>}
                             </div>
                           </div>
-                          <PackButton action={packItemAction.bind(null, id, c.id)} move={Boolean(c.caseId)} />
+                          {c.units > 1 ? (
+                            <UnitsButton action={packUnitsAction.bind(null, id, c.itemIds)} units={c.units} suggested={missingByType.get(c.equipmentTypeId)} move={Boolean(c.caseId)} label="Pack" />
+                          ) : (
+                            <PackButton action={packItemAction.bind(null, id, c.id)} move={Boolean(c.caseId)} />
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -216,25 +225,30 @@ export default async function CasePage({ params, searchParams }: { params: Promi
         </Card>
 
         <Card className="min-w-0">
-          <CardHeader title={`In this case (${d.items.length})`} />
+          <CardHeader title={`In this case (${packedRows.reduce((n, r) => n + r.units, 0)})`} />
           {d.items.length === 0 ? (
             <p className="px-4 py-6 text-sm text-muted">Empty.</p>
           ) : (
             <ul className="divide-y divide-border">
-              {d.items.map((i) => (
-                <li key={i.id} className="flex items-center gap-3 px-4 py-2">
+              {packedRows.map((i) => (
+                <li key={i.id} className="flex flex-wrap items-center gap-3 px-4 py-2">
                   <div className="min-w-0 flex-1">
                     <Link href={`/equipment/${i.id}`} className="block truncate text-sm font-medium hover:underline">
                       {i.typeName}
                     </Link>
                     <div className="flex flex-wrap items-center gap-x-2 text-xs text-muted">
-                      <Mono>{i.serialNumber ? `SN ${i.serialNumber}` : i.trackingMode === "bulk" ? `Qty ${i.quantity}` : "No serial"}</Mono>
+                      <Mono>{i.serialNumber ? `SN ${i.serialNumber}` : i.units > 1 ? `${i.units} pcs · no serial` : "No serial"}</Mono>
                       {i.rentalHouseName && <span>{i.rentalHouseName}</span>}
                       <ConditionBadge condition={i.condition} hideOk />
                     </div>
                   </div>
                   {i.status !== "on_project" && <StatusBadge status={i.status} />}
-                  {canEdit && <SmallActionButton action={unpackItemAction.bind(null, id, i.id)} label="Take out" />}
+                  {canEdit &&
+                    (i.units > 1 ? (
+                      <UnitsButton action={unpackUnitsAction.bind(null, id, i.itemIds)} units={i.units} label="Take out" />
+                    ) : (
+                      <SmallActionButton action={unpackItemAction.bind(null, id, i.id)} label="Take out" />
+                    ))}
                 </li>
               ))}
             </ul>

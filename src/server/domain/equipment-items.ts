@@ -1,9 +1,10 @@
-import { and, asc, desc, eq, ilike, inArray, isNotNull, isNull, or, sql, type SQL } from "drizzle-orm";
+import { and, asc, desc, eq, ilike, inArray, isNotNull, isNull, ne, or, sql, type SQL } from "drizzle-orm";
 import { z } from "zod";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
 import { diff, recordEvent } from "./audit";
 import { categoryWithDescendants } from "./categories";
+import { splitBulkItem } from "./item-split";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
 import { optionalText, optionalUuid } from "./validation";
 
@@ -193,8 +194,32 @@ export async function getItemDetail(db: DbOrTx, ctx: Ctx, id: string) {
       .where(and(eq(s.equipmentItem.splitFromItemId, id), eq(s.equipmentItem.workspaceId, ctx.workspaceId))),
   ]);
 
+  // Without a serial, units are interchangeable: other entries of the same kind in the same place and state.
+  const it = row.item;
+  const sameUnits = it.serialNumber
+    ? []
+    : await db
+        .select({ id: s.equipmentItem.id, quantity: s.equipmentItem.quantity })
+        .from(s.equipmentItem)
+        .where(
+          and(
+            eq(s.equipmentItem.workspaceId, ctx.workspaceId),
+            eq(s.equipmentItem.equipmentTypeId, it.equipmentTypeId),
+            ne(s.equipmentItem.id, it.id),
+            isNull(s.equipmentItem.serialNumber),
+            eq(s.equipmentItem.status, it.status),
+            eq(s.equipmentItem.condition, it.condition),
+            it.projectId ? eq(s.equipmentItem.projectId, it.projectId) : isNull(s.equipmentItem.projectId),
+            it.caseId ? eq(s.equipmentItem.caseId, it.caseId) : isNull(s.equipmentItem.caseId),
+            it.rentalHouseId ? eq(s.equipmentItem.rentalHouseId, it.rentalHouseId) : isNull(s.equipmentItem.rentalHouseId),
+          ),
+        )
+        .orderBy(desc(s.equipmentItem.quantity))
+        .limit(50);
+
   return {
     ...row,
+    sameUnits,
     label: itemLabel({ typeName: row.type.name, ...row.item }),
     assignments: [...assignments],
     documents: [...documents],
@@ -466,9 +491,18 @@ export async function updateItem(db: DbOrTx, ctx: Ctx, id: string, input: z.inpu
   });
 }
 
+/** The item itself, or - for a change to only some units of a bulk item - the units split off from it. */
+async function someUnits(tx: DbOrTx, ctx: Ctx, item: Awaited<ReturnType<typeof lockItem>>, units: number | undefined, reason: string) {
+  if (units === undefined || units >= item.quantity) return item;
+  if (item.trackingMode !== "bulk") throw new DomainError("VALIDATION", `${item.label} is tracked individually.`);
+  return splitBulkItem(tx, ctx, item, units, { reason });
+}
+
 export const changeStatusInput = z.object({
   status: z.enum(ON_PROJECT_STATUSES),
   note: optionalText(1000),
+  /** Bulk items: apply to only this many units (the rest stays as it is). Empty = all. */
+  units: z.preprocess((v) => (v === "" || v == null ? undefined : v), z.coerce.number().int().min(1).optional()),
   expectedVersion: z.coerce.number().int().optional(),
 });
 
@@ -486,28 +520,31 @@ export async function changeStatus(db: DbOrTx, ctx: Ctx, id: string, input: z.in
       throw new DomainError("VALIDATION", "Only equipment on a project can change status. Add it to a project first.");
     }
     if (prev.status === data.status) return prev;
+    const target = await someUnits(tx, ctx, prev, data.units, `status ${human(data.status)}`);
     await tx
       .update(s.equipmentItem)
       .set({ status: data.status, version: sql`${s.equipmentItem.version} + 1` })
-      .where(eq(s.equipmentItem.id, id));
+      .where(eq(s.equipmentItem.id, target.id));
     await recordEvent(tx, ctx, {
       action: "equipment_item.status_changed",
       entityType: "equipment_item",
-      entityId: id,
-      equipmentItemId: id,
+      entityId: target.id,
+      equipmentItemId: target.id,
       projectId: prev.projectId,
       caseId: prev.caseId,
-      summary: `${prev.label}: ${human(prev.status)} → ${human(data.status)}`,
+      summary: `${target.label}: ${human(prev.status)} → ${human(data.status)}`,
       changes: { status: { from: prev.status, to: data.status } },
       metadata: data.note ? { note: data.note } : null,
     });
-    return { ...prev, status: data.status };
+    return { ...target, status: data.status };
   });
 }
 
 export const changeConditionInput = z.object({
   condition: z.enum(EQUIPMENT_CONDITIONS),
   note: optionalText(1000),
+  /** Bulk items: apply to only this many units (the rest stays as it is). Empty = all. */
+  units: z.preprocess((v) => (v === "" || v == null ? undefined : v), z.coerce.number().int().min(1).optional()),
   expectedVersion: z.coerce.number().int().optional(),
 });
 
@@ -518,22 +555,23 @@ export async function changeCondition(db: DbOrTx, ctx: Ctx, id: string, input: z
     const prev = await lockItem(tx, ctx, id);
     checkVersion(prev.version, data.expectedVersion);
     if (prev.condition === data.condition) return prev;
+    const target = await someUnits(tx, ctx, prev, data.units, `condition ${human(data.condition)}`);
     await tx
       .update(s.equipmentItem)
       .set({ condition: data.condition, version: sql`${s.equipmentItem.version} + 1` })
-      .where(eq(s.equipmentItem.id, id));
+      .where(eq(s.equipmentItem.id, target.id));
     await recordEvent(tx, ctx, {
       action: "equipment_item.condition_changed",
       entityType: "equipment_item",
-      entityId: id,
-      equipmentItemId: id,
+      entityId: target.id,
+      equipmentItemId: target.id,
       projectId: prev.projectId,
       caseId: prev.caseId,
-      summary: `${prev.label}: condition ${human(prev.condition)} → ${human(data.condition)}`,
+      summary: `${target.label}: condition ${human(prev.condition)} → ${human(data.condition)}`,
       changes: { condition: { from: prev.condition, to: data.condition } },
       metadata: data.note ? { note: data.note } : null,
     });
-    return { ...prev, condition: data.condition };
+    return { ...target, condition: data.condition };
   });
 }
 

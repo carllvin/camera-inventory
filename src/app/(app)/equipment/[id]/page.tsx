@@ -10,6 +10,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { getItemDetail } from "@/server/domain/equipment-items";
+import { listCases } from "@/server/domain/cases";
 import { listPhotos } from "@/server/domain/photos";
 import { listProjectOptions } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
@@ -34,6 +35,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
   ]);
   const { item, type } = d;
   const canEdit = hasRole(ctx, "member");
+  const cases = canEdit && item.projectId ? await listCases(db, ctx, { projectId: item.projectId }) : [];
   return (
     <>
       <PageHeader
@@ -80,6 +82,26 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
             />
           </Card>
 
+          {d.sameUnits.length > 0 && (
+            <Card className="p-4 text-sm">
+              <h2 className="mb-1 font-semibold">
+                {item.quantity + d.sameUnits.reduce((n, u) => n + u.quantity, 0)} identical units here
+              </h2>
+              <p className="text-muted">
+                Without a serial number these units are interchangeable. This entry holds {item.quantity}; the others:{" "}
+                {d.sameUnits.map((u, i) => (
+                  <span key={u.id}>
+                    {i > 0 && ", "}
+                    <Link href={`/equipment/${u.id}`} className="text-accent hover:underline">
+                      {u.quantity} {u.quantity === 1 ? "unit" : "units"}
+                    </Link>
+                  </span>
+                ))}
+                .
+              </p>
+            </Card>
+          )}
+
           {item.notes && (
             <Card className="p-4">
               <h2 className="mb-1 text-sm font-semibold">Notes</h2>
@@ -112,6 +134,9 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
                 condition={item.condition}
                 projectId={item.projectId}
                 projects={projects.map((p) => ({ value: p.id, label: p.name }))}
+                quantity={item.trackingMode === "bulk" ? item.quantity : 1}
+                caseId={item.caseId}
+                cases={cases.map((c) => ({ value: c.id, label: c.code ? `${c.name} (${c.code})` : c.name }))}
               />
             </Card>
           )}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { LayoutGrid, List, Plus } from "lucide-react";
-import { EquipmentGrid, EquipmentTable } from "@/components/equipment-table";
+import { EquipmentGrid, EquipmentTable, groupItems } from "@/components/equipment-table";
 import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
 import { Tabs, EmptyState, LinkButton, PageHeader } from "@/components/ui";
 import { STATUS_LABEL, cn } from "@/lib/format";
@@ -87,7 +87,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         <>
           <div className="mb-2 flex items-center justify-between gap-2">
             <p className="text-xs text-muted">
-              {items.length === 300 ? "Showing first 300 items — refine with filters" : `${items.length} items · ${items.reduce((n, i) => n + i.quantity, 0)} units`}
+              {items.length === 300 ? "Showing first 300 items — refine with filters" : (() => { const n = groupItems(items).length; const u = items.reduce((s, i) => s + i.quantity, 0); return `${n} ${n === 1 ? "entry" : "entries"} · ${u} ${u === 1 ? "unit" : "units"}`; })()}
             </p>
             <div className="flex rounded-lg border border-border bg-surface p-0.5" role="group" aria-label="View">
               {(["list", "grid"] as const).map((v) => {
