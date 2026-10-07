@@ -73,6 +73,13 @@ changed. Data: `src/server/catalog/data/rental-houses.json`.
 Equipment types are chosen with a search field (manufacturer, model, alias, part number; words in any order,
 typos tolerated), so even thousands of types stay quick to pick.
 
+### Start page
+
+With a current project selected (header), the start page is that project's dashboard: where it stands in the rental
+period ("Day 44 of 82 · 38 days left"), a **Needs attention** list (missing and damaged items, open issues, documents to
+review, incomplete cases, equipment not in any case), the cases with their progress, and what is out per rental house.
+*All projects* shows the workspace overview.
+
 ### Serial numbers and quantities
 
 A serial number makes an item an individual; without one, units of the same type are interchangeable. Lists

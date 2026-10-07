@@ -54,6 +54,11 @@ export const ROLE_LABEL: Record<string, string> = { owner: "Owner", admin: "Admi
 
 const TZ = process.env.NEXT_PUBLIC_APP_TIMEZONE || "Europe/Berlin";
 
+/** Today as YYYY-MM-DD in the app's time zone. */
+export function todayIso(now = new Date()) {
+  return new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "2-digit", day: "2-digit", timeZone: TZ }).format(now);
+}
+
 export function formatDate(d: Date | string | null | undefined) {
   if (!d) return "—";
   const date = typeof d === "string" ? new Date(d.length === 10 ? `${d}T12:00:00Z` : d) : d;

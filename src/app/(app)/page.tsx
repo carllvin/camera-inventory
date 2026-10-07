@@ -7,11 +7,15 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getDashboard } from "@/server/domain/overview";
 import { listProjects } from "@/server/domain/projects";
+import { getCurrentProject } from "@/server/current-project";
+import { ProjectDashboard } from "./project-dashboard";
 
 export const metadata = { title: "Dashboard" };
 
 export default async function DashboardPage() {
   const ctx = await getCtx();
+  const { current } = await getCurrentProject();
+  if (current) return <ProjectDashboard ctx={ctx} projectId={current.id} />;
   const db = getDb();
   const [{ counts, recent, issues }, projects] = await Promise.all([getDashboard(db, ctx), listProjects(db, ctx)]);
   const active = projects.filter((p) => p.status !== "closed");
