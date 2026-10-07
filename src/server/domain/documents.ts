@@ -193,12 +193,21 @@ export async function createDocumentFromUpload(
 async function extractionContext(db: DbOrTx, ws: string, kind: DocumentKind) {
   const [houses, types] = await Promise.all([
     db.select({ name: s.rentalHouse.name, aliases: s.rentalHouse.aliases }).from(s.rentalHouse).where(and(eq(s.rentalHouse.workspaceId, ws), isNull(s.rentalHouse.archivedAt))).orderBy(asc(s.rentalHouse.name)),
+    // Only types in use (items, or seen on earlier documents): the whole standard catalog would cost
+    // tens of thousands of tokens per request; local matching covers every type anyway.
     db
       .select({ name: s.equipmentType.name, aliases: s.equipmentType.aliases })
       .from(s.equipmentType)
-      .where(and(eq(s.equipmentType.workspaceId, ws), isNull(s.equipmentType.archivedAt)))
+      .where(
+        and(
+          eq(s.equipmentType.workspaceId, ws),
+          isNull(s.equipmentType.archivedAt),
+          sql`(EXISTS (SELECT 1 FROM equipment_item i WHERE i.equipment_type_id = ${s.equipmentType.id})
+               OR EXISTS (SELECT 1 FROM document_line l WHERE l.matched_equipment_type_id = ${s.equipmentType.id}))`,
+        ),
+      )
       .orderBy(asc(s.equipmentType.name))
-      .limit(2000),
+      .limit(400),
   ]);
   const fmt = (r: { name: string; aliases: string[] }) => (r.aliases.length ? `${r.name}; ${r.aliases.join("; ")}` : r.name);
   return { expectedKind: kind, rentalHouses: houses.map(fmt), catalog: types.map(fmt), projects: await projectContext(db, ws) };

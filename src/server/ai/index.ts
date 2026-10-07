@@ -14,12 +14,14 @@ export class ManualExtractor implements DocumentExtractor {
 }
 
 const EFFORTS = ["low", "medium", "high", "xhigh", "max"] as const;
+export const DEFAULT_DOCUMENT_MODEL = "claude-sonnet-5-5";
 
 export function createExtractorFromEnv(env: Record<string, string | undefined> = process.env): DocumentExtractor {
   const provider = env.AI_PROVIDER ?? (env.ANTHROPIC_API_KEY ? "anthropic" : "none");
   if (provider === "anthropic") {
-    const effort = (EFFORTS as readonly string[]).includes(env.AI_EFFORT ?? "") ? (env.AI_EFFORT as (typeof EFFORTS)[number]) : "high";
-    return new ClaudeDocumentExtractor(env.AI_MODEL || "claude-opus-5-5", effort);
+    // Sonnet reads delivery notes well at half Opus' price; AI_MODEL / AI_EFFORT override.
+    const effort = (EFFORTS as readonly string[]).includes(env.AI_EFFORT ?? "") ? (env.AI_EFFORT as (typeof EFFORTS)[number]) : "medium";
+    return new ClaudeDocumentExtractor(env.AI_MODEL || DEFAULT_DOCUMENT_MODEL, effort);
   }
   return new ManualExtractor();
 }

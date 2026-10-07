@@ -82,8 +82,11 @@ describe("Claude document extractor", () => {
     expect(body.output_config.format.type).toBe("json_schema");
     expect(body.output_config.format.schema.properties.lines.type).toBe("array");
     const content = body.messages[0].content;
-    expect(content[0]).toMatchObject({ type: "document", source: { type: "base64", media_type: "application/pdf" } });
-    expect(content.at(-1).text).toContain("ARRI ALEXA 35; A35");
+    // Stable reference lists first and cached, then the document, then the per-request instruction.
+    expect(content[0]).toMatchObject({ type: "text", cache_control: { type: "ephemeral" } });
+    expect(content[0].text).toContain("ARRI ALEXA 35; A35");
+    expect(content[1]).toMatchObject({ type: "document", source: { type: "base64", media_type: "application/pdf" } });
+    expect(content.at(-1).text).toContain("delivery note");
   });
 
   it("turns refusals, truncation and API errors into user-facing extraction errors", async () => {
@@ -109,7 +112,8 @@ describe("Claude document extractor", () => {
   it("picks the provider from the environment", () => {
     expect(createExtractorFromEnv({}).available).toBe(false);
     const e = createExtractorFromEnv({ ANTHROPIC_API_KEY: "x", AI_EFFORT: "max" });
-    expect([e.provider, e.model, e.available]).toEqual(["anthropic", "claude-opus-5-5", true]);
+    expect([e.provider, e.model, e.available]).toEqual(["anthropic", "claude-sonnet-5-5", true]);
+    expect(createExtractorFromEnv({ ANTHROPIC_API_KEY: "x", AI_MODEL: "claude-opus-5-5" }).model).toBe("claude-opus-5-5");
     expect(createExtractorFromEnv({ ANTHROPIC_API_KEY: "x", AI_PROVIDER: "none" }).available).toBe(false);
   });
 });

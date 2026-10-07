@@ -38,8 +38,8 @@ services:
       ALLOW_SIGNUP: ${ALLOW_SIGNUP:-true}
       # AI reading of delivery/return notes; leave empty to enter documents by hand
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
-      AI_MODEL: ${AI_MODEL:-claude-opus-5-5}
-      AI_EFFORT: ${AI_EFFORT:-high}
+      AI_MODEL: ${AI_MODEL:-claude-sonnet-5-5}
+      AI_EFFORT: ${AI_EFFORT:-medium}
       # Image search for equipment reference images (optional)
       BRAVE_SEARCH_API_KEY: ${BRAVE_SEARCH_API_KEY:-}
       # true: Claude checks image results (needs ANTHROPIC_API_KEY); default: first result

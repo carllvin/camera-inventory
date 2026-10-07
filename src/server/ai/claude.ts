@@ -39,22 +39,19 @@ Header
 - rental_start_date / rental_end_date = the printed rental period (pickup / return or "Einsatz von / bis") as YYYY-MM-DD.
 - Add a warning for anything a reviewer must check: unreadable parts, handwritten corrections, crossed-out lines, pages that seem to be missing.`;
 
-function contextBlock(ctx: ExtractionContext) {
+/** Stable per workspace (rental houses, projects, catalog): first in the message so it can be cached. */
+function referenceBlock(ctx: ExtractionContext) {
   const houses = ctx.rentalHouses.length ? ctx.rentalHouses.map((h) => `- ${h}`).join("\n") : "(none yet)";
   const catalog = ctx.catalog.length ? ctx.catalog.map((c) => `- ${c}`).join("\n") : "(empty)";
   const projects = ctx.projects.length ? ctx.projects.map((p) => `- ${p}`).join("\n") : "(none yet)";
-  return `The user uploaded this as a ${ctx.expectedKind === "delivery_note" ? "delivery note" : "return note"}.
-
-Known rental houses (name; aliases):
+  return `Known rental houses (name; aliases):
 ${houses}
 
 Open projects (name; code; production company):
 ${projects}
 
-Equipment catalog (name; aliases):
-${catalog}
-
-Extract the document.`;
+Equipment catalog in use (name; aliases):
+${catalog}`;
 }
 
 /** Normalize photos (rotation, size) so pages are legible and within image limits. */
@@ -77,7 +74,9 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
   }
 
   async extract(files: ExtractionInputFile[], ctx: ExtractionContext): Promise<ExtractionResult> {
-    const content: Anthropic.Beta.BetaContentBlockParam[] = [];
+    // Reference lists first (cached: repeated uploads within minutes reuse them at a fraction of the price),
+    // then the document, then the per-request instruction.
+    const content: Anthropic.Beta.BetaContentBlockParam[] = [{ type: "text", text: referenceBlock(ctx), cache_control: { type: "ephemeral" } }];
     for (const f of files) {
       if (f.mimeType === "application/pdf") {
         content.push({ type: "document", source: { type: "base64", media_type: "application/pdf", data: f.bytes.toString("base64") }, title: f.name });
@@ -85,8 +84,8 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
         content.push(await imageBlock(f));
       }
     }
-    if (content.length === 0) throw new ExtractionError("No readable file (PDF or image) in this document.", false);
-    content.push({ type: "text", text: contextBlock(ctx) });
+    if (content.length === 1) throw new ExtractionError("No readable file (PDF or image) in this document.", false);
+    content.push({ type: "text", text: `The user uploaded this as a ${ctx.expectedKind === "delivery_note" ? "delivery note" : "return note"}. Extract the document.` });
 
     let message;
     try {

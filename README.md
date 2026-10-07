@@ -31,9 +31,14 @@ The first person to sign up creates the workspace and becomes its owner. Add the
 ### AI reading of delivery notes
 
 Set `ANTHROPIC_API_KEY` in `.env` (create a key at console.anthropic.com) and redeploy. Uploaded PDFs/photos are then
-read by Claude (`claude-opus-5-5`, change with `AI_MODEL` / `AI_EFFORT`); every line is matched against your equipment
+read by Claude (`claude-sonnet-5-5` at effort `medium` by default; change with `AI_MODEL` / `AI_EFFORT`); every line is matched against your equipment
 and **nothing changes until a person confirms the reviewed delivery note**. Without a key, documents are uploaded and the
-lines are entered by hand. Typical cost: a few cents per delivery note.
+lines are entered by hand.
+
+Costs are kept low on purpose: Sonnet instead of Opus (half the price per token), only the equipment types you actually
+use are sent as context (at most 400; the full catalog is matched locally for free), and that context is prompt-cached,
+so several uploads within a few minutes pay for it once. Image search uses no AI unless `IMAGE_AI_RANKING=true`.
+Set `AI_MODEL=claude-opus-5-5` only if handwritten or badly photographed notes are read poorly.
 
 With AI reading the project can be left on "Detect from document": the production title, the rental house's project
 number and the customer are compared with your open projects, and only a clear match is used. An unknown production is

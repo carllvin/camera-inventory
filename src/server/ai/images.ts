@@ -152,5 +152,5 @@ Score every candidate as the catalog reference image for exactly this product. B
  */
 export function createImageRankerFromEnv(env: Record<string, string | undefined> = process.env): ImageRanker | null {
   const enabled = ["1", "true", "on", "yes"].includes((env.IMAGE_AI_RANKING ?? "").toLowerCase());
-  return enabled && env.ANTHROPIC_API_KEY && env.AI_PROVIDER !== "none" ? new ClaudeImageRanker(env.AI_MODEL || "claude-opus-5-5") : null;
+  return enabled && env.ANTHROPIC_API_KEY && env.AI_PROVIDER !== "none" ? new ClaudeImageRanker(env.AI_MODEL || "claude-sonnet-5-5") : null;
 }
