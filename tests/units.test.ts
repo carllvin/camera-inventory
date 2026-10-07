@@ -167,3 +167,12 @@ describe("expected contents made easy", () => {
     expect(d.lines.map((l) => l.label)).toEqual(["BNC 1m"]);
   });
 });
+
+describe("type names", () => {
+  it("leave out placeholder makers like Generic", async () => {
+    const { createEquipmentType } = await import("../src/server/domain/equipment-types");
+    const tag = Date.now().toString(36);
+    expect((await createEquipmentType(db, ctx, { manufacturer: "Generic", model: `Cheese Plate ${tag}` }))!.name).toBe(`Cheese Plate ${tag}`);
+    expect((await createEquipmentType(db, ctx, { manufacturer: "Tilta", model: `Nucleus ${tag}` }))!.name).toBe(`Tilta Nucleus ${tag}`);
+  });
+});

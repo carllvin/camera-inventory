@@ -1,95 +1,50 @@
-import { EquipmentByType } from "@/components/equipment-by-type";
-import { hasRole } from "@/server/domain/context";
-import { removeSelectionAction } from "../actions";
-import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
+import { EquipmentBrowser, type BrowserParams } from "@/components/equipment-browser";
 import { EmptyState, LinkButton } from "@/components/ui";
-import { STATUS_LABEL } from "@/lib/format";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
-import { getCategoryTree } from "@/server/domain/categories";
-import { listItems } from "@/server/domain/equipment-items";
 import { listCases } from "@/server/domain/cases";
+import { getCategoryTree } from "@/server/domain/categories";
+import { hasRole } from "@/server/domain/context";
+import { listItems, type ItemFilters } from "@/server/domain/equipment-items";
 import { getProjectSummary } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
+import { removeSelectionAction } from "../actions";
 
-type SP = { q?: string; categoryId?: string; rentalHouseId?: string; status?: string; caseId?: string };
+const LIMIT = 500;
 
-export default async function ProjectEquipmentPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<SP> }) {
+/** The project's equipment: the same list as the Equipment tab, fixed to this project. */
+export default async function ProjectEquipmentPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<BrowserParams> }) {
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   assertUuid(id);
   const ctx = await getCtx();
   const db = getDb();
+  const { view: _view, location: _l, ...filters } = sp;
   const [items, { flat: categories }, cases, summary] = await Promise.all([
-    listItems(db, ctx, { ...sp, projectId: id, limit: 500 }),
+    listItems(db, ctx, { ...(filters as ItemFilters), projectId: id, limit: LIMIT }),
     getCategoryTree(db, ctx),
     listCases(db, ctx, { projectId: id }),
     orNotFound(getProjectSummary(db, ctx, id)),
   ]);
-  const hasFilters = Boolean(sp.q || sp.categoryId || sp.rentalHouseId || sp.status || sp.caseId);
   return (
-    <>
-      <FilterBar hasFilters={hasFilters}>
-        <FilterSearch value={sp.q} placeholder="Search name, serial, asset…" />
-        <FilterSelect
-          name="categoryId"
-          label="Category"
-          allLabel="All categories"
-          value={sp.categoryId}
-          options={categories.map((c) => ({ value: c.id, label: `${" ".repeat(c.depth)}${c.name}` }))}
-        />
-        <FilterSelect
-          name="rentalHouseId"
-          label="Rental house"
-          allLabel="All rental houses"
-          value={sp.rentalHouseId}
-          options={[...summary.rentalHouses.map((r) => ({ value: r.id, label: r.name })), { value: "owned", label: "Owned (not rented)" }]}
-        />
-        <FilterSelect
-          name="status"
-          label="Status"
-          allLabel="Any status"
-          value={sp.status}
-          options={["on_project", "in_use", "ready_for_return", "missing"].map((s) => ({ value: s, label: STATUS_LABEL[s]! }))}
-        />
-        <FilterSelect
-          name="caseId"
-          label="Set"
-          allLabel="Any set"
-          value={sp.caseId}
-          options={[{ value: "none", label: "Not in a set" }, ...cases.map((c) => ({ value: c.id, label: c.name }))]}
-        />
-      </FilterBar>
-      {items.length === 0 ? (
-        hasFilters ? (
-          <EmptyState title="No equipment matches these filters" />
-        ) : (
-          <EmptyState
-            title="No equipment on this project yet"
-            action={summary.project.status !== "closed" && <LinkButton href={`/projects/${id}/add-equipment`} variant="primary">Add equipment</LinkButton>}
-          >
-            Add equipment from the database or create new items. Delivery-note import comes with document upload.
-          </EmptyState>
-        )
-      ) : (
-        <>
-          <p className="mb-2 text-xs text-muted">
-            {(() => {
-              const types = new Set(items.map((i) => i.typeId)).size;
-              const units = items.reduce((n, i) => n + i.quantity, 0);
-              return `${types} ${types === 1 ? "type" : "types"} · ${units} ${units === 1 ? "unit" : "units"} · tap a line for serials and details`;
-            })()}
-          </p>
-          <EquipmentByType
-            items={items}
-            open={Boolean(sp.q)}
-            actions={
-              hasRole(ctx, "member")
-                ? { remove: removeSelectionAction.bind(null, id) }
-                : undefined
-            }
-          />
-        </>
-      )}
-    </>
+    <EquipmentBrowser
+      basePath={`/projects/${id}`}
+      sp={filters}
+      items={items}
+      limit={LIMIT}
+      projectId={id}
+      categories={categories}
+      rentalHouses={summary.rentalHouses.map((r) => ({ id: r.id, name: r.name }))}
+      cases={cases}
+      hasFilters={Object.values(filters).some(Boolean)}
+      removeAction={hasRole(ctx, "member") ? removeSelectionAction.bind(null, id) : undefined}
+      empty={
+        <EmptyState
+          title="No equipment on this project yet"
+          action={summary.project.status !== "closed" && <LinkButton href={`/projects/${id}/add-equipment`} variant="primary">Add equipment</LinkButton>}
+        >
+          Upload a delivery note, add equipment from the database or create new items.
+        </EmptyState>
+      }
+    />
   );
 }

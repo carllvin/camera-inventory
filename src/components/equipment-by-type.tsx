@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { Camera, ChevronRight } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { STATUS_LABEL } from "@/lib/format";
 import { groupItems, Thumb } from "./equipment-table";
@@ -123,6 +123,45 @@ export function EquipmentByType({ items, open = false, showProject = false, acti
               </ul>
               )}
             </details>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/** Image view: one card per equipment type with its quantity (opens that type in the list). */
+export function TypeGrid({ items, hrefFor }: { items: ItemRow[]; hrefFor: (typeName: string) => string }) {
+  return (
+    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      {byType(items).map((g) => {
+        const statuses = statusSummary(g.items);
+        return (
+          <li key={g.typeId}>
+            <Link href={hrefFor(g.typeName)} className="block h-full overflow-hidden rounded-xl border border-border bg-surface hover:border-ring/60">
+              <div className="relative flex aspect-[4/3] items-center justify-center bg-gradient-to-b from-white to-zinc-100 text-zinc-400">
+                {g.imageId ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- private, auth-checked images
+                  <img src={`/api/photos/${g.imageId}?size=thumb`} alt={g.typeName} loading="lazy" className="h-full w-full object-contain p-2 mix-blend-multiply" />
+                ) : (
+                  <Camera className="size-10" strokeWidth={1.25} aria-hidden />
+                )}
+                <span className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-0.5 text-xs font-medium text-white tabular-nums">× {g.units}</span>
+              </div>
+              <div className="space-y-0.5 p-3">
+                <div className="line-clamp-2 text-sm font-medium">{g.typeName}</div>
+                <div className="truncate text-xs text-muted">{g.categoryName ?? " "}</div>
+                {statuses.length > 0 && (
+                  <div className="flex flex-wrap gap-x-2 text-xs">
+                    {statuses.map((s) => (
+                      <span key={s.status} className={s.status === "missing" ? "font-medium text-danger" : "text-text"}>
+                        {s.label}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </Link>
           </li>
         );
       })}

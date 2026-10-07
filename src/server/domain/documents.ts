@@ -611,7 +611,7 @@ export async function createTypeFromLine(db: DbOrTx, ctx: Ctx, lineId: string, i
     const [same] = await db
       .select({ id: s.equipmentType.id })
       .from(s.equipmentType)
-      .where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), sql`lower(${s.equipmentType.name}) = lower(${`${data.manufacturer} ${data.model}`})`));
+      .where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), sql`lower(${s.equipmentType.manufacturer}) = lower(${data.manufacturer}) AND lower(${s.equipmentType.model}) = lower(${data.model})`));
     if (!same) throw err;
     typeId = same.id;
   }

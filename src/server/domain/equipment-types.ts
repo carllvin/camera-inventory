@@ -5,6 +5,7 @@ import * as s from "../db/schema";
 import { diff, recordEvent } from "./audit";
 import { categoryWithDescendants } from "./categories";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
+import { typeDisplayName } from "@/lib/type-name";
 import { optionalText, optionalUuid, requiredText, stringList } from "./validation";
 
 /** Specs are edited as "key: value" lines. */
@@ -99,7 +100,7 @@ function mapErr(err: unknown, input: { manufacturer: string; model: string }): n
 export async function createEquipmentType(db: DbOrTx, ctx: Ctx, input: EquipmentTypeInput) {
   requireRole(ctx, "member");
   const data = equipmentTypeInput.parse(input);
-  const name = data.name ?? `${data.manufacturer} ${data.model}`;
+  const name = data.name ?? typeDisplayName(data.manufacturer, data.model);
   try {
     return await db.transaction(async (tx) => {
       const [t] = await tx
@@ -122,7 +123,7 @@ export async function createEquipmentType(db: DbOrTx, ctx: Ctx, input: Equipment
 export async function updateEquipmentType(db: DbOrTx, ctx: Ctx, id: string, input: EquipmentTypeInput) {
   requireRole(ctx, "member");
   const data = equipmentTypeInput.parse(input);
-  const values = { ...data, name: data.name ?? `${data.manufacturer} ${data.model}`, categoryId: data.categoryId ?? null };
+  const values = { ...data, name: data.name ?? typeDisplayName(data.manufacturer, data.model), categoryId: data.categoryId ?? null };
   try {
     return await db.transaction(async (tx) => {
       const [prev] = await tx

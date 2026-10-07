@@ -105,7 +105,7 @@ test("no page scrolls sideways on a phone", async ({ page }, info) => {
   await go(page, "/documents");
   paths.push("/documents", "/documents/new", "/documents/new?kind=return_note", (await page.getByRole("link", { name: /LS-240512/ }).first().getAttribute("href"))!);
   await go(page, "/equipment?q=35-10421");
-  paths.push((await page.getByRole("link", { name: "ARRI ALEXA 35" }).first().getAttribute("href"))!);
+  paths.push((await page.getByRole("link", { name: /SN 35-10421/ }).first().getAttribute("href"))!);
   for (const p of paths) {
     await go(page, p);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
@@ -186,15 +186,20 @@ test("project equipment: one line per type with quantity, serials when opened", 
   await expect(page.getByText("SN B290-31131")).toBeVisible();
 });
 
-test("equipment page: by-type view groups serials under one line", async ({ page }) => {
+test("equipment page: one line per type by default, one picture per type as an option", async ({ page }) => {
   await login(page);
   await go(page, "/equipment");
-  await page.getByRole("link", { name: "By type" }).click();
-  await expect(page).toHaveURL(/view=types/);
   const line = page.locator("summary").filter({ hasText: "ARRI ALEXA 35" });
   await expect(line).toHaveCount(1);
   await line.click();
   await expect(page.getByText("SN 35-10421")).toBeVisible();
+
+  await page.getByRole("link", { name: "Image view" }).click();
+  await expect(page).toHaveURL(/view=grid/);
+  const card = page.getByRole("link", { name: /ARRI ALEXA 35/ }).filter({ hasText: "× 2" });
+  await expect(card).toHaveCount(1); // two cameras, one card
+  await card.click();
+  await expect(page.getByText("SN 35-10421").first()).toBeVisible();
 });
 
 test("project equipment: tick entries in a type line to start removing them", async ({ page }) => {

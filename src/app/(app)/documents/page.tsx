@@ -4,18 +4,20 @@ import { LinkButton, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
+import { getCurrentProject } from "@/server/current-project";
 import { listDocuments } from "@/server/domain/overview";
 
 export const metadata = { title: "Documents" };
 
 export default async function DocumentsPage() {
   const ctx = await getCtx();
-  const documents = await listDocuments(getDb(), ctx);
+  const { current } = await getCurrentProject();
+  const documents = await listDocuments(getDb(), ctx, { projectId: current?.id });
   return (
     <>
       <PageHeader
         title="Documents"
-        subtitle="Delivery and return notes"
+        subtitle={current ? `Delivery and return notes and lists of ${current.name}` : "Delivery and return notes and current lists"}
         actions={
           hasRole(ctx, "member") && (
             <>
@@ -32,7 +34,7 @@ export default async function DocumentsPage() {
           )
         }
       />
-      <DocumentList documents={documents} />
+      <DocumentList documents={documents} showProject={!current} />
     </>
   );
 }

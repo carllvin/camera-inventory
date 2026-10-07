@@ -12,10 +12,11 @@ import * as s from "../db/schema";
 import { STANDARD_RENTAL_HOUSES, rentalHouseRegion, type StandardRentalHouse } from "../catalog/rental-houses";
 import { STANDARD_CATALOG, STANDARD_CATALOG_VERSION, catalogSection, sectionEntries } from "../catalog/standard-catalog";
 import { recordEvent } from "./audit";
+import { typeDisplayName } from "@/lib/type-name";
 import { DomainError, requireRole, type Ctx } from "./context";
 
 const compact = (v: string) => v.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
-const entryName = (e: { manufacturer: string; model: string; name?: string }) => e.name ?? `${e.manufacturer} ${e.model}`;
+const entryName = (e: { manufacturer: string; model: string; name?: string }) => e.name ?? typeDisplayName(e.manufacturer, e.model);
 
 /** Every spelling under which the workspace already knows a type. */
 async function knownKeys(db: DbOrTx, ws: string) {

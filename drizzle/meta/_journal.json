@@ -78,6 +78,13 @@
       "when": 1791394569213,
       "tag": "0010_document_kind_inventory_list",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1791402253848,
+      "tag": "0011_type_names_without_generic",
+      "breakpoints": true
     }
   ]
 }

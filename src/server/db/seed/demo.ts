@@ -11,6 +11,7 @@ import { hashPassword } from "better-auth/crypto";
 import { and, eq, isNull } from "drizzle-orm";
 import type { Database, DbOrTx } from "../client";
 import * as s from "../schema";
+import { typeDisplayName } from "../../../lib/type-name";
 import type { AuditAction, AuditChanges } from "../schema";
 
 type Tx = DbOrTx;
@@ -229,7 +230,7 @@ class DemoSeeder {
       T("bnc", "Generic", "3G-SDI BNC Cable 1 m", "Video Cables", { aliases: ["BNC 1m", "SDI Cable"], bulk: true, name: "BNC Cable 1 m" }),
     ];
     for (const t of list) {
-      const name = t.name ?? `${t.manufacturer} ${t.model}`;
+      const name = t.name ?? typeDisplayName(t.manufacturer, t.model);
       const [row] = await this.tx
         .insert(s.equipmentType)
         .values({

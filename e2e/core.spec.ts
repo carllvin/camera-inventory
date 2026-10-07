@@ -121,7 +121,7 @@ test("start page focuses on the current project: what needs attention, sets, ren
 test("a change can be undone from the history", async ({ page }) => {
   await login(page);
   await go(page, "/equipment?q=WCU-4471");
-  await page.getByRole("link", { name: "ARRI WCU-4" }).first().click();
+  await page.getByRole("link", { name: /SN WCU-4471/ }).first().click();
   await page.waitForURL(/\/equipment\/[0-9a-f-]{36}/);
   await page.waitForLoadState("networkidle");
   await page.getByLabel("Condition", { exact: true }).selectOption("damaged");

@@ -3,6 +3,7 @@ import { ActivityList } from "@/components/activity";
 import { Card, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
+import { getCurrentProject } from "@/server/current-project";
 import { listActivity } from "@/server/domain/overview";
 
 export const metadata = { title: "History" };
@@ -12,13 +13,14 @@ export default async function HistoryPage({ searchParams }: { searchParams: Prom
   const { before } = await searchParams;
   const m = before?.match(/^(\d+)_(\d+)$/);
   const cursor = m ? { atMicros: m[1]!, id: Number(m[2]) } : undefined;
-  const events = await listActivity(getDb(), await getCtx(), { limit: PAGE, before: cursor });
+  const { current } = await getCurrentProject();
+  const events = await listActivity(getDb(), await getCtx(), { limit: PAGE, before: cursor, projectId: current?.id });
   const last = events.at(-1);
   return (
     <>
-      <PageHeader title="History" subtitle="Every recorded change. Entries can never be edited or deleted." />
+      <PageHeader title="History" subtitle={current ? `Every recorded change on ${current.name}. Switch to All projects in the top bar for everything.` : "Every recorded change. Entries can never be edited or deleted."} />
       <Card>
-        <ActivityList events={events} />
+        <ActivityList events={events} showProject={!current} />
       </Card>
       <div className="mt-4 flex gap-3 text-sm">
         {cursor && (
