@@ -9,6 +9,8 @@ export interface Ctx {
   workspaceId: string;
   userId: string;
   role: WorkspaceRole;
+  /** Set while undoing a history event: every event written is marked as its undo. */
+  revertOf?: number;
 }
 
 const RANK: Record<WorkspaceRole, number> = { viewer: 0, member: 1, admin: 2, owner: 3 };

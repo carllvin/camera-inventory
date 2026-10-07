@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
 import { CONDITION_LABEL, STATUS_LABEL } from "@/lib/format";
 import { assignAction, removeFromProjectAction, updateItemStateAction } from "./actions";
@@ -52,6 +52,12 @@ export function ItemActions({
   const [c, setC] = useState(condition);
   const [k, setK] = useState(caseId ?? "");
   const [showRemove, setShowRemove] = useState(false);
+  // Follow the item when it changes elsewhere (save, undo, another device).
+  useEffect(() => {
+    setS(status);
+    setC(condition);
+    setK(caseId ?? "");
+  }, [status, condition, caseId]);
   const dirty = s !== status || c !== condition || k !== (caseId ?? "");
   const reset = () => {
     setS(status);

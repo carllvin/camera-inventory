@@ -2,6 +2,7 @@
 import { and, desc, eq, inArray, sql, type SQL } from "drizzle-orm";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
+import { withUndo } from "./revert";
 import type { Ctx } from "./context";
 
 export async function getDashboard(db: DbOrTx, ctx: Ctx) {
@@ -58,7 +59,8 @@ export async function listActivity(db: DbOrTx, ctx: Ctx, opts: { projectId?: str
     .where(and(...where))
     // Keyset order (occurred_at, id): stable even when events share a timestamp.
     .orderBy(desc(s.auditEvent.occurredAt), desc(s.auditEvent.id))
-    .limit(opts.limit ?? 100);
+    .limit(opts.limit ?? 100)
+    .then((rows) => withUndo(db, ctx, rows as (typeof rows[number] & { changes: Record<string, { from: unknown; to: unknown }> | null; metadata: Record<string, unknown> | null })[]));
 }
 
 export async function listIssues(db: DbOrTx, ctx: Ctx, opts: { projectId?: string; openOnly?: boolean; limit?: number } = {}) {

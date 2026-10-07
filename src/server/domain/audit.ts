@@ -27,7 +27,7 @@ export async function recordEvent(tx: DbOrTx, ctx: Ctx, e: AuditInput) {
     action: e.action,
     entityType: e.entityType,
     entityId: e.entityId,
-    summary: e.summary,
+    summary: ctx.revertOf ? `Undo: ${e.summary}` : e.summary,
     projectId: e.projectId ?? null,
     equipmentItemId: e.equipmentItemId ?? null,
     caseId: e.caseId ?? null,
@@ -35,7 +35,7 @@ export async function recordEvent(tx: DbOrTx, ctx: Ctx, e: AuditInput) {
     issueId: e.issueId ?? null,
     rentalHouseId: e.rentalHouseId ?? null,
     changes: e.changes ?? null,
-    metadata: e.metadata ?? null,
+    metadata: ctx.revertOf ? { ...(e.metadata ?? {}), revertOf: ctx.revertOf } : (e.metadata ?? null),
     correlationId: e.correlationId ?? null,
   });
 }

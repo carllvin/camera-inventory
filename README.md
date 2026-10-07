@@ -80,6 +80,14 @@ period ("Day 44 of 82 · 38 days left"), a **Needs attention** list (missing and
 review, incomplete sets, equipment not in any set), the sets with their progress, and what is out per rental house.
 *All projects* shows the workspace overview.
 
+### Undo
+
+History entries for simple changes have an **Undo** button: status, condition, moving into or out of a set, item edits,
+adding to or removing from a project, and equipment type edits (incl. remembered aliases). The opposite change is made
+through the normal rules and recorded as a new entry ("Undo: …"); the original is shown as undone — nothing is ever
+deleted from the history. If the value was changed again since, undo the newer change first. Changes made by a
+confirmed delivery or return note are corrected on the document instead.
+
 ### Serial numbers and quantities
 
 A serial number makes an item an individual; without one, units of the same type are interchangeable. Lists

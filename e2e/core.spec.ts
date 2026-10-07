@@ -117,3 +117,20 @@ test("start page focuses on the current project: what needs attention, sets, ren
   await page.getByRole("link", { name: /Missing: bebob B290cine/ }).click();
   await expect(page).toHaveURL(/\/equipment\/[0-9a-f-]{36}/);
 });
+
+test("a change can be undone from the history", async ({ page }) => {
+  await login(page);
+  await go(page, "/equipment?q=WCU-4471");
+  await page.getByRole("link", { name: "ARRI WCU-4" }).first().click();
+  await page.waitForURL(/\/equipment\/[0-9a-f-]{36}/);
+  await page.waitForLoadState("networkidle");
+  await page.getByLabel("Condition", { exact: true }).selectOption("damaged");
+  await page.getByLabel("Note").fill("dropped");
+  await page.getByRole("button", { name: "Save changes" }).click();
+  await expect(page.getByText("Condition saved.")).toBeVisible();
+
+  await page.getByRole("button", { name: /Undo: ARRI WCU-4.*condition .* → damaged/ }).first().click();
+  await expect(page.getByText(/Undo: ARRI WCU-4.*condition damaged → /).first()).toBeVisible();
+  await expect(page.getByLabel("Condition", { exact: true })).not.toHaveValue("damaged");
+  await expect(page.getByText("Undone").first()).toBeVisible();
+});

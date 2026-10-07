@@ -13,6 +13,8 @@ import {
   Wrench,
 } from "lucide-react";
 import { formatDateTime } from "@/lib/format";
+import { undoEventAction } from "@/app/(app)/history-actions";
+import { UndoButton } from "./undo-button";
 
 export interface ActivityEvent {
   id: number;
@@ -27,6 +29,8 @@ export interface ActivityEvent {
   documentId?: string | null;
   changes?: Record<string, { from: unknown; to: unknown }> | null;
   metadata?: Record<string, unknown> | null;
+  /** "can": show Undo; "done": this change was undone. */
+  undo?: "can" | "done" | null;
 }
 
 function iconFor(action: string) {
@@ -56,7 +60,7 @@ export function ActivityList({ events, showProject = true, compact = false }: { 
               <Icon className="size-3.5" aria-hidden />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm">
+              <p className={e.undo === "done" ? "text-sm text-muted line-through decoration-muted/60" : "text-sm"}>
                 {e.equipmentItemId && !compact ? (
                   <Link href={`/equipment/${e.equipmentItemId}`} className="hover:underline">
                     {e.summary}
@@ -66,6 +70,7 @@ export function ActivityList({ events, showProject = true, compact = false }: { 
                 )}
               </p>
               {note && <p className="mt-0.5 text-xs text-muted italic">“{note}”</p>}
+              {e.undo === "done" && <p className="mt-0.5 text-xs text-muted">Undone</p>}
               <p className="mt-0.5 text-xs text-muted">
                 {formatDateTime(e.occurredAt)} · {e.actorType === "ai" ? "AI" : e.actorType === "system" ? "System" : (e.actorName ?? "Unknown")}
                 {showProject && e.projectId && e.projectName && (
@@ -86,6 +91,11 @@ export function ActivityList({ events, showProject = true, compact = false }: { 
                 )}
               </p>
             </div>
+            {e.undo === "can" && (
+              <div className="shrink-0">
+                <UndoButton action={undoEventAction.bind(null, e.id)} label={e.summary} />
+              </div>
+            )}
           </li>
         );
       })}

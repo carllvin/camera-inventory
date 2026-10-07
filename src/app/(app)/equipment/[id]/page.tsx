@@ -11,6 +11,7 @@ import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { getItemDetail } from "@/server/domain/equipment-items";
 import { listCases } from "@/server/domain/cases";
+import { withUndo } from "@/server/domain/revert";
 import { listPhotos } from "@/server/domain/photos";
 import { listProjectOptions } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
@@ -34,6 +35,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
     listPhotos(db, ctx, { equipmentItemId: id }),
   ]);
   const { item, type } = d;
+  const timeline = await withUndo(db, ctx, d.timeline as (typeof d.timeline[number] & { changes: Record<string, { from: unknown; to: unknown }> | null; metadata: Record<string, unknown> | null })[]);
   const canEdit = hasRole(ctx, "member");
   const cases = canEdit && item.projectId ? await listCases(db, ctx, { projectId: item.projectId }) : [];
   return (
@@ -136,7 +138,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
 
           <Card>
             <CardHeader title="Timeline" />
-            <ActivityList events={d.timeline} compact />
+            <ActivityList events={timeline} compact />
           </Card>
         </div>
 
