@@ -16,7 +16,7 @@ test("upload a delivery note, enter lines by hand, resolve a conflict, confirm",
   await login(page);
   await page.goto("/scan");
   await page.getByRole("link", { name: /Delivery note/ }).click();
-  await page.getByLabel("Project").selectOption({ label: "Feature Film X" });
+  await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Rental house").selectOption({ label: "MBF Filmtechnik" });
   await page.locator('input[type="file"]').setInputFiles({ name: `ls-${tag}.pdf`, mimeType: "application/pdf", buffer: pdf(tag) });
   await page.getByRole("button", { name: "Upload" }).click();

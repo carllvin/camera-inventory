@@ -95,7 +95,7 @@ test("new user signs up, creates a workspace and sees an empty, isolated dashboa
   // Demo workspace data must not leak into the new workspace.
   await page.goto("/search?q=35-10421");
   await expect(page.getByText("Nothing found")).toBeVisible();
-  await page.goto("/search?q=alexa");
+  await page.goto(withCatalog ? "/search?q=alexa%20mini%20lf" : "/search?q=alexa");
   if (withCatalog) {
     // Standard catalog: equipment types only, no items.
     await expect(page.getByText("ARRI ALEXA Mini LF").first()).toBeVisible();

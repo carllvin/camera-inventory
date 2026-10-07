@@ -24,7 +24,7 @@ test("create a case from a template, pack by code, confirm a move, take out, add
   const name = `E2E Case ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
   await page.goto("/cases/new");
-  await page.getByLabel("Project").selectOption({ label: "Feature Film X" });
+  await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Template").selectOption({ label: "A-Cam Case (8 items)" });
   await page.getByLabel("Name").fill(name);
   await page.getByRole("button", { name: "Create case" }).click();
@@ -73,7 +73,7 @@ test("edit expected contents and save the case as a template", async ({ page }, 
   const name = `E2E Empty ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
   await page.goto("/cases/new");
-  await page.getByLabel("Project").selectOption({ label: "Feature Film X" });
+  await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Name").fill(name);
   await page.getByRole("button", { name: "Create case" }).click();
   await page.getByRole("link", { name: "Define what belongs in this case" }).click();

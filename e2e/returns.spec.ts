@@ -17,7 +17,7 @@ test("partial return to MBF: pick one of two receivers, split cables, report unk
   await page.goto("/scan");
   await page.getByRole("link", { name: /Return note/ }).click();
   await expect(page.getByRole("heading", { name: "Upload return note" })).toBeVisible();
-  await page.getByLabel("Project").selectOption({ label: "Feature Film X" });
+  await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Rental house").selectOption({ label: "MBF Filmtechnik" });
   await page.locator('input[type="file"]').setInputFiles({ name: `rt-${tag}.pdf`, mimeType: "application/pdf", buffer: pdf(tag) });
   await page.getByRole("button", { name: "Upload" }).click();
@@ -69,7 +69,7 @@ test("partial return to MBF: pick one of two receivers, split cables, report unk
   await page.goto("/search?q=TD6-RX-40219");
   await expect(page.getByText(/returned/).first()).toBeVisible();
   await page.goto("/search?q=TD6-RX-40213");
-  await expect(page.getByText(/Feature Film X/).first()).toBeVisible();
+  await expect(page.getByRole("main").getByText(/Feature Film X/).first()).toBeVisible();
   await page.goto("/issues");
   await expect(page.getByText(/MBF lists a monitor we never had/)).toBeVisible();
 });

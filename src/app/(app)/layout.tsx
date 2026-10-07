@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Aperture, LogOut, Search } from "lucide-react";
 import { sql } from "drizzle-orm";
 import { MobileNav, Sidebar } from "@/components/nav";
+import { ProjectSwitcher } from "@/components/project-switcher";
+import { getCurrentProject } from "@/server/current-project";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { ROLE_LABEL } from "@/lib/format";
@@ -9,6 +11,7 @@ import { signOutAction } from "../(auth)/actions";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const ctx = await getCtx();
+  const { current, active } = await getCurrentProject();
   const [row] = await getDb().execute<{ n: number }>(
     sql`SELECT count(*)::int AS n FROM issue WHERE workspace_id = ${ctx.workspaceId} AND status IN ('open','in_progress')`,
   );
@@ -21,7 +24,12 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             <Link href="/" className="lg:hidden" aria-label="Dashboard">
               <Aperture className="size-6 text-accent" />
             </Link>
-            <form action="/search" className="relative flex-1" role="search">
+            <ProjectSwitcher projects={active} currentId={current?.id ?? null} />
+            <div className="flex-1 sm:hidden" />
+            <Link href="/search" className="rounded-lg p-2 text-muted hover:bg-surface-2 hover:text-text sm:hidden" aria-label="Search">
+              <Search className="size-5" />
+            </Link>
+            <form action="/search" className="relative hidden min-w-0 flex-1 sm:block" role="search">
               <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted" aria-hidden />
               <input
                 type="search"
