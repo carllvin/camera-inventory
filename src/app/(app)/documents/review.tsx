@@ -40,9 +40,47 @@ export interface ReviewLine {
   updateAction: Action;
   removeAction: Action;
   reportAction?: Action;
+  /** Product not known yet: create its type in one click (fields pre-filled, by the AI when it read the note). */
+  newType?: NewTypeDraft;
 }
 
 type Option = { value: string; label: string };
+
+export interface NewTypeDraft {
+  action: Action;
+  manufacturer: string;
+  model: string;
+  categoryId: string | null;
+  tracking: "serialized" | "bulk";
+  categories: Option[];
+  byAi: boolean;
+}
+
+/** Pre-filled "create this product" strip: one click on Create & use, or adjust the fields first. */
+function NewTypeStrip({ draft, lineId }: { draft: NewTypeDraft; lineId: string }) {
+  return (
+    <ActionForm action={draft.action} className="grid gap-2 border-t border-dashed border-warn/40 bg-warn/5 px-4 py-3 sm:grid-cols-12">
+      <p className="text-xs font-medium text-warn sm:col-span-12">New product{draft.byAi && " — fields suggested by AI"}. Check and create it:</p>
+      <Field name="manufacturer" id={`nm-${lineId}`} aria-label="Manufacturer" placeholder="Manufacturer" defaultValue={draft.manufacturer} className="sm:col-span-3" />
+      <Field name="model" id={`nmo-${lineId}`} aria-label="Model" placeholder="Model" defaultValue={draft.model} className="sm:col-span-4" />
+      <Select name="categoryId" id={`nc-${lineId}`} aria-label="Category" placeholder="No category" defaultValue={draft.categoryId} options={draft.categories} className="sm:col-span-3" />
+      <Select
+        name="tracking"
+        id={`nt-${lineId}`}
+        aria-label="Tracking"
+        defaultValue={draft.tracking}
+        options={[
+          { value: "serialized", label: "With serials" },
+          { value: "bulk", label: "Quantity only" },
+        ]}
+        className="sm:col-span-2"
+      />
+      <div className="sm:col-span-12">
+        <SubmitButton pendingText="Creating…">Create &amp; use</SubmitButton>
+      </div>
+    </ActionForm>
+  );
+}
 
 /** One reviewable line: collapsed summary, tap to edit. */
 export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine; items?: Option[]; mode?: "delivery" | "return" }) {
@@ -70,6 +108,7 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
         </span>
         <span className="text-xs text-muted">{open ? "Close" : "Edit"}</span>
       </button>
+      {line.newType && line.resolution === "pending" && !line.matchedEquipmentTypeId && <NewTypeStrip draft={line.newType} lineId={line.id} />}
       {open && (
         <div className="border-t border-border px-4 py-3">
           {line.rawText && line.rawText !== line.description && (
@@ -103,7 +142,7 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
                 className="sm:col-span-6"
                 hint={
                   <>
-                    Not in the list? <Link href="/equipment/types/new" target="_blank" className="text-accent hover:underline">Create the type</Link>, then reload.
+                    Not in the list? {line.newType ? "Use “Create & use” above." : <><Link href="/equipment/types/new" target="_blank" className="text-accent hover:underline">Create the type</Link>, then reload.</>}
                   </>
                 }
               />

@@ -30,6 +30,8 @@ Lines
 - Asset numbers are the rental house's inventory numbers (often labelled Inv.-Nr., Asset, ID, Barcode); serial numbers are manufacturer serials (S/N, SN, Seriennr.).
 - catalog_match: if the line is clearly the same product as one entry of the provided equipment catalog, copy that entry exactly (aliases count); otherwise null. Do not match merely similar products (e.g. a different focal length or a TX vs. RX).
 - confidence reflects how certain the reading of that line is (smudged, handwritten or cut-off text lowers it).
+- manufacturer / model: the product's maker and model name as a camera assistant would write them (e.g. "ARRI" / "Signature Prime 47mm T1.8"), also when the maker is obvious but not printed; null if unsure.
+- For equipment lines without catalog_match (new products), help the reviewer create them: suggested_category = the best-fitting entry of the provided category list (copy it exactly) or null; suggested_tracking = "serialized" for devices that carry their own serial number (cameras, lenses, monitors, motors, batteries), "bulk" for interchangeable stock (cables, sandbags, screws, clamps, filters frames). Leave both null for lines with a catalog_match.
 
 Header
 - rental_house_name as printed; rental_house_match = exact entry from the provided rental-house list if it is clearly the same company, else null.
@@ -51,7 +53,10 @@ Open projects (name; code; production company):
 ${projects}
 
 Equipment catalog in use (name; aliases):
-${catalog}`;
+${catalog}
+
+Equipment categories:
+${(ctx.categories ?? []).map((c) => `- ${c}`).join("\n") || "(none)"}`;
 }
 
 /** Normalize photos (rotation, size) so pages are legible and within image limits. */

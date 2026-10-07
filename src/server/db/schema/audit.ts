@@ -26,6 +26,7 @@ export const AUDIT_ACTIONS = [
   "category.moved",
   "equipment_type.created",
   "equipment_type.updated",
+  "equipment_type.alias_learned",
   "catalog.imported",
   "equipment_item.created",
   "equipment_item.updated",

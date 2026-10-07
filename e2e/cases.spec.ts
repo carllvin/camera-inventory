@@ -1,9 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
-import { pickType } from "./helpers";
+import { go, pickType } from "./helpers";
 import sharp from "sharp";
 
 async function login(page: Page) {
-  await page.goto("/login");
+  await go(page, "/login");
   await page.getByLabel("Email").fill("alex@nordlicht.example");
   await page.getByLabel("Password").fill("camera-demo");
   await page.getByRole("button", { name: "Sign in" }).click();
@@ -12,7 +12,7 @@ async function login(page: Page) {
 
 test("demo A-Cam case shows 7 / 8 with the missing battery and suggests spares", async ({ page }) => {
   await login(page);
-  await page.goto("/cases");
+  await go(page, "/cases");
   await page.getByRole("link", { name: /A-Cam Case/ }).first().click();
   await expect(page.getByText("1 expected item not in case")).toBeVisible();
   await expect(page.getByText("1 / 2")).toBeVisible();
@@ -23,7 +23,7 @@ test("demo A-Cam case shows 7 / 8 with the missing battery and suggests spares",
 test("create a case from a template, pack by code, confirm a move, take out, add photo", async ({ page }, info) => {
   const name = `E2E Case ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await page.goto("/cases/new");
+  await go(page, "/cases/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Template").selectOption({ label: "A-Cam Case (8 items)" });
   await page.getByLabel("Name").fill(name);
@@ -42,12 +42,12 @@ test("create a case from a template, pack by code, confirm a move, take out, add
   // Take it out again and put it back where it came from.
   await page.getByRole("button", { name: "Take out" }).first().click();
   await expect(page.getByText("0 / 8").first()).toBeVisible();
-  await page.goto("/cases");
+  await go(page, "/cases");
   await page.getByRole("link", { name: /B-Cam Case/ }).first().click();
   await page.getByLabel("Code to pack").fill("35-10577");
   await page.getByRole("button", { name: "Pack code" }).click();
   await expect(page.getByText(/packed\./)).toBeVisible();
-  await page.goto("/cases");
+  await go(page, "/cases");
   await page.getByRole("link", { name }).click();
 
   // Photo upload (the server normalizes and thumbnails it).
@@ -72,7 +72,7 @@ test("create a case from a template, pack by code, confirm a move, take out, add
 test("edit expected contents and save the case as a template", async ({ page }, info) => {
   const name = `E2E Empty ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await page.goto("/cases/new");
+  await go(page, "/cases/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Name").fill(name);
   await page.getByRole("button", { name: "Create case" }).click();
@@ -96,29 +96,29 @@ test("no page scrolls sideways on a phone", async ({ page }, info) => {
   await login(page);
   const paths = ["/", "/projects", "/equipment", "/equipment/types", "/cases", "/cases/templates", "/scan", "/search?q=alexa", "/history", "/settings", "/settings/categories"];
   // Add detail pages reached through links.
-  await page.goto("/cases");
+  await go(page, "/cases");
   paths.push((await page.getByRole("link", { name: /A-Cam Case/ }).first().getAttribute("href"))!);
-  await page.goto("/projects");
+  await go(page, "/projects");
   const project = (await page.getByRole("link", { name: /Feature Film X/ }).first().getAttribute("href"))!;
   paths.push(project, `${project}/add-equipment`, `${project}/rental-houses`);
-  await page.goto("/documents");
+  await go(page, "/documents");
   paths.push("/documents", "/documents/new", "/documents/new?kind=return_note", (await page.getByRole("link", { name: /LS-240512/ }).first().getAttribute("href"))!);
-  await page.goto("/equipment?q=35-10421");
+  await go(page, "/equipment?q=35-10421");
   paths.push((await page.getByRole("link", { name: "ARRI ALEXA 35" }).first().getAttribute("href"))!);
   for (const p of paths) {
-    await page.goto(p);
+    await go(page, p);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, `horizontal overflow on ${p}`).toBeLessThanOrEqual(0);
   }
   const casePath = paths.find((p) => p.startsWith("/cases/") && !p.includes("templates"))!;
-  await page.goto(`${casePath}?edit=1`);
+  await go(page, `${casePath}?edit=1`);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 });
 
 test("items without serial show once with a count and pack by quantity", async ({ page }, info) => {
   const name = `E2E Bags ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await page.goto("/cases/new");
+  await go(page, "/cases/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Name").fill(name);
   await page.getByRole("button", { name: "Create case" }).click();
@@ -147,11 +147,12 @@ test("items without serial show once with a count and pack by quantity", async (
 
 test("remove items from a project without a return note, then add them back", async ({ page }) => {
   await login(page);
-  await page.goto("/projects");
+  await go(page, "/projects");
   await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
-  await expect(page.getByRole("heading", { name: /Feature Film X/ })).toBeVisible();
+  await page.waitForURL(/\/projects\/[0-9a-f-]{36}/);
   const projectUrl = page.url().split("?")[0]!;
-  await page.goto(`${projectUrl}/remove`);
+  await go(page, `${projectUrl}/remove`);
+  await page.waitForLoadState("networkidle");
 
   const row = page.locator("li").filter({ hasText: "Sandbag" }).filter({ has: page.getByLabel(/How many/) }).first();
   await row.getByRole("checkbox").check();
@@ -160,11 +161,11 @@ test("remove items from a project without a return note, then add them back", as
   await page.getByRole("button", { name: "Remove selected" }).click();
   await expect(page).toHaveURL(projectUrl);
 
-  await page.goto(`${projectUrl}/history`);
+  await go(page, `${projectUrl}/history`);
   await expect(page.getByText(/Sandbag 15 lb returned \(removed from Feature Film X\)/).first()).toBeVisible();
 
   // Nothing was deleted: the sandbag can be added again.
-  await page.goto(`${projectUrl}/add-equipment?q=sandbag`);
+  await go(page, `${projectUrl}/add-equipment?q=sandbag`);
   const free = page.locator("li").filter({ hasText: "Sandbag" });
   const n = await free.count();
   expect(n).toBeGreaterThan(0);
@@ -174,7 +175,7 @@ test("remove items from a project without a return note, then add them back", as
 
 test("project equipment: one line per type with quantity, serials when opened", async ({ page }) => {
   await login(page);
-  await page.goto("/projects");
+  await go(page, "/projects");
   await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
   const line = page.locator("summary").filter({ hasText: "bebob B290cine" });
   await expect(line).toHaveCount(1);
@@ -186,7 +187,7 @@ test("project equipment: one line per type with quantity, serials when opened", 
 
 test("equipment page: by-type view groups serials under one line", async ({ page }) => {
   await login(page);
-  await page.goto("/equipment");
+  await go(page, "/equipment");
   await page.getByRole("link", { name: "By type" }).click();
   await expect(page).toHaveURL(/view=types/);
   const line = page.locator("summary").filter({ hasText: "ARRI ALEXA 35" });
@@ -197,7 +198,7 @@ test("equipment page: by-type view groups serials under one line", async ({ page
 
 test("project equipment: tick entries in a type line to start removing them", async ({ page }) => {
   await login(page);
-  await page.goto("/projects");
+  await go(page, "/projects");
   await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
   await page.waitForURL(/\/projects\/[0-9a-f-]{36}/);
   const projectUrl = page.url().split("?")[0]!;
@@ -213,7 +214,7 @@ test("project equipment: tick entries in a type line to start removing them", as
 test("case page: tick several things in the checklist and add them in one go", async ({ page }, info) => {
   const name = `E2E Tick ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await page.goto("/cases/new");
+  await go(page, "/cases/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Name").fill(name);
   await page.getByRole("button", { name: "Create case" }).click();
@@ -232,7 +233,7 @@ test("case page: tick several things in the checklist and add them in one go", a
 
 test("equipment list: case cards instead of a case column", async ({ page }) => {
   await login(page);
-  await page.goto("/equipment");
+  await go(page, "/equipment");
   const cards = page.getByRole("region", { name: "Cases" });
   await cards.getByRole("link", { name: /A-Cam Case/ }).click();
   await expect(page).toHaveURL(/caseId=/);

@@ -1,8 +1,8 @@
 import { expect, test, type Page } from "@playwright/test";
-import { pickType } from "./helpers";
+import { go, pickType } from "./helpers";
 
 async function login(page: Page, email = "alex@nordlicht.example") {
-  await page.goto("/login");
+  await go(page, "/login");
   await page.getByLabel("Email").fill(email);
   await page.getByLabel("Password").fill("camera-demo");
   await page.getByRole("button", { name: "Sign in" }).click();
@@ -10,7 +10,7 @@ async function login(page: Page, email = "alex@nordlicht.example") {
 }
 
 test("redirects to login when signed out", async ({ page }) => {
-  await page.goto("/projects");
+  await go(page, "/projects");
   await expect(page).toHaveURL(/\/login\?next=%2Fprojects/);
 });
 
@@ -18,7 +18,7 @@ test("create project, add a new item, change status, see it in the timeline", as
   const tag = `${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
 
-  await page.goto("/projects/new");
+  await go(page, "/projects/new");
   await page.getByLabel("Project name").fill(`E2E Shoot ${tag}`);
   await page.getByLabel("Status", { exact: true }).selectOption("shooting");
   await page.getByRole("button", { name: "Create project" }).click();
@@ -43,7 +43,7 @@ test("create project, add a new item, change status, see it in the timeline", as
 
 test("duplicate serial is refused with a link to the existing item", async ({ page }) => {
   await login(page);
-  await page.goto("/equipment/new");
+  await go(page, "/equipment/new");
   await pickType(page.getByLabel("Equipment type"), "alexa 35", "ARRI ALEXA 35");
   await page.getByLabel("Serial number").fill("35-10421");
   await page.getByRole("button", { name: "Create item", exact: true }).click();
@@ -55,13 +55,13 @@ test("duplicate serial is refused with a link to the existing item", async ({ pa
 
 test("search finds a serial typed without dashes", async ({ page }) => {
   await login(page);
-  await page.goto("/search?q=b29031131");
+  await go(page, "/search?q=b29031131");
   await expect(page.getByRole("link", { name: /bebob B290cine · SN B290-31131/ })).toBeVisible();
 });
 
 test("scan lookup opens the item for a barcode", async ({ page }) => {
   await login(page);
-  await page.goto("/scan");
+  await go(page, "/scan");
   await page.getByLabel("Code").fill("ARRI-0057");
   await page.getByRole("button", { name: "Find" }).click();
   await expect(page).toHaveURL(/\/equipment\/[0-9a-f-]{36}$/);
@@ -70,17 +70,17 @@ test("scan lookup opens the item for a barcode", async ({ page }) => {
 
 test("viewers can look but not change", async ({ page }) => {
   await login(page, "sam@nordlicht.example");
-  await page.goto("/projects");
+  await go(page, "/projects");
   await expect(page.getByRole("link", { name: "New project" })).toHaveCount(0);
   await page.getByRole("link", { name: /Feature Film X/ }).click();
   await expect(page.getByRole("link", { name: "Add equipment" })).toHaveCount(0);
-  await page.goto("/projects/new");
+  await go(page, "/projects/new");
   await expect(page.getByText("No permission")).toBeVisible();
 });
 
 test("new user signs up, creates a workspace and sees an empty, isolated dashboard", async ({ page }, info) => {
   const email = `new-${info.project.name}-${Date.now().toString(36)}@test.example`;
-  await page.goto("/signup");
+  await go(page, "/signup");
   await page.getByLabel("Your name").fill("New Loader");
   await page.getByLabel("Email").fill(email);
   await page.getByLabel("Password").fill("correct-horse-battery");
@@ -93,13 +93,13 @@ test("new user signs up, creates a workspace and sees an empty, isolated dashboa
   await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
   await expect(page.getByText("No active projects")).toBeVisible();
   // Demo workspace data must not leak into the new workspace.
-  await page.goto("/search?q=35-10421");
+  await go(page, "/search?q=35-10421");
   await expect(page.getByText("Nothing found")).toBeVisible();
-  await page.goto(withCatalog ? "/search?q=alexa%20mini%20lf" : "/search?q=alexa");
+  await go(page, withCatalog ? "/search?q=alexa%20mini%20lf" : "/search?q=alexa");
   if (withCatalog) {
     // Standard catalog: equipment types only, no items.
     await expect(page.getByText("ARRI ALEXA Mini LF").first()).toBeVisible();
-    await page.goto("/settings/catalog");
+    await go(page, "/settings/catalog");
     await expect(page.getByText(/^all \d+ present$/).first()).toBeVisible();
   } else {
     await expect(page.getByText("Nothing found")).toBeVisible();

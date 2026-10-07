@@ -6,6 +6,7 @@ import { DOCUMENT_KIND_LABEL, DOCUMENT_STATUS_LABEL, formatDate, formatDateTime 
 import { getExtractor } from "@/server/ai";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
+import { getCategoryTree } from "@/server/domain/categories";
 import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
 import { listProjectOptions } from "@/server/domain/projects";
@@ -22,6 +23,7 @@ import {
   retryExtractionAction,
   updateHeaderAction,
   updateLineAction,
+  createTypeFromLineAction,
 } from "../actions";
 import { RESOLUTION, RETURN_RESOLUTION } from "../resolution";
 import { AddLineCard, AutoRefresh, ConfirmButton, LineCard } from "../review";
@@ -133,6 +135,31 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   const isReturn = doc.kind === "return_note";
   const mode = isReturn ? ("return" as const) : ("delivery" as const);
   const itemOptions = editable && isReturn && doc.projectId ? (await listReturnableItems(db, ctx, doc.projectId, doc.id)).map((i) => ({ value: i.id, label: i.label })) : [];
+  // Unknown products on a delivery note: a pre-filled "create" strip per line.
+  const unknown = editable && !isReturn ? d.lines.filter((l) => l.resolution === "pending" && !l.matchedEquipmentTypeId) : [];
+  const categoryTree = unknown.length ? (await getCategoryTree(db, ctx)).flat : [];
+  const categoryOptions = categoryTree.map((c) => ({ value: c.id, label: `${"  ".repeat(c.depth)}${c.name}` }));
+  const categoryByPath = new Map(
+    categoryTree.map((c) => {
+      const parent = categoryTree.find((p) => p.id === c.parentId);
+      return [(parent ? `${parent.name} › ${c.name}` : c.name).toLowerCase(), c.id] as const;
+    }),
+  );
+  const draftFor = (l: (typeof d.lines)[number]) => {
+    const words = l.description.trim().split(/\s+/);
+    const manufacturer = l.manufacturer ?? (words.length > 1 ? words[0]! : "");
+    const model = l.model ?? (words.length > 1 ? words.slice(1).join(" ") : l.description);
+    const tracking = l.suggestedTracking === "bulk" || l.suggestedTracking === "serialized" ? l.suggestedTracking : !l.serialNumber && l.quantity > 1 ? "bulk" : "serialized";
+    return {
+      action: createTypeFromLineAction.bind(null, id, l.id),
+      manufacturer,
+      model,
+      categoryId: (l.suggestedCategory && categoryByPath.get(l.suggestedCategory.toLowerCase())) || null,
+      tracking: tracking as "serialized" | "bulk",
+      categories: categoryOptions,
+      byAi: Boolean(l.suggestedCategory || l.suggestedTracking),
+    };
+  };
   const labels = isReturn ? RETURN_RESOLUTION : RESOLUTION;
   const receiveCount = d.lines.filter((l) => l.resolution === "create_new" || l.resolution === "match_existing").reduce((n, l) => n + l.quantity, 0);
   const alreadyRemoved = d.returnOverview?.removed.reduce((n, r) => n + Math.min(r.onNote, r.units), 0) ?? 0;
@@ -248,6 +275,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                       updateAction: updateLineAction.bind(null, id, l.id),
                       removeAction: removeLineAction.bind(null, id, l.id),
                       reportAction: reportLineIssueAction.bind(null, id, l.id),
+                      newType: unknown.includes(l) ? draftFor(l) : undefined,
                     }}
                   />
                 ))}

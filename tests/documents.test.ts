@@ -18,6 +18,7 @@ import {
   requestExtraction,
   runExtraction,
   updateLine,
+  createTypeFromLine,
 } from "../src/server/domain/documents";
 import { expandExtractedLines } from "../src/server/domain/document-matching";
 import { createItem } from "../src/server/domain/equipment-items";
@@ -257,5 +258,54 @@ describe("delivery notes", () => {
     expect(await getDocumentFileForUser(db, other.user.id, file!.id)).toBeNull();
     expect(await getDocumentFileForUser(db, f.user.id, file!.id)).toMatchObject({ mimeType: "application/pdf" });
     await expect(createDocumentFromUpload(db, storage, { ...ctx, role: "viewer" }, new ManualExtractor(), { kind: "delivery_note", projectId: f.project.id }, [{ name: "a.pdf", type: "application/pdf", bytes: pdf("v") }])).rejects.toThrow("permission");
+  });
+});
+
+describe("unknown products on a delivery note", () => {
+  it("one type choice covers every line of the same product and is remembered as an alias", async () => {
+    const id = await upload(
+      new FakeExtractor(
+        extraction([
+          line({ description: "Funkstrecke Bolt Sechs Sender", serial_numbers: ["BT-901"] }),
+          line({ description: "Funkstrecke Bolt Sechs Sender", serial_numbers: ["BT-902"] }),
+          line({ description: "Funkstrecke Bolt Sechs Sender", serial_numbers: ["BT-903"] }),
+        ]),
+      ),
+    );
+    let review = await getDocumentReview(db, ctx, id);
+    expect(review.lines.map((l) => l.resolution)).toEqual(["pending", "pending", "pending"]);
+    const first = review.lines[0]!;
+    const r = await updateLine(db, ctx, first.id, { description: first.description, quantity: 1, serialNumber: first.serialNumber, equipmentTypeId: teradekTx.id });
+    expect(r.alsoApplied).toBe(2);
+    review = await getDocumentReview(db, ctx, id);
+    expect(review.lines.map((l) => [l.resolution, l.matchedEquipmentTypeId])).toEqual(Array(3).fill(["create_new", teradekTx.id]));
+
+    const [type] = await db.select().from(s.equipmentType).where(eq(s.equipmentType.id, teradekTx.id));
+    expect(type!.aliases).toContain("Funkstrecke Bolt Sechs Sender");
+    // The next note with that wording is matched without asking.
+    const next = await upload(new FakeExtractor(extraction([line({ description: "Funkstrecke Bolt Sechs Sender", serial_numbers: ["BT-904"] })])));
+    expect((await getDocumentReview(db, ctx, next)).lines[0]).toMatchObject({ resolution: "create_new", matchedEquipmentTypeId: teradekTx.id });
+  });
+
+  it("creates the missing type in one step with the AI's suggestions and uses it on all its lines", async () => {
+    const id = await upload(
+      new FakeExtractor(
+        extraction([
+          line({ description: "Wooden Camera Ultra QR Plate", manufacturer: "Wooden Camera", model: "Ultra QR Plate", serial_numbers: ["WC-1"], suggested_category: "Camera", suggested_tracking: "serialized" }),
+          line({ description: "Wooden Camera Ultra QR Plate", manufacturer: "Wooden Camera", model: "Ultra QR Plate", serial_numbers: ["WC-2"], suggested_category: "Camera", suggested_tracking: "serialized" }),
+        ]),
+      ),
+    );
+    const review = await getDocumentReview(db, ctx, id);
+    expect(review.lines[0]).toMatchObject({ suggestedCategory: "Camera", suggestedTracking: "serialized", resolution: "pending" });
+    const r = await createTypeFromLine(db, ctx, review.lines[0]!.id, { manufacturer: "Wooden Camera", model: "Ultra QR Plate", categoryId: f.category.id, tracking: "serialized" });
+    expect(r.alsoApplied).toBe(1);
+    const after = await getDocumentReview(db, ctx, id);
+    expect(after.lines.every((l) => l.resolution === "create_new" && l.typeName === "Wooden Camera Ultra QR Plate")).toBe(true);
+    // Doing it again reuses the type instead of failing.
+    await expect(createTypeFromLine(db, ctx, review.lines[0]!.id, { manufacturer: "Wooden Camera", model: "Ultra QR Plate" })).resolves.toBeTruthy();
+    const types = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), eq(s.equipmentType.model, "Ultra QR Plate")));
+    expect(types).toHaveLength(1);
+    expect(types[0]!.categoryId).toBe(f.category.id);
   });
 });

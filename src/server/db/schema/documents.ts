@@ -134,6 +134,9 @@ export const documentLine = pgTable(
     /** The reviewer picked the type/item by hand; re-matching keeps that choice. */
     reviewerChoice: boolean().notNull().default(false),
     confirmedQuantity: integer(),
+    /** AI help for creating the type when it is not known yet: category path and tracking mode. */
+    suggestedCategory: text(),
+    suggestedTracking: text(),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },

@@ -22,6 +22,7 @@ import {
   runExtraction,
   updateDocumentHeader,
   updateLine,
+  createTypeFromLine,
 } from "@/server/domain/documents";
 import { getStorage } from "@/server/storage";
 
@@ -69,11 +70,20 @@ export async function createProjectFromDocumentAction(id: string, _: ActionState
   });
 }
 
+export async function createTypeFromLineAction(id: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const line = await createTypeFromLine(getDb(), await getCtx(), lineId, fromForm(fd));
+    revalidatePath(`/documents/${id}`);
+    revalidatePath("/equipment/types");
+    return line.alsoApplied ? `Created and used for ${line.alsoApplied + 1} lines.` : "Created.";
+  });
+}
+
 export async function updateLineAction(id: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
-    await updateLine(getDb(), await getCtx(), lineId, fromForm(fd));
+    const line = await updateLine(getDb(), await getCtx(), lineId, fromForm(fd));
     revalidatePath(`/documents/${id}`);
-    return "Saved.";
+    return line.alsoApplied ? `Saved — also used for ${line.alsoApplied} more line${line.alsoApplied === 1 ? "" : "s"} with the same product.` : "Saved.";
   });
 }
 

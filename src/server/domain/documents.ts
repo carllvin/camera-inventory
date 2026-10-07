@@ -7,6 +7,7 @@ import { and, asc, desc, eq, inArray, isNull, ne, sql } from "drizzle-orm";
 import { z } from "zod";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
+import { getCategoryTree } from "./categories";
 import { ExtractionError, type DocumentExtractor, type Extraction } from "../ai/types";
 import type { StorageProvider } from "../storage";
 import { recordEvent } from "./audit";
@@ -14,6 +15,7 @@ import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./conte
 import { expandExtractedLines, findRentalHouse, matchLine, type MatchContext, type ProposedLine } from "./document-matching";
 import { findProjectForDocument, projectContext, projectHints } from "./document-project";
 import { ensureProjectRentalHouse, itemLabel, lockItem } from "./equipment-items";
+import { createEquipmentType } from "./equipment-types";
 import { createProject, projectInput } from "./projects";
 import { itemsRemovedWithNote } from "./project-removal";
 import { expandReturnLines, loadProjectItems, matchReturnLines, type ReturnLine } from "./return-matching";
@@ -211,7 +213,10 @@ async function extractionContext(db: DbOrTx, ws: string, kind: DocumentKind) {
       .limit(400),
   ]);
   const fmt = (r: { name: string; aliases: string[] }) => (r.aliases.length ? `${r.name}; ${r.aliases.join("; ")}` : r.name);
-  return { expectedKind: kind, rentalHouses: houses.map(fmt), catalog: types.map(fmt), projects: await projectContext(db, ws) };
+  const { flat } = await getCategoryTree(db, { workspaceId: ws, userId: "", role: "viewer" });
+  const byId = new Map(flat.map((c) => [c.id, c]));
+  const categories = flat.map((c) => (c.parentId && byId.get(c.parentId) ? `${byId.get(c.parentId)!.name} › ${c.name}` : c.name));
+  return { expectedKind: kind, rentalHouses: houses.map(fmt), catalog: types.map(fmt), projects: await projectContext(db, ws), categories };
 }
 
 /** Match all proposed lines against the inventory and replace the document's lines. */
@@ -241,6 +246,8 @@ async function storeLines(tx: DbOrTx, doc: typeof s.document.$inferSelect, input
       serialNumber: line.serialNumber,
       assetNumber: line.assetNumber,
       aiConfidence: line.aiConfidence,
+      suggestedCategory: line.suggestedCategory ?? null,
+      suggestedTracking: line.suggestedTracking ?? null,
       ...matches[i]!,
     });
   }
@@ -530,9 +537,18 @@ export async function updateLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.
           resolution: data.ignore ? "ignore" : "pending",
         })
         .where(eq(s.documentLine.id, lineId));
+      let alsoApplied = 0;
+      if (data.equipmentTypeId && !data.ignore) {
+        const siblings = await similarOpenLines(tx, doc.id, line);
+        for (const sib of siblings) {
+          await tx.update(s.documentLine).set({ matchedEquipmentTypeId: data.equipmentTypeId, reviewerChoice: true }).where(eq(s.documentLine.id, sib.id));
+        }
+        alsoApplied = siblings.length;
+        await learnAlias(tx, ctx, data.equipmentTypeId, line, doc.id);
+      }
       await rematchAll(tx, doc);
       const [updated] = await tx.select().from(s.documentLine).where(eq(s.documentLine.id, lineId));
-      return updated!;
+      return { ...updated!, alsoApplied };
     }
 
     const proposed: ProposedLine = { ...toProposed(line), ...fields };
@@ -550,7 +566,95 @@ export async function updateLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.
       .set({ ...fields, ...m })
       .where(eq(s.documentLine.id, lineId))
       .returning();
-    return updated!;
+
+    // The same product on other open lines (e.g. one line per serial): apply the choice there too.
+    let alsoApplied = 0;
+    if (data.equipmentTypeId && !data.ignore) {
+      for (const sib of await similarOpenLines(tx, doc.id, line)) {
+        // Serials of the other lines (not this one's own) count as already used.
+        const own = sib.serialNumber?.toUpperCase().replace(/[^A-Z0-9]/g, "");
+        const sm = await matchLine(tx, { workspaceId: doc.workspaceId, projectId: doc.projectId, rentalHouseId: doc.rentalHouseId, kind: doc.kind }, toProposed(sib), { forcedTypeId: data.equipmentTypeId, seenSerials: new Set([...seen].filter((x) => x !== own)) });
+        await tx.update(s.documentLine).set({ ...sm, reviewerChoice: true }).where(eq(s.documentLine.id, sib.id));
+        alsoApplied++;
+      }
+      await learnAlias(tx, ctx, data.equipmentTypeId, line, doc.id);
+    }
+    return { ...updated!, alsoApplied };
+  });
+}
+
+export const typeFromLineInput = z.object({
+  manufacturer: z.string().trim().min(1, "Manufacturer?").max(80),
+  model: z.string().trim().min(1, "Model?").max(120),
+  categoryId: optionalUuid,
+  tracking: z.enum(["serialized", "bulk"]).default("serialized"),
+});
+
+/**
+ * "Create" on a line whose product is not known yet: make the equipment type
+ * (the printed description becomes an alias) and use it for this line and the
+ * other open lines with the same product. An existing type of that name is reused.
+ */
+export async function createTypeFromLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.input<typeof typeFromLineInput>) {
+  requireRole(ctx, "member");
+  const data = typeFromLineInput.parse(input);
+  const [line] = await db.select().from(s.documentLine).where(and(eq(s.documentLine.id, lineId), eq(s.documentLine.workspaceId, ctx.workspaceId)));
+  if (!line) notFound("Line");
+  const [doc] = await db.select().from(s.document).where(eq(s.document.id, line.documentId));
+  assertEditable(doc!);
+  let typeId: string;
+  try {
+    typeId = (await createEquipmentType(db, ctx, { manufacturer: data.manufacturer, model: data.model, categoryId: data.categoryId, defaultTrackingMode: data.tracking }))!.id;
+  } catch (err) {
+    if (!(err instanceof DomainError) || err.code !== "CONFLICT") throw err;
+    const [same] = await db
+      .select({ id: s.equipmentType.id })
+      .from(s.equipmentType)
+      .where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), sql`lower(${s.equipmentType.name}) = lower(${`${data.manufacturer} ${data.model}`})`));
+    if (!same) throw err;
+    typeId = same.id;
+  }
+  return updateLine(db, ctx, lineId, {
+    description: line.description,
+    quantity: line.quantity,
+    serialNumber: line.serialNumber,
+    assetNumber: line.assetNumber,
+    equipmentTypeId: typeId,
+  });
+}
+
+const compactText = (v: string | null | undefined) => (v ?? "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+/** Other lines of the document still waiting for a type that describe the same product. */
+async function similarOpenLines(tx: DbOrTx, documentId: string, line: typeof s.documentLine.$inferSelect) {
+  const desc = compactText(line.description);
+  const mm = compactText(`${line.manufacturer ?? ""}${line.model ?? ""}`);
+  const lines = await tx
+    .select()
+    .from(s.documentLine)
+    .where(and(eq(s.documentLine.documentId, documentId), ne(s.documentLine.id, line.id), eq(s.documentLine.resolution, "pending"), eq(s.documentLine.reviewerChoice, false)));
+  return lines.filter((l) => (desc.length >= 3 && compactText(l.description) === desc) || (line.model && mm.length >= 4 && compactText(`${l.manufacturer ?? ""}${l.model ?? ""}`) === mm));
+}
+
+/**
+ * The reviewer said which type a printed description means: keep that wording as an
+ * alias, so the next note from this rental house is matched without asking.
+ */
+async function learnAlias(tx: DbOrTx, ctx: Ctx, typeId: string, line: typeof s.documentLine.$inferSelect, documentId: string) {
+  const alias = line.description.replace(/\s+/g, " ").trim();
+  if (alias.length < 3 || alias.length > 120) return;
+  const [type] = await tx.select().from(s.equipmentType).where(and(eq(s.equipmentType.id, typeId), eq(s.equipmentType.workspaceId, ctx.workspaceId)));
+  if (!type) return;
+  const known = [type.name, `${type.manufacturer} ${type.model}`, type.model, ...type.aliases].map(compactText);
+  if (known.includes(compactText(alias))) return;
+  await tx.update(s.equipmentType).set({ aliases: [...type.aliases, alias] }).where(eq(s.equipmentType.id, typeId));
+  await recordEvent(tx, ctx, {
+    action: "equipment_type.alias_learned",
+    entityType: "equipment_type",
+    entityId: typeId,
+    documentId,
+    summary: `${type.name}: “${alias}” remembered from a document`,
+    changes: { aliases: { from: type.aliases, to: [...type.aliases, alias] } },
   });
 }
 

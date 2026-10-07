@@ -35,6 +35,11 @@ read by Claude (`claude-sonnet-5-5` at effort `medium` by default; change with `
 and **nothing changes until a person confirms the reviewed delivery note**. Without a key, documents are uploaded and the
 lines are entered by hand.
 
+During review, a product that is not in the database yet gets a pre-filled **Create & use** strip (manufacturer, model,
+category and serial/quantity tracking — suggested by the AI when it read the note): one click creates the type. Choosing
+a type on one line also applies it to the other open lines with the same product (e.g. one line per serial), and the
+printed wording is remembered as an alias so the next note is matched automatically.
+
 Costs are kept low on purpose: Sonnet instead of Opus (half the price per token), only the equipment types you actually
 use are sent as context (at most 400; the full catalog is matched locally for free), and that context is prompt-cached,
 so several uploads within a few minutes pay for it once. Image search uses no AI unless `IMAGE_AI_RANKING=true`.

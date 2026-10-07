@@ -21,6 +21,10 @@ export const extractedLineSchema = z.object({
   catalog_match: z.string().nullable(),
   /** False for non-equipment lines: transport, insurance, deposits, subtotals, notes. */
   is_equipment: z.boolean(),
+  /** Equipment without catalog_match: best-fitting category from the provided list (exact text), else null. */
+  suggested_category: z.string().nullable().optional(),
+  /** Equipment without catalog_match: "serialized" for devices with their own serial, "bulk" for interchangeable stock (cables, sandbags, screws). */
+  suggested_tracking: z.string().nullable().optional(),
   /** 0–1: how sure the reading of this line is. */
   confidence: z.number(),
 });
@@ -67,6 +71,8 @@ export interface ExtractionContext {
   catalog: string[];
   /** Open projects ("name; code; production company") to recognise the production. */
   projects: string[];
+  /** Equipment categories ("Camera › Camera Bodies") for suggesting where unknown products belong. */
+  categories?: string[];
 }
 
 export interface ExtractionResult {

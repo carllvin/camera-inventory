@@ -1,7 +1,8 @@
+import { go } from "./helpers";
 import { expect, test, type Page } from "@playwright/test";
 
 async function login(page: Page) {
-  await page.goto("/login");
+  await go(page, "/login");
   await page.getByLabel("Email").fill("alex@nordlicht.example");
   await page.getByLabel("Password").fill("camera-demo");
   await page.getByRole("button", { name: "Sign in" }).click();
@@ -14,7 +15,7 @@ test("partial return to MBF: pick one of two receivers, split cables, report unk
   test.skip(info.project.name !== "desktop", "mutates the shared demo project once");
   const tag = Date.now().toString(36);
   await login(page);
-  await page.goto("/scan");
+  await go(page, "/scan");
   await page.getByRole("link", { name: /Return note/ }).click();
   await expect(page.getByRole("heading", { name: "Upload return note" })).toBeVisible();
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
@@ -66,10 +67,10 @@ test("partial return to MBF: pick one of two receivers, split cables, report unk
   await expect(page.getByRole("status").filter({ hasText: /5 returned to MBF Filmtechnik, \d+ still on the project \(partial return\)/ })).toBeVisible();
 
   // The chosen receiver is returned, the other one stays.
-  await page.goto("/search?q=TD6-RX-40219");
+  await go(page, "/search?q=TD6-RX-40219");
   await expect(page.getByText(/returned/).first()).toBeVisible();
-  await page.goto("/search?q=TD6-RX-40213");
+  await go(page, "/search?q=TD6-RX-40213");
   await expect(page.getByRole("main").getByText(/Feature Film X/).first()).toBeVisible();
-  await page.goto("/issues");
+  await go(page, "/issues");
   await expect(page.getByText(/MBF lists a monitor we never had/)).toBeVisible();
 });

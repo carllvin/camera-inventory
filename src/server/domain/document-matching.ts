@@ -29,6 +29,9 @@ export interface ProposedLine {
   aiConfidence: number | null;
   catalogMatch: string | null;
   isEquipment: boolean;
+  /** AI help for creating a new type (category path, "serialized" / "bulk"). */
+  suggestedCategory?: string | null;
+  suggestedTracking?: string | null;
 }
 
 export interface MatchResult {
@@ -67,6 +70,8 @@ export function expandExtractedLines(lines: ExtractedLine[]): ProposedLine[] {
       aiConfidence: Number.isFinite(l.confidence) ? clamp01(l.confidence) : null,
       catalogMatch: clean(l.catalog_match),
       isEquipment: l.is_equipment,
+      suggestedCategory: l.catalog_match ? null : clean(l.suggested_category ?? null),
+      suggestedTracking: l.catalog_match || !["serialized", "bulk"].includes(l.suggested_tracking ?? "") ? null : l.suggested_tracking!,
     };
     const qty = Math.max(1, Math.round(l.quantity || 1));
     const serials = l.serial_numbers.map((x) => x.trim()).filter(Boolean);
