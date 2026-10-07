@@ -172,6 +172,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
     };
   };
   const labels = isReturn ? RETURN_RESOLUTION : RESOLUTION;
+  const caseLines = d.lines.filter((l) => l.resolution === "create_set").length;
   const receiveCount = d.lines.filter((l) => l.resolution === "create_new" || l.resolution === "match_existing").reduce((n, l) => n + l.quantity, 0);
   const alreadyRemoved = d.returnOverview?.removed.reduce((n, r) => n + Math.min(r.onNote, r.units), 0) ?? 0;
 
@@ -304,7 +305,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
               </Card>
 
               <div className="flex flex-wrap gap-2 text-xs">
-                {(["create_new", "match_existing", "pending", "discrepancy", "ignore"] as const).map((k) => {
+                {(["create_new", "match_existing", "create_set", "pending", "discrepancy", "ignore"] as const).map((k) => {
                   const n = d.lines.filter((l) => l.resolution === k).length;
                   return n ? (
                     <Badge key={k} tone={labels[k]!.tone}>
@@ -496,7 +497,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                       ? alreadyRemoved > 0
                         ? `Confirming records the note: ${alreadyRemoved} already removed item${alreadyRemoved === 1 ? "" : "s"} confirmed${receiveCount - alreadyRemoved > 0 ? `, ${receiveCount - alreadyRemoved} more taken off ${d.projectName} as returned` : ""}. Every change is recorded in the history.`
                         : `Confirming marks ${receiveCount} item${receiveCount === 1 ? "" : "s"} as returned and takes them off ${d.projectName}. Every change is recorded in the history.`
-                      : `Confirming puts ${receiveCount} item${receiveCount === 1 ? "" : "s"} on ${d.projectName}: ${d.counts.existing} known, the rest created new. Every change is recorded in the history.`}
+                      : `Confirming puts ${receiveCount} item${receiveCount === 1 ? "" : "s"} on ${d.projectName}: ${d.counts.existing} known, the rest created new.${caseLines ? ` ${caseLines} case${caseLines === 1 ? "" : "s"} become${caseLines === 1 ? "s" : ""} a set.` : ""} Every change is recorded in the history.`}
                   </p>
                 )}
                 {!isList && (

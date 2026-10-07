@@ -12,10 +12,11 @@ import { ExtractionError, type DocumentExtractor, type Extraction } from "../ai/
 import type { StorageProvider } from "../storage";
 import { recordEvent } from "./audit";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
-import { expandExtractedLines, findRentalHouse, matchLine, type MatchContext, type ProposedLine } from "./document-matching";
+import { expandExtractedLines, findRentalHouse, looksLikeCase, matchLine, type MatchContext, type ProposedLine } from "./document-matching";
 import { findProjectForDocument, projectContext, projectHints } from "./document-project";
 import { ensureProjectRentalHouse, itemLabel, lockItem } from "./equipment-items";
 import { createEquipmentType } from "./equipment-types";
+import { createCase, packItem, setExpectedFromContents } from "./cases";
 import { createProject, projectInput } from "./projects";
 import { itemsRemovedWithNote } from "./project-removal";
 import { expandReturnLines, loadProjectItems, matchReturnLines, type ReturnLine } from "./return-matching";
@@ -249,6 +250,7 @@ async function storeLines(tx: DbOrTx, doc: typeof s.document.$inferSelect, input
       suggestedCategory: line.suggestedCategory ?? null,
       suggestedTracking: line.suggestedTracking ?? null,
       setName: line.setName?.slice(0, 120) ?? null,
+      isContainer: line.isContainer ?? false,
       ...matches[i]!,
     });
   }
@@ -417,6 +419,8 @@ function toProposed(l: typeof s.documentLine.$inferSelect): ProposedLine {
     aiConfidence: l.aiConfidence,
     catalogMatch: null,
     isEquipment: true,
+    isContainer: l.isContainer,
+    setName: l.setName,
   };
 }
 
@@ -498,6 +502,10 @@ export const lineInput = z.object({
   /** Return notes: the exact item on the project this line returns. */
   equipmentItemId: optionalUuid,
   ignore: z.preprocess((v) => v === "1" || v === "on" || v === true, z.boolean()).default(false),
+  /** "This is a case": the line becomes a set. Absent = keep / guess from the wording. */
+  isContainer: z.preprocess((v) => (v === undefined || v === null || v === "" ? undefined : v === "1" || v === "on" || v === true), z.boolean().optional()),
+  /** Set by the review form so an unticked "case" box means "not a case". */
+  containerField: z.preprocess((v) => v === "1" || v === true, z.boolean()).default(false),
 });
 
 /** Save a reviewer's edit of one line and re-run matching. */
@@ -525,6 +533,8 @@ export async function updateLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.
       serialNumber: data.serialNumber ?? null,
       assetNumber: data.assetNumber ?? null,
       reviewerChoice: Boolean(data.equipmentTypeId || data.equipmentItemId),
+      // A type or item chosen by hand means it is equipment, not a case.
+      isContainer: data.equipmentTypeId || data.equipmentItemId ? false : (data.isContainer ?? (data.containerField ? false : line.isContainer || looksLikeCase(data.description))),
     };
 
     if (doc.kind === "return_note") {
@@ -741,11 +751,14 @@ export async function receiveDeliveryLine(
   r: { doc: typeof s.document.$inferSelect; project: typeof s.project.$inferSelect; rentalHouseId: string; now: Date; correlationId: string },
   l: typeof s.documentLine.$inferSelect,
   units = l.quantity,
+  /** Collects the ids of the items now on the project (to pack them into a set). */
+  itemIds?: string[],
 ) {
   const { doc, project, rentalHouseId, now, correlationId } = r;
   const id = doc.id;
   let received = 0;
   const assign = async (itemId: string, label: string, quantity: number, from: string | null) => {
+    itemIds?.push(itemId);
     await tx.insert(s.projectAssignment).values({
       workspaceId: ctx.workspaceId,
       equipmentItemId: itemId,
@@ -832,6 +845,29 @@ export async function receiveDeliveryLine(
   return received;
 }
 
+/** A case line of a delivery note: a new set (name as printed, asset number as barcode), packed with its items. */
+async function setFromCaseLine(tx: DbOrTx, ctx: Ctx, doc: typeof s.document.$inferSelect, projectId: string, l: typeof s.documentLine.$inferSelect, itemIds: string[]) {
+  const base = l.description.replace(/\s+/g, " ").trim().slice(0, 74) || "Case";
+  let name = base;
+  for (let n = 2; ; n++) {
+    const [taken] = await tx.select({ id: s.equipmentCase.id }).from(s.equipmentCase).where(and(eq(s.equipmentCase.projectId, projectId), eq(s.equipmentCase.name, name)));
+    if (!taken) break;
+    name = `${base} (${n})`;
+  }
+  const code = l.assetNumber ?? l.serialNumber ?? null;
+  const [barcodeTaken] = code ? await tx.select({ id: s.equipmentCase.id }).from(s.equipmentCase).where(and(eq(s.equipmentCase.workspaceId, ctx.workspaceId), eq(s.equipmentCase.barcode, code))) : [];
+  const c = await createCase(tx, ctx, {
+    projectId,
+    name,
+    code: code?.slice(0, 30) ?? undefined,
+    barcode: code && !barcodeTaken ? code : undefined,
+    description: `From delivery note ${doc.documentNumber ?? ""}`.trim(),
+  });
+  for (const id of itemIds) await packItem(tx, ctx, c.id, id, { allowMove: true });
+  if (itemIds.length) await setExpectedFromContents(tx, ctx, c.id);
+  return c.name;
+}
+
 /**
  * Apply a reviewed delivery note: reuse known items, create new ones, put all of
  * them on the project with the rental house, link the document, write history.
@@ -855,9 +891,17 @@ export async function confirmDelivery(db: DbOrTx, ctx: Ctx, id: string) {
     let received = 0;
 
     const rctx = { doc, project, rentalHouseId, now, correlationId };
+    const itemsBySet = new Map<string, string[]>();
     for (const l of lines) {
-      if (l.resolution === "ignore") continue;
-      received += await receiveDeliveryLine(tx, ctx, rctx, l);
+      if (l.resolution === "ignore" || l.resolution === "create_set") continue;
+      const ids: string[] = [];
+      received += await receiveDeliveryLine(tx, ctx, rctx, l, l.quantity, ids);
+      if (l.setName) itemsBySet.set(l.setName, [...(itemsBySet.get(l.setName) ?? []), ...ids]);
+    }
+    // Case lines become sets holding what the note groups with them.
+    const setsCreated: string[] = [];
+    for (const l of lines.filter((x) => x.resolution === "create_set")) {
+      setsCreated.push(await setFromCaseLine(tx, ctx, doc, project.id, l, l.setName ? (itemsBySet.get(l.setName) ?? []) : []));
     }
 
     await ensureProjectRentalHouse(tx, ctx, project.id, rentalHouseId);
@@ -882,7 +926,7 @@ export async function confirmDelivery(db: DbOrTx, ctx: Ctx, id: string) {
       documentId: id,
       projectId: project.id,
       rentalHouseId,
-      summary: `Delivery ${doc.documentNumber ?? ""} confirmed: ${received} item${received === 1 ? "" : "s"} received from ${rh?.name ?? "rental house"}`.replace("  ", " "),
+      summary: `Delivery ${doc.documentNumber ?? ""} confirmed: ${received} item${received === 1 ? "" : "s"} received from ${rh?.name ?? "rental house"}${setsCreated.length ? `, ${setsCreated.length} set${setsCreated.length === 1 ? "" : "s"} created (${setsCreated.join(", ")})` : ""}`.replace("  ", " "),
       metadata: { lines: lines.length, ignored: lines.filter((l) => l.resolution === "ignore").length },
       correlationId,
     });

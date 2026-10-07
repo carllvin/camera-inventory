@@ -139,6 +139,8 @@ export const documentLine = pgTable(
     suggestedTracking: text(),
     /** Set / kit this line belongs to by the document's layout (AI); used to suggest sets. */
     setName: text(),
+    /** A transport case (Koffer, Case …): becomes a set holding the items grouped with it, not an item. */
+    isContainer: boolean().notNull().default(false),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },

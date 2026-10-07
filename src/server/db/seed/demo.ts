@@ -402,7 +402,7 @@ class DemoSeeder {
       assetNumber?: string | null;
       typeKey?: string;
       itemId?: string;
-      resolution: "pending" | "match_existing" | "create_new" | "ignore" | "discrepancy";
+      resolution: "pending" | "match_existing" | "create_new" | "ignore" | "discrepancy" | "create_set";
       matchConfidence?: number;
       matchReason?: string;
       setName?: string;

@@ -5,6 +5,7 @@ export const RESOLUTION: Record<string, { label: string; tone: "neutral" | "ok" 
   create_new: { label: "New item", tone: "ok" },
   ignore: { label: "Ignored", tone: "neutral" },
   discrepancy: { label: "Conflict", tone: "danger" },
+  create_set: { label: "Becomes a set", tone: "accent" },
 };
 
 /** Return notes use different words for the same states. */

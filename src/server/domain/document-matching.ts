@@ -16,7 +16,7 @@ import { isNoMaker } from "@/lib/type-name";
 import type { ExtractedLine } from "../ai/types";
 import { itemLabel } from "./equipment-items";
 
-export type Resolution = "pending" | "match_existing" | "create_new" | "ignore" | "discrepancy";
+export type Resolution = "pending" | "match_existing" | "create_new" | "ignore" | "discrepancy" | "create_set";
 
 /** One reviewable line before it is stored. */
 export interface ProposedLine {
@@ -35,6 +35,13 @@ export interface ProposedLine {
   suggestedTracking?: string | null;
   /** Set / kit the line belongs to by the document's layout. */
   setName?: string | null;
+  /** A transport case: becomes a set on delivery, is not equipment itself. */
+  isContainer?: boolean;
+}
+
+/** "Koffer f. BLACKWING 4-fach", "Case", "Peli 1510", "Flightcase …": a transport case, by its wording. */
+export function looksLikeCase(description: string) {
+  return /(^|[^a-zäöü])(transport)?(koffer|case|cases|kiste|flightcase|flight case|peli|pelicase|hardcase|hard case|rollkoffer|trolley)([^a-zäöü]|$)/i.test(description);
 }
 
 export interface MatchResult {
@@ -73,6 +80,7 @@ export function expandExtractedLines(lines: ExtractedLine[]): ProposedLine[] {
       aiConfidence: Number.isFinite(l.confidence) ? clamp01(l.confidence) : null,
       catalogMatch: clean(l.catalog_match),
       isEquipment: l.is_equipment,
+      isContainer: l.is_container ?? looksLikeCase(clean(l.description) ?? l.raw_text),
       setName: clean(l.set_name ?? null),
       suggestedCategory: l.catalog_match ? null : clean(l.suggested_category ?? null),
       suggestedTracking: l.catalog_match || !["serialized", "bulk"].includes(l.suggested_tracking ?? "") ? null : l.suggested_tracking!,
@@ -80,8 +88,8 @@ export function expandExtractedLines(lines: ExtractedLine[]): ProposedLine[] {
     const qty = Math.max(1, Math.round(l.quantity || 1));
     const serials = l.serial_numbers.map((x) => x.trim()).filter(Boolean);
     const assets = l.asset_numbers.map((x) => x.trim()).filter(Boolean);
-    if (!l.is_equipment) {
-      out.push({ ...base, quantity: qty, serialNumber: null, assetNumber: null });
+    if (!l.is_equipment || base.isContainer) {
+      out.push({ ...base, quantity: qty, serialNumber: base.isContainer ? (serials[0] ?? null) : null, assetNumber: base.isContainer ? (assets[0] ?? null) : null });
       continue;
     }
     const ids = serials.length >= assets.length ? serials : assets;
@@ -205,6 +213,11 @@ const compact = (v: string) => v.toUpperCase().replace(/[^A-Z0-9]/g, "");
 export async function matchLine(db: DbOrTx, ctx: MatchContext, line: ProposedLine, opts: { forcedTypeId?: string | null; seenSerials?: Set<string> } = {}): Promise<MatchResult> {
   if (!line.isEquipment) {
     return { matchedEquipmentTypeId: null, matchedEquipmentItemId: null, matchConfidence: null, matchReason: "not equipment (fees, notes …)", resolution: "ignore" };
+  }
+  if (line.isContainer) {
+    return ctx.kind === "delivery_note"
+      ? { matchedEquipmentTypeId: null, matchedEquipmentItemId: null, matchConfidence: null, matchReason: "case - becomes a set with the items grouped under it", resolution: "create_set" }
+      : { matchedEquipmentTypeId: null, matchedEquipmentItemId: null, matchConfidence: null, matchReason: "case - kept as a set, not as equipment", resolution: "ignore" };
   }
 
   // 1. Physical item by serial (compared without spaces/dashes), then by asset number.

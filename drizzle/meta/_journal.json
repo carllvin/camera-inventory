@@ -85,6 +85,13 @@
       "when": 1791402253848,
       "tag": "0011_type_names_without_generic",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1791410210483,
+      "tag": "0012_case_lines_become_sets",
+      "breakpoints": true
     }
   ]
 }

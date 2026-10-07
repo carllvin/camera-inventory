@@ -127,6 +127,7 @@ export async function matchReturnLines(db: DbOrTx, ctx: { id?: string; workspace
   // Pass 0: ignored lines.
   lines.forEach((l, idx) => {
     if (l.ignored || !l.isEquipment) results[idx] = { ...none, matchReason: l.ignored ? "ignored by reviewer" : "not equipment (fees, notes …)", resolution: "ignore" };
+    else if (l.isContainer) results[idx] = { ...none, matchReason: "case - kept as a set, not as equipment", resolution: "ignore" };
   });
 
   // Pass 1: items picked by the reviewer.

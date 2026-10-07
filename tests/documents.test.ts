@@ -342,3 +342,49 @@ describe("sets suggested by the note's layout", () => {
     expect((await createSetFromDocument(db, ctx, id, "Funk-Set 1")).created).toBe(false);
   });
 });
+
+describe("case lines", () => {
+  it("are recognised by their wording", async () => {
+    const { looksLikeCase } = await import("../src/server/domain/document-matching");
+    for (const yes of ["Koffer f. BLACKWING 4-fach", "Case", "Peli 1510 Case", "Transportkoffer Objektive", "Flightcase Monitor"]) expect(looksLikeCase(yes), yes).toBe(true);
+    for (const no of ["Casey Adapter", "Sandsack 15lb", "ARRI ALEXA 35", "Kofferraum-Halterung"]) expect(looksLikeCase(no), no).toBe(false);
+  });
+
+  it("become a set holding the items grouped with them when the note is confirmed", async () => {
+    const tag = Math.random().toString(36).slice(2, 7);
+    const id = await upload(
+      new FakeExtractor(
+        extraction(
+          [
+            line({ description: "Koffer f. Funk 2-fach", asset_numbers: [`K-${tag}`], is_container: true, set_name: "Funk" }),
+            line({ description: "Bolt TX", serial_numbers: [`KT-${tag}-1`], catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Funk" }),
+            line({ description: "Bolt TX", serial_numbers: [`KT-${tag}-2`], catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Funk" }),
+          ],
+          { rental_house_match: "ARRI Rental" },
+        ),
+      ),
+    );
+    const review = await getDocumentReview(db, ctx, id);
+    expect(review.lines.map((l) => l.resolution)).toEqual(["create_set", "create_new", "create_new"]);
+    const { received } = await confirmDelivery(db, ctx, id);
+    expect(received).toBe(2); // the case is not an item
+
+    const [set] = await db.select().from(s.equipmentCase).where(eq(s.equipmentCase.barcode, `K-${tag}`));
+    expect(set!.name).toBe("Koffer f. Funk 2-fach");
+    const d = await getCaseDetail(db, ctx, set!.id);
+    expect(d.items).toHaveLength(2);
+    expect(d.comparison.complete).toBe(true);
+    const items = await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.assetNumber, `K-${tag}`));
+    expect(items).toHaveLength(0);
+  });
+
+  it("can be corrected by the reviewer either way", async () => {
+    const id = await upload(new FakeExtractor(extraction([line({ description: "Lens Case Pro", catalog_match: null })])));
+    const [l] = (await getDocumentReview(db, ctx, id)).lines;
+    expect(l!.resolution).toBe("create_set"); // guessed from the wording
+    await updateLine(db, ctx, l!.id, { description: l!.description, quantity: 1, containerField: "1" } as never);
+    expect((await getDocumentReview(db, ctx, id)).lines[0]!.resolution).not.toBe("create_set");
+    await updateLine(db, ctx, l!.id, { description: l!.description, quantity: 1, containerField: "1", isContainer: "1" } as never);
+    expect((await getDocumentReview(db, ctx, id)).lines[0]!.resolution).toBe("create_set");
+  });
+});

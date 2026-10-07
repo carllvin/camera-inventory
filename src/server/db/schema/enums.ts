@@ -57,6 +57,7 @@ export const documentLineResolution = pgEnum("document_line_resolution", [
   "create_new",
   "ignore",
   "discrepancy",
+  "create_set",
 ]);
 
 export const photoKind = pgEnum("photo_kind", [

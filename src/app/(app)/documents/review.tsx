@@ -39,6 +39,8 @@ export interface ReviewLine {
   typeName: string | null;
   /** Set / kit the note groups this line into. */
   setName?: string | null;
+  /** A transport case: becomes a set. */
+  isContainer?: boolean;
   updateAction: Action;
   removeAction: Action;
   reportAction?: Action;
@@ -149,6 +151,13 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
                   </>
                 }
               />
+            )}
+            {mode === "delivery" && (
+              <label className="flex items-center gap-2 text-sm sm:col-span-6">
+                <input type="hidden" name="containerField" value="1" />
+                <input type="checkbox" name="isContainer" value="1" defaultChecked={Boolean(line.isContainer)} className="size-4 accent-[var(--accent)]" />
+                This is a case (Koffer) — it becomes a set with the items grouped under it
+              </label>
             )}
             <label className="flex items-center gap-2 text-sm sm:col-span-6">
               <input type="checkbox" name="ignore" value="1" defaultChecked={line.resolution === "ignore"} className="size-4 accent-[var(--accent)]" />
