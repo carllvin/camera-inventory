@@ -102,7 +102,7 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
         <span className="min-w-0 flex-1">
           <span className="flex flex-wrap items-center gap-2">
             <span className="font-medium">{line.quantity > 1 && `${line.quantity} × `}{line.description}</span>
-            <Badge tone={r.tone}>{r.label}</Badge>
+            <Badge tone={r.tone}>{line.resolution === "ignore" && line.matchReason?.startsWith("heading") ? "Heading" : r.label}</Badge>
             {line.aiConfidence !== null && line.aiConfidence < 0.7 && <Badge tone="warn">unclear text</Badge>}
             {line.setName && <Badge>▣ {line.setName}</Badge>}
           </span>

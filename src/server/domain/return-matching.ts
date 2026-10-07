@@ -6,7 +6,7 @@
 import { and, eq, sql } from "drizzle-orm";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
-import { findType, type MatchResult, type ProposedLine } from "./document-matching";
+import { findType, HEADING_REASON, type MatchResult, type ProposedLine } from "./document-matching";
 import { itemLabel } from "./equipment-items";
 import { itemsRemovedWithNote } from "./project-removal";
 
@@ -126,7 +126,8 @@ export async function matchReturnLines(db: DbOrTx, ctx: { id?: string; workspace
 
   // Pass 0: ignored lines.
   lines.forEach((l, idx) => {
-    if (l.ignored || !l.isEquipment) results[idx] = { ...none, matchReason: l.ignored ? "ignored by reviewer" : "not equipment (fees, notes …)", resolution: "ignore" };
+    if (l.isHeading) results[idx] = { ...none, matchReason: HEADING_REASON, resolution: "ignore" };
+    else if (l.ignored || !l.isEquipment) results[idx] = { ...none, matchReason: l.ignored ? "ignored by reviewer" : "not equipment (fees, notes …)", resolution: "ignore" };
     else if (l.isContainer) results[idx] = { ...none, matchReason: "case - kept as a set, not as equipment", resolution: "ignore" };
   });
 

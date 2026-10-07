@@ -37,7 +37,16 @@ export interface ProposedLine {
   setName?: string | null;
   /** A transport case: becomes a set on delivery, is not equipment itself. */
   isContainer?: boolean;
+  /** A heading on the document ("Objektive", "ALEXA 35 Set"): groups the lines below, never an item. */
+  isHeading?: boolean;
 }
+
+/** Typed-in lines: "Objektive:" is a heading. */
+export function looksLikeHeading(description: string) {
+  return /:\s*$/.test(description.trim());
+}
+
+export const HEADING_REASON = "heading - not an item; groups the lines below it";
 
 /** "Koffer f. BLACKWING 4-fach", "Case", "Peli 1510", "Flightcase …": a transport case, by its wording. */
 export function looksLikeCase(description: string) {
@@ -79,7 +88,8 @@ export function expandExtractedLines(lines: ExtractedLine[]): ProposedLine[] {
       model: clean(l.model),
       aiConfidence: Number.isFinite(l.confidence) ? clamp01(l.confidence) : null,
       catalogMatch: clean(l.catalog_match),
-      isEquipment: l.is_equipment,
+      isHeading: l.is_heading ?? looksLikeHeading(clean(l.description) ?? l.raw_text),
+      isEquipment: l.is_equipment && !(l.is_heading ?? looksLikeHeading(clean(l.description) ?? l.raw_text)),
       isContainer: l.is_container ?? looksLikeCase(clean(l.description) ?? l.raw_text),
       setName: clean(l.set_name ?? null),
       suggestedCategory: l.catalog_match ? null : clean(l.suggested_category ?? null),
@@ -88,7 +98,7 @@ export function expandExtractedLines(lines: ExtractedLine[]): ProposedLine[] {
     const qty = Math.max(1, Math.round(l.quantity || 1));
     const serials = l.serial_numbers.map((x) => x.trim()).filter(Boolean);
     const assets = l.asset_numbers.map((x) => x.trim()).filter(Boolean);
-    if (!l.is_equipment || base.isContainer) {
+    if (!base.isEquipment || base.isContainer) {
       out.push({ ...base, quantity: qty, serialNumber: base.isContainer ? (serials[0] ?? null) : null, assetNumber: base.isContainer ? (assets[0] ?? null) : null });
       continue;
     }
@@ -211,6 +221,9 @@ const compact = (v: string) => v.toUpperCase().replace(/[^A-Z0-9]/g, "");
  * `forcedTypeId` is a type the reviewer picked by hand (always wins over AI/fuzzy).
  */
 export async function matchLine(db: DbOrTx, ctx: MatchContext, line: ProposedLine, opts: { forcedTypeId?: string | null; seenSerials?: Set<string> } = {}): Promise<MatchResult> {
+  if (line.isHeading) {
+    return { matchedEquipmentTypeId: null, matchedEquipmentItemId: null, matchConfidence: null, matchReason: HEADING_REASON, resolution: "ignore" };
+  }
   if (!line.isEquipment) {
     return { matchedEquipmentTypeId: null, matchedEquipmentItemId: null, matchConfidence: null, matchReason: "not equipment (fees, notes …)", resolution: "ignore" };
   }

@@ -12,7 +12,7 @@ import { ExtractionError, type DocumentExtractor, type Extraction } from "../ai/
 import type { StorageProvider } from "../storage";
 import { recordEvent } from "./audit";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
-import { expandExtractedLines, findRentalHouse, looksLikeCase, matchLine, type MatchContext, type ProposedLine } from "./document-matching";
+import { expandExtractedLines, findRentalHouse, HEADING_REASON, looksLikeCase, looksLikeHeading, matchLine, type MatchContext, type ProposedLine } from "./document-matching";
 import { findProjectForDocument, projectContext, projectHints } from "./document-project";
 import { ensureProjectRentalHouse, itemLabel, lockItem } from "./equipment-items";
 import { createEquipmentType } from "./equipment-types";
@@ -420,6 +420,8 @@ function toProposed(l: typeof s.documentLine.$inferSelect): ProposedLine {
     catalogMatch: null,
     isEquipment: true,
     isContainer: l.isContainer,
+    // Headings stay headings on re-matching; typed "Objektive:" lines are recognised too.
+    isHeading: (l.resolution === "ignore" && l.matchReason === HEADING_REASON) || looksLikeHeading(l.description),
     setName: l.setName,
   };
 }
@@ -562,7 +564,8 @@ export async function updateLine(db: DbOrTx, ctx: Ctx, lineId: string, input: z.
       return { ...updated!, alsoApplied };
     }
 
-    const proposed: ProposedLine = { ...toProposed(line), ...fields };
+    // Saved by a person: a heading only if it reads like one ("Objektive:") and no type was chosen.
+    const proposed: ProposedLine = { ...toProposed(line), ...fields, isHeading: !fields.reviewerChoice && looksLikeHeading(fields.description) };
     // Serials already used by other lines of this document.
     const others = await tx
       .select({ serial: s.documentLine.serialNumber })

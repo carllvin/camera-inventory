@@ -24,9 +24,9 @@ Extract exactly what is printed. The output is reviewed by a camera assistant be
 Lines
 - One output line per item line on the document, in document order.
 - If a line lists several serial numbers, put all of them in serial_numbers (quantity stays as printed).
-- Sets and kits (e.g. "ALEXA 35 Set" with indented components) - output the set line and each listed component as separate lines; components without their own quantity have quantity 1 per set.
+- Headings are never items: section titles ("Kamera", "Objektive", "Zubehör", "Licht") and set or kit titles that only introduce the components below them ("ALEXA 35 Set", "Kamera-Set A", "Set bestehend aus:") get is_heading: true and is_equipment: false. Output the heading line once, then each listed component as its own line; components without their own quantity have quantity 1 per set.
 - is_container: true for transport cases and containers (Koffer, Case, Kiste, Peli, Flightcase, "Koffer f. …") - they hold equipment and become sets; false otherwise. A case that is part of a set gets that set's set_name too.
-- set_name: when the layout groups items into a set or kit (a heading like "ALEXA 35 Set", "Kamera-Set A", "Objektivkoffer" with indented or boxed components, or a "Set bestehend aus …" block), give every line of that group - the heading line included - the set's name as printed; null for lines that stand alone. Use the same text for all lines of one set.
+- set_name: the heading (set, kit or section title) a line is printed under, as printed - e.g. every component under "ALEXA 35 Set", or every line in the section "Objektive"; the heading line itself carries its own text too. null for lines that stand under no heading. Use exactly the same text for all lines of one group.
 - Mark transport, insurance, deposits, discounts, subtotals, signatures and free-text remarks as is_equipment: false.
 - quantity is the number of units delivered/returned on that line (use 1 if no quantity is printed for an item).
 - Asset numbers are the rental house's inventory numbers (often labelled Inv.-Nr., Asset, ID, Barcode); serial numbers are manufacturer serials (S/N, SN, Seriennr.).

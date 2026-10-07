@@ -388,3 +388,37 @@ describe("case lines", () => {
     expect((await getDocumentReview(db, ctx, id)).lines[0]!.resolution).toBe("create_set");
   });
 });
+
+describe("headings on a note", () => {
+  it("are never items, but group the lines below them", async () => {
+    const { suggestedSets } = await import("../src/server/domain/document-sets");
+    const tag = Math.random().toString(36).slice(2, 7);
+    const id = await upload(
+      new FakeExtractor(
+        extraction(
+          [
+            line({ description: "Funk-Set A", is_heading: true, is_equipment: true, set_name: "Funk-Set A" }),
+            line({ description: "Bolt TX", serial_numbers: [`HD-${tag}-1`], catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Funk-Set A" }),
+            line({ description: "Bolt TX", serial_numbers: [`HD-${tag}-2`], catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Funk-Set A" }),
+            line({ description: "Zubehör:" }), // typed-style heading, recognised by the colon
+            line({ description: "Sandsack", quantity: 2, catalog_match: "Matthews Sandbag 15 lb" }),
+          ],
+          { rental_house_match: "ARRI Rental" },
+        ),
+      ),
+    );
+    const review = await getDocumentReview(db, ctx, id);
+    expect(review.lines.map((l) => [l.description, l.resolution])).toEqual([
+      ["Funk-Set A", "ignore"],
+      ["Bolt TX", "create_new"],
+      ["Bolt TX", "create_new"],
+      ["Zubehör:", "ignore"],
+      ["Sandsack", "create_new"],
+    ]);
+    expect(review.lines[0]!.matchReason).toMatch(/^heading/);
+    const { received } = await confirmDelivery(db, ctx, id);
+    expect(received).toBe(4); // 2 transmitters + 2 sandbags, no headings
+    const [sg] = await suggestedSets(db, ctx.workspaceId, id);
+    expect(sg).toMatchObject({ name: "Funk-Set A", lines: 2, units: 2 });
+  });
+});
