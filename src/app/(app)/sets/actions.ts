@@ -30,8 +30,8 @@ import {
 } from "@/server/domain/cases";
 
 const refreshCase = (id: string, projectId?: string) => {
-  revalidatePath(`/cases/${id}`);
-  revalidatePath("/cases");
+  revalidatePath(`/sets/${id}`);
+  revalidatePath("/sets");
   if (projectId) revalidatePath(`/projects/${projectId}`, "layout");
 };
 
@@ -39,7 +39,7 @@ export async function createCaseAction(_: ActionState, fd: FormData): Promise<Ac
   return runAction(fd, async () => {
     const c = await createCase(getDb(), await getCtx(), fromForm(fd));
     revalidatePath(`/projects/${c.projectId}`, "layout");
-    redirect(`/cases/${c.id}`);
+    redirect(`/sets/${c.id}`);
   });
 }
 
@@ -47,7 +47,7 @@ export async function updateCaseAction(id: string, _: ActionState, fd: FormData)
   return runAction(fd, async () => {
     const c = await updateCase(getDb(), await getCtx(), id, fromForm(fd));
     refreshCase(id, c.projectId);
-    redirect(`/cases/${id}`);
+    redirect(`/sets/${id}`);
   });
 }
 
@@ -55,7 +55,7 @@ export async function archiveCaseAction(id: string, _: ActionState, fd: FormData
   return runAction(fd, async () => {
     const c = await archiveCase(getDb(), await getCtx(), id);
     refreshCase(id, c.projectId);
-    redirect(`/projects/${c.projectId}/cases`);
+    redirect(`/projects/${c.projectId}/sets`);
   });
 }
 
@@ -97,7 +97,7 @@ export async function unpackUnitsAction(caseId: string, itemIds: string[], _: Ac
 export async function packChecklistAction(caseId: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     const { items, groups } = readRows(fd);
-    if (!items.length && !groups.length) throw new DomainError("VALIDATION", "Tick what goes into this case.");
+    if (!items.length && !groups.length) throw new DomainError("VALIDATION", "Tick what goes into this set.");
     const ctx = await getCtx();
     const r = await getDb().transaction(async (tx) => {
       let n = 0;
@@ -124,7 +124,7 @@ export async function packByCodeAction(caseId: string, _: ActionState, fd: FormD
     const code = z.string().parse(fd.get("code") ?? "");
     const r = await packByCode(getDb(), await getCtx(), caseId, code, { allowMove: fd.get("allowMove") === "1" });
     refreshCase(caseId, r.item.projectId ?? undefined);
-    if (r.alreadyPacked) return `${r.item.label} is already in this case.`;
+    if (r.alreadyPacked) return `${r.item.label} is already in this set.`;
     return r.moved ? `${r.item.label} moved here.` : `${r.item.label} packed.`;
   });
 }
@@ -140,7 +140,7 @@ export async function unpackItemAction(caseId: string, itemId: string, _: Action
 export async function saveAsTemplateAction(caseId: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     const tpl = await createTemplateFromCase(getDb(), await getCtx(), caseId, fromForm(fd));
-    redirect(`/cases/templates/${tpl.id}`);
+    redirect(`/sets/templates/${tpl.id}`);
   });
 }
 
@@ -149,14 +149,14 @@ export async function saveAsTemplateAction(caseId: string, _: ActionState, fd: F
 export async function createTemplateAction(_: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     const tpl = await createTemplate(getDb(), await getCtx(), fromForm(fd));
-    redirect(`/cases/templates/${tpl.id}`);
+    redirect(`/sets/templates/${tpl.id}`);
   });
 }
 
 export async function updateTemplateAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     await updateTemplate(getDb(), await getCtx(), id, fromForm(fd));
-    revalidatePath(`/cases/templates/${id}`);
+    revalidatePath(`/sets/templates/${id}`);
     return "Saved.";
   });
 }
@@ -164,15 +164,15 @@ export async function updateTemplateAction(id: string, _: ActionState, fd: FormD
 export async function archiveTemplateAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     await archiveTemplate(getDb(), await getCtx(), id);
-    revalidatePath("/cases/templates");
-    redirect("/cases/templates");
+    revalidatePath("/sets/templates");
+    redirect("/sets/templates");
   });
 }
 
 export async function addTemplateLineAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     await addTemplateLine(getDb(), await getCtx(), id, fromForm(fd));
-    revalidatePath(`/cases/templates/${id}`);
+    revalidatePath(`/sets/templates/${id}`);
     return "Added.";
   });
 }
@@ -180,7 +180,7 @@ export async function addTemplateLineAction(id: string, _: ActionState, fd: Form
 export async function updateTemplateLineAction(id: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     await updateTemplateLine(getDb(), await getCtx(), lineId, fromForm(fd));
-    revalidatePath(`/cases/templates/${id}`);
+    revalidatePath(`/sets/templates/${id}`);
     return "Saved.";
   });
 }
@@ -188,6 +188,6 @@ export async function updateTemplateLineAction(id: string, lineId: string, _: Ac
 export async function removeTemplateLineAction(id: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     await removeTemplateLine(getDb(), await getCtx(), lineId);
-    revalidatePath(`/cases/templates/${id}`);
+    revalidatePath(`/sets/templates/${id}`);
   });
 }

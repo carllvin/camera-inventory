@@ -48,9 +48,9 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
       href: `/documents/${d.id}`,
     })),
     ...(incomplete.length > 3
-      ? [{ key: "cases", icon: Box, tone: "warn" as const, text: `${incomplete.length} cases are not complete (${incomplete.reduce((n, c) => n + c.comparison.missingTotal, 0)} expected items missing)`, href: `${base}/cases` }]
-      : incomplete.map((c) => ({ key: `c-${c.id}`, icon: Box, tone: "warn" as const, text: `${c.name}: ${c.comparison.missingTotal} expected item${c.comparison.missingTotal === 1 ? "" : "s"} not in the case`, href: `/cases/${c.id}` }))),
-    ...(loose > 0 && cases.length > 0 ? [{ key: "loose", icon: PackageOpen, tone: "neutral" as const, text: `${loose} piece${loose === 1 ? "" : "s"} not in any case`, href: `/equipment?caseId=none` }] : []),
+      ? [{ key: "cases", icon: Box, tone: "warn" as const, text: `${incomplete.length} sets are not complete (${incomplete.reduce((n, c) => n + c.comparison.missingTotal, 0)} expected items missing)`, href: `${base}/sets` }]
+      : incomplete.map((c) => ({ key: `c-${c.id}`, icon: Box, tone: "warn" as const, text: `${c.name}: ${c.comparison.missingTotal} expected item${c.comparison.missingTotal === 1 ? "" : "s"} not in the set`, href: `/sets/${c.id}` }))),
+    ...(loose > 0 && cases.length > 0 ? [{ key: "loose", icon: PackageOpen, tone: "neutral" as const, text: `${loose} piece${loose === 1 ? "" : "s"} not in any set`, href: `/equipment?caseId=none` }] : []),
   ];
   const toneClass = { danger: "text-danger", warn: "text-warn", neutral: "text-muted" };
 
@@ -72,7 +72,7 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           <LinkButton href={base}>Equipment</LinkButton>
-          <LinkButton href={`${base}/cases`}>Cases</LinkButton>
+          <LinkButton href={`${base}/sets`}>Sets</LinkButton>
           <LinkButton href="/documents/new">Upload a note</LinkButton>
         </div>
       </header>
@@ -107,16 +107,16 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
           </Card>
 
           <Card>
-            <CardHeader title="Cases" action={<Link href={`${base}/cases`} className="text-xs text-muted hover:text-text">All cases</Link>} />
+            <CardHeader title="Sets" action={<Link href={`${base}/sets`} className="text-xs text-muted hover:text-text">All sets</Link>} />
             {cases.length === 0 ? (
               <p className="px-4 py-4 text-sm text-muted">
-                No cases yet. <Link href="/cases/new" className="text-accent hover:underline">Create one</Link>
+                No sets yet. <Link href="/sets/new" className="text-accent hover:underline">Create one</Link>
               </p>
             ) : (
               <ul className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
                 {cases.map((c) => (
                   <li key={c.id} className="bg-surface">
-                    <Link href={`/cases/${c.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-2">
+                    <Link href={`/sets/${c.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-2">
                       <div className="min-w-0 flex-1">
                         <div className="truncate text-sm font-medium">{c.name}</div>
                         <div className="text-xs text-muted">{c.code ?? c.templateName ?? " "}</div>

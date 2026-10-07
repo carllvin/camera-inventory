@@ -127,7 +127,7 @@ export async function confirmReturnAction(id: string, _: ActionState, fd: FormDa
     revalidatePath(`/documents/${id}`);
     revalidatePath(`/projects/${document.projectId}`, "layout");
     revalidatePath("/equipment");
-    revalidatePath("/cases");
+    revalidatePath("/sets");
     return remaining > 0 ? `Return confirmed: ${returned} returned, ${remaining} still on the project.` : `Return confirmed: ${returned} returned.`;
   });
 }

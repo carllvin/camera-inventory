@@ -18,7 +18,7 @@ describe("demo seed", () => {
         (SELECT coalesce(sum(quantity), 0)::int FROM equipment_item WHERE case_id = c.id) AS actual,
         (SELECT coalesce(sum(quantity), 0)::int FROM case_expected_item WHERE case_id = c.id) AS expected
       FROM equipment_case c WHERE c.project_id = ${ffx} ORDER BY c.name`);
-    expect(caseCounts.find((c) => c.name === "A-Cam Case")).toMatchObject({ actual: 7, expected: 8 });
+    expect(caseCounts.find((c) => c.name === "A-Cam Set")).toMatchObject({ actual: 7, expected: 8 });
 
     // Project holds equipment from three rental houses.
     const houses = await db

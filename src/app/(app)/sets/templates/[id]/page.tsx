@@ -22,8 +22,8 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
       <PageHeader
         title={tpl.name}
         subtitle={`${total} items · ${tpl.lines.length} lines${tpl.archivedAt ? " · archived" : ""}`}
-        back={{ href: "/cases/templates", label: "Templates" }}
-        actions={canEdit && <LinkButton href={`/cases/new?templateId=${id}`} variant="primary"><Plus className="size-4" /> New case from template</LinkButton>}
+        back={{ href: "/sets/templates", label: "Templates" }}
+        actions={canEdit && <LinkButton href={`/sets/new?templateId=${id}`} variant="primary"><Plus className="size-4" /> New set from template</LinkButton>}
       />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <Card>
@@ -71,7 +71,7 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
             <Card>
               <CardHeader title="Archive template" />
               <ActionForm action={archiveTemplateAction.bind(null, id)} className="space-y-3 p-4">
-                <p className="text-sm text-muted">Cases already created from it keep their expected contents.</p>
+                <p className="text-sm text-muted">Sets already created from it keep their expected contents.</p>
                 <SubmitButton variant="danger">Archive</SubmitButton>
               </ActionForm>
             </Card>

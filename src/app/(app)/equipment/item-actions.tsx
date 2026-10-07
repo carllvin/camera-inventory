@@ -72,7 +72,7 @@ export function ItemActions({
           </div>
         </div>
         {projectId && cases.length > 0 && (
-          <Choice label="Case" id="state-case" name="caseId" value={k} onChange={setK} options={[{ value: "", label: "Not in a case" }, ...cases]} />
+          <Choice label="Set" id="state-case" name="caseId" value={k} onChange={setK} options={[{ value: "", label: "Not in a set" }, ...cases]} />
         )}
         {dirty && (
           <div className="space-y-3 rounded-lg bg-surface-2/60 p-3">

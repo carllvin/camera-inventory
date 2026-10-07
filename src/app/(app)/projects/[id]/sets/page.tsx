@@ -11,7 +11,7 @@ export default async function ProjectCasesPage({ params }: { params: Promise<{ i
   const ctx = await getCtx();
   const cases = await listCases(getDb(), ctx, { projectId: id });
   const newCase = hasRole(ctx, "member") && (
-    <LinkButton href={`/cases/new?projectId=${id}`} variant="primary">
+    <LinkButton href={`/sets/new?projectId=${id}`} variant="primary">
       <Plus className="size-4" /> New case
     </LinkButton>
   );

@@ -21,7 +21,7 @@ const DESKTOP = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/projects", label: "Projects", icon: Briefcase },
   { href: "/equipment", label: "Equipment", icon: Camera },
-  { href: "/cases", label: "Cases", icon: Boxes },
+  { href: "/sets", label: "Sets", icon: Boxes },
   { href: "/documents", label: "Documents", icon: FileText },
   { href: "/issues", label: "Issues", icon: CircleAlert },
   { href: "/history", label: "History", icon: History },
@@ -83,7 +83,7 @@ const MOBILE = [
   { href: "/projects", label: "Projects", icon: Briefcase },
   { href: "/equipment", label: "Equipment", icon: Camera },
   { href: "/scan", label: "Scan", icon: ScanLine, primary: true },
-  { href: "/cases", label: "Cases", icon: Boxes },
+  { href: "/sets", label: "Sets", icon: Boxes },
   { href: "/more", label: "More", icon: Menu },
 ];
 

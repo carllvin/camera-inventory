@@ -106,14 +106,14 @@ test("new user signs up, creates a workspace and sees an empty, isolated dashboa
   }
 });
 
-test("start page focuses on the current project: what needs attention, cases, rental houses", async ({ page }) => {
+test("start page focuses on the current project: what needs attention, sets, rental houses", async ({ page }) => {
   await login(page);
   await go(page, "/");
   await expect(page.getByRole("heading", { name: "Feature Film X" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Needs attention" })).toBeVisible();
-  // The seed has one missing battery and an A-Cam case short of one item (or, after other tests, a summary line).
-  await expect(page.getByRole("link", { name: /A-Cam Case: 1 expected item not in the case|cases are not complete/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: /A-Cam Case/ }).first()).toBeVisible();
+  // The seed has one missing battery and an A-Cam set short of one item (or, after other tests, a summary line).
+  await expect(page.getByRole("link", { name: /A-Cam Set: 1 expected item not in the set|sets are not complete/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /A-Cam Set/ }).first()).toBeVisible();
   await page.getByRole("link", { name: /Missing: bebob B290cine/ }).click();
   await expect(page).toHaveURL(/\/equipment\/[0-9a-f-]{36}/);
 });

@@ -1,5 +1,7 @@
 # Camera Inventory: Architecture & Plan
 
+> **Naming:** in the app, cases are called **sets** (since October 2026). Database tables, columns and audit actions keep the `case` names (`equipment_case`, `case_id`, `case.created`), so no data migration was needed; `/cases` URLs redirect to `/sets`.
+
 ## 1. Phase 1: Repository analysis
 
 | Question | Finding |

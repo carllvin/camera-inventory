@@ -55,7 +55,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
   return (
     <>
       <PageHeader
-        back={{ href: `/projects/${d.case.projectId}/cases`, label: d.projectName }}
+        back={{ href: `/projects/${d.case.projectId}/sets`, label: d.projectName }}
         title={
           <span className="flex items-center gap-2">
             <span className="truncate">{d.case.name}</span>
@@ -67,7 +67,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
           canEdit && (
             <>
               <LinkButton href={`/projects/${d.case.projectId}/remove?caseId=${id}`}>Remove from project</LinkButton>
-              <LinkButton href={`/cases/${id}/edit`}>
+              <LinkButton href={`/sets/${id}/edit`}>
                 <Pencil className="size-4" /> Edit
               </LinkButton>
             </>
@@ -84,8 +84,8 @@ export default async function CasePage({ params, searchParams }: { params: Promi
               {cmp.expectedTotal === 0
                 ? "No expected contents defined."
                 : cmp.complete
-                  ? "Complete — everything expected is in the case."
-                  : [cmp.missingTotal > 0 && `${cmp.missingTotal} expected item${cmp.missingTotal === 1 ? "" : "s"} not in case`, cmp.extraTotal > 0 && `${cmp.extraTotal} not expected`]
+                  ? "Complete — everything expected is in the set."
+                  : [cmp.missingTotal > 0 && `${cmp.missingTotal} expected item${cmp.missingTotal === 1 ? "" : "s"} not in set`, cmp.extraTotal > 0 && `${cmp.extraTotal} not expected`]
                       .filter(Boolean)
                       .join(" · ")}
             </p>
@@ -106,7 +106,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                     <FilterSearch value={sp.q} placeholder="Find project equipment…" />
                   </FilterBar>
                   {candidates.length === 0 ? (
-                    <p className="text-sm text-muted">{sp.q ? "Nothing found on this project." : "All project equipment is in this case."}</p>
+                    <p className="text-sm text-muted">{sp.q ? "Nothing found on this project." : "All project equipment is in this set."}</p>
                   ) : (
                     <PackChecklist
                       action={packChecklistAction.bind(null, id)}
@@ -137,11 +137,11 @@ export default async function CasePage({ params, searchParams }: { params: Promi
             action={
               canEdit &&
               (editing ? (
-                <Link href={`/cases/${id}`} className="text-xs text-accent hover:underline">
+                <Link href={`/sets/${id}`} className="text-xs text-accent hover:underline">
                   Done
                 </Link>
               ) : (
-                <Link href={`/cases/${id}?edit=1`} className="text-xs text-muted hover:text-text">
+                <Link href={`/sets/${id}?edit=1`} className="text-xs text-muted hover:text-text">
                   Edit expected contents
                 </Link>
               ))
@@ -167,7 +167,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
             </div>
           ) : cmp.lines.length === 0 ? (
             <p className="px-4 py-6 text-sm text-muted">
-              No expected contents. {canEdit && <Link href={`/cases/${id}?edit=1`} className="text-accent hover:underline">Define what belongs in this case</Link>}
+              No expected contents. {canEdit && <Link href={`/sets/${id}?edit=1`} className="text-accent hover:underline">Define what belongs in this set</Link>}
             </p>
           ) : (
             <ul className="divide-y divide-border">
@@ -201,7 +201,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
           )}
           {cmp.extras.length > 0 && !editing && (
             <div className="border-t border-border bg-danger/5 px-4 py-3">
-              <h3 className="mb-1 text-xs font-semibold tracking-wide text-danger uppercase">Not expected in this case</h3>
+              <h3 className="mb-1 text-xs font-semibold tracking-wide text-danger uppercase">Not expected in this set</h3>
               <ul className="space-y-1">
                 {cmp.extras.map((e) => {
                   const it = byId.get(e.id)!;
@@ -221,7 +221,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
         </Card>
 
         <Card className="min-w-0">
-          <CardHeader title={`In this case (${packedRows.reduce((n, r) => n + r.units, 0)})`} />
+          <CardHeader title={`In this set (${packedRows.reduce((n, r) => n + r.units, 0)})`} />
           {d.items.length === 0 ? (
             <p className="px-4 py-6 text-sm text-muted">Empty.</p>
           ) : (

@@ -257,7 +257,7 @@ class DemoSeeder {
   private async caseTemplates(): Promise<string> {
     const [tpl] = await this.tx
       .insert(s.caseTemplate)
-      .values({ workspaceId: this.ws, name: "A-Cam Case", description: "Standard camera body case for an ALEXA 35 build" })
+      .values({ workspaceId: this.ws, name: "A-Cam Set", description: "Standard camera body set for an ALEXA 35 build" })
       .returning();
     const lines: [string, string, number][] = [
       ["alexa35", "ALEXA 35", 1],
@@ -281,7 +281,7 @@ class DemoSeeder {
     }
     const [lensTpl] = await this.tx
       .insert(s.caseTemplate)
-      .values({ workspaceId: this.ws, name: "Prime Lens Case", description: "Four-lens prime case" })
+      .values({ workspaceId: this.ws, name: "Prime Lens Set", description: "Four-lens prime set" })
       .returning();
     await this.tx.insert(s.caseTemplateItem).values({
       workspaceId: this.ws,
@@ -294,7 +294,7 @@ class DemoSeeder {
       action: "case_template.created",
       entityType: "case_template",
       entityId: tpl!.id,
-      summary: "Case template “A-Cam Case” created",
+      summary: "Set template “A-Cam Set” created",
       occurredAt: at("2026-05-21T10:00:00Z"),
     });
     return tpl!.id;
@@ -524,7 +524,7 @@ class DemoSeeder {
       caseId,
       projectId,
       actor,
-      summary: `${this.names.get(itemId)} packed into case`,
+      summary: `${this.names.get(itemId)} packed into set`,
       changes: { case_id: { from: null, to: caseId } },
       occurredAt: when,
     });
@@ -644,7 +644,7 @@ class DemoSeeder {
       caseId: c!.id,
       projectId: o.projectId,
       actor: this.users.jonas,
-      summary: `Case ${o.name} created${o.templateId ? " from template" : ""}`,
+      summary: `Set ${o.name} created${o.templateId ? " from template" : ""}`,
       occurredAt: o.when,
     });
     return c!.id;
@@ -839,8 +839,8 @@ class DemoSeeder {
 
     // Cases
     const caseWhen = at("2026-08-27T09:00:00Z");
-    const aCase = await this.createCase({ projectId: ffx, name: "A-Cam Case", code: "A-CAM 1", templateId: aCamTemplateId, when: caseWhen });
-    const bCase = await this.createCase({ projectId: ffx, name: "B-Cam Case", code: "B-CAM 1", templateId: aCamTemplateId, when: caseWhen });
+    const aCase = await this.createCase({ projectId: ffx, name: "A-Cam Set", code: "A-CAM 1", templateId: aCamTemplateId, when: caseWhen });
+    const bCase = await this.createCase({ projectId: ffx, name: "B-Cam Set", code: "B-CAM 1", templateId: aCamTemplateId, when: caseWhen });
     const lensCase = await this.createCase({
       projectId: ffx,
       name: "Signature Primes",
@@ -874,7 +874,7 @@ class DemoSeeder {
       type: "missing",
       severity: "high",
       title: "bebob B290cine SN B290-31131 not found at wrap",
-      description: "Last seen on the battery cart at the harbour location (day 10). Checked all cases and both camera carts.",
+      description: "Last seen on the battery cart at the harbour location (day 10). Checked all sets and both camera carts.",
       projectId: ffx,
       itemId: batteries[5]!,
       when: missingWhen,

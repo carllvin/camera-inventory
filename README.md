@@ -1,11 +1,11 @@
 # Camera Inventory
 
 Equipment management for camera departments: delivery and return notes, multi-rental-house
-projects, cases, AI-assisted recognition and a complete audit trail.
+projects, sets, AI-assisted recognition and a complete audit trail.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for architecture, data model and roadmap.
 
-**Status:** Phase 6 complete: delivery and return notes are read by Claude (or entered by hand), reviewed and confirmed — including partial returns. Projects, rental houses, equipment, cases/templates, photos, search and scanning work without AI.
+**Status:** Phase 6 complete: delivery and return notes are read by Claude (or entered by hand), reviewed and confirmed — including partial returns. Projects, rental houses, equipment, sets/templates, photos, search and scanning work without AI.
 
 ## Run with Docker (self-hosted)
 
@@ -77,19 +77,19 @@ typos tolerated), so even thousands of types stay quick to pick.
 
 With a current project selected (header), the start page is that project's dashboard: where it stands in the rental
 period ("Day 44 of 82 · 38 days left"), a **Needs attention** list (missing and damaged items, open issues, documents to
-review, incomplete cases, equipment not in any case), the cases with their progress, and what is out per rental house.
+review, incomplete sets, equipment not in any set), the sets with their progress, and what is out per rental house.
 *All projects* shows the workspace overview.
 
 ### Serial numbers and quantities
 
 A serial number makes an item an individual; without one, units of the same type are interchangeable. Lists
-(equipment, project, case contents, the *Pack items* picker) show such units once with their count. Packing,
+(equipment, project, set contents, the *Pack items* picker) show such units once with their count. Packing,
 taking out, or changing status or condition asks *how many*: the chosen units are split off as their own entry
-(linked to the original, history on both), the rest stays as it is. Cases can also be chosen on the item page.
+(linked to the original, history on both), the rest stays as it is. Sets can also be chosen on the item page.
 
 ### Removing equipment from a project
 
-**Remove** on a project (or *Remove from project* on a case) takes whole cases, single items or some units off the
+**Remove** on a project (or *Remove from project* on a set) takes whole sets, single items or some units off the
 project without a full return-note review. Choose *returned to the rental house* or *not on this project*; nothing
 is deleted and every item keeps its history. Optionally add a photo of the return note: it is stored as a
 return-note document and, once read, double-checks the removal: lines that match removed items are ticked,
@@ -172,6 +172,6 @@ Demo logins (password `camera-demo`): `alex@nordlicht.example` (owner), `mira@�
 
 Workspace "Nordlicht Camera Department":
 
-- **Feature Film X** (shooting): equipment from ARRI Rental, MBF Filmtechnik and Marek; four cases (A-Cam case 7/8); a partial return to MBF (including a bulk split of BNC cables); open missing/damage issues; one delivery note waiting for review.
+- **Feature Film X** (shooting): equipment from ARRI Rental, MBF Filmtechnik and Marek; four sets (A-Cam Set 7/8); a partial return to MBF (including a bulk split of BNC cables); open missing/damage issues; one delivery note waiting for review.
 - **Commercial — Nordic Coast** (closed): fully returned. Its ALEXA 35 (SN 35-10421) was reused on Feature Film X, with continuous history.
 - **Music Video — Night Drive** (planning): no rentals yet.

@@ -26,8 +26,8 @@ export function CaseProgress({ matched, expected, extra, size = "md" }: { matche
 export function CaseList({ cases, showProject, emptyAction }: { cases: CaseSummary[]; showProject?: boolean; emptyAction?: React.ReactNode }) {
   if (cases.length === 0) {
     return (
-      <EmptyState title="No cases yet" action={emptyAction}>
-        Cases group equipment for transport and checks. Create them from a template or start empty.
+      <EmptyState title="No sets yet" action={emptyAction}>
+        Sets group equipment for transport and checks. Create them from a template or start empty.
       </EmptyState>
     );
   }
@@ -37,7 +37,7 @@ export function CaseList({ cases, showProject, emptyAction }: { cases: CaseSumma
         const cmp = c.comparison;
         return (
           <li key={c.id}>
-            <Link href={`/cases/${c.id}`} className="block h-full rounded-xl border border-border bg-surface p-4 hover:border-ring/60">
+            <Link href={`/sets/${c.id}`} className="block h-full rounded-xl border border-border bg-surface p-4 hover:border-ring/60">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <div className="truncate font-semibold">{c.name}</div>

@@ -58,21 +58,21 @@ async function lockCase(tx: DbOrTx, ctx: Ctx, id: string) {
     .from(s.equipmentCase)
     .where(and(eq(s.equipmentCase.id, id), eq(s.equipmentCase.workspaceId, ctx.workspaceId)))
     .for("update");
-  if (!c) notFound("Case");
+  if (!c) notFound("Set");
   return c;
 }
 
 function assertOpen(c: { archivedAt: Date | null; name: string }) {
-  if (c.archivedAt) throw new DomainError("VALIDATION", `Case ${c.name} is archived.`);
+  if (c.archivedAt) throw new DomainError("VALIDATION", `Set ${c.name} is archived.`);
 }
 
 function caseNameConflict(err: unknown, name: string): never {
   const pg = pgErrorOf(err);
   if (pg?.code === "23505" && pg.constraint_name === "equipment_case_name_uq") {
-    throw new DomainError("CONFLICT", `This project already has a case named “${name}”.`);
+    throw new DomainError("CONFLICT", `This project already has a set named “${name}”.`);
   }
   if (pg?.code === "23505" && pg.constraint_name === "equipment_case_barcode_uq") {
-    throw new DomainError("CONFLICT", "Another case already uses this barcode.");
+    throw new DomainError("CONFLICT", "Another set already uses this barcode.");
   }
   if (pg?.code === "23505" && pg.constraint_name === "case_template_name_uq") {
     throw new DomainError("CONFLICT", `A template named “${name}” already exists.`);
@@ -159,7 +159,7 @@ export async function getCaseDetail(db: DbOrTx, ctx: Ctx, id: string) {
     .innerJoin(s.project, eq(s.project.id, s.equipmentCase.projectId))
     .leftJoin(s.caseTemplate, eq(s.caseTemplate.id, s.equipmentCase.templateId))
     .where(and(eq(s.equipmentCase.id, id), eq(s.equipmentCase.workspaceId, ctx.workspaceId)));
-  if (!row) notFound("Case");
+  if (!row) notFound("Set");
   const [lines, items, closure] = await Promise.all([
     db
       .select({
@@ -224,7 +224,7 @@ export async function listPackCandidates(db: DbOrTx, ctx: Ctx, caseId: string, q
     .select({ projectId: s.equipmentCase.projectId })
     .from(s.equipmentCase)
     .where(and(eq(s.equipmentCase.id, caseId), eq(s.equipmentCase.workspaceId, ctx.workspaceId)));
-  if (!c) notFound("Case");
+  if (!c) notFound("Set");
   const query = q?.trim();
   return db
     .select({
@@ -297,7 +297,7 @@ export async function createCase(db: DbOrTx, ctx: Ctx, input: z.input<typeof cre
           .select()
           .from(s.caseTemplate)
           .where(and(eq(s.caseTemplate.id, data.templateId), eq(s.caseTemplate.workspaceId, ctx.workspaceId), isNull(s.caseTemplate.archivedAt)));
-        if (!tpl) notFound("Case template");
+        if (!tpl) notFound("Set template");
         templateName = tpl.name;
         templateItems = await tx.select().from(s.caseTemplateItem).where(eq(s.caseTemplateItem.templateId, tpl.id)).orderBy(asc(s.caseTemplateItem.sortOrder));
       }
@@ -333,7 +333,7 @@ export async function createCase(db: DbOrTx, ctx: Ctx, input: z.input<typeof cre
         entityId: c!.id,
         caseId: c!.id,
         projectId: project.id,
-        summary: `Case ${c!.name} created${templateName ? ` from template “${templateName}”` : ""}`,
+        summary: `Set ${c!.name} created${templateName ? ` from template “${templateName}”` : ""}`,
         metadata: templateName ? { templateId: data.templateId, expectedLines: templateItems.length } : null,
       });
       return c!;
@@ -370,7 +370,7 @@ export async function updateCase(db: DbOrTx, ctx: Ctx, id: string, input: z.inpu
         entityId: id,
         caseId: id,
         projectId: prev.projectId,
-        summary: `Case ${c!.name} updated`,
+        summary: `Set ${c!.name} updated`,
         changes,
       });
       return c!;
@@ -387,7 +387,7 @@ export async function archiveCase(db: DbOrTx, ctx: Ctx, id: string) {
     const c = await lockCase(tx, ctx, id);
     if (c.archivedAt) return c;
     const [{ n }] = (await tx.execute<{ n: number }>(sql`SELECT count(*)::int AS n FROM equipment_item WHERE case_id = ${id}`)) as unknown as [{ n: number }];
-    if (n > 0) throw new DomainError("VALIDATION", `Case ${c.name} still contains ${n} item${n === 1 ? "" : "s"}. Unpack them first.`);
+    if (n > 0) throw new DomainError("VALIDATION", `Set ${c.name} still contains ${n} item${n === 1 ? "" : "s"}. Unpack them first.`);
     const [updated] = await tx.update(s.equipmentCase).set({ archivedAt: new Date() }).where(eq(s.equipmentCase.id, id)).returning();
     await recordEvent(tx, ctx, {
       action: "case.archived",
@@ -395,7 +395,7 @@ export async function archiveCase(db: DbOrTx, ctx: Ctx, id: string) {
       entityId: id,
       caseId: id,
       projectId: c.projectId,
-      summary: `Case ${c.name} archived`,
+      summary: `Set ${c.name} archived`,
     });
     return updated!;
   });
@@ -507,7 +507,7 @@ export async function packItem(db: DbOrTx, ctx: Ctx, caseId: string, itemId: str
     if (item.projectId !== c.projectId) {
       throw new DomainError(
         "VALIDATION",
-        item.projectId ? `${item.label} is on another project and cannot go into this case.` : `${item.label} is not on this project. Add it to the project first.`,
+        item.projectId ? `${item.label} is on another project and cannot go into this set.` : `${item.label} is not on this project. Add it to the project first.`,
         { itemId },
       );
     }
@@ -603,7 +603,7 @@ export async function unpackItem(db: DbOrTx, ctx: Ctx, itemId: string, opts: { u
     const locked = await lockItem(tx, ctx, itemId);
     if (!locked.caseId) return locked;
     const c = await lockCase(tx, ctx, locked.caseId);
-    const item = opts.units !== undefined && opts.units < locked.quantity ? await splitBulkItem(tx, ctx, locked, opts.units, { reason: "taken out of case" }) : locked;
+    const item = opts.units !== undefined && opts.units < locked.quantity ? await splitBulkItem(tx, ctx, locked, opts.units, { reason: "taken out of set" }) : locked;
     itemId = item.id;
     await tx
       .update(s.equipmentItem)
@@ -690,7 +690,7 @@ export async function getTemplate(db: DbOrTx, ctx: Ctx, id: string) {
     .select()
     .from(s.caseTemplate)
     .where(and(eq(s.caseTemplate.id, id), eq(s.caseTemplate.workspaceId, ctx.workspaceId)));
-  if (!tpl) notFound("Case template");
+  if (!tpl) notFound("Set template");
   const lines = await db
     .select({ line: s.caseTemplateItem, typeName: s.equipmentType.name, categoryName: s.category.name })
     .from(s.caseTemplateItem)
@@ -711,7 +711,7 @@ export async function createTemplate(db: DbOrTx, ctx: Ctx, input: z.input<typeof
         action: "case_template.created",
         entityType: "case_template",
         entityId: tpl!.id,
-        summary: `Case template “${tpl!.name}” created`,
+        summary: `Set template “${tpl!.name}” created`,
       });
       return tpl!;
     });
@@ -728,7 +728,7 @@ export async function createTemplateFromCase(db: DbOrTx, ctx: Ctx, caseId: strin
     return await db.transaction(async (tx) => {
       const c = await lockCase(tx, ctx, caseId);
       const lines = await tx.select().from(s.caseExpectedItem).where(eq(s.caseExpectedItem.caseId, caseId)).orderBy(asc(s.caseExpectedItem.sortOrder));
-      if (lines.length === 0) throw new DomainError("VALIDATION", "This case has no expected contents to save.");
+      if (lines.length === 0) throw new DomainError("VALIDATION", "This set has no expected contents to save.");
       const [tpl] = await tx.insert(s.caseTemplate).values({ workspaceId: ctx.workspaceId, ...data }).returning();
       await tx.insert(s.caseTemplateItem).values(
         lines.map((l) => ({
@@ -747,7 +747,7 @@ export async function createTemplateFromCase(db: DbOrTx, ctx: Ctx, caseId: strin
         entityId: tpl!.id,
         caseId,
         projectId: c.projectId,
-        summary: `Case template “${tpl!.name}” saved from case ${c.name}`,
+        summary: `Set template “${tpl!.name}” saved from set ${c.name}`,
       });
       return tpl!;
     });
@@ -762,7 +762,7 @@ async function lockTemplate(tx: DbOrTx, ctx: Ctx, id: string) {
     .from(s.caseTemplate)
     .where(and(eq(s.caseTemplate.id, id), eq(s.caseTemplate.workspaceId, ctx.workspaceId)))
     .for("update");
-  if (!tpl) notFound("Case template");
+  if (!tpl) notFound("Set template");
   if (tpl.archivedAt) throw new DomainError("VALIDATION", "This template is archived.");
   return tpl;
 }
@@ -779,7 +779,7 @@ export async function updateTemplate(db: DbOrTx, ctx: Ctx, id: string, input: z.
           action: "case_template.updated",
           entityType: "case_template",
           entityId: id,
-          summary: `Case template “${tpl!.name}” updated`,
+          summary: `Set template “${tpl!.name}” updated`,
           changes: prev.name !== tpl!.name ? { name: { from: prev.name, to: tpl!.name } } : null,
         });
       }
@@ -799,7 +799,7 @@ export async function archiveTemplate(db: DbOrTx, ctx: Ctx, id: string) {
       action: "case_template.archived",
       entityType: "case_template",
       entityId: id,
-      summary: `Case template “${tpl.name}” archived (existing cases keep their contents)`,
+      summary: `Set template “${tpl.name}” archived (existing sets keep their contents)`,
     });
   });
 }

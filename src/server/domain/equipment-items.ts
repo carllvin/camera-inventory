@@ -650,7 +650,7 @@ export async function removeFromProject(db: DbOrTx, ctx: Ctx, id: string, input:
         equipmentItemId: id,
         caseId: prev.caseId,
         projectId,
-        summary: `${prev.label} taken out of its case`,
+        summary: `${prev.label} taken out of its set`,
         changes: { case_id: { from: prev.caseId, to: null } },
       });
     }

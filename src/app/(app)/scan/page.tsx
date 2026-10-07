@@ -11,7 +11,7 @@ export default async function ScanPage() {
   const ctx = await getCtx();
   return (
     <>
-      <PageHeader title="Scan" subtitle="Open equipment or a case by its QR code, barcode, serial or asset number" />
+      <PageHeader title="Scan" subtitle="Open equipment or a set by its QR code, barcode, serial or asset number" />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,32rem)_1fr]">
         <Card className="p-4">
           <Scanner />

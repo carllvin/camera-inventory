@@ -13,7 +13,7 @@ function MoveConfirm() {
   if (!state?.details?.needsMoveConfirmation) return null;
   return (
     <button type="submit" name="allowMove" value="1" className={`${buttonVariants.primary} w-full`}>
-      Move it here from {String(state.details.fromCaseName ?? "the other case")}
+      Move it here from {String(state.details.fromCaseName ?? "the other set")}
     </button>
   );
 }

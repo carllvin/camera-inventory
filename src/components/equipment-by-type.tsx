@@ -77,7 +77,7 @@ export function EquipmentByType({ items, open = false, showProject = false, acti
                   <div className="truncate text-sm font-medium">{g.typeName}</div>
                   <div className="flex flex-wrap gap-x-2 text-xs text-muted">
                     {g.categoryName && <span>{g.categoryName}</span>}
-                    {cases.length > 0 && <span>▣ {cases.length === 1 ? cases[0] : `${cases.length} cases`}</span>}
+                    {cases.length > 0 && <span>▣ {cases.length === 1 ? cases[0] : `${cases.length} sets`}</span>}
                     {statuses.map((s) => (
                       <span key={s.status} className={s.status === "missing" ? "font-medium text-danger" : "text-text"}>
                         {s.label}

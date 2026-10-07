@@ -6,7 +6,7 @@ import { getDb } from "@/server/db/client";
 import { listTemplates } from "@/server/domain/cases";
 import { hasRole } from "@/server/domain/context";
 
-export const metadata = { title: "Case templates" };
+export const metadata = { title: "Set templates" };
 
 export default async function TemplatesPage() {
   const ctx = await getCtx();
@@ -15,18 +15,18 @@ export default async function TemplatesPage() {
   return (
     <>
       <PageHeader
-        title="Cases"
+        title="Sets"
         subtitle="Templates are reusable packing lists for any project"
-        actions={canEdit && <LinkButton href="/cases/templates/new" variant="primary"><Plus className="size-4" /> New template</LinkButton>}
+        actions={canEdit && <LinkButton href="/sets/templates/new" variant="primary"><Plus className="size-4" /> New template</LinkButton>}
       />
-      <Tabs active="templates" tabs={[{ key: "cases", href: "/cases", label: "Cases" }, { key: "templates", href: "/cases/templates", label: "Templates" }]} />
+      <Tabs active="templates" tabs={[{ key: "cases", href: "/sets", label: "Sets" }, { key: "templates", href: "/sets/templates", label: "Templates" }]} />
       {templates.length === 0 ? (
-        <EmptyState title="No templates yet">Create one here, or save an existing case as a template.</EmptyState>
+        <EmptyState title="No templates yet">Create one here, or save an existing set as a template.</EmptyState>
       ) : (
         <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
           {templates.map((t) => (
             <li key={t.id}>
-              <Link href={`/cases/templates/${t.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-2">
+              <Link href={`/sets/templates/${t.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-2">
                 <div className="min-w-0 flex-1">
                   <div className="font-medium">{t.name}</div>
                   {t.description && <div className="truncate text-xs text-muted">{t.description}</div>}

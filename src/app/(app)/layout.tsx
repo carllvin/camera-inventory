@@ -34,7 +34,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
               <input
                 type="search"
                 name="q"
-                placeholder="Search equipment, serials, cases, projects…"
+                placeholder="Search equipment, serials, sets, projects…"
                 aria-label="Search"
                 className="input h-9 rounded-full !py-1 pl-9 text-sm"
               />

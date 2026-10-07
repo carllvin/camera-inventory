@@ -83,8 +83,8 @@ export async function updateItemStateAction(id: string, _: ActionState, fd: Form
   return runAction(fd, async () => {
     const r = await updateItemState(getDb(), await getCtx(), id, fromForm(fd));
     refresh(id, r.item.projectId);
-    if (r.item.caseId) revalidatePath(`/cases/${r.item.caseId}`);
-    revalidatePath("/cases", "layout");
+    if (r.item.caseId) revalidatePath(`/sets/${r.item.caseId}`);
+    revalidatePath("/sets", "layout");
     if (r.changed.length === 0) return "Nothing changed.";
     const what = r.changed.join(" and ").replace(/^(\w)/, (c) => c.toUpperCase());
     return r.split ? `${what} saved for ${r.item.label} — listed separately now.` : `${what} saved.`;

@@ -32,7 +32,7 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
       <div className="min-w-0 space-y-6">
         {cases.length > 0 && (
           <Card>
-            <CardHeader title="Whole cases" />
+            <CardHeader title="Whole sets" />
             <ul className="divide-y divide-border">
               {cases.map((c) => (
                 <li key={c.id}>
@@ -44,7 +44,7 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
                 </li>
               ))}
             </ul>
-            <p className="border-t border-border px-4 py-2 text-xs text-muted">A case goes with everything in it and is archived (its history stays).</p>
+            <p className="border-t border-border px-4 py-2 text-xs text-muted">A set goes with everything in it and is archived (its history stays).</p>
           </Card>
         )}
         <Card>

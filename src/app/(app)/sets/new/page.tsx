@@ -9,7 +9,7 @@ import { UUID_RE } from "@/server/pages";
 import { createCaseAction } from "../actions";
 import { CaseFields } from "../case-fields";
 
-export const metadata = { title: "New case" };
+export const metadata = { title: "New set" };
 
 export default async function NewCasePage({ searchParams }: { searchParams: Promise<{ projectId?: string; templateId?: string }> }) {
   const sp = await searchParams;
@@ -20,7 +20,7 @@ export default async function NewCasePage({ searchParams }: { searchParams: Prom
   const projectId = sp.projectId && UUID_RE.test(sp.projectId) ? sp.projectId : projects.length === 1 ? projects[0]!.id : undefined;
   return (
     <>
-      <PageHeader title="New case" back={projectId ? { href: `/projects/${projectId}/cases`, label: "Project cases" } : { href: "/cases", label: "Cases" }} />
+      <PageHeader title="New set" back={projectId ? { href: `/projects/${projectId}/sets`, label: "Project sets" } : { href: "/sets", label: "Sets" }} />
       <Card className="max-w-2xl p-5">
         <ActionForm action={createCaseAction} className="space-y-5">
           <div className="grid gap-4 sm:grid-cols-2">
@@ -35,7 +35,7 @@ export default async function NewCasePage({ searchParams }: { searchParams: Prom
             />
           </div>
           <CaseFields />
-          <SubmitButton>Create case</SubmitButton>
+          <SubmitButton>Create set</SubmitButton>
         </ActionForm>
       </Card>
     </>

@@ -76,14 +76,14 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
                   value: d.rentalHouse?.id ? <Link className="hover:underline" href={`/settings/rental-houses/${d.rentalHouse.id}`}>{d.rentalHouse.name}</Link> : "Owned (not rented)",
                 },
                 { label: "Project", value: d.project?.id ? <Link className="hover:underline" href={`/projects/${d.project.id}`}>{d.project.name}</Link> : "Not on a project" },
-                { label: "Case", value: d.case?.id ? <Link className="hover:underline" href={`/cases/${d.case.id}`}>{d.case.name}{d.case.code ? ` (${d.case.code})` : ""}</Link> : null },
+                { label: "Set", value: d.case?.id ? <Link className="hover:underline" href={`/sets/${d.case.id}`}>{d.case.name}{d.case.code ? ` (${d.case.code})` : ""}</Link> : null },
                 { label: "Tracking", value: item.trackingMode === "bulk" ? `Bulk · ${item.quantity} units` : "Individually tracked" },
               ]}
             />
           </Card>
 
           {canEdit && (
-            <Card className="p-4" aria-label="Status, condition and case">
+            <Card className="p-4" aria-label="Status, condition and set">
               <ItemActions
                 itemId={item.id}
                 version={item.version}

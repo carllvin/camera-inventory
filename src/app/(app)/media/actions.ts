@@ -17,7 +17,7 @@ function toSubject(t: PhotoTarget): PhotoSubject {
 }
 
 function pathFor(t: PhotoTarget) {
-  return t.kind === "case" ? `/cases/${t.id}` : t.kind === "item" ? `/equipment/${t.id}` : `/equipment/types/${t.id}`;
+  return t.kind === "case" ? `/sets/${t.id}` : t.kind === "item" ? `/equipment/${t.id}` : `/equipment/types/${t.id}`;
 }
 
 export async function uploadPhotosAction(target: PhotoTarget, _: ActionState, fd: FormData): Promise<ActionState> {

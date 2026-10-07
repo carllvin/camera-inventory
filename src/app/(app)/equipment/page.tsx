@@ -79,10 +79,10 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         ]}
       />
       {cases.length > 0 && (
-        <section aria-label="Cases" className="mb-4">
-          <h2 className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Cases</h2>
+        <section aria-label="Sets" className="mb-4">
+          <h2 className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Sets</h2>
           <ul className="flex gap-2 overflow-x-auto pb-1">
-            {[...cases.map((c) => ({ id: c.id, name: c.name, units: c.comparison.matchedTotal + c.comparison.extraTotal, cmp: c.comparison })), { id: "none", name: "Not in a case", units: null, cmp: null }].map((c) => {
+            {[...cases.map((c) => ({ id: c.id, name: c.name, units: c.comparison.matchedTotal + c.comparison.extraTotal, cmp: c.comparison })), { id: "none", name: "Not in a set", units: null, cmp: null }].map((c) => {
               const active = sp.caseId === c.id;
               return (
                 <li key={c.id} className="shrink-0">

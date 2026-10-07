@@ -53,10 +53,10 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
         />
         <FilterSelect
           name="caseId"
-          label="Case"
-          allLabel="Any case"
+          label="Set"
+          allLabel="Any set"
           value={sp.caseId}
-          options={[{ value: "none", label: "Not in a case" }, ...cases.map((c) => ({ value: c.id, label: c.name }))]}
+          options={[{ value: "none", label: "Not in a set" }, ...cases.map((c) => ({ value: c.id, label: c.name }))]}
         />
       </FilterBar>
       {items.length === 0 ? (

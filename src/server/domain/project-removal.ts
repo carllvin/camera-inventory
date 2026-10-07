@@ -39,7 +39,7 @@ export async function removeEquipment(db: DbOrTx, ctx: Ctx, input: z.input<typeo
   const picked = new Map<string, number | undefined>();
   for (const i of selection.items ?? []) picked.set(i.id, i.units);
   const groups = (selection.groups ?? []).filter((g) => g.itemIds.length > 0 && g.units > 0);
-  if (picked.size === 0 && caseIds.length === 0 && groups.length === 0) throw new DomainError("VALIDATION", "Choose the cases or items to remove.");
+  if (picked.size === 0 && caseIds.length === 0 && groups.length === 0) throw new DomainError("VALIDATION", "Choose the sets or items to remove.");
   const correlationId = randomUUID();
 
   return db.transaction(async (tx) => {
@@ -57,7 +57,7 @@ export async function removeEquipment(db: DbOrTx, ctx: Ctx, input: z.input<typeo
           .where(and(inArray(s.equipmentCase.id, caseIds), eq(s.equipmentCase.workspaceId, ctx.workspaceId)))
           .for("update")
       : [];
-    if (cases.length !== caseIds.length || cases.some((c) => c.projectId !== project.id)) throw new DomainError("VALIDATION", "A chosen case is not on this project.");
+    if (cases.length !== caseIds.length || cases.some((c) => c.projectId !== project.id)) throw new DomainError("VALIDATION", "A chosen set is not on this project.");
     if (cases.length) {
       const inCases = await tx
         .select({ id: s.equipmentItem.id })
@@ -107,7 +107,7 @@ export async function removeEquipment(db: DbOrTx, ctx: Ctx, input: z.input<typeo
           equipmentItemId: item.id,
           caseId: item.caseId,
           projectId: project.id,
-          summary: `${item.label} taken out of its case`,
+          summary: `${item.label} taken out of its set`,
           changes: { case_id: { from: item.caseId, to: null } },
           correlationId,
         });
@@ -144,7 +144,7 @@ export async function removeEquipment(db: DbOrTx, ctx: Ctx, input: z.input<typeo
         entityId: c.id,
         caseId: c.id,
         projectId: project.id,
-        summary: `Case ${c.name} removed from ${project.name} with its contents`,
+        summary: `Set ${c.name} removed from ${project.name} with its contents`,
         metadata: { note: data.note, reason: data.reason },
         correlationId,
       });

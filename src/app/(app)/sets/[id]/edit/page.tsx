@@ -16,7 +16,7 @@ export default async function EditCasePage({ params }: { params: Promise<{ id: s
   const d = await orNotFound(getCaseDetail(getDb(), ctx, id));
   return (
     <>
-      <PageHeader title={`Edit ${d.case.name}`} back={{ href: `/cases/${id}`, label: d.case.name }} />
+      <PageHeader title={`Edit ${d.case.name}`} back={{ href: `/sets/${id}`, label: d.case.name }} />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <Card className="p-5">
           <ActionForm action={updateCaseAction.bind(null, id)} className="space-y-5">
@@ -34,12 +34,12 @@ export default async function EditCasePage({ params }: { params: Promise<{ id: s
             </ActionForm>
           </Card>
           <Card>
-            <CardHeader title="Archive case" />
+            <CardHeader title="Archive set" />
             <ActionForm action={archiveCaseAction.bind(null, id)} className="space-y-3 p-4">
               <p className="text-sm text-muted">
                 {d.items.length > 0
-                  ? `Take out all ${d.items.length} items first. Archived cases keep their history.`
-                  : "The case disappears from lists. Its history is kept."}
+                  ? `Take out all ${d.items.length} items first. Archived sets keep their history.`
+                  : "The set disappears from lists. Its history is kept."}
               </p>
               <SubmitButton variant="danger" disabled={d.items.length > 0}>
                 Archive

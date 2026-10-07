@@ -80,7 +80,7 @@ export async function removeEquipmentAction(projectId: string, _: ActionState, f
     }
     revalidatePath(`/projects/${projectId}`, "layout");
     revalidatePath("/equipment");
-    revalidatePath("/cases", "layout");
+    revalidatePath("/sets", "layout");
     if (note) {
       if (note.startExtraction) after(() => runExtraction(getDb(), getStorage(), extractor, ctx.workspaceId, note.document.id));
       redirect(`/documents/${note.document.id}`);

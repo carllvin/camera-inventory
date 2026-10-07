@@ -10,49 +10,49 @@ async function login(page: Page) {
   await expect(page).not.toHaveURL(/\/login/);
 }
 
-test("demo A-Cam case shows 7 / 8 with the missing battery and suggests spares", async ({ page }) => {
+test("demo A-Cam set shows 7 / 8 with the missing battery and suggests spares", async ({ page }) => {
   await login(page);
-  await go(page, "/cases");
-  await page.getByRole("link", { name: /A-Cam Case/ }).first().click();
-  await expect(page.getByText("1 expected item not in case")).toBeVisible();
+  await go(page, "/sets");
+  await page.getByRole("link", { name: /A-Cam Set/ }).first().click();
+  await expect(page.getByText("1 expected item not in set")).toBeVisible();
   await expect(page.getByText("1 / 2")).toBeVisible();
   // Spare batteries on the project are flagged as needed.
   await expect(page.getByText("needed").first()).toBeVisible();
 });
 
-test("create a case from a template, pack by code, confirm a move, take out, add photo", async ({ page }, info) => {
-  const name = `E2E Case ${info.project.name}-${Date.now().toString(36)}`;
+test("create a set from a template, pack by code, confirm a move, take out, add photo", async ({ page }, info) => {
+  const name = `E2E Set ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await go(page, "/cases/new");
+  await go(page, "/sets/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
-  await page.getByLabel("Template").selectOption({ label: "A-Cam Case (8 items)" });
+  await page.getByLabel("Template").selectOption({ label: "A-Cam Set (8 items)" });
   await page.getByLabel("Name").fill(name);
-  await page.getByRole("button", { name: "Create case" }).click();
+  await page.getByRole("button", { name: "Create set" }).click();
   await expect(page.getByRole("heading", { name })).toBeVisible();
   await expect(page.getByText("0 / 8").first()).toBeVisible();
 
-  // ALEXA 35 SN 35-10577 is in the B-Cam case: packing asks before moving.
+  // ALEXA 35 SN 35-10577 is in the B-Cam set: packing asks before moving.
   await page.getByLabel("Code to pack").fill("ARRI-0057");
   await page.getByRole("button", { name: "Pack code" }).click();
-  await expect(page.getByRole("alert").filter({ hasText: "packed in B-Cam Case" })).toBeVisible();
-  await page.getByRole("button", { name: /Move it here from B-Cam Case/ }).click();
+  await expect(page.getByRole("alert").filter({ hasText: "packed in B-Cam Set" })).toBeVisible();
+  await page.getByRole("button", { name: /Move it here from B-Cam Set/ }).click();
   await expect(page.getByText(/moved here/)).toBeVisible();
   await expect(page.getByText("1 / 8").first()).toBeVisible();
 
   // Take it out again and put it back where it came from.
   await page.getByRole("button", { name: "Take out" }).first().click();
   await expect(page.getByText("0 / 8").first()).toBeVisible();
-  await go(page, "/cases");
-  await page.getByRole("link", { name: /B-Cam Case/ }).first().click();
+  await go(page, "/sets");
+  await page.getByRole("link", { name: /B-Cam Set/ }).first().click();
   await page.getByLabel("Code to pack").fill("35-10577");
   await page.getByRole("button", { name: "Pack code" }).click();
   await expect(page.getByText(/packed\./)).toBeVisible();
-  await go(page, "/cases");
+  await go(page, "/sets");
   await page.getByRole("link", { name }).click();
 
   // Photo upload (the server normalizes and thumbnails it).
   const jpeg = await sharp({ create: { width: 640, height: 480, channels: 3, background: "#336699" } }).jpeg().toBuffer();
-  await page.locator('input[type="file"]').setInputFiles({ name: "case.jpg", mimeType: "image/jpeg", buffer: jpeg });
+  await page.locator('input[type="file"]').setInputFiles({ name: "set.jpg", mimeType: "image/jpeg", buffer: jpeg });
   await page.getByLabel("Photo caption").fill("Packed for travel");
   await page.getByRole("button", { name: "Upload" }).click();
   await expect(page.getByText("Photo added.")).toBeVisible();
@@ -64,19 +64,19 @@ test("create a case from a template, pack by code, confirm a move, take out, add
   expect(res.status()).toBe(200);
   expect(res.headers()["content-type"]).toBe("image/webp");
 
-  // History records everything on the case.
+  // History records everything on the set.
   await expect(page.getByText(/taken out of/).first()).toBeVisible();
-  await expect(page.getByText("Photo added to Case").first()).toBeVisible();
+  await expect(page.getByText("Photo added to Set").first()).toBeVisible();
 });
 
-test("edit expected contents and save the case as a template", async ({ page }, info) => {
+test("edit expected contents and save the set as a template", async ({ page }, info) => {
   const name = `E2E Empty ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await go(page, "/cases/new");
+  await go(page, "/sets/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Name").fill(name);
-  await page.getByRole("button", { name: "Create case" }).click();
-  await page.getByRole("link", { name: "Define what belongs in this case" }).click();
+  await page.getByRole("button", { name: "Create set" }).click();
+  await page.getByRole("link", { name: "Define what belongs in this set" }).click();
   await page.getByLabel("Quantity", { exact: true }).fill("2");
   await pickType(page.getByLabel("Equipment type or category"), "cine 7", "SmallHD Cine 7");
   await page.getByRole("button", { name: "Add", exact: true }).click();
@@ -94,10 +94,10 @@ test("edit expected contents and save the case as a template", async ({ page }, 
 test("no page scrolls sideways on a phone", async ({ page }, info) => {
   test.skip(info.project.name !== "mobile", "phone layout only");
   await login(page);
-  const paths = ["/", "/projects", "/equipment", "/equipment/types", "/cases", "/cases/templates", "/scan", "/search?q=alexa", "/history", "/settings", "/settings/categories"];
+  const paths = ["/", "/projects", "/equipment", "/equipment/types", "/sets", "/sets/templates", "/scan", "/search?q=alexa", "/history", "/settings", "/settings/categories"];
   // Add detail pages reached through links.
-  await go(page, "/cases");
-  paths.push((await page.getByRole("link", { name: /A-Cam Case/ }).first().getAttribute("href"))!);
+  await go(page, "/sets");
+  paths.push((await page.getByRole("link", { name: /A-Cam Set/ }).first().getAttribute("href"))!);
   await go(page, "/projects");
   const project = (await page.getByRole("link", { name: /Feature Film X/ }).first().getAttribute("href"))!;
   paths.push(project, `${project}/add-equipment`, `${project}/rental-houses`);
@@ -110,7 +110,7 @@ test("no page scrolls sideways on a phone", async ({ page }, info) => {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, `horizontal overflow on ${p}`).toBeLessThanOrEqual(0);
   }
-  const casePath = paths.find((p) => p.startsWith("/cases/") && !p.includes("templates"))!;
+  const casePath = paths.find((p) => p.startsWith("/sets/") && !p.includes("templates"))!;
   await go(page, `${casePath}?edit=1`);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 });
@@ -118,10 +118,10 @@ test("no page scrolls sideways on a phone", async ({ page }, info) => {
 test("items without serial show once with a count and pack by quantity", async ({ page }, info) => {
   const name = `E2E Bags ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await go(page, "/cases/new");
+  await go(page, "/sets/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Name").fill(name);
-  await page.getByRole("button", { name: "Create case" }).click();
+  await page.getByRole("button", { name: "Create set" }).click();
   await expect(page.getByRole("heading", { name })).toBeVisible();
 
   // The checklist: one row for all sandbags without serial, ticked with a count.
@@ -130,18 +130,18 @@ test("items without serial show once with a count and pack by quantity", async (
   const before = Number((await free.getByText(/pcs · no serial/).textContent())!.match(/\d+/)![0]);
   await free.getByRole("checkbox").check();
   await free.getByLabel(/How many/).fill("2");
-  await page.getByRole("button", { name: "Add 2 to this case" }).click();
-  await expect(page.getByRole("heading", { name: "In this case (2)" })).toBeVisible();
+  await page.getByRole("button", { name: "Add 2 to this set" }).click();
+  await expect(page.getByRole("heading", { name: "In this set (2)" })).toBeVisible();
   await expect(free.getByText(`${before - 2} pcs · no serial`)).toBeVisible();
 
-  // Take one out: the rest stays in the case.
+  // Take one out: the rest stays in the set.
   const packed = page.locator("li").filter({ hasText: "Sandbag" }).filter({ has: page.getByLabel(/How many/) }).filter({ has: page.getByRole("button", { name: "Take out" }) });
   await packed.getByLabel(/How many/).fill("1");
   await packed.getByRole("button", { name: "Take out" }).click();
-  await expect(page.getByRole("heading", { name: "In this case (1)" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "In this set (1)" })).toBeVisible();
   // A single unit left: plain button (the extras list has another one).
   await page.locator("li").filter({ hasText: "Sandbag" }).getByRole("button", { name: "Take out" }).last().click();
-  await expect(page.getByRole("heading", { name: "In this case (0)" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "In this set (0)" })).toBeVisible();
   await expect(free.getByText(`${before} pcs · no serial`)).toBeVisible();
 });
 
@@ -211,34 +211,34 @@ test("project equipment: tick entries in a type line to start removing them", as
   await expect(page.locator("li").filter({ hasText: "Sandbag" }).first().getByRole("checkbox")).toBeChecked();
 });
 
-test("case page: tick several things in the checklist and add them in one go", async ({ page }, info) => {
+test("set page: tick several things in the checklist and add them in one go", async ({ page }, info) => {
   const name = `E2E Tick ${info.project.name}-${Date.now().toString(36)}`;
   await login(page);
-  await go(page, "/cases/new");
+  await go(page, "/sets/new");
   await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
   await page.getByLabel("Name").fill(name);
-  await page.getByRole("button", { name: "Create case" }).click();
+  await page.getByRole("button", { name: "Create set" }).click();
   await expect(page.getByRole("heading", { name })).toBeVisible();
 
   const rowFor = (text: string) => page.locator("li").filter({ hasText: text }).filter({ has: page.getByRole("checkbox") });
   await rowFor("SN WCU-4471").getByRole("checkbox").check();
   await rowFor("SN 2575-18832").getByRole("checkbox").check();
-  await page.getByRole("button", { name: "Add 2 to this case" }).click();
+  await page.getByRole("button", { name: "Add 2 to this set" }).click();
   await expect(page.getByText("2 pieces added.")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "In this case (2)" })).toBeVisible();
-  // Put them back where they were (not in a case).
+  await expect(page.getByRole("heading", { name: "In this set (2)" })).toBeVisible();
+  // Put them back where they were (not in a set).
   for (const left of [1, 0]) {
     await page.locator("li").filter({ has: page.getByRole("button", { name: "Take out" }) }).first().getByRole("button", { name: "Take out" }).click();
-    await expect(page.getByRole("heading", { name: `In this case (${left})` })).toBeVisible();
+    await expect(page.getByRole("heading", { name: `In this set (${left})` })).toBeVisible();
   }
 });
 
-test("equipment list: case cards instead of a case column", async ({ page }) => {
+test("equipment list: set cards instead of a set column", async ({ page }) => {
   await login(page);
   await go(page, "/equipment");
-  const cards = page.getByRole("region", { name: "Cases" });
-  await cards.getByRole("link", { name: /A-Cam Case/ }).click();
+  const cards = page.getByRole("region", { name: "Sets" });
+  await cards.getByRole("link", { name: /A-Cam Set/ }).click();
   await expect(page).toHaveURL(/caseId=/);
   await expect(page.getByRole("main").getByText("SN 35-10421").locator("visible=true").first()).toBeVisible();
-  await expect(page.getByRole("main").getByText("SN 35-10577")).toHaveCount(0); // that one is in the B-Cam case
+  await expect(page.getByRole("main").getByText("SN 35-10577")).toHaveCount(0); // that one is in the B-Cam set
 });

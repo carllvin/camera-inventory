@@ -23,8 +23,8 @@ async function resolveSubject(db: DbOrTx, ctx: Ctx, subject: PhotoSubject) {
       .select({ id: s.equipmentCase.id, name: s.equipmentCase.name, projectId: s.equipmentCase.projectId })
       .from(s.equipmentCase)
       .where(and(eq(s.equipmentCase.id, subject.caseId), eq(s.equipmentCase.workspaceId, ctx.workspaceId)));
-    if (!c) notFound("Case");
-    return { kind: "case" as const, label: `Case ${c.name}`, values: { caseId: c.id, projectId: c.projectId }, audit: { caseId: c.id, projectId: c.projectId } };
+    if (!c) notFound("Set");
+    return { kind: "case" as const, label: `Set ${c.name}`, values: { caseId: c.id, projectId: c.projectId }, audit: { caseId: c.id, projectId: c.projectId } };
   }
   if ("equipmentItemId" in subject) {
     const [i] = await db

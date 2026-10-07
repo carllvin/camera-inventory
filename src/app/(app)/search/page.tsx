@@ -10,7 +10,7 @@ export const metadata = { title: "Search" };
 const GROUPS: { kind: SearchHitKind; label: string; icon: typeof Camera }[] = [
   { kind: "item", label: "Equipment items", icon: Camera },
   { kind: "type", label: "Equipment types", icon: Tag },
-  { kind: "case", label: "Cases", icon: Box },
+  { kind: "case", label: "Sets", icon: Box },
   { kind: "project", label: "Projects", icon: Briefcase },
   { kind: "rental_house", label: "Rental houses", icon: Building2 },
   { kind: "document", label: "Documents", icon: FileText },
@@ -23,7 +23,7 @@ function href(h: SearchHit) {
     case "type":
       return `/equipment/types/${h.id}`;
     case "case":
-      return `/cases/${h.id}`;
+      return `/sets/${h.id}`;
     case "project":
       return `/projects/${h.id}`;
     case "rental_house":
@@ -38,7 +38,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const hits = q.trim().length >= 2 ? await globalSearch(getDb(), await getCtx(), q) : [];
   return (
     <>
-      <PageHeader title="Search" subtitle={q ? <>Results for “{q}”</> : "Find equipment, serial numbers, cases, projects, rental houses and documents"} />
+      <PageHeader title="Search" subtitle={q ? <>Results for “{q}”</> : "Find equipment, serial numbers, sets, projects, rental houses and documents"} />
       <form action="/search" className="mb-6 sm:hidden">
         <input type="search" name="q" defaultValue={q} placeholder="Search…" className="input" autoFocus />
       </form>

@@ -86,7 +86,7 @@ export default async function ProjectLayout({ children, params }: { children: Re
       <ClientTabs
         tabs={[
           { href: base, label: "Equipment", count: counts.items, exact: true },
-          { href: `${base}/cases`, label: "Cases", count: counts.cases },
+          { href: `${base}/sets`, label: "Sets", count: counts.cases },
           { href: `${base}/documents`, label: "Documents", count: counts.documents },
           { href: `${base}/issues`, label: "Issues", count: counts.open_issues },
           { href: `${base}/history`, label: "History" },

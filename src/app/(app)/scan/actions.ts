@@ -23,7 +23,7 @@ export async function lookupCodeAction(_: ActionState, fd: FormData): Promise<Ac
       .select({ id: s.equipmentCase.id })
       .from(s.equipmentCase)
       .where(and(eq(s.equipmentCase.workspaceId, ctx.workspaceId), eq(s.equipmentCase.barcode, code)));
-    if (c) redirect(`/cases/${c.id}`);
-    throw new DomainError("NOT_FOUND", `No equipment or case with code “${code}”.`, { code });
+    if (c) redirect(`/sets/${c.id}`);
+    throw new DomainError("NOT_FOUND", `No equipment or set with code “${code}”.`, { code });
   });
 }

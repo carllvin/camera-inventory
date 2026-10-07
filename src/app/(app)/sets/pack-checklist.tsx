@@ -96,7 +96,7 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
       </ul>
       <div className="sticky bottom-0 -mx-4 mt-2 border-t border-border bg-surface px-4 pt-3 pb-1">
         <SubmitButton className="w-full" disabled={total === 0} pendingText="Packing…">
-          {total === 0 ? "Tick what goes into this case" : `Add ${total} to this case`}
+          {total === 0 ? "Tick what goes into this set" : `Add ${total} to this set`}
         </SubmitButton>
         {moving > 0 && <p className="mt-1 text-center text-xs text-warn">{moving} ticked {moving === 1 ? "entry is" : "entries are"} moved from another case.</p>}
       </div>
