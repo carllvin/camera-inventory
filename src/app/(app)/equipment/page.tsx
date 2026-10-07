@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import { EquipmentBrowser, type BrowserParams } from "@/components/equipment-browser";
+import { bulkEquipmentAction } from "../projects/actions";
 import { Tabs, EmptyState, LinkButton, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
@@ -23,7 +24,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
   // The project chosen in the top bar scopes the list ("All projects" there shows everything).
   const { current } = await getCurrentProject();
   const projectId = current?.id;
-  const { view: _view, sort: _sort, ...filterParams } = sp;
+  const { view: _view, sort: _sort, select: _select, ...filterParams } = sp;
   const [items, { flat: categories }, rentalHouses, cases] = await Promise.all([
     listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, limit: LIMIT }),
     getCategoryTree(db, ctx),
@@ -61,6 +62,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         rentalHouses={rentalHouses}
         cases={cases}
         hasFilters={hasFilters}
+        bulkAction={projectId && hasRole(ctx, "member") ? bulkEquipmentAction.bind(null, projectId) : undefined}
         empty={
           <EmptyState title="No equipment yet" action={hasRole(ctx, "member") && <LinkButton href="/equipment/new" variant="primary">Add equipment</LinkButton>} />
         }

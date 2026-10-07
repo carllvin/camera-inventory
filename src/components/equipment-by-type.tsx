@@ -3,6 +3,7 @@ import { Camera, ChevronRight } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { STATUS_LABEL } from "@/lib/format";
 import { groupItems, Thumb } from "./equipment-table";
+import { EntryTick, TypeTick } from "./select-tools";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
 
 
@@ -85,7 +86,7 @@ function EntryBody({ e, showProject }: { e: Entry; showProject: boolean }) {
  * One line per equipment type with its quantity; opening it shows the single
  * entries (serials, asset numbers, case, owner, state, notes).
  */
-export function EquipmentByType({ items, open = false, showProject = false, sort }: { items: ItemRow[]; open?: boolean; showProject?: boolean; sort?: string }) {
+export function EquipmentByType({ items, open = false, showProject = false, sort, selectable = false }: { items: ItemRow[]; open?: boolean; showProject?: boolean; sort?: string; selectable?: boolean }) {
   const groups = sortGroups(byType(items), sort);
   return (
     <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
@@ -98,6 +99,7 @@ export function EquipmentByType({ items, open = false, showProject = false, sort
           <li key={g.typeId}>
             <details className="group" open={open || undefined}>
               <summary className="flex cursor-pointer list-none items-center gap-3 px-3 py-2 hover:bg-surface-2/60 [&::-webkit-details-marker]:hidden">
+                {selectable && <TypeTick typeId={g.typeId} label={g.typeName} />}
                 <Thumb photoId={g.imageId} name={g.typeName} />
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-sm font-medium">{g.typeName}</div>
@@ -119,7 +121,10 @@ export function EquipmentByType({ items, open = false, showProject = false, sort
               </summary>
               <ul className="divide-y divide-border border-t border-border bg-surface-2/40">
                 {entries.map((e) => (
-                  <li key={e.id} className="flex py-2 pr-3 pl-[4.25rem] hover:bg-surface-2">
+                  <li key={e.id} className={selectable ? "flex items-start gap-3 py-2 pr-3 pl-3 hover:bg-surface-2" : "flex py-2 pr-3 pl-[4.25rem] hover:bg-surface-2"}>
+                    {selectable && (
+                      <EntryTick entryKey={e.id} itemIds={e.itemIds} units={e.units} typeId={g.typeId} label={e.serialNumber ? `${g.typeName} SN ${e.serialNumber}` : g.typeName} />
+                    )}
                     <EntryBody e={e} showProject={showProject} />
                   </li>
                 ))}

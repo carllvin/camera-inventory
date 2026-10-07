@@ -247,3 +247,34 @@ test("equipment can be sorted, e.g. by quantity", async ({ page }) => {
   await page.getByLabel("Sort").selectOption("name");
   await expect(page.locator("summary").first()).toContainText("ARRI");
 });
+
+test("select mode: tick equipment and change it in one go", async ({ page }) => {
+  await login(page);
+  await go(page, "/equipment");
+  await page.getByRole("link", { name: "Select" }).click();
+  await expect(page).toHaveURL(/select=1/);
+  const bar = page.locator("form").filter({ has: page.getByLabel("Action") });
+
+  // A whole type at once: both top handles in use, then back.
+  await page.getByLabel("Select all ARRI Top Handle").check();
+  await expect(bar.getByText("2 selected")).toBeVisible();
+  await bar.getByLabel("Action").selectOption("status:in_use");
+  await bar.getByRole("button", { name: "Apply" }).click();
+  await expect(page.getByText("2 pieces updated (status).")).toBeVisible();
+  await expect(page.locator("summary").filter({ hasText: "ARRI Top Handle" })).toContainText("2 in use");
+  await page.getByLabel("Select all ARRI Top Handle").check();
+  await bar.getByLabel("Action").selectOption("status:on_project");
+  await bar.getByRole("button", { name: "Apply" }).click();
+  await expect(page.locator("summary").filter({ hasText: "ARRI Top Handle" })).not.toContainText("in use");
+
+  // Into a set and out again.
+  await page.getByLabel("Select all bebob VS2-Cine Charger").check();
+  const setValue = await bar.getByLabel("Action").locator("option", { hasText: "A-Cam Set" }).getAttribute("value");
+  await bar.getByLabel("Action").selectOption(setValue!);
+  await bar.getByRole("button", { name: "Apply" }).click();
+  await expect(page.getByText("1 piece added to the set.")).toBeVisible();
+  await page.getByLabel("Select all bebob VS2-Cine Charger").check();
+  await bar.getByLabel("Action").selectOption("unpack");
+  await bar.getByRole("button", { name: "Apply" }).click();
+  await expect(page.getByText("1 piece taken out of their set.")).toBeVisible();
+});

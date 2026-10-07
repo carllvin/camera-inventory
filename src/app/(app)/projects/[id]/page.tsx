@@ -8,6 +8,7 @@ import { hasRole } from "@/server/domain/context";
 import { listItems, type ItemFilters } from "@/server/domain/equipment-items";
 import { getProjectSummary } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
+import { bulkEquipmentAction } from "../actions";
 
 const LIMIT = 500;
 
@@ -17,7 +18,7 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
   assertUuid(id);
   const ctx = await getCtx();
   const db = getDb();
-  const { view: _view, location: _l, sort: _sort, ...filters } = sp;
+  const { view: _view, location: _l, sort: _sort, select: _select, ...filters } = sp;
   const [items, { flat: categories }, cases, summary] = await Promise.all([
     listItems(db, ctx, { ...(filters as ItemFilters), projectId: id, limit: LIMIT }),
     getCategoryTree(db, ctx),
@@ -27,7 +28,7 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
   return (
     <EquipmentBrowser
       basePath={`/projects/${id}`}
-      sp={{ ...filters, view: sp.view, sort: sp.sort }}
+      sp={{ ...filters, view: sp.view, sort: sp.sort, select: sp.select }}
       items={items}
       limit={LIMIT}
       projectId={id}
@@ -35,6 +36,7 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
       rentalHouses={summary.rentalHouses.map((r) => ({ id: r.id, name: r.name }))}
       cases={cases}
       hasFilters={Object.values(filters).some(Boolean)}
+      bulkAction={hasRole(ctx, "member") ? bulkEquipmentAction.bind(null, id) : undefined}
       empty={
         <EmptyState
           title="No equipment on this project yet"

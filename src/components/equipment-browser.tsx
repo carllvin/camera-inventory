@@ -4,6 +4,9 @@ import { LayoutGrid, ListTree } from "lucide-react";
 import { EQUIPMENT_SORTS, EquipmentByType, TypeGrid } from "@/components/equipment-by-type";
 import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
 import { EmptyState } from "@/components/ui";
+import { ActionForm } from "@/components/forms";
+import { SelectionBar } from "@/components/select-tools";
+import type { ActionState } from "@/server/actions";
 import { STATUS_LABEL, cn } from "@/lib/format";
 import type { CaseSummary } from "@/server/domain/cases";
 import type { ItemRow } from "@/server/domain/equipment-items";
@@ -17,6 +20,8 @@ export type BrowserParams = {
   caseId?: string;
   view?: string;
   sort?: string;
+  /** "1": select mode (ticks and bulk actions). */
+  select?: string;
 };
 
 export type BrowserView = "types" | "grid";
@@ -47,6 +52,7 @@ export function EquipmentBrowser({
   rentalHouses,
   cases,
   hasFilters,
+  bulkAction,
   empty,
 }: {
   /** Where filter and view links point ("/equipment" or "/projects/<id>"). */
@@ -60,9 +66,13 @@ export function EquipmentBrowser({
   rentalHouses: { id: string; name: string }[];
   cases: CaseSummary[];
   hasFilters: boolean;
+  /** Bulk actions on ticked entries (needs a project in view). */
+  bulkAction?: (prev: ActionState, fd: FormData) => Promise<ActionState>;
   empty: ReactNode;
 }) {
   const view = browserView(sp);
+  const canSelect = Boolean(projectId && bulkAction);
+  const selecting = canSelect && sp.select === "1" && view === "types";
   const href = (patch: Partial<BrowserParams>) => {
     const next = { ...sp, ...patch };
     if (next.view === "types") delete next.view;
@@ -130,6 +140,12 @@ export function EquipmentBrowser({
               {items.length >= limit ? `Showing the first ${limit} — refine with filters` : `${count} ${countLabel} · ${units} ${units === 1 ? "unit" : "units"}`}
               {view === "types" && " · tap a line for serials and details"}
             </p>
+            <div className="flex items-center gap-2">
+            {canSelect && (
+              <Link href={selecting ? href({ select: "" }) : href({ select: "1", view: "types" })} className={cn("rounded-lg border px-2.5 py-1 text-xs", selecting ? "border-accent bg-accent-soft text-accent" : "border-border bg-surface text-muted hover:text-text")}>
+                {selecting ? "Done" : "Select"}
+              </Link>
+            )}
             <div className="flex rounded-lg border border-border bg-surface p-0.5" role="group" aria-label="View">
               {VIEWS.map(({ key, label, Icon }) => (
                 <Link key={key} href={href({ view: key })} aria-label={label} title={label} aria-current={key === view ? "true" : undefined}
@@ -138,11 +154,19 @@ export function EquipmentBrowser({
                 </Link>
               ))}
             </div>
+            </div>
           </div>
           {view === "grid" ? (
             <TypeGrid items={items} sort={sp.sort} hrefFor={(typeName) => href({ view: "types", q: typeName })} />
           ) : (
-            <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} />
+            selecting && bulkAction ? (
+              <ActionForm action={bulkAction}>
+                <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} selectable />
+                <SelectionBar sets={cases.map((c) => ({ value: c.id, label: c.name }))} />
+              </ActionForm>
+            ) : (
+              <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} />
+            )
           )}
         </>
       )}

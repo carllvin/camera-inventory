@@ -13,6 +13,11 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { assignToProject } from "@/server/domain/equipment-items";
 import { createProject, linkRentalHouse, updateProject } from "@/server/domain/projects";
+import { packItem, packUnits, unpackItem, unpackUnits } from "@/server/domain/cases";
+import { DomainError } from "@/server/domain/context";
+import { updateItemState } from "@/server/domain/item-state";
+import { asc, inArray } from "drizzle-orm";
+import * as s from "@/server/db/schema";
 
 
 export async function createProjectAction(_: ActionState, fd: FormData): Promise<ActionState> {
@@ -80,5 +85,57 @@ export async function removeEquipmentAction(projectId: string, _: ActionState, f
       redirect(`/documents/${note.document.id}`);
     }
     redirect(`/projects/${projectId}`);
+  });
+}
+
+/**
+ * Select mode on the equipment list: apply one action to the ticked entries.
+ * op = "set:<id>" | "unpack" | "status:<s>" | "condition:<c>" | "remove".
+ */
+export async function bulkEquipmentAction(projectId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const op = String(fd.get("op") ?? "");
+    const { items, groups } = readRows(fd);
+    if (!items.length && !groups.length) throw new DomainError("VALIDATION", "Tick some equipment first.");
+    if (!op) throw new DomainError("VALIDATION", "Choose what to do with it.");
+    if (op === "remove") {
+      const ids = [...items.map((i) => i.id), ...groups.flatMap((g) => g.itemIds)];
+      redirect(`/projects/${projectId}/remove?items=${[...new Set(ids)].join(",")}`);
+    }
+    const ctx = await getCtx();
+    const db = getDb();
+    const [kind, value] = op.split(":") as [string, string | undefined];
+    const pieces = await db.transaction(async (tx) => {
+      let n = 0;
+      // Units without serials: whole entries first, the last one split if only some are meant.
+      const perUnits = async (g: { itemIds: string[]; units: number }, apply: (id: string, units?: number) => Promise<void>) => {
+        const rows = await tx.select({ id: s.equipmentItem.id, quantity: s.equipmentItem.quantity }).from(s.equipmentItem).where(inArray(s.equipmentItem.id, g.itemIds)).orderBy(asc(s.equipmentItem.quantity));
+        let left = g.units;
+        for (const r of rows) {
+          if (left <= 0) break;
+          await apply(r.id, r.quantity > left ? left : undefined);
+          left -= Math.min(left, r.quantity);
+        }
+        n += g.units - Math.max(left, 0);
+      };
+      if (kind === "set" && value) {
+        for (const { id } of items) n += (await packItem(tx, ctx, value, id, { allowMove: true })).item.quantity;
+        for (const g of groups) n += (await packUnits(tx, ctx, value, g.itemIds, g.units, { allowMove: true })).packed;
+      } else if (kind === "unpack") {
+        for (const { id } of items) n += (await unpackItem(tx, ctx, id)).quantity;
+        for (const g of groups) n += (await unpackUnits(tx, ctx, g.itemIds, g.units)).taken;
+      } else if (kind === "status" || kind === "condition") {
+        const patch = kind === "status" ? { status: value } : { condition: value };
+        for (const { id } of items) {
+          await updateItemState(tx, ctx, id, patch);
+          n++;
+        }
+        for (const g of groups) await perUnits(g, async (id, units) => void (await updateItemState(tx, ctx, id, { ...patch, units })));
+      } else throw new DomainError("VALIDATION", "Unknown action.");
+      return n;
+    });
+    revalidatePath("/", "layout");
+    const what = kind === "set" ? "added to the set" : kind === "unpack" ? "taken out of their set" : kind === "status" ? "updated (status)" : "updated (condition)";
+    return `${pieces} piece${pieces === 1 ? "" : "s"} ${what}.`;
   });
 }
