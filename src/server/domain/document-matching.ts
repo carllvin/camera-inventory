@@ -48,7 +48,7 @@ export interface MatchContext {
   workspaceId: string;
   projectId: string | null;
   rentalHouseId: string | null;
-  kind: "delivery_note" | "return_note" | "other";
+  kind: "delivery_note" | "return_note" | "other" | "inventory_list";
 }
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
@@ -213,7 +213,10 @@ export async function matchLine(db: DbOrTx, ctx: MatchContext, line: ProposedLin
     if (opts.forcedTypeId && opts.forcedTypeId !== item.equipmentTypeId) {
       return { ...base, matchConfidence: null, matchReason: `${how} as ${label}, but a different equipment type was chosen`, resolution: "discrepancy" };
     }
-    if (ctx.kind === "delivery_note") {
+    if (ctx.kind === "inventory_list" && item.projectId && item.projectId === ctx.projectId) {
+      return { ...base, matchReason: `${how} - on the project ✓`, resolution: "match_existing" };
+    }
+    if (ctx.kind === "delivery_note" || ctx.kind === "inventory_list") {
       if (item.projectId && item.projectId === ctx.projectId) {
         return { ...base, matchReason: `${label} is already on this project (delivered twice?)`, resolution: "discrepancy" };
       }
@@ -230,7 +233,7 @@ export async function matchLine(db: DbOrTx, ctx: MatchContext, line: ProposedLin
 
   // 2. No physical item: which type? A reviewer's choice wins.
   if (opts.forcedTypeId) {
-    return { matchedEquipmentTypeId: opts.forcedTypeId, matchedEquipmentItemId: null, matchConfidence: 1, matchReason: "type chosen by reviewer", resolution: ctx.kind === "delivery_note" ? "create_new" : "pending" };
+    return { matchedEquipmentTypeId: opts.forcedTypeId, matchedEquipmentItemId: null, matchConfidence: 1, matchReason: "type chosen by reviewer", resolution: ctx.kind === "return_note" ? "pending" : "create_new" };
   }
   const type = await findType(db, ctx.workspaceId, line);
   if (!type) {
@@ -241,7 +244,7 @@ export async function matchLine(db: DbOrTx, ctx: MatchContext, line: ProposedLin
     matchedEquipmentItemId: null,
     matchConfidence: type.score,
     matchReason: `${type.how}: ${type.name}${line.serialNumber ? " (new serial)" : ""}`,
-    resolution: ctx.kind === "delivery_note" ? "create_new" : "pending",
+    resolution: ctx.kind === "return_note" ? "pending" : "create_new",
   };
 }
 

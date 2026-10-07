@@ -28,7 +28,7 @@ export function UploadForm({
   defaultProjectId,
   aiAvailable,
 }: {
-  kind: "delivery_note" | "return_note";
+  kind: "delivery_note" | "return_note" | "inventory_list";
   projects: { value: string; label: string }[];
   rentalHouses: { value: string; label: string }[];
   defaultProjectId?: string;

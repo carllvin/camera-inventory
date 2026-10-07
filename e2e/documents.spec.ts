@@ -97,3 +97,27 @@ test("a product that is not known yet is created from its line in one step", asy
   await line.getByRole("button", { name: "Create & use" }).click();
   await expect(page.locator("li").filter({ hasText: `${maker} ${product}` }).first().getByText("New item")).toBeVisible();
 });
+
+test("a current list is compared with the database", async ({ page }, info) => {
+  const tag = `${info.project.name}-${Date.now().toString(36)}`;
+  await login(page);
+  await go(page, "/scan");
+  await page.getByRole("link", { name: /Current list/ }).click();
+  await expect(page.getByRole("heading", { name: "Upload current list" })).toBeVisible();
+  await page.getByLabel("Project", { exact: true }).selectOption({ label: "Feature Film X" });
+  await page.getByLabel("Rental house").selectOption({ label: "MBF Filmtechnik" });
+  await page.locator('input[type="file"]').setInputFiles({ name: `liste-${tag}.pdf`, mimeType: "application/pdf", buffer: pdf(`list-${tag}`) });
+  await page.getByRole("button", { name: "Upload" }).click();
+  await expect(page).toHaveURL(/\/documents\/[0-9a-f-]{36}$/);
+  await page.waitForLoadState("load");
+
+  // One monitor that is on the project: it matches; the rest of MBF's equipment is "not on the list".
+  await page.getByRole("button", { name: "+ Add a line by hand" }).click();
+  await page.locator("#new-description").fill("SmallHD Cine 7");
+  await page.locator("#new-serial").fill("C7-220874");
+  await page.getByRole("button", { name: "Add line" }).click();
+  await expect(page.getByRole("heading", { name: /On the list and in the database \(1\)/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /In the database, not on the list \([1-9]/ })).toBeVisible();
+  await page.getByRole("button", { name: "Close the list" }).click();
+  await expect(page.getByText("List checked and closed.").or(page.getByText(/Current list .* checked/)).first()).toBeVisible();
+});

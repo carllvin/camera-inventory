@@ -66,7 +66,7 @@ export interface ExtractionInputFile {
 
 export interface ExtractionContext {
   /** What the user said they uploaded. */
-  expectedKind: "delivery_note" | "return_note";
+  expectedKind: "delivery_note" | "return_note" | "inventory_list";
   /** Known rental houses (names + aliases) to help identify the sender. */
   rentalHouses: string[];
   /** Known equipment type names (+ aliases) for normalization. */

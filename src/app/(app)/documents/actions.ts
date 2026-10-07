@@ -26,6 +26,7 @@ import {
 } from "@/server/domain/documents";
 import { getStorage } from "@/server/storage";
 import { createSetFromDocument } from "@/server/domain/document-sets";
+import { addFromList, finishList, removeNotOnList } from "@/server/domain/consolidate";
 
 function scheduleExtraction(workspaceId: string, documentId: string) {
   // Runs after the response is sent; the page polls until the status changes.
@@ -161,5 +162,38 @@ export async function createAllSetsFromDocumentAction(id: string, names: string[
     revalidatePath(`/documents/${id}`);
     revalidatePath("/sets", "layout");
     return `${created} set${created === 1 ? "" : "s"} created.`;
+  });
+}
+
+// ---- current lists ---------------------------------------------------------
+
+function refreshList(id: string, projectId: string | null) {
+  revalidatePath(`/documents/${id}`);
+  if (projectId) revalidatePath(`/projects/${projectId}`, "layout");
+  revalidatePath("/equipment");
+}
+
+export async function addFromListAction(id: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const n = await addFromList(getDb(), await getCtx(), id, lineId);
+    refreshList(id, null);
+    revalidatePath("/", "layout");
+    return `${n} piece${n === 1 ? "" : "s"} added to the project.`;
+  });
+}
+
+export async function removeNotOnListAction(id: string, itemId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const n = await removeNotOnList(getDb(), await getCtx(), id, itemId);
+    revalidatePath("/", "layout");
+    return `${n} piece${n === 1 ? "" : "s"} taken off the project.`;
+  });
+}
+
+export async function finishListAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const doc = await finishList(getDb(), await getCtx(), id);
+    refreshList(id, doc.projectId);
+    return "List checked and closed.";
   });
 }

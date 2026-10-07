@@ -80,6 +80,15 @@ period ("Day 44 of 82 · 38 days left"), a **Needs attention** list (missing and
 review, incomplete sets, equipment not in any set), the sets with their progress, and what is out per rental house.
 *All projects* shows the workspace overview.
 
+### Current lists (consolidate)
+
+Besides delivery and return notes you can upload a **current list** — the rental house's list of everything the
+production has right now (Mietliste / Bestandsliste). It is read like a delivery note and compared with the database:
+items with a serial or asset number one by one, everything else by type and count. Three groups: on both ✓, **on the
+list but missing here** (*Add* / *Add all* — same rules as receiving a delivery) and **here but not on the list**
+(*Remove* / *Remove all* — recorded as returned with the list as reason, undoable). *Close the list* keeps it as a
+record of the check.
+
 ### Undo
 
 History entries for simple changes have an **Undo** button: status, condition, moving into or out of a set, item edits,

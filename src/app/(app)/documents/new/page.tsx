@@ -12,8 +12,9 @@ export const metadata = { title: "Upload document" };
 
 export default async function NewDocumentPage({ searchParams }: { searchParams: Promise<{ projectId?: string; kind?: string }> }) {
   const { projectId, kind: kindParam } = await searchParams;
-  const kind = kindParam === "return_note" ? "return_note" : "delivery_note";
+  const kind = kindParam === "return_note" || kindParam === "inventory_list" ? kindParam : "delivery_note";
   const isReturn = kind === "return_note";
+  const isList = kind === "inventory_list";
   const ctx = await getCtx();
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const db = getDb();
@@ -24,8 +25,14 @@ export default async function NewDocumentPage({ searchParams }: { searchParams: 
   return (
     <>
       <PageHeader
-        title={isReturn ? "Upload return note" : "Upload delivery note"}
-        subtitle={isReturn ? "Photos or PDF of the return note (Rücklieferschein) — equipment going back to a rental house" : "Photos or PDF of the rental house’s delivery note (Lieferschein)"}
+        title={isList ? "Upload current list" : isReturn ? "Upload return note" : "Upload delivery note"}
+        subtitle={
+          isList
+            ? "The rental house’s list of everything the production has right now (Mietliste / Bestandsliste) — compared with the database, differences can be added or removed"
+            : isReturn
+              ? "Photos or PDF of the return note (Rücklieferschein) — equipment going back to a rental house"
+              : "Photos or PDF of the rental house’s delivery note (Lieferschein)"
+        }
         back={defaultProjectId ? { href: `/projects/${defaultProjectId}/documents`, label: "Project documents" } : { href: "/documents", label: "Documents" }}
       />
       <Card className="max-w-2xl p-5">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FileDown, FileUp, Plus } from "lucide-react";
+import { FileDown, FileUp, Plus, ListChecks } from "lucide-react";
 import { Card, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { hasRole } from "@/server/domain/context";
@@ -30,6 +30,13 @@ export default async function ScanPage() {
               <div>
                 <div className="font-medium">Return note</div>
                 <div className="text-xs text-muted">Return equipment to a rental house — full or partial</div>
+              </div>
+            </Link>
+            <Link href="/documents/new?kind=inventory_list" className="flex items-center gap-3 rounded-xl border border-border bg-surface p-4 hover:border-ring/60">
+              <ListChecks className="size-5 text-accent" />
+              <div>
+                <div className="font-medium">Current list</div>
+                <div className="text-xs text-muted">Compare the rental house’s list of everything you have with the database — add or remove differences</div>
               </div>
             </Link>
             <Link href="/equipment/new" className="flex items-center gap-3 rounded-xl border border-border bg-surface p-4 hover:border-ring/60">

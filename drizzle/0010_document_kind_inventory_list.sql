@@ -1,0 +1,1 @@
+ALTER TYPE "public"."document_kind" ADD VALUE 'inventory_list';

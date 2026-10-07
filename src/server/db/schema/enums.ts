@@ -40,7 +40,7 @@ export const assignmentEndReason = pgEnum("assignment_end_reason", [
   "lost",
 ]);
 
-export const documentKind = pgEnum("document_kind", ["delivery_note", "return_note", "other"]);
+export const documentKind = pgEnum("document_kind", ["delivery_note", "return_note", "other", "inventory_list"]);
 
 export const documentStatus = pgEnum("document_status", [
   "uploaded",

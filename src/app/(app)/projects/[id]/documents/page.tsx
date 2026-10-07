@@ -1,4 +1,4 @@
-import { FileDown, FileUp } from "lucide-react";
+import { FileDown, FileUp, ListChecks } from "lucide-react";
 import { DocumentList } from "@/components/document-list";
 import { LinkButton } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
@@ -19,6 +19,9 @@ export default async function ProjectDocumentsPage({ params }: { params: Promise
           </LinkButton>
           <LinkButton href={`/documents/new?kind=return_note&projectId=${id}`}>
             <FileDown className="size-4" /> Return note
+          </LinkButton>
+          <LinkButton href={`/documents/new?kind=inventory_list&projectId=${id}`}>
+            <ListChecks className="size-4" /> Current list
           </LinkButton>
         </div>
       )}

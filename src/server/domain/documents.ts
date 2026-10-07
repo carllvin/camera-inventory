@@ -33,7 +33,7 @@ export interface UploadedDocumentFile {
   bytes: Buffer;
 }
 
-type DocumentKind = "delivery_note" | "return_note";
+type DocumentKind = "delivery_note" | "return_note" | "inventory_list";
 
 function safeName(name: string) {
   const base = name.normalize("NFKD").replace(/[^A-Za-z0-9._-]+/g, "_").replace(/^[._]+/, "").slice(-80);
@@ -77,7 +77,7 @@ function assertEditable(d: { status: string }) {
 // ---------------------------------------------------------------------------
 
 export const uploadInput = z.object({
-  kind: z.enum(["delivery_note", "return_note"]),
+  kind: z.enum(["delivery_note", "return_note", "inventory_list"]),
   /** Empty: detect the project from the document (needs AI reading). */
   projectId: optionalUuid,
   rentalHouseId: optionalUuid,
@@ -178,7 +178,7 @@ export async function createDocumentFromUpload(
         documentId: id,
         projectId: project?.id ?? null,
         rentalHouseId: data.rentalHouseId ?? null,
-        summary: `${data.kind === "delivery_note" ? "Delivery note" : "Return note"} uploaded (${prepared.length} file${prepared.length === 1 ? "" : "s"})`,
+        summary: `${data.kind === "delivery_note" ? "Delivery note" : data.kind === "inventory_list" ? "Current list" : "Return note"} uploaded (${prepared.length} file${prepared.length === 1 ? "" : "s"})`,
         metadata: { files: prepared.map((p) => p.name), possibleDuplicateOf: dup?.documentId ?? null },
       });
       return { document: doc!, startExtraction: extractor.available };
@@ -697,7 +697,7 @@ export async function discardDocument(db: DbOrTx, ctx: Ctx, id: string, reason: 
       entityId: id,
       documentId: id,
       projectId: d.projectId,
-      summary: `${d.kind === "delivery_note" ? "Delivery note" : "Return note"} ${d.documentNumber ?? ""} discarded`.replace("  ", " "),
+      summary: `${d.kind === "delivery_note" ? "Delivery note" : d.kind === "inventory_list" ? "Current list" : "Return note"} ${d.documentNumber ?? ""} discarded`.replace("  ", " "),
       metadata: reason ? { reason } : null,
     });
     return updated!;
@@ -730,6 +730,109 @@ export function documentBlockers(
 }
 
 /**
+ * Put what one reviewed line describes onto the project: a known item (match_existing)
+ * or new items of the line's type (create_new; bulk types as one item, others one per
+ * unit). `units` overrides the quantity (a current list may only be short by some).
+ * Shared by delivery confirmation and "add" on a current list.
+ */
+export async function receiveDeliveryLine(
+  tx: DbOrTx,
+  ctx: Ctx,
+  r: { doc: typeof s.document.$inferSelect; project: typeof s.project.$inferSelect; rentalHouseId: string; now: Date; correlationId: string },
+  l: typeof s.documentLine.$inferSelect,
+  units = l.quantity,
+) {
+  const { doc, project, rentalHouseId, now, correlationId } = r;
+  const id = doc.id;
+  let received = 0;
+  const assign = async (itemId: string, label: string, quantity: number, from: string | null) => {
+    await tx.insert(s.projectAssignment).values({
+      workspaceId: ctx.workspaceId,
+      equipmentItemId: itemId,
+      projectId: project.id,
+      rentalHouseId,
+      quantity,
+      deliveryDocumentId: id,
+      assignedAt: now,
+      assignedById: ctx.userId,
+    });
+    await recordEvent(tx, ctx, {
+      action: "equipment_item.assigned_to_project",
+      entityType: "equipment_item",
+      entityId: itemId,
+      equipmentItemId: itemId,
+      projectId: project.id,
+      documentId: id,
+      rentalHouseId,
+      summary: `${label} received on ${project.name}`,
+      changes: { status: { from, to: "on_project" }, project_id: { from: null, to: project.id } },
+      correlationId,
+    });
+    received += quantity;
+  };
+
+  if (l.resolution === "match_existing") {
+    const item = await lockItem(tx, ctx, l.matchedEquipmentItemId!);
+    if (item.projectId === project.id) return 0;
+    if (item.projectId) throw new DomainError("CONFLICT", `${item.label} is on another project. Return it there first.`);
+    await tx
+      .update(s.equipmentItem)
+      .set({ projectId: project.id, caseId: null, status: "on_project", rentalHouseId: item.rentalHouseId ?? rentalHouseId, version: sql`${s.equipmentItem.version} + 1` })
+      .where(eq(s.equipmentItem.id, item.id));
+    await assign(item.id, item.label, item.quantity, item.status);
+    return received;
+  }
+  // create_new
+  const [type] = await tx.select().from(s.equipmentType).where(and(eq(s.equipmentType.id, l.matchedEquipmentTypeId!), eq(s.equipmentType.workspaceId, ctx.workspaceId)));
+  if (!type) notFound("Equipment type");
+  const bulk = type.defaultTrackingMode === "bulk";
+  const pieces = bulk ? [units] : Array.from({ length: units }, () => 1);
+  for (const [i, qty] of pieces.entries()) {
+    let item: typeof s.equipmentItem.$inferSelect;
+    try {
+      item = await tx.transaction(async (sp) => {
+        const [row] = await sp
+          .insert(s.equipmentItem)
+          .values({
+            workspaceId: ctx.workspaceId,
+            equipmentTypeId: type.id,
+            trackingMode: bulk ? "bulk" : "serialized",
+            quantity: qty,
+            serialNumber: i === 0 ? l.serialNumber : null,
+            assetNumber: i === 0 ? l.assetNumber : null,
+            rentalHouseId,
+            projectId: project.id,
+            status: "on_project",
+            condition: "ok",
+          })
+          .returning();
+        return row!;
+      });
+    } catch (err) {
+      if (pgErrorOf(err)?.code === "23505") {
+        throw new DomainError("CONFLICT", `Line ${l.lineNumber}: serial or asset number already exists. Reload the document to re-check.`, { lineId: l.id });
+      }
+      throw err;
+    }
+    const label = itemLabel({ typeName: type.name, ...item });
+    await recordEvent(tx, ctx, {
+      action: "equipment_item.created",
+      entityType: "equipment_item",
+      entityId: item.id,
+      equipmentItemId: item.id,
+      projectId: project.id,
+      documentId: id,
+      rentalHouseId,
+      summary: `${label} created from ${doc.kind === "inventory_list" ? "current list" : "delivery note"} ${doc.documentNumber ?? ""}`.trim(),
+      correlationId,
+    });
+    await assign(item.id, label, qty, null);
+    if (i === 0) await tx.update(s.documentLine).set({ matchedEquipmentItemId: item.id }).where(eq(s.documentLine.id, l.id));
+  }
+  return received;
+}
+
+/**
  * Apply a reviewed delivery note: reuse known items, create new ones, put all of
  * them on the project with the rental house, link the document, write history.
  */
@@ -751,90 +854,10 @@ export async function confirmDelivery(db: DbOrTx, ctx: Ctx, id: string) {
     const now = new Date();
     let received = 0;
 
-    const assign = async (itemId: string, label: string, quantity: number, from: string | null) => {
-      await tx.insert(s.projectAssignment).values({
-        workspaceId: ctx.workspaceId,
-        equipmentItemId: itemId,
-        projectId: project.id,
-        rentalHouseId,
-        quantity,
-        deliveryDocumentId: id,
-        assignedAt: now,
-        assignedById: ctx.userId,
-      });
-      await recordEvent(tx, ctx, {
-        action: "equipment_item.assigned_to_project",
-        entityType: "equipment_item",
-        entityId: itemId,
-        equipmentItemId: itemId,
-        projectId: project.id,
-        documentId: id,
-        rentalHouseId,
-        summary: `${label} received on ${project.name}`,
-        changes: { status: { from, to: "on_project" }, project_id: { from: null, to: project.id } },
-        correlationId,
-      });
-      received += quantity;
-    };
-
+    const rctx = { doc, project, rentalHouseId, now, correlationId };
     for (const l of lines) {
       if (l.resolution === "ignore") continue;
-      if (l.resolution === "match_existing") {
-        const item = await lockItem(tx, ctx, l.matchedEquipmentItemId!);
-        await tx
-          .update(s.equipmentItem)
-          .set({ projectId: project.id, caseId: null, status: "on_project", rentalHouseId: item.rentalHouseId ?? rentalHouseId, version: sql`${s.equipmentItem.version} + 1` })
-          .where(eq(s.equipmentItem.id, item.id));
-        await assign(item.id, item.label, item.quantity, item.status);
-        continue;
-      }
-      // create_new
-      const [type] = await tx.select().from(s.equipmentType).where(and(eq(s.equipmentType.id, l.matchedEquipmentTypeId!), eq(s.equipmentType.workspaceId, ctx.workspaceId)));
-      if (!type) notFound("Equipment type");
-      const bulk = type.defaultTrackingMode === "bulk";
-      const units = bulk ? [l.quantity] : Array.from({ length: l.quantity }, () => 1);
-      for (const [i, qty] of units.entries()) {
-        let item: typeof s.equipmentItem.$inferSelect;
-        try {
-          item = await tx.transaction(async (sp) => {
-            const [row] = await sp
-              .insert(s.equipmentItem)
-              .values({
-                workspaceId: ctx.workspaceId,
-                equipmentTypeId: type.id,
-                trackingMode: bulk ? "bulk" : "serialized",
-                quantity: qty,
-                serialNumber: i === 0 ? l.serialNumber : null,
-                assetNumber: i === 0 ? l.assetNumber : null,
-                rentalHouseId,
-                projectId: project.id,
-                status: "on_project",
-                condition: "ok",
-              })
-              .returning();
-            return row!;
-          });
-        } catch (err) {
-          if (pgErrorOf(err)?.code === "23505") {
-            throw new DomainError("CONFLICT", `Line ${l.lineNumber}: serial or asset number already exists. Reload the document to re-check.`, { lineId: l.id });
-          }
-          throw err;
-        }
-        const label = itemLabel({ typeName: type.name, ...item });
-        await recordEvent(tx, ctx, {
-          action: "equipment_item.created",
-          entityType: "equipment_item",
-          entityId: item.id,
-          equipmentItemId: item.id,
-          projectId: project.id,
-          documentId: id,
-          rentalHouseId,
-          summary: `${label} created from delivery note ${doc.documentNumber ?? ""}`.trim(),
-          correlationId,
-        });
-        await assign(item.id, label, qty, null);
-        if (i === 0) await tx.update(s.documentLine).set({ matchedEquipmentItemId: item.id }).where(eq(s.documentLine.id, l.id));
-      }
+      received += await receiveDeliveryLine(tx, ctx, rctx, l);
     }
 
     await ensureProjectRentalHouse(tx, ctx, project.id, rentalHouseId);
@@ -1154,7 +1177,7 @@ export async function getDocumentReview(db: DbOrTx, ctx: Ctx, id: string) {
       ? await db
           .select({ summary: s.auditEvent.summary, occurredAt: s.auditEvent.occurredAt })
           .from(s.auditEvent)
-          .where(and(eq(s.auditEvent.documentId, id), inArray(s.auditEvent.action, ["delivery.imported", "return_note.imported"])))
+          .where(and(eq(s.auditEvent.documentId, id), inArray(s.auditEvent.action, row.doc.kind === "inventory_list" ? ["document.confirmed"] : ["delivery.imported", "return_note.imported"])))
           .orderBy(desc(s.auditEvent.id))
           .limit(1)
       : [];

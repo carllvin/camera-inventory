@@ -91,7 +91,7 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
       }
     }
     if (content.length === 1) throw new ExtractionError("No readable file (PDF or image) in this document.", false);
-    content.push({ type: "text", text: `The user uploaded this as a ${ctx.expectedKind === "delivery_note" ? "delivery note" : "return note"}. Extract the document.` });
+    content.push({ type: "text", text: `The user uploaded this as a ${ctx.expectedKind === "delivery_note" ? "delivery note" : ctx.expectedKind === "inventory_list" ? "current list of all equipment rented to the production (Mietliste / Bestandsliste)" : "return note"}. Extract the document.` });
 
     let message;
     try {

@@ -38,6 +38,7 @@ export const ISSUE_TYPE_LABEL: Record<string, string> = {
 export const DOCUMENT_KIND_LABEL: Record<string, string> = {
   delivery_note: "Delivery note",
   return_note: "Return note",
+  inventory_list: "Current list",
   other: "Document",
 };
 

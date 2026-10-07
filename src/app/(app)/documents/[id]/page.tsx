@@ -8,6 +8,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getCategoryTree } from "@/server/domain/categories";
 import { suggestedSets } from "@/server/domain/document-sets";
+import { getConsolidation } from "@/server/domain/consolidate";
 import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
 import { listProjectOptions } from "@/server/domain/projects";
@@ -27,6 +28,9 @@ import {
   createTypeFromLineAction,
   createSetFromDocumentAction,
   createAllSetsFromDocumentAction,
+  addFromListAction,
+  removeNotOnListAction,
+  finishListAction,
 } from "../actions";
 import { RESOLUTION, RETURN_RESOLUTION } from "../resolution";
 import { AddLineCard, AutoRefresh, ConfirmButton, LineCard } from "../review";
@@ -136,6 +140,8 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   const aiAvailable = getExtractor().available;
   const [projects, houses] = editable ? await Promise.all([listProjectOptions(db, ctx, { activeOnly: true }), listRentalHouses(db, ctx)]) : [[], []];
   const isReturn = doc.kind === "return_note";
+  const isList = doc.kind === "inventory_list";
+  const consolidation = isList && editable ? await getConsolidation(db, ctx, id) : null;
   const mode = isReturn ? ("return" as const) : ("delivery" as const);
   const setSuggestions = !isReturn && doc.status === "confirmed" ? await suggestedSets(db, ctx.workspaceId, id) : [];
   const canCreateSets = hasRole(ctx, "member");
@@ -380,8 +386,104 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 </Card>
               )}
 
+              {consolidation && (
+                <Card>
+                  <CardHeader title="Compared with the database" />
+                  {!doc.projectId || !doc.rentalHouseId ? (
+                    <p className="px-4 py-3 text-sm text-warn">Choose the project and the rental house above to compare.</p>
+                  ) : (
+                    <div className="divide-y divide-border">
+                      <section className="px-4 py-3">
+                        <h3 className="text-sm font-medium text-ok">✓ On the list and in the database ({consolidation.present.reduce((n, x) => n + x.units, 0)})</h3>
+                        {consolidation.present.length > 0 && (
+                          <details className="mt-1 text-sm text-muted">
+                            <summary className="cursor-pointer">Show</summary>
+                            <ul className="mt-1 space-y-0.5">
+                              {consolidation.present.map((x) => (
+                                <li key={`${x.lineId}-${x.label}`}>{x.label}</li>
+                              ))}
+                            </ul>
+                          </details>
+                        )}
+                      </section>
+                      <section className="px-4 py-3">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <h3 className="text-sm font-medium text-warn">On the list, missing in the database ({consolidation.missing.reduce((n, x) => n + x.units, 0)})</h3>
+                          {consolidation.missing.filter((m) => m.canAdd).length > 1 && (
+                            <ActionForm action={addFromListAction.bind(null, id, "all")}>
+                              <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
+                                Add all
+                              </SubmitButton>
+                            </ActionForm>
+                          )}
+                        </div>
+                        {consolidation.missing.length === 0 ? (
+                          <p className="mt-1 text-sm text-muted">Nothing.</p>
+                        ) : (
+                          <ul className="mt-1 divide-y divide-border">
+                            {consolidation.missing.map((m) => (
+                              <li key={`${m.lineId}-${m.label}`} className="flex items-center gap-2 py-1.5">
+                                <div className="min-w-0 flex-1">
+                                  <div className="truncate text-sm">{m.label}</div>
+                                  {m.reason && <div className="text-xs text-warn">{m.reason}</div>}
+                                </div>
+                                {m.canAdd && (
+                                  <ActionForm action={addFromListAction.bind(null, id, m.lineId)}>
+                                    <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
+                                      Add
+                                    </SubmitButton>
+                                  </ActionForm>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </section>
+                      <section className="px-4 py-3">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <h3 className="text-sm font-medium text-danger">In the database, not on the list ({consolidation.extra.reduce((n, x) => n + x.units, 0)})</h3>
+                          {consolidation.extra.length > 1 && (
+                            <ActionForm action={removeNotOnListAction.bind(null, id, "all")}>
+                              <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
+                                Remove all
+                              </SubmitButton>
+                            </ActionForm>
+                          )}
+                        </div>
+                        {consolidation.extra.length === 0 ? (
+                          <p className="mt-1 text-sm text-muted">Nothing.</p>
+                        ) : (
+                          <ul className="mt-1 divide-y divide-border">
+                            {consolidation.extra.map((x) => (
+                              <li key={x.itemId} className="flex items-center gap-2 py-1.5">
+                                <Link href={`/equipment/${x.itemId}`} className="min-w-0 flex-1 truncate text-sm hover:underline">
+                                  {x.label}
+                                </Link>
+                                <ActionForm action={removeNotOnListAction.bind(null, id, x.itemId)}>
+                                  <SubmitButton variant="ghost" className="!px-2.5 !py-1 text-xs text-muted hover:text-danger" pendingText="…">
+                                    Remove
+                                  </SubmitButton>
+                                </ActionForm>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        <p className="mt-2 text-xs text-muted">Removing records the item as returned, with this list as the reason. Nothing is deleted; it can be undone from the history.</p>
+                      </section>
+                    </div>
+                  )}
+                </Card>
+              )}
+
               <Card className="space-y-3 p-4">
-                {d.blockers.length > 0 ? (
+                {isList ? (
+                  <>
+                    <p className="text-sm text-muted">When the differences are sorted out, close the list. It stays as a record of the check.</p>
+                    <ActionForm action={finishListAction.bind(null, id)}>
+                      <SubmitButton disabled={!doc.projectId || !doc.rentalHouseId}>Close the list</SubmitButton>
+                    </ActionForm>
+                  </>
+                ) : d.blockers.length > 0 ? (
                   <ul className="space-y-1 text-sm text-warn">
                     {d.blockers.slice(0, 6).map((b, i) => (
                       <li key={i}>• {b.message}</li>
@@ -397,12 +499,14 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                       : `Confirming puts ${receiveCount} item${receiveCount === 1 ? "" : "s"} on ${d.projectName}: ${d.counts.existing} known, the rest created new. Every change is recorded in the history.`}
                   </p>
                 )}
-                <ConfirmButton
-                  action={(isReturn ? confirmReturnAction : confirmDeliveryAction).bind(null, id)}
-                  disabled={d.blockers.length > 0}
-                  count={receiveCount}
-                  mode={mode}
-                />
+                {!isList && (
+                  <ConfirmButton
+                    action={(isReturn ? confirmReturnAction : confirmDeliveryAction).bind(null, id)}
+                    disabled={d.blockers.length > 0}
+                    count={receiveCount}
+                    mode={mode}
+                  />
+                )}
                 <details className="text-sm">
                   <summary className="cursor-pointer text-muted">Discard this document</summary>
                   <ActionForm action={discardDocumentAction.bind(null, id)} className="mt-2 flex items-end gap-2">
