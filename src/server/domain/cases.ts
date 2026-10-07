@@ -412,6 +412,30 @@ export async function addExpectedLine(db: DbOrTx, ctx: Ctx, caseId: string, inpu
     const c = await lockCase(tx, ctx, caseId);
     assertOpen(c);
     const defaultLabel = await resolveTarget(tx, ctx, data.target);
+    // The same type (or category) again: count it up instead of a second line.
+    const [same] = await tx
+      .select()
+      .from(s.caseExpectedItem)
+      .where(
+        and(
+          eq(s.caseExpectedItem.caseId, caseId),
+          data.target.equipmentTypeId ? eq(s.caseExpectedItem.equipmentTypeId, data.target.equipmentTypeId) : eq(s.caseExpectedItem.categoryId, data.target.categoryId!),
+        ),
+      );
+    if (same) {
+      const quantity = Math.min(999, same.quantity + data.quantity);
+      const [line] = await tx.update(s.caseExpectedItem).set({ quantity }).where(eq(s.caseExpectedItem.id, same.id)).returning();
+      await recordEvent(tx, ctx, {
+        action: "case.expected_contents_changed",
+        entityType: "case",
+        entityId: caseId,
+        caseId,
+        projectId: c.projectId,
+        summary: `${c.name}: expected ${same.label} ${same.quantity} → ${quantity}`,
+        changes: { [`expected:${same.label}`]: { from: same.quantity, to: quantity } },
+      });
+      return line!;
+    }
     const [{ next }] = (await tx.execute<{ next: number }>(
       sql`SELECT coalesce(max(sort_order) + 1, 0)::int AS next FROM case_expected_item WHERE case_id = ${caseId}`,
     )) as unknown as [{ next: number }];
@@ -429,6 +453,56 @@ export async function addExpectedLine(db: DbOrTx, ctx: Ctx, caseId: string, inpu
       changes: { [`expected:${line!.label}`]: { from: 0, to: line!.quantity } },
     });
     return line!;
+  });
+}
+
+/** − / + on an expected line; at 0 the line goes away. */
+export async function stepExpectedLine(db: DbOrTx, ctx: Ctx, lineId: string, delta: number) {
+  requireRole(ctx, "member");
+  const line = (await db.select().from(s.caseExpectedItem).where(and(eq(s.caseExpectedItem.id, lineId), eq(s.caseExpectedItem.workspaceId, ctx.workspaceId))))[0];
+  if (!line) notFound("Expected item");
+  const quantity = line.quantity + Math.sign(delta);
+  if (quantity <= 0) return removeExpectedLine(db, ctx, lineId);
+  return updateExpectedLine(db, ctx, lineId, { label: line.label, quantity: Math.min(999, quantity) });
+}
+
+/**
+ * "Use what's packed now": the expected contents become exactly what the set
+ * holds right now, one line per equipment type with its number of units.
+ */
+export async function setExpectedFromContents(db: DbOrTx, ctx: Ctx, caseId: string) {
+  requireRole(ctx, "member");
+  return db.transaction(async (tx) => {
+    const c = await lockCase(tx, ctx, caseId);
+    assertOpen(c);
+    const contents = await tx
+      .select({ typeId: s.equipmentItem.equipmentTypeId, typeName: s.equipmentType.name, units: sql<number>`sum(${s.equipmentItem.quantity})::int` })
+      .from(s.equipmentItem)
+      .innerJoin(s.equipmentType, eq(s.equipmentType.id, s.equipmentItem.equipmentTypeId))
+      .where(eq(s.equipmentItem.caseId, caseId))
+      .groupBy(s.equipmentItem.equipmentTypeId, s.equipmentType.name)
+      .orderBy(asc(s.equipmentType.name));
+    if (contents.length === 0) throw new DomainError("VALIDATION", `${c.name} is empty. Pack it first, then use its contents.`);
+    const before = await tx.select().from(s.caseExpectedItem).where(eq(s.caseExpectedItem.caseId, caseId));
+    await tx.delete(s.caseExpectedItem).where(eq(s.caseExpectedItem.caseId, caseId));
+    await tx.insert(s.caseExpectedItem).values(
+      contents.map((r, i) => ({ workspaceId: ctx.workspaceId, caseId, equipmentTypeId: r.typeId, categoryId: null, label: r.typeName, quantity: r.units, sortOrder: i })),
+    );
+    await recordEvent(tx, ctx, {
+      action: "case.expected_contents_changed",
+      entityType: "case",
+      entityId: caseId,
+      caseId,
+      projectId: c.projectId,
+      summary: `${c.name}: expected contents set to what is packed (${contents.reduce((n, r) => n + r.units, 0)} pieces, ${contents.length} types)`,
+      changes: {
+        expected: {
+          from: before.map((l) => `${l.quantity} × ${l.label}`),
+          to: contents.map((r) => `${r.units} × ${r.typeName}`),
+        },
+      },
+    });
+    return contents.length;
   });
 }
 

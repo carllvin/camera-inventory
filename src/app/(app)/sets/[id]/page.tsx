@@ -3,7 +3,8 @@ import { CircleCheck, CircleAlert, Pencil } from "lucide-react";
 import { ActivityList } from "@/components/activity";
 import { CaseProgress } from "@/components/case-list";
 import { FilterBar, FilterSearch } from "@/components/filters";
-import { AddLineForm, LineEditor } from "@/components/line-editor";
+import { QuickExpectedEditor } from "@/components/line-editor";
+import { ActionForm, SubmitButton } from "@/components/forms";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { Badge, Card, CardHeader, ConditionBadge, LinkButton, Mono, PageHeader, StatusBadge } from "@/components/ui";
 import { cn } from "@/lib/format";
@@ -14,7 +15,7 @@ import { hasRole } from "@/server/domain/context";
 import { listActivity } from "@/server/domain/overview";
 import { listPhotos } from "@/server/domain/photos";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { addLineAction, packByCodeAction, packChecklistAction, removeLineAction, unpackItemAction, unpackUnitsAction, updateLineAction } from "../actions";
+import { addLineAction, applyContentsAction, packByCodeAction, packChecklistAction, removeLineAction, stepLineAction, unpackItemAction, unpackUnitsAction } from "../actions";
 import { PackChecklist } from "../pack-checklist";
 import { PackByCode, SmallActionButton, UnitsButton } from "../pack-panel";
 
@@ -49,6 +50,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
   const missingByType = new Map<string, number>();
   for (const r of cmp.lines) if (r.line.equipmentTypeId && r.missing > 0) missingByType.set(r.line.equipmentTypeId, (missingByType.get(r.line.equipmentTypeId) ?? 0) + r.missing);
   const packedRows = groupUnits(d.items);
+  const packedPieces = d.items.reduce((n, i) => n + i.quantity, 0);
   const byId = new Map(d.items.map((i) => [i.id, i]));
   const editing = sp.edit === "1" && canEdit;
 
@@ -148,27 +150,40 @@ export default async function CasePage({ params, searchParams }: { params: Promi
             }
           />
           {editing && targets ? (
-            <div className="space-y-4 p-4">
-              <LineEditor
+            <div className="p-4">
+              <QuickExpectedEditor
                 lines={d.lines.map((l) => ({
                   id: l.id,
                   label: l.label,
                   quantity: l.quantity,
-                  typeName: l.typeName,
-                  categoryName: l.categoryName,
-                  updateAction: updateLineAction.bind(null, id, l.id),
-                  removeAction: removeLineAction.bind(null, id, l.id),
+                  hint: l.typeName ? l.typeName : `any ${l.categoryName ?? "item"} (incl. subcategories)`,
+                  less: stepLineAction.bind(null, id, l.id, -1),
+                  more: stepLineAction.bind(null, id, l.id, 1),
+                  remove: removeLineAction.bind(null, id, l.id),
                 }))}
+                addAction={addLineAction.bind(null, id)}
+                categories={targets.categories}
+                useContents={{ action: applyContentsAction.bind(null, id), pieces: packedPieces }}
               />
-              <div className="border-t border-border pt-4">
-                <h3 className="mb-2 text-sm font-medium">Add expected item</h3>
-                <AddLineForm action={addLineAction.bind(null, id)} categories={targets.categories} />
-              </div>
             </div>
           ) : cmp.lines.length === 0 ? (
-            <p className="px-4 py-6 text-sm text-muted">
-              No expected contents. {canEdit && <Link href={`/sets/${id}?edit=1`} className="text-accent hover:underline">Define what belongs in this set</Link>}
-            </p>
+            <div className="space-y-3 px-4 py-5 text-sm text-muted">
+              <p>No expected contents yet — the check compares against them.</p>
+              {canEdit && (
+                <div className="flex flex-wrap items-center gap-3">
+                  {packedPieces > 0 && (
+                    <ActionForm action={applyContentsAction.bind(null, id)}>
+                      <SubmitButton variant="secondary" pendingText="…">
+                        Use what&apos;s packed now ({packedPieces})
+                      </SubmitButton>
+                    </ActionForm>
+                  )}
+                  <Link href={`/sets/${id}?edit=1`} className="text-accent hover:underline">
+                    {packedPieces > 0 ? "or define it by hand" : "Define what belongs in this set"}
+                  </Link>
+                </div>
+              )}
+            </div>
           ) : (
             <ul className="divide-y divide-border">
               {cmp.lines.map((r) => {

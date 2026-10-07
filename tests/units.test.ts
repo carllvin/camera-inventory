@@ -143,3 +143,27 @@ describe("item page: one save for status, condition and case", () => {
     expect((await updateItemState(db, ctx, r.item.id, { caseId: "" })).changed).toEqual(["case"]);
   });
 });
+
+describe("expected contents made easy", () => {
+  it("uses what is packed, steps quantities and merges repeated types", async () => {
+    const { addExpectedLine, getCaseDetail: detail, setExpectedFromContents, stepExpectedLine } = await import("../src/server/domain/cases");
+    const c = await createCase(db, ctx, { name: `Expect ${Date.now()}`, projectId: f.project.id });
+    await expect(setExpectedFromContents(db, ctx, c.id)).rejects.toThrow(/empty/);
+    const cam = await itemOnProject(f, { serialNumber: `X-${Date.now()}`, caseId: c.id });
+    await bulk(3, { caseId: c.id });
+    expect(await setExpectedFromContents(db, ctx, c.id)).toBe(2);
+    let d = await detail(db, ctx, c.id);
+    expect(d.comparison.complete).toBe(true);
+    expect(d.lines.map((l) => [l.label, l.quantity]).sort()).toEqual([["ARRI ALEXA 35", 1], ["BNC 1m", 3]]);
+
+    // Adding the same type again counts it up; − to zero removes the line.
+    await addExpectedLine(db, ctx, c.id, { target: `type:${cam.equipmentTypeId}`, quantity: 1 });
+    d = await detail(db, ctx, c.id);
+    const camLine = d.lines.find((l) => l.label === "ARRI ALEXA 35")!;
+    expect(camLine.quantity).toBe(2);
+    await stepExpectedLine(db, ctx, camLine.id, -1);
+    await stepExpectedLine(db, ctx, camLine.id, -1);
+    d = await detail(db, ctx, c.id);
+    expect(d.lines.map((l) => l.label)).toEqual(["BNC 1m"]);
+  });
+});

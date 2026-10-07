@@ -77,10 +77,11 @@ test("edit expected contents and save the set as a template", async ({ page }, i
   await page.getByLabel("Name").fill(name);
   await page.getByRole("button", { name: "Create set" }).click();
   await page.getByRole("link", { name: "Define what belongs in this set" }).click();
-  await page.getByLabel("Quantity", { exact: true }).fill("2");
-  await pickType(page.getByLabel("Equipment type or category"), "cine 7", "SmallHD Cine 7");
-  await page.getByRole("button", { name: "Add", exact: true }).click();
-  await expect(page.getByLabel("Quantity of SmallHD Cine 7")).toHaveValue("2");
+  // Choosing a type adds it right away; − / + change the number.
+  await pickType(page.getByLabel("Add to the expected contents"), "cine 7", "SmallHD Cine 7");
+  await expect(page.getByLabel("SmallHD Cine 7: 1")).toBeVisible();
+  await page.getByRole("button", { name: "One SmallHD Cine 7 more" }).click();
+  await expect(page.getByLabel("SmallHD Cine 7: 2")).toBeVisible();
   await page.getByRole("link", { name: "Done" }).click();
   await expect(page.getByText("0 / 2").first()).toBeVisible();
 
@@ -226,6 +227,9 @@ test("set page: tick several things in the checklist and add them in one go", as
   await page.getByRole("button", { name: "Add 2 to this set" }).click();
   await expect(page.getByText("2 pieces added.")).toBeVisible();
   await expect(page.getByRole("heading", { name: "In this set (2)" })).toBeVisible();
+  // What is packed now becomes the expected contents in one click.
+  await page.getByRole("button", { name: "Use what's packed now (2)" }).click();
+  await expect(page.getByText("2 / 2").first()).toBeVisible();
   // Put them back where they were (not in a set).
   for (const left of [1, 0]) {
     await page.locator("li").filter({ has: page.getByRole("button", { name: "Take out" }) }).first().getByRole("button", { name: "Take out" }).click();

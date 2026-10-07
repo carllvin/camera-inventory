@@ -10,6 +10,8 @@ import { DomainError } from "@/server/domain/context";
 import { readRows } from "@/server/form-rows";
 import {
   addExpectedLine,
+  setExpectedFromContents,
+  stepExpectedLine,
   addTemplateLine,
   archiveCase,
   archiveTemplate,
@@ -24,7 +26,6 @@ import {
   unpackItem,
   unpackUnits,
   updateCase,
-  updateExpectedLine,
   updateTemplate,
   updateTemplateLine,
 } from "@/server/domain/cases";
@@ -67,11 +68,18 @@ export async function addLineAction(caseId: string, _: ActionState, fd: FormData
   });
 }
 
-export async function updateLineAction(caseId: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+export async function stepLineAction(caseId: string, lineId: string, delta: number, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
-    await updateExpectedLine(getDb(), await getCtx(), lineId, fromForm(fd));
+    await stepExpectedLine(getDb(), await getCtx(), lineId, delta);
     refreshCase(caseId);
-    return "Saved.";
+  });
+}
+
+export async function applyContentsAction(caseId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const n = await setExpectedFromContents(getDb(), await getCtx(), caseId);
+    refreshCase(caseId);
+    return `Expected contents set: ${n} type${n === 1 ? "" : "s"}.`;
   });
 }
 
