@@ -112,7 +112,8 @@
      "aliases": [
       "Nano Clamp",
       "Manfrotto 386B",
-      "386B-1"
+      "386B-1",
+      "MANFROTTO Nano Clamp 386B"
      ],
      "bulk": true
     },
@@ -129,7 +130,16 @@
      "model": "Holdit Arm",
      "aliases": [
       "Noga Arm",
-      "Noga"
+      "Noga",
+      "NOGA Arm klein"
+     ]
+    },
+    {
+     "manufacturer": "ULCS",
+     "model": "Arm Long (5-part)",
+     "aliases": [
+      "ULCS Arm lang (5tlg.)",
+      "ULCS Arm"
      ]
     }
    ]

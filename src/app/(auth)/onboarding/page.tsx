@@ -21,7 +21,7 @@ export default async function OnboardingPage() {
           <input type="checkbox" name="standardCatalog" value="on" defaultChecked className="mt-0.5 size-4 accent-[var(--accent)]" />
           <span>
             Start with the standard equipment catalog
-            <span className="block text-xs text-muted">About 1,600 common cameras, lenses (per focal length) and accessories. You can edit, archive or add to it later.</span>
+            <span className="block text-xs text-muted">About 1,750 common cameras, lenses (per focal length) and accessories. You can edit, archive or add to it later.</span>
           </span>
         </label>
         <label className="flex cursor-pointer items-start gap-3 text-sm">

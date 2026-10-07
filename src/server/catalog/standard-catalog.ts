@@ -22,7 +22,7 @@ import power from "./data/power.json";
 import support from "./data/support.json";
 import video from "./data/video.json";
 
-export const STANDARD_CATALOG_VERSION = 3;
+export const STANDARD_CATALOG_VERSION = 4;
 
 export interface CatalogEntry {
   manufacturer: string;

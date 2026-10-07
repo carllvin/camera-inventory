@@ -1113,6 +1113,18 @@
      }
     },
     {
+     "manufacturer": "IB/E Optics",
+     "model": "PLx2 Doppler S35",
+     "aliases": [
+      "IBE PLx2 Extender",
+      "PL 2x Extender IB/E"
+     ],
+     "specs": {
+      "factor": "2x",
+      "mount": "PL"
+     }
+    },
+    {
      "manufacturer": "Schneider",
      "model": "138mm Diopter +1",
      "aliases": [
@@ -1292,6 +1304,64 @@
      "specs": {
       "diameter_mm": 138
      },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ZEISS",
+     "model": "Master Diopter +0.5",
+     "aliases": [
+      "Master Diopter +1/2"
+     ],
+     "specs": {
+      "diopter": "+0.5"
+     }
+    },
+    {
+     "manufacturer": "ZEISS",
+     "model": "Master Diopter +1",
+     "aliases": [],
+     "specs": {
+      "diopter": "+1"
+     }
+    },
+    {
+     "manufacturer": "ZEISS",
+     "model": "Master Diopter +2",
+     "aliases": [],
+     "specs": {
+      "diopter": "+2"
+     }
+    },
+    {
+     "manufacturer": "ZEISS",
+     "model": "Master Diopter Insert Ring 104mm",
+     "aliases": [
+      "Insertring Master Diopter 104mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ZEISS",
+     "model": "Master Diopter Insert Ring 110mm",
+     "aliases": [
+      "Insertring Master Diopter 110mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ZEISS",
+     "model": "Master Diopter Insert Ring 114mm",
+     "aliases": [
+      "Insertring Master Diopter 114mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ZEISS",
+     "model": "Master Diopter Insert Ring 95mm",
+     "aliases": [
+      "Insertring Master Diopter 95mm"
+     ],
      "bulk": true
     }
    ]
@@ -3905,6 +3975,56 @@
      ],
      "extraSeries": [
       "Panavision Primo 70"
+     ]
+    },
+    {
+     "manufacturer": "Tribe7",
+     "series": "Blackwing7 T-Tuned",
+     "focals": [
+      [
+       20.7,
+       "T1.9"
+      ],
+      [
+       23.7,
+       "T1.9"
+      ],
+      [
+       27,
+       "T1.9"
+      ],
+      [
+       37,
+       "T1.9"
+      ],
+      [
+       47,
+       "T1.9"
+      ],
+      [
+       57,
+       "T1.9"
+      ],
+      [
+       77,
+       "T1.9"
+      ],
+      [
+       107,
+       "T1.9"
+      ],
+      [
+       137,
+       "T1.9"
+      ]
+     ],
+     "format": "Full Frame",
+     "short": [
+      "BW7 T "
+     ],
+     "extraSeries": [
+      "TRIBE7 Blackwing-7 T-Tuned",
+      "Blackwing-7 T-Tuned"
      ]
     }
    ],

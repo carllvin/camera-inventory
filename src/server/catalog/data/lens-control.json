@@ -11,6 +11,263 @@
    "entries": [
     {
      "manufacturer": "ARRI",
+     "model": "143mm Rubber Bellows with 138mm Filter Retaining Ring",
+     "aliases": [
+      "Balgen 143mm MB-19/MB-20",
+      "143mm Bellows MB-20"
+     ],
+     "specs": {
+      "diameter_mm": 143
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Anti-Reflection Frame 4x5.65",
+     "aliases": [
+      "K2.0008133",
+      "ARRI Anti Reflection Frame 4x5.65 f. LMB",
+      "F1 Anti-Reflection Filter Frame 4x5.65"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\""
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "F1 Filter Frame 4x5.65 for 6.6x6.6",
+     "aliases": [
+      "K2.0005874",
+      "Reducer Frame 6.6x6.6 to 4x5.65",
+      "Filterrahmen 4x5.65 f. 6.6x6.6"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\"",
+      "note": "non-geared"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "F2 Horizontal Filter Frame 4x5.65",
+     "aliases": [
+      "K2.49083.0",
+      "F2 Filterrahmen 4x5.65 horizontal"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\"",
+      "note": "non-geared, for SMB-2 / MB-18"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "F4 Filter Frame Combo 4x5.65/4x4",
+     "aliases": [
+      "K2.66133.0",
+      "MMB-2 Filterrahmen 4x5.65/4x4"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\" / 4x4\""
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Filter Frame 4x5.65 Horizontal",
+     "aliases": [
+      "Filterhalter MB-19/LMB-5 4x5,65 horiz.",
+      "Filterrahmen 4x5.65 horizontal"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\"",
+      "note": "name from rental list"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 15mm LWS Console",
+     "aliases": [
+      "K2.0013427",
+      "15mm LWS Console for LMB 4x5",
+      "LMB 4x5 LWS Konsole"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Basic Module",
+     "aliases": [
+      "K2.0013589",
+      "LMB4x5 Basismodul"
+     ],
+     "specs": {
+      "weight_kg": 0.22
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 100mm",
+     "aliases": [
+      "Klemmadapter LMB 100mm",
+      "LMB 4x5 Clamp Adapter 100"
+     ],
+     "specs": {
+      "diameter_mm": 100
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 104mm",
+     "aliases": [
+      "K2.0014422",
+      "Klemmadapter LMB 104mm",
+      "LMB 4x5 Clamp Adapter 104"
+     ],
+     "specs": {
+      "diameter_mm": 104
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 110mm",
+     "aliases": [
+      "Klemmadapter LMB 110mm",
+      "LMB 4x5 Clamp Adapter 110"
+     ],
+     "specs": {
+      "diameter_mm": 110
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 114mm",
+     "aliases": [
+      "Klemmadapter LMB 114mm",
+      "LMB 4x5 Clamp Adapter 114"
+     ],
+     "specs": {
+      "diameter_mm": 114
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 125mm",
+     "aliases": [
+      "Klemmadapter LMB 125mm",
+      "LMB 4x5 Clamp Adapter 125"
+     ],
+     "specs": {
+      "diameter_mm": 125
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 134mm",
+     "aliases": [
+      "Klemmadapter LMB 134mm",
+      "LMB 4x5 Clamp Adapter 134"
+     ],
+     "specs": {
+      "diameter_mm": 134
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 136mm",
+     "aliases": [
+      "Klemmadapter LMB 136mm",
+      "LMB 4x5 Clamp Adapter 136"
+     ],
+     "specs": {
+      "diameter_mm": 136
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 143mm",
+     "aliases": [
+      "Klemmadapter LMB 143mm",
+      "LMB 4x5 Clamp Adapter 143"
+     ],
+     "specs": {
+      "diameter_mm": 143
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 162mm",
+     "aliases": [
+      "Klemmadapter LMB 162mm",
+      "LMB 4x5 Clamp Adapter 162"
+     ],
+     "specs": {
+      "diameter_mm": 162
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 80mm",
+     "aliases": [
+      "Klemmadapter LMB 80mm",
+      "LMB 4x5 Clamp Adapter 80"
+     ],
+     "specs": {
+      "diameter_mm": 80
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 85mm",
+     "aliases": [
+      "Klemmadapter LMB 85mm",
+      "LMB 4x5 Clamp Adapter 85"
+     ],
+     "specs": {
+      "diameter_mm": 85
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 87mm",
+     "aliases": [
+      "Klemmadapter LMB 87mm",
+      "LMB 4x5 Clamp Adapter 87"
+     ],
+     "specs": {
+      "diameter_mm": 87
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Clamp Adapter 95mm",
+     "aliases": [
+      "Klemmadapter LMB 95mm",
+      "LMB 4x5 Clamp Adapter 95"
+     ],
+     "specs": {
+      "diameter_mm": 95
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Extra Non-Rotatable Filter Stage",
+     "aliases": [
+      "K2.0014006",
+      "LMB 4x5 Filterstufe fest"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Extra Rotatable Filter Stage",
+     "aliases": [
+      "K2.0013460",
+      "LMB 4x5 Filterstufe drehbar"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "LMB 4x5 Pro Set",
      "aliases": [
       "LMB 4x5",
@@ -20,9 +277,138 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "LMB 4x5 Set of Mattes Anamorphic",
+     "aliases": [
+      "LMB 4x5 Masken Set anamorph",
+      "LMB Mattes Anamorphic"
+     ],
+     "specs": {
+      "note": "5 mattes; fits LMB 4x5, LMB-5/-15/-25, MB-19"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Set of Mattes Spherical",
+     "aliases": [
+      "LMB 4x5 Masken Set sphärisch",
+      "LMB Mattes Spherical"
+     ],
+     "specs": {
+      "note": "5 mattes; fits LMB 4x5, LMB-5/-15/-25, MB-19"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Side Flag Left",
+     "aliases": [
+      "LMB 4x5 Seitenflügel links"
+     ],
+     "specs": {
+      "note": "sold as pair \"LMB 4x5 Side Flags\" K2.0013750; single flag name from rental list"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Side Flag Right",
+     "aliases": [
+      "LMB 4x5 Seitenflügel rechts"
+     ],
+     "specs": {
+      "note": "sold as pair \"LMB 4x5 Side Flags\" K2.0013750; single flag name from rental list"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Swing Away Tilt Module",
+     "aliases": [
+      "K2.0013447",
+      "LMB 4x5 Swing Away"
+     ],
+     "specs": {
+      "rods": "15mm LWS",
+      "weight_kg": 0.308
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 4x5 Top/Bottom Flag",
+     "aliases": [
+      "K2.0013724",
+      "LMB 4x5 Top Flag"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 6x6 Basic Module",
+     "aliases": [
+      "K2.0019218",
+      "LMB-6 Basic Module",
+      "LMB 6x6 Basismodul"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 6x6 Side Flags",
+     "aliases": [
+      "K2.0019216",
+      "LMB-6 Side Flags",
+      "LMB 6x6 Seitenflügel"
+     ],
+     "specs": {
+      "note": "pair"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB 6x6 Top/Bottom Flag",
+     "aliases": [
+      "K2.0019178",
+      "LMB-6 Top Flag",
+      "LMB 6x6 Top Flag"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB Flag Holders",
+     "aliases": [
+      "K2.0013825",
+      "LMB 4x5 Flag Holders",
+      "LMB Flaggenhalter"
+     ],
+     "specs": {
+      "note": "pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "LMB-25",
      "aliases": [],
      "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB-25 Clamp Adapter 104mm",
+     "aliases": [
+      "K2.47253.0",
+      "LMB-25 Klemmadapter 104mm"
+     ],
+     "specs": {
+      "diameter_mm": 104
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LMB-25 Tray Catcher",
+     "aliases": [
+      "K2.66202.0",
+      "LMB 4x5/25/6 Filterhalter Stopper (Tray Catcher)",
+      "Filterhalter Stopper LMB"
+     ],
+     "bulk": true
     },
     {
      "manufacturer": "ARRI",
@@ -30,6 +416,20 @@
      "aliases": [
       "LMB-6 Matte Box"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mask Set 35mm for LMB-5 / MB-19",
+     "aliases": [
+      "K2.66022.0",
+      "Masken Set MB-19/LMB-5 35mm 6-tlg.",
+      "LMB-5 Mask Set 35mm"
+     ],
+     "specs": {
+      "note": "name from rental list"
+     },
+     "bulk": true,
+     "discontinued": true
     },
     {
      "manufacturer": "ARRI",
@@ -66,6 +466,51 @@
      "aliases": [
       "MB-28 Kompendium"
      ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MMB-2 Basic Module Double 4x5.65",
+     "aliases": [
+      "K2.66169.0",
+      "MMB-2",
+      "Mini Matte Box MMB-2"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\""
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "R4 Screw-In Reduction Ring 114-104mm",
+     "aliases": [
+      "K2.52195.0",
+      "Reduzierring 114/104",
+      "R4 114-104"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "R4 Screw-In Reduction Ring 114-95mm",
+     "aliases": [
+      "K2.65271.0",
+      "Reduzierring 114/95",
+      "R4 114-95"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Side Flag Set MB-20",
+     "aliases": [
+      "K2.65056.0",
+      "MB-20 Side Flags",
+      "MB-20 Seitenflügel"
+     ],
+     "specs": {
+      "note": "pair"
+     },
      "discontinued": true
     },
     {
@@ -1036,6 +1481,18 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "cforce mini Clamp Console 2 19/15mm",
+     "aliases": [
+      "K2.0036610",
+      "cforce mini Motorhalter 15/19mm",
+      "cforce mini Bracket"
+     ],
+     "specs": {
+      "rods": "15mm / 19mm"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "cforce mini RF",
      "aliases": [
       "cforce RF",
@@ -1050,6 +1507,20 @@
       "cforce plus Motor"
      ],
      "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce plus Gear m0.8 60t 25mm",
+     "aliases": [
+      "K2.0010365",
+      "cforce plus Zahnrad 60z"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 60,
+      "width_mm": 25
+     },
+     "bulk": true
     },
     {
      "manufacturer": "ARRI",
@@ -1068,6 +1539,99 @@
       "CLM-5 Motor"
      ],
      "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-5/cforce mini Gear m0.8/32p 40t",
+     "aliases": [
+      "cforce mini Gear 40t",
+      "cforce mini Zahnrad 0.8 40z"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 40
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.8 mod 35t 25mm",
+     "aliases": [
+      "K2.47557.0",
+      "FF Zahnrad 0.8 35z 25mm"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 35,
+      "width_mm": 25
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.8 mod 35t 45mm",
+     "aliases": [
+      "K2.0020132",
+      "FF Zahnrad 0.8 35z 45mm"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 35,
+      "width_mm": 45
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.8 mod 43t 6mm",
+     "aliases": [
+      "K2.65259.0",
+      "FF Zahnrad 0.8 43z 6mm"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 43,
+      "width_mm": 6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.8 mod 64t 6mm",
+     "aliases": [
+      "K2.65102.0",
+      "FF Zahnrad 0.8 64z 6mm"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 64,
+      "width_mm": 6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Flexible Shaft Short 300mm",
+     "aliases": [
+      "K2.34100.0",
+      "FF-5 Whip 300mm",
+      "Focus Whip short",
+      "Schärfewelle 300mm"
+     ],
+     "specs": {
+      "length_mm": 300
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Focus Lever (Speed Crank)",
+     "aliases": [
+      "K2.32730.0",
+      "FF-5 Speed Crank",
+      "Speed Crank FF-5",
+      "Kurbel FF-5"
+     ]
     },
     {
      "manufacturer": "ARRI",
@@ -1116,6 +1680,16 @@
       "Lens Data Display FP"
      ],
      "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Marking Disk Flat",
+     "aliases": [
+      "K2.32701.0",
+      "FF-5 Marking Disk",
+      "Markierscheibe FF-5"
+     ],
+     "bulk": true
     },
     {
      "manufacturer": "ARRI",

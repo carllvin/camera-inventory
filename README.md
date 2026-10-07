@@ -47,7 +47,7 @@ click. Confirming a note saves the rental house's project number on the project,
 
 ### Standard equipment catalog
 
-About 1,600 equipment types from the common manufacturers — cameras (ARRI, Sony, RED, Canon, Blackmagic,
+About 1,750 equipment types from the common manufacturers — cameras (ARRI, Sony, RED, Canon, Blackmagic,
 Panasonic, Nikon, Fujifilm, Z CAM, Kinefinity, DJI, Phantom …) with cages and system accessories, lenses with
 one type per focal length (ARRI, ZEISS, Cooke, Leitz, Canon, Sigma, Tokina, DZOFilm, NiSi, Panavision,
 Angénieux, Fujinon, Atlas, Vantage Hawk, Laowa, Sirui, Blazar …),

@@ -282,7 +282,8 @@
      "model": "V155RM-Cine",
      "aliases": [
       "V155RM",
-      "bebob V155 Cine"
+      "bebob V155 Cine",
+      "BEBOB V-Mount Akku 155Wh V155RM Cine"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -318,7 +319,8 @@
       "Bebob V290",
       "V-Mount 290",
       "V290RM",
-      "bebob V290 Cine"
+      "bebob V290 Cine",
+      "BEBOB V-Mount Akku 290Wh V290RM Cine"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -353,7 +355,8 @@
      "model": "V98micro",
      "aliases": [
       "Bebob V98",
-      "V98microC"
+      "V98microC",
+      "BEBOB V-Mount Akku 98Wh V98micro"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -886,6 +889,29 @@
     },
     {
      "manufacturer": "SWIT",
+     "model": "PB-M98S",
+     "aliases": [
+      "SWIT V-Mount Akku 98Wh Pocket PB-M98S",
+      "SWIT Pocket 98"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 98
+     }
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-R290S+",
+     "aliases": [
+      "SWIT V-Mount Akku 290Wh PB-R290S+"
+     ],
+     "specs": {
+      "mount": "V-Mount",
+      "capacity_wh": 290
+     }
+    },
+    {
+     "manufacturer": "SWIT",
      "model": "PB-S290S",
      "aliases": [
       "SWIT 290Wh",
@@ -1031,7 +1057,9 @@
       "VS2 Dual V-Mount Charger",
       "B-Mount Charger",
       "Bebob Charger",
-      "VS2-Cine Charger"
+      "VS2-Cine Charger",
+      "BEBOB V-Mount Charger 2-fach VS2 / VAS2",
+      "VS2 / VAS2"
      ],
      "specs": {
       "mount": "V-Mount"
@@ -1050,6 +1078,13 @@
      "specs": {
       "mount": "V-Mount"
      }
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VS2RLM",
+     "aliases": [
+      "BEBOB V-Mount Charger 2-fach VS2RLM"
+     ]
     },
     {
      "manufacturer": "bebob",
@@ -1182,7 +1217,8 @@
      "manufacturer": "IDX",
      "model": "VL-4S",
      "aliases": [
-      "VL-4SE"
+      "VL-4SE",
+      "IDX V-Mount Charger 4-fach + NK VL-4S"
      ],
      "specs": {
       "mount": "V-Mount"
@@ -1199,6 +1235,14 @@
      "specs": {
       "mount": "V-Mount"
      }
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PC-P430S",
+     "aliases": [
+      "SWIT V-Mount Charger 4-fach PC-P430S",
+      "SWIT 4-Channel Charger"
+     ]
     }
    ]
   },
@@ -1221,6 +1265,30 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "AMicro Power Splitting Box",
+     "aliases": [
+      "Power Splitting Box AMicro",
+      "PSB AMicro"
+     ],
+     "specs": {
+      "note": "name as listed by dealer (Vocas)"
+     },
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Gold Mount Power Splitting Box Mk II",
+     "aliases": [
+      "K2.0014532",
+      "PSB Gold Mount MkII",
+      "Power Splitting Box Gold Mount"
+     ],
+     "specs": {
+      "mount": "Gold Mount"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "PDM-1",
      "aliases": [
       "K2.0024101",
@@ -1236,6 +1304,18 @@
       "ARRI Netzteil 24V",
       "ARRI PSU Light"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "V-Mount Power Splitting Box Mk II",
+     "aliases": [
+      "K2.0014530",
+      "PSB V-Mount MkII",
+      "Power Splitting Box V-Mount"
+     ],
+     "specs": {
+      "mount": "V-Mount"
+     }
     },
     {
      "manufacturer": "bebob",
@@ -1263,7 +1343,8 @@
      "model": "ML-120V/V",
      "aliases": [
       "ML-120V",
-      "bebob V-Mount Hotswap Adapter"
+      "bebob V-Mount Hotswap Adapter",
+      "BEBOB V-Mount Hotswap ML-120 V/V"
      ]
     },
     {
@@ -1316,9 +1397,19 @@
      "aliases": [
       "D-Tap Verteiler",
       "D-Tap 1-to-4",
-      "P-Tap Splitter"
+      "P-Tap Splitter",
+      "ZV-Verteiler 12V D-Tap to 4 x D-Tap",
+      "D-Tap to 4 x D-Tap"
      ],
      "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "V-Mount Belt Plate with XLR 3-pin Cable",
+     "aliases": [
+      "V-Mount-Platte m. Gürtelclip m. Kabel XLR 3p (w)",
+      "V-Mount Gürtelplatte"
+     ]
     },
     {
      "manufacturer": "Hawk-Woods",
@@ -1346,6 +1437,18 @@
       "XB2-600",
       "Hawk-Woods X-Boxx 600"
      ]
+    },
+    {
+     "manufacturer": "Instagrid",
+     "model": "ONE max",
+     "aliases": [
+      "Instagrid Akku 2,1KWh/3600W",
+      "Instagrid ONE max 2.1 kWh"
+     ],
+     "specs": {
+      "capacity_wh": 2100,
+      "output_w": 3600
+     }
     }
    ]
   }

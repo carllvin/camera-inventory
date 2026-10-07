@@ -11,6 +11,23 @@
    "entries": [
     {
      "manufacturer": "ARRI",
+     "model": "15mm LWS Adapter for CBP",
+     "aliases": [
+      "K2.0019773",
+      "ARRI 15mm LWS Adapter f. CBP",
+      "LWS Adapter CBP"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "15mm LWS Rod Console",
+     "aliases": [
+      "K2.65264.0",
+      "LWS Rod Console"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Adjustable Top Plate for MoVI",
      "aliases": [
       "ALEXA 35 MoVI Top Plate",
@@ -39,6 +56,37 @@
      "aliases": [
       "BPA-5"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Plate Adapter BPA-6",
+     "aliases": [
+      "BPA-6",
+      "K2.0024745",
+      "BPA-6 ALEXA 35"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Plate BP-12",
+     "aliases": [
+      "BP-12",
+      "Bridge Plate Set 19mm BP-12"
+     ],
+     "specs": {
+      "rods": "19mm"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Plate BP-13",
+     "aliases": [
+      "BP-13",
+      "Bridge Plate Set 15mm BP-13"
+     ],
+     "specs": {
+      "rods": "15mm"
+     }
     },
     {
      "manufacturer": "ARRI",
@@ -95,8 +143,66 @@
      "model": "Compact Bridge Plate CBP-1",
      "aliases": [
       "CBP-1",
-      "Bridgeplate CBP-1"
+      "Bridgeplate CBP-1",
+      "ARRI Compact Bridge Plate CBP-1 (2-tlg.)"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Compact Bridge Plate CBP-2",
+     "aliases": [
+      "CBP-2",
+      "Bridgeplate CBP-2 15mm"
+     ],
+     "specs": {
+      "rods": "15mm Studio"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Compact Bridge Plate CBP-3",
+     "aliases": [
+      "CBP-3",
+      "Bridgeplate CBP-3 AMIRA"
+     ],
+     "specs": {
+      "rods": "19mm"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Compact Bridge Plate CBP-5 LW",
+     "aliases": [
+      "CBP-5 LW",
+      "K2.0049300",
+      "Bridgeplate CBP-5 LW 19mm"
+     ],
+     "specs": {
+      "rods": "19mm"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Compact Bridge Plate CBP-6",
+     "aliases": [
+      "CBP-6",
+      "Bridgeplate CBP-6 ALEXA 35"
+     ],
+     "specs": {
+      "rods": "15mm"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Compact Bridge Plate CBP-6 LW",
+     "aliases": [
+      "CBP-6 LW",
+      "K2.0049301",
+      "Bridgeplate CBP-6 LW 15mm"
+     ],
+     "specs": {
+      "rods": "15mm"
+     }
     },
     {
      "manufacturer": "ARRI",
@@ -109,6 +215,36 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "Electronic Viewfinder Adapter EVA-1",
+     "aliases": [
+      "EVA-1",
+      "EVF Adapter EVA-1"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Eyepiece Leveler EL-3",
+     "aliases": [
+      "EL-3",
+      "K2.47767.0",
+      "ARRI Lupenstütze EL-3 1-tlg.",
+      "Lupenstütze EL-3"
+     ],
+     "specs": {
+      "weight_kg": 0.298
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension Adapter HEX-A",
+     "aliases": [
+      "HEX-A",
+      "K2.0049050"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Handle Extension Block HEB-1",
      "aliases": [
       "HEB-1"
@@ -116,10 +252,20 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "Handle Extension HEX-1",
+     "aliases": [
+      "HEX-1",
+      "K2.0019791",
+      "Griffverlängerung HEX-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Handle Extension HEX-2",
      "aliases": [
       "HEX-2",
-      "Griffverlängerung HEX-2"
+      "Griffverlängerung HEX-2",
+      "K2.0019792"
      ]
     },
     {
@@ -127,8 +273,100 @@
      "model": "Handle Extension HEX-3",
      "aliases": [
       "HEX-3",
-      "Griffverlängerung HEX-3"
+      "Griffverlängerung HEX-3",
+      "K2.0019797"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension HEX-4",
+     "aliases": [
+      "HEX-4",
+      "K2.0019798",
+      "Griffverlängerung HEX-4"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension HEX-5",
+     "aliases": [
+      "HEX-5",
+      "K2.0036917",
+      "Griffverlängerung HEX-5"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension HEX-90",
+     "aliases": [
+      "HEX-90",
+      "K2.0019810",
+      "Griffverlängerung HEX-90"
+     ],
+     "specs": {
+      "weight_kg": 0.12
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Handle Extension Set for ALEXA 35",
+     "aliases": [
+      "KK.0051730",
+      "HEX Set ALEXA 35"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Knurled Screw M12x1 for VMB-1/-2",
+     "aliases": [
+      "ARRI Rändelschraube M12x1 f. VMB-1/-2",
+      "Rändelschraube M12x1",
+      "Rändelschraube M12"
+     ],
+     "specs": {
+      "thread": "M12x1",
+      "note": "name from rental list"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Knurled Screw M16x1 for VMB-1/-2",
+     "aliases": [
+      "ARRI Rändelschraube M16X1 f. VMB-1/-2",
+      "Rändelschraube M16x1",
+      "Rändelschraube M16"
+     ],
+     "specs": {
+      "thread": "M16x1",
+      "note": "name from rental list"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Lens Support LS-10",
+     "aliases": [
+      "LS-10",
+      "K2.47228.0",
+      "Objektivstütze LS-10 15mm"
+     ],
+     "specs": {
+      "rods": "15mm"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Lens Support LS-9",
+     "aliases": [
+      "LS-9",
+      "K2.47227.0",
+      "Objektivstütze LS-9 19mm"
+     ],
+     "specs": {
+      "rods": "19mm",
+      "weight_kg": 0.166
+     }
     },
     {
      "manufacturer": "ARRI",
@@ -136,6 +374,26 @@
      "aliases": [
       "LB-1",
       "Leveling Block"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Lightweight Lens Support LLS-1",
+     "aliases": [
+      "LLS-1",
+      "K2.0017029",
+      "Objektivstütze LLS-1"
+     ],
+     "specs": {
+      "rods": "15mm LWS"
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Lightweight Support LWS-7",
+     "aliases": [
+      "LWS-7",
+      "K2.0050467"
      ]
     },
     {
@@ -203,6 +461,27 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "Mini Viewfinder Bracket MVB-1",
+     "aliases": [
+      "MVB-1",
+      "K2.0006140",
+      "ARRI Mini Viewfinder Bracket MVB-1 (2-tlg.)",
+      "Sucherhalter MVB-1"
+     ],
+     "specs": {
+      "weight_kg": 0.342
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "NATO Rail Bracket NRB-160",
+     "aliases": [
+      "NRB-160",
+      "K2.0051823"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "PL Mount",
      "aliases": [
       "PL Mount ALEXA Mini",
@@ -221,16 +500,186 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "Plastic Shell for HEX",
+     "aliases": [
+      "Plastikschale HEX",
+      "HEX Plastic Shell"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RAB-1 Clamp",
+     "aliases": [
+      "K2.0014126",
+      "Clamp f. RAB-1",
+      "RAB-1 Klemme"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RAB-1 Clamp 2",
+     "aliases": [
+      "ARRI Clamp 2 f. RAB-1",
+      "Clamp 2 RAB-1",
+      "RAB-1 Klemme 2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Rear Accessory Bracket RAB-1",
      "aliases": [
-      "RAB-1"
+      "RAB-1",
+      "K2.0013937"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Rod Mounting Bracket RMB-9",
+     "aliases": [
+      "RMB-9",
+      "K2.0049530"
      ]
     },
     {
      "manufacturer": "ARRI",
      "model": "Side Accessory Bracket SAB-1",
      "aliases": [
-      "SAB-1"
+      "SAB-1",
+      "K2.0012692",
+      "ARRI Mini Side Accessory Bracket SAB-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Stabilizer Adapter Mount SAM-6 355",
+     "aliases": [
+      "SAM-6 355",
+      "K2.0048425",
+      "SAM-6"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Stabilizer Plate for CBP",
+     "aliases": [
+      "K2.0014981",
+      "ARRI Stabilizer Plate f. CBP",
+      "CBP Stabilizer Plate"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Stabilizer Plate for CBP 450mm",
+     "aliases": [
+      "K2.0038536",
+      "Stabilizer Plate for CBP 450mm/18in",
+      "CBP Stabilizer Plate 450"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Support Rods 15mm 240mm",
+     "aliases": [
+      "15mm Rod 240mm ARRI",
+      "ARRI 15mm Stange 240mm"
+     ],
+     "specs": {
+      "diameter_mm": 15,
+      "length_mm": 240,
+      "note": "stainless steel, sold as pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Support Rods 15mm 340mm",
+     "aliases": [
+      "15mm Rod 340mm ARRI",
+      "ARRI 15mm Stange 340mm"
+     ],
+     "specs": {
+      "diameter_mm": 15,
+      "length_mm": 340,
+      "note": "stainless steel, sold as pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Support Rods 15mm 440mm",
+     "aliases": [
+      "15mm Rod 440mm ARRI",
+      "ARRI 15mm Stange 440mm"
+     ],
+     "specs": {
+      "diameter_mm": 15,
+      "length_mm": 440,
+      "note": "stainless steel, sold as pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Support Rods 19mm 240mm",
+     "aliases": [
+      "19mm Rod 240mm ARRI",
+      "ARRI 19mm Stange 240mm"
+     ],
+     "specs": {
+      "diameter_mm": 19,
+      "length_mm": 240,
+      "note": "stainless steel, sold as pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Support Rods 19mm 340mm",
+     "aliases": [
+      "19mm Rod 340mm ARRI",
+      "ARRI 19mm Stange 340mm"
+     ],
+     "specs": {
+      "diameter_mm": 19,
+      "length_mm": 340,
+      "note": "stainless steel, sold as pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Support Rods 19mm 440mm",
+     "aliases": [
+      "19mm Rod 440mm ARRI",
+      "ARRI 19mm Stange 440mm"
+     ],
+     "specs": {
+      "diameter_mm": 19,
+      "length_mm": 440,
+      "note": "stainless steel, sold as pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Support Rods 19mm 540mm",
+     "aliases": [
+      "19mm Rod 540mm ARRI",
+      "ARRI 19mm Stange 540mm"
+     ],
+     "specs": {
+      "diameter_mm": 19,
+      "length_mm": 540,
+      "note": "stainless steel, sold as pair"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Universal Adapter Plate UAP-4",
+     "aliases": [
+      "UAP-4",
+      "K2.0043674"
      ]
     },
     {
@@ -243,9 +692,33 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "Vertical Viewfinder Adapter for ALEXA Mini",
+     "aliases": [
+      "Vertical VF Adapter ALEXA Mini",
+      "MVF-1 Vertical Adapter"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Adapter VFA-2",
+     "aliases": [
+      "VFA-2",
+      "Sucheradapter VFA-2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Viewfinder Adapter VFA-3",
      "aliases": [
       "VFA-3"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Attachment Bracket VAB-1",
+     "aliases": [
+      "VAB-1",
+      "AMIRA VF Bracket VAB-1"
      ]
     },
     {
@@ -259,12 +732,50 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "Viewfinder Mounting Bracket VMB-1",
+     "aliases": [
+      "VMB-1",
+      "Sucherhalter VMB-1"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Mounting Bracket VMB-2",
+     "aliases": [
+      "VMB-2",
+      "Sucherhalter VMB-2"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Viewfinder Mounting Bracket VMB-3",
+     "aliases": [
+      "VMB-3",
+      "K2.74001.0",
+      "Sucherhalter VMB-3"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "Viewfinder Mounting Bracket VMB-5",
      "aliases": [
       "VMB-5",
       "K2.0033859",
       "Sucherhalter VMB-5"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Wooden Shell for HEX",
+     "aliases": [
+      "K2.0037131",
+      "Holzgriff HEX"
+     ],
+     "specs": {
+      "weight_kg": 0.12
+     }
     },
     {
      "manufacturer": "Bright Tangerine",
@@ -300,6 +811,134 @@
       "BT DSMC3 Top Handle",
       "Bright Tangerine V-Raptor Griff"
      ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "15mm Aluminium Rod 100mm Threaded",
+     "aliases": [
+      "15mm Alu Rohr 100mm m. Gewinde f. MVB / VMB",
+      "15mm Rod 100mm threaded"
+     ],
+     "bulk": true,
+     "specs": {
+      "diameter_mm": 15,
+      "length_mm": 100
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "15mm Aluminium Rod Long (341-440mm)",
+     "aliases": [
+      "15mm Alu Rohr lang (341-440mm)",
+      "15mm Rod long"
+     ],
+     "bulk": true,
+     "specs": {
+      "diameter_mm": 15
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "15mm Aluminium Rod Medium (241-340mm)",
+     "aliases": [
+      "15mm Alu Rohr mittel (241-340mm)",
+      "15mm Rod medium"
+     ],
+     "bulk": true,
+     "specs": {
+      "diameter_mm": 15
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "15mm Aluminium Rod Short (151-240mm)",
+     "aliases": [
+      "15mm Alu Rohr kurz (151-240mm)",
+      "15mm Rod short"
+     ],
+     "bulk": true,
+     "specs": {
+      "diameter_mm": 15
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "19mm Aluminium Rod Very Short (up to 150mm)",
+     "aliases": [
+      "19mm Alu Rohr sehr kurz (bis 150mm)",
+      "19mm Rod very short"
+     ],
+     "bulk": true,
+     "specs": {
+      "diameter_mm": 19
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "19mm Steel Rod Short (151-240mm)",
+     "aliases": [
+      "19mm Stahl Rohr kurz (151-240mm)",
+      "19mm Rod short steel"
+     ],
+     "bulk": true,
+     "specs": {
+      "diameter_mm": 19
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "3/8\" Screw",
+     "aliases": [
+      "3/8\" Schraube",
+      "3/8 Zoll Schraube"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Dovetail Plate OC",
+     "aliases": [
+      "Schwalbenschwanzplatte OC",
+      "Schwalbenschwanzplatte OConnor"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Quick Release Plate 2-part",
+     "aliases": [
+      "16x9 / LENZ / KONDOR BLUE Quick Release Plate 2-tlg.",
+      "Quick Release Plate"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "USB Stick for ALEXA Mini / AMIRA",
+     "aliases": [
+      "SANDISK USB-Stick f. Alexa Mini / Amira",
+      "USB-Stick ALEXA Mini"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Wedge Plate 35",
+     "aliases": [
+      "Keilplatte 35",
+      "Keilplatte"
+     ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Handgrip Module",
+     "aliases": [
+      "OConnor Handgriff"
+     ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Handgrip Rod Bridge",
+     "aliases": []
     },
     {
      "manufacturer": "RED",
@@ -386,6 +1025,30 @@
       "790-0716",
       "V-Raptor XL Top Handle",
       "Raptor XL Griff"
+     ]
+    },
+    {
+     "manufacturer": "ROWA",
+     "model": "Accessory Brick",
+     "aliases": [
+      "ROWA Accessory Brick + 3/8\" Schraube (HEX-2)",
+      "ROWA Brick"
+     ]
+    },
+    {
+     "manufacturer": "ROWA",
+     "model": "Accessory Cube",
+     "aliases": [
+      "ROWA Accessory Cube + 3/8\" Schraube",
+      "ROWA Cube"
+     ]
+    },
+    {
+     "manufacturer": "ROWA",
+     "model": "V-Dock 1/4\" to 3/8\"",
+     "aliases": [
+      "ROWA V-Dock 1/4\" to 3/8\" Zoll",
+      "ROWA V-Dock"
      ]
     },
     {
@@ -1993,6 +2656,14 @@
     },
     {
      "manufacturer": "Codex",
+     "model": "Compact Drive Case",
+     "aliases": [
+      "Compact Drive Hülle"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Codex",
      "model": "Compact Drive Express 1TB",
      "aliases": [
       "CCD Express 1TB",
@@ -2010,7 +2681,8 @@
       "Compact Drive Reader USB-C",
       "CDR",
       "CD Reader",
-      "Codex Reader USB-C"
+      "Codex Reader USB-C",
+      "CODEX Compact Drive Reader (USB-C)"
      ]
     },
     {

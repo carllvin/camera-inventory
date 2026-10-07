@@ -63,6 +63,20 @@
     },
     {
      "manufacturer": "ARRI",
+     "model": "EXT-RS Adapter",
+     "aliases": [
+      "K2.0006170",
+      "Kabel EXT to RS f. ALEXA Mini/LF",
+      "EXT to RS Cable",
+      "ALEXA Mini EXT-RS"
+     ],
+     "specs": {
+      "connector": "LEMO 7-pin to Fischer 3-pin female"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
      "model": "LBUS Cable 0.3 m",
      "aliases": [
       "LBUS 0.3m",
@@ -266,7 +280,8 @@
      "aliases": [
       "USB-C Kabel",
       "USB C to C",
-      "USBC Cable"
+      "USBC Cable",
+      "Kabel USB-C to USB-C"
      ],
      "bulk": true
     }
@@ -287,6 +302,19 @@
       "KC154",
       "K2.72031.0"
      ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ALEXA Mini Extension Cable LEMO 2B 2 m",
+     "aliases": [
+      "Kabel Verlängerung ARRI Alexa Mini Lemo 2B 2m",
+      "ALEXA Mini Lemo 2B Verlängerung"
+     ],
+     "specs": {
+      "length_m": 2,
+      "note": "name from rental list"
+     },
      "bulk": true
     },
     {
@@ -387,11 +415,55 @@
     },
     {
      "manufacturer": "Generic",
+     "model": "D-Tap to ALEXA Mini Power Cable",
+     "aliases": [
+      "Kabel D-Tap to Alexa Mini",
+      "D-Tap to Alexa Mini"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
      "model": "D-Tap to USB-C Cable",
      "aliases": [
       "D-Tap USB-C",
       "DTap to USB C",
       "P-Tap USB-C"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "IEC Mains Cable",
+     "aliases": [
+      "Netzkabel (Kaltgerätestecker)",
+      "Kaltgerätekabel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Neutrik powerCON Cable",
+     "aliases": [
+      "Neutrik powerCon Anschlusskabel",
+      "powerCON Kabel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "PRCD-K Safety Cable",
+     "aliases": [
+      "PRCD-K / Schukokabel mit FI-Schalter",
+      "PRCD-K"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "XLR 3-pin Extension Cable",
+     "aliases": [
+      "Kabel XLR Verlängerung 3-pol to 3-pol, 1-5m",
+      "XLR 3-pol Verlängerung"
      ],
      "bulk": true
     },
@@ -453,6 +525,59 @@
     "Video Cables"
    ],
    "entries": [
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable VF 0.5 m",
+     "aliases": [
+      "K2.0023943",
+      "Kabel Viewfinder 0.5m f. MVF-2",
+      "MVF-2 VF Cable 0.5m"
+     ],
+     "specs": {
+      "length_m": 0.5,
+      "connector": "CoaXPress"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable VF 0.75 m",
+     "aliases": [
+      "Kabel Viewfinder 0.75m f. MVF-2",
+      "MVF-2 VF Cable 0.75m"
+     ],
+     "specs": {
+      "length_m": 0.75,
+      "note": "name from rental list"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable VF 10 m",
+     "aliases": [
+      "K2.0023945",
+      "MVF-2 VF Cable 10m",
+      "Kabel Viewfinder 10m f. MVF-2"
+     ],
+     "specs": {
+      "length_m": 10
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable VF Right Angle 0.5 m",
+     "aliases": [
+      "K2.0042857",
+      "MVF-2 VF Cable 0.5m angled",
+      "Kabel Viewfinder 0.5m gewinkelt"
+     ],
+     "specs": {
+      "length_m": 0.5
+     },
+     "bulk": true
+    },
     {
      "manufacturer": "ARRI",
      "model": "Viewfinder Cable KC-150-S",
