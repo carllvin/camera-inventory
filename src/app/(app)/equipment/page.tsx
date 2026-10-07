@@ -23,7 +23,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
   // The project chosen in the top bar scopes the list ("All projects" there shows everything).
   const { current } = await getCurrentProject();
   const projectId = current?.id;
-  const { view: _view, ...filterParams } = sp;
+  const { view: _view, sort: _sort, ...filterParams } = sp;
   const [items, { flat: categories }, rentalHouses, cases] = await Promise.all([
     listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, limit: LIMIT }),
     getCategoryTree(db, ctx),

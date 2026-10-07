@@ -17,7 +17,7 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
   assertUuid(id);
   const ctx = await getCtx();
   const db = getDb();
-  const { view: _view, location: _l, ...filters } = sp;
+  const { view: _view, location: _l, sort: _sort, ...filters } = sp;
   const [items, { flat: categories }, cases, summary] = await Promise.all([
     listItems(db, ctx, { ...(filters as ItemFilters), projectId: id, limit: LIMIT }),
     getCategoryTree(db, ctx),
@@ -27,7 +27,7 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
   return (
     <EquipmentBrowser
       basePath={`/projects/${id}`}
-      sp={filters}
+      sp={{ ...filters, view: sp.view, sort: sp.sort }}
       items={items}
       limit={LIMIT}
       projectId={id}

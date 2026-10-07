@@ -236,3 +236,14 @@ test("equipment list: set cards instead of a set column", async ({ page }) => {
   await expect(page.getByRole("main").getByText("SN 35-10421").locator("visible=true").first()).toBeVisible();
   await expect(page.getByRole("main").getByText("SN 35-10577")).toHaveCount(0); // that one is in the B-Cam set
 });
+
+test("equipment can be sorted, e.g. by quantity", async ({ page }) => {
+  await login(page);
+  await go(page, "/equipment");
+  await page.getByLabel("Sort").selectOption("qty");
+  await expect(page).toHaveURL(/sort=qty/);
+  // The 10 sandbags come first.
+  await expect(page.locator("summary").first()).toContainText("Sandbag");
+  await page.getByLabel("Sort").selectOption("name");
+  await expect(page.locator("summary").first()).toContainText("ARRI");
+});

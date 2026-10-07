@@ -5,14 +5,17 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { getCurrentProject } from "@/server/current-project";
+import { FilterBar, FilterSelect } from "@/components/filters";
+import { DOCUMENT_SORTS, sortDocuments } from "@/lib/sorting";
 import { listDocuments } from "@/server/domain/overview";
 
 export const metadata = { title: "Documents" };
 
-export default async function DocumentsPage() {
+export default async function DocumentsPage({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
+  const { sort } = await searchParams;
   const ctx = await getCtx();
   const { current } = await getCurrentProject();
-  const documents = await listDocuments(getDb(), ctx, { projectId: current?.id });
+  const documents = sortDocuments(await listDocuments(getDb(), ctx, { projectId: current?.id }), sort);
   return (
     <>
       <PageHeader
@@ -34,6 +37,11 @@ export default async function DocumentsPage() {
           )
         }
       />
+      {documents.length > 1 && (
+        <FilterBar hasFilters={false}>
+          <FilterSelect name="sort" label="Sort" allLabel="Sort: newest first" value={sort} options={[...DOCUMENT_SORTS]} />
+        </FilterBar>
+      )}
       <DocumentList documents={documents} showProject={!current} />
     </>
   );

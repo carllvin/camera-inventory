@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { LayoutGrid, ListTree } from "lucide-react";
-import { EquipmentByType, TypeGrid } from "@/components/equipment-by-type";
+import { EQUIPMENT_SORTS, EquipmentByType, TypeGrid } from "@/components/equipment-by-type";
 import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
 import { EmptyState } from "@/components/ui";
 import { STATUS_LABEL, cn } from "@/lib/format";
@@ -16,6 +16,7 @@ export type BrowserParams = {
   location?: string;
   caseId?: string;
   view?: string;
+  sort?: string;
 };
 
 export type BrowserView = "types" | "grid";
@@ -113,6 +114,7 @@ export function EquipmentBrowser({
           options={Object.entries(STATUS_LABEL)
             .filter(([value]) => !projectId || ON_PROJECT.includes(value))
             .map(([value, label]) => ({ value, label }))} />
+        <FilterSelect name="sort" label="Sort" allLabel="Sort: category" value={sp.sort} options={[...EQUIPMENT_SORTS]} />
         {!projectId && (
           <FilterSelect name="location" label="Location" allLabel="Anywhere" value={sp.location}
             options={[{ value: "on_project", label: "On a project" }, { value: "off_project", label: "Not on a project" }]} />
@@ -138,9 +140,9 @@ export function EquipmentBrowser({
             </div>
           </div>
           {view === "grid" ? (
-            <TypeGrid items={items} hrefFor={(typeName) => href({ view: "types", q: typeName })} />
+            <TypeGrid items={items} sort={sp.sort} hrefFor={(typeName) => href({ view: "types", q: typeName })} />
           ) : (
-            <EquipmentByType items={items} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} />
+            <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} />
           )}
         </>
       )}

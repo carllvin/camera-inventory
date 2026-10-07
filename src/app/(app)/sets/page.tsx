@@ -5,14 +5,17 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { listCases } from "@/server/domain/cases";
 import { getCurrentProject } from "@/server/current-project";
+import { FilterBar, FilterSelect } from "@/components/filters";
+import { SET_SORTS, sortSets } from "@/lib/sorting";
 import { hasRole } from "@/server/domain/context";
 
 export const metadata = { title: "Sets" };
 
-export default async function CasesPage() {
+export default async function CasesPage({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
+  const { sort } = await searchParams;
   const ctx = await getCtx();
   const { current } = await getCurrentProject();
-  const cases = await listCases(getDb(), ctx, { projectId: current?.id });
+  const cases = sortSets(await listCases(getDb(), ctx, { projectId: current?.id }), sort);
   const canEdit = hasRole(ctx, "member");
   return (
     <>
@@ -22,6 +25,11 @@ export default async function CasesPage() {
         actions={canEdit && <LinkButton href="/sets/new" variant="primary"><Plus className="size-4" /> New set</LinkButton>}
       />
       <Tabs active="cases" tabs={[{ key: "cases", href: "/sets", label: "Sets" }, { key: "templates", href: "/sets/templates", label: "Templates" }]} />
+      {cases.length > 1 && (
+        <FilterBar hasFilters={false}>
+          <FilterSelect name="sort" label="Sort" allLabel="Sort: name" value={sort} options={SET_SORTS.filter((o) => o.value !== "project" || !current)} />
+        </FilterBar>
+      )}
       <CaseList cases={cases} showProject={!current} emptyAction={canEdit && <LinkButton href="/sets/new" variant="primary">New set</LinkButton>} />
     </>
   );

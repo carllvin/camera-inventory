@@ -20,6 +20,34 @@ function byType(items: ItemRow[]) {
   return [...groups.values()];
 }
 
+export const EQUIPMENT_SORTS = [
+  { value: "name", label: "Sort: name" },
+  { value: "qty", label: "Sort: quantity" },
+  { value: "recent", label: "Sort: recently changed" },
+  { value: "attention", label: "Sort: needs attention first" },
+] as const;
+
+const needsAttention = (g: TypeGroup) =>
+  g.items.some((i) => i.status === "missing") ? 2 : g.items.some((i) => i.condition === "damaged" || i.condition === "defective") ? 1 : 0;
+const lastChange = (g: TypeGroup) => Math.max(...g.items.map((i) => new Date(i.updatedAt).getTime()));
+
+/** Type lines in the chosen order; "" keeps the list's own order (by category). */
+function sortGroups(groups: TypeGroup[], sort?: string) {
+  const byName = (a: TypeGroup, b: TypeGroup) => a.typeName.localeCompare(b.typeName);
+  switch (sort) {
+    case "name":
+      return groups.sort(byName);
+    case "qty":
+      return groups.sort((a, b) => b.units - a.units || byName(a, b));
+    case "recent":
+      return groups.sort((a, b) => lastChange(b) - lastChange(a));
+    case "attention":
+      return groups.sort((a, b) => needsAttention(b) - needsAttention(a) || byName(a, b));
+    default:
+      return groups;
+  }
+}
+
 /** "2 in use · 1 missing": everything that is not plainly on the project. */
 function statusSummary(items: ItemRow[]) {
   const counts = new Map<string, number>();
@@ -57,8 +85,8 @@ function EntryBody({ e, showProject }: { e: Entry; showProject: boolean }) {
  * One line per equipment type with its quantity; opening it shows the single
  * entries (serials, asset numbers, case, owner, state, notes).
  */
-export function EquipmentByType({ items, open = false, showProject = false }: { items: ItemRow[]; open?: boolean; showProject?: boolean }) {
-  const groups = byType(items);
+export function EquipmentByType({ items, open = false, showProject = false, sort }: { items: ItemRow[]; open?: boolean; showProject?: boolean; sort?: string }) {
+  const groups = sortGroups(byType(items), sort);
   return (
     <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
       {groups.map((g) => {
@@ -105,10 +133,10 @@ export function EquipmentByType({ items, open = false, showProject = false }: { 
 }
 
 /** Image view: one card per equipment type with its quantity (opens that type in the list). */
-export function TypeGrid({ items, hrefFor }: { items: ItemRow[]; hrefFor: (typeName: string) => string }) {
+export function TypeGrid({ items, hrefFor, sort }: { items: ItemRow[]; hrefFor: (typeName: string) => string; sort?: string }) {
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-      {byType(items).map((g) => {
+      {sortGroups(byType(items), sort).map((g) => {
         const statuses = statusSummary(g.items);
         return (
           <li key={g.typeId}>
