@@ -36,14 +36,16 @@ export default async function CatalogPage() {
               <legend className="mb-1 text-sm font-medium">Areas to import</legend>
               {sections.map((sec) => {
                 const missing = sec.total - sec.present;
+                const todo = missing > 0 || sec.newSpellings > 0;
                 return (
                   <label key={sec.key} className="flex cursor-pointer items-start gap-3 rounded-lg border border-border px-3 py-2.5 hover:bg-surface-2">
-                    <input type="checkbox" name="sections" value={sec.key} defaultChecked={missing > 0} disabled={missing === 0} className="mt-1 size-4 accent-[var(--accent)]" />
+                    <input type="checkbox" name="sections" value={sec.key} defaultChecked={todo} disabled={!todo} className="mt-1 size-4 accent-[var(--accent)]" />
                     <span className="min-w-0 flex-1">
                       <span className="flex flex-wrap items-baseline justify-between gap-x-2">
                         <span className="font-medium">{sec.label}</span>
                         <span className="text-xs text-muted tabular-nums">
                           {missing === 0 ? `all ${sec.total} present` : `${missing} new${sec.present ? ` · ${sec.present} already present` : ""}`}
+                          {sec.newSpellings > 0 && ` · new spellings for ${sec.newSpellings}`}
                         </span>
                       </span>
                       <span className="block text-xs text-muted">{sec.description}</span>
@@ -52,7 +54,7 @@ export default async function CatalogPage() {
                 );
               })}
             </fieldset>
-            {sections.some((sec) => sec.present < sec.total) ? (
+            {sections.some((sec) => sec.present < sec.total || sec.newSpellings > 0) ? (
               <SubmitButton pendingText="Importing…">Import selected areas</SubmitButton>
             ) : (
               <p className="text-sm text-muted">Everything from the standard catalog is already in your equipment types.</p>

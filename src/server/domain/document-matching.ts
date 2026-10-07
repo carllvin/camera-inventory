@@ -12,6 +12,7 @@
 import { and, eq, sql } from "drizzle-orm";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
+import { isNoMaker } from "@/lib/type-name";
 import type { ExtractedLine } from "../ai/types";
 import { itemLabel } from "./equipment-items";
 
@@ -150,21 +151,49 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
   }
   const text = [line.manufacturer, line.model, line.description].filter(Boolean).join(" ");
   if (!text.trim()) return null;
-  const rows = await db.execute<{ id: string; name: string; score: number }>(sql`
-    SELECT id, name, greatest(
-      word_similarity(search_normalize(${text}), search_text),
-      word_similarity(search_normalize(${line.description}), search_text),
-      similarity(search_normalize(${text}), search_text)
-    ) AS score
-    FROM equipment_type
+  // Candidates: the most similar names, plus every type whose model number is written in the line
+  // ("BEBOB V-Mount Akku 98Wh V98micro" names bebob V98micro even if another 98Wh battery reads closer).
+  const rows = await db.execute<{ id: string; name: string; manufacturer: string; model: string; score: number; model_hit: boolean; maker_hit: boolean }>(sql`
+    WITH t AS (SELECT search_normalize(${text}) AS norm, search_compact(${text}) AS comp)
+    SELECT id, name, manufacturer, model,
+      greatest(
+        word_similarity(t.norm, search_text),
+        word_similarity(search_normalize(${line.description}), search_text),
+        similarity(t.norm, search_text)
+      ) AS score,
+      (length(search_compact(model)) >= 3 AND (
+         (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || btrim(regexp_replace(search_normalize(model), '[^a-z0-9]+', ' ', 'g')) || ' %')
+         OR (length(search_compact(model)) >= 5 AND strpos(t.comp, search_compact(model)) > 0))) AS model_hit,
+      (length(search_normalize(manufacturer)) >= 2 AND (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || regexp_replace(search_normalize(manufacturer), '[^a-z0-9]+', ' ', 'g') || ' %')) AS maker_hit
+    FROM equipment_type, t
     WHERE workspace_id = ${ws} AND archived_at IS NULL
+      AND (search_text % t.norm OR word_similarity(t.norm, search_text) > 0.3
+           OR (length(search_compact(model)) >= 3 AND strpos(t.comp, search_compact(model)) > 0))
     ORDER BY score DESC
-    LIMIT 2`);
-  const [best, second] = rows;
-  if (!best || Number(best.score) < 0.5) return null;
+    LIMIT 30`);
+  let candidates = [...rows].map((r) => ({ ...r, score: Number(r.score) }));
+  // A maker named in the line rules out other makers' products.
+  if (candidates.some((c) => c.maker_hit)) candidates = candidates.filter((c) => c.maker_hit || isNoMaker(c.manufacturer));
+  // The model number written in the line decides; the longest one wins ("VL-4S" over "VL").
+  const byModel = candidates.filter((c) => c.model_hit).sort((a, b) => compact(b.model).length - compact(a.model).length || b.score - a.score);
+  if (byModel.length > 0) {
+    const [first, next] = byModel;
+    if (!next || compact(next.model).length < compact(first!.model).length || first!.score - next.score >= 0.05) {
+      return { id: first!.id, name: first!.name, score: clamp01(Math.max(first!.score, 0.8)), how: "model number in the text" };
+    }
+  }
+  // A different model number on the line rules a type out ("C700" is not a "C70", "RX" not a "TX").
+  const tokens = text.toUpperCase().split(/[^A-Z0-9]+/).filter((w) => /\d/.test(w));
+  const conflicts = (model: string) => {
+    const m = compact(model);
+    return /\d/.test(m) && tokens.some((w) => w !== m && (w.startsWith(m) || m.startsWith(w)) && Math.min(w.length, m.length) >= 2);
+  };
+  candidates = candidates.filter((c) => !conflicts(c.model));
+  const [best, second] = candidates.sort((a, b) => b.score - a.score);
+  if (!best || best.score < 0.5) return null;
   // Ambiguous: two types almost equally similar (e.g. TX vs RX) - let a person choose.
-  if (second && Number(best.score) - Number(second.score) < 0.05) return null;
-  return { id: best.id, name: best.name, score: clamp01(Number(best.score)), how: "similar name" };
+  if (second && best.score - second.score < 0.05) return null;
+  return { id: best.id, name: best.name, score: clamp01(best.score), how: "similar name" };
 }
 
 const compact = (v: string) => v.toUpperCase().replace(/[^A-Z0-9]/g, "");

@@ -1,5 +1,5 @@
 /** Standard equipment catalog: data sanity and an idempotent, audited import. */
-import { and, eq, isNull } from "drizzle-orm";
+import { and, asc, eq, isNull } from "drizzle-orm";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import * as s from "../src/server/db/schema";
 import { STANDARD_CATALOG, sectionEntries } from "../src/server/catalog/standard-catalog";
@@ -102,13 +102,16 @@ describe("import", () => {
     expect(typeEvents).toHaveLength(r.created);
   });
 
-  it("is safe to run again and never changes existing types", async () => {
+  it("is safe to run again: existing types keep their data and only gain spellings", async () => {
     const [mini] = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), eq(s.equipmentType.model, "ALEXA Mini LF")));
     await db.update(s.equipmentType).set({ aliases: ["my own alias"] }).where(eq(s.equipmentType.id, mini!.id));
     const again = await importStandardCatalog(db, ctx, { sections: ["cameras"] });
     expect(again.created).toBe(0);
     const [after] = await db.select().from(s.equipmentType).where(eq(s.equipmentType.id, mini!.id));
-    expect(after!.aliases).toEqual(["my own alias"]);
+    expect(after!.aliases[0]).toBe("my own alias"); // kept, catalog spellings only appended
+    expect(after!).toMatchObject({ name: mini!.name, model: mini!.model, categoryId: mini!.categoryId });
+    expect(again.aliasesAdded).toBeGreaterThan(0);
+    expect((await importStandardCatalog(db, ctx, { sections: ["cameras"] })).aliasesAdded).toBe(0); // nothing new the second time
     expect((await standardCatalogStatus(db, ctx)).find((x) => x.key === "cameras")!.present).toBe(sectionEntries(STANDARD_CATALOG[0]!).length);
   });
 
@@ -196,7 +199,8 @@ describe("standard rental houses", () => {
 
     expect((await importStandardRentalHouses(db, c, { regions: ["de"] })).created).toBe(0);
     expect((await standardRentalHouseStatus(db, c)).find((x) => x.key === "de")!.present).toBe(de.houses.length);
-    const [ev] = await db.select().from(s.auditEvent).where(and(eq(s.auditEvent.workspaceId, c.workspaceId), eq(s.auditEvent.action, "catalog.imported")));
+    // The first of the two imports (rows have no inherent order without ORDER BY).
+    const [ev] = await db.select().from(s.auditEvent).where(and(eq(s.auditEvent.workspaceId, c.workspaceId), eq(s.auditEvent.action, "catalog.imported"))).orderBy(asc(s.auditEvent.id));
     expect(ev!.summary).toContain(`${de.houses.length - 1} added`);
     await expect(importStandardRentalHouses(db, { ...c, role: "member" }, { regions: ["de"] })).rejects.toBeInstanceOf(DomainError);
   });

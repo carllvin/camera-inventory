@@ -84,13 +84,58 @@ async function applyCorrections(tx: DbOrTx, ctx: Ctx, entries: ReturnType<typeof
   return corrected;
 }
 
+/**
+ * Spellings a newer catalog knows for types the workspace already has (e.g. how a
+ * rental house writes them on its notes) are added as aliases, so documents match.
+ * Only additions: nothing is removed or renamed here.
+ */
+async function mergeAliases(tx: DbOrTx, ctx: Ctx, entries: ReturnType<typeof sectionEntries>, correlationId: string, dryRun = false) {
+  const types = await tx
+    .select({ id: s.equipmentType.id, name: s.equipmentType.name, manufacturer: s.equipmentType.manufacturer, model: s.equipmentType.model, aliases: s.equipmentType.aliases })
+    .from(s.equipmentType)
+    .where(eq(s.equipmentType.workspaceId, ctx.workspaceId));
+  const byKey = new Map(types.map((x) => [compact(`${x.manufacturer} ${x.model}`), x]));
+  let updated = 0;
+  for (const e of entries) {
+    const type = byKey.get(compact(`${e.manufacturer} ${e.model}`));
+    if (!type || !e.aliases?.length) continue;
+    const have = new Set([type.name, `${type.manufacturer} ${type.model}`, type.model, ...type.aliases].map(compact));
+    const add = e.aliases.filter((a) => compact(a) && !have.has(compact(a)));
+    if (add.length === 0) continue;
+    updated++;
+    if (dryRun) continue;
+    const aliases = [...type.aliases, ...add];
+    await tx.update(s.equipmentType).set({ aliases }).where(eq(s.equipmentType.id, type.id));
+    await recordEvent(tx, ctx, {
+      action: "equipment_type.alias_learned",
+      entityType: "equipment_type",
+      entityId: type.id,
+      summary: `${type.name}: ${add.length} spelling${add.length === 1 ? "" : "s"} added ${CATALOG_MARK}`,
+      changes: { aliases: { from: type.aliases, to: aliases } },
+      correlationId,
+    });
+    type.aliases = aliases;
+  }
+  return updated;
+}
+
 /** Sections with how many of their entries the workspace has already. */
 export async function standardCatalogStatus(db: DbOrTx, ctx: Ctx) {
   const keys = await knownKeys(db, ctx.workspaceId);
-  return STANDARD_CATALOG.map((section) => {
-    const entries = sectionEntries(section);
-    return { key: section.key, label: section.label, description: section.description, total: entries.length, present: entries.filter((e) => isKnown(keys, e)).length };
-  });
+  return Promise.all(
+    STANDARD_CATALOG.map(async (section) => {
+      const entries = sectionEntries(section);
+      return {
+        key: section.key,
+        label: section.label,
+        description: section.description,
+        total: entries.length,
+        present: entries.filter((e) => isKnown(keys, e)).length,
+        /** Types the workspace has that would learn new spellings from this version. */
+        newSpellings: await mergeAliases(db, ctx, entries, "", true),
+      };
+    }),
+  );
 }
 
 export const importCatalogInput = z.object({
@@ -111,6 +156,7 @@ export async function importStandardCatalog(db: DbOrTx, ctx: Ctx, input: z.input
     // Serialize concurrent imports into the same workspace.
     await tx.select({ id: s.workspace.id }).from(s.workspace).where(eq(s.workspace.id, ctx.workspaceId)).for("update");
     const corrected = await applyCorrections(tx, ctx, chosen.flatMap(sectionEntries), correlationId);
+    const aliasesAdded = await mergeAliases(tx, ctx, chosen.flatMap(sectionEntries), correlationId);
     const keys = await knownKeys(tx, ctx.workspaceId);
 
     const categories = await tx.select().from(s.category).where(eq(s.category.workspaceId, ctx.workspaceId));
@@ -184,11 +230,11 @@ export async function importStandardCatalog(db: DbOrTx, ctx: Ctx, input: z.input
       action: "catalog.imported",
       entityType: "workspace",
       entityId: ctx.workspaceId,
-      summary: `Standard catalog imported (${chosen.map((c) => c.label).join(", ")}): ${created.length} equipment type${created.length === 1 ? "" : "s"} added, ${skipped} already present${corrected ? `, ${corrected} corrected` : ""}`,
-      metadata: { version: STANDARD_CATALOG_VERSION, sections: chosen.map((c) => c.key), created: created.length, skipped, corrected, categoriesCreated },
+      summary: `Standard catalog imported (${chosen.map((c) => c.label).join(", ")}): ${created.length} equipment type${created.length === 1 ? "" : "s"} added, ${skipped} already present${corrected ? `, ${corrected} corrected` : ""}${aliasesAdded ? `, new spellings for ${aliasesAdded}` : ""}`,
+      metadata: { version: STANDARD_CATALOG_VERSION, sections: chosen.map((c) => c.key), created: created.length, skipped, corrected, aliasesAdded, categoriesCreated },
       correlationId,
     });
-    return { created: created.length, skipped, corrected, categoriesCreated };
+    return { created: created.length, skipped, corrected, aliasesAdded, categoriesCreated };
   });
 }
 
