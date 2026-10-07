@@ -21,6 +21,7 @@ import {
   createTypeFromLine,
 } from "../src/server/domain/documents";
 import { expandExtractedLines } from "../src/server/domain/document-matching";
+import { getCaseDetail } from "../src/server/domain/cases";
 import { createItem } from "../src/server/domain/equipment-items";
 import { createEquipmentType } from "../src/server/domain/equipment-types";
 import { createRentalHouse } from "../src/server/domain/rental-houses";
@@ -307,5 +308,37 @@ describe("unknown products on a delivery note", () => {
     const types = await db.select().from(s.equipmentType).where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), eq(s.equipmentType.model, "Ultra QR Plate")));
     expect(types).toHaveLength(1);
     expect(types[0]!.categoryId).toBe(f.category.id);
+  });
+});
+
+describe("sets suggested by the note's layout", () => {
+  it("creates a set from the lines grouped under one heading, packed and expected", async () => {
+    const { suggestedSets, createSetFromDocument } = await import("../src/server/domain/document-sets");
+    const tag = Math.random().toString(36).slice(2, 7);
+    const id = await upload(
+      new FakeExtractor(
+        extraction([
+          line({ description: "Bolt TX", serial_numbers: [`ST-${tag}-1`], catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Funk-Set 1" }),
+          line({ description: "Bolt TX", serial_numbers: [`ST-${tag}-2`], catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Funk-Set 1" }),
+          line({ description: "Sandsack", quantity: 4, catalog_match: "Matthews Sandbag 15 lb", set_name: "Funk-Set 1" }),
+          line({ description: "Sandsack", quantity: 2, catalog_match: "Matthews Sandbag 15 lb" }),
+        ], { rental_house_match: "ARRI Rental" }),
+      ),
+    );
+    const review = await getDocumentReview(db, ctx, id);
+    expect(review.lines.map((l) => l.setName)).toEqual(["Funk-Set 1", "Funk-Set 1", "Funk-Set 1", null]);
+    await expect(createSetFromDocument(db, ctx, id, "Funk-Set 1")).rejects.toThrow(/Confirm the delivery note first/);
+    await confirmDelivery(db, ctx, id);
+
+    const [sg] = await suggestedSets(db, ctx.workspaceId, id);
+    expect(sg).toMatchObject({ name: "Funk-Set 1", lines: 3, units: 6, existing: null });
+    const r = await createSetFromDocument(db, ctx, id, "Funk-Set 1");
+    expect(r.created).toBe(true);
+    const d = await getCaseDetail(db, ctx, r.id);
+    expect(d.items.reduce((n, i) => n + i.quantity, 0)).toBe(6);
+    expect(d.comparison.complete).toBe(true);
+    // Done once: the suggestion now points at the set.
+    expect((await suggestedSets(db, ctx.workspaceId, id))[0]!.existing?.id).toBe(r.id);
+    expect((await createSetFromDocument(db, ctx, id, "Funk-Set 1")).created).toBe(false);
   });
 });

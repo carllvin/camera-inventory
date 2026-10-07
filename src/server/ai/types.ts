@@ -21,6 +21,8 @@ export const extractedLineSchema = z.object({
   catalog_match: z.string().nullable(),
   /** False for non-equipment lines: transport, insurance, deposits, subtotals, notes. */
   is_equipment: z.boolean(),
+  /** The set / kit this line belongs to by the document's layout (heading with indented or grouped components), e.g. "ALEXA 35 Set"; null if none. */
+  set_name: z.string().nullable().optional(),
   /** Equipment without catalog_match: best-fitting category from the provided list (exact text), else null. */
   suggested_category: z.string().nullable().optional(),
   /** Equipment without catalog_match: "serialized" for devices with their own serial, "bulk" for interchangeable stock (cables, sandbags, screws). */

@@ -25,6 +25,7 @@ import {
   createTypeFromLine,
 } from "@/server/domain/documents";
 import { getStorage } from "@/server/storage";
+import { createSetFromDocument } from "@/server/domain/document-sets";
 
 function scheduleExtraction(workspaceId: string, documentId: string) {
   // Runs after the response is sent; the page polls until the status changes.
@@ -139,5 +140,26 @@ export async function reportLineIssueAction(id: string, lineId: string, _: Actio
     revalidatePath(`/documents/${id}`);
     revalidatePath("/issues");
     return "Issue reported.";
+  });
+}
+
+export async function createSetFromDocumentAction(id: string, setName: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const r = await createSetFromDocument(getDb(), await getCtx(), id, setName);
+    revalidatePath(`/documents/${id}`);
+    revalidatePath("/sets", "layout");
+    redirect(`/sets/${r.id}`);
+  });
+}
+
+/** All suggested sets of the note at once. */
+export async function createAllSetsFromDocumentAction(id: string, names: string[], _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const ctx = await getCtx();
+    let created = 0;
+    for (const n of names) if ((await createSetFromDocument(getDb(), ctx, id, n)).created) created++;
+    revalidatePath(`/documents/${id}`);
+    revalidatePath("/sets", "layout");
+    return `${created} set${created === 1 ? "" : "s"} created.`;
   });
 }

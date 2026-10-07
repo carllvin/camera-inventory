@@ -7,6 +7,7 @@ import { getExtractor } from "@/server/ai";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getCategoryTree } from "@/server/domain/categories";
+import { suggestedSets } from "@/server/domain/document-sets";
 import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
 import { listProjectOptions } from "@/server/domain/projects";
@@ -24,6 +25,8 @@ import {
   updateHeaderAction,
   updateLineAction,
   createTypeFromLineAction,
+  createSetFromDocumentAction,
+  createAllSetsFromDocumentAction,
 } from "../actions";
 import { RESOLUTION, RETURN_RESOLUTION } from "../resolution";
 import { AddLineCard, AutoRefresh, ConfirmButton, LineCard } from "../review";
@@ -134,6 +137,8 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   const [projects, houses] = editable ? await Promise.all([listProjectOptions(db, ctx, { activeOnly: true }), listRentalHouses(db, ctx)]) : [[], []];
   const isReturn = doc.kind === "return_note";
   const mode = isReturn ? ("return" as const) : ("delivery" as const);
+  const setSuggestions = !isReturn && doc.status === "confirmed" ? await suggestedSets(db, ctx.workspaceId, id) : [];
+  const canCreateSets = hasRole(ctx, "member");
   const itemOptions = editable && isReturn && doc.projectId ? (await listReturnableItems(db, ctx, doc.projectId, doc.id)).map((i) => ({ value: i.id, label: i.label })) : [];
   // Unknown products on a delivery note: a pre-filled "create" strip per line.
   const unknown = editable && !isReturn ? d.lines.filter((l) => l.resolution === "pending" && !l.matchedEquipmentTypeId) : [];
@@ -195,6 +200,45 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         <p role="status" className="mb-4 rounded-lg bg-ok/10 px-3 py-2 text-sm text-ok">
           {d.outcome.summary}
         </p>
+      )}
+
+      {setSuggestions.length > 0 && (
+        <Card className="mb-6">
+          <CardHeader title="Sets on this note" />
+          <p className="px-4 pt-3 text-sm text-muted">
+            The note groups these items into sets. Create them in one click: packed, with exactly these contents expected.
+          </p>
+          <ul className="divide-y divide-border">
+            {setSuggestions.map((sg) => (
+              <li key={sg.name} className="flex flex-wrap items-center gap-3 px-4 py-2.5">
+                <div className="min-w-0 flex-1">
+                  <div className="truncate text-sm font-medium">{sg.name}</div>
+                  <div className="text-xs text-muted">
+                    {sg.units} piece{sg.units === 1 ? "" : "s"} from {sg.lines} line{sg.lines === 1 ? "" : "s"}
+                  </div>
+                </div>
+                {sg.existing ? (
+                  <Link href={`/sets/${sg.existing.id}`} className="text-sm text-accent hover:underline">
+                    Open {sg.existing.name}
+                  </Link>
+                ) : (
+                  canCreateSets && (
+                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
+                      <SubmitButton variant="secondary" pendingText="…">
+                        Create set
+                      </SubmitButton>
+                    </ActionForm>
+                  )
+                )}
+              </li>
+            ))}
+          </ul>
+          {canCreateSets && setSuggestions.filter((sg) => !sg.existing).length > 1 && (
+            <ActionForm action={createAllSetsFromDocumentAction.bind(null, id, setSuggestions.filter((sg) => !sg.existing).map((sg) => sg.name))} className="border-t border-border px-4 py-3">
+              <SubmitButton pendingText="Creating…">Create all {setSuggestions.filter((sg) => !sg.existing).length} sets</SubmitButton>
+            </ActionForm>
+          )}
+        </Card>
       )}
 
       {doc.status === "processing" && (
@@ -264,6 +308,11 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 })}
               </div>
 
+              {!isReturn && new Set(d.lines.map((l) => l.setName).filter(Boolean)).size > 0 && (
+                <p className="text-sm text-muted">
+                  ▣ The note groups items into {new Set(d.lines.map((l) => l.setName).filter(Boolean)).size} set(s). After confirming you can create them in one click.
+                </p>
+              )}
               <ul className="space-y-2">
                 {d.lines.map((l) => (
                   <LineCard

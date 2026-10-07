@@ -63,6 +63,9 @@ test("the seeded extracted ARRI note shows conflicts and suggestions for review"
   await page.getByRole("link", { name: /LS-240512/ }).click();
   await expect(page.getByText("Needs review").first()).toBeVisible();
   await expect(page.getByRole("button", { name: /Confirm delivery/ })).toBeVisible();
+  // The layout groups the zoom and its motors into a set, offered after confirming.
+  await expect(page.getByText("▣ Zoom-Set Optimo").first()).toBeVisible();
+  await expect(page.getByText(/groups items into 1 set/)).toBeVisible();
 });
 
 test("a product that is not known yet is created from its line in one step", async ({ page }, info) => {

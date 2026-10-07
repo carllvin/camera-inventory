@@ -37,6 +37,8 @@ export interface ReviewLine {
   matchedEquipmentTypeId: string | null;
   matchedEquipmentItemId: string | null;
   typeName: string | null;
+  /** Set / kit the note groups this line into. */
+  setName?: string | null;
   updateAction: Action;
   removeAction: Action;
   reportAction?: Action;
@@ -100,6 +102,7 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
             <span className="font-medium">{line.quantity > 1 && `${line.quantity} × `}{line.description}</span>
             <Badge tone={r.tone}>{r.label}</Badge>
             {line.aiConfidence !== null && line.aiConfidence < 0.7 && <Badge tone="warn">unclear text</Badge>}
+            {line.setName && <Badge>▣ {line.setName}</Badge>}
           </span>
           <span className="mt-0.5 block text-xs text-muted">
             {[line.serialNumber && `SN ${line.serialNumber}`, line.assetNumber && `Asset ${line.assetNumber}`, typeLabel && `→ ${typeLabel}`].filter(Boolean).join(" · ")}

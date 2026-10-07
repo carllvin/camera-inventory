@@ -25,6 +25,7 @@ Lines
 - One output line per item line on the document, in document order.
 - If a line lists several serial numbers, put all of them in serial_numbers (quantity stays as printed).
 - Sets and kits (e.g. "ALEXA 35 Set" with indented components) - output the set line and each listed component as separate lines; components without their own quantity have quantity 1 per set.
+- set_name: when the layout groups items into a set or kit (a heading like "ALEXA 35 Set", "Kamera-Set A", "Objektivkoffer" with indented or boxed components, or a "Set bestehend aus …" block), give every line of that group - the heading line included - the set's name as printed; null for lines that stand alone. Use the same text for all lines of one set.
 - Mark transport, insurance, deposits, discounts, subtotals, signatures and free-text remarks as is_equipment: false.
 - quantity is the number of units delivered/returned on that line (use 1 if no quantity is printed for an item).
 - Asset numbers are the rental house's inventory numbers (often labelled Inv.-Nr., Asset, ID, Barcode); serial numbers are manufacturer serials (S/N, SN, Seriennr.).

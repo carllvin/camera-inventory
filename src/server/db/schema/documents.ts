@@ -137,6 +137,8 @@ export const documentLine = pgTable(
     /** AI help for creating the type when it is not known yet: category path and tracking mode. */
     suggestedCategory: text(),
     suggestedTracking: text(),
+    /** Set / kit this line belongs to by the document's layout (AI); used to suggest sets. */
+    setName: text(),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },

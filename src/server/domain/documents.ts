@@ -248,6 +248,7 @@ async function storeLines(tx: DbOrTx, doc: typeof s.document.$inferSelect, input
       aiConfidence: line.aiConfidence,
       suggestedCategory: line.suggestedCategory ?? null,
       suggestedTracking: line.suggestedTracking ?? null,
+      setName: line.setName?.slice(0, 120) ?? null,
       ...matches[i]!,
     });
   }

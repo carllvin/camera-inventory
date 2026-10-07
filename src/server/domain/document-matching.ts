@@ -32,6 +32,8 @@ export interface ProposedLine {
   /** AI help for creating a new type (category path, "serialized" / "bulk"). */
   suggestedCategory?: string | null;
   suggestedTracking?: string | null;
+  /** Set / kit the line belongs to by the document's layout. */
+  setName?: string | null;
 }
 
 export interface MatchResult {
@@ -70,6 +72,7 @@ export function expandExtractedLines(lines: ExtractedLine[]): ProposedLine[] {
       aiConfidence: Number.isFinite(l.confidence) ? clamp01(l.confidence) : null,
       catalogMatch: clean(l.catalog_match),
       isEquipment: l.is_equipment,
+      setName: clean(l.set_name ?? null),
       suggestedCategory: l.catalog_match ? null : clean(l.suggested_category ?? null),
       suggestedTracking: l.catalog_match || !["serialized", "bulk"].includes(l.suggested_tracking ?? "") ? null : l.suggested_tracking!,
     };
