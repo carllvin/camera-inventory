@@ -65,19 +65,23 @@ typos tolerated), so even thousands of types stay quick to pick.
 
 ### Reference images
 
-On an equipment type, **Choose image / Change image** opens the picker: image search results (set `BRAVE_SEARCH_API_KEY`,
-ranked by Claude when `ANTHROPIC_API_KEY` is set, best one marked *suggested*), **Open in Google Images** + paste the image
-address, or upload. Chosen images are downloaded into your own storage with their source; earlier images stay in the history.
-**Find automatically** applies an image only when the AI is confident (badge *auto-selected*).
+On an equipment type, **Choose image / Change image** opens the picker: image search results in the search engine's order
+(set `BRAVE_SEARCH_API_KEY`), **Open in Google Images** + paste the image address, or upload. Chosen images are downloaded
+into your own storage with their source; earlier images stay in the history. **Find automatically** takes the first result
+(badge *auto-selected*). With `IMAGE_AI_RANKING=true` Claude ranks the results instead, marks the best one *suggested* and
+the automatic pick only applies confident matches.
 
 ### Automatic images for many types
 
-**Settings → Automatic images** finds reference images in bulk (needs `BRAVE_SEARCH_API_KEY` and `ANTHROPIC_API_KEY`):
-choose "types with items" or "all types" and a limit per run (25–500). The server works through the types in the
-background (about one per second), keeps an image only when Claude is confident it shows exactly that product, and
-downloads it into your storage. Uncertain types are listed for you to choose by hand. Progress is saved after every
-type; a run interrupted by a restart can be resumed, and a run stops by itself after repeated errors (invalid key,
-quota used up). Each type costs one image search and one AI check.
+**Settings → Automatic images** finds reference images in bulk (needs only `BRAVE_SEARCH_API_KEY`): choose
+"types with items" or "all types" and a limit per run (25–500). The server works through the types in the
+background (about one per second) and takes the first search result — the next one if a site refuses the
+download — and stores it in your storage; any image can be changed later on the type's image page. Types without
+a result are listed. Progress is saved after every type; a run interrupted by a restart can be resumed, and a run
+stops by itself after repeated errors (invalid key, quota used up). Each type costs one image search.
+
+Optional: `IMAGE_AI_RANKING=true` (with `ANTHROPIC_API_KEY`) lets Claude check the results and only keep
+confident matches; uncertain types are then listed for you to choose by hand.
 
 ### Backups
 

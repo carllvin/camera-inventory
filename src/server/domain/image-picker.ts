@@ -186,9 +186,10 @@ export async function autoPickImage(db: DbOrTx, ctx: Ctx, deps: PickerDeps, type
     .limit(1);
   if (existing) return { applied: false as const, reason: "has-image" };
   const candidates = await searchCandidates(db, ctx, deps, typeId, null);
-  const best = candidates[0];
-  if (!best || best.score === null || best.score < AUTO_PICK_SCORE) return { applied: false as const, reason: "not-confident", candidates: candidates.length };
-  for (const c of candidates.filter((x) => x.score !== null && x.score >= AUTO_PICK_SCORE).slice(0, 3)) {
+  // With AI ranking: only confident matches. Without: the search engine's first results, in order.
+  const usable = deps.ranker ? candidates.filter((x) => x.score !== null && x.score >= AUTO_PICK_SCORE) : candidates;
+  if (usable.length === 0) return { applied: false as const, reason: "not-confident", candidates: candidates.length };
+  for (const c of usable.slice(0, 3)) {
     try {
       const photo = await importImage(db, ctx, deps, typeId, c.imageUrl, { sourceUrl: c.pageUrl ?? c.imageUrl, attribution: `auto-selected · ${c.sourceDomain ?? "web"}` });
       return { applied: true as const, photo };

@@ -25,8 +25,7 @@ export const imageJobInput = z.object({
 
 export function imageJobAvailability(deps: Pick<PickerDeps, "search" | "ranker">) {
   if (!deps.search) return { ok: false as const, reason: "Image search is not configured (BRAVE_SEARCH_API_KEY)." };
-  if (!deps.ranker) return { ok: false as const, reason: "AI checking of images is not configured (ANTHROPIC_API_KEY)." };
-  return { ok: true as const };
+  return { ok: true as const, aiChecked: Boolean(deps.ranker) };
 }
 
 const hasReferenceImage = (typeId: ReturnType<typeof sql>) =>

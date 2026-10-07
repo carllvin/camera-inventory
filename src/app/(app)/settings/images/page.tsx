@@ -42,9 +42,10 @@ export default async function AutomaticImagesPage() {
       <div className="grid max-w-3xl grid-cols-1 gap-6">
         <Card className="p-5">
           <p className="text-sm text-muted">
-            For each equipment type without an image, the server searches the web, lets the AI check the results and keeps the best one only if it clearly shows exactly
-            that product. Chosen images are downloaded into your own storage. Uncertain cases are listed below for you to choose by hand. Each type costs one image search
-            and one AI check — start with the types you actually have.
+            {available.ok && available.aiChecked
+              ? "For each equipment type without an image, the server searches the web, lets the AI check the results and keeps the best one only if it clearly shows exactly that product. Uncertain cases are listed below for you to choose by hand."
+              : "For each equipment type without an image, the server searches the web and takes the first result (the next one if a site refuses the download). Types without any result are listed below."}{" "}
+            Images are downloaded into your own storage; you can change any of them on the type&apos;s image page. Each type costs one image search.
           </p>
           {!available.ok ? (
             <p className="mt-4 rounded-lg bg-warn/10 px-3 py-2 text-sm text-warn">{available.reason} Add the key to the server&apos;s .env and restart the app.</p>

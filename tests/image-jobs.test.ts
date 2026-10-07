@@ -8,7 +8,7 @@ import { and, eq } from "drizzle-orm";
 import sharp from "sharp";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import * as s from "../src/server/db/schema";
-import { BraveImageSearch, type ImageRanker } from "../src/server/ai/images";
+import { BraveImageSearch, createImageRankerFromEnv, type ImageRanker } from "../src/server/ai/images";
 import { DomainError, type Ctx } from "../src/server/domain/context";
 import { createEquipmentType } from "../src/server/domain/equipment-types";
 import {
@@ -132,7 +132,25 @@ describe("automatic image jobs", () => {
     expect((await startImageJob(db, limited.ctx, deps(), { scope: "all", limit: 25 })).total).toBe(5);
   });
 
-  it("stops after repeated errors and needs both keys and an admin", async () => {
+  it("uses AI ranking only when explicitly enabled", () => {
+    expect(createImageRankerFromEnv({ ANTHROPIC_API_KEY: "sk-test" })).toBeNull();
+    expect(createImageRankerFromEnv({ ANTHROPIC_API_KEY: "sk-test", IMAGE_AI_RANKING: "true" })).not.toBeNull();
+    expect(createImageRankerFromEnv({ IMAGE_AI_RANKING: "true" })).toBeNull();
+  });
+
+  it("without AI ranking takes the first search result for every type", async () => {
+    const { ctx, obscure } = await setup();
+    const plain = deps({ ranker: null });
+    const job = await startImageJob(db, ctx, plain, { scope: "in_use", limit: 25 });
+    await runImageJob(db, ctx, plain, job.id, { delayMs: 0 });
+    const o = await getImageJobOverview(db, ctx);
+    expect(o.job).toMatchObject({ status: "done", processed: 3, applied: 3 });
+    expect(o.review).toHaveLength(0);
+    const [photo] = await db.select().from(s.photo).where(and(eq(s.photo.equipmentTypeId, obscure.id), eq(s.photo.kind, "reference")));
+    expect(photo!.attribution).toBe("auto-selected · maker.example");
+  });
+
+  it("stops after repeated errors and needs the search key and an admin", async () => {
     const { ctx } = await setup();
     const failing = deps({ search: { name: "failing", search: async () => Promise.reject(new Error("quota exceeded")) } });
     const job = await startImageJob(db, ctx, failing, { scope: "all", limit: 25 });
@@ -144,7 +162,6 @@ describe("automatic image jobs", () => {
     expect(o.review).toHaveLength(0);
     expect(o.eligible.all).toBe(5);
 
-    await expect(startImageJob(db, ctx, deps({ ranker: null }), { scope: "all", limit: 25 })).rejects.toThrow(/ANTHROPIC_API_KEY/);
     await expect(startImageJob(db, ctx, deps({ search: null }), { scope: "all", limit: 25 })).rejects.toThrow(/BRAVE_SEARCH_API_KEY/);
     await expect(startImageJob(db, { ...ctx, role: "member" }, deps(), { scope: "all", limit: 25 })).rejects.toBeInstanceOf(DomainError);
     void searches;

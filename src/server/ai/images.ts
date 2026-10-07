@@ -146,6 +146,11 @@ Score every candidate as the catalog reference image for exactly this product. B
   }
 }
 
+/**
+ * AI ranking of image results is opt-in (IMAGE_AI_RANKING=true). By default the
+ * search engine's order is used and the automatic pick takes the first result.
+ */
 export function createImageRankerFromEnv(env: Record<string, string | undefined> = process.env): ImageRanker | null {
-  return env.ANTHROPIC_API_KEY && env.AI_PROVIDER !== "none" ? new ClaudeImageRanker(env.AI_MODEL || "claude-opus-5-5") : null;
+  const enabled = ["1", "true", "on", "yes"].includes((env.IMAGE_AI_RANKING ?? "").toLowerCase());
+  return enabled && env.ANTHROPIC_API_KEY && env.AI_PROVIDER !== "none" ? new ClaudeImageRanker(env.AI_MODEL || "claude-opus-5-5") : null;
 }
