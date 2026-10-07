@@ -62,9 +62,12 @@ export default async function CasePage({ params, searchParams }: { params: Promi
         subtitle={[d.case.code, d.templateName && `Template: ${d.templateName}`, d.case.barcode && `Barcode ${d.case.barcode}`].filter(Boolean).join(" · ")}
         actions={
           canEdit && (
-            <LinkButton href={`/cases/${id}/edit`}>
-              <Pencil className="size-4" /> Edit
-            </LinkButton>
+            <>
+              <LinkButton href={`/projects/${d.case.projectId}/remove?caseId=${id}`}>Remove from project</LinkButton>
+              <LinkButton href={`/cases/${id}/edit`}>
+                <Pencil className="size-4" /> Edit
+              </LinkButton>
+            </>
           )
         }
       />

@@ -8,6 +8,7 @@ import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
 import { findType, type MatchResult, type ProposedLine } from "./document-matching";
 import { itemLabel } from "./equipment-items";
+import { itemsRemovedWithNote } from "./project-removal";
 
 export interface ReturnLine extends ProposedLine {
   ignored: boolean;
@@ -27,6 +28,8 @@ interface ProjectItem {
   assetNumber: string | null;
   rentalHouseId: string | null;
   rentalHouseName: string | null;
+  /** Already taken off the project with this note (soft removal + photo of the note). */
+  removedWithNote?: boolean;
 }
 
 const compact = (v: string | null | undefined) => (v ? v.toUpperCase().replace(/[^A-Z0-9]/g, "") : "");
@@ -80,13 +83,17 @@ async function explainElsewhere(db: DbOrTx, workspaceId: string, line: ReturnLin
  * Match all lines of a return note at once (lines compete for the same items).
  * Returns one result per input line, in order.
  */
-export async function matchReturnLines(db: DbOrTx, ctx: { workspaceId: string; projectId: string | null; rentalHouseId: string | null }, lines: ReturnLine[]): Promise<MatchResult[]> {
+export async function matchReturnLines(db: DbOrTx, ctx: { id?: string; workspaceId: string; projectId: string | null; rentalHouseId: string | null }, lines: ReturnLine[]): Promise<MatchResult[]> {
   const results: (MatchResult | null)[] = lines.map(() => null);
   const none = { matchedEquipmentTypeId: null, matchedEquipmentItemId: null, matchConfidence: null };
   if (!ctx.projectId) {
     return lines.map((l) => (l.ignored ? { ...none, matchReason: "ignored by reviewer", resolution: "ignore" as const } : { ...none, matchReason: "choose the project first", resolution: "pending" as const }));
   }
-  const items = await loadProjectItems(db, ctx.workspaceId, ctx.projectId);
+  const items: ProjectItem[] = [
+    // Removed first: a note that lists them confirms the removal rather than returning look-alikes still on the project.
+    ...(ctx.id ? (await itemsRemovedWithNote(db, ctx.workspaceId, ctx.id)).map((i) => ({ ...i, removedWithNote: true })) : []),
+    ...(await loadProjectItems(db, ctx.workspaceId, ctx.projectId)),
+  ];
   const byId = new Map(items.map((i) => [i.id, i]));
   const claimed = new Map<string, number>();
   const remaining = (i: ProjectItem) => i.quantity - (claimed.get(i.id) ?? 0);
@@ -109,6 +116,10 @@ export async function matchReturnLines(db: DbOrTx, ctx: { workspaceId: string; p
       return;
     }
     claim(item, units);
+    if (item.removedWithNote) {
+      results[idx] = { matchedEquipmentTypeId: item.equipmentTypeId, matchedEquipmentItemId: item.id, matchConfidence: 1, matchReason: `${how}: ${label} - already removed from the project ✓`, resolution: "match_existing" };
+      return;
+    }
     const partial = item.trackingMode === "bulk" && units < item.quantity ? ` (${units} of ${item.quantity} - the rest stays)` : "";
     results[idx] = { matchedEquipmentTypeId: item.equipmentTypeId, matchedEquipmentItemId: item.id, matchConfidence: 1, matchReason: `${how}: ${label}${partial}`, resolution: "match_existing" };
   };
@@ -188,6 +199,12 @@ export async function matchReturnLines(db: DbOrTx, ctx: { workspaceId: string; p
       continue;
     }
     const units = idxs.reduce((n, idx) => n + lines[idx]!.quantity, 0);
+    // Exactly the units removed with this note: those, not look-alikes still on the project.
+    const removed = candidates.filter((c) => c.removedWithNote);
+    if (removed.length === units && idxs.every((idx) => lines[idx]!.quantity === 1)) {
+      idxs.forEach((idx, n) => accept(idx, removed[n]!, lines[idx]!, "removed with this note"));
+      continue;
+    }
     if (candidates.length === 0) {
       for (const idx of idxs) results[idx] = { matchedEquipmentTypeId: typeId, matchedEquipmentItemId: null, matchConfidence: null, matchReason: `no ${typeName} from this rental house left on the project`, resolution: "discrepancy" };
     } else if (candidates.length === units && idxs.every((idx) => lines[idx]!.quantity === 1)) {

@@ -132,9 +132,10 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   const [projects, houses] = editable ? await Promise.all([listProjectOptions(db, ctx, { activeOnly: true }), listRentalHouses(db, ctx)]) : [[], []];
   const isReturn = doc.kind === "return_note";
   const mode = isReturn ? ("return" as const) : ("delivery" as const);
-  const itemOptions = editable && isReturn && doc.projectId ? (await listReturnableItems(db, ctx, doc.projectId)).map((i) => ({ value: i.id, label: i.label })) : [];
+  const itemOptions = editable && isReturn && doc.projectId ? (await listReturnableItems(db, ctx, doc.projectId, doc.id)).map((i) => ({ value: i.id, label: i.label })) : [];
   const labels = isReturn ? RETURN_RESOLUTION : RESOLUTION;
   const receiveCount = d.lines.filter((l) => l.resolution === "create_new" || l.resolution === "match_existing").reduce((n, l) => n + l.quantity, 0);
+  const alreadyRemoved = d.returnOverview?.removed.reduce((n, r) => n + Math.min(r.onNote, r.units), 0) ?? 0;
 
   return (
     <>
@@ -253,6 +254,30 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
               </ul>
               <AddLineCard action={addLineAction.bind(null, id)} items={itemOptions} mode={mode} />
 
+              {d.returnOverview && d.returnOverview.removed.length > 0 && (
+                <Card className="p-4">
+                  <h2 className="text-sm font-semibold">Double check: removed with this note</h2>
+                  <p className="mt-1 text-sm text-muted">
+                    {d.returnOverview.removed.filter((r) => r.onNote >= r.units).length} of {d.returnOverview.removed.length} found on the note.
+                    {d.returnOverview.removed.some((r) => r.onNote < r.units) && " Check the ones marked — they were removed but the note does not list them."}
+                  </p>
+                  <ul className="mt-2 max-h-56 space-y-0.5 overflow-y-auto text-sm">
+                    {d.returnOverview.removed.map((r) => (
+                      <li key={r.id} className="flex justify-between gap-2">
+                        <Link href={`/equipment/${r.id}`} className="truncate hover:underline">
+                          {r.label}
+                        </Link>
+                        {r.onNote >= r.units ? (
+                          <span className="text-ok">✓ on note</span>
+                        ) : (
+                          <span className="text-warn">{r.onNote > 0 ? `${r.onNote} of ${r.units} on note` : "not on note"}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              )}
+
               {d.returnOverview && (
                 <Card className="p-4">
                   <h2 className="text-sm font-semibold">After this return</h2>
@@ -289,7 +314,9 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 ) : (
                   <p className="text-sm text-muted">
                     {isReturn
-                      ? `Confirming marks ${receiveCount} item${receiveCount === 1 ? "" : "s"} as returned and takes them off ${d.projectName}. Every change is recorded in the history.`
+                      ? alreadyRemoved > 0
+                        ? `Confirming records the note: ${alreadyRemoved} already removed item${alreadyRemoved === 1 ? "" : "s"} confirmed${receiveCount - alreadyRemoved > 0 ? `, ${receiveCount - alreadyRemoved} more taken off ${d.projectName} as returned` : ""}. Every change is recorded in the history.`
+                        : `Confirming marks ${receiveCount} item${receiveCount === 1 ? "" : "s"} as returned and takes them off ${d.projectName}. Every change is recorded in the history.`
                       : `Confirming puts ${receiveCount} item${receiveCount === 1 ? "" : "s"} on ${d.projectName}: ${d.counts.existing} known, the rest created new. Every change is recorded in the history.`}
                   </p>
                 )}

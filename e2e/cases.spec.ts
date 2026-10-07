@@ -142,3 +142,30 @@ test("items without serial show once with a count and pack by quantity", async (
   await expect(page.getByRole("heading", { name: "In this case (0)" })).toBeVisible();
   await expect(free.getByText(`${before} pcs · no serial`)).toBeVisible();
 });
+
+test("remove items from a project without a return note, then add them back", async ({ page }) => {
+  await login(page);
+  await page.goto("/projects");
+  await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
+  await expect(page.getByRole("heading", { name: /Feature Film X/ })).toBeVisible();
+  const projectUrl = page.url().split("?")[0]!;
+  await page.goto(`${projectUrl}/remove`);
+
+  const row = page.locator("li").filter({ hasText: "Sandbag" }).filter({ has: page.getByLabel(/How many/) }).first();
+  await row.getByRole("checkbox").check();
+  await row.getByLabel(/How many/).fill("1");
+  await page.getByLabel("Note (optional)", { exact: true }).fill("e2e pickup");
+  await page.getByRole("button", { name: "Remove selected" }).click();
+  await expect(page).toHaveURL(projectUrl);
+
+  await page.goto(`${projectUrl}/history`);
+  await expect(page.getByText(/Sandbag 15 lb returned \(removed from Feature Film X\)/).first()).toBeVisible();
+
+  // Nothing was deleted: the sandbag can be added again.
+  await page.goto(`${projectUrl}/add-equipment?q=sandbag`);
+  const free = page.locator("li").filter({ hasText: "Sandbag" });
+  const n = await free.count();
+  expect(n).toBeGreaterThan(0);
+  await free.first().getByRole("button", { name: "Add" }).click();
+  await expect(free).toHaveCount(n - 1);
+});

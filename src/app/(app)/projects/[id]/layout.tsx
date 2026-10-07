@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Pencil, Plus } from "lucide-react";
+import { Minus, Pencil, Plus } from "lucide-react";
 import { ClientTabs } from "@/components/client-tabs";
 import { LinkButton, PageHeader, ProjectStatusBadge, Stat } from "@/components/ui";
 import { dateRange } from "@/lib/format";
@@ -33,6 +33,11 @@ export default async function ProjectLayout({ children, params }: { children: Re
               {project.status !== "closed" && (
                 <LinkButton href={`${base}/add-equipment`} variant="primary">
                   <Plus className="size-4" /> Add equipment
+                </LinkButton>
+              )}
+              {counts.items > 0 && (
+                <LinkButton href={`${base}/remove`}>
+                  <Minus className="size-4" /> Remove
                 </LinkButton>
               )}
               <LinkButton href={`${base}/edit`}>

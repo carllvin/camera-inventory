@@ -15,6 +15,7 @@ import { expandExtractedLines, findRentalHouse, matchLine, type MatchContext, ty
 import { findProjectForDocument, projectContext, projectHints } from "./document-project";
 import { ensureProjectRentalHouse, itemLabel, lockItem } from "./equipment-items";
 import { createProject, projectInput } from "./projects";
+import { itemsRemovedWithNote } from "./project-removal";
 import { expandReturnLines, loadProjectItems, matchReturnLines, type ReturnLine } from "./return-matching";
 import { optionalDate, optionalText, optionalUuid } from "./validation";
 
@@ -785,6 +786,8 @@ export async function confirmReturn(db: DbOrTx, ctx: Ctx, id: string) {
     const [project] = await tx.select().from(s.project).where(eq(s.project.id, doc.projectId!));
     const now = new Date();
     let returned = 0;
+    let checked = 0;
+    const removedIds = new Set((await itemsRemovedWithNote(tx, ctx.workspaceId, id)).map((i) => i.id));
 
     const closeAssignment = async (itemId: string) =>
       tx
@@ -795,6 +798,12 @@ export async function confirmReturn(db: DbOrTx, ctx: Ctx, id: string) {
     for (const l of lines) {
       if (l.resolution !== "match_existing") continue;
       const item = await lockItem(tx, ctx, l.matchedEquipmentItemId!);
+      if (!item.projectId && removedIds.has(item.id)) {
+        // Taken off the project earlier with this note attached: the note only confirms it.
+        await tx.update(s.documentLine).set({ confirmedQuantity: l.quantity }).where(eq(s.documentLine.id, l.id));
+        checked += l.quantity;
+        continue;
+      }
       if (item.projectId !== project!.id) throw new DomainError("CONFLICT", `Line ${l.lineNumber}: ${item.label} is no longer on this project. Reload the note.`);
       const units = item.trackingMode === "bulk" ? l.quantity : 1;
 
@@ -920,13 +929,14 @@ export async function confirmReturn(db: DbOrTx, ctx: Ctx, id: string) {
       projectId: project!.id,
       rentalHouseId: doc.rentalHouseId,
       summary:
-        remaining > 0
+        (checked ? `${checked} removed earlier, confirmed by the note · ` : "") +
+        (remaining > 0
           ? `Return ${doc.documentNumber ?? ""}: ${returned} returned to ${rh?.name ?? "rental house"}, ${remaining} still on the project (partial return)`.replace("  ", " ")
-          : `Return ${doc.documentNumber ?? ""}: ${returned} returned to ${rh?.name ?? "rental house"} — nothing from them left on the project`.replace("  ", " "),
-      metadata: { returned, remaining },
+          : `Return ${doc.documentNumber ?? ""}: ${returned} returned to ${rh?.name ?? "rental house"} — nothing from them left on the project`.replace("  ", " ")),
+      metadata: { returned, remaining, checked },
       correlationId,
     });
-    return { document: confirmed!, returned, remaining };
+    return { document: confirmed!, returned, remaining, checked };
   });
 }
 
@@ -979,14 +989,21 @@ async function returnOverview(db: DbOrTx, doc: typeof s.document.$inferSelect, l
   const staying = items
     .map((i) => ({ id: i.id, label: itemLabel(i), typeName: i.typeName, units: i.trackingMode === "bulk" ? i.quantity - (claimed.get(i.id) ?? 0) : claimed.has(i.id) ? 0 : 1 }))
     .filter((i) => i.units > 0);
+  // Removed earlier with this note attached: the double check.
+  const removed = (await itemsRemovedWithNote(db, doc.workspaceId, doc.id)).map((i) => ({ id: i.id, label: itemLabel(i), units: i.quantity, onNote: claimed.get(i.id) ?? 0 }));
+  for (const r of removed) claimed.delete(r.id);
   const returning = [...claimed.values()].reduce((n, u) => n + u, 0);
-  return { staying, returning, onProject: items.reduce((n, i) => n + i.quantity, 0) };
+  return { staying, returning, onProject: items.reduce((n, i) => n + i.quantity, 0), removed };
 }
 
 /** Items a return line may point at (everything on the project, optionally of one type). */
-export async function listReturnableItems(db: DbOrTx, ctx: Ctx, projectId: string) {
+export async function listReturnableItems(db: DbOrTx, ctx: Ctx, projectId: string, documentId?: string) {
+  const removed = documentId ? await itemsRemovedWithNote(db, ctx.workspaceId, documentId) : [];
   const items = await loadProjectItems(db, ctx.workspaceId, projectId);
-  return items.map((i) => ({ id: i.id, equipmentTypeId: i.equipmentTypeId, label: `${itemLabel(i)}${i.rentalHouseName ? ` · ${i.rentalHouseName}` : ""}` }));
+  return [
+    ...removed.map((i) => ({ id: i.id, equipmentTypeId: i.equipmentTypeId, label: `${itemLabel(i)} · already removed` })),
+    ...items.map((i) => ({ id: i.id, equipmentTypeId: i.equipmentTypeId, label: `${itemLabel(i)}${i.rentalHouseName ? ` · ${i.rentalHouseName}` : ""}` })),
+  ];
 }
 
 // ---------------------------------------------------------------------------

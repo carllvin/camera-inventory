@@ -75,6 +75,15 @@ A serial number makes an item an individual; without one, units of the same type
 taking out, or changing status or condition asks *how many*: the chosen units are split off as their own entry
 (linked to the original, history on both), the rest stays as it is. Cases can also be chosen on the item page.
 
+### Removing equipment from a project
+
+**Remove** on a project (or *Remove from project* on a case) takes whole cases, single items or some units off the
+project without a full return-note review. Choose *returned to the rental house* or *not on this project*; nothing
+is deleted and every item keeps its history. Optionally add a photo of the return note: it is stored as a
+return-note document and, once read, double-checks the removal: lines that match removed items are ticked,
+removed items missing from the note are flagged, and items on the note that are still on the project can be
+returned by confirming the note.
+
 ### Reference images
 
 On an equipment type, **Choose image / Change image** opens the picker: image search results in the search engine's order
