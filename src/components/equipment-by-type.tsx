@@ -26,13 +26,14 @@ function statusSummary(items: ItemRow[]) {
   return [...counts].map(([s, n]) => ({ status: s, label: `${n} ${STATUS_LABEL[s]?.toLowerCase() ?? s}` }));
 }
 
-const where = (i: ItemRow) => [i.caseName && `▣ ${i.caseName}`, i.rentalHouseShort ?? i.rentalHouseName ?? "Owned"].filter(Boolean).join(" · ");
+const where = (i: ItemRow, showProject: boolean) =>
+  [showProject && (i.projectName ?? "Not on a project"), i.caseName && `▣ ${i.caseName}`, i.rentalHouseShort ?? i.rentalHouseName ?? "Owned"].filter(Boolean).join(" · ");
 
 /**
  * One line per equipment type with its quantity; opening it shows the single
  * entries (serials, asset numbers, case, owner, state, notes).
  */
-export function EquipmentByType({ items, open = false }: { items: ItemRow[]; open?: boolean }) {
+export function EquipmentByType({ items, open = false, showProject = false }: { items: ItemRow[]; open?: boolean; showProject?: boolean }) {
   const groups = byType(items);
   return (
     <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
@@ -74,7 +75,7 @@ export function EquipmentByType({ items, open = false }: { items: ItemRow[]; ope
                           {e.assetNumber && <span className="text-muted"><Mono>Asset {e.assetNumber}</Mono></span>}
                           {e.barcode && <span className="text-muted"><Mono>Code {e.barcode}</Mono></span>}
                         </div>
-                        <div className="text-xs text-muted">{where(e)}</div>
+                        <div className="text-xs text-muted">{where(e, showProject)}</div>
                         {e.notes && <div className="mt-0.5 line-clamp-2 text-xs text-muted italic">{e.notes}</div>}
                       </div>
                       <div className="flex shrink-0 flex-col items-end gap-1">

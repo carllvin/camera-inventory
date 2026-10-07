@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { LayoutGrid, List, Plus } from "lucide-react";
+import { LayoutGrid, List, ListTree, Plus } from "lucide-react";
+import { EquipmentByType } from "@/components/equipment-by-type";
 import { EquipmentGrid, EquipmentTable, groupItems } from "@/components/equipment-table";
 import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
 import { Tabs, EmptyState, LinkButton, PageHeader } from "@/components/ui";
@@ -26,7 +27,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
   const { current } = await getCurrentProject();
   const projectId = sp.projectId === ALL_PROJECTS ? undefined : (sp.projectId ?? (sp.location || sp.q ? undefined : current?.id));
   const focused = projectId && projectId === current?.id ? current : null;
-  const grid = sp.view === "grid";
+  const view = sp.view === "grid" || sp.view === "types" ? sp.view : "list";
   const { view: _view, ...filterParams } = sp;
   const [items, { flat: categories }, rentalHouses, projects] = await Promise.all([
     listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, limit: 300 }),
@@ -35,7 +36,12 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
     listProjectOptions(db, ctx),
   ]);
   const hasFilters = Object.entries(filterParams).some(([k, v]) => v && !(k === "projectId" && v === current?.id));
-  const viewHref = (v: "list" | "grid") => `/equipment?${new URLSearchParams(Object.entries({ ...sp, view: v === "grid" ? "grid" : "" }).filter(([, x]) => x) as [string, string][])}`;
+  const viewHref = (v: "list" | "grid" | "types") => `/equipment?${new URLSearchParams(Object.entries({ ...sp, view: v === "list" ? "" : v }).filter(([, x]) => x) as [string, string][])}`;
+  const VIEWS = [
+    { key: "list", label: "List view", Icon: List },
+    { key: "grid", label: "Image view", Icon: LayoutGrid },
+    { key: "types", label: "By type", Icon: ListTree },
+  ] as const;
   return (
     <>
       <PageHeader
@@ -87,14 +93,18 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         <>
           <div className="mb-2 flex items-center justify-between gap-2">
             <p className="text-xs text-muted">
-              {items.length === 300 ? "Showing first 300 items — refine with filters" : (() => { const n = groupItems(items).length; const u = items.reduce((s, i) => s + i.quantity, 0); return `${n} ${n === 1 ? "entry" : "entries"} · ${u} ${u === 1 ? "unit" : "units"}`; })()}
+              {items.length === 300 ? "Showing first 300 items — refine with filters" : (() => {
+                    const u = items.reduce((s, i) => s + i.quantity, 0);
+                    const n = view === "types" ? new Set(items.map((i) => i.typeId)).size : groupItems(items).length;
+                    const what = view === "types" ? (n === 1 ? "type" : "types") : n === 1 ? "entry" : "entries";
+                    return `${n} ${what} · ${u} ${u === 1 ? "unit" : "units"}`;
+                  })()}
             </p>
             <div className="flex rounded-lg border border-border bg-surface p-0.5" role="group" aria-label="View">
-              {(["list", "grid"] as const).map((v) => {
-                const Icon = v === "list" ? List : LayoutGrid;
-                const active = (v === "grid") === grid;
+              {VIEWS.map(({ key, label, Icon }) => {
+                const active = key === view;
                 return (
-                  <Link key={v} href={viewHref(v)} aria-label={v === "list" ? "List view" : "Image view"} aria-current={active ? "true" : undefined}
+                  <Link key={key} href={viewHref(key)} aria-label={label} title={label} aria-current={active ? "true" : undefined}
                     className={cn("rounded-md p-1.5", active ? "bg-accent-soft text-accent" : "text-muted hover:text-text")}>
                     <Icon className="size-4" />
                   </Link>
@@ -102,7 +112,13 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
               })}
             </div>
           </div>
-          {grid ? <EquipmentGrid items={items} showProject={!projectId} /> : <EquipmentTable items={items} showProject={!projectId} />}
+          {view === "grid" ? (
+            <EquipmentGrid items={items} showProject={!projectId} />
+          ) : view === "types" ? (
+            <EquipmentByType items={items} open={Boolean(sp.q)} showProject={!projectId} />
+          ) : (
+            <EquipmentTable items={items} showProject={!projectId} />
+          )}
         </>
       )}
     </>

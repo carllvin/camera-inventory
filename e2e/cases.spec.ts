@@ -181,3 +181,14 @@ test("project equipment: one line per type with quantity, serials when opened", 
   await line.click();
   await expect(page.getByText("SN B290-31131")).toBeVisible();
 });
+
+test("equipment page: by-type view groups serials under one line", async ({ page }) => {
+  await login(page);
+  await page.goto("/equipment");
+  await page.getByRole("link", { name: "By type" }).click();
+  await expect(page).toHaveURL(/view=types/);
+  const line = page.locator("summary").filter({ hasText: "ARRI ALEXA 35" });
+  await expect(line).toHaveCount(1);
+  await line.click();
+  await expect(page.getByText("SN 35-10421")).toBeVisible();
+});
