@@ -29,6 +29,17 @@ afterAll(async () => {
 });
 
 describe("catalog data", () => {
+  it("covers the Tiffen cine filter range, each spelling naming only that filter", () => {
+    const tiffen = all.filter((e) => e.manufacturer === "Tiffen" && e.category[1] === "Matte Boxes & Filters");
+    expect(tiffen.length).toBeGreaterThan(250);
+    for (const model of ["Black Pro-Mist 1/16 4x5.65", "Glimmerglass 5 4x5.65", "Soft/FX 1/2 6.6x6.6", "Smoque 2 4x5.65", "85N6 4x5.65", "Water White ND 0.9 4x5.65", "Graduated ND 0.6 Soft Edge Horizontal 4x5.65"])
+      expect(tiffen.map((e) => e.model)).toContain(model);
+    const owners = new Map<string, Set<string>>();
+    for (const e of all)
+      for (const v of [e.model, ...(e.aliases ?? [])]) owners.set(v.toLowerCase(), (owners.get(v.toLowerCase()) ?? new Set()).add(`${e.manufacturer} ${e.model}`));
+    for (const e of tiffen) for (const a of e.aliases ?? []) expect([a, owners.get(a.toLowerCase())!.size]).toEqual([a, 1]);
+  });
+
   it("has unique sections, models and names, and a category for every entry", () => {
     expect(new Set(STANDARD_CATALOG.map((c) => c.key)).size).toBe(STANDARD_CATALOG.length);
     expect(all.length).toBeGreaterThan(350);
@@ -121,6 +132,17 @@ describe("import", () => {
     expect(byAlias?.name).toBe("ARRI Signature Prime 35mm T1.8");
     const fuzzy = await findType(db, ctx.workspaceId, { catalogMatch: null, description: "ARRI Signature Prime 47mm", manufacturer: "ARRI", model: null });
     expect(fuzzy?.name).toBe("ARRI Signature Prime 47mm T1.8");
+  });
+
+  it("matches delivery-note spellings of Tiffen filters to the right strength and size", async () => {
+    const ws = await makeFixture();
+    const c: Ctx = { workspaceId: ws.ws.id, userId: ws.user.id, role: "owner" };
+    await importStandardCatalog(db, c, { sections: ["lens-control"] });
+    const find = (description: string, manufacturer: string | null = "Tiffen", model: string | null = null) =>
+      findType(db, c.workspaceId, { catalogMatch: null, description, manufacturer, model }).then((t) => t?.name);
+    expect(await find("Tiffen 4x5.65 Black Pro-Mist 1/4", "Tiffen", "Black Pro-Mist 1/4 4x5.65")).toBe("Tiffen Black Pro-Mist 1/4 4x5.65");
+    expect(await find("Filter Glimmerglass 2 4x5.65", "Tiffen", "Glimmerglass 2 4x5.65")).toBe("Tiffen Glimmerglass 2 4x5.65");
+    expect(await find("Tiffen 85N6 4x5.65")).toBe("Tiffen 85N6 4x5.65");
   });
 
   it("corrects untouched types imported under an earlier, wrong name — never edited ones", async () => {

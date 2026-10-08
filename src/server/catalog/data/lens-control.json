@@ -1445,6 +1445,2481 @@
      "aliases": [
       "Zip Box"
      ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/16 4x5.65",
+     "aliases": [
+      "BPM 1/16 4x5.65",
+      "Black Pro Mist 1/16 4x5.65",
+      "Black Pro-Mist 4x5.65 1/16",
+      "BPM 4x5.65 1/16",
+      "Black Pro Mist 4x5.65 1/16"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/8 4x4",
+     "aliases": [
+      "BPM 1/8 4x4",
+      "Black Pro Mist 1/8 4x4",
+      "Black Pro-Mist 4x4 1/8",
+      "BPM 4x4 1/8",
+      "Black Pro Mist 4x4 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/4 4x4",
+     "aliases": [
+      "BPM 1/4 4x4",
+      "Black Pro Mist 1/4 4x4",
+      "Black Pro-Mist 4x4 1/4",
+      "BPM 4x4 1/4",
+      "Black Pro Mist 4x4 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1/2 4x4",
+     "aliases": [
+      "BPM 1/2 4x4",
+      "Black Pro Mist 1/2 4x4",
+      "Black Pro-Mist 4x4 1/2",
+      "BPM 4x4 1/2",
+      "Black Pro Mist 4x4 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 1 4x4",
+     "aliases": [
+      "BPM 1 4x4",
+      "Black Pro Mist 1 4x4",
+      "Black Pro-Mist 4x4 1",
+      "BPM 4x4 1",
+      "Black Pro Mist 4x4 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Pro-Mist 2 4x4",
+     "aliases": [
+      "BPM 2 4x4",
+      "Black Pro Mist 2 4x4",
+      "Black Pro-Mist 4x4 2",
+      "BPM 4x4 2",
+      "Black Pro Mist 4x4 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/8 4x5.65",
+     "aliases": [
+      "PM 1/8 4x5.65",
+      "Pro Mist 1/8 4x5.65",
+      "Pro-Mist 4x5.65 1/8",
+      "PM 4x5.65 1/8",
+      "Pro Mist 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/4 4x5.65",
+     "aliases": [
+      "PM 1/4 4x5.65",
+      "Pro Mist 1/4 4x5.65",
+      "Pro-Mist 4x5.65 1/4",
+      "PM 4x5.65 1/4",
+      "Pro Mist 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/2 4x5.65",
+     "aliases": [
+      "PM 1/2 4x5.65",
+      "Pro Mist 1/2 4x5.65",
+      "Pro-Mist 4x5.65 1/2",
+      "PM 4x5.65 1/2",
+      "Pro Mist 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1 4x5.65",
+     "aliases": [
+      "PM 1 4x5.65",
+      "Pro Mist 1 4x5.65",
+      "Pro-Mist 4x5.65 1",
+      "PM 4x5.65 1",
+      "Pro Mist 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 2 4x5.65",
+     "aliases": [
+      "PM 2 4x5.65",
+      "Pro Mist 2 4x5.65",
+      "Pro-Mist 4x5.65 2",
+      "PM 4x5.65 2",
+      "Pro Mist 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/8 6.6x6.6",
+     "aliases": [
+      "PM 1/8 6.6x6.6",
+      "Pro Mist 1/8 6.6x6.6",
+      "Pro-Mist 6.6x6.6 1/8",
+      "PM 6.6x6.6 1/8",
+      "Pro Mist 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/4 6.6x6.6",
+     "aliases": [
+      "PM 1/4 6.6x6.6",
+      "Pro Mist 1/4 6.6x6.6",
+      "Pro-Mist 6.6x6.6 1/4",
+      "PM 6.6x6.6 1/4",
+      "Pro Mist 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/2 6.6x6.6",
+     "aliases": [
+      "PM 1/2 6.6x6.6",
+      "Pro Mist 1/2 6.6x6.6",
+      "Pro-Mist 6.6x6.6 1/2",
+      "PM 6.6x6.6 1/2",
+      "Pro Mist 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1 6.6x6.6",
+     "aliases": [
+      "PM 1 6.6x6.6",
+      "Pro Mist 1 6.6x6.6",
+      "Pro-Mist 6.6x6.6 1",
+      "PM 6.6x6.6 1",
+      "Pro Mist 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 2 6.6x6.6",
+     "aliases": [
+      "PM 2 6.6x6.6",
+      "Pro Mist 2 6.6x6.6",
+      "Pro-Mist 6.6x6.6 2",
+      "PM 6.6x6.6 2",
+      "Pro Mist 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/8 4x4",
+     "aliases": [
+      "PM 1/8 4x4",
+      "Pro Mist 1/8 4x4",
+      "Pro-Mist 4x4 1/8",
+      "PM 4x4 1/8",
+      "Pro Mist 4x4 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/4 4x4",
+     "aliases": [
+      "PM 1/4 4x4",
+      "Pro Mist 1/4 4x4",
+      "Pro-Mist 4x4 1/4",
+      "PM 4x4 1/4",
+      "Pro Mist 4x4 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1/2 4x4",
+     "aliases": [
+      "PM 1/2 4x4",
+      "Pro Mist 1/2 4x4",
+      "Pro-Mist 4x4 1/2",
+      "PM 4x4 1/2",
+      "Pro Mist 4x4 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 1 4x4",
+     "aliases": [
+      "PM 1 4x4",
+      "Pro Mist 1 4x4",
+      "Pro-Mist 4x4 1",
+      "PM 4x4 1",
+      "Pro Mist 4x4 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pro-Mist 2 4x4",
+     "aliases": [
+      "PM 2 4x4",
+      "Pro Mist 2 4x4",
+      "Pro-Mist 4x4 2",
+      "PM 4x4 2",
+      "Pro Mist 4x4 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Warm Black Pro-Mist 1/8 4x5.65",
+     "aliases": [
+      "WBPM 1/8 4x5.65",
+      "Warm Black Pro Mist 1/8 4x5.65",
+      "Warm Black Pro-Mist 4x5.65 1/8",
+      "WBPM 4x5.65 1/8",
+      "Warm Black Pro Mist 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Warm Black Pro-Mist 1/4 4x5.65",
+     "aliases": [
+      "WBPM 1/4 4x5.65",
+      "Warm Black Pro Mist 1/4 4x5.65",
+      "Warm Black Pro-Mist 4x5.65 1/4",
+      "WBPM 4x5.65 1/4",
+      "Warm Black Pro Mist 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Warm Black Pro-Mist 1/2 4x5.65",
+     "aliases": [
+      "WBPM 1/2 4x5.65",
+      "Warm Black Pro Mist 1/2 4x5.65",
+      "Warm Black Pro-Mist 4x5.65 1/2",
+      "WBPM 4x5.65 1/2",
+      "Warm Black Pro Mist 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Warm Black Pro-Mist 1 4x5.65",
+     "aliases": [
+      "WBPM 1 4x5.65",
+      "Warm Black Pro Mist 1 4x5.65",
+      "Warm Black Pro-Mist 4x5.65 1",
+      "WBPM 4x5.65 1",
+      "Warm Black Pro Mist 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Warm Black Pro-Mist 2 4x5.65",
+     "aliases": [
+      "WBPM 2 4x5.65",
+      "Warm Black Pro Mist 2 4x5.65",
+      "Warm Black Pro-Mist 4x5.65 2",
+      "WBPM 4x5.65 2",
+      "Warm Black Pro Mist 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 2 4x5.65",
+     "aliases": [
+      "BS 2 4x5.65",
+      "Black Satin 4x5.65 2",
+      "BS 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 3 4x5.65",
+     "aliases": [
+      "BS 3 4x5.65",
+      "Black Satin 4x5.65 3",
+      "BS 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 4 4x5.65",
+     "aliases": [
+      "BS 4 4x5.65",
+      "Black Satin 4x5.65 4",
+      "BS 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 5 4x5.65",
+     "aliases": [
+      "BS 5 4x5.65",
+      "Black Satin 4x5.65 5",
+      "BS 4x5.65 5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1/8 6.6x6.6",
+     "aliases": [
+      "BS 1/8 6.6x6.6",
+      "Black Satin 6.6x6.6 1/8",
+      "BS 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1/4 6.6x6.6",
+     "aliases": [
+      "BS 1/4 6.6x6.6",
+      "Black Satin 6.6x6.6 1/4",
+      "BS 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1/2 6.6x6.6",
+     "aliases": [
+      "BS 1/2 6.6x6.6",
+      "Black Satin 6.6x6.6 1/2",
+      "BS 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 1 6.6x6.6",
+     "aliases": [
+      "BS 1 6.6x6.6",
+      "Black Satin 6.6x6.6 1",
+      "BS 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Satin 2 6.6x6.6",
+     "aliases": [
+      "BS 2 6.6x6.6",
+      "Black Satin 6.6x6.6 2",
+      "BS 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Satin 1/8 4x5.65",
+     "aliases": [
+      "Satin 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Satin 1/4 4x5.65",
+     "aliases": [
+      "Satin 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Satin 1/2 4x5.65",
+     "aliases": [
+      "Satin 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Satin 1 4x5.65",
+     "aliases": [
+      "Satin 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Satin 2 4x5.65",
+     "aliases": [
+      "Satin 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/8 4x5.65",
+     "aliases": [
+      "GG 1/8 4x5.65",
+      "Glimmer Glass 1/8 4x5.65",
+      "Glimmerglass 4x5.65 1/8",
+      "GG 4x5.65 1/8",
+      "Glimmer Glass 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/4 4x5.65",
+     "aliases": [
+      "GG 1/4 4x5.65",
+      "Glimmer Glass 1/4 4x5.65",
+      "Glimmerglass 4x5.65 1/4",
+      "GG 4x5.65 1/4",
+      "Glimmer Glass 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1 4x5.65",
+     "aliases": [
+      "GG 1 4x5.65",
+      "Glimmer Glass 1 4x5.65",
+      "Glimmerglass 4x5.65 1",
+      "GG 4x5.65 1",
+      "Glimmer Glass 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 2 4x5.65",
+     "aliases": [
+      "GG 2 4x5.65",
+      "Glimmer Glass 2 4x5.65",
+      "Glimmerglass 4x5.65 2",
+      "GG 4x5.65 2",
+      "Glimmer Glass 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 3 4x5.65",
+     "aliases": [
+      "GG 3 4x5.65",
+      "Glimmer Glass 3 4x5.65",
+      "Glimmerglass 4x5.65 3",
+      "GG 4x5.65 3",
+      "Glimmer Glass 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 4 4x5.65",
+     "aliases": [
+      "GG 4 4x5.65",
+      "Glimmer Glass 4 4x5.65",
+      "Glimmerglass 4x5.65 4",
+      "GG 4x5.65 4",
+      "Glimmer Glass 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 5 4x5.65",
+     "aliases": [
+      "GG 5 4x5.65",
+      "Glimmer Glass 5 4x5.65",
+      "Glimmerglass 4x5.65 5",
+      "GG 4x5.65 5",
+      "Glimmer Glass 4x5.65 5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/8 6.6x6.6",
+     "aliases": [
+      "GG 1/8 6.6x6.6",
+      "Glimmer Glass 1/8 6.6x6.6",
+      "Glimmerglass 6.6x6.6 1/8",
+      "GG 6.6x6.6 1/8",
+      "Glimmer Glass 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/4 6.6x6.6",
+     "aliases": [
+      "GG 1/4 6.6x6.6",
+      "Glimmer Glass 1/4 6.6x6.6",
+      "Glimmerglass 6.6x6.6 1/4",
+      "GG 6.6x6.6 1/4",
+      "Glimmer Glass 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/2 6.6x6.6",
+     "aliases": [
+      "GG 1/2 6.6x6.6",
+      "Glimmer Glass 1/2 6.6x6.6",
+      "Glimmerglass 6.6x6.6 1/2",
+      "GG 6.6x6.6 1/2",
+      "Glimmer Glass 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1 6.6x6.6",
+     "aliases": [
+      "GG 1 6.6x6.6",
+      "Glimmer Glass 1 6.6x6.6",
+      "Glimmerglass 6.6x6.6 1",
+      "GG 6.6x6.6 1",
+      "Glimmer Glass 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 2 6.6x6.6",
+     "aliases": [
+      "GG 2 6.6x6.6",
+      "Glimmer Glass 2 6.6x6.6",
+      "Glimmerglass 6.6x6.6 2",
+      "GG 6.6x6.6 2",
+      "Glimmer Glass 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/8 4x4",
+     "aliases": [
+      "GG 1/8 4x4",
+      "Glimmer Glass 1/8 4x4",
+      "Glimmerglass 4x4 1/8",
+      "GG 4x4 1/8",
+      "Glimmer Glass 4x4 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/4 4x4",
+     "aliases": [
+      "GG 1/4 4x4",
+      "Glimmer Glass 1/4 4x4",
+      "Glimmerglass 4x4 1/4",
+      "GG 4x4 1/4",
+      "Glimmer Glass 4x4 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1/2 4x4",
+     "aliases": [
+      "GG 1/2 4x4",
+      "Glimmer Glass 1/2 4x4",
+      "Glimmerglass 4x4 1/2",
+      "GG 4x4 1/2",
+      "Glimmer Glass 4x4 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 1 4x4",
+     "aliases": [
+      "GG 1 4x4",
+      "Glimmer Glass 1 4x4",
+      "Glimmerglass 4x4 1",
+      "GG 4x4 1",
+      "Glimmer Glass 4x4 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Glimmerglass 2 4x4",
+     "aliases": [
+      "GG 2 4x4",
+      "Glimmer Glass 2 4x4",
+      "Glimmerglass 4x4 2",
+      "GG 4x4 2",
+      "Glimmer Glass 4x4 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1 4x5.65",
+     "aliases": [
+      "BGG 1 4x5.65",
+      "Black Glimmer Glass 1 4x5.65",
+      "Black Glimmerglass 4x5.65 1",
+      "BGG 4x5.65 1",
+      "Black Glimmer Glass 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 2 4x5.65",
+     "aliases": [
+      "BGG 2 4x5.65",
+      "Black Glimmer Glass 2 4x5.65",
+      "Black Glimmerglass 4x5.65 2",
+      "BGG 4x5.65 2",
+      "Black Glimmer Glass 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1/8 6.6x6.6",
+     "aliases": [
+      "BGG 1/8 6.6x6.6",
+      "Black Glimmer Glass 1/8 6.6x6.6",
+      "Black Glimmerglass 6.6x6.6 1/8",
+      "BGG 6.6x6.6 1/8",
+      "Black Glimmer Glass 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1/4 6.6x6.6",
+     "aliases": [
+      "BGG 1/4 6.6x6.6",
+      "Black Glimmer Glass 1/4 6.6x6.6",
+      "Black Glimmerglass 6.6x6.6 1/4",
+      "BGG 6.6x6.6 1/4",
+      "Black Glimmer Glass 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1/2 6.6x6.6",
+     "aliases": [
+      "BGG 1/2 6.6x6.6",
+      "Black Glimmer Glass 1/2 6.6x6.6",
+      "Black Glimmerglass 6.6x6.6 1/2",
+      "BGG 6.6x6.6 1/2",
+      "Black Glimmer Glass 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 1 6.6x6.6",
+     "aliases": [
+      "BGG 1 6.6x6.6",
+      "Black Glimmer Glass 1 6.6x6.6",
+      "Black Glimmerglass 6.6x6.6 1",
+      "BGG 6.6x6.6 1",
+      "Black Glimmer Glass 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Glimmerglass 2 6.6x6.6",
+     "aliases": [
+      "BGG 2 6.6x6.6",
+      "Black Glimmer Glass 2 6.6x6.6",
+      "Black Glimmerglass 6.6x6.6 2",
+      "BGG 6.6x6.6 2",
+      "Black Glimmer Glass 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1/16 4x5.65",
+     "aliases": [
+      "Pearl 1/16 4x5.65",
+      "Pearlescent 4x5.65 1/16",
+      "Pearl 4x5.65 1/16"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1/8 6.6x6.6",
+     "aliases": [
+      "Pearl 1/8 6.6x6.6",
+      "Pearlescent 6.6x6.6 1/8",
+      "Pearl 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1/4 6.6x6.6",
+     "aliases": [
+      "Pearl 1/4 6.6x6.6",
+      "Pearlescent 6.6x6.6 1/4",
+      "Pearl 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 1 6.6x6.6",
+     "aliases": [
+      "Pearl 1 6.6x6.6",
+      "Pearlescent 6.6x6.6 1",
+      "Pearl 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Pearlescent 2 6.6x6.6",
+     "aliases": [
+      "Pearl 2 6.6x6.6",
+      "Pearlescent 6.6x6.6 2",
+      "Pearl 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/8 4x5.65",
+     "aliases": [
+      "SFX 1/8 4x5.65",
+      "Soft FX 1/8 4x5.65",
+      "Soft/FX 4x5.65 1/8",
+      "SFX 4x5.65 1/8",
+      "Soft FX 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/4 4x5.65",
+     "aliases": [
+      "SFX 1/4 4x5.65",
+      "Soft FX 1/4 4x5.65",
+      "Soft/FX 4x5.65 1/4",
+      "SFX 4x5.65 1/4",
+      "Soft FX 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/2 4x5.65",
+     "aliases": [
+      "SFX 1/2 4x5.65",
+      "Soft FX 1/2 4x5.65",
+      "Soft/FX 4x5.65 1/2",
+      "SFX 4x5.65 1/2",
+      "Soft FX 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1 4x5.65",
+     "aliases": [
+      "SFX 1 4x5.65",
+      "Soft FX 1 4x5.65",
+      "Soft/FX 4x5.65 1",
+      "SFX 4x5.65 1",
+      "Soft FX 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 2 4x5.65",
+     "aliases": [
+      "SFX 2 4x5.65",
+      "Soft FX 2 4x5.65",
+      "Soft/FX 4x5.65 2",
+      "SFX 4x5.65 2",
+      "Soft FX 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 3 4x5.65",
+     "aliases": [
+      "SFX 3 4x5.65",
+      "Soft FX 3 4x5.65",
+      "Soft/FX 4x5.65 3",
+      "SFX 4x5.65 3",
+      "Soft FX 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 4 4x5.65",
+     "aliases": [
+      "SFX 4 4x5.65",
+      "Soft FX 4 4x5.65",
+      "Soft/FX 4x5.65 4",
+      "SFX 4x5.65 4",
+      "Soft FX 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 5 4x5.65",
+     "aliases": [
+      "SFX 5 4x5.65",
+      "Soft FX 5 4x5.65",
+      "Soft/FX 4x5.65 5",
+      "SFX 4x5.65 5",
+      "Soft FX 4x5.65 5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/8 6.6x6.6",
+     "aliases": [
+      "SFX 1/8 6.6x6.6",
+      "Soft FX 1/8 6.6x6.6",
+      "Soft/FX 6.6x6.6 1/8",
+      "SFX 6.6x6.6 1/8",
+      "Soft FX 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/4 6.6x6.6",
+     "aliases": [
+      "SFX 1/4 6.6x6.6",
+      "Soft FX 1/4 6.6x6.6",
+      "Soft/FX 6.6x6.6 1/4",
+      "SFX 6.6x6.6 1/4",
+      "Soft FX 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/2 6.6x6.6",
+     "aliases": [
+      "SFX 1/2 6.6x6.6",
+      "Soft FX 1/2 6.6x6.6",
+      "Soft/FX 6.6x6.6 1/2",
+      "SFX 6.6x6.6 1/2",
+      "Soft FX 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1 6.6x6.6",
+     "aliases": [
+      "SFX 1 6.6x6.6",
+      "Soft FX 1 6.6x6.6",
+      "Soft/FX 6.6x6.6 1",
+      "SFX 6.6x6.6 1",
+      "Soft FX 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 2 6.6x6.6",
+     "aliases": [
+      "SFX 2 6.6x6.6",
+      "Soft FX 2 6.6x6.6",
+      "Soft/FX 6.6x6.6 2",
+      "SFX 6.6x6.6 2",
+      "Soft FX 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/8 4x4",
+     "aliases": [
+      "SFX 1/8 4x4",
+      "Soft FX 1/8 4x4",
+      "Soft/FX 4x4 1/8",
+      "SFX 4x4 1/8",
+      "Soft FX 4x4 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/4 4x4",
+     "aliases": [
+      "SFX 1/4 4x4",
+      "Soft FX 1/4 4x4",
+      "Soft/FX 4x4 1/4",
+      "SFX 4x4 1/4",
+      "Soft FX 4x4 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1/2 4x4",
+     "aliases": [
+      "SFX 1/2 4x4",
+      "Soft FX 1/2 4x4",
+      "Soft/FX 4x4 1/2",
+      "SFX 4x4 1/2",
+      "Soft FX 4x4 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 1 4x4",
+     "aliases": [
+      "SFX 1 4x4",
+      "Soft FX 1 4x4",
+      "Soft/FX 4x4 1",
+      "SFX 4x4 1",
+      "Soft FX 4x4 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft/FX 2 4x4",
+     "aliases": [
+      "SFX 2 4x4",
+      "Soft FX 2 4x4",
+      "Soft/FX 4x4 2",
+      "SFX 4x4 2",
+      "Soft FX 4x4 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Diffusion/FX 1/4 4x5.65",
+     "aliases": [
+      "BDFX 1/4 4x5.65",
+      "Black Diffusion FX 1/4 4x5.65",
+      "Black Diffusion/FX 4x5.65 1/4",
+      "BDFX 4x5.65 1/4",
+      "Black Diffusion FX 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Diffusion/FX 1/2 4x5.65",
+     "aliases": [
+      "BDFX 1/2 4x5.65",
+      "Black Diffusion FX 1/2 4x5.65",
+      "Black Diffusion/FX 4x5.65 1/2",
+      "BDFX 4x5.65 1/2",
+      "Black Diffusion FX 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Diffusion/FX 1 4x5.65",
+     "aliases": [
+      "BDFX 1 4x5.65",
+      "Black Diffusion FX 1 4x5.65",
+      "Black Diffusion/FX 4x5.65 1",
+      "BDFX 4x5.65 1",
+      "Black Diffusion FX 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Diffusion/FX 2 4x5.65",
+     "aliases": [
+      "BDFX 2 4x5.65",
+      "Black Diffusion FX 2 4x5.65",
+      "Black Diffusion/FX 4x5.65 2",
+      "BDFX 4x5.65 2",
+      "Black Diffusion FX 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Diffusion/FX 3 4x5.65",
+     "aliases": [
+      "BDFX 3 4x5.65",
+      "Black Diffusion FX 3 4x5.65",
+      "Black Diffusion/FX 4x5.65 3",
+      "BDFX 4x5.65 3",
+      "Black Diffusion FX 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Diffusion/FX 4 4x5.65",
+     "aliases": [
+      "BDFX 4 4x5.65",
+      "Black Diffusion FX 4 4x5.65",
+      "Black Diffusion/FX 4x5.65 4",
+      "BDFX 4x5.65 4",
+      "Black Diffusion FX 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Black Diffusion/FX 5 4x5.65",
+     "aliases": [
+      "BDFX 5 4x5.65",
+      "Black Diffusion FX 5 4x5.65",
+      "Black Diffusion/FX 4x5.65 5",
+      "BDFX 4x5.65 5",
+      "Black Diffusion FX 4x5.65 5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Digital Diffusion/FX 1/4 4x5.65",
+     "aliases": [
+      "DDFX 1/4 4x5.65",
+      "Digital Diffusion FX 1/4 4x5.65",
+      "Digital Diffusion/FX 4x5.65 1/4",
+      "DDFX 4x5.65 1/4",
+      "Digital Diffusion FX 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Digital Diffusion/FX 1/2 4x5.65",
+     "aliases": [
+      "DDFX 1/2 4x5.65",
+      "Digital Diffusion FX 1/2 4x5.65",
+      "Digital Diffusion/FX 4x5.65 1/2",
+      "DDFX 4x5.65 1/2",
+      "Digital Diffusion FX 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Digital Diffusion/FX 1 4x5.65",
+     "aliases": [
+      "DDFX 1 4x5.65",
+      "Digital Diffusion FX 1 4x5.65",
+      "Digital Diffusion/FX 4x5.65 1",
+      "DDFX 4x5.65 1",
+      "Digital Diffusion FX 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Digital Diffusion/FX 2 4x5.65",
+     "aliases": [
+      "DDFX 2 4x5.65",
+      "Digital Diffusion FX 2 4x5.65",
+      "Digital Diffusion/FX 4x5.65 2",
+      "DDFX 4x5.65 2",
+      "Digital Diffusion FX 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Digital Diffusion/FX 3 4x5.65",
+     "aliases": [
+      "DDFX 3 4x5.65",
+      "Digital Diffusion FX 3 4x5.65",
+      "Digital Diffusion/FX 4x5.65 3",
+      "DDFX 4x5.65 3",
+      "Digital Diffusion FX 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Digital Diffusion/FX 4 4x5.65",
+     "aliases": [
+      "DDFX 4 4x5.65",
+      "Digital Diffusion FX 4 4x5.65",
+      "Digital Diffusion/FX 4x5.65 4",
+      "DDFX 4x5.65 4",
+      "Digital Diffusion FX 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Digital Diffusion/FX 5 4x5.65",
+     "aliases": [
+      "DDFX 5 4x5.65",
+      "Digital Diffusion FX 5 4x5.65",
+      "Digital Diffusion/FX 4x5.65 5",
+      "DDFX 4x5.65 5",
+      "Digital Diffusion FX 4x5.65 5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1/8 4x5.65",
+     "aliases": [
+      "SMQ 1/8 4x5.65",
+      "Smoque 4x5.65 1/8",
+      "SMQ 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1/4 4x5.65",
+     "aliases": [
+      "SMQ 1/4 4x5.65",
+      "Smoque 4x5.65 1/4",
+      "SMQ 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1/2 4x5.65",
+     "aliases": [
+      "SMQ 1/2 4x5.65",
+      "Smoque 4x5.65 1/2",
+      "SMQ 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1 4x5.65",
+     "aliases": [
+      "SMQ 1 4x5.65",
+      "Smoque 4x5.65 1",
+      "SMQ 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 2 4x5.65",
+     "aliases": [
+      "SMQ 2 4x5.65",
+      "Smoque 4x5.65 2",
+      "SMQ 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 3 4x5.65",
+     "aliases": [
+      "SMQ 3 4x5.65",
+      "Smoque 4x5.65 3",
+      "SMQ 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 4 4x5.65",
+     "aliases": [
+      "SMQ 4 4x5.65",
+      "Smoque 4x5.65 4",
+      "SMQ 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1/8 6.6x6.6",
+     "aliases": [
+      "SMQ 1/8 6.6x6.6",
+      "Smoque 6.6x6.6 1/8",
+      "SMQ 6.6x6.6 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1/4 6.6x6.6",
+     "aliases": [
+      "SMQ 1/4 6.6x6.6",
+      "Smoque 6.6x6.6 1/4",
+      "SMQ 6.6x6.6 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1/2 6.6x6.6",
+     "aliases": [
+      "SMQ 1/2 6.6x6.6",
+      "Smoque 6.6x6.6 1/2",
+      "SMQ 6.6x6.6 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 1 6.6x6.6",
+     "aliases": [
+      "SMQ 1 6.6x6.6",
+      "Smoque 6.6x6.6 1",
+      "SMQ 6.6x6.6 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Smoque 2 6.6x6.6",
+     "aliases": [
+      "SMQ 2 6.6x6.6",
+      "Smoque 6.6x6.6 2",
+      "SMQ 6.6x6.6 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Night Fog 1/8 4x5.65",
+     "aliases": [
+      "NF 1/8 4x5.65",
+      "Night Fog 4x5.65 1/8",
+      "NF 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Night Fog 1/4 4x5.65",
+     "aliases": [
+      "NF 1/4 4x5.65",
+      "Night Fog 4x5.65 1/4",
+      "NF 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Night Fog 1/2 4x5.65",
+     "aliases": [
+      "NF 1/2 4x5.65",
+      "Night Fog 4x5.65 1/2",
+      "NF 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Night Fog 1 4x5.65",
+     "aliases": [
+      "NF 1 4x5.65",
+      "Night Fog 4x5.65 1",
+      "NF 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Night Fog 2 4x5.65",
+     "aliases": [
+      "NF 2 4x5.65",
+      "Night Fog 4x5.65 2",
+      "NF 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Fog 1/8 4x5.65",
+     "aliases": [
+      "Fog 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Fog 1/4 4x5.65",
+     "aliases": [
+      "Fog 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Fog 1/2 4x5.65",
+     "aliases": [
+      "Fog 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Fog 1 4x5.65",
+     "aliases": [
+      "Fog 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Fog 2 4x5.65",
+     "aliases": [
+      "Fog 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Fog 3 4x5.65",
+     "aliases": [
+      "Fog 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Double Fog 1/8 4x5.65",
+     "aliases": [
+      "DF 1/8 4x5.65",
+      "Double Fog 4x5.65 1/8",
+      "DF 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Double Fog 1/4 4x5.65",
+     "aliases": [
+      "DF 1/4 4x5.65",
+      "Double Fog 4x5.65 1/4",
+      "DF 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Double Fog 1/2 4x5.65",
+     "aliases": [
+      "DF 1/2 4x5.65",
+      "Double Fog 4x5.65 1/2",
+      "DF 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Double Fog 1 4x5.65",
+     "aliases": [
+      "DF 1 4x5.65",
+      "Double Fog 4x5.65 1",
+      "DF 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Double Fog 2 4x5.65",
+     "aliases": [
+      "DF 2 4x5.65",
+      "Double Fog 4x5.65 2",
+      "DF 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Double Fog 3 4x5.65",
+     "aliases": [
+      "DF 3 4x5.65",
+      "Double Fog 4x5.65 3",
+      "DF 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 1/8 4x5.65",
+     "aliases": [
+      "UC 1/8 4x5.65",
+      "Ultra Contrast 4x5.65 1/8",
+      "UC 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 1/4 4x5.65",
+     "aliases": [
+      "UC 1/4 4x5.65",
+      "Ultra Contrast 4x5.65 1/4",
+      "UC 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 1/2 4x5.65",
+     "aliases": [
+      "UC 1/2 4x5.65",
+      "Ultra Contrast 4x5.65 1/2",
+      "UC 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 1 4x5.65",
+     "aliases": [
+      "UC 1 4x5.65",
+      "Ultra Contrast 4x5.65 1",
+      "UC 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 2 4x5.65",
+     "aliases": [
+      "UC 2 4x5.65",
+      "Ultra Contrast 4x5.65 2",
+      "UC 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 3 4x5.65",
+     "aliases": [
+      "UC 3 4x5.65",
+      "Ultra Contrast 4x5.65 3",
+      "UC 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 4 4x5.65",
+     "aliases": [
+      "UC 4 4x5.65",
+      "Ultra Contrast 4x5.65 4",
+      "UC 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Contrast 5 4x5.65",
+     "aliases": [
+      "UC 5 4x5.65",
+      "Ultra Contrast 4x5.65 5",
+      "UC 4x5.65 5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Low Contrast 1/2 4x5.65",
+     "aliases": [
+      "LC 1/2 4x5.65",
+      "Low Contrast 4x5.65 1/2",
+      "LC 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Low Contrast 1 4x5.65",
+     "aliases": [
+      "LC 1 4x5.65",
+      "Low Contrast 4x5.65 1",
+      "LC 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Low Contrast 2 4x5.65",
+     "aliases": [
+      "LC 2 4x5.65",
+      "Low Contrast 4x5.65 2",
+      "LC 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Low Contrast 3 4x5.65",
+     "aliases": [
+      "LC 3 4x5.65",
+      "Low Contrast 4x5.65 3",
+      "LC 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft Contrast 1 4x5.65",
+     "aliases": [
+      "SC 1 4x5.65",
+      "Soft Contrast 4x5.65 1",
+      "SC 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft Contrast 2 4x5.65",
+     "aliases": [
+      "SC 2 4x5.65",
+      "Soft Contrast 4x5.65 2",
+      "SC 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Soft Contrast 3 4x5.65",
+     "aliases": [
+      "SC 3 4x5.65",
+      "Soft Contrast 4x5.65 3",
+      "SC 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Hollywood/FX 1 4x5.65",
+     "aliases": [
+      "HFX 1 4x5.65",
+      "Hollywood FX 1 4x5.65",
+      "Hollywood/FX 4x5.65 1",
+      "HFX 4x5.65 1",
+      "Hollywood FX 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Hollywood/FX 2 4x5.65",
+     "aliases": [
+      "HFX 2 4x5.65",
+      "Hollywood FX 2 4x5.65",
+      "Hollywood/FX 4x5.65 2",
+      "HFX 4x5.65 2",
+      "Hollywood FX 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Hollywood/FX 3 4x5.65",
+     "aliases": [
+      "HFX 3 4x5.65",
+      "Hollywood FX 3 4x5.65",
+      "Hollywood/FX 4x5.65 3",
+      "HFX 4x5.65 3",
+      "Hollywood FX 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet Black 1 4x5.65",
+     "aliases": [
+      "SNB 1 4x5.65",
+      "Softnet Black 4x5.65 1",
+      "SNB 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet Black 2 4x5.65",
+     "aliases": [
+      "SNB 2 4x5.65",
+      "Softnet Black 4x5.65 2",
+      "SNB 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet Black 3 4x5.65",
+     "aliases": [
+      "SNB 3 4x5.65",
+      "Softnet Black 4x5.65 3",
+      "SNB 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet White 1 4x5.65",
+     "aliases": [
+      "SNW 1 4x5.65",
+      "Softnet White 4x5.65 1",
+      "SNW 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet White 2 4x5.65",
+     "aliases": [
+      "SNW 2 4x5.65",
+      "Softnet White 4x5.65 2",
+      "SNW 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet White 3 4x5.65",
+     "aliases": [
+      "SNW 3 4x5.65",
+      "Softnet White 4x5.65 3",
+      "SNW 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet Skintone 1 4x5.65",
+     "aliases": [
+      "SNS 1 4x5.65",
+      "Softnet Skintone 4x5.65 1",
+      "SNS 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet Skintone 2 4x5.65",
+     "aliases": [
+      "SNS 2 4x5.65",
+      "Softnet Skintone 4x5.65 2",
+      "SNS 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Softnet Skintone 3 4x5.65",
+     "aliases": [
+      "SNS 3 4x5.65",
+      "Softnet Skintone 4x5.65 3",
+      "SNS 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Coral 1/8 4x5.65",
+     "aliases": [
+      "Coral 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Coral 1/4 4x5.65",
+     "aliases": [
+      "Coral 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Coral 1/2 4x5.65",
+     "aliases": [
+      "Coral 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Coral 1 4x5.65",
+     "aliases": [
+      "Coral 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Coral 2 4x5.65",
+     "aliases": [
+      "Coral 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Coral 3 4x5.65",
+     "aliases": [
+      "Coral 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Antique Suede 1 4x5.65",
+     "aliases": [
+      "Antique Suede 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Antique Suede 2 4x5.65",
+     "aliases": [
+      "Antique Suede 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Antique Suede 3 4x5.65",
+     "aliases": [
+      "Antique Suede 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Sepia 1 4x5.65",
+     "aliases": [
+      "Sepia 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Sepia 2 4x5.65",
+     "aliases": [
+      "Sepia 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Sepia 3 4x5.65",
+     "aliases": [
+      "Sepia 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Chocolate 1 4x5.65",
+     "aliases": [
+      "Chocolate 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Chocolate 2 4x5.65",
+     "aliases": [
+      "Chocolate 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Chocolate 3 4x5.65",
+     "aliases": [
+      "Chocolate 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Tobacco 1 4x5.65",
+     "aliases": [
+      "Tobacco 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Tobacco 2 4x5.65",
+     "aliases": [
+      "Tobacco 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Tobacco 3 4x5.65",
+     "aliases": [
+      "Tobacco 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85 4x5.65",
+     "aliases": [
+      "Tiffen 85 4x5.65",
+      "85 Filter 4x5.65",
+      "4x5.65 85"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85B 4x5.65",
+     "aliases": [
+      "Tiffen 85B 4x5.65",
+      "85B Filter 4x5.65",
+      "4x5.65 85B"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85C 4x5.65",
+     "aliases": [
+      "Tiffen 85C 4x5.65",
+      "85C Filter 4x5.65",
+      "4x5.65 85C"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "80A 4x5.65",
+     "aliases": [
+      "Tiffen 80A 4x5.65",
+      "80A Filter 4x5.65",
+      "4x5.65 80A"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "80B 4x5.65",
+     "aliases": [
+      "Tiffen 80B 4x5.65",
+      "80B Filter 4x5.65",
+      "4x5.65 80B"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "80C 4x5.65",
+     "aliases": [
+      "Tiffen 80C 4x5.65",
+      "80C Filter 4x5.65",
+      "4x5.65 80C"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "81A 4x5.65",
+     "aliases": [
+      "Tiffen 81A 4x5.65",
+      "81A Filter 4x5.65",
+      "4x5.65 81A"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "81B 4x5.65",
+     "aliases": [
+      "Tiffen 81B 4x5.65",
+      "81B Filter 4x5.65",
+      "4x5.65 81B"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "81C 4x5.65",
+     "aliases": [
+      "Tiffen 81C 4x5.65",
+      "81C Filter 4x5.65",
+      "4x5.65 81C"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "81EF 4x5.65",
+     "aliases": [
+      "Tiffen 81EF 4x5.65",
+      "81EF Filter 4x5.65",
+      "4x5.65 81EF"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "812 4x5.65",
+     "aliases": [
+      "Tiffen 812 4x5.65",
+      "812 Filter 4x5.65",
+      "4x5.65 812"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "82A 4x5.65",
+     "aliases": [
+      "Tiffen 82A 4x5.65",
+      "82A Filter 4x5.65",
+      "4x5.65 82A"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85N3 4x5.65",
+     "aliases": [
+      "85ND3 4x5.65",
+      "85 ND 0.3 4x5.65",
+      "85/ND 0.3 4x5.65",
+      "Tiffen 85N3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85N6 4x5.65",
+     "aliases": [
+      "85ND6 4x5.65",
+      "85 ND 0.6 4x5.65",
+      "85/ND 0.6 4x5.65",
+      "Tiffen 85N6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85N9 4x5.65",
+     "aliases": [
+      "85ND9 4x5.65",
+      "85 ND 0.9 4x5.65",
+      "85/ND 0.9 4x5.65",
+      "Tiffen 85N9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.3 4x5.65",
+     "aliases": [
+      "ND3 4x5.65",
+      "WW ND 0.3 4x5.65",
+      "Tiffen ND 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.6 4x5.65",
+     "aliases": [
+      "ND6 4x5.65",
+      "WW ND 0.6 4x5.65",
+      "Tiffen ND 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.9 4x5.65",
+     "aliases": [
+      "ND9 4x5.65",
+      "WW ND 0.9 4x5.65",
+      "Tiffen ND 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 1.2 4x5.65",
+     "aliases": [
+      "ND1.2 4x5.65",
+      "WW ND 1.2 4x5.65",
+      "Tiffen ND 1.2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 1.5 4x5.65",
+     "aliases": [
+      "ND1.5 4x5.65",
+      "WW ND 1.5 4x5.65",
+      "Tiffen ND 1.5 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 1.8 4x5.65",
+     "aliases": [
+      "ND1.8 4x5.65",
+      "WW ND 1.8 4x5.65",
+      "Tiffen ND 1.8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 2.1 4x5.65",
+     "aliases": [
+      "ND 2.1 4x5.65",
+      "ND2.1 4x5.65",
+      "WW ND 2.1 4x5.65",
+      "Tiffen ND 2.1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.3 6.6x6.6",
+     "aliases": [
+      "ND 0.3 6.6x6.6",
+      "ND3 6.6x6.6",
+      "WW ND 0.3 6.6x6.6",
+      "Tiffen ND 0.3 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.6 6.6x6.6",
+     "aliases": [
+      "ND 0.6 6.6x6.6",
+      "ND6 6.6x6.6",
+      "WW ND 0.6 6.6x6.6",
+      "Tiffen ND 0.6 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.9 6.6x6.6",
+     "aliases": [
+      "ND 0.9 6.6x6.6",
+      "ND9 6.6x6.6",
+      "WW ND 0.9 6.6x6.6",
+      "Tiffen ND 0.9 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 1.2 6.6x6.6",
+     "aliases": [
+      "ND 1.2 6.6x6.6",
+      "ND1.2 6.6x6.6",
+      "WW ND 1.2 6.6x6.6",
+      "Tiffen ND 1.2 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.3 4x4",
+     "aliases": [
+      "ND 0.3 4x4",
+      "ND3 4x4",
+      "WW ND 0.3 4x4",
+      "Tiffen ND 0.3 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.6 4x4",
+     "aliases": [
+      "ND 0.6 4x4",
+      "ND6 4x4",
+      "WW ND 0.6 4x4",
+      "Tiffen ND 0.6 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 0.9 4x4",
+     "aliases": [
+      "ND 0.9 4x4",
+      "ND9 4x4",
+      "WW ND 0.9 4x4",
+      "Tiffen ND 0.9 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Water White ND 1.2 4x4",
+     "aliases": [
+      "ND 1.2 4x4",
+      "ND1.2 4x4",
+      "WW ND 1.2 4x4",
+      "Tiffen ND 1.2 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 6.6x6.6 0.3",
+     "aliases": [
+      "Tiffen IRND 0.3 6.6x6.6",
+      "FS IRND 0.3 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 6.6x6.6 0.6",
+     "aliases": [
+      "Tiffen IRND 0.6 6.6x6.6",
+      "FS IRND 0.6 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 6.6x6.6 0.9",
+     "aliases": [
+      "Tiffen IRND 0.9 6.6x6.6",
+      "FS IRND 0.9 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 6.6x6.6 1.2",
+     "aliases": [
+      "Tiffen IRND 1.2 6.6x6.6",
+      "FS IRND 1.2 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 6.6x6.6 1.5",
+     "aliases": [
+      "Tiffen IRND 1.5 6.6x6.6",
+      "FS IRND 1.5 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 6.6x6.6 1.8",
+     "aliases": [
+      "Tiffen IRND 1.8 6.6x6.6",
+      "FS IRND 1.8 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 6.6x6.6 2.1",
+     "aliases": [
+      "Tiffen IRND 2.1 6.6x6.6",
+      "IRND 2.1 6.6x6.6",
+      "FS IRND 2.1 6.6x6.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x4 0.3",
+     "aliases": [
+      "Tiffen IRND 0.3 4x4",
+      "IRND 0.3 4x4",
+      "FS IRND 0.3 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x4 0.6",
+     "aliases": [
+      "Tiffen IRND 0.6 4x4",
+      "IRND 0.6 4x4",
+      "FS IRND 0.6 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x4 0.9",
+     "aliases": [
+      "Tiffen IRND 0.9 4x4",
+      "IRND 0.9 4x4",
+      "FS IRND 0.9 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Full Spectrum IRND 4x4 1.2",
+     "aliases": [
+      "Tiffen IRND 1.2 4x4",
+      "IRND 1.2 4x4",
+      "FS IRND 1.2 4x4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 0.3 SEH 4x5.65",
+      "ND 0.3 Grad Soft Edge 4x5.65",
+      "Grad ND3 SEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.6 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 0.6 SEH 4x5.65",
+      "ND 0.6 Grad Soft Edge 4x5.65",
+      "Grad ND6 SEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.9 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 0.9 SEH 4x5.65",
+      "ND 0.9 Grad Soft Edge 4x5.65",
+      "Grad ND9 SEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 1.2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 1.2 SEH 4x5.65",
+      "ND 1.2 Grad Soft Edge 4x5.65",
+      "Grad ND1.2 SEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.3 Soft Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 0.3 SEV 4x5.65",
+      "Grad ND3 SEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.6 Soft Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 0.6 SEV 4x5.65",
+      "Grad ND6 SEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.9 Soft Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 0.9 SEV 4x5.65",
+      "Grad ND9 SEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 1.2 Soft Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 1.2 SEV 4x5.65",
+      "Grad ND1.2 SEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 0.3 HEH 4x5.65",
+      "ND 0.3 Grad Hard Edge 4x5.65",
+      "Grad ND3 HEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.6 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 0.6 HEH 4x5.65",
+      "ND 0.6 Grad Hard Edge 4x5.65",
+      "Grad ND6 HEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.9 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 0.9 HEH 4x5.65",
+      "ND 0.9 Grad Hard Edge 4x5.65",
+      "Grad ND9 HEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 1.2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Grad ND 1.2 HEH 4x5.65",
+      "ND 1.2 Grad Hard Edge 4x5.65",
+      "Grad ND1.2 HEH 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.3 Hard Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 0.3 HEV 4x5.65",
+      "Grad ND3 HEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.6 Hard Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 0.6 HEV 4x5.65",
+      "Grad ND6 HEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 0.9 Hard Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 0.9 HEV 4x5.65",
+      "Grad ND9 HEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated ND 1.2 Hard Edge Vertical 4x5.65",
+     "aliases": [
+      "Grad ND 1.2 HEV 4x5.65",
+      "Grad ND1.2 HEV 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Twilight 4x5.65",
+     "aliases": [
+      "Twilight Grad 4x5.65",
+      "Grad Twilight 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tangerine Soft Edge 4x5.65",
+     "aliases": [
+      "Tangerine Grad SE 4x5.65",
+      "Grad Tangerine 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Linear Polarizer 4x5.65",
+     "aliases": [
+      "Linear Pol 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Ultra Pol 6.6x6.6",
+     "aliases": [
+      "Tiffen Pol 6.6x6.6",
+      "Ultra Pol 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Clear 4x5.65",
+     "aliases": [
+      "Clear Coated 4x5.65",
+      "Optical Flat 4x5.65",
+      "Klarglas 4x5.65"
+     ],
+     "bulk": true
     }
    ]
   },
