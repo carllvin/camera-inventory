@@ -933,6 +933,20 @@
       "mount": "V-Mount",
       "capacity_wh": 98
      }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBP-3500",
+     "aliases": [
+      "K2.0036022",
+      "Li-Ion Battery Pack LBP-3500",
+      "Hi-5 Battery LBP-3500",
+      "Hi-5 Akku"
+     ],
+     "specs": {
+      "capacity_mah": 3500
+     },
+     "bulk": true
     }
    ]
   },
@@ -1242,6 +1256,16 @@
      "aliases": [
       "SWIT V-Mount Charger 4-fach PC-P430S",
       "SWIT 4-Channel Charger"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBP Battery Charger",
+     "aliases": [
+      "K2.0039874",
+      "LBP Charger",
+      "Hi-5 Battery Charger",
+      "Hi-5 Ladegerät"
      ]
     }
    ]

@@ -80,7 +80,8 @@
      "model": "LBUS Cable 0.3 m",
      "aliases": [
       "LBUS 0.3m",
-      "LBUS 30cm"
+      "LBUS 30cm",
+      "K2.0006750"
      ],
      "bulk": true,
      "specs": {
@@ -119,7 +120,8 @@
      "model": "LBUS Cable 0.8 m",
      "aliases": [
       "LBUS 0.8m",
-      "LBUS 80cm"
+      "LBUS 80cm",
+      "K2.0006752"
      ],
      "bulk": true,
      "specs": {
@@ -143,7 +145,8 @@
      "manufacturer": "ARRI",
      "model": "LBUS Cable 1.5 m",
      "aliases": [
-      "LBUS 1.5m"
+      "LBUS 1.5m",
+      "K2.0006753"
      ],
      "bulk": true,
      "specs": {
@@ -157,7 +160,8 @@
      "name": "ARRI Cable LBUS - LBUS 3 m",
      "aliases": [
       "LBUS 3m",
-      "LBUS 10ft"
+      "LBUS 10ft",
+      "K2.0006754"
      ],
      "specs": {
       "length_m": 3
@@ -184,7 +188,8 @@
      "aliases": [
       "Cable LBUS D-Tap",
       "LBUS D-Tap",
-      "LBUS Power Cable"
+      "LBUS Power Cable",
+      "K2.0006758"
      ],
      "bulk": true
     },
@@ -282,6 +287,291 @@
       "USB C to C",
       "USBC Cable",
       "Kabel USB-C to USB-C"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 0.2 m",
+     "aliases": [
+      "K2.0006749",
+      "LBUS 0.2m",
+      "LBUS 20cm",
+      "Cable LBUS - LBUS 0.2m"
+     ],
+     "specs": {
+      "length_m": 0.2
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable 15 m",
+     "aliases": [
+      "K2.0006756",
+      "LBUS 15m",
+      "LBUS 49ft"
+     ],
+     "specs": {
+      "length_m": 15
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable Angled-Angled 0.2 m",
+     "aliases": [
+      "K2.0012785",
+      "LBUS angled-angled 0.2m",
+      "LBUS gewinkelt/gewinkelt 0.2m"
+     ],
+     "specs": {
+      "length_m": 0.2
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable Angled-Angled 0.6 m",
+     "aliases": [
+      "K2.0013040",
+      "LBUS angled-angled 0.6m",
+      "LBUS gewinkelt/gewinkelt 0.6m"
+     ],
+     "specs": {
+      "length_m": 0.6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable Angled-Angled 0.8 m",
+     "aliases": [
+      "K2.0012630",
+      "LBUS angled-angled 0.8m",
+      "LBUS gewinkelt/gewinkelt 0.8m"
+     ],
+     "specs": {
+      "length_m": 0.8
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable Angled-Straight 0.8 m",
+     "aliases": [
+      "K2.0013043",
+      "LBUS angled-straight 0.8m",
+      "LBUS gewinkelt/gerade 0.8m"
+     ],
+     "specs": {
+      "length_m": 0.8
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable Angled-LCS 0.8 m",
+     "aliases": [
+      "K2.0013044",
+      "Cable LBUS (angled) - LCS",
+      "LBUS LCS 0.8m"
+     ],
+     "specs": {
+      "length_m": 0.8
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Star Cable 0.2 m",
+     "aliases": [
+      "K2.0023823",
+      "Cable LBUS Star",
+      "LBUS Star",
+      "LBUS Y-Kabel RS"
+     ],
+     "specs": {
+      "length_m": 0.2
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LCS to LBUS Cable 0.8 m",
+     "aliases": [
+      "K2.0007318",
+      "Cable LCS (5p) - LBUS",
+      "LCS LBUS",
+      "Kabel LCS LBUS"
+     ],
+     "specs": {
+      "length_m": 0.8
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LCS Cable Coiled",
+     "aliases": [
+      "K2.0002141",
+      "Cable LCS (5p) - LCS (5p) coiled",
+      "LC-M1-Sp-S",
+      "LCS Spiralkabel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LCS Cable 3.5 m",
+     "aliases": [
+      "K2.0002136",
+      "Cable LCS (5p) - LCS (5p) 3.5m",
+      "LC-Z1-S",
+      "LCS 3.5m"
+     ],
+     "specs": {
+      "length_m": 3.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "EXT to LCS Cable",
+     "aliases": [
+      "K2.0007624",
+      "Cable EXT - LCS (5p)",
+      "EXT LCS",
+      "Kabel EXT LCS"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - LBUS 0.3 m",
+     "aliases": [
+      "K2.0025027",
+      "CAM-LBUS 0.3m",
+      "CAM 7p LBUS 0.3m"
+     ],
+     "specs": {
+      "length_m": 0.3
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - LBUS 0.5 m",
+     "aliases": [
+      "K2.0015760",
+      "CAM-LBUS 0.5m",
+      "CAM 7p LBUS 0.5m"
+     ],
+     "specs": {
+      "length_m": 0.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - RS 0.3 m",
+     "aliases": [
+      "K2.0015754",
+      "CAM-RS",
+      "CAM 7p RS",
+      "Kabel CAM RS"
+     ],
+     "specs": {
+      "length_m": 0.3
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - EXT (6p) 0.6 m",
+     "aliases": [
+      "K2.0015756",
+      "CAM-EXT",
+      "CAM 7p EXT 6p",
+      "Kabel CAM EXT"
+     ],
+     "specs": {
+      "length_m": 0.6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - RED CTRL/D-Tap 0.6 m",
+     "aliases": [
+      "K2.0015758",
+      "CAM-RED CTRL",
+      "CAM 7p RED"
+     ],
+     "specs": {
+      "length_m": 0.6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (10p) - EXT (7p) 0.5 m",
+     "aliases": [
+      "K2.0007730",
+      "CAM 10p EXT 7p",
+      "AMC-1 EXT Cable"
+     ],
+     "specs": {
+      "length_m": 0.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - EXT (6p) 0.5 m",
+     "aliases": [
+      "K2.0001604",
+      "UMC-4 EXT Cable",
+      "CAM 16p EXT"
+     ],
+     "specs": {
+      "length_m": 0.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - F55 0.5 m",
+     "aliases": [
+      "K2.0002620",
+      "UMC-4 F55 Cable",
+      "CAM 16p F55"
+     ],
+     "specs": {
+      "length_m": 0.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-4 Motor Cable 0.8 m",
+     "aliases": [
+      "K2.72099.0",
+      "Cable CLM-4 (8p) - CLM/FIZ (12p)",
+      "CLM-4 Motorkabel"
+     ],
+     "specs": {
+      "length_m": 0.8
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "UMC RS IN to RS Cable",
+     "aliases": [
+      "K2.0001637",
+      "UMC-4 RS Cable",
+      "UMC RS IN RS"
      ],
      "bulk": true
     }
@@ -516,6 +806,58 @@
       "Teradek P-Tap Kabel"
      ],
      "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "UMC RS IN to D-Tap Cable",
+     "aliases": [
+      "K2.0002668",
+      "UMC-4 D-Tap Cable",
+      "UMC RS IN D-Tap"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - D-Tap 0.5 m",
+     "aliases": [
+      "K2.0018813",
+      "CAM-D-Tap",
+      "CAM 7p D-Tap",
+      "Kabel CAM D-Tap"
+     ],
+     "specs": {
+      "length_m": 0.5
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS to XLR (4p) Cable 0.8 m",
+     "aliases": [
+      "K2.0006760",
+      "Cable LBUS - XLR",
+      "LBUS XLR",
+      "LBUS XLR 4pin"
+     ],
+     "specs": {
+      "length_m": 0.8
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "PWR OUT 12V (2p) to LCS (5p) Cable 0.3 m",
+     "aliases": [
+      "K2.0024590",
+      "Cable PWR OUT - LCS",
+      "LCS Power Cable 12V"
+     ],
+     "specs": {
+      "length_m": 0.3
+     },
+     "bulk": true,
+     "discontinued": true
     }
    ]
   },

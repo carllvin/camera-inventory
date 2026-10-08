@@ -15,7 +15,9 @@ import { recordEvent } from "./audit";
 import { typeDisplayName } from "@/lib/type-name";
 import { DomainError, requireRole, type Ctx } from "./context";
 
-const compact = (v: string) => v.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+// Decimal points between digits count: "LBUS 1.5 m" and "LBUS 15 m" are different cables.
+const compact = (v: string) =>
+  v.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/(\d)[.,](?=\d)/g, "$1d").replace(/[^a-z0-9]/g, "");
 const entryName = (e: { manufacturer: string; model: string; name?: string }) => e.name ?? typeDisplayName(e.manufacturer, e.model);
 
 /** Every spelling under which the workspace already knows a type. */

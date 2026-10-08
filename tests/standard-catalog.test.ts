@@ -16,7 +16,9 @@ import { client, db, makeFixture, type Fixture } from "./helpers/db";
 let f: Fixture;
 let ctx: Ctx;
 
-const compact = (v: string) => v.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+// Decimal points between digits count: "LBUS 1.5 m" and "LBUS 15 m" are different cables.
+const compact = (v: string) =>
+  v.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/(\d)[.,](?=\d)/g, "$1d").replace(/[^a-z0-9]/g, "");
 const all = STANDARD_CATALOG.flatMap(sectionEntries);
 
 beforeAll(async () => {
@@ -29,6 +31,17 @@ afterAll(async () => {
 });
 
 describe("catalog data", () => {
+  it("has cine filters of other makers and ARRI lens-control parts", () => {
+    const has = (manufacturer: string, model: string) => all.some((e) => e.manufacturer === manufacturer && e.model === model);
+    expect(has("Schneider", "Classic Soft 1/2 6.6x6.6")).toBe(true);
+    expect(has("Schneider", "RHOdium FSND 4x5.65 0.9")).toBe(true);
+    expect(has("Formatt-Hitech", "Black Supermist 1/4 4x5.65")).toBe(true);
+    expect(has("NiSi", "Allure Mist White 1/2 4x5.65")).toBe(true);
+    expect(has("ARRI", "RF-2400 Radio Module")).toBe(true);
+    expect(has("ARRI", "LBUS Cable 15 m")).toBe(true);
+    expect(all.find((e) => e.model === "RIA-1")!.aliases).toContain("K2.0036186");
+  });
+
   it("covers the Tiffen cine filter range, each spelling naming only that filter", () => {
     const tiffen = all.filter((e) => e.manufacturer === "Tiffen" && e.category[1] === "Matte Boxes & Filters");
     expect(tiffen.length).toBeGreaterThan(250);

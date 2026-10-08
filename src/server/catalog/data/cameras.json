@@ -1217,6 +1217,32 @@
       "Ultra Handle 4in Kit RED",
       "Ultra Handle V-Raptor"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Rod Mounting Bracket RMB-3",
+     "aliases": [
+      "RMB-3",
+      "K2.0006186"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Rod Mounting Bracket RMB-8",
+     "aliases": [
+      "RMB-8",
+      "K2.0034309"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "15mm Reduction Insert",
+     "aliases": [
+      "K2.66255.0",
+      "Reduction Insert 19/15mm",
+      "Reduzierung 19/15mm ARRI"
+     ],
+     "bulk": true
     }
    ]
   },

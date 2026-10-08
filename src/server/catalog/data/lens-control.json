@@ -3920,6 +3920,1520 @@
       "Klarglas 4x5.65"
      ],
      "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1/8 6.6x6.6",
+     "aliases": [
+      "HBM 1/8 6.6x6.6",
+      "Hollywood Black Magic 6.6x6.6 1/8",
+      "HBM 1/8 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1/4 6.6x6.6",
+     "aliases": [
+      "HBM 1/4 6.6x6.6",
+      "Hollywood Black Magic 6.6x6.6 1/4",
+      "HBM 1/4 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1/2 6.6x6.6",
+     "aliases": [
+      "HBM 1/2 6.6x6.6",
+      "Hollywood Black Magic 6.6x6.6 1/2",
+      "HBM 1/2 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 1 6.6x6.6",
+     "aliases": [
+      "HBM 1 6.6x6.6",
+      "Hollywood Black Magic 6.6x6.6 1",
+      "HBM 1 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Hollywood Black Magic 2 6.6x6.6",
+     "aliases": [
+      "HBM 2 6.6x6.6",
+      "Hollywood Black Magic 6.6x6.6 2",
+      "HBM 2 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1/8 6.6x6.6",
+     "aliases": [
+      "CS 1/8 6.6x6.6",
+      "Classic Soft 6.6x6.6 1/8",
+      "CS 1/8 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1/4 6.6x6.6",
+     "aliases": [
+      "CS 1/4 6.6x6.6",
+      "Classic Soft 6.6x6.6 1/4",
+      "CS 1/4 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1/2 6.6x6.6",
+     "aliases": [
+      "CS 1/2 6.6x6.6",
+      "Classic Soft 6.6x6.6 1/2",
+      "CS 1/2 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1 6.6x6.6",
+     "aliases": [
+      "CS 1 6.6x6.6",
+      "Classic Soft 6.6x6.6 1",
+      "CS 1 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 2 6.6x6.6",
+     "aliases": [
+      "CS 2 6.6x6.6",
+      "Classic Soft 6.6x6.6 2",
+      "CS 2 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Soft 1/16 4x5.65",
+     "aliases": [
+      "CS 1/16 4x5.65",
+      "Classic Soft 4x5.65 1/16",
+      "HD Classic Soft 1/16 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Black Soft 1/8 4x5.65",
+     "aliases": [
+      "CBS 1/8 4x5.65",
+      "Classic Black Soft 4x5.65 1/8",
+      "68-082056"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Black Soft 1/4 4x5.65",
+     "aliases": [
+      "CBS 1/4 4x5.65",
+      "Classic Black Soft 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Black Soft 1/2 4x5.65",
+     "aliases": [
+      "CBS 1/2 4x5.65",
+      "Classic Black Soft 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Black Soft 1 4x5.65",
+     "aliases": [
+      "CBS 1 4x5.65",
+      "Classic Black Soft 4x5.65 1",
+      "68-082356"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Black Soft 1/4 6.6x6.6",
+     "aliases": [
+      "CBS 1/4 6.6x6.6",
+      "Classic Black Soft 6.6x6.6 1/4",
+      "CBS 1/4 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Black Soft 1/2 6.6x6.6",
+     "aliases": [
+      "CBS 1/2 6.6x6.6",
+      "Classic Black Soft 6.6x6.6 1/2",
+      "CBS 1/2 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Classic Black Soft 1 6.6x6.6",
+     "aliases": [
+      "CBS 1 6.6x6.6",
+      "Classic Black Soft 6.6x6.6 1",
+      "CBS 1 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Soft 2 4x5.65",
+     "aliases": [
+      "RS 2 4x5.65",
+      "Radiant Soft 4x5.65 2",
+      "68-092456"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Soft 3 4x5.65",
+     "aliases": [
+      "RS 3 4x5.65",
+      "Radiant Soft 4x5.65 3",
+      "68-092556"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Soft 4 4x5.65",
+     "aliases": [
+      "RS 4 4x5.65",
+      "Radiant Soft 4x5.65 4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Soft 5 4x5.65",
+     "aliases": [
+      "RS 5 4x5.65",
+      "Radiant Soft 4x5.65 5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Black 1/8 4x5.65",
+     "aliases": [
+      "RB 1/8 4x5.65",
+      "Radiant Black 4x5.65 1/8",
+      "68-093056"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Black 1/4 4x5.65",
+     "aliases": [
+      "RB 1/4 4x5.65",
+      "Radiant Black 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Black 1/2 4x5.65",
+     "aliases": [
+      "RB 1/2 4x5.65",
+      "Radiant Black 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Black 1 4x5.65",
+     "aliases": [
+      "RB 1 4x5.65",
+      "Radiant Black 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Radiant Black 2 4x5.65",
+     "aliases": [
+      "RB 2 4x5.65",
+      "Radiant Black 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Net Black 1 4x5.65",
+     "aliases": [
+      "True Net Black 1 4x5.65",
+      "True-Net Black 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Net Black 2 4x5.65",
+     "aliases": [
+      "True Net Black 2 4x5.65",
+      "True-Net Black 4x5.65 2",
+      "68-094256"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Net Black 3 4x5.65",
+     "aliases": [
+      "True Net Black 3 4x5.65",
+      "True-Net Black 4x5.65 3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Net Beige 1 4x5.65",
+     "aliases": [
+      "True Net Beige 1 4x5.65",
+      "True-Net Beige 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Net Beige 2 4x5.65",
+     "aliases": [
+      "True Net Beige 2 4x5.65",
+      "True-Net Beige 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Net Gray 1 4x5.65",
+     "aliases": [
+      "True Net Gray 1 4x5.65",
+      "True-Net Gray 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Net Gray 2 4x5.65",
+     "aliases": [
+      "True Net Gray 2 4x5.65",
+      "True-Net Gray 4x5.65 2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Digicon 1/4 4x5.65",
+     "aliases": [
+      "Digicon 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Digicon 1/2 4x5.65",
+     "aliases": [
+      "Digicon 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Digicon 1 4x5.65",
+     "aliases": [
+      "Digicon 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Blue 1mm 4x5.65",
+     "aliases": [
+      "True Streak Blue 1mm 4x5.65",
+      "True-Streak 4x5.65 Blue 1mm",
+      "Streak Blue 1mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Blue 2mm 4x5.65",
+     "aliases": [
+      "True Streak Blue 2mm 4x5.65",
+      "True-Streak 4x5.65 Blue 2mm",
+      "Streak Blue 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Blue 3mm 4x5.65",
+     "aliases": [
+      "True Streak Blue 3mm 4x5.65",
+      "True-Streak 4x5.65 Blue 3mm",
+      "Streak Blue 3mm 4x5.65",
+      "68-500356"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Blue 4mm 4x5.65",
+     "aliases": [
+      "True Streak Blue 4mm 4x5.65",
+      "True-Streak 4x5.65 Blue 4mm",
+      "Streak Blue 4mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Clear 1mm 4x5.65",
+     "aliases": [
+      "True Streak Clear 1mm 4x5.65",
+      "True-Streak 4x5.65 Clear 1mm",
+      "Streak Clear 1mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Clear 2mm 4x5.65",
+     "aliases": [
+      "True Streak Clear 2mm 4x5.65",
+      "True-Streak 4x5.65 Clear 2mm",
+      "Streak Clear 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Clear 3mm 4x5.65",
+     "aliases": [
+      "True Streak Clear 3mm 4x5.65",
+      "True-Streak 4x5.65 Clear 3mm",
+      "Streak Clear 3mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Clear 4mm 4x5.65",
+     "aliases": [
+      "True Streak Clear 4mm 4x5.65",
+      "True-Streak 4x5.65 Clear 4mm",
+      "Streak Clear 4mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Gold 1mm 4x5.65",
+     "aliases": [
+      "True Streak Gold 1mm 4x5.65",
+      "True-Streak 4x5.65 Gold 1mm",
+      "Streak Gold 1mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Gold 2mm 4x5.65",
+     "aliases": [
+      "True Streak Gold 2mm 4x5.65",
+      "True-Streak 4x5.65 Gold 2mm",
+      "Streak Gold 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Gold 3mm 4x5.65",
+     "aliases": [
+      "True Streak Gold 3mm 4x5.65",
+      "True-Streak 4x5.65 Gold 3mm",
+      "Streak Gold 3mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Gold 4mm 4x5.65",
+     "aliases": [
+      "True Streak Gold 4mm 4x5.65",
+      "True-Streak 4x5.65 Gold 4mm",
+      "Streak Gold 4mm 4x5.65",
+      "68-508456"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Orange 1mm 4x5.65",
+     "aliases": [
+      "True Streak Orange 1mm 4x5.65",
+      "True-Streak 4x5.65 Orange 1mm",
+      "Streak Orange 1mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Orange 2mm 4x5.65",
+     "aliases": [
+      "True Streak Orange 2mm 4x5.65",
+      "True-Streak 4x5.65 Orange 2mm",
+      "Streak Orange 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Orange 3mm 4x5.65",
+     "aliases": [
+      "True Streak Orange 3mm 4x5.65",
+      "True-Streak 4x5.65 Orange 3mm",
+      "Streak Orange 3mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Orange 4mm 4x5.65",
+     "aliases": [
+      "True Streak Orange 4mm 4x5.65",
+      "True-Streak 4x5.65 Orange 4mm",
+      "Streak Orange 4mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Red 1mm 4x5.65",
+     "aliases": [
+      "True Streak Red 1mm 4x5.65",
+      "True-Streak 4x5.65 Red 1mm",
+      "Streak Red 1mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Red 2mm 4x5.65",
+     "aliases": [
+      "True Streak Red 2mm 4x5.65",
+      "True-Streak 4x5.65 Red 2mm",
+      "Streak Red 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Red 3mm 4x5.65",
+     "aliases": [
+      "True Streak Red 3mm 4x5.65",
+      "True-Streak 4x5.65 Red 3mm",
+      "Streak Red 3mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Red 4mm 4x5.65",
+     "aliases": [
+      "True Streak Red 4mm 4x5.65",
+      "True-Streak 4x5.65 Red 4mm",
+      "Streak Red 4mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Violet 1mm 4x5.65",
+     "aliases": [
+      "True Streak Violet 1mm 4x5.65",
+      "True-Streak 4x5.65 Violet 1mm",
+      "Streak Violet 1mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Violet 2mm 4x5.65",
+     "aliases": [
+      "True Streak Violet 2mm 4x5.65",
+      "True-Streak 4x5.65 Violet 2mm",
+      "Streak Violet 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Violet 3mm 4x5.65",
+     "aliases": [
+      "True Streak Violet 3mm 4x5.65",
+      "True-Streak 4x5.65 Violet 3mm",
+      "Streak Violet 3mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Streak Violet 4mm 4x5.65",
+     "aliases": [
+      "True Streak Violet 4mm 4x5.65",
+      "True-Streak 4x5.65 Violet 4mm",
+      "Streak Violet 4mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Cut 750 IR 4x5.65",
+     "aliases": [
+      "True Cut 750 4x5.65",
+      "IR Cut 750 4x5.65",
+      "True-Cut IR 750 4x5.65",
+      "68-121056"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Cut 680 IR 4x5.65",
+     "aliases": [
+      "True Cut 680 4x5.65",
+      "IR Cut 680 4x5.65",
+      "True-Cut IR 680 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 0.3",
+     "aliases": [
+      "FSND 0.3 4x5.65",
+      "Rhodium ND 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 0.6",
+     "aliases": [
+      "FSND 0.6 4x5.65",
+      "Rhodium ND 0.6 4x5.65",
+      "68-130656"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 0.9",
+     "aliases": [
+      "FSND 0.9 4x5.65",
+      "Rhodium ND 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 1.2",
+     "aliases": [
+      "FSND 1.2 4x5.65",
+      "Rhodium ND 1.2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 1.5",
+     "aliases": [
+      "FSND 1.5 4x5.65",
+      "Rhodium ND 1.5 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 1.8",
+     "aliases": [
+      "FSND 1.8 4x5.65",
+      "Rhodium ND 1.8 4x5.65",
+      "68-131856"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 2.1",
+     "aliases": [
+      "FSND 2.1 4x5.65",
+      "Rhodium ND 2.1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 2.4",
+     "aliases": [
+      "FSND 2.4 4x5.65",
+      "Rhodium ND 2.4 4x5.65",
+      "68-132456"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 2.7",
+     "aliases": [
+      "FSND 2.7 4x5.65",
+      "Rhodium ND 2.7 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND 4x5.65 3.0",
+     "aliases": [
+      "FSND 3.0 4x5.65",
+      "Rhodium ND 3.0 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND Graduated 0.3 Hard Edge 4x5.65",
+     "aliases": [
+      "FSND Grad 0.3 HE 4x5.65",
+      "Rhodium Grad ND 0.3 HE 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND Graduated 0.6 Soft Edge 4x5.65",
+     "aliases": [
+      "FSND Grad 0.6 SE 4x5.65",
+      "Rhodium Grad ND 0.6 SE 4x5.65",
+      "68-141255"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND Graduated 0.9 Soft Edge 4x5.65",
+     "aliases": [
+      "FSND Grad 0.9 SE 4x5.65",
+      "Rhodium Grad ND 0.9 SE 4x5.65",
+      "68-141355"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND Graduated 1.2 Soft Edge 4x5.65",
+     "aliases": [
+      "FSND Grad 1.2 SE 4x5.65",
+      "Rhodium Grad ND 1.2 SE 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "RHOdium FSND Graduated 1.2 Hard Edge 4x5.65",
+     "aliases": [
+      "FSND Grad 1.2 HE 4x5.65",
+      "Rhodium Grad ND 1.2 HE 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Graduated ND 0.6 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Schneider Grad ND 0.6 SEH 4x5.65",
+      "Schneider ND 0.6 SE Horizontal Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Graduated ND 0.9 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Schneider Grad ND 0.9 SEH 4x5.65",
+      "Schneider ND 0.9 SE Horizontal Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "ND 4x5.65 0.3",
+     "aliases": [
+      "Schneider ND 0.3 4x5.65",
+      "MPTV ND 0.3 4x5.65",
+      "68-040356"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "ND 4x5.65 0.6",
+     "aliases": [
+      "Schneider ND 0.6 4x5.65",
+      "MPTV ND 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "ND 4x5.65 0.9",
+     "aliases": [
+      "Schneider ND 0.9 4x5.65",
+      "MPTV ND 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "ND 4x5.65 1.2",
+     "aliases": [
+      "Schneider ND 1.2 4x5.65",
+      "MPTV ND 1.2 4x5.65",
+      "68-041256"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "ND 4x5.65 1.8",
+     "aliases": [
+      "Schneider ND 1.8 4x5.65",
+      "MPTV ND 1.8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "ND 4x5.65 2.4",
+     "aliases": [
+      "Schneider ND 2.4 4x5.65",
+      "MPTV ND 2.4 4x5.65",
+      "68-042456"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 4x5.65 2.4",
+     "aliases": [
+      "IRND 2.4 4x5.65",
+      "Platinum IRND 2.4 4x5.65",
+      "68-062456"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 0.3",
+     "aliases": [
+      "IRND 0.3 138mm",
+      "Platinum IRND 0.3 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 0.6",
+     "aliases": [
+      "IRND 0.6 138mm",
+      "Platinum IRND 0.6 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 0.9",
+     "aliases": [
+      "IRND 0.9 138mm",
+      "Platinum IRND 0.9 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 1.2",
+     "aliases": [
+      "IRND 1.2 138mm",
+      "Platinum IRND 1.2 138mm",
+      "68-061238"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 1.5",
+     "aliases": [
+      "IRND 1.5 138mm",
+      "Platinum IRND 1.5 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 1.8",
+     "aliases": [
+      "IRND 1.8 138mm",
+      "Platinum IRND 1.8 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 2.1",
+     "aliases": [
+      "IRND 2.1 138mm",
+      "Platinum IRND 2.1 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "Platinum IRND 138mm 2.4",
+     "aliases": [
+      "IRND 2.4 138mm",
+      "Platinum IRND 2.4 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Pol Linear 138mm",
+     "aliases": [
+      "True Pol 138mm",
+      "Linear True-Pol 138mm",
+      "Polfilter 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schneider",
+     "model": "True-Pol Circular 138mm",
+     "aliases": [
+      "Circular True-Pol 138mm",
+      "True Pol Circular 138mm",
+      "Zirkular Polfilter 138mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND 4x5.65 2.4",
+     "aliases": [
+      "Firecrest 2.4 4x5.65",
+      "FC4X5ND2.4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 2.4",
+     "aliases": [
+      "Firecrest Ultra 2.4 4x5.65",
+      "FC Ultra IRND 2.4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 4x5.65 3.0",
+     "aliases": [
+      "Firecrest Ultra 3.0 4x5.65",
+      "FC Ultra IRND 3.0"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 0.3",
+     "aliases": [
+      "Firecrest Ultra 0.3 6.6x6.6",
+      "FC Ultra IRND 0.3 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 0.6",
+     "aliases": [
+      "Firecrest Ultra 0.6 6.6x6.6",
+      "FC Ultra IRND 0.6 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 0.9",
+     "aliases": [
+      "Firecrest Ultra 0.9 6.6x6.6",
+      "FC Ultra IRND 0.9 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 1.2",
+     "aliases": [
+      "Firecrest Ultra 1.2 6.6x6.6",
+      "FC Ultra IRND 1.2 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 1.5",
+     "aliases": [
+      "Firecrest Ultra 1.5 6.6x6.6",
+      "FC Ultra IRND 1.5 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 1.8",
+     "aliases": [
+      "Firecrest Ultra 1.8 6.6x6.6",
+      "FC Ultra IRND 1.8 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 2.1",
+     "aliases": [
+      "Firecrest Ultra 2.1 6.6x6.6",
+      "FC Ultra IRND 2.1 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 2.4",
+     "aliases": [
+      "Firecrest Ultra 2.4 6.6x6.6",
+      "FC Ultra IRND 2.4 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 2.7",
+     "aliases": [
+      "Firecrest Ultra 2.7 6.6x6.6",
+      "FC Ultra IRND 2.7 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra IRND 6.6x6.6 3.0",
+     "aliases": [
+      "Firecrest Ultra 3.0 6.6x6.6",
+      "FC Ultra IRND 3.0 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra Superslim IRND 4x5.65 0.3",
+     "aliases": [
+      "Firecrest Superslim 0.3 4x5.65",
+      "FC Superslim IRND 0.3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra Superslim IRND 4x5.65 0.6",
+     "aliases": [
+      "Firecrest Superslim 0.6 4x5.65",
+      "FC Superslim IRND 0.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra Superslim IRND 4x5.65 0.9",
+     "aliases": [
+      "Firecrest Superslim 0.9 4x5.65",
+      "FC Superslim IRND 0.9"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra Superslim IRND 4x5.65 1.2",
+     "aliases": [
+      "Firecrest Superslim 1.2 4x5.65",
+      "FC Superslim IRND 1.2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra Superslim IRND 4x5.65 1.5",
+     "aliases": [
+      "Firecrest Superslim 1.5 4x5.65",
+      "FC Superslim IRND 1.5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra Superslim IRND 4x5.65 1.8",
+     "aliases": [
+      "Firecrest Superslim 1.8 4x5.65",
+      "FC Superslim IRND 1.8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest Ultra Superslim IRND 4x5.65 2.1",
+     "aliases": [
+      "Firecrest Superslim 2.1 4x5.65",
+      "FC Superslim IRND 2.1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND Graduated 0.6 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Firecrest Grad 0.6 SEH 4x5.65",
+      "Firecrest IRND 0.6 SE Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND Graduated 0.9 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Firecrest Grad 0.9 SEH 4x5.65",
+      "Firecrest IRND 0.9 SE Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Firecrest IRND Graduated 1.5 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Firecrest Grad 1.5 SEH 4x5.65",
+      "Firecrest IRND 1.5 SE Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1/16 4x5.65",
+     "aliases": [
+      "Black Supermist 4x5.65 1/16",
+      "Supermist Black 1/16 4x5.65",
+      "BSM 1/16 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1/8 4x5.65",
+     "aliases": [
+      "Black Supermist 4x5.65 1/8",
+      "Supermist Black 1/8 4x5.65",
+      "BSM 1/8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1/4 4x5.65",
+     "aliases": [
+      "Black Supermist 4x5.65 1/4",
+      "Supermist Black 1/4 4x5.65",
+      "BSM 1/4 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1/2 4x5.65",
+     "aliases": [
+      "Black Supermist 4x5.65 1/2",
+      "Supermist Black 1/2 4x5.65",
+      "BSM 1/2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1 4x5.65",
+     "aliases": [
+      "Black Supermist 4x5.65 1",
+      "Supermist Black 1 4x5.65",
+      "BSM 1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 2 4x5.65",
+     "aliases": [
+      "Black Supermist 4x5.65 2",
+      "Supermist Black 2 4x5.65",
+      "BSM 2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Clear Supermist 1/16 4x5.65",
+     "aliases": [
+      "Clear Supermist 4x5.65 1/16",
+      "Supermist Clear 1/16 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Clear Supermist 1/8 4x5.65",
+     "aliases": [
+      "Clear Supermist 4x5.65 1/8",
+      "Supermist Clear 1/8 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Clear Supermist 1/4 4x5.65",
+     "aliases": [
+      "Clear Supermist 4x5.65 1/4",
+      "Supermist Clear 1/4 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Clear Supermist 1/2 4x5.65",
+     "aliases": [
+      "Clear Supermist 4x5.65 1/2",
+      "Supermist Clear 1/2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Clear Supermist 1 4x5.65",
+     "aliases": [
+      "Clear Supermist 4x5.65 1",
+      "Supermist Clear 1 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 6.6x6.6 0.3",
+     "aliases": [
+      "ProGlass IRND 0.3 6.6x6.6",
+      "Lee IRND 0.3 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 6.6x6.6 0.6",
+     "aliases": [
+      "ProGlass IRND 0.6 6.6x6.6",
+      "Lee IRND 0.6 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 6.6x6.6 0.9",
+     "aliases": [
+      "ProGlass IRND 0.9 6.6x6.6",
+      "Lee IRND 0.9 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 6.6x6.6 1.2",
+     "aliases": [
+      "ProGlass IRND 1.2 6.6x6.6",
+      "Lee IRND 1.2 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 6.6x6.6 1.5",
+     "aliases": [
+      "ProGlass IRND 1.5 6.6x6.6",
+      "Lee IRND 1.5 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 6.6x6.6 1.8",
+     "aliases": [
+      "ProGlass IRND 1.8 6.6x6.6",
+      "Lee IRND 1.8 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Lee",
+     "model": "ProGlass Cine IRND 6.6x6.6 2.1",
+     "aliases": [
+      "ProGlass IRND 2.1 6.6x6.6",
+      "Lee IRND 2.1 6x6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND 4x5.65 0.3",
+     "aliases": [
+      "NiSi IRND 0.3 4x5.65",
+      "NiSi Nano IRND 0.3"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND 4x5.65 0.6",
+     "aliases": [
+      "NiSi IRND 0.6 4x5.65",
+      "NiSi Nano IRND 0.6"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND 4x5.65 0.9",
+     "aliases": [
+      "NiSi IRND 0.9 4x5.65",
+      "NiSi Nano IRND 0.9"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND 4x5.65 1.2",
+     "aliases": [
+      "NiSi IRND 1.2 4x5.65",
+      "NiSi Nano IRND 1.2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND 4x5.65 1.5",
+     "aliases": [
+      "NiSi IRND 1.5 4x5.65",
+      "NiSi Nano IRND 1.5"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND 4x5.65 1.8",
+     "aliases": [
+      "NiSi IRND 1.8 4x5.65",
+      "NiSi Nano IRND 1.8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND 4x5.65 2.1",
+     "aliases": [
+      "NiSi IRND 2.1 4x5.65",
+      "NiSi Nano IRND 2.1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND Graduated 0.3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "NiSi Grad IRND 0.3 SE 4x5.65",
+      "NiSi Soft Grad 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND Graduated 0.6 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "NiSi Grad IRND 0.6 SE 4x5.65",
+      "NiSi Soft Grad 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Nano IRND Graduated 0.9 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "NiSi Grad IRND 0.9 SE 4x5.65",
+      "NiSi Soft Grad 0.9 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist White 1/8 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist White 1/8 4x5.65",
+      "Allure Mist White 4x5.65 1/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist White 1/4 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist White 1/4 4x5.65",
+      "Allure Mist White 4x5.65 1/4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist White 1/2 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist White 1/2 4x5.65",
+      "Allure Mist White 4x5.65 1/2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Mist White 1 4x5.65",
+     "aliases": [
+      "NiSi Allure Mist White 1 4x5.65",
+      "Allure Mist White 4x5.65 1"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Streak Clear 1mm 4x5.65",
+     "aliases": [
+      "NiSi Streak Clear 1mm 4x5.65",
+      "Allure Streak 4x5.65 Clear 1mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Streak Clear 2mm 4x5.65",
+     "aliases": [
+      "NiSi Streak Clear 2mm 4x5.65",
+      "Allure Streak 4x5.65 Clear 2mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Streak Blue 1mm 4x5.65",
+     "aliases": [
+      "NiSi Streak Blue 1mm 4x5.65",
+      "Allure Streak 4x5.65 Blue 1mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Streak Blue 2mm 4x5.65",
+     "aliases": [
+      "NiSi Streak Blue 2mm 4x5.65",
+      "Allure Streak 4x5.65 Blue 2mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Streak Orange 1mm 4x5.65",
+     "aliases": [
+      "NiSi Streak Orange 1mm 4x5.65",
+      "Allure Streak 4x5.65 Orange 1mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Allure Streak Orange 2mm 4x5.65",
+     "aliases": [
+      "NiSi Streak Orange 2mm 4x5.65",
+      "Allure Streak 4x5.65 Orange 2mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "True Color Polarizer 4x5.65",
+     "aliases": [
+      "NiSi Pol 4x5.65",
+      "NiSi True Color Pol 4x5.65",
+      "True Color Pro Nano Polarizer 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "True Color Rotating Polarizer 4x5.65",
+     "aliases": [
+      "NiSi Rotating Pol 4x5.65",
+      "True Color Rotating PL 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "NiSi",
+     "model": "Pure Clear 4x5.65",
+     "aliases": [
+      "NiSi Clear 4x5.65",
+      "NiSi Pure Clear"
+     ],
+     "bulk": true
     }
    ]
   },
@@ -4002,7 +5516,8 @@
      "model": "CLM-4",
      "name": "ARRI CLM-4 Lens Motor",
      "aliases": [
-      "CLM-4 Motor"
+      "CLM-4 Motor",
+      "K2.72114.0"
      ],
      "discontinued": true
     },
@@ -4020,7 +5535,8 @@
      "model": "CLM-5/cforce mini Gear m0.8/32p 40t",
      "aliases": [
       "cforce mini Gear 40t",
-      "cforce mini Zahnrad 0.8 40z"
+      "cforce mini Zahnrad 0.8 40z",
+      "K2.0003753"
      ],
      "specs": {
       "module": "0.8",
@@ -4181,7 +5697,8 @@
      "name": "ARRI Master Grip Left Wheel MLW-1",
      "aliases": [
       "MLW-1",
-      "Master Grip Left Wheel"
+      "Master Grip Left Wheel",
+      "K2.0009363"
      ]
     },
     {
@@ -4225,7 +5742,8 @@
      "model": "RF-EMIP Radio Module",
      "aliases": [
       "RF-EMIP",
-      "EMIP Funkmodul"
+      "EMIP Funkmodul",
+      "K2.0033702"
      ]
     },
     {
@@ -4234,7 +5752,8 @@
      "name": "ARRI RIA-1 Radio Interface",
      "aliases": [
       "Radio Interface Adapter",
-      "Radio Interface Adapter RIA-1"
+      "Radio Interface Adapter RIA-1",
+      "K2.0036186"
      ]
     },
     {
@@ -4714,6 +6233,707 @@
       "Nano II",
       "Nucleus Nano 2"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5 SX",
+     "aliases": [
+      "Hi-5 SX Hand Unit",
+      "Hand Unit Hi-5 SX",
+      "Hi-5 SX Handeinheit"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RF-2400 Radio Module",
+     "aliases": [
+      "RF-2400",
+      "K2.0036598",
+      "Radio Module 2400 MHz FHSS",
+      "Funkmodul RF-2400"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RF-900 Radio Module",
+     "aliases": [
+      "RF-900",
+      "K2.0036599",
+      "Radio Module 900 MHz FHSS",
+      "Funkmodul RF-900"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RF Cover",
+     "aliases": [
+      "K2.0039965",
+      "RF-Cover",
+      "Hi-5 RF Cover"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5 Bluetooth Dongle",
+     "aliases": [
+      "K2.0039838",
+      "Bluetooth Dongle Hi-5",
+      "ECS Bluetooth Dongle"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5 Hand Strap",
+     "aliases": [
+      "K2.0039958",
+      "Hand Strap Hi-5",
+      "Hi-5 Handschlaufe"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5 Neck Strap",
+     "aliases": [
+      "K2.0039959",
+      "Neck Strap Hi-5",
+      "Hi-5 Umhängegurt"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5 PanzerGlass Screen Protector",
+     "aliases": [
+      "K2.0040015",
+      "Hi-5 PanzerGlass",
+      "Hi-5 Screen Protector",
+      "Hi-5 Displayschutz"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5 Monitor Bracket",
+     "aliases": [
+      "K2.0037880",
+      "Monitor Bracket Hi-5",
+      "Hi-5 Monitorhalter"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "RIA-1 Bracket",
+     "aliases": [
+      "K2.0039465",
+      "Bracket RIA-1",
+      "RIA-1 Halter"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Blank",
+     "aliases": [
+      "K2.0037463",
+      "Hi-5 Smart Focus Ring blank",
+      "Hi-5 Schärfering blanko"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 0.30m",
+     "aliases": [
+      "K2.0040112",
+      "Hi-5 Smart Focus Ring 0.30m",
+      "Hi-5 Schärfering 0.30m"
+     ],
+     "specs": {
+      "close_focus": "0.30m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 0.35m",
+     "aliases": [
+      "K2.0040113",
+      "Hi-5 Smart Focus Ring 0.35m",
+      "Hi-5 Schärfering 0.35m"
+     ],
+     "specs": {
+      "close_focus": "0.35m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 0.50m",
+     "aliases": [
+      "K2.0040114",
+      "Hi-5 Smart Focus Ring 0.50m",
+      "Hi-5 Schärfering 0.50m"
+     ],
+     "specs": {
+      "close_focus": "0.50m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 1.00m",
+     "aliases": [
+      "K2.0040116",
+      "Hi-5 Smart Focus Ring 1.00m",
+      "Hi-5 Schärfering 1.00m"
+     ],
+     "specs": {
+      "close_focus": "1.00m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 1.50m",
+     "aliases": [
+      "K2.0040117",
+      "Hi-5 Smart Focus Ring 1.50m",
+      "Hi-5 Schärfering 1.50m"
+     ],
+     "specs": {
+      "close_focus": "1.50m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 2.00m",
+     "aliases": [
+      "K2.0040118",
+      "Hi-5 Smart Focus Ring 2.00m",
+      "Hi-5 Schärfering 2.00m"
+     ],
+     "specs": {
+      "close_focus": "2.00m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 3.00m",
+     "aliases": [
+      "K2.0040119",
+      "Hi-5 Smart Focus Ring 3.00m",
+      "Hi-5 Schärfering 3.00m"
+     ],
+     "specs": {
+      "close_focus": "3.00m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 2'",
+     "aliases": [
+      "K2.0040280",
+      "Hi-5 Smart Focus Ring 2'",
+      "Hi-5 Schärfering 2'"
+     ],
+     "specs": {
+      "close_focus": "2'"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 5'",
+     "aliases": [
+      "K2.0040126",
+      "Hi-5 Smart Focus Ring 5'",
+      "Hi-5 Schärfering 5'"
+     ],
+     "specs": {
+      "close_focus": "5'"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 10'",
+     "aliases": [
+      "K2.0040128",
+      "Hi-5 Smart Focus Ring 10'",
+      "Hi-5 Schärfering 10'"
+     ],
+     "specs": {
+      "close_focus": "10'"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 6'6\"",
+     "aliases": [
+      "Hi-5 Smart Focus Ring 6'6\"",
+      "Hi-5 Schärfering 6'6\""
+     ],
+     "specs": {
+      "close_focus": "6'6\""
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Plain White Focus Ring",
+     "aliases": [
+      "K2.72117.0",
+      "WCU-4 Focus Ring blank",
+      "WCU-4 Schärfering blanko",
+      "SXU-1 Focus Ring blank"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 0.20m",
+     "aliases": [
+      "K2.0001651",
+      "WCU-4 Focus Ring 0.20m",
+      "WCU-4 Schärfering 0.20m"
+     ],
+     "specs": {
+      "close_focus": "0.20m"
+     },
+     "bulk": true,
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 0.25m",
+     "aliases": [
+      "WCU-4 Focus Ring 0.25m",
+      "WCU-4 Schärfering 0.25m"
+     ],
+     "specs": {
+      "close_focus": "0.25m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 0.35m",
+     "aliases": [
+      "K2.72130.0",
+      "WCU-4 Focus Ring 0.35m",
+      "WCU-4 Schärfering 0.35m"
+     ],
+     "specs": {
+      "close_focus": "0.35m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 0.50m",
+     "aliases": [
+      "WCU-4 Focus Ring 0.50m",
+      "WCU-4 Schärfering 0.50m"
+     ],
+     "specs": {
+      "close_focus": "0.50m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 1.00m",
+     "aliases": [
+      "K2.72132.0",
+      "WCU-4 Focus Ring 1.00m",
+      "WCU-4 Schärfering 1.00m"
+     ],
+     "specs": {
+      "close_focus": "1.00m"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 8\"",
+     "aliases": [
+      "K2.0001652",
+      "WCU-4 Focus Ring 8\"",
+      "WCU-4 Schärfering 8\""
+     ],
+     "specs": {
+      "close_focus": "8\""
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 12\"",
+     "aliases": [
+      "K2.72133.0",
+      "WCU-4 Focus Ring 12\"",
+      "WCU-4 Schärfering 12\""
+     ],
+     "specs": {
+      "close_focus": "12\""
+     },
+     "bulk": true,
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 14\"",
+     "aliases": [
+      "K2.72134.0",
+      "WCU-4 Focus Ring 14\"",
+      "WCU-4 Schärfering 14\""
+     ],
+     "specs": {
+      "close_focus": "14\""
+     },
+     "bulk": true,
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 20\"",
+     "aliases": [
+      "K2.72135.0",
+      "WCU-4 Focus Ring 20\"",
+      "WCU-4 Schärfering 20\""
+     ],
+     "specs": {
+      "close_focus": "20\""
+     },
+     "bulk": true,
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Pre-Marked Focus Ring 3'6\"",
+     "aliases": [
+      "K2.72136.0",
+      "WCU-4 Focus Ring 3'6\"",
+      "WCU-4 Schärfering 3'6\""
+     ],
+     "specs": {
+      "close_focus": "3'6\""
+     },
+     "bulk": true,
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Carrying Case",
+     "aliases": [
+      "K2.72146.0",
+      "Case WCU-4",
+      "WCU-4 Koffer"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Master Grip Case",
+     "aliases": [
+      "K2.0012965",
+      "Master Grip Koffer",
+      "Case Master Grips"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-5/cforce mini Gear m0.8/32p 40t 25mm",
+     "aliases": [
+      "K2.0006372",
+      "cforce mini Gear 40t 25mm",
+      "cforce mini Zahnrad 0.8 40z 25mm"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 40,
+      "width_mm": 25
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-5/cforce mini Gear m0.4/64p 80t",
+     "aliases": [
+      "K2.0006367",
+      "cforce mini Gear 0.4 80t",
+      "cforce mini Zahnrad 0.4 80z"
+     ],
+     "specs": {
+      "module": "0.4",
+      "teeth": 80
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-5/cforce mini Gear m0.5 64t",
+     "aliases": [
+      "cforce mini Gear 0.5 64t",
+      "cforce mini Zahnrad 0.5 64z"
+     ],
+     "specs": {
+      "module": "0.5",
+      "teeth": 64
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce plus Gear m0.8/32p 60t",
+     "aliases": [
+      "K2.0009335",
+      "cforce plus Zahnrad 0.8 60z",
+      "cforce plus Gear 60t"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 60
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-4/cforce plus Gear m0.8/32p 50t 25mm",
+     "aliases": [
+      "K2.72112.0",
+      "CLM-4 Gear 50t 25mm",
+      "CLM-4 Zahnrad 0.8 50z 25mm"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 50,
+      "width_mm": 25
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-4 Gear Set",
+     "aliases": [
+      "K2.72116.0",
+      "CLM-4 Zahnradsatz",
+      "CLM-4 Gear Set 0.8/0.6/0.5/0.4"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-3 Gear m0.4/64p 120t",
+     "aliases": [
+      "K2.0001911",
+      "CLM-3 Gear 0.4 120t",
+      "CLM-3 Zahnrad 0.4 120z"
+     ],
+     "specs": {
+      "module": "0.4",
+      "teeth": 120
+     },
+     "bulk": true,
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-5/cforce mini Clamp Console 19/15mm",
+     "aliases": [
+      "K2.0006176",
+      "cforce mini Clamp Console",
+      "CLM-5 Motorhalter 19/15mm"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-5/cforce mini Clamp Insert 19/15mm",
+     "aliases": [
+      "K2.0006175",
+      "cforce mini Clamp Insert 15mm",
+      "CLM-5 Reduzierung 19/15mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce mini Clamp Insert 2 15mm",
+     "aliases": [
+      "K2.0038503",
+      "Clamp Insert 2 15mm",
+      "cforce mini Reduzierung 15mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce plus Clamp Console 19/15mm",
+     "aliases": [
+      "K2.0008678",
+      "cforce plus Motorhalter 19/15mm",
+      "cforce plus Bracket"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "cforce plus Rod-to-Rod Bridge 15mm",
+     "aliases": [
+      "cforce plus Rod to Rod Bridge",
+      "Rod-to-Rod Bridge 15mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.8 mod 35t 10mm",
+     "aliases": [
+      "K2.65276.0",
+      "FF Zahnrad 0.8 35z 10mm"
+     ],
+     "specs": {
+      "module": "0.8",
+      "teeth": 35,
+      "width_mm": 10
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.5 mod 78t 6mm",
+     "aliases": [
+      "K2.47631.0",
+      "FF Zahnrad 0.5 78z 6mm",
+      "FF Gear ENG 78t"
+     ],
+     "specs": {
+      "module": "0.5",
+      "teeth": 78,
+      "width_mm": 6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.5 mod 78t 10mm",
+     "aliases": [
+      "K2.65124.0",
+      "FF Zahnrad 0.5 78z 10mm"
+     ],
+     "specs": {
+      "module": "0.5",
+      "teeth": 78,
+      "width_mm": 10
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.6 mod 64t 6mm",
+     "aliases": [
+      "K2.47632.0",
+      "FF Zahnrad 0.6 64z 6mm",
+      "FF Gear Fujinon ENG 64t"
+     ],
+     "specs": {
+      "module": "0.6",
+      "teeth": 64,
+      "width_mm": 6
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "FF Gear 0.6 mod 64t 10mm",
+     "aliases": [
+      "K2.65125.0",
+      "FF Zahnrad 0.6 64z 10mm"
+     ],
+     "specs": {
+      "module": "0.6",
+      "teeth": 64,
+      "width_mm": 10
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Flexible Shaft Long 900mm",
+     "aliases": [
+      "K2.32731.0",
+      "FF-5 Whip 900mm",
+      "Focus Whip long",
+      "Schärfewelle 900mm"
+     ],
+     "specs": {
+      "length_mm": 900
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Marking Disk Bevelled",
+     "aliases": [
+      "K2.47248.0",
+      "Markierscheibe abgeschrägt",
+      "Bevelled Marking Disc"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Focus Knob Standard Left",
+     "aliases": [
+      "K2.65253.0",
+      "FF Knob left",
+      "Schärferad links"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Focus Knob Standard Right",
+     "aliases": [
+      "K2.47215.0",
+      "FF Knob right",
+      "Schärferad rechts"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Focus Knob 2-Speed Left",
+     "aliases": [
+      "K2.66129.0",
+      "Two-Speed Knob left",
+      "2-Gang Schärferad links"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Focus Knob 2-Speed Right",
+     "aliases": [
+      "K2.43702.0",
+      "Two-Speed Knob right",
+      "2-Gang Schärferad rechts"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Extension for Focus Knob",
+     "aliases": [
+      "K2.32985.0",
+      "Focus Knob Extension",
+      "Verlängerung Schärferad"
+     ],
+     "bulk": true
     }
    ]
   }
