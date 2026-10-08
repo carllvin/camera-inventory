@@ -48,7 +48,7 @@ export default async function ProjectLayout({ children, params }: { children: Re
         }
       />
       <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label={counts.units !== counts.items ? `items (${counts.units} units)` : "items on project"} value={counts.items} />
+        <Stat label={counts.units === 1 ? "piece" : "pieces"} value={counts.units} />
         <Stat label="in use" value={counts.in_use} />
         <Stat label="missing" value={counts.missing} tone={counts.missing ? "danger" : undefined} href={`${base}?status=missing`} />
         <Stat label="open issues" value={counts.open_issues} tone={counts.open_issues ? "warn" : undefined} href={`${base}/issues`} />
@@ -85,7 +85,7 @@ export default async function ProjectLayout({ children, params }: { children: Re
       </section>
       <ClientTabs
         tabs={[
-          { href: base, label: "Equipment", count: counts.items, exact: true },
+          { href: base, label: "Equipment", count: counts.units, exact: true },
           { href: `${base}/sets`, label: "Sets", count: counts.cases },
           { href: `${base}/documents`, label: "Documents", count: counts.documents },
           { href: `${base}/issues`, label: "Issues", count: counts.open_issues },

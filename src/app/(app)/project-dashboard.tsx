@@ -78,7 +78,7 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
       </header>
 
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label={counts.units !== counts.items ? `units (${counts.items} entries)` : "items"} value={counts.units} href={base} />
+        <Stat label={counts.units === 1 ? "piece" : "pieces"} value={counts.units} href={base} />
         <Stat label="in use" value={counts.in_use} href={`${base}?status=in_use`} />
         <Stat label="missing" value={counts.missing} tone={counts.missing ? "danger" : undefined} href={`${base}?status=missing`} />
         <Stat label="open issues" value={counts.open_issues} tone={counts.open_issues ? "warn" : undefined} href={`${base}/issues`} />

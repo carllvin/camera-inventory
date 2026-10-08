@@ -45,7 +45,7 @@ export default async function ProjectsPage() {
                 <div className="mt-4 grid grid-cols-3 gap-2 text-center">
                   <div>
                     <div className="text-lg font-semibold tabular-nums">{p.itemCount}</div>
-                    <div className="text-[11px] text-muted">items</div>
+                    <div className="text-[11px] text-muted">pieces</div>
                   </div>
                   <div>
                     <div className="text-lg font-semibold tabular-nums">{p.rentalHouseCount}</div>

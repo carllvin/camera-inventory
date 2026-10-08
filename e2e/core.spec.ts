@@ -38,7 +38,7 @@ test("create project, add a new item, change status, see it in the timeline", as
   await page.getByRole("button", { name: "Save changes" }).click();
   await expect(page.getByText("Status saved.")).toBeVisible();
   // History: one line per change; tap it for the details.
-  const entry = page.locator("summary").filter({ hasText: /on project → in use/ });
+  const entry = page.locator("summary").filter({ hasText: /on project → in use/i });
   await expect(entry).toBeVisible();
   await entry.click();
   await expect(page.getByText("“On the dolly”")).toBeVisible();
@@ -132,7 +132,7 @@ test("a change can be undone from the history", async ({ page }) => {
   await page.getByRole("button", { name: "Save changes" }).click();
   await expect(page.getByText("Condition saved.")).toBeVisible();
 
-  await page.locator("summary").filter({ hasText: /ARRI WCU-4.*condition .* → damaged/ }).first().click();
+  await page.locator("summary").filter({ hasText: /condition .* → damaged/i }).first().click();
   await page.getByRole("button", { name: /Undo: ARRI WCU-4.*condition .* → damaged/ }).first().click();
   await expect(page.locator("summary").filter({ hasText: /Undo: ARRI WCU-4.*condition damaged → / }).first()).toBeVisible();
   await expect(page.getByLabel("Condition", { exact: true })).not.toHaveValue("damaged");

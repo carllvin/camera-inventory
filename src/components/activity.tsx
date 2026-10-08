@@ -109,7 +109,14 @@ function Details({ e, showProject, compact }: { e: ActivityEvent; showProject: b
  * History, compact: one line per entry (colour-coded), grouped by day; tap a line
  * for details and Undo. Everything one operation did is one entry ("+12 more").
  */
-export function ActivityList({ events, showProject = true, compact = false }: { events: ActivityEvent[]; showProject?: boolean; compact?: boolean }) {
+/** On the page of one thing its name need not open every line: "ALEXA 35 (SN 1) packed into A-Cam" → "Packed into A-Cam". */
+function withoutSubject(summary: string, subject?: string) {
+  if (!subject || !summary.startsWith(subject)) return summary;
+  const rest = summary.slice(subject.length).replace(/^[:\s]+/, "");
+  return rest ? rest[0]!.toUpperCase() + rest.slice(1) : summary;
+}
+
+export function ActivityList({ events, showProject = true, compact = false, subject }: { events: ActivityEvent[]; showProject?: boolean; compact?: boolean; subject?: string }) {
   if (events.length === 0) return <p className="px-4 py-6 text-sm text-muted">No history yet.</p>;
   const days = groupActivity(events, (d) => dayLabel(d));
   return (
@@ -124,7 +131,7 @@ export function ActivityList({ events, showProject = true, compact = false }: { 
                   <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-2 hover:bg-surface-2/60 [&::-webkit-details-marker]:hidden">
                     <Dot e={head} />
                     <span className={cn("min-w-0 flex-1 text-sm", head.undo === "done" && "text-muted line-through decoration-muted/60")}>
-                      <span className="line-clamp-2">{head.summary}</span>
+                      <span className="line-clamp-2">{withoutSubject(head.summary, subject)}</span>
                       {rest.length > 0 && <span className="text-xs text-muted">+{rest.length} more</span>}
                     </span>
                     <time className="shrink-0 text-xs text-muted tabular-nums" dateTime={new Date(head.occurredAt).toISOString()}>
@@ -143,7 +150,7 @@ export function ActivityList({ events, showProject = true, compact = false }: { 
                               <p className={cn("text-sm", e.undo === "done" && "text-muted line-through")}>
                                 {e.equipmentItemId && !compact ? (
                                   <Link href={`/equipment/${e.equipmentItemId}`} className="hover:underline">
-                                    {e.summary}
+                                    {withoutSubject(e.summary, subject)}
                                   </Link>
                                 ) : (
                                   e.summary

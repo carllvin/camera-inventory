@@ -55,7 +55,7 @@ export default async function DashboardPage() {
                       </div>
                       <div className="text-right text-xs text-muted tabular-nums">
                         <div>
-                          <span className="font-medium text-text">{p.itemCount}</span> items
+                          <span className="font-medium text-text">{p.itemCount}</span> pieces
                         </div>
                         <div>{p.rentalHouseCount} rental houses</div>
                       </div>

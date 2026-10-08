@@ -50,7 +50,7 @@ describe("demo seed", () => {
 });
 
 describe("read models on demo data", () => {
-  it("project list counts items and rental houses per project", async () => {
+  it("project list counts pieces and rental houses per project", async () => {
     const { listProjects } = await import("../src/server/domain/projects");
     const { listEquipmentTypes } = await import("../src/server/domain/equipment-types");
     const { listRentalHouses } = await import("../src/server/domain/rental-houses");
@@ -58,7 +58,7 @@ describe("read models on demo data", () => {
     const [m] = await db.select().from(s.workspaceMember).where(eq(s.workspaceMember.workspaceId, w!.id));
     const ctx = { workspaceId: w!.id, userId: m!.userId, role: "owner" as const };
     const ffx = (await listProjects(db, ctx)).find((p) => p.code === "FFX")!;
-    expect(ffx.itemCount).toBe(32);
+    expect(ffx.itemCount).toBe(46);
     expect(ffx.rentalHouseCount).toBe(3);
     expect(ffx.openIssueCount).toBe(2);
     const alexa = (await listEquipmentTypes(db, ctx)).find((t) => t.model === "ALEXA 35")!;

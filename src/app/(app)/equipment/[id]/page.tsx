@@ -64,7 +64,12 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
         <div className="min-w-0 space-y-6">
           <Card className="grid gap-5 p-4 sm:grid-cols-[14rem_1fr]">
             <Link href={`/equipment/types/${type.id}`} aria-label={`Equipment type ${type.name}`}>
-              <TypeImage name={type.name} photoId={d.referencePhoto?.id} />
+              <TypeImage
+                name={type.name}
+                photoId={d.referencePhoto?.id}
+                // Without a picture a small placeholder on phones, not half a screen of grey.
+                className={d.referencePhoto ? undefined : "aspect-auto h-20 sm:aspect-[4/3] sm:h-auto"}
+              />
             </Link>
             <KeyValues
               items={[
@@ -138,7 +143,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
 
           <Card>
             <CardHeader title="Timeline" />
-            <ActivityList events={timeline} compact />
+            <ActivityList events={timeline} compact subject={d.label} />
           </Card>
         </div>
 

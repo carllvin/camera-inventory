@@ -16,9 +16,9 @@ export async function getDashboard(db: DbOrTx, ctx: Ctx) {
   }>(sql`
     SELECT
       (SELECT count(*)::int FROM project WHERE workspace_id = ${ctx.workspaceId} AND status IN ('prep','shooting','wrap') AND archived_at IS NULL) AS active_projects,
-      (SELECT count(*)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND project_id IS NOT NULL) AS on_projects,
-      (SELECT count(*)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND status = 'in_use') AS in_use,
-      (SELECT count(*)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND status = 'missing') AS missing,
+      (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND project_id IS NOT NULL) AS on_projects,
+      (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND status = 'in_use') AS in_use,
+      (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND status = 'missing') AS missing,
       (SELECT count(*)::int FROM issue WHERE workspace_id = ${ctx.workspaceId} AND status IN ('open','in_progress')) AS open_issues,
       (SELECT count(*)::int FROM document WHERE workspace_id = ${ctx.workspaceId} AND status IN ('uploaded','processing','extracted')) AS pending_documents
   `);

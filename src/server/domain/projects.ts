@@ -30,7 +30,7 @@ export async function listProjects(db: DbOrTx, ctx: Ctx) {
       productionCompany: s.project.productionCompany,
       startDate: s.project.startDate,
       endDate: s.project.endDate,
-      itemCount: sql<number>`(SELECT count(*)::int FROM equipment_item i WHERE i.project_id = "project"."id")`,
+      itemCount: sql<number>`(SELECT coalesce(sum(i.quantity), 0)::int FROM equipment_item i WHERE i.project_id = "project"."id")`,
       rentalHouseCount: sql<number>`(SELECT count(DISTINCT i.rental_house_id)::int FROM equipment_item i WHERE i.project_id = "project"."id")`,
       openIssueCount: sql<number>`(SELECT count(*)::int FROM issue x WHERE x.project_id = "project"."id" AND x.status IN ('open','in_progress'))`,
     })
@@ -66,8 +66,8 @@ export async function getProjectSummary(db: DbOrTx, ctx: Ctx, id: string) {
     SELECT
       (SELECT count(*)::int FROM equipment_item WHERE project_id = ${id}) AS items,
       (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE project_id = ${id}) AS units,
-      (SELECT count(*)::int FROM equipment_item WHERE project_id = ${id} AND status = 'in_use') AS in_use,
-      (SELECT count(*)::int FROM equipment_item WHERE project_id = ${id} AND status = 'missing') AS missing,
+      (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE project_id = ${id} AND status = 'in_use') AS in_use,
+      (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE project_id = ${id} AND status = 'missing') AS missing,
       (SELECT count(*)::int FROM equipment_case WHERE project_id = ${id} AND archived_at IS NULL) AS cases,
       (SELECT count(*)::int FROM issue WHERE project_id = ${id} AND status IN ('open','in_progress')) AS open_issues,
       (SELECT count(*)::int FROM document WHERE project_id = ${id}) AS documents

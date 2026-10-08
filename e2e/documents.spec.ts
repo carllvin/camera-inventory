@@ -54,7 +54,7 @@ test("upload a delivery note, enter lines by hand, resolve a conflict, confirm",
   await page.getByRole("link", { name: "SmallHD Cine 7" }).first().click();
   await expect(page.getByText(`SN C7-${tag}`).first()).toBeVisible();
   await expect(page.getByText(`↓ MBF-E2E-${tag}`)).toBeVisible();
-  await expect(page.getByText(/received on Feature Film X/).first()).toBeVisible();
+  await expect(page.getByText(/received on Feature Film X/i).first()).toBeVisible();
 });
 
 test("the seeded extracted ARRI note shows conflicts and suggestions for review", async ({ page }) => {
