@@ -10,6 +10,15 @@ async function login(page: Page) {
   await expect(page).not.toHaveURL(/\/login/);
 }
 
+/** Take everything out of the open set again, so later tests see the demo data unchanged. */
+async function takeOutAll(page: Page) {
+  const buttons = page.getByRole("button", { name: "Take out" });
+  for (let n = await buttons.count(); n > 0; n--) {
+    await buttons.first().click();
+    await expect(buttons).toHaveCount(n - 1);
+  }
+}
+
 test("demo A-Cam set shows 7 / 8 with the missing battery and suggests spares", async ({ page }) => {
   await login(page);
   await go(page, "/sets");
@@ -29,6 +38,10 @@ test("create a set from a template, pack by code, confirm a move, take out, add 
   await page.getByLabel("Name").fill(name);
   await page.getByRole("button", { name: "Create set" }).click();
   await expect(page.getByRole("heading", { name })).toBeVisible();
+  // Free pieces the template asks for are packed right away (the two spare batteries).
+  await expect(page.getByText("2 pieces from the project packed automatically.")).toBeVisible();
+  await expect(page.getByText("2 / 8").first()).toBeVisible();
+  await takeOutAll(page);
   await expect(page.getByText("0 / 8").first()).toBeVisible();
 
   // ALEXA 35 SN 35-10577 is in the B-Cam set: packing asks before moving.
@@ -83,9 +96,13 @@ test("edit expected contents and save the set as a template", async ({ page }, i
   await page.getByRole("button", { name: "One SmallHD Cine 7 more" }).click();
   await expect(page.getByLabel("SmallHD Cine 7: 2")).toBeVisible();
   await page.getByRole("link", { name: "Done" }).click();
+  // Free Cine 7s on the project are packed right away (other tests may have added one);
+  // the ones in other sets are never moved.
+  await expect(page.getByText(/^[012] \/ 2$/).first()).toBeVisible();
+  await takeOutAll(page);
   await expect(page.getByText("0 / 2").first()).toBeVisible();
 
-  await page.getByRole("link", { name: "Edit" }).click();
+  await page.getByRole("link", { name: "Edit", exact: true }).click();
   await page.getByLabel("Template name").fill(`${name} template`);
   await page.getByRole("button", { name: "Save template" }).click();
   await expect(page.getByRole("heading", { name: `${name} template` })).toBeVisible();

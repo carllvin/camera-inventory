@@ -26,6 +26,7 @@ import {
   unpackItem,
   unpackUnits,
   updateCase,
+  packExpected,
   updateTemplate,
   updateTemplateLine,
 } from "@/server/domain/cases";
@@ -38,9 +39,13 @@ const refreshCase = (id: string, projectId?: string) => {
 
 export async function createCaseAction(_: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
-    const c = await createCase(getDb(), await getCtx(), fromForm(fd));
+    const ctx = await getCtx();
+    const c = await createCase(getDb(), ctx, fromForm(fd));
+    // With expected contents from a template, pack what the project has right away.
+    const packed = c.templateId ? await packExpected(getDb(), ctx, c.id) : 0;
     revalidatePath(`/projects/${c.projectId}`, "layout");
-    redirect(`/sets/${c.id}`);
+    revalidatePath("/equipment");
+    redirect(`/sets/${c.id}${packed ? `?packed=${packed}` : ""}`);
   });
 }
 
@@ -62,16 +67,22 @@ export async function archiveCaseAction(id: string, _: ActionState, fd: FormData
 
 export async function addLineAction(caseId: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
-    await addExpectedLine(getDb(), await getCtx(), caseId, fromForm(fd));
+    const ctx = await getCtx();
+    await addExpectedLine(getDb(), ctx, caseId, fromForm(fd));
+    const packed = await packExpected(getDb(), ctx, caseId);
     refreshCase(caseId);
-    return "Added.";
+    if (packed) revalidatePath("/", "layout");
+    return packed ? `Added — ${packed} piece${packed === 1 ? "" : "s"} packed.` : "Added.";
   });
 }
 
 export async function stepLineAction(caseId: string, lineId: string, delta: number, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
-    await stepExpectedLine(getDb(), await getCtx(), lineId, delta);
+    const ctx = await getCtx();
+    await stepExpectedLine(getDb(), ctx, lineId, delta);
+    const packed = delta > 0 ? await packExpected(getDb(), ctx, caseId) : 0;
     refreshCase(caseId);
+    if (packed) revalidatePath("/", "layout");
   });
 }
 

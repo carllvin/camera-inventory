@@ -7,7 +7,7 @@ import http from "node:http";
 import type { AddressInfo } from "node:net";
 import Anthropic from "@anthropic-ai/sdk";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { ClaudeDocumentExtractor } from "../src/server/ai/claude";
+import { ClaudeDocumentExtractor, extractionOutputSchema, fromWire } from "../src/server/ai/claude";
 import { ExtractionError, type Extraction } from "../src/server/ai/types";
 import { createExtractorFromEnv } from "../src/server/ai";
 
@@ -115,5 +115,24 @@ describe("Claude document extractor", () => {
     expect([e.provider, e.model, e.available]).toEqual(["anthropic", "claude-sonnet-5-5", true]);
     expect(createExtractorFromEnv({ ANTHROPIC_API_KEY: "x", AI_MODEL: "claude-opus-5-5" }).model).toBe("claude-opus-5-5");
     expect(createExtractorFromEnv({ ANTHROPIC_API_KEY: "x", AI_PROVIDER: "none" }).available).toBe(false);
+  });
+});
+
+describe("structured output schema", () => {
+  it("stays within the API's limit on nullable / union fields", () => {
+    let unions = 0;
+    const walk = (node: unknown) => {
+      if (!node || typeof node !== "object") return;
+      const o = node as Record<string, unknown>;
+      if (Array.isArray(o.type) || Array.isArray(o.anyOf) || Array.isArray(o.oneOf)) unions++;
+      for (const v of Object.values(o)) walk(v);
+    };
+    walk(extractionOutputSchema);
+    expect(unions).toBe(0);
+  });
+
+  it("turns blanks from the model back into null", () => {
+    const wire = { ...extraction, project_number: "", lines: [{ ...extraction.lines[0], model: " ", set_name: "", is_heading: false, is_container: false, suggested_category: "", suggested_tracking: "none" }] };
+    expect(fromWire(wire)).toMatchObject({ project_number: null, rental_house_name: "ARRI Rental", lines: [{ model: null, set_name: null, suggested_category: null, suggested_tracking: null, manufacturer: "ARRI" }] });
   });
 });

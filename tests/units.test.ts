@@ -2,7 +2,7 @@
 import { and, eq, isNull } from "drizzle-orm";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import * as s from "../src/server/db/schema";
-import { createCase, getCaseDetail, groupUnits, listPackCandidates, packUnits, unpackUnits } from "../src/server/domain/cases";
+import { addExpectedLine, createCase, getCaseDetail, groupUnits, listPackCandidates, packExpected, packUnits, unpackUnits } from "../src/server/domain/cases";
 import { DomainError, type Ctx } from "../src/server/domain/context";
 import { changeCondition, changeStatus } from "../src/server/domain/equipment-items";
 import { client, db, itemOnProject, makeFixture, type Fixture } from "./helpers/db";
@@ -174,5 +174,36 @@ describe("type names", () => {
     const tag = Date.now().toString(36);
     expect((await createEquipmentType(db, ctx, { manufacturer: "Generic", model: `Cheese Plate ${tag}` }))!.name).toBe(`Cheese Plate ${tag}`);
     expect((await createEquipmentType(db, ctx, { manufacturer: "Tilta", model: `Nucleus ${tag}` }))!.name).toBe(`Tilta Nucleus ${tag}`);
+  });
+});
+
+describe("packExpected (auto-pack)", () => {
+  it("fills expected lines with unpacked project equipment, never from other sets", async () => {
+    const g = await makeFixture();
+    const gctx: Ctx = { workspaceId: g.ws.id, userId: g.user.id, role: "owner" };
+    const other = await createCase(db, gctx, { name: "Other", projectId: g.project.id });
+    const inOther = await itemOnProject(g, { serialNumber: "IN-OTHER" });
+    await db.update(s.equipmentItem).set({ caseId: other.id }).where(eq(s.equipmentItem.id, inOther.id));
+    const free = await itemOnProject(g, { serialNumber: "FREE" });
+    await itemOnProject(g, { serialNumber: "BROKEN", condition: "defective" });
+    await itemOnProject(g, { serialNumber: "ELSEWHERE", projectId: g.project2.id });
+    const cables = await itemOnProject(g, { equipmentTypeId: g.cableType.id, trackingMode: "bulk", quantity: 10 });
+
+    const c = await createCase(db, gctx, { name: "A-Cam", projectId: g.project.id });
+    await addExpectedLine(db, gctx, c.id, { target: `type:${g.camType.id}`, quantity: 2 });
+    await addExpectedLine(db, gctx, c.id, { target: `type:${g.cableType.id}`, quantity: 4 });
+    expect(await packExpected(db, gctx, c.id)).toBe(5);
+
+    const d = await getCaseDetail(db, gctx, c.id);
+    expect(d.items.map((i) => i.serialNumber ?? `bulk×${i.quantity}`).sort()).toEqual(["FREE", "bulk×4"]);
+    expect(d.comparison.missingTotal).toBe(1);
+    // The rest of the cables stays unpacked; the item in the other set stays there.
+    const [rest] = await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.id, cables.id));
+    expect(rest).toMatchObject({ quantity: 6, caseId: null });
+    const [still] = await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.id, inOther.id));
+    expect(still!.caseId).toBe(other.id);
+    expect((await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.id, free.id)))[0]!.caseId).toBe(c.id);
+    // Nothing more to do the second time.
+    expect(await packExpected(db, gctx, c.id)).toBe(0);
   });
 });

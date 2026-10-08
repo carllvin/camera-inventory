@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return { title: d.case.name };
 }
 
-export default async function CasePage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ q?: string; edit?: string }> }) {
+export default async function CasePage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ q?: string; edit?: string; packed?: string }> }) {
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   assertUuid(id);
   const ctx = await getCtx();
@@ -77,6 +77,11 @@ export default async function CasePage({ params, searchParams }: { params: Promi
         }
       />
 
+      {Number(sp.packed) > 0 && (
+        <p role="status" className="mb-4 rounded-lg border border-ok/30 bg-ok/10 px-3 py-2 text-sm text-ok">
+          {sp.packed} piece{sp.packed === "1" ? "" : "s"} from the project packed automatically. Take out anything that doesn&apos;t belong.
+        </p>
+      )}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_22rem]">
         {/* Status first on every screen size */}
         <Card className="flex items-center justify-between gap-4 p-4 lg:col-span-2">
@@ -207,7 +212,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                           ))}
                         </div>
                       )}
-                      {!ok && <div className="mt-0.5 text-xs text-warn">{r.missing} not in case</div>}
+                      {!ok && <div className="mt-0.5 text-xs text-warn">{r.missing} not in set</div>}
                     </div>
                   </li>
                 );

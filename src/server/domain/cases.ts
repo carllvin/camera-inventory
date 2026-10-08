@@ -670,6 +670,60 @@ export async function packUnits(db: DbOrTx, ctx: Ctx, caseId: string, itemIds: s
   });
 }
 
+/**
+ * Fill the gaps in a set's expected contents with project equipment that is
+ * not packed anywhere yet (never moves things out of another set, never packs
+ * missing or defective pieces). Type lines first, then category lines, like
+ * the contents check. Returns the number of pieces packed.
+ */
+export async function packExpected(db: DbOrTx, ctx: Ctx, caseId: string) {
+  requireRole(ctx, "member");
+  return db.transaction(async (tx) => {
+    const c = await lockCase(tx, ctx, caseId);
+    assertOpen(c);
+    const d = await getCaseDetail(tx, ctx, caseId);
+    const gaps = d.comparison.lines.filter((r) => r.missing > 0);
+    if (gaps.length === 0) return 0;
+    const closure = await loadClosure(tx, ctx);
+    const free = await tx
+      .select({ id: s.equipmentItem.id, equipmentTypeId: s.equipmentItem.equipmentTypeId, categoryId: s.equipmentType.categoryId, quantity: s.equipmentItem.quantity })
+      .from(s.equipmentItem)
+      .innerJoin(s.equipmentType, eq(s.equipmentType.id, s.equipmentItem.equipmentTypeId))
+      .where(
+        and(
+          eq(s.equipmentItem.workspaceId, ctx.workspaceId),
+          eq(s.equipmentItem.projectId, c.projectId),
+          isNull(s.equipmentItem.caseId),
+          ne(s.equipmentItem.status, "missing"),
+          ne(s.equipmentItem.condition, "defective"),
+        ),
+      )
+      .orderBy(asc(s.equipmentItem.serialNumber), asc(s.equipmentItem.createdAt));
+    const left = new Map(free.map((f) => [f.id, f.quantity]));
+    let packed = 0;
+    const fill = async (need: number, accepts: (f: (typeof free)[number]) => boolean) => {
+      for (const f of free) {
+        if (need <= 0) return;
+        const avail = left.get(f.id)!;
+        if (avail <= 0 || !accepts(f)) continue;
+        const units = Math.min(need, avail);
+        if (units < avail) await packUnits(tx, ctx, caseId, [f.id], units);
+        else await packItem(tx, ctx, caseId, f.id);
+        left.set(f.id, avail - units);
+        need -= units;
+        packed += units;
+      }
+    };
+    for (const r of gaps) if (r.line.equipmentTypeId) await fill(r.missing, (f) => f.equipmentTypeId === r.line.equipmentTypeId);
+    for (const r of gaps) {
+      if (r.line.equipmentTypeId || !r.line.categoryId) continue;
+      const allowed = closure.get(r.line.categoryId) ?? new Set([r.line.categoryId]);
+      await fill(r.missing, (f) => f.categoryId !== null && allowed.has(f.categoryId));
+    }
+    return packed;
+  });
+}
+
 /** Take an item out of its case; for bulk items optionally only some units (the rest stays packed). */
 export async function unpackItem(db: DbOrTx, ctx: Ctx, itemId: string, opts: { units?: number } = {}) {
   requireRole(ctx, "member");
