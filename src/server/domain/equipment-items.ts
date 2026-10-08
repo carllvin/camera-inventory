@@ -92,6 +92,17 @@ export async function listItems(db: DbOrTx, ctx: Ctx, rawFilters: ItemFilters = 
       caseId: s.equipmentItem.caseId,
       caseName: s.equipmentCase.name,
       updatedAt: s.equipmentItem.updatedAt,
+      // Where it stands on the paperwork that brought it here: the delivery (date) and its line number.
+      // Items added by hand have no line and follow by the time they were added.
+      // Sortable text: document date, upload time, document id (so two notes of one day never interleave).
+      listedAt: sql<string | null>`(SELECT concat_ws(' ', coalesce(d.document_date, d.created_at::date, a.assigned_at::date),
+          to_char(coalesce(d.created_at, a.assigned_at), 'YYYY-MM-DD"T"HH24:MI:SS.US'), d.id)
+        FROM project_assignment a LEFT JOIN document d ON d.id = a.delivery_document_id
+        WHERE a.equipment_item_id = "equipment_item"."id" AND a.ended_at IS NULL)`,
+      listLine: sql<number | null>`(SELECT min(l.line_number) FROM project_assignment a
+        JOIN document_line l ON l.document_id = a.delivery_document_id
+        WHERE a.equipment_item_id = "equipment_item"."id" AND a.ended_at IS NULL
+          AND (l.matched_equipment_item_id = "equipment_item"."id" OR l.matched_equipment_type_id = "equipment_item"."equipment_type_id"))`,
       // The item's own photo, else the type's main reference image.
       imageId: sql<string | null>`coalesce(
         (SELECT p.id FROM photo p WHERE p.equipment_item_id = "equipment_item"."id" AND p.removed_at IS NULL ORDER BY p.created_at DESC LIMIT 1),

@@ -22,7 +22,7 @@ import {
 } from "../src/server/domain/documents";
 import { expandExtractedLines } from "../src/server/domain/document-matching";
 import { getCaseDetail } from "../src/server/domain/cases";
-import { createItem } from "../src/server/domain/equipment-items";
+import { createItem, listItems } from "../src/server/domain/equipment-items";
 import { createEquipmentType } from "../src/server/domain/equipment-types";
 import { createRentalHouse } from "../src/server/domain/rental-houses";
 import { LocalStorage } from "../src/server/storage";
@@ -177,6 +177,13 @@ describe("delivery notes", () => {
     const assignments = await db.select().from(s.projectAssignment).where(eq(s.projectAssignment.deliveryDocumentId, id));
     expect(assignments).toHaveLength(5);
     expect(new Set(assignments.map((a) => a.rentalHouseId))).toEqual(new Set([arri.id]));
+    // Each item knows its line on the note (for "list order" in the equipment lists).
+    const rows = await listItems(db, ctx, { projectId: f.project.id });
+    const lineOf = (itemId: string) => rows.find((r) => r.id === itemId)?.listLine;
+    expect(lineOf(known.id)).toBe(1);
+    expect(lineOf(bags[0]!.id)).toBe(3);
+    expect(txs.map((x) => lineOf(x.id)).sort()).toEqual([2, 2, 2]); // same type: its first line
+    expect(new Set(rows.filter((r) => [known.id, bags[0]!.id].includes(r.id)).map((r) => r.listedAt)).size).toBe(1);
 
     const doc = await getDocumentReview(db, ctx, id);
     expect(doc.doc.status).toBe("confirmed");

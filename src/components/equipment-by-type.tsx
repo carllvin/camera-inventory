@@ -22,6 +22,7 @@ function byType(items: ItemRow[]) {
 }
 
 export const EQUIPMENT_SORTS = [
+  { value: "category", label: "Sort: category" },
   { value: "name", label: "Sort: name" },
   { value: "qty", label: "Sort: quantity" },
   { value: "recent", label: "Sort: recently changed" },
@@ -32,10 +33,27 @@ const needsAttention = (g: TypeGroup) =>
   g.items.some((i) => i.status === "missing") ? 2 : g.items.some((i) => i.condition === "damaged" || i.condition === "defective") ? 1 : 0;
 const lastChange = (g: TypeGroup) => Math.max(...g.items.map((i) => new Date(i.updatedAt).getTime()));
 
-/** Type lines in the chosen order; "" keeps the list's own order (by category). */
+/**
+ * Where a type first appears on the paperwork: delivery (date), then line number.
+ * Types added by hand (no line) follow, by when they were added.
+ */
+const LAST = "\uffff";
+const listPosition = (g: TypeGroup): [string, number] =>
+  g.items.reduce<[string, number]>(
+    (best, i) => {
+      const at = i.listedAt ?? LAST;
+      const line = i.listLine ?? Infinity;
+      return at < best[0] || (at === best[0] && line < best[1]) ? [at, line] : best;
+    },
+    [LAST, Infinity],
+  );
+
+/** Type lines in the chosen order; by default as on the delivery notes / lists, "category" keeps the query's order. */
 function sortGroups(groups: TypeGroup[], sort?: string) {
   const byName = (a: TypeGroup, b: TypeGroup) => a.typeName.localeCompare(b.typeName);
   switch (sort) {
+    case "category":
+      return groups;
     case "name":
       return groups.sort(byName);
     case "qty":
@@ -44,8 +62,14 @@ function sortGroups(groups: TypeGroup[], sort?: string) {
       return groups.sort((a, b) => lastChange(b) - lastChange(a));
     case "attention":
       return groups.sort((a, b) => needsAttention(b) - needsAttention(a) || byName(a, b));
-    default:
-      return groups;
+    default: {
+      // Stable: types without any position keep the category order among themselves.
+      const pos = new Map(groups.map((g) => [g, listPosition(g)]));
+      return groups.sort((a, b) => {
+        const [pa, pb] = [pos.get(a)!, pos.get(b)!];
+        return pa[0] < pb[0] ? -1 : pa[0] > pb[0] ? 1 : pa[1] === pb[1] ? 0 : pa[1] < pb[1] ? -1 : 1;
+      });
+    }
   }
 }
 

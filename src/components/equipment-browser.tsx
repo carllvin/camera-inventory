@@ -124,7 +124,7 @@ export function EquipmentBrowser({
           options={Object.entries(STATUS_LABEL)
             .filter(([value]) => !projectId || ON_PROJECT.includes(value))
             .map(([value, label]) => ({ value, label }))} />
-        <FilterSelect name="sort" label="Sort" allLabel="Sort: category" value={sp.sort} options={[...EQUIPMENT_SORTS]} />
+        <FilterSelect name="sort" label="Sort" allLabel="Sort: list order" value={sp.sort} options={[...EQUIPMENT_SORTS]} />
         {!projectId && (
           <FilterSelect name="location" label="Location" allLabel="Anywhere" value={sp.location}
             options={[{ value: "on_project", label: "On a project" }, { value: "off_project", label: "Not on a project" }]} />
