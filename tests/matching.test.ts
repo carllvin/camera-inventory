@@ -35,6 +35,18 @@ describe("findType", () => {
     expect((await findType(db, ctx.workspaceId, line("SWIT V-Mount Akku 98Wh Pocket PB-M98S")))?.name).toBe("SWIT PB-M98S");
   });
 
+  it("reads what follows \"f./für/for\" as what a part fits, not as the part", async () => {
+    await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "ALEXA Mini LF" });
+    await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "OCU-1" });
+    await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "KC-50-S Power Cable 24V straight" });
+    expect((await findType(db, ctx.workspaceId, line("ARRI Kabel Power KC-50-S 24V straight f. Alexa Mini/LF/35/Amira")))?.name).toBe("ARRI KC-50-S Power Cable 24V straight");
+    // Nothing else fits: better no match than the device the part is for.
+    expect((await findType(db, ctx.workspaceId, line("ARRI Rosette Bracket f. OCU-1")))?.name).not.toBe("ARRI OCU-1");
+    expect((await findType(db, ctx.workspaceId, line("SANDISK USB-Stick für ALEXA Mini LF")))?.name).not.toBe("ARRI ALEXA Mini LF");
+    // The product itself is still found by its model number.
+    expect((await findType(db, ctx.workspaceId, line("ARRI ALEXA MINI LF Body")))?.name).toBe("ARRI ALEXA Mini LF");
+  });
+
   it("does not take a short model inside a longer one", async () => {
     expect((await findType(db, ctx.workspaceId, line("Canon C700 FF")))?.name).not.toBe("Canon C70");
   });

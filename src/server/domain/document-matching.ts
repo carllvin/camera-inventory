@@ -170,10 +170,14 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
   }
   const text = [line.manufacturer, line.model, line.description].filter(Boolean).join(" ");
   if (!text.trim()) return null;
+  // "Kabel Power KC-50-S f. Alexa Mini/LF", "Rosette Bracket für OCU-1": what follows "f./für/for" is
+  // what the part fits, not the part itself - model numbers there do not name the product.
+  const own = [line.manufacturer, line.model, line.description.replace(/\s(?:f\.|für|fuer|for)\s.*$/i, "")].filter(Boolean).join(" ");
   // Candidates: the most similar names, plus every type whose model number is written in the line
   // ("BEBOB V-Mount Akku 98Wh V98micro" names bebob V98micro even if another 98Wh battery reads closer).
   const rows = await db.execute<{ id: string; name: string; manufacturer: string; model: string; score: number; model_hit: boolean; maker_hit: boolean }>(sql`
-    WITH t AS (SELECT search_normalize(${text}) AS norm, search_compact(${text}) AS comp)
+    WITH t AS (SELECT search_normalize(${text}) AS norm, search_compact(${text}) AS comp),
+         o AS (SELECT search_normalize(${own}) AS norm, search_compact(${own}) AS comp)
     SELECT id, name, manufacturer, model,
       greatest(
         word_similarity(t.norm, search_text),
@@ -181,10 +185,10 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
         similarity(t.norm, search_text)
       ) AS score,
       (length(search_compact(model)) >= 3 AND (
-         (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || btrim(regexp_replace(search_normalize(model), '[^a-z0-9]+', ' ', 'g')) || ' %')
-         OR (length(search_compact(model)) >= 5 AND strpos(t.comp, search_compact(model)) > 0))) AS model_hit,
+         (' ' || regexp_replace(o.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || btrim(regexp_replace(search_normalize(model), '[^a-z0-9]+', ' ', 'g')) || ' %')
+         OR (length(search_compact(model)) >= 5 AND strpos(o.comp, search_compact(model)) > 0))) AS model_hit,
       (length(search_normalize(manufacturer)) >= 2 AND (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || regexp_replace(search_normalize(manufacturer), '[^a-z0-9]+', ' ', 'g') || ' %')) AS maker_hit
-    FROM equipment_type, t
+    FROM equipment_type, t, o
     WHERE workspace_id = ${ws} AND archived_at IS NULL
       AND (search_text % t.norm OR word_similarity(t.norm, search_text) > 0.3
            OR (length(search_compact(model)) >= 3 AND strpos(t.comp, search_compact(model)) > 0))
