@@ -17,6 +17,8 @@ export interface SetSuggestion {
   itemIds: string[];
   /** The set already exists: every delivered item sits in this one. */
   existing: { id: string; name: string } | null;
+  /** Created already as several identical sets: every item sits in one of these. */
+  createdSets: { id: string; name: string }[];
   /** Every type comes the same number of times (≥ 2): that many identical sets. */
   copies: number;
   /** What one of those identical sets holds. */
@@ -130,9 +132,16 @@ export async function suggestedSets(db: DbOrTx, workspaceId: string, documentId:
     const caseIds = new Set(items.map((i) => i.caseId));
     const onlyCase = caseIds.size === 1 ? [...caseIds][0] : null;
     let existing: SetSuggestion["existing"] = null;
+    let createdSets: SetSuggestion["createdSets"] = [];
     if (onlyCase) {
       const [c] = await db.select({ id: s.equipmentCase.id, name: s.equipmentCase.name }).from(s.equipmentCase).where(eq(s.equipmentCase.id, onlyCase));
       existing = c ?? null;
+    } else if (caseIds.size > 1 && !caseIds.has(null)) {
+      createdSets = await db
+        .select({ id: s.equipmentCase.id, name: s.equipmentCase.name })
+        .from(s.equipmentCase)
+        .where(inArray(s.equipmentCase.id, [...caseIds] as string[]))
+        .orderBy(asc(s.equipmentCase.name));
     }
     const unitsByType = new Map<string, { typeName: string; units: number }>();
     for (const i of items) {
@@ -140,13 +149,14 @@ export async function suggestedSets(db: DbOrTx, workspaceId: string, documentId:
       t.units += i.quantity;
       unitsByType.set(i.typeId, t);
     }
-    const copies = existing ? 1 : equalCopies([...unitsByType.values()].map((t) => t.units));
+    const copies = existing || createdSets.length ? 1 : equalCopies([...unitsByType.values()].map((t) => t.units));
     out.push({
       name,
       lines: group.length,
       units: items.reduce((n, i) => n + i.quantity, 0),
       itemIds: items.map((i) => i.id),
       existing,
+      createdSets,
       copies,
       perCopy: [...unitsByType.values()].map((t) => ({ typeName: t.typeName, units: t.units / copies })),
     });
@@ -169,6 +179,7 @@ export async function createSetFromDocument(db: DbOrTx, ctx: Ctx, documentId: st
   const suggestion = (await suggestedSets(db, ctx.workspaceId, documentId)).find((x) => x.name === setName);
   if (!suggestion) throw new DomainError("NOT_FOUND", `No set “${setName}” on this note.`);
   if (suggestion.existing) return { id: suggestion.existing.id, name: suggestion.existing.name, created: false };
+  if (suggestion.createdSets.length) return { id: suggestion.createdSets[0]!.id, name: suggestion.createdSets[0]!.name, created: false };
   if (names && names.length > 1) return createSetCopies(db, ctx, doc, suggestion, names);
 
   return db.transaction(async (tx) => {

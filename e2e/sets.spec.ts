@@ -12,10 +12,12 @@ async function login(page: Page) {
 
 /** Take everything out of the open set again, so later tests see the demo data unchanged. */
 async function takeOutAll(page: Page) {
-  const buttons = page.getByRole("button", { name: "Take out" });
-  for (let n = await buttons.count(); n > 0; n--) {
-    await buttons.first().click();
-    await expect(buttons).toHaveCount(n - 1);
+  // The "Contents (N packed)" heading is the page's own count: go by it, one piece at a time.
+  const heading = page.getByRole("heading", { name: /^Contents \(\d+ packed\)$/ });
+  const packed = async () => Number((await heading.textContent())!.match(/\d+/)![0]);
+  for (let n = await packed(); n > 0; n = await packed()) {
+    await page.getByRole("button", { name: "Take out" }).first().click();
+    await expect(page.getByRole("heading", { name: `Contents (${n - 1} packed)` })).toBeVisible();
   }
 }
 
@@ -149,17 +151,17 @@ test("items without serial show once with a count and pack by quantity", async (
   await free.getByRole("checkbox").check();
   await free.getByLabel(/How many/).fill("2");
   await page.getByRole("button", { name: "Add 2 to this set" }).click();
-  await expect(page.getByRole("heading", { name: "In this set (2)" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Contents (2 packed)" })).toBeVisible();
   await expect(free.getByText(`${before - 2} pcs · no serial`)).toBeVisible();
 
   // Take one out: the rest stays in the set.
   const packed = page.locator("li").filter({ hasText: "Sandbag" }).filter({ has: page.getByLabel(/How many/) }).filter({ has: page.getByRole("button", { name: "Take out" }) });
   await packed.getByLabel(/How many/).fill("1");
   await packed.getByRole("button", { name: "Take out" }).click();
-  await expect(page.getByRole("heading", { name: "In this set (1)" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Contents (1 packed)" })).toBeVisible();
   // A single unit left: plain button (the extras list has another one).
   await page.locator("li").filter({ hasText: "Sandbag" }).getByRole("button", { name: "Take out" }).last().click();
-  await expect(page.getByRole("heading", { name: "In this set (0)" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Contents (0 packed)" })).toBeVisible();
   await expect(free.getByText(`${before} pcs · no serial`)).toBeVisible();
 });
 
@@ -234,14 +236,14 @@ test("set page: tick several things in the checklist and add them in one go", as
   await rowFor("SN 2575-18832").getByRole("checkbox").check();
   await page.getByRole("button", { name: "Add 2 to this set" }).click();
   await expect(page.getByText("2 pieces added.")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "In this set (2)" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Contents (2 packed)" })).toBeVisible();
   // What is packed now becomes the expected contents in one click.
   await page.getByRole("button", { name: "Use what's packed now (2)" }).click();
   await expect(page.getByText("2 / 2").first()).toBeVisible();
   // Put them back where they were (not in a set).
   for (const left of [1, 0]) {
     await page.locator("li").filter({ has: page.getByRole("button", { name: "Take out" }) }).first().getByRole("button", { name: "Take out" }).click();
-    await expect(page.getByRole("heading", { name: `In this set (${left})` })).toBeVisible();
+    await expect(page.getByRole("heading", { name: `Contents (${left} packed)` })).toBeVisible();
   }
 });
 

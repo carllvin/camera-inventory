@@ -374,6 +374,11 @@ describe("identical sets", () => {
     await expect(createSetFromDocument(db, ctx, id, "Walkie", ["A", "a", "C"])).rejects.toThrow(/its own name/);
     const r = await createSetFromDocument(db, ctx, id, "Walkie", [`Walkie Rot ${tag}`, `Walkie Blau ${tag}`, `Walkie Grün ${tag}`]);
     expect(r).toMatchObject({ created: true, count: 3 });
+    // Done: the suggestion now lists the three sets, and nothing is created twice.
+    const [after] = await suggestedSets(db, ctx.workspaceId, id);
+    expect(after!.createdSets.map((c) => c.name).sort()).toEqual([`Walkie Blau ${tag}`, `Walkie Grün ${tag}`, `Walkie Rot ${tag}`]);
+    expect(after!.copies).toBe(1);
+    expect((await createSetFromDocument(db, ctx, id, "Walkie", ["X", "Y", "Z"])).created).toBe(false);
     for (const name of [`Walkie Rot ${tag}`, `Walkie Blau ${tag}`, `Walkie Grün ${tag}`]) {
       const [set] = await db.select().from(s.equipmentCase).where(eq(s.equipmentCase.name, name));
       const d = await getCaseDetail(db, ctx, set!.id);

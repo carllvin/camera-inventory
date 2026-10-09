@@ -148,7 +148,7 @@ export async function reportLineIssueAction(id: string, lineId: string, _: Actio
 export async function createSetFromDocumentAction(id: string, setName: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     // Several names: that many identical sets (the note's group shared out equally).
-    const names = fd.getAll("setName").map(String);
+    const names = [...fd.keys()].filter((k) => /^setName_\d+$/.test(k)).sort((a, b) => Number(a.slice(8)) - Number(b.slice(8))).map((k) => String(fd.get(k)));
     const r = await createSetFromDocument(getDb(), await getCtx(), id, setName, names.length > 1 ? names : undefined);
     revalidatePath(`/documents/${id}`);
     revalidatePath("/sets", "layout");

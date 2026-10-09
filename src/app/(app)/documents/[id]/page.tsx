@@ -213,64 +213,6 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         </p>
       )}
 
-      {setSuggestions.length > 0 && (
-        <Card className="mb-6">
-          <CardHeader title="Sets on this note" />
-          <p className="px-4 pt-3 text-sm text-muted">
-            The note groups these items into sets. Create them in one click: packed, with exactly these contents expected.
-          </p>
-          <ul className="divide-y divide-border">
-            {setSuggestions.map((sg) => (
-              <li key={sg.name} className="flex flex-wrap items-center gap-3 px-4 py-2.5">
-                <div className="min-w-0 flex-1">
-                  <div className="truncate text-sm font-medium">{sg.name}</div>
-                  <div className="text-xs text-muted">
-                    {sg.units} piece{sg.units === 1 ? "" : "s"} from {sg.lines} line{sg.lines === 1 ? "" : "s"}
-                  </div>
-                </div>
-                {sg.existing ? (
-                  <Link href={`/sets/${sg.existing.id}`} className="text-sm text-accent hover:underline">
-                    Open {sg.existing.name}
-                  </Link>
-                ) : sg.copies > 1 && canCreateSets ? (
-                  <div className="w-full space-y-2 rounded-lg bg-surface-2/60 p-3">
-                    <p className="text-sm">
-                      Everything comes {sg.copies}×: that makes <strong>{sg.copies} identical sets</strong> of{" "}
-                      {sg.perCopy.map((p) => `${p.units} × ${p.typeName}`).join(", ")}. Name them:
-                    </p>
-                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)} className="space-y-2">
-                      <div className="grid gap-2 sm:grid-cols-2">
-                        {copyNames(sg.name, sg.copies).map((n, i) => (
-                          <input key={n} name="setName" defaultValue={n} required maxLength={80} aria-label={`Name of set ${i + 1} of ${sg.name}`} className="input text-sm" />
-                        ))}
-                      </div>
-                      <SubmitButton pendingText="Creating…">Create {sg.copies} sets</SubmitButton>
-                    </ActionForm>
-                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
-                      <SubmitButton variant="ghost" className="!px-0 text-xs" pendingText="…">
-                        Or one set with everything
-                      </SubmitButton>
-                    </ActionForm>
-                  </div>
-                ) : (
-                  canCreateSets && (
-                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
-                      <SubmitButton variant="secondary" pendingText="…">
-                        Create set
-                      </SubmitButton>
-                    </ActionForm>
-                  )
-                )}
-              </li>
-            ))}
-          </ul>
-          {canCreateSets && setSuggestions.filter((sg) => !sg.existing).length > 1 && (
-            <ActionForm action={createAllSetsFromDocumentAction.bind(null, id, setSuggestions.filter((sg) => !sg.existing).map((sg) => sg.name))} className="border-t border-border px-4 py-3">
-              <SubmitButton pendingText="Creating…">Create all {setSuggestions.filter((sg) => !sg.existing).length} sets</SubmitButton>
-            </ActionForm>
-          )}
-        </Card>
-      )}
 
       {doc.status === "processing" && (
         <Card className="mb-6 flex items-center gap-3 p-5">
@@ -620,6 +562,76 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
           </div>
         )}
       </div>
+      {/* Last on the page: after confirming a note, the next step is turning its groups into sets. */}
+      {setSuggestions.length > 0 && (
+        <Card className="mt-6">
+          <CardHeader title="Sets on this note" />
+          <p className="px-4 pt-3 text-sm text-muted">
+            The note groups these items into sets. Create them in one click: packed, with exactly these contents expected.
+          </p>
+          <ul className="divide-y divide-border">
+            {setSuggestions.map((sg) => (
+              <li key={sg.name} className="flex flex-wrap items-center gap-3 px-4 py-2.5">
+                <div className="min-w-0 flex-1">
+                  <div className="truncate text-sm font-medium">{sg.name}</div>
+                  <div className="text-xs text-muted">
+                    {sg.units} piece{sg.units === 1 ? "" : "s"} from {sg.lines} line{sg.lines === 1 ? "" : "s"}
+                  </div>
+                </div>
+                {sg.existing ? (
+                  <Link href={`/sets/${sg.existing.id}`} className="text-sm text-accent hover:underline">
+                    Open {sg.existing.name}
+                  </Link>
+                ) : sg.createdSets.length > 0 ? (
+                  <span className="text-sm">
+                    {sg.createdSets.map((c, i) => (
+                      <span key={c.id}>
+                        {i > 0 && ", "}
+                        <Link href={`/sets/${c.id}`} className="text-accent hover:underline">
+                          {c.name}
+                        </Link>
+                      </span>
+                    ))}
+                  </span>
+                ) : sg.copies > 1 && canCreateSets ? (
+                  <div className="w-full space-y-2 rounded-lg bg-surface-2/60 p-3">
+                    <p className="text-sm">
+                      Everything comes {sg.copies}×: that makes <strong>{sg.copies} identical sets</strong> of{" "}
+                      {sg.perCopy.map((p) => `${p.units} × ${p.typeName}`).join(", ")}. Name them:
+                    </p>
+                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)} className="space-y-2">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {copyNames(sg.name, sg.copies).map((n, i) => (
+                          <Field key={n} name={`setName_${i}`} defaultValue={n} required maxLength={80} aria-label={`Name of set ${i + 1} of ${sg.name}`} />
+                        ))}
+                      </div>
+                      <SubmitButton pendingText="Creating…">Create {sg.copies} sets</SubmitButton>
+                    </ActionForm>
+                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
+                      <SubmitButton variant="ghost" className="!px-0 text-xs" pendingText="…">
+                        Or one set with everything
+                      </SubmitButton>
+                    </ActionForm>
+                  </div>
+                ) : (
+                  canCreateSets && (
+                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
+                      <SubmitButton variant="secondary" pendingText="…">
+                        Create set
+                      </SubmitButton>
+                    </ActionForm>
+                  )
+                )}
+              </li>
+            ))}
+          </ul>
+          {canCreateSets && setSuggestions.filter((sg) => !sg.existing && sg.createdSets.length === 0).length > 1 && (
+            <ActionForm action={createAllSetsFromDocumentAction.bind(null, id, setSuggestions.filter((sg) => !sg.existing && sg.createdSets.length === 0).map((sg) => sg.name))} className="border-t border-border px-4 py-3">
+              <SubmitButton pendingText="Creating…">Create all {setSuggestions.filter((sg) => !sg.existing && sg.createdSets.length === 0).length} sets</SubmitButton>
+            </ActionForm>
+          )}
+        </Card>
+      )}
     </>
   );
 }
