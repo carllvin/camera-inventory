@@ -338,7 +338,8 @@ describe("sets suggested by the note's layout", () => {
     await confirmDelivery(db, ctx, id);
 
     const [sg] = await suggestedSets(db, ctx.workspaceId, id);
-    expect(sg).toMatchObject({ name: "Funk-Set 1", lines: 3, units: 6, existing: null });
+    expect(sg).toMatchObject({ name: "Funk-Set 1", lines: 3, units: 6, existing: null, copies: 2 });
+    // Still possible as one set with everything (no names given).
     const r = await createSetFromDocument(db, ctx, id, "Funk-Set 1");
     expect(r.created).toBe(true);
     const d = await getCaseDetail(db, ctx, r.id);
@@ -347,6 +348,61 @@ describe("sets suggested by the note's layout", () => {
     // Done once: the suggestion now points at the set.
     expect((await suggestedSets(db, ctx.workspaceId, id))[0]!.existing?.id).toBe(r.id);
     expect((await createSetFromDocument(db, ctx, id, "Funk-Set 1")).created).toBe(false);
+  });
+});
+
+describe("identical sets", () => {
+  it("shares a group that comes N times out over N named sets", async () => {
+    const { suggestedSets, createSetFromDocument, equalCopies } = await import("../src/server/domain/document-sets");
+    expect([equalCopies([3, 3, 6]), equalCopies([2, 3]), equalCopies([1]), equalCopies([])]).toEqual([3, 1, 1, 1]);
+    const tag = Math.random().toString(36).slice(2, 7);
+    const id = await upload(
+      new FakeExtractor(
+        extraction(
+          [
+            line({ description: "Bolt TX", serial_numbers: [`W-${tag}-1`, `W-${tag}-2`, `W-${tag}-3`], quantity: 3, catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Walkie" }),
+            line({ description: "Sandsack", quantity: 6, catalog_match: "Matthews Sandbag 15 lb", set_name: "Walkie" }),
+          ],
+          { rental_house_match: "ARRI Rental" },
+        ),
+      ),
+    );
+    await confirmDelivery(db, ctx, id);
+    const [sg] = await suggestedSets(db, ctx.workspaceId, id);
+    expect(sg).toMatchObject({ copies: 3, perCopy: [{ typeName: "Teradek Bolt 6 XT 750 TX", units: 1 }, { typeName: "Matthews Sandbag 15 lb", units: 2 }] });
+    await expect(createSetFromDocument(db, ctx, id, "Walkie", ["A", "B"])).rejects.toThrow(/makes 3 identical sets/);
+    await expect(createSetFromDocument(db, ctx, id, "Walkie", ["A", "a", "C"])).rejects.toThrow(/its own name/);
+    const r = await createSetFromDocument(db, ctx, id, "Walkie", [`Walkie Rot ${tag}`, `Walkie Blau ${tag}`, `Walkie Grün ${tag}`]);
+    expect(r).toMatchObject({ created: true, count: 3 });
+    for (const name of [`Walkie Rot ${tag}`, `Walkie Blau ${tag}`, `Walkie Grün ${tag}`]) {
+      const [set] = await db.select().from(s.equipmentCase).where(eq(s.equipmentCase.name, name));
+      const d = await getCaseDetail(db, ctx, set!.id);
+      expect(d.items.map((i) => [i.typeName, i.quantity]).sort()).toEqual([["Matthews Sandbag 15 lb", 2], ["Teradek Bolt 6 XT 750 TX", 1]]);
+      expect(d.comparison.complete).toBe(true);
+    }
+  });
+
+  it("turns a case line with a quantity into that many sets when the contents divide evenly", async () => {
+    const tag = Math.random().toString(36).slice(2, 7);
+    const id = await upload(
+      new FakeExtractor(
+        extraction(
+          [
+            line({ description: `Koffer Walkie ${tag}`, quantity: 2, is_container: true, set_name: "Walkie" }),
+            line({ description: "Bolt TX", serial_numbers: [`KW-${tag}-1`, `KW-${tag}-2`], quantity: 2, catalog_match: "Teradek Bolt 6 XT 750 TX", set_name: "Walkie" }),
+            line({ description: "Sandsack", quantity: 4, catalog_match: "Matthews Sandbag 15 lb", set_name: "Walkie" }),
+          ],
+          { rental_house_match: "ARRI Rental" },
+        ),
+      ),
+    );
+    await confirmDelivery(db, ctx, id);
+    for (const name of [`Koffer Walkie ${tag} 1`, `Koffer Walkie ${tag} 2`]) {
+      const [set] = await db.select().from(s.equipmentCase).where(eq(s.equipmentCase.name, name));
+      const d = await getCaseDetail(db, ctx, set!.id);
+      expect(d.items.reduce((n, i) => n + i.quantity, 0)).toBe(3);
+      expect(d.comparison.complete).toBe(true);
+    }
   });
 });
 

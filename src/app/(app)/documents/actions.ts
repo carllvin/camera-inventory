@@ -25,7 +25,7 @@ import {
   createTypeFromLine,
 } from "@/server/domain/documents";
 import { getStorage } from "@/server/storage";
-import { createSetFromDocument } from "@/server/domain/document-sets";
+import { copyNames, createSetFromDocument, suggestedSets } from "@/server/domain/document-sets";
 import { addFromList, finishList, removeNotOnList } from "@/server/domain/consolidate";
 
 function scheduleExtraction(workspaceId: string, documentId: string) {
@@ -146,9 +146,12 @@ export async function reportLineIssueAction(id: string, lineId: string, _: Actio
 
 export async function createSetFromDocumentAction(id: string, setName: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
-    const r = await createSetFromDocument(getDb(), await getCtx(), id, setName);
+    // Several names: that many identical sets (the note's group shared out equally).
+    const names = fd.getAll("setName").map(String);
+    const r = await createSetFromDocument(getDb(), await getCtx(), id, setName, names.length > 1 ? names : undefined);
     revalidatePath(`/documents/${id}`);
     revalidatePath("/sets", "layout");
+    if ("count" in r) return `${r.count} sets created.`;
     redirect(`/sets/${r.id}`);
   });
 }
@@ -158,7 +161,12 @@ export async function createAllSetsFromDocumentAction(id: string, names: string[
   return runAction(fd, async () => {
     const ctx = await getCtx();
     let created = 0;
-    for (const n of names) if ((await createSetFromDocument(getDb(), ctx, id, n)).created) created++;
+    const copies = new Map((await suggestedSets(getDb(), ctx.workspaceId, id)).map((sg) => [sg.name, sg.copies]));
+    for (const n of names) {
+      const k = copies.get(n) ?? 1;
+      const r = await createSetFromDocument(getDb(), ctx, id, n, k > 1 ? copyNames(n, k) : undefined);
+      if (r.created) created += "count" in r ? r.count : 1;
+    }
     revalidatePath(`/documents/${id}`);
     revalidatePath("/sets", "layout");
     return `${created} set${created === 1 ? "" : "s"} created.`;

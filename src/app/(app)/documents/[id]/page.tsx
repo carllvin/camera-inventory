@@ -7,7 +7,7 @@ import { getExtractor } from "@/server/ai";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getCategoryTree } from "@/server/domain/categories";
-import { suggestedSets } from "@/server/domain/document-sets";
+import { copyNames, suggestedSets } from "@/server/domain/document-sets";
 import { getConsolidation } from "@/server/domain/consolidate";
 import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
@@ -228,6 +228,26 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   <Link href={`/sets/${sg.existing.id}`} className="text-sm text-accent hover:underline">
                     Open {sg.existing.name}
                   </Link>
+                ) : sg.copies > 1 && canCreateSets ? (
+                  <div className="w-full space-y-2 rounded-lg bg-surface-2/60 p-3">
+                    <p className="text-sm">
+                      Everything comes {sg.copies}×: that makes <strong>{sg.copies} identical sets</strong> of{" "}
+                      {sg.perCopy.map((p) => `${p.units} × ${p.typeName}`).join(", ")}. Name them:
+                    </p>
+                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)} className="space-y-2">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {copyNames(sg.name, sg.copies).map((n, i) => (
+                          <input key={n} name="setName" defaultValue={n} required maxLength={80} aria-label={`Name of set ${i + 1} of ${sg.name}`} className="input text-sm" />
+                        ))}
+                      </div>
+                      <SubmitButton pendingText="Creating…">Create {sg.copies} sets</SubmitButton>
+                    </ActionForm>
+                    <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
+                      <SubmitButton variant="ghost" className="!px-0 text-xs" pendingText="…">
+                        Or one set with everything
+                      </SubmitButton>
+                    </ActionForm>
+                  </div>
                 ) : (
                   canCreateSets && (
                     <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>

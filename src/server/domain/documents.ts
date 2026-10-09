@@ -17,6 +17,7 @@ import { findProjectForDocument, projectContext, projectHints } from "./document
 import { ensureProjectRentalHouse, itemLabel, lockItem } from "./equipment-items";
 import { createEquipmentType } from "./equipment-types";
 import { createCase, packItem, setExpectedFromContents } from "./cases";
+import { packEqualShares } from "./document-sets";
 import { createProject, projectInput } from "./projects";
 import { itemsRemovedWithNote } from "./project-removal";
 import { expandReturnLines, loadProjectItems, matchReturnLines, type ReturnLine } from "./return-matching";
@@ -850,6 +851,33 @@ export async function receiveDeliveryLine(
 
 /** A case line of a delivery note: a new set (name as printed, asset number as barcode), packed with its items. */
 async function setFromCaseLine(tx: DbOrTx, ctx: Ctx, doc: typeof s.document.$inferSelect, projectId: string, l: typeof s.documentLine.$inferSelect, itemIds: string[]) {
+  // "3 × Koffer f. Walkie" holding 3 walkies, 3 headsets …: three identical sets, named "… 1", "… 2", "… 3".
+  if (l.quantity > 1 && itemIds.length) {
+    const units = await tx
+      .select({ units: sql<number>`sum(${s.equipmentItem.quantity})::int` })
+      .from(s.equipmentItem)
+      .where(inArray(s.equipmentItem.id, itemIds))
+      .groupBy(s.equipmentItem.equipmentTypeId);
+    if (units.every((u) => u.units % l.quantity === 0)) {
+      const base = l.description.replace(/\s+/g, " ").trim().slice(0, 72) || "Case";
+      const ids: string[] = [];
+      const names: string[] = [];
+      for (let i = 1; i <= l.quantity; i++) {
+        let name = `${base} ${i}`;
+        for (let n = 2; ; n++) {
+          const [taken] = await tx.select({ id: s.equipmentCase.id }).from(s.equipmentCase).where(and(eq(s.equipmentCase.projectId, projectId), eq(s.equipmentCase.name, name)));
+          if (!taken) break;
+          name = `${base} ${i} (${n})`;
+        }
+        const c = await createCase(tx, ctx, { projectId, name, description: `From delivery note ${doc.documentNumber ?? ""}`.trim() });
+        ids.push(c.id);
+        names.push(c.name);
+      }
+      await packEqualShares(tx, ctx, ids, itemIds);
+      for (const id of ids) await setExpectedFromContents(tx, ctx, id);
+      return names.join(", ");
+    }
+  }
   const base = l.description.replace(/\s+/g, " ").trim().slice(0, 74) || "Case";
   let name = base;
   for (let n = 2; ; n++) {
