@@ -326,3 +326,26 @@ test("equipment grouped by set; ticking a type ticks it only in that set", async
   await aCam.getByLabel("Select all ARRI ALEXA 35").check();
   await expect(page.getByText("1 selected")).toBeVisible();
 });
+
+test("a click on a small picture shows it large", async ({ page }) => {
+  await login(page);
+  await go(page, "/equipment?q=WCU-4471");
+  await page.getByRole("link", { name: /SN WCU-4471/ }).first().click();
+  await page.waitForURL(/\/equipment\/[0-9a-f-]{36}/);
+  await page.waitForLoadState("networkidle");
+  const jpeg = await sharp({ create: { width: 400, height: 300, channels: 3, background: "#cc5500" } }).jpeg().toBuffer();
+  await page.locator('input[type="file"]').setInputFiles({ name: "wcu.jpg", mimeType: "image/jpeg", buffer: jpeg });
+  await page.getByRole("button", { name: "Upload" }).click();
+  await expect(page.getByText("Photo added.")).toBeVisible();
+
+  await go(page, "/equipment");
+  const line = page.locator("details").filter({ has: page.locator("summary", { hasText: "ARRI WCU-4" }) }).first();
+  await line.getByRole("button", { name: "Show picture of ARRI WCU-4" }).click();
+  const dialog = page.getByRole("dialog", { name: "ARRI WCU-4" });
+  await expect(dialog).toBeVisible();
+  await expect.poll(() => dialog.locator("img").evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  // Only the picture opened, not the line.
+  await expect(line).not.toHaveAttribute("open", "");
+});
