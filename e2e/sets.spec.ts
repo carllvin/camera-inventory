@@ -206,7 +206,7 @@ test("project equipment: one line per type with quantity, serials when opened", 
   await expect(page.getByText("SN B290-31131")).toBeVisible();
 });
 
-test("equipment page: one line per type in the type view, one picture per type as an option", async ({ page }) => {
+test("equipment page: one line per type in the type view, pictures grouped by set as an option", async ({ page }) => {
   await login(page);
   await go(page, "/equipment?view=types");
   const line = page.locator("summary").filter({ hasText: "ARRI ALEXA 35" });
@@ -216,8 +216,11 @@ test("equipment page: one line per type in the type view, one picture per type a
 
   await page.getByRole("link", { name: "Image view" }).click();
   await expect(page).toHaveURL(/view=grid/);
-  const card = page.getByRole("link", { name: /ARRI ALEXA 35/ }).filter({ hasText: "× 2" });
-  await expect(card).toHaveCount(1); // two cameras, one card
+  // Grouped by set like the list: the A-Cam camera has its card under A-Cam, the B-Cam one under B-Cam.
+  const card = page.getByRole("region", { name: "A-Cam Set" }).getByRole("link", { name: /ARRI ALEXA 35/ });
+  await expect(card).toHaveCount(1);
+  await expect(card).toContainText("× 1");
+  await expect(page.getByRole("region", { name: "B-Cam Set" }).getByRole("link", { name: /ARRI ALEXA 35/ })).toHaveCount(1);
   await card.click();
   await expect(page.getByText("SN 35-10421").first()).toBeVisible();
 });

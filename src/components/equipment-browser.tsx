@@ -158,12 +158,22 @@ export function EquipmentBrowser({
             </div>
           </div>
           {view === "grid" ? (
-            <TypeGrid items={items} sort={sp.sort} hrefFor={(typeName) => href({ view: "sets", q: typeName })} />
+            <BySet
+              items={items}
+              cases={cases}
+              render={(its) => <TypeGrid items={its} sort={sp.sort} hrefFor={(typeName) => href({ view: "sets", q: typeName })} />}
+            />
           ) : (
             (() => {
               const list =
                 view === "sets" ? (
-                  <BySet items={items} cases={cases} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} selectable={selecting} />
+                  <BySet
+                    items={items}
+                    cases={cases}
+                    render={(its, inSet) => (
+                      <EquipmentByType items={its} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} selectable={selecting} hideSet={inSet} />
+                    )}
+                  />
                 ) : (
                   <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} selectable={selecting} />
                 );
@@ -183,13 +193,16 @@ export function EquipmentBrowser({
   );
 }
 
-/** The list grouped by set: one section per set (in the project's set order), then what is in no set. */
-function BySet({ items, cases, sort, open, showProject, selectable }: { items: ItemRow[]; cases: CaseSummary[]; sort?: string; open: boolean; showProject: boolean; selectable: boolean }) {
+/**
+ * Grouped by set: one section per set (in the project's set order), then what is in no set.
+ * `render` draws a group (type lines or pictures); `inSet` = it sits under a set heading.
+ */
+function BySet({ items, cases, render }: { items: ItemRow[]; cases: CaseSummary[]; render: (items: ItemRow[], inSet: boolean) => ReactNode }) {
   const groups = new Map<string, ItemRow[]>();
   for (const i of items) groups.set(i.caseId ?? "", [...(groups.get(i.caseId ?? "") ?? []), i]);
   const known = new Map(cases.map((c) => [c.id, c]));
   // Nothing packed in any set: just the list.
-  if (groups.size === 1 && groups.has("")) return <EquipmentByType items={items} sort={sort} open={open} showProject={showProject} selectable={selectable} />;
+  if (groups.size === 1 && groups.has("")) return <>{render(items, false)}</>;
   const sections = [
     ...cases.filter((c) => groups.has(c.id)).map((c) => ({ id: c.id, name: c.name, cmp: c.comparison as CaseSummary["comparison"] | null })),
     // Sets of other projects (when no project is in view) by name.
@@ -215,7 +228,7 @@ function BySet({ items, cases, sort, open, showProject, selectable }: { items: I
                 {sct.cmp?.expectedTotal ? `${sct.cmp.matchedTotal} / ${sct.cmp.expectedTotal}${sct.cmp.extraTotal ? ` + ${sct.cmp.extraTotal}` : ""}` : `${pcs} pcs`}
               </span>
             </h3>
-            <EquipmentByType items={its} sort={sort} open={open} showProject={showProject} selectable={selectable} hideSet />
+            {render(its, Boolean(sct.id))}
           </section>
         );
       })}
