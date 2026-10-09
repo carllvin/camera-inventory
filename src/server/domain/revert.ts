@@ -17,7 +17,7 @@ type Changes = Record<string, { from: unknown; to: unknown }>;
 type EventLike = { action: string; changes?: Changes | null; metadata?: Record<string, unknown> | null; documentId?: string | null };
 
 const ITEM_FIELDS = ["serialNumber", "assetNumber", "barcode", "rentalHouseId", "notes", "quantity"];
-const TYPE_FIELDS = ["manufacturer", "model", "name", "categoryId", "aliases", "description", "specs", "defaultTrackingMode"];
+const TYPE_FIELDS = ["manufacturer", "model", "name", "categoryId", "aliases", "description", "specs", "defaultTrackingMode", "archivedAt"];
 const same = (a: unknown, b: unknown) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 
 /** Can this history event be undone (by kind; whether it is still current is checked on undo)? */
@@ -45,6 +45,7 @@ export function isRevertible(e: EventLike) {
       return Boolean(c.project_id?.from) && c.project_id?.to == null && (e.action === "equipment_item.removed_from_project" || Boolean(e.metadata?.withoutReview));
     case "equipment_type.updated":
     case "equipment_type.alias_learned":
+    case "equipment_type.archived":
       return keys.length > 0 && keys.every((k) => TYPE_FIELDS.includes(k));
     default:
       return false;
@@ -86,7 +87,7 @@ export async function revertEvent(db: DbOrTx, ctx: Ctx, eventId: number) {
         action: "equipment_type.updated",
         entityType: "equipment_type",
         entityId: type.id,
-        summary: `${type.name}: ${Object.keys(changes).join(", ")} restored`,
+        summary: "archivedAt" in changes ? `Equipment type ${type.name} restored` : `${type.name}: ${Object.keys(changes).join(", ")} restored`,
         changes: Object.fromEntries(Object.entries(changes).map(([k, v]) => [k, { from: v.to, to: v.from }])),
       });
       return { summary: e.summary };

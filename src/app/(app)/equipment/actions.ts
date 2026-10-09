@@ -11,7 +11,7 @@ import {
   removeFromProject,
   updateItem,
 } from "@/server/domain/equipment-items";
-import { createEquipmentType, updateEquipmentType } from "@/server/domain/equipment-types";
+import { createEquipmentType, deleteEquipmentTypes, restoreEquipmentType, updateEquipmentType } from "@/server/domain/equipment-types";
 import { updateItemState } from "@/server/domain/item-state";
 
 function refresh(itemId: string, projectId?: string | null) {
@@ -88,5 +88,24 @@ export async function updateItemStateAction(id: string, _: ActionState, fd: Form
     if (r.changed.length === 0) return "Nothing changed.";
     const what = r.changed.join(" and ").replace(/^(\w)/, (c) => c.toUpperCase());
     return r.split ? `${what} saved for ${r.item.label} — listed separately now.` : `${what} saved.`;
+  });
+}
+
+/** Delete one type (from its page) or the ticked ones (types list, select mode). */
+export async function deleteTypesAction(_: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(null, async () => {
+    const ids = fd.getAll("typeId").map(String);
+    const { deleted } = await deleteEquipmentTypes(getDb(), await getCtx(), ids);
+    revalidatePath("/equipment", "layout");
+    if (fd.get("from") === "type") redirect("/equipment/types");
+    return deleted.length === 1 ? `${deleted[0]} deleted. Undo it in the history if needed.` : `${deleted.length} types deleted. Undo in the history if needed.`;
+  });
+}
+
+export async function restoreTypeAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await restoreEquipmentType(getDb(), await getCtx(), id);
+    revalidatePath("/equipment", "layout");
+    return "Restored.";
   });
 }

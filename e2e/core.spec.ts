@@ -139,3 +139,33 @@ test("a change can be undone from the history", async ({ page }) => {
   // The original entry (still open) says it was undone.
   await expect(page.getByText("Undone").first()).toBeVisible();
 });
+
+test("delete equipment types: one from its page, several from the list", async ({ page }, info) => {
+  const tag = `${info.project.name}-${Date.now().toString(36)}`;
+  await login(page);
+  for (const model of [`Del A ${tag}`, `Del B ${tag}`, `Del C ${tag}`]) {
+    await go(page, "/equipment/types/new");
+    await page.getByLabel("Manufacturer").fill("E2E");
+    await page.getByLabel("Model").fill(model);
+    await page.getByRole("button", { name: "Create equipment type" }).click();
+    await expect(page.getByRole("heading", { name: `E2E ${model}` })).toBeVisible();
+  }
+  // One from its own page.
+  await page.getByText("Delete this type…").click();
+  await page.getByRole("button", { name: `Delete E2E Del C ${tag}` }).click();
+  await expect(page).toHaveURL(/\/equipment\/types$/);
+
+  // Several at once in select mode.
+  await go(page, `/equipment/types?q=${encodeURIComponent(tag)}`);
+  await expect(page.getByText(`Del A ${tag}`).first()).toBeVisible();
+  await page.getByRole("link", { name: "Select to delete" }).click();
+  await page.getByLabel(`Select E2E Del A ${tag}`).check();
+  await page.getByLabel(`Select E2E Del B ${tag}`).check();
+  await page.getByRole("button", { name: "Delete types" }).click();
+  await expect(page.getByText("2 types deleted.")).toBeVisible();
+  await go(page, `/equipment/types?q=${encodeURIComponent(tag)}`);
+  await expect(page.getByText("No equipment types found")).toBeVisible();
+  // A type with equipment on a project cannot be ticked.
+  await go(page, "/equipment/types?q=alexa%2035&select=1");
+  await expect(page.getByLabel("Select ARRI ALEXA 35")).toBeDisabled();
+});

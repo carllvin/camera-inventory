@@ -44,6 +44,6 @@ export function activityTone(e: { action: string; changes?: Record<string, { fro
   if (a === "equipment_item.assigned_to_project" || a === "delivery.imported" || a === "equipment_item.created" || a === "document.confirmed") return "ok";
   if (a === "equipment_item.returned" || a === "return_note.imported" || a === "equipment_item.removed_from_project") return "info";
   if (a.startsWith("case.") || a.includes("_case")) return "set";
-  if (a === "equipment_item.split") return "warn";
+  if (a === "equipment_item.split" || a === "equipment_type.archived") return "warn";
   return "neutral";
 }

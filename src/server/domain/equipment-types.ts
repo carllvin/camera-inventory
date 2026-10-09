@@ -103,6 +103,31 @@ export async function createEquipmentType(db: DbOrTx, ctx: Ctx, input: Equipment
   const name = data.name ?? typeDisplayName(data.manufacturer, data.model);
   try {
     return await db.transaction(async (tx) => {
+      const [deleted] = await tx
+        .select()
+        .from(s.equipmentType)
+        .where(
+          and(
+            eq(s.equipmentType.workspaceId, ctx.workspaceId),
+            sql`lower(${s.equipmentType.manufacturer}) = lower(${data.manufacturer}) AND lower(${s.equipmentType.model}) = lower(${data.model})`,
+            sql`${s.equipmentType.archivedAt} IS NOT NULL`,
+          ),
+        )
+        .for("update");
+      if (deleted) {
+        const [t] = await tx
+          .update(s.equipmentType)
+          .set({ ...data, name, categoryId: data.categoryId ?? null, archivedAt: null })
+          .where(eq(s.equipmentType.id, deleted.id))
+          .returning();
+        await recordEvent(tx, ctx, {
+          action: "equipment_type.restored",
+          entityType: "equipment_type",
+          entityId: t!.id,
+          summary: `Equipment type ${name} restored (it had been deleted)`,
+        });
+        return t!;
+      }
       const [t] = await tx
         .insert(s.equipmentType)
         .values({ workspaceId: ctx.workspaceId, ...data, name, categoryId: data.categoryId ?? null })
@@ -147,6 +172,65 @@ export async function updateEquipmentType(db: DbOrTx, ctx: Ctx, id: string, inpu
   } catch (err) {
     mapErr(err, data);
   }
+}
+
+/**
+ * Delete equipment types: they are archived, never removed, so past items and
+ * their history keep their type. Gone from lists, pickers and document matching;
+ * the standard catalog import does not bring them back; undo restores them.
+ * A type with pieces on a project cannot go.
+ */
+export async function deleteEquipmentTypes(db: DbOrTx, ctx: Ctx, ids: string[]) {
+  requireRole(ctx, "member");
+  const unique = [...new Set(ids)];
+  if (unique.length === 0) throw new DomainError("VALIDATION", "Choose the types to delete.");
+  return db.transaction(async (tx) => {
+    const types = await tx
+      .select()
+      .from(s.equipmentType)
+      .where(and(eq(s.equipmentType.workspaceId, ctx.workspaceId), inArray(s.equipmentType.id, unique), isNull(s.equipmentType.archivedAt)))
+      .for("update");
+    if (types.length === 0) return { deleted: [] as string[] };
+    const busy = await tx
+      .select({ typeId: s.equipmentItem.equipmentTypeId, pieces: sql<number>`sum(${s.equipmentItem.quantity})::int` })
+      .from(s.equipmentItem)
+      .where(and(eq(s.equipmentItem.workspaceId, ctx.workspaceId), inArray(s.equipmentItem.equipmentTypeId, types.map((t) => t.id)), sql`${s.equipmentItem.projectId} IS NOT NULL`))
+      .groupBy(s.equipmentItem.equipmentTypeId);
+    if (busy.length) {
+      const names = busy.map((b) => `${types.find((t) => t.id === b.typeId)!.name} (${b.pieces} on a project)`);
+      throw new DomainError("CONFLICT", `Still in use: ${names.join(", ")}. Remove those pieces from their project first.`);
+    }
+    const now = new Date();
+    await tx.update(s.equipmentType).set({ archivedAt: now }).where(inArray(s.equipmentType.id, types.map((t) => t.id)));
+    for (const t of types)
+      await recordEvent(tx, ctx, {
+        action: "equipment_type.archived",
+        entityType: "equipment_type",
+        entityId: t.id,
+        summary: `Equipment type ${t.name} deleted`,
+        changes: { archivedAt: { from: null, to: now.toISOString() } },
+      });
+    return { deleted: types.map((t) => t.name) };
+  });
+}
+
+/** Bring a deleted type back. */
+export async function restoreEquipmentType(db: DbOrTx, ctx: Ctx, id: string) {
+  requireRole(ctx, "member");
+  return db.transaction(async (tx) => {
+    const [t] = await tx.select().from(s.equipmentType).where(and(eq(s.equipmentType.id, id), eq(s.equipmentType.workspaceId, ctx.workspaceId))).for("update");
+    if (!t) notFound("Equipment type");
+    if (!t.archivedAt) return t;
+    const [r] = await tx.update(s.equipmentType).set({ archivedAt: null }).where(eq(s.equipmentType.id, id)).returning();
+    await recordEvent(tx, ctx, {
+      action: "equipment_type.restored",
+      entityType: "equipment_type",
+      entityId: id,
+      summary: `Equipment type ${t.name} restored`,
+      changes: { archivedAt: { from: t.archivedAt.toISOString(), to: null } },
+    });
+    return r!;
+  });
 }
 
 export async function listEquipmentTypeOptions(db: DbOrTx, ctx: Ctx) {

@@ -122,3 +122,30 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
     </div>
   );
 }
+
+/** Sticky bar for deleting the ticked equipment types (types list, select mode). */
+export function DeleteTypesBar() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const form = ref.current?.closest("form");
+    if (!form) return;
+    const update = () => setCount(form.querySelectorAll('input[name="typeId"]:checked').length);
+    const onReset = () => setTimeout(update, 0);
+    form.addEventListener("change", update);
+    form.addEventListener("reset", onReset);
+    update();
+    return () => {
+      form.removeEventListener("change", update);
+      form.removeEventListener("reset", onReset);
+    };
+  }, []);
+  return (
+    <div ref={ref} className="sticky bottom-20 z-10 mt-3 flex items-center justify-between gap-2 rounded-xl border border-border bg-surface p-2 shadow-lg md:bottom-4">
+      <span className="px-1 text-sm font-medium tabular-nums">{count} selected</span>
+      <SubmitButton variant="danger" disabled={count === 0} className="!py-1.5" pendingText="Deleting…">
+        Delete {count === 1 ? "type" : "types"}
+      </SubmitButton>
+    </div>
+  );
+}

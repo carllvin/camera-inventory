@@ -159,6 +159,7 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
       .where(
         and(
           eq(s.equipmentType.workspaceId, ws),
+          sql`${s.equipmentType.archivedAt} IS NULL`,
           sql`(lower(${s.equipmentType.name}) = lower(${line.catalogMatch})
                OR lower(${line.catalogMatch}) = ANY (SELECT lower(a) FROM unnest(${s.equipmentType.aliases}) a)
                OR lower(${s.equipmentType.manufacturer} || ' ' || ${s.equipmentType.model}) = lower(${line.catalogMatch}))`,
