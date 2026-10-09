@@ -414,7 +414,10 @@
      "aliases": [
       "LPL LBUS",
       "LPL Bajonett LBUS",
-      "K2.0018983"
+      "K2.0018983",
+      "ARRI LPL Mount f. ALEXA Mini / 35 / Amira",
+      "LPL Mount ALEXA Mini",
+      "LPL Mount Mini LF"
      ]
     },
     {
@@ -1241,6 +1244,15 @@
       "K2.66255.0",
       "Reduction Insert 19/15mm",
       "Reduzierung 19/15mm ARRI"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Neck Strap",
+     "aliases": [
+      "Umhängegurt",
+      "Tragegurt"
      ],
      "bulk": true
     }
@@ -3245,6 +3257,29 @@
      "specs": {
       "capacity": "64GB"
      }
+    },
+    {
+     "manufacturer": "Codex",
+     "model": "Compact Drive Dock TB3",
+     "aliases": [
+      "K2.0034320",
+      "CX.0001007",
+      "Compact Drive Reader TB3",
+      "Compact Drive Dock Thunderbolt 3"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "SD Card 8-32 GB",
+     "aliases": [
+      "SD-Card 8-32GB",
+      "SD-Karte",
+      "SDHC Card"
+     ],
+     "specs": {
+      "capacity": "8-32 GB"
+     },
+     "bulk": true
     }
    ]
   },

@@ -47,6 +47,16 @@ describe("findType", () => {
     expect((await findType(db, ctx.workspaceId, line("ARRI ALEXA MINI LF Body")))?.name).toBe("ARRI ALEXA Mini LF");
   });
 
+  it("a line written exactly like a known spelling goes to that type first", async () => {
+    await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "PL Mount" });
+    await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "LPL Mount (LBUS)", aliases: "ARRI LPL Mount f. ALEXA Mini / 35 / Amira" });
+    expect((await findType(db, ctx.workspaceId, line("ARRI LPL Mount f. ALEXA Mini / 35 / Amira")))?.name).toBe("ARRI LPL Mount (LBUS)");
+    // Two types with the same spelling: a person decides.
+    await createEquipmentType(db, ctx, { manufacturer: "Generic", model: "Neck Strap", aliases: "Umhängegurt" });
+    await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "WCU-4 Neck Strap", aliases: "Umhängegurt" });
+    expect(await findType(db, ctx.workspaceId, line("Umhängegurt"))).toBeNull();
+  });
+
   it("does not take a short model inside a longer one", async () => {
     expect((await findType(db, ctx.workspaceId, line("Canon C700 FF")))?.name).not.toBe("Canon C70");
   });

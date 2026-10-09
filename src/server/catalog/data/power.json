@@ -947,6 +947,26 @@
       "capacity_mah": 3500
      },
      "bulk": true
+    },
+    {
+     "manufacturer": "Utz",
+     "model": "RAKO Dangerous Goods Battery Container",
+     "aliases": [
+      "UTZ Rako Gefahrgutbehälter Akkubox mit Trennstegen",
+      "Rako Gefahrgutbehälter",
+      "Gefahrgutbehälter Akkubox"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "NP-FM500H",
+     "aliases": [
+      "K2.47851.0",
+      "Akku NP-FM 500H",
+      "NP-FM 500 H",
+      "WCU-4 Akku"
+     ],
+     "bulk": true
     }
    ]
   },
@@ -1265,8 +1285,37 @@
       "K2.0039874",
       "LBP Charger",
       "Hi-5 Battery Charger",
-      "Hi-5 Ladegerät"
+      "Hi-5 Ladegerät",
+      "ARRI Hi-5 Battery Charger 1-fach f. LBP-3500 /NP-F550 Akku",
+      "Hi-5 Battery Charger 1-fach"
      ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "NP-FM Dual Travel Charger",
+     "aliases": [
+      "HEDBOX / BLUMAX Travel-Charger NP-FM Base Dual",
+      "Travel-Charger NP-FM",
+      "NP-FM Ladegerät 2-fach"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BC-QM1",
+     "aliases": [
+      "K2.0002065",
+      "BC-QM1 Ladegerät",
+      "NP-FM500H Charger"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BC-VM10",
+     "aliases": [
+      "K2.47852.0",
+      "BC-VM10 Ladegerät"
+     ],
+     "discontinued": true
     }
    ]
   },
@@ -1473,6 +1522,83 @@
       "capacity_wh": 2100,
       "output_w": 3600
      }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Dual L-Series Battery Plate for Cine 7 / 702 Touch",
+     "aliases": [
+      "small HD NP-F Akkuplatte",
+      "PWR-ADP-C7T-SONY",
+      "SmallHD Sony L-Series Battery Bracket",
+      "SmallHD NP-F Battery Plate"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "V-Mount Battery Adapter V-Mount-F7H",
+     "aliases": [
+      "Akkuadapterplatte V-Mount f. TV Logic F-7H",
+      "V-Mount-F7H",
+      "TVLogic F-7H V-Mount Plate"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "V-Mount Battery Bracket for 1300 Series",
+     "aliases": [
+      "small HD V-Mount Battery Bracket 1303",
+      "SmallHD 1303 V-Mount Bracket",
+      "SmallHD 1303 V-Mount Power Kit"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Schuko 3-Way Rubber Coupler",
+     "aliases": [
+      "Schuko 3fach Gummikupplung (Bommel)",
+      "Bommel",
+      "Schuko 3-fach Kupplung"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Schuko Power Strip",
+     "aliases": [
+      "Schuko-Steckdosenleiste",
+      "Steckdosenleiste",
+      "Mehrfachsteckdose"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Gold Mount Battery Plate for Cine 7 / 702 Touch",
+     "aliases": [
+      "PWR-ADP-C7T-GM",
+      "SmallHD Cine 7 Gold Mount Plate"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "V-Mount Battery Bracket for Smart 7 Series",
+     "aliases": [
+      "SmallHD Cine 7 V-Mount Plate",
+      "Smart 7 V-Mount Bracket"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "Battery Bracket BB-F7H-S",
+     "aliases": [
+      "BB-F7H-S",
+      "TVLogic F-7H NP-F Battery Bracket"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "V-Mount Battery Adapter V-Mount-F7H-C",
+     "aliases": [
+      "V-Mount-F7H-C"
+     ]
     }
    ]
   }

@@ -947,7 +947,9 @@
       "IRND 0.6",
       "ND 0.6 4x5.65",
       "ND6",
-      "IRND 0.6 4x5.65"
+      "IRND 0.6 4x5.65",
+      "FILTER Platinum ND 0.6 4\"x5,65\"",
+      "Platinum ND 0.6 4x5.65"
      ],
      "bulk": true
     },
@@ -958,7 +960,9 @@
       "IRND 0.9",
       "ND 0.9 4x5.65",
       "ND9",
-      "IRND 0.9 4x5.65"
+      "IRND 0.9 4x5.65",
+      "FILTER Platinum ND 0.9 4\"x5,65\"",
+      "Platinum ND 0.9 4x5.65"
      ],
      "bulk": true
     },
@@ -968,7 +972,9 @@
      "aliases": [
       "IRND 1.2",
       "ND 1.2 4x5.65",
-      "IRND 1.2 4x5.65"
+      "IRND 1.2 4x5.65",
+      "FILTER Platinum ND 1.2 4\"x5,65\"",
+      "Platinum ND 1.2 4x5.65"
      ],
      "bulk": true
     },
@@ -978,7 +984,9 @@
      "aliases": [
       "IRND 1.5",
       "ND 1.5 4x5.65",
-      "IRND 1.5 4x5.65"
+      "IRND 1.5 4x5.65",
+      "FILTER Platinum ND 1.5 4\"x5,65\"",
+      "Platinum ND 1.5 4x5.65"
      ],
      "bulk": true
     },
@@ -1344,7 +1352,8 @@
      "model": "Glimmerglass 1/2 4x5.65",
      "aliases": [
       "GG 1/2 4x5.65",
-      "Glimmerglass 4x5.65 1/2"
+      "Glimmerglass 4x5.65 1/2",
+      "FILTER Glimmer Glass 1/2 4\"x5,65\""
      ],
      "bulk": true
     },
@@ -1896,7 +1905,8 @@
       "Glimmer Glass 1/8 4x5.65",
       "Glimmerglass 4x5.65 1/8",
       "GG 4x5.65 1/8",
-      "Glimmer Glass 4x5.65 1/8"
+      "Glimmer Glass 4x5.65 1/8",
+      "FILTER Glimmer Glass 1/8 4\"x5,65\""
      ],
      "bulk": true
     },
@@ -1908,7 +1918,8 @@
       "Glimmer Glass 1/4 4x5.65",
       "Glimmerglass 4x5.65 1/4",
       "GG 4x5.65 1/4",
-      "Glimmer Glass 4x5.65 1/4"
+      "Glimmer Glass 4x5.65 1/4",
+      "FILTER Glimmer Glass 1/4 4\"x5,65\""
      ],
      "bulk": true
     },
@@ -1920,7 +1931,8 @@
       "Glimmer Glass 1 4x5.65",
       "Glimmerglass 4x5.65 1",
       "GG 4x5.65 1",
-      "Glimmer Glass 4x5.65 1"
+      "Glimmer Glass 4x5.65 1",
+      "FILTER Glimmer Glass 1 4\"x5,65\""
      ],
      "bulk": true
     },
@@ -1932,7 +1944,8 @@
       "Glimmer Glass 2 4x5.65",
       "Glimmerglass 4x5.65 2",
       "GG 4x5.65 2",
-      "Glimmer Glass 4x5.65 2"
+      "Glimmer Glass 4x5.65 2",
+      "FILTER Glimmer Glass 2 4\"x5,65\""
      ],
      "bulk": true
     },
@@ -3917,7 +3930,8 @@
      "aliases": [
       "Clear Coated 4x5.65",
       "Optical Flat 4x5.65",
-      "Klarglas 4x5.65"
+      "Klarglas 4x5.65",
+      "FILTER Clear 4\"x5,65\""
      ],
      "bulk": true
     },
@@ -4539,7 +4553,8 @@
      "model": "RHOdium FSND 4x5.65 0.3",
      "aliases": [
       "FSND 0.3 4x5.65",
-      "Rhodium ND 0.3 4x5.65"
+      "Rhodium ND 0.3 4x5.65",
+      "FILTER Rhodium FSND 0.3 4\"x5,65\""
      ],
      "bulk": true
     },
@@ -5442,7 +5457,9 @@
       "ND Attenuator 0.3 4x5.65",
       "Grad ND Attenuator 0.3 4x5.65",
       "Attenuator ND3 4x5.65",
-      "Tiffen Attenuator 0.3 4x5.65"
+      "Tiffen Attenuator 0.3 4x5.65",
+      "FILTER ND 0.3 Attenuated horz. 4\"x5,65\"",
+      "ND 0.3 Attenuated horz. 4x5.65"
      ],
      "bulk": true
     },
@@ -5453,7 +5470,9 @@
       "ND Attenuator 0.6 4x5.65",
       "Grad ND Attenuator 0.6 4x5.65",
       "Attenuator ND6 4x5.65",
-      "Tiffen Attenuator 0.6 4x5.65"
+      "Tiffen Attenuator 0.6 4x5.65",
+      "FILTER ND 0.6 Attenuated horz. 4\"x5,65\"",
+      "ND 0.6 Attenuated horz. 4x5.65"
      ],
      "bulk": true
     },
@@ -5465,7 +5484,9 @@
       "Grad ND Attenuator 0.9 4x5.65",
       "Attenuator ND9 4x5.65",
       "Tiffen Attenuator 0.9 4x5.65",
-      "A4565CGN9H"
+      "A4565CGN9H",
+      "FILTER ND 0.9 Attenuated horz. 4\"x5,65\"",
+      "ND 0.9 Attenuated horz. 4x5.65"
      ],
      "bulk": true
     },
@@ -6235,6 +6256,108 @@
       "Streakfilter 3mm 4x5.65"
      ],
      "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "R2 138mm Filter Ring 114mm",
+     "aliases": [
+      "K2.52204.0",
+      "Lichtschutzring 138mm mit Anschl. 114mm",
+      "R2 138mm Filter Ring Ø114mm",
+      "Lichtschutzring 138/114"
+     ],
+     "specs": {
+      "diameter_mm": 138
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Geared Rota-Pol 4x5.65 138mm",
+     "aliases": [
+      "FILTER Rotapol 4\"x5,65\" 138mm (G)",
+      "Rotapol 4x5.65 138mm",
+      "Rota-Pol 4x5.65 geared",
+      "Rotating Polarizer 4x5.65 138mm"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\"",
+      "diameter_mm": 138
+     }
+    },
+    {
+     "manufacturer": "Lindsey Optics",
+     "model": "138mm Brilliant2 Rota-Pol 4x5.65",
+     "aliases": [
+      "Lindsey Rota-Pol",
+      "Brilliant2 Rota-Pol",
+      "LO4565138ROL"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\"",
+      "diameter_mm": 138
+     }
+    },
+    {
+     "manufacturer": "Alan Gordon Enterprises",
+     "model": "4x5.65 Rota-Pola Tray for 138mm",
+     "aliases": [
+      "AGE Rota Pola Tray",
+      "Rota-Pola Tray 4x5.65 138mm"
+     ],
+     "specs": {
+      "filter_size": "4x5.65\"",
+      "diameter_mm": 138
+     }
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "R2 138mm Tilting Filter Ring 114mm",
+     "aliases": [
+      "K2.0002477",
+      "R2 Tilting Ring 138/114",
+      "SMB-2 Tilting Ring 114mm"
+     ],
+     "specs": {
+      "diameter_mm": 138
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Sprayoff Micro",
+     "aliases": [
+      "Sprayoff Micro Rain Deflector",
+      "Regenabweiser Micro"
+     ],
+     "specs": {
+      "filter_size": "4x5.65"
+     }
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Sprayoff Mini",
+     "aliases": [
+      "Sprayoff Mini Rain Deflector",
+      "Regenabweiser Mini"
+     ],
+     "specs": {
+      "filter_size": "6x6"
+     }
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Sprayoff PSR Micro",
+     "aliases": [
+      "Sprayoff PSR"
+     ]
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Sprayoff Giga",
+     "aliases": [
+      "Sprayoff Giga Rain Deflector"
+     ]
     }
    ]
   },
@@ -6350,7 +6473,9 @@
      "model": "FF Gear 0.8 mod 35t 25mm",
      "aliases": [
       "K2.47557.0",
-      "FF Zahnrad 0.8 35z 25mm"
+      "FF Zahnrad 0.8 35z 25mm",
+      "Zahnrad FF Mod.08 Zoom/Cooke",
+      "FF Zahnrad Zoom"
      ],
      "specs": {
       "module": "0.8",
@@ -6408,7 +6533,9 @@
       "K2.34100.0",
       "FF-5 Whip 300mm",
       "Focus Whip short",
-      "Schärfewelle 300mm"
+      "Schärfewelle 300mm",
+      "Biegsame Welle f. FF 30cm",
+      "Biegsame Welle kurz"
      ],
      "specs": {
       "length_mm": 300
@@ -6422,7 +6549,9 @@
       "K2.32730.0",
       "FF-5 Speed Crank",
       "Speed Crank FF-5",
-      "Kurbel FF-5"
+      "Kurbel FF-5",
+      "Schärfenhebel f. FF",
+      "Schärfenhebel"
      ]
     },
     {
@@ -6430,7 +6559,9 @@
      "model": "Follow Focus FF-4",
      "aliases": [
       "FF-4",
-      "Schärfezieheinrichtung FF-4"
+      "Schärfezieheinrichtung FF-4",
+      "ARRI FF-4 Schärfenzieheinrichtung 15/19mm",
+      "FF-4 Schärfenzieheinrichtung"
      ],
      "discontinued": true
     },
@@ -6479,7 +6610,9 @@
      "aliases": [
       "K2.32701.0",
       "FF-5 Marking Disk",
-      "Markierscheibe FF-5"
+      "Markierscheibe FF-5",
+      "Markierscheibe WLCS flach",
+      "Markierscheibe flach"
      ],
      "bulk": true
     },
@@ -6743,7 +6876,9 @@
      "aliases": [
       "UBS-100",
       "Focusbug Base Sensor",
-      "Cine RT UBS"
+      "Cine RT UBS",
+      "CINE RT Ultrasonic Base Sensor UBS-100",
+      "Cine RT Ultrasonic Base Sensor"
      ]
     },
     {
@@ -6753,7 +6888,9 @@
      "aliases": [
       "BUG-100",
       "Focusbug Bug",
-      "Cine RT Bug"
+      "Cine RT Bug",
+      "CINE RT Ultrasonic Transmitter BUG-100",
+      "Cine RT Ultrasonic Transmitter"
      ]
     },
     {
@@ -6762,7 +6899,9 @@
      "aliases": [
       "HSU-100",
       "Focusbug Handset",
-      "Cine RT Handset"
+      "Cine RT Handset",
+      "CINE RT Handset Control Unit HSU-100",
+      "Cine RT Handset Control Unit"
      ]
     },
     {
@@ -7080,7 +7219,9 @@
      "aliases": [
       "K2.0039838",
       "Bluetooth Dongle Hi-5",
-      "ECS Bluetooth Dongle"
+      "ECS Bluetooth Dongle",
+      "ARRI Hi-5 USB-A Stick (Bluetooth-Dongle)",
+      "Hi-5 USB-A Stick"
      ],
      "bulk": true
     },
@@ -7090,7 +7231,8 @@
      "aliases": [
       "K2.0039958",
       "Hand Strap Hi-5",
-      "Hi-5 Handschlaufe"
+      "Hi-5 Handschlaufe",
+      "ARRI Hi-5 Handschlaufe"
      ],
      "bulk": true
     },
@@ -7139,7 +7281,9 @@
      "aliases": [
       "K2.0037463",
       "Hi-5 Smart Focus Ring blank",
-      "Hi-5 Schärfering blanko"
+      "Hi-5 Schärfering blanko",
+      "ARRI Smart Focus Markierscheibe blank f. Hi-5",
+      "Smart Focus Markierscheibe blank"
      ],
      "bulk": true
     },
@@ -7149,7 +7293,9 @@
      "aliases": [
       "K2.0040112",
       "Hi-5 Smart Focus Ring 0.30m",
-      "Hi-5 Schärfering 0.30m"
+      "Hi-5 Schärfering 0.30m",
+      "ARRI Smart Focus Markierscheibe 0,30m f. Hi-5",
+      "Smart Focus Markierscheibe 0,30m"
      ],
      "specs": {
       "close_focus": "0.30m"
@@ -7162,7 +7308,9 @@
      "aliases": [
       "K2.0040113",
       "Hi-5 Smart Focus Ring 0.35m",
-      "Hi-5 Schärfering 0.35m"
+      "Hi-5 Schärfering 0.35m",
+      "ARRI Smart Focus Markierscheibe 0,35m f. Hi-5",
+      "Smart Focus Markierscheibe 0,35m"
      ],
      "specs": {
       "close_focus": "0.35m"
@@ -7175,7 +7323,9 @@
      "aliases": [
       "K2.0040114",
       "Hi-5 Smart Focus Ring 0.50m",
-      "Hi-5 Schärfering 0.50m"
+      "Hi-5 Schärfering 0.50m",
+      "ARRI Smart Focus Markierscheibe 0,50m f. Hi-5",
+      "Smart Focus Markierscheibe 0,50m"
      ],
      "specs": {
       "close_focus": "0.50m"
@@ -7188,7 +7338,9 @@
      "aliases": [
       "K2.0040116",
       "Hi-5 Smart Focus Ring 1.00m",
-      "Hi-5 Schärfering 1.00m"
+      "Hi-5 Schärfering 1.00m",
+      "ARRI Smart Focus Markierscheibe 1,00m f. Hi-5",
+      "Smart Focus Markierscheibe 1,00m"
      ],
      "specs": {
       "close_focus": "1.00m"
@@ -7201,7 +7353,9 @@
      "aliases": [
       "K2.0040117",
       "Hi-5 Smart Focus Ring 1.50m",
-      "Hi-5 Schärfering 1.50m"
+      "Hi-5 Schärfering 1.50m",
+      "ARRI Smart Focus Markierscheibe 1,50m f. Hi-5",
+      "Smart Focus Markierscheibe 1,50m"
      ],
      "specs": {
       "close_focus": "1.50m"
@@ -7214,7 +7368,9 @@
      "aliases": [
       "K2.0040118",
       "Hi-5 Smart Focus Ring 2.00m",
-      "Hi-5 Schärfering 2.00m"
+      "Hi-5 Schärfering 2.00m",
+      "ARRI Smart Focus Markierscheibe 2,00m f. Hi-5",
+      "Smart Focus Markierscheibe 2,00m"
      ],
      "specs": {
       "close_focus": "2.00m"
@@ -7227,7 +7383,9 @@
      "aliases": [
       "K2.0040119",
       "Hi-5 Smart Focus Ring 3.00m",
-      "Hi-5 Schärfering 3.00m"
+      "Hi-5 Schärfering 3.00m",
+      "ARRI Smart Focus Markierscheibe 3,00m f. Hi-5",
+      "Smart Focus Markierscheibe 3,00m"
      ],
      "specs": {
       "close_focus": "3.00m"
@@ -7549,7 +7707,8 @@
      "aliases": [
       "K2.0006176",
       "cforce mini Clamp Console",
-      "CLM-5 Motorhalter 19/15mm"
+      "CLM-5 Motorhalter 19/15mm",
+      "ARRI CForce mini Clamp Console 19/15mm"
      ]
     },
     {
@@ -7558,7 +7717,9 @@
      "aliases": [
       "K2.0006175",
       "cforce mini Clamp Insert 15mm",
-      "CLM-5 Reduzierung 19/15mm"
+      "CLM-5 Reduzierung 19/15mm",
+      "Adapterhülse 19-15mm",
+      "Adapterhülse 19/15mm"
      ],
      "bulk": true
     },
@@ -7568,7 +7729,9 @@
      "aliases": [
       "K2.0038503",
       "Clamp Insert 2 15mm",
-      "cforce mini Reduzierung 15mm"
+      "cforce mini Reduzierung 15mm",
+      "Adapterhälfte 19/15mm f. Clamp Console 2",
+      "Adapterhälfte 19/15mm"
      ],
      "bulk": true
     },
@@ -7595,7 +7758,9 @@
      "model": "FF Gear 0.8 mod 35t 10mm",
      "aliases": [
       "K2.65276.0",
-      "FF Zahnrad 0.8 35z 10mm"
+      "FF Zahnrad 0.8 35z 10mm",
+      "Zahnrad FF Mod.08 Primes/Standard",
+      "FF Zahnrad Standard"
      ],
      "specs": {
       "module": "0.8",
@@ -7669,7 +7834,9 @@
       "K2.32731.0",
       "FF-5 Whip 900mm",
       "Focus Whip long",
-      "Schärfewelle 900mm"
+      "Schärfewelle 900mm",
+      "Biegsame Welle f. FF 100cm",
+      "Biegsame Welle lang"
      ],
      "specs": {
       "length_mm": 900
@@ -7692,7 +7859,9 @@
      "aliases": [
       "K2.65253.0",
       "FF Knob left",
-      "Schärferad links"
+      "Schärferad links",
+      "Handrad links kurz f. FF-4",
+      "FF-4 Handrad links"
      ],
      "bulk": true
     },
@@ -7702,7 +7871,9 @@
      "aliases": [
       "K2.47215.0",
       "FF Knob right",
-      "Schärferad rechts"
+      "Schärferad rechts",
+      "Handrad rechts lang f. FF-4",
+      "FF-4 Handrad rechts"
      ],
      "bulk": true
     },
@@ -7732,7 +7903,366 @@
      "aliases": [
       "K2.32985.0",
       "Focus Knob Extension",
-      "Verlängerung Schärferad"
+      "Verlängerung Schärferad",
+      "Verlängerung für Handrad FF",
+      "Handradverlängerung FF"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Swivel Antenna 83mm",
+     "aliases": [
+      "K2.0001996",
+      "WLCS Antenne kurz",
+      "ARRI Antenne kurz",
+      "Swivel Antenna ALEXA Mini"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Straight Outdoor Antenna",
+     "aliases": [
+      "K2.0002007",
+      "ARRI Antenne f. UMC-4/Cforce RF Motor/Hi-5",
+      "UMC-4 Antenne",
+      "cforce mini RF Antenna"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Bridge Adapter BA-2 19mm",
+     "aliases": [
+      "K2.65224.0",
+      "BA-2 Adapter 19mm FF-4",
+      "BA-2",
+      "FF-4 Adapter 19mm"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Grip Sleeve for Flexible Shaft",
+     "aliases": [
+      "Griffhülse f. Biegsame Welle FF",
+      "Griffhülse Biegsame Welle"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Focus Knob for Flexible Shaft",
+     "aliases": [
+      "Handrad f. Biegsame Welle FF",
+      "Handrad Biegsame Welle"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hi-5 Focusbug License Key",
+     "aliases": [
+      "ARRI Hi-5 Focusbug License",
+      "Hi-5 Focusbug Lizenz",
+      "Focusbug License Hi-5"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 0.20m",
+     "aliases": [
+      "K2.0040110",
+      "ARRI Smart Focus Markierscheibe 0,20m f. Hi-5",
+      "Hi-5 Smart Focus Ring 0.20m",
+      "Hi-5 Schärfering 0.20m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 0.25m",
+     "aliases": [
+      "K2.0040111",
+      "ARRI Smart Focus Markierscheibe 0,25m f. Hi-5",
+      "Hi-5 Smart Focus Ring 0.25m",
+      "Hi-5 Schärfering 0.25m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring 0.75m",
+     "aliases": [
+      "K2.0040115",
+      "ARRI Smart Focus Markierscheibe 0,75m f. Hi-5",
+      "Hi-5 Smart Focus Ring 0.75m",
+      "Hi-5 Schärfering 0.75m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LCUBE Bracket",
+     "aliases": [
+      "K2.0009620",
+      "ARRI LCUBE Bracket",
+      "CUB-1 Bracket",
+      "LCUBE Halter"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "OCU-1 Rosette Bracket",
+     "aliases": [
+      "K2.0020003",
+      "ARRI Rosette Bracket f. OCU-1",
+      "Rosette Bracket OCU-1",
+      "OCU-1 Rosettenhalter"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-3",
+     "name": "ARRI WCU-3 Hand Unit",
+     "aliases": [
+      "ARRI Wireless Compact Unit WCU-3",
+      "Wireless Compact Unit WCU-3",
+      "WCU-3 Handeinheit"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Marking Disk Cylindrical",
+     "aliases": [
+      "K2.65162.0",
+      "Markierscheibe FF/WCU zylindrisch",
+      "Markierscheibe zylindrisch",
+      "WCU-3 Marking Disk Cylindrical"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT 1/4\"-20 Mounting Block",
+     "aliases": [
+      "CINE RT 1/4\" Mounting Block 20 Thread",
+      "Cine RT Mounting Block 1/4\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT 3/8\" Mounting Block",
+     "aliases": [
+      "CINE RT 3/8\" Mounting Block",
+      "Cine RT Mounting Block 3/8\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Antenna",
+     "aliases": [
+      "CINE RT Antenne",
+      "Focusbug Antenne"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT High-Bright LED Display HBD-100",
+     "aliases": [
+      "HBD-100",
+      "CINE RT High-Bright LED Display HBD-100",
+      "Focusbug HBD-100",
+      "Cine RT Display"
+     ]
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Horn Protector UHP-100",
+     "aliases": [
+      "UHP-100",
+      "CINE RT Horn Protector UHP-100",
+      "Focusbug Horn Protector"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Horn Protector Grille",
+     "aliases": [
+      "CINE RT Horn Protector Haltegitter",
+      "Horn Protector Haltegitter"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Horn Protector Foam Filter",
+     "aliases": [
+      "CINE RT Horn Protector Schaumstoff-Filter",
+      "Horn Protector Schaumstoff-Filter"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 0.20m",
+     "aliases": [
+      "K2.0047220",
+      "Hi-5 Smart Focus Ring Reverse 0.20m",
+      "Hi-5 Schärfering reverse 0.20m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 0.25m",
+     "aliases": [
+      "Hi-5 Smart Focus Ring Reverse 0.25m",
+      "Hi-5 Schärfering reverse 0.25m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 0.50m",
+     "aliases": [
+      "K2.0047224",
+      "Hi-5 Smart Focus Ring Reverse 0.50m",
+      "Hi-5 Schärfering reverse 0.50m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 0.75m",
+     "aliases": [
+      "Hi-5 Smart Focus Ring Reverse 0.75m",
+      "Hi-5 Schärfering reverse 0.75m"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 9\"",
+     "aliases": [
+      "K2.0047230",
+      "Hi-5 Smart Focus Ring Reverse 9\"",
+      "Hi-5 Schärfering reverse 9\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 1'",
+     "aliases": [
+      "K2.0047231",
+      "Hi-5 Smart Focus Ring Reverse 1'",
+      "Hi-5 Schärfering reverse 1'"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 1'8\"",
+     "aliases": [
+      "K2.0047233",
+      "Hi-5 Smart Focus Ring Reverse 1'8\"",
+      "Hi-5 Schärfering reverse 1'8\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 2'6\"",
+     "aliases": [
+      "K2.0047235",
+      "Hi-5 Smart Focus Ring Reverse 2'6\"",
+      "Hi-5 Schärfering reverse 2'6\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 6'6\"",
+     "aliases": [
+      "K2.0047238",
+      "Hi-5 Smart Focus Ring Reverse 6'6\"",
+      "Hi-5 Schärfering reverse 6'6\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Smart Focus Ring Reverse 10'",
+     "aliases": [
+      "K2.0047239",
+      "Hi-5 Smart Focus Ring Reverse 10'",
+      "Hi-5 Schärfering reverse 10'"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Antenna Video/WiFi/ECS",
+     "aliases": [
+      "K2.0014568",
+      "ECS Antenne weiss",
+      "WVS Antenna"
+     ],
+     "bulk": true,
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "900 MHz Antenna for RF-900",
+     "aliases": [
+      "K2.0041437",
+      "RF-900 Antenna",
+      "Antenne 900 MHz"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Rosette Adapter RA-8",
+     "aliases": [
+      "K2.0044203",
+      "RA-8",
+      "OCU-1 to ZMU-4 Adapter"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-3 Lens Motor",
+     "name": "ARRI CLM-3",
+     "aliases": [
+      "CLM-3 Motor",
+      "CLM-3"
+     ],
+     "discontinued": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "WCU-4 Lanyard",
+     "aliases": [
+      "K2.0002069",
+      "Lanyard WCU-4",
+      "WCU-4 Umhängeband"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Coupling for Flexible Shaft",
+     "aliases": [
+      "K2.47235.0",
+      "Kupplung Biegsame Welle",
+      "FF Coupling"
      ],
      "bulk": true
     }

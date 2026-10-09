@@ -103,7 +103,8 @@
      "model": "244 Magic Arm",
      "aliases": [
       "Magic Arm",
-      "Manfrotto 244"
+      "Manfrotto 244",
+      "Magic Arm m. Schraube"
      ]
     },
     {
@@ -122,7 +123,9 @@
      "model": "Cardellini Clamp",
      "aliases": [
       "Cardellini",
-      "End Jaw Clamp"
+      "End Jaw Clamp",
+      "Cardellini Klemme m. 16mm Zapfen",
+      "Cardellini Klemme"
      ]
     },
     {
@@ -141,6 +144,293 @@
       "ULCS Arm lang (5tlg.)",
       "ULCS Arm"
      ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Carabiner",
+     "aliases": [
+      "Karabiner",
+      "Karabinerhaken",
+      "Snap Hook"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "KONG",
+     "model": "Frog",
+     "aliases": [
+      "Kong-Frog f. Easyrig",
+      "Kong Frog"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Eye Bolt 3/8\"",
+     "aliases": [
+      "Ringöse 3/8\"",
+      "Ringschraube 3/8\"",
+      "Eyebolt 3/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Magliner",
+     "model": "Gemini Senior",
+     "aliases": [
+      "MAGLINER Senior",
+      "GMK81UA4",
+      "Magliner Gemini Sr",
+      "Senior Magliner"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Cart Dovetail Mount",
+     "aliases": [
+      "MAGLINER Dovetail Mount",
+      "Magliner Dovetail",
+      "Wagen Schwalbenschwanz"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Magliner",
+     "model": "Gemini Junior",
+     "aliases": [
+      "MAGLINER Junior",
+      "GMK16UA4",
+      "Magliner Gemini Jr",
+      "Junior Magliner"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Cart Tripod Holder Double with Bungee",
+     "aliases": [
+      "MAGLINER Stativhaken 2-fach mit Spanngummi",
+      "Stativhaken 2-fach",
+      "Magliner Stativhalter",
+      "Magliner Tripod Holder"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "STANDARD Cart",
+     "aliases": [
+      "ADICAM Standard Magliner",
+      "adicam Standard",
+      "adicam Wagen Standard"
+     ]
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "Crossbar Clamp 35mm",
+     "aliases": [
+      "ADICAM Crossbar Clamp (35mm)",
+      "adicam Crossbar Klemme",
+      "adicam Clamp 35mm"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Storage Crate Large",
+     "aliases": [
+      "Curver Kiste (L)",
+      "Curver Box L",
+      "Curver Kiste groß"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Storage Crate Large Flat",
+     "aliases": [
+      "Curver Kiste (Groß/Flach)",
+      "Curver Kiste flach",
+      "Curver Box flat"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Accessory Case",
+     "aliases": [
+      "Zubehörkoffer (Eisele)",
+      "Zubehörkoffer",
+      "Eisele Koffer"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Hard Case Medium",
+     "aliases": [
+      "Hartschalenkoffer / Peli Case M (Monitore, Spray Off, etc)",
+      "Peli Case M",
+      "Hartschalenkoffer M"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Grip Head 2.5\"",
+     "aliases": [
+      "Gobohead klein 2,5 (Gobohead)",
+      "Gobohead klein",
+      "Gobo Head 2.5",
+      "Grip Head small"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Universal Clamp",
+     "aliases": [
+      "Uniklammer",
+      "Uni-Klammer",
+      "Universalklammer"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Spigot 16mm Short",
+     "aliases": [
+      "Zapfen 16mm kurz",
+      "Baby Pin 16mm kurz",
+      "5/8\" Spigot short"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ratchet Strap",
+     "aliases": [
+      "Spanngurt (Ratsche)",
+      "Spanngurt",
+      "Ratschengurt"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "KONG",
+     "model": "Frog 360",
+     "aliases": [
+      "Kong Frog 360"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "STANDARD Plus Cart",
+     "aliases": [
+      "adicam STANDARD+ Cart",
+      "adicam Standard+",
+      "adicam Standard Plus"
+     ]
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "MINI+ Cart",
+     "aliases": [
+      "adicam Mini+",
+      "adicam Mini Plus"
+     ]
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "MAX+ Cart",
+     "aliases": [
+      "adicam Max+",
+      "adicam Max Plus"
+     ]
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "Accessory Crossbar Set Long 043",
+     "aliases": [
+      "adicam 043",
+      "adicam Crossbar Long Set"
+     ]
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "Accessory Crossbar Set Short 044",
+     "aliases": [
+      "adicam 044",
+      "adicam Crossbar Short Set"
+     ]
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "Folding Side Shelf 057",
+     "aliases": [
+      "adicam 057",
+      "adicam Klappablage"
+     ]
+    },
+    {
+     "manufacturer": "adicam",
+     "model": "Utility Side Shelf 094",
+     "aliases": [
+      "adicam 094",
+      "adicam Utility Shelf"
+     ]
+    },
+    {
+     "manufacturer": "Backstage",
+     "model": "Magliner Tripod Holder with 5/8\" Baby Pin",
+     "aliases": [
+      "Backstage Mag Tripod Holder",
+      "BS-MLTH"
+     ]
+    },
+    {
+     "manufacturer": "Backstage",
+     "model": "Magliner Vertical Shelf",
+     "aliases": [
+      "BKMAG01VS",
+      "Backstage Mag Vertical Shelf"
+     ]
+    },
+    {
+     "manufacturer": "Avenger",
+     "model": "D200 Grip Head 2.5\"",
+     "aliases": [
+      "Avenger D200",
+      "D200 Grip Head"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Avenger",
+     "model": "D400 Jumbo Grip Head 4.5\"",
+     "aliases": [
+      "Avenger D400",
+      "D400 Jumbo Grip Head"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Novoflex",
+     "model": "UNIKLEM",
+     "aliases": [
+      "Novoflex Uniklem",
+      "Novoflex Universalklemme"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Spigot 16mm Long",
+     "aliases": [
+      "Zapfen 16mm lang",
+      "Baby Pin 16mm lang"
+     ],
+     "bulk": true
     }
    ]
   },
@@ -216,6 +506,36 @@
       "Hollywood C-Stand",
       "Matthews Century Stand",
       "Matthews C-Stand"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "C-Stand 30\" Steel",
+     "aliases": [
+      "C-Stand 30 (Stahl)",
+      "C-Stand 30 Stahl",
+      "Steel C-Stand 30"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "C-Stand 20\" Steel",
+     "aliases": [
+      "C-Stand 20 (Stahl)",
+      "C-Stand 20 Stahl",
+      "Steel C-Stand 20"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "C-Stand 40\" Steel",
+     "aliases": [
+      "C-Stand 40 (Stahl)",
+      "C-Stand 40 Stahl",
+      "Steel C-Stand 40"
      ],
      "bulk": true
     }
@@ -492,6 +812,130 @@
       "Float Handheld Support System",
       "Tilta Float Vest"
      ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Accessories Bag",
+     "aliases": [
+      "Zubehörtasche",
+      "Accessory Pouch"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Allen Key Set",
+     "aliases": [
+      "EASYRIG Allen key",
+      "Easyrig Inbusschlüssel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Carry Bag",
+     "aliases": [
+      "EASYRIG Bag",
+      "Easyrig Tasche",
+      "Easyrig Transport Bag"
+     ]
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Gimbal Rig Vest",
+     "aliases": [
+      "EASYRIG Gimbalrig Weste",
+      "Easyrig Gimbalrig Vest",
+      "Easyrig Gimbal Weste"
+     ]
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "STABIL",
+     "name": "Easyrig STABIL Gimbal Support Arm",
+     "aliases": [
+      "EASYRIG STABIL",
+      "Easyrig Stabil Arm",
+      "STABIL G2",
+      "STABIL G3",
+      "STABIL G3 Dampening Arm"
+     ],
+     "specs": {
+      "note": "gimbal support / dampening arm for Vario 5 and Cinema 3 (G2 foldable, G3 pin-free lock, 5-25 kg)"
+     }
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "EasyTilt",
+     "aliases": [
+      "EASYRIG EasyTilt",
+      "Easyrig Gimbal Tilt Kit"
+     ],
+     "specs": {
+      "note": "crossbar 680 mm, spindles, ring with ball stud"
+     }
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Ball Stud 3/8\" EA033-B3/8",
+     "aliases": [
+      "EASYRIG EasyTilt Kugelzapfen 3/8\"",
+      "EA033-B3/8",
+      "Easyrig Kugelzapfen 3/8\"",
+      "Easyrig Ball Stud 3/8"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "EasyTilt Spindle",
+     "aliases": [
+      "EASYRIG EasyTilt Spindel",
+      "EasyTilt Spindel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Cinema 3",
+     "aliases": [
+      "Easyrig Cinema 3",
+      "Easyrig Cinema III"
+     ]
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Gimbal Flex Vest",
+     "aliases": [
+      "Easyrig Gimbal Flex Weste"
+     ]
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Camera Hook with Ball Stud EA033-WB",
+     "aliases": [
+      "EA033-WB",
+      "Easyrig Kamerahaken Kugelzapfen"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Easyrig",
+     "model": "Ball Stud 1/4\" EA033-B1/4",
+     "aliases": [
+      "EA033-B1/4",
+      "Easyrig Kugelzapfen 1/4\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "16x9",
+     "model": "Easyrig to Kong Quick Release Adapter",
+     "aliases": [
+      "Easyrig Kong Adapter",
+      "16x9 Kong Adapter"
+     ],
+     "bulk": true
     }
    ]
   },
@@ -773,6 +1217,140 @@
      "manufacturer": "Vinten",
      "model": "Vision 250",
      "aliases": []
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Ultimate 2060HD Fluid Head",
+     "name": "O'Connor Ultimate 2060HD",
+     "aliases": [
+      "OCONNOR 2060 Schwenkkopf",
+      "O'Connor 2060",
+      "O'Connor 2060HD",
+      "2060HD",
+      "OConnor 2060"
+     ],
+     "specs": {
+      "mount": "150mm ball / Mitchell",
+      "payload_kg": 34
+     }
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Pan Handle Extension 2575-105",
+     "aliases": [
+      "OCONNOR Griff f. Schwenkarm",
+      "2575-105",
+      "O'Connor Pan Handle Extension",
+      "OConnor Griff Schwenkarm"
+     ],
+     "specs": {
+      "length_mm": 305
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Large Euro Quick Release with 120mm Plate 2575-120",
+     "aliases": [
+      "OCONNOR Quick Release Plate",
+      "2575-120",
+      "O'Connor Euro Quick Release 120mm",
+      "O'Connor Schnellwechselplatte"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Pan Handle 12in 2575-137",
+     "aliases": [
+      "OCONNOR Schwenkarm kurz",
+      "2575-137",
+      "O'Connor Pan Handle 12\"",
+      "O'Connor Pan Bar short"
+     ],
+     "specs": {
+      "length_mm": 305,
+      "diameter_mm": 18
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Large Pan Handle 2575-107",
+     "aliases": [
+      "OCONNOR Schwenkarm lang",
+      "2575-107",
+      "O'Connor Large Pan Handle 16.5\"",
+      "O'Connor Pan Bar long"
+     ],
+     "specs": {
+      "length_mm": 420,
+      "diameter_mm": 25
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Mitchell Base Adapter",
+     "aliases": [
+      "OCONNOR Flatbase Adapter",
+      "O'Connor Flat Base Adapter",
+      "OCMB",
+      "O'Connor Mitchell Base"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Mitchell Base Tie-Down",
+     "aliases": [
+      "OCONNOR Feststellschraube",
+      "O'Connor Mitchell Tie-Down",
+      "O'Connor Feststellschraube Flatbase"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "2065 Fluid Head",
+     "name": "O'Connor 2065",
+     "aliases": [
+      "O'Connor 2065",
+      "Ultimate 2065",
+      "OConnor 2065"
+     ],
+     "specs": {
+      "payload_kg": 32
+     }
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "2575C Fluid Head",
+     "name": "O'Connor 2575C",
+     "aliases": [
+      "O'Connor 2575C",
+      "2575C",
+      "Ultimate 2575C"
+     ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "150mm Ball Base Adapter 08414",
+     "aliases": [
+      "08414",
+      "O'Connor 150mm Ball Base",
+      "O'Connor 150er Halbschale Adapter"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Arriflex Dovetail Slide Plate 2575-210",
+     "aliases": [
+      "2575-210",
+      "O'Connor Arri Dovetail Slide Plate"
+     ],
+     "bulk": true
     }
    ]
   },
@@ -1008,6 +1586,195 @@
       "Sachtler Speedlock",
       "Speed Lock Carbon"
      ]
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "HD-C Tripod Tall",
+     "name": "Schulz HEAVY DUTY HD-C Tripod Tall",
+     "aliases": [
+      "SCHULZ Stativ CARBON lang",
+      "Schulz HD-C lang",
+      "Schulz Heavy Duty Tripod Tall",
+      "Schulz Carbon Stativ lang"
+     ],
+     "specs": {
+      "mount": "150mm bowl",
+      "note": "carbon legs, max. height approx. 170 cm"
+     }
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "HD-C Tripod Medium",
+     "name": "Schulz HEAVY DUTY HD-C Tripod Medium",
+     "aliases": [
+      "SCHULZ Stativ CARBON mittel",
+      "Schulz HD-C mittel",
+      "Schulz Heavy Duty Tripod Medium",
+      "Schulz Carbon Stativ mittel"
+     ],
+     "specs": {
+      "mount": "150mm bowl",
+      "note": "carbon legs, max. height approx. 90 cm"
+     }
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "HD-C Tripod Short",
+     "name": "Schulz HEAVY DUTY HD-C Tripod Short",
+     "aliases": [
+      "SCHULZ Stativ CARBON kurz",
+      "Schulz HD-C kurz",
+      "Schulz HD-C 150 Babystativ",
+      "Schulz Heavy Duty Tripod Short",
+      "Schulz Carbon Stativ kurz"
+     ],
+     "specs": {
+      "mount": "150mm bowl",
+      "note": "carbon legs, max. height approx. 50 cm"
+     }
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "HD Flat Adapter",
+     "aliases": [
+      "SCHULZ Flat Adapter",
+      "Schulz Flat Base Adapter"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Ground Spreader HD",
+     "aliases": [
+      "SCHULZ Bodenspinne Metall",
+      "Schulz Bodenspinne",
+      "Schulz Ground Spreader"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Ground Spreader HD Little",
+     "aliases": [
+      "SCHULZ Minispinne Metall",
+      "Schulz Minispinne",
+      "Schulz Mini Ground Spreader"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Tripod Quiver Lid",
+     "aliases": [
+      "Köcherdeckel",
+      "Stativköcher Deckel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Tripod Quiver",
+     "aliases": [
+      "Köcher",
+      "Stativköcher",
+      "Tripod Tube Case"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ground Plate with Levelling Screws",
+     "aliases": [
+      "Bodenplatte + 3 Nivellierschrauben",
+      "Bodenplatte",
+      "Ground Plate"
+     ]
+    },
+    {
+     "manufacturer": "Cinekinetic",
+     "model": "Cinesaddle",
+     "aliases": [
+      "Cine Saddle Bag",
+      "Cinesaddle Bean Bag",
+      "Cinekinetic Cine Saddle"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Steady Bag",
+     "aliases": [
+      "Steady Bag Kamera",
+      "Bean Bag",
+      "Sandsack Kameraauflage"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Ground Plate Flat Adapter",
+     "aliases": [
+      "Flat Adapter für Bodenplatte",
+      "Flat Adapter Bodenplatte"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Smartplate",
+     "aliases": [
+      "SCHULZ HEAD HD Smart Plate",
+      "Schulz Smart Plate",
+      "Schulz Smartplate 80x120"
+     ],
+     "specs": {
+      "note": "universal quick-release adapter for 80 x 120 mm snap plates"
+     },
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Mid-Level Spreader HD",
+     "aliases": [
+      "Schulz Mittelspinne",
+      "Schulz Mid Level Spreader"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "PRO COMPANION Tripod 2-stage",
+     "aliases": [
+      "Schulz Pro Companion",
+      "Schulz Pro Companion Stativ"
+     ],
+     "specs": {
+      "mount": "150mm bowl",
+      "payload_kg": 90
+     }
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Heavy Duty Hi-Hat",
+     "aliases": [
+      "Schulz Hi-Hat",
+      "Schulz Hi Hat HD"
+     ]
+    },
+    {
+     "manufacturer": "Schulz",
+     "model": "Shiftbase",
+     "aliases": [
+      "Schulz Shift Base"
+     ]
+    },
+    {
+     "manufacturer": "Cinekinetic",
+     "model": "Cinesaddle Marsupial",
+     "aliases": [
+      "Cinekinetic Marsupial"
+     ],
+     "bulk": true
     }
    ]
   }

@@ -81,7 +81,9 @@
      "aliases": [
       "LBUS 0.3m",
       "LBUS 30cm",
-      "K2.0006750"
+      "K2.0006750",
+      "Kabel LBUS mittel (0.3m)",
+      "Kabel LBUS mittel"
      ],
      "bulk": true,
      "specs": {
@@ -108,7 +110,9 @@
      "name": "ARRI Cable LBUS (straight) - LBUS (straight) 0.5 m",
      "aliases": [
       "LBUS 0.5m",
-      "LBUS 50cm"
+      "LBUS 50cm",
+      "Kabel LBUS lang (0.5m)",
+      "Kabel LBUS lang"
      ],
      "specs": {
       "length_m": 0.5
@@ -297,7 +301,9 @@
       "K2.0006749",
       "LBUS 0.2m",
       "LBUS 20cm",
-      "Cable LBUS - LBUS 0.2m"
+      "Cable LBUS - LBUS 0.2m",
+      "Kabel LBUS kurz (0.2m)",
+      "Kabel LBUS kurz"
      ],
      "specs": {
       "length_m": 0.2
@@ -574,6 +580,56 @@
       "UMC RS IN RS"
      ],
      "bulk": true
+    },
+    {
+     "manufacturer": "Focusbug",
+     "model": "Cine RT Serial Cable Right-Angle to 7-pin Fischer (LCUBE/UMC)",
+     "aliases": [
+      "CINE RT (RA) to 7 Pin Fischer (ST) Serial Kabel LCUBE/ UMC",
+      "Cine RT LCUBE Kabel",
+      "Cine RT UMC Serial Cable"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CUB-1 to Sony F5/F55 Cable",
+     "aliases": [
+      "K2.0012631",
+      "CUB-1 F55 Cable",
+      "LCUBE F5/F55 Kabel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CUB-1 to RED Camera Cable",
+     "aliases": [
+      "K2.0012632",
+      "CUB-1 RED Cable",
+      "LCUBE RED Kabel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CUB-1 to LANC Cable",
+     "aliases": [
+      "K2.0012633",
+      "CUB-1 LANC Cable",
+      "LCUBE LANC Kabel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "UMC/CUB-1 to Cine Tape Measure Cable coiled",
+     "aliases": [
+      "K2.65063.0",
+      "Cine Tape Kabel UMC",
+      "CUB-1 Cine Tape Cable"
+     ],
+     "bulk": true
     }
    ]
   },
@@ -629,7 +685,8 @@
       "KC-50-S",
       "ARRI Kabel Power KC-50-S",
       "KC-50",
-      "K2.75007.0"
+      "K2.75007.0",
+      "ARRI Kabel Power KC-50-S 24V straight f. Alexa Mini/LF/35/Amira"
      ],
      "bulk": true
     },
@@ -641,7 +698,8 @@
       "KC-50-SP-S",
       "ARRI Kabel Power KC-50-SP-S",
       "AMIRA Power Cable Coiled",
-      "K2.0001275"
+      "K2.0001275",
+      "ARRI Kabel Power KC-50-SP-S coiled f. Alexa Mini/LF/35/Amira"
      ],
      "bulk": true
     },
@@ -650,7 +708,9 @@
      "model": "2-pin LEMO to 2-pin LEMO Cable",
      "aliases": [
       "Lemo 2pin Cable",
-      "2-pin Lemo"
+      "2-pin Lemo",
+      "Kabel Power 12V Lemo 2-pol to Lemo 2-pol",
+      "Lemo 2-pol to Lemo 2-pol"
      ],
      "bulk": true
     },
@@ -679,7 +739,9 @@
      "aliases": [
       "D-Tap to Lemo 2pin",
       "DTap Lemo 2",
-      "P-Tap to 2-pin"
+      "P-Tap to 2-pin",
+      "Kabel Power 12V D-Tap to Lemo 2-pol",
+      "D-Tap to Lemo 2-pol"
      ],
      "bulk": true
     },
@@ -858,6 +920,60 @@
      },
      "bulk": true,
      "discontinued": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Mini XLR 4-pin to D-Tap Cable",
+     "aliases": [
+      "Kabel Mini XLR 4-pol to D-Tap",
+      "Mini XLR 4-pol to D-Tap",
+      "TA4F to D-Tap"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Mini XLR 4-pin to 2-pin LEMO Cable",
+     "aliases": [
+      "Kabel Mini XLR 4-pol to Lemo 2-pol",
+      "Mini XLR 4-pol to Lemo 2-pol",
+      "TA4F to 2-pin Lemo"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Schuko Cable Reel 3x2.5 mm²",
+     "aliases": [
+      "Kabeltrommel (Schuko) 3x2,5mm, 25-50m",
+      "Kabeltrommel Schuko",
+      "Kabeltrommel"
+     ],
+     "specs": {
+      "length_m": "25-50"
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Schuko Extension Cable Short (1-5 m)",
+     "aliases": [
+      "Schuko-Verlängerung kurz (1-5m)",
+      "Schuko-Verlängerung kurz",
+      "Schuko Verlängerung"
+     ],
+     "specs": {
+      "length_m": "1-5"
+     }
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "PRCD-S",
+     "name": "PRCD-S Safety Cable",
+     "aliases": [
+      "PRCD-S / Schukokabel mit FI-Schalter",
+      "PRCD-S Safety Cable",
+      "PRCD-S Schutzschalter"
+     ]
     }
    ]
   },
@@ -1129,6 +1245,26 @@
       "Micro HDMI",
       "HDMI D to A",
       "Micro-HDMI Kabel"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable VF 2 m",
+     "aliases": [
+      "K2.0023944",
+      "MVF-2 VF Cable 2m",
+      "Kabel Viewfinder 2m f. MVF-2"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "HD-SDI BNC Cable Extra Short (up to 1 m)",
+     "aliases": [
+      "BNC Kabel HD extra kurz (bis 1m)",
+      "BNC extra kurz",
+      "BNC Kabel HD kurz"
      ],
      "bulk": true
     }

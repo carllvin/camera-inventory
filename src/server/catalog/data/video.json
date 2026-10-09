@@ -610,6 +610,191 @@
      "manufacturer": "TVLogic",
      "model": "LVM-241W",
      "aliases": []
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra Matte Screen Protector for 702 Touch / Cine 7",
+     "aliases": [
+      "Schutzfolie f. small HD 7\" Monitor",
+      "ACC-SP-702Touch-Matte",
+      "SmallHD Schutzfolie 7\"",
+      "SmallHD Cine 7 Screen Protector"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Smart 7 Sunhood Bracket Assembly",
+     "aliases": [
+      "small HD 7\" Sidebrackets (2Stk)",
+      "SmallHD 7\" Sidebrackets",
+      "Smart 7 Side Brackets"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for Smart 7 Series",
+     "aliases": [
+      "small HD Sunhood 7\" Serie",
+      "ACC-HOOD-SMART7",
+      "SmallHD Sunhood 7\"",
+      "Cine 7 Sunhood"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Touch Key Protector Plate",
+     "aliases": [
+      "Schutzscheibe f. TV Logic F-7H MK2 touch keys",
+      "Schutzscheibe Touch Keys"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "External Acrylic Filter for F-7H",
+     "aliases": [
+      "Schutzscheibe f. TV Logic F-7H/S (gebraucht)",
+      "TVLogic F-7H Schutzscheibe",
+      "F-7H Acrylic Protector"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "Sunhood HOOD-F7H",
+     "aliases": [
+      "Sunhood 7\" f. TV-Logic F7HS / MKII",
+      "HOOD-F7H",
+      "TVLogic F-7H Sunhood",
+      "TV Logic F-7H Sonnenblende"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Acrylic Screen Protector for 1300 Series",
+     "aliases": [
+      "small HD Acryl Schutzglas 13\"",
+      "SmallHD 1303 Acrylic Protector",
+      "SmallHD Schutzglas 13\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "C-Stand Mount ACC-MT-SM-CSTAND",
+     "aliases": [
+      "small HD C-Stand Mount + Rändelschraube + 4x 1303",
+      "ACC-MT-SM-CSTAND",
+      "SmallHD C-Stand Mount",
+      "SmallHD VESA C-Stand Mount"
+     ]
+    },
+    {
+     "manufacturer": "Generic",
+     "model": "Monitor Handle 13\"",
+     "aliases": [
+      "small HD Handgriff 13\" + 4x Schraube",
+      "Monitor Handgriff 13\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "RapidRail Mount ACC-MT-RRAIL-1420",
+     "aliases": [
+      "small HD Rapid Rail Mount 1/4\" 1303",
+      "ACC-MT-RRAIL-1420",
+      "SmallHD RapidRail Mount"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for 1300 Series",
+     "aliases": [
+      "small HD Sunhood 13\" + 6x Schraube",
+      "SmallHD 1303 Sunhood",
+      "SmallHD Sunhood 13\""
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "UltraClear Screen Protector for 702 Touch / Cine 7",
+     "aliases": [
+      "SmallHD Cine 7 UltraClear"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "1303 HDR Accessory Pack V-Mount",
+     "aliases": [
+      "ACC-1303HDR-VM-PACK",
+      "SmallHD 1303 Accessory Pack V-Mount"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "1303 HDR Accessory Pack Gold Mount",
+     "aliases": [
+      "ACC-1303HDR-GM-PACK",
+      "SmallHD 1303 Accessory Pack Gold Mount"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Rack Mount Kit ACC-1300-RACK-MT",
+     "aliases": [
+      "ACC-1300-RACK-MT",
+      "SmallHD 1300 Rack Mount"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "1303 Studio",
+     "aliases": [
+      "SmallHD 1303 Studio",
+      "1303 Studio Monitor"
+     ],
+     "specs": {
+      "screen_in": 13
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus 7",
+     "aliases": [
+      "SmallHD Focus 7",
+      "Focus 7 Monitor"
+     ],
+     "specs": {
+      "screen_in": 7
+     }
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for Focus 7",
+     "aliases": [
+      "ACC-HOOD-FOCUS-7",
+      "Focus 7 Sunhood"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "F-10A",
+     "aliases": [
+      "TVLogic F-10A",
+      "F10A"
+     ],
+     "specs": {
+      "screen_in": 10
+     }
     }
    ]
   },

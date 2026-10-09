@@ -172,12 +172,14 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
   if (!text.trim()) return null;
   // "Kabel Power KC-50-S f. Alexa Mini/LF", "Rosette Bracket für OCU-1": what follows "f./für/for" is
   // what the part fits, not the part itself - model numbers there do not name the product.
-  const own = [line.manufacturer, line.model, line.description.replace(/\s(?:f\.|für|fuer|for)\s.*$/i, "")].filter(Boolean).join(" ");
+  const ownDescription = line.description.replace(/\s(?:f\.|für|fuer|for)\s.*$/i, "");
+  const own = [line.manufacturer, line.model, ownDescription].filter(Boolean).join(" ");
   // Candidates: the most similar names, plus every type whose model number is written in the line
   // ("BEBOB V-Mount Akku 98Wh V98micro" names bebob V98micro even if another 98Wh battery reads closer).
-  const rows = await db.execute<{ id: string; name: string; manufacturer: string; model: string; score: number; model_hit: boolean; maker_hit: boolean }>(sql`
+  const rows = await db.execute<{ id: string; name: string; manufacturer: string; model: string; score: number; model_hit: boolean; maker_hit: boolean; exact_hit: boolean }>(sql`
     WITH t AS (SELECT search_normalize(${text}) AS norm, search_compact(${text}) AS comp),
-         o AS (SELECT search_normalize(${own}) AS norm, search_compact(${own}) AS comp)
+         o AS (SELECT search_normalize(${own}) AS norm, search_compact(${own}) AS comp),
+         d AS (SELECT search_compact(${line.description}) AS full, search_compact(${ownDescription}) AS own)
     SELECT id, name, manufacturer, model,
       greatest(
         word_similarity(t.norm, search_text),
@@ -187,14 +189,21 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
       (length(search_compact(model)) >= 3 AND (
          (' ' || regexp_replace(o.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || btrim(regexp_replace(search_normalize(model), '[^a-z0-9]+', ' ', 'g')) || ' %')
          OR (length(search_compact(model)) >= 5 AND strpos(o.comp, search_compact(model)) > 0))) AS model_hit,
+      -- The printed text (or its part before "f./für/for") is exactly one of the type's names or aliases.
+      (search_compact(name) IN (d.full, d.own) OR search_compact(manufacturer || ' ' || model) IN (d.full, d.own) OR search_compact(model) IN (d.full, d.own)
+        OR EXISTS (SELECT 1 FROM unnest(aliases) a WHERE search_compact(a) IN (d.full, d.own))) AS exact_hit,
       (length(search_normalize(manufacturer)) >= 2 AND (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || regexp_replace(search_normalize(manufacturer), '[^a-z0-9]+', ' ', 'g') || ' %')) AS maker_hit
-    FROM equipment_type, t, o
+    FROM equipment_type, t, o, d
     WHERE workspace_id = ${ws} AND archived_at IS NULL
-      AND (search_text % t.norm OR word_similarity(t.norm, search_text) > 0.3
+      AND (search_text % t.norm
+           OR search_compact(name) IN (d.full, d.own) OR EXISTS (SELECT 1 FROM unnest(aliases) a WHERE search_compact(a) IN (d.full, d.own)) OR word_similarity(t.norm, search_text) > 0.3
            OR (length(search_compact(model)) >= 3 AND strpos(t.comp, search_compact(model)) > 0))
-    ORDER BY score DESC
+    ORDER BY exact_hit DESC, score DESC
     LIMIT 30`);
   let candidates = [...rows].map((r) => ({ ...r, score: Number(r.score) }));
+  // Written exactly as one type's name or alias (e.g. a spelling learned from an earlier note): that type.
+  const exact = candidates.filter((c) => c.exact_hit);
+  if (exact.length === 1) return { id: exact[0]!.id, name: exact[0]!.name, score: 0.97, how: "same spelling as before" };
   // A maker named in the line rules out other makers' products.
   if (candidates.some((c) => c.maker_hit)) candidates = candidates.filter((c) => c.maker_hit || isNoMaker(c.manufacturer));
   // The model number written in the line decides; the longest one wins ("VL-4S" over "VL").
