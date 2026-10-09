@@ -41,6 +41,14 @@ export const itemFilters = z.object({
 });
 export type ItemFilters = z.input<typeof itemFilters>;
 
+/** The item's own photo, else its type's main reference image (for queries joining equipment_item and equipment_type). */
+export const itemImageId = sql<string | null>`coalesce(
+  (SELECT p.id FROM photo p WHERE p.equipment_item_id = "equipment_item"."id" AND p.removed_at IS NULL ORDER BY p.created_at DESC LIMIT 1),
+  (SELECT p.id FROM photo p WHERE p.equipment_type_id = "equipment_type"."id" AND p.kind = 'reference' AND p.removed_at IS NULL ORDER BY p.is_primary DESC, p.created_at DESC LIMIT 1))`;
+
+/** An equipment type's main reference image (for queries joining equipment_type). */
+export const typeImageId = sql<string | null>`(SELECT p.id FROM photo p WHERE p.equipment_type_id = "equipment_type"."id" AND p.kind = 'reference' AND p.removed_at IS NULL ORDER BY p.is_primary DESC, p.created_at DESC LIMIT 1)`;
+
 export async function listItems(db: DbOrTx, ctx: Ctx, rawFilters: ItemFilters = {}) {
   const f = itemFilters.parse(rawFilters);
   const where: SQL[] = [eq(s.equipmentItem.workspaceId, ctx.workspaceId)];
@@ -103,10 +111,7 @@ export async function listItems(db: DbOrTx, ctx: Ctx, rawFilters: ItemFilters = 
         JOIN document_line l ON l.document_id = a.delivery_document_id
         WHERE a.equipment_item_id = "equipment_item"."id" AND a.ended_at IS NULL
           AND (l.matched_equipment_item_id = "equipment_item"."id" OR l.matched_equipment_type_id = "equipment_item"."equipment_type_id"))`,
-      // The item's own photo, else the type's main reference image.
-      imageId: sql<string | null>`coalesce(
-        (SELECT p.id FROM photo p WHERE p.equipment_item_id = "equipment_item"."id" AND p.removed_at IS NULL ORDER BY p.created_at DESC LIMIT 1),
-        (SELECT p.id FROM photo p WHERE p.equipment_type_id = "equipment_type"."id" AND p.kind = 'reference' AND p.removed_at IS NULL ORDER BY p.is_primary DESC, p.created_at DESC LIMIT 1))`,
+      imageId: itemImageId,
     })
     .from(s.equipmentItem)
     .innerJoin(s.equipmentType, eq(s.equipmentType.id, s.equipmentItem.equipmentTypeId))

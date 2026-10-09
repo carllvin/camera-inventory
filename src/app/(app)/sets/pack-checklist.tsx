@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ActionForm, SubmitButton } from "@/components/forms";
 import { Badge, Mono } from "@/components/ui";
 import { cn } from "@/lib/format";
+import { Thumb } from "@/components/thumb";
 import type { ActionState } from "@/server/actions";
 
 export type ChecklistRow = {
@@ -17,6 +18,7 @@ export type ChecklistRow = {
   status: string;
   condition: string;
   needed: number;
+  imageId: string | null;
 };
 
 /**
@@ -61,6 +63,7 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
               <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-2.5">
                 <input type="checkbox" name="row" value={r.key} checked={on} onChange={(e) => toggle(r.key, e.target.checked)} className="size-4 shrink-0" />
                 <input type="hidden" name={`ids_${r.key}`} value={r.itemIds.join(",")} disabled={!on} />
+                <Thumb photoId={r.imageId} name={r.typeName} className="size-8" />
                 <span className="min-w-0 flex-1">
                   <span className="flex items-center gap-1.5">
                     <span className="truncate text-sm">{r.typeName}</span>

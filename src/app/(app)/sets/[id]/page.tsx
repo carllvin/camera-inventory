@@ -17,6 +17,7 @@ import { listPhotos } from "@/server/domain/photos";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { addLineAction, applyContentsAction, packByCodeAction, packChecklistAction, removeLineAction, stepLineAction, unpackItemAction, unpackUnitsAction } from "../actions";
 import { PackChecklist } from "../pack-checklist";
+import { Thumb } from "@/components/thumb";
 import { PackByCode, SmallActionButton, UnitsButton } from "../pack-panel";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
@@ -52,6 +53,8 @@ export default async function CasePage({ params, searchParams }: { params: Promi
   const packedRows = groupUnits(d.items);
   const packedPieces = d.items.reduce((n, i) => n + i.quantity, 0);
   const byId = new Map(d.items.map((i) => [i.id, i]));
+  // Contents check: the type's picture, else the first packed item's.
+  const lineImage = new Map(cmp.lines.map((r) => [r.line.id, d.lines.find((l) => l.id === r.line.id)?.imageId ?? r.items.map((x) => byId.get(x.id)?.imageId).find(Boolean) ?? null]));
   const editing = sp.edit === "1" && canEdit;
 
   return (
@@ -128,6 +131,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                         status: c.status,
                         condition: c.condition,
                         needed: isNeeded(c) ? (missingByType.get(c.equipmentTypeId) ?? 1) : 0,
+                        imageId: c.imageId,
                       }))}
                     />
                   )}
@@ -196,6 +200,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                 return (
                   <li key={r.line.id} className="flex gap-3 px-4 py-2.5">
                     {ok ? <CircleCheck className="mt-0.5 size-4 shrink-0 text-ok" aria-label="Complete" /> : <CircleAlert className="mt-0.5 size-4 shrink-0 text-warn" aria-label="Incomplete" />}
+                    <Thumb photoId={lineImage.get(r.line.id) ?? null} name={r.line.label} className="size-9" />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-baseline justify-between gap-2">
                         <span className="text-sm font-medium">{r.line.label}</span>
@@ -248,6 +253,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
             <ul className="divide-y divide-border">
               {packedRows.map((i) => (
                 <li key={i.id} className="flex flex-wrap items-center gap-3 px-4 py-2">
+                  <Thumb photoId={i.imageId} name={i.typeName} className="size-9" />
                   <div className="min-w-0 flex-1">
                     <Link href={`/equipment/${i.id}`} className="block truncate text-sm font-medium hover:underline">
                       {i.typeName}

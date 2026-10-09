@@ -5,7 +5,7 @@ import * as s from "../db/schema";
 import { recordEvent } from "./audit";
 import { buildCategoryClosure, compareCase, type CaseComparison } from "./case-compare";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
-import { findItemByCode, itemLabel, lockItem } from "./equipment-items";
+import { findItemByCode, itemImageId, itemLabel, lockItem, typeImageId } from "./equipment-items";
 import { splitBulkItem } from "./item-split";
 export { groupUnits } from "@/lib/group-units";
 import { optionalText, optionalUuid, requiredText } from "./validation";
@@ -166,6 +166,7 @@ export async function getCaseDetail(db: DbOrTx, ctx: Ctx, id: string) {
         line: s.caseExpectedItem,
         typeName: s.equipmentType.name,
         categoryName: s.category.name,
+        imageId: typeImageId,
       })
       .from(s.caseExpectedItem)
       .leftJoin(s.equipmentType, eq(s.equipmentType.id, s.caseExpectedItem.equipmentTypeId))
@@ -187,6 +188,7 @@ export async function getCaseDetail(db: DbOrTx, ctx: Ctx, id: string) {
         rentalHouseId: s.equipmentItem.rentalHouseId,
         rentalHouseName: s.rentalHouse.shortName,
         caseId: s.equipmentItem.caseId,
+        imageId: itemImageId,
       })
       .from(s.equipmentItem)
       .innerJoin(s.equipmentType, eq(s.equipmentType.id, s.equipmentItem.equipmentTypeId))
@@ -212,7 +214,7 @@ export async function getCaseDetail(db: DbOrTx, ctx: Ctx, id: string) {
     ...row,
     neededTypeIds,
     neededCategoryIds,
-    lines: lines.map((l) => ({ ...l.line, typeName: l.typeName, categoryName: l.categoryName })),
+    lines: lines.map((l) => ({ ...l.line, typeName: l.typeName, categoryName: l.categoryName, imageId: l.imageId })),
     items: items.map((i) => ({ ...i, label: itemLabel(i) })),
     comparison,
   };
@@ -241,6 +243,7 @@ export async function listPackCandidates(db: DbOrTx, ctx: Ctx, caseId: string, q
       rentalHouseId: s.equipmentItem.rentalHouseId,
       caseId: s.equipmentItem.caseId,
       caseName: s.equipmentCase.name,
+      imageId: itemImageId,
     })
     .from(s.equipmentItem)
     .innerJoin(s.equipmentType, eq(s.equipmentType.id, s.equipmentItem.equipmentTypeId))
