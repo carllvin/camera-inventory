@@ -295,3 +295,18 @@ test("select mode: tick equipment and change it in one go", async ({ page }) => 
   await bar.getByRole("button", { name: "Apply" }).click();
   await expect(page.getByText("1 piece taken out of their set.")).toBeVisible();
 });
+
+test("lists: just start typing, the list updates live", async ({ page }) => {
+  await login(page);
+  await go(page, "/equipment");
+  await expect(page.locator("summary").filter({ hasText: "Matthews Sandbag" })).toBeVisible();
+  // No click into the field: the keys go to the search on their own.
+  await page.keyboard.type("bebob");
+  await expect(page).toHaveURL(/q=bebob/);
+  await expect(page.locator("summary").filter({ hasText: "Matthews Sandbag" })).toHaveCount(0);
+  await expect(page.locator("summary").filter({ hasText: "bebob B290cine" })).toBeVisible();
+  // Escape clears it again.
+  await page.keyboard.press("Escape");
+  await expect(page).not.toHaveURL(/q=/);
+  await expect(page.locator("summary").filter({ hasText: "Matthews Sandbag" })).toBeVisible();
+});
