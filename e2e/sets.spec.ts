@@ -310,3 +310,19 @@ test("lists: just start typing, the list updates live", async ({ page }) => {
   await expect(page).not.toHaveURL(/q=/);
   await expect(page.locator("summary").filter({ hasText: "Matthews Sandbag" })).toBeVisible();
 });
+
+test("equipment grouped by set; ticking a type ticks it only in that set", async ({ page }) => {
+  await login(page);
+  await go(page, "/equipment");
+  await page.getByRole("link", { name: "By set" }).click();
+  await expect(page).toHaveURL(/view=sets/);
+  const aCam = page.getByRole("region", { name: "A-Cam Set" });
+  const loose = page.getByRole("region", { name: "Not in a set" });
+  await expect(aCam.locator("summary").filter({ hasText: "ARRI ALEXA 35" })).toBeVisible();
+  await expect(loose.locator("summary").filter({ hasText: "Matthews Sandbag" })).toBeVisible();
+  await expect(aCam.locator("summary").filter({ hasText: "Matthews Sandbag" })).toHaveCount(0);
+  // ALEXA 35 is in A-Cam and B-Cam: the type tick in A-Cam only takes that one.
+  await page.getByRole("link", { name: "Select" }).click();
+  await aCam.getByLabel("Select all ARRI ALEXA 35").check();
+  await expect(page.getByText("1 selected")).toBeVisible();
+});

@@ -66,8 +66,10 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
     const onChange = (e: Event) => {
       const t = e.target as HTMLInputElement;
       const typeId = t.dataset?.selectType;
+      // Only within the tick's own list: in the set view one type can appear under several sets.
+      const scope = t.closest("[data-type-scope]") ?? form;
       if (typeId)
-        form.querySelectorAll<HTMLInputElement>(`input[data-type="${CSS.escape(typeId)}"]`).forEach((c) => {
+        scope.querySelectorAll<HTMLInputElement>(`input[data-type="${CSS.escape(typeId)}"]`).forEach((c) => {
           c.checked = t.checked;
         });
       update();

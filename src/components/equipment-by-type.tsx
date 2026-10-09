@@ -80,13 +80,13 @@ function statusSummary(items: ItemRow[]) {
   return [...counts].map(([s, n]) => ({ status: s, label: `${n} ${STATUS_LABEL[s]?.toLowerCase() ?? s}` }));
 }
 
-const where = (i: ItemRow, showProject: boolean) =>
-  [showProject && (i.projectName ?? "Not on a project"), i.caseName && `▣ ${i.caseName}`, i.rentalHouseShort ?? i.rentalHouseName ?? "Owned"].filter(Boolean).join(" · ");
+const where = (i: ItemRow, showProject: boolean, hideSet = false) =>
+  [showProject && (i.projectName ?? "Not on a project"), !hideSet && i.caseName && `▣ ${i.caseName}`, i.rentalHouseShort ?? i.rentalHouseName ?? "Owned"].filter(Boolean).join(" · ");
 
 type Entry = ReturnType<typeof groupItems>[number];
 
 /** Serial / asset / barcode, place, notes and state of one entry, linking to it. */
-function EntryBody({ e, showProject }: { e: Entry; showProject: boolean }) {
+function EntryBody({ e, showProject, hideSet }: { e: Entry; showProject: boolean; hideSet?: boolean }) {
   return (
     <Link href={`/equipment/${e.id}`} className="flex min-w-0 flex-1 items-start gap-3 hover:text-accent">
       <div className="min-w-0 flex-1 text-sm">
@@ -95,7 +95,7 @@ function EntryBody({ e, showProject }: { e: Entry; showProject: boolean }) {
           {e.assetNumber && <span className="text-muted"><Mono>Asset {e.assetNumber}</Mono></span>}
           {e.barcode && <span className="text-muted"><Mono>Code {e.barcode}</Mono></span>}
         </div>
-        <div className="text-xs text-muted">{where(e, showProject)}</div>
+        <div className="text-xs text-muted">{where(e, showProject, hideSet)}</div>
         {e.notes && <div className="mt-0.5 line-clamp-2 text-xs text-muted italic">{e.notes}</div>}
       </div>
       <div className="flex shrink-0 flex-col items-end gap-1">
@@ -110,10 +110,25 @@ function EntryBody({ e, showProject }: { e: Entry; showProject: boolean }) {
  * One line per equipment type with its quantity; opening it shows the single
  * entries (serials, asset numbers, case, owner, state, notes).
  */
-export function EquipmentByType({ items, open = false, showProject = false, sort, selectable = false }: { items: ItemRow[]; open?: boolean; showProject?: boolean; sort?: string; selectable?: boolean }) {
+export function EquipmentByType({
+  items,
+  open = false,
+  showProject = false,
+  sort,
+  selectable = false,
+  hideSet = false,
+}: {
+  items: ItemRow[];
+  open?: boolean;
+  showProject?: boolean;
+  sort?: string;
+  selectable?: boolean;
+  /** Listed under a set's heading already: don't repeat the set on every line. */
+  hideSet?: boolean;
+}) {
   const groups = sortGroups(byType(items), sort);
   return (
-    <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
+    <ul data-type-scope className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
       {groups.map((g) => {
         const statuses = statusSummary(g.items);
         const damaged = g.items.filter((i) => i.condition !== "ok" && i.condition !== "unknown").reduce((n, i) => n + i.quantity, 0);
@@ -129,7 +144,7 @@ export function EquipmentByType({ items, open = false, showProject = false, sort
                   <div className="truncate text-sm font-medium">{g.typeName}</div>
                   <div className="flex flex-wrap gap-x-2 text-xs text-muted">
                     {g.categoryName && <span>{g.categoryName}</span>}
-                    {cases.length > 0 && <span>▣ {cases.length === 1 ? cases[0] : `${cases.length} sets`}</span>}
+                    {!hideSet && cases.length > 0 && <span>▣ {cases.length === 1 ? cases[0] : `${cases.length} sets`}</span>}
                     {statuses.map((s) => (
                       <span key={s.status} className={s.status === "missing" ? "font-medium text-danger" : "text-text"}>
                         {s.label}
@@ -149,7 +164,7 @@ export function EquipmentByType({ items, open = false, showProject = false, sort
                     {selectable && (
                       <EntryTick entryKey={e.id} itemIds={e.itemIds} units={e.units} typeId={g.typeId} label={e.serialNumber ? `${g.typeName} SN ${e.serialNumber}` : g.typeName} />
                     )}
-                    <EntryBody e={e} showProject={showProject} />
+                    <EntryBody e={e} showProject={showProject} hideSet={hideSet} />
                   </li>
                 ))}
               </ul>

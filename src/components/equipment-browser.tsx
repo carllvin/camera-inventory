@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { LayoutGrid, ListTree } from "lucide-react";
+import { Boxes, LayoutGrid, ListTree } from "lucide-react";
 import { EQUIPMENT_SORTS, EquipmentByType, TypeGrid } from "@/components/equipment-by-type";
 import { FilterBar, FilterSearch, FilterSelect } from "@/components/filters";
 import { EmptyState } from "@/components/ui";
@@ -24,18 +24,19 @@ export type BrowserParams = {
   select?: string;
 };
 
-export type BrowserView = "types" | "grid";
+export type BrowserView = "types" | "sets" | "grid";
 
 const VIEWS = [
   { key: "types", label: "By type", Icon: ListTree },
+  { key: "sets", label: "By set", Icon: Boxes },
   { key: "grid", label: "Image view", Icon: LayoutGrid },
 ] as const;
 
 const ON_PROJECT = ["on_project", "in_use", "ready_for_return", "missing"];
 
-/** One line per type (default) or one picture per type. */
+/** One line per type (default), the same grouped by set, or one picture per type. */
 export function browserView(sp: BrowserParams): BrowserView {
-  return sp.view === "grid" ? "grid" : "types";
+  return sp.view === "grid" ? "grid" : sp.view === "sets" ? "sets" : "types";
 }
 
 /**
@@ -72,7 +73,7 @@ export function EquipmentBrowser({
 }) {
   const view = browserView(sp);
   const canSelect = Boolean(projectId && bulkAction);
-  const selecting = canSelect && sp.select === "1" && view === "types";
+  const selecting = canSelect && sp.select === "1" && view !== "grid";
   const href = (patch: Partial<BrowserParams>) => {
     const next = { ...sp, ...patch };
     if (next.view === "types") delete next.view;
@@ -138,11 +139,11 @@ export function EquipmentBrowser({
           <div className="mb-2 flex items-center justify-between gap-2">
             <p className="text-xs text-muted">
               {items.length >= limit ? `Showing the first ${limit} — refine with filters` : `${count} ${countLabel} · ${units} ${units === 1 ? "unit" : "units"}`}
-              {view === "types" && " · tap a line for serials and details"}
+              {view !== "grid" && " · tap a line for serials and details"}
             </p>
             <div className="flex items-center gap-2">
             {canSelect && (
-              <Link href={selecting ? href({ select: "" }) : href({ select: "1", view: "types" })} className={cn("rounded-lg border px-2.5 py-1 text-xs", selecting ? "border-accent bg-accent-soft text-accent" : "border-border bg-surface text-muted hover:text-text")}>
+              <Link href={selecting ? href({ select: "" }) : href({ select: "1", view: view === "grid" ? "types" : view })} className={cn("rounded-lg border px-2.5 py-1 text-xs", selecting ? "border-accent bg-accent-soft text-accent" : "border-border bg-surface text-muted hover:text-text")}>
                 {selecting ? "Done" : "Select"}
               </Link>
             )}
@@ -159,17 +160,63 @@ export function EquipmentBrowser({
           {view === "grid" ? (
             <TypeGrid items={items} sort={sp.sort} hrefFor={(typeName) => href({ view: "types", q: typeName })} />
           ) : (
-            selecting && bulkAction ? (
-              <ActionForm action={bulkAction}>
-                <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} selectable />
-                <SelectionBar sets={cases.map((c) => ({ value: c.id, label: c.name }))} />
-              </ActionForm>
-            ) : (
-              <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} />
-            )
+            (() => {
+              const list =
+                view === "sets" ? (
+                  <BySet items={items} cases={cases} sort={sp.sort} open={Boolean(sp.q)} showProject={!projectId} selectable={selecting} />
+                ) : (
+                  <EquipmentByType items={items} sort={sp.sort} open={Boolean(sp.q || sp.caseId)} showProject={!projectId} selectable={selecting} />
+                );
+              return selecting && bulkAction ? (
+                <ActionForm action={bulkAction}>
+                  {list}
+                  <SelectionBar sets={cases.map((c) => ({ value: c.id, label: c.name }))} />
+                </ActionForm>
+              ) : (
+                list
+              );
+            })()
           )}
         </>
       )}
     </>
+  );
+}
+
+/** The list grouped by set: one section per set (in the project's set order), then what is in no set. */
+function BySet({ items, cases, sort, open, showProject, selectable }: { items: ItemRow[]; cases: CaseSummary[]; sort?: string; open: boolean; showProject: boolean; selectable: boolean }) {
+  const groups = new Map<string, ItemRow[]>();
+  for (const i of items) groups.set(i.caseId ?? "", [...(groups.get(i.caseId ?? "") ?? []), i]);
+  const known = new Map(cases.map((c) => [c.id, c]));
+  const sections = [
+    ...cases.filter((c) => groups.has(c.id)).map((c) => ({ id: c.id, name: c.name, cmp: c.comparison as CaseSummary["comparison"] | null })),
+    // Sets of other projects (when no project is in view) by name.
+    ...[...groups.keys()].filter((id) => id && !known.has(id)).map((id) => ({ id, name: groups.get(id)![0]!.caseName ?? "Set", cmp: null })),
+    ...(groups.has("") ? [{ id: "", name: "Not in a set", cmp: null }] : []),
+  ];
+  return (
+    <div className="space-y-4">
+      {sections.map((sct) => {
+        const its = groups.get(sct.id)!;
+        const pcs = its.reduce((n, i) => n + i.quantity, 0);
+        return (
+          <section key={sct.id || "none"} aria-label={sct.name}>
+            <h3 className="mb-1.5 flex items-baseline justify-between gap-2 px-1 text-sm">
+              {sct.id ? (
+                <Link href={`/sets/${sct.id}`} className="font-semibold hover:underline">
+                  ▣ {sct.name}
+                </Link>
+              ) : (
+                <span className="font-semibold text-muted">{sct.name}</span>
+              )}
+              <span className="text-xs text-muted tabular-nums">
+                {sct.cmp?.expectedTotal ? `${sct.cmp.matchedTotal} / ${sct.cmp.expectedTotal}${sct.cmp.extraTotal ? ` + ${sct.cmp.extraTotal}` : ""}` : `${pcs} pcs`}
+              </span>
+            </h3>
+            <EquipmentByType items={its} sort={sort} open={open} showProject={showProject} selectable={selectable} hideSet />
+          </section>
+        );
+      })}
+    </div>
   );
 }
