@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Aperture, LogOut, Search } from "lucide-react";
+import { LogOut, Search } from "lucide-react";
+import { Logo } from "@/components/logo";
 import { sql } from "drizzle-orm";
 import { MobileNav, Sidebar } from "@/components/nav";
 import { ProjectSwitcher } from "@/components/project-switcher";
@@ -22,7 +23,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         <header className="sticky top-0 z-20 border-b border-border bg-bg/90 backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5 lg:px-8">
             <Link href="/" className="lg:hidden" aria-label="Dashboard">
-              <Aperture className="size-6 text-accent" />
+              <Logo className="size-7" />
             </Link>
             <ProjectSwitcher projects={active} currentId={current?.id ?? null} />
             <div className="flex-1 sm:hidden" />

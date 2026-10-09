@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Aperture,
   Boxes,
   Briefcase,
   Camera,
@@ -15,6 +14,7 @@ import {
   ScanLine,
   Settings,
 } from "lucide-react";
+import { Logo } from "./logo";
 import { cn } from "@/lib/format";
 
 const DESKTOP = [
@@ -38,7 +38,7 @@ export function Sidebar({ workspaceName, openIssues }: { workspaceName: string; 
     <div className="hidden w-60 shrink-0 border-r border-border bg-surface lg:block">
     <aside className="sticky top-0 flex h-dvh flex-col">
       <div className="flex items-center gap-2 px-5 py-5">
-        <Aperture className="size-6 text-accent" aria-hidden />
+        <Logo className="size-7 shrink-0" />
         <div className="min-w-0">
           <div className="text-sm font-semibold leading-tight">Camera Inventory</div>
           <div className="truncate text-xs text-muted">{workspaceName}</div>
