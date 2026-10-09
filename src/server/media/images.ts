@@ -27,7 +27,8 @@ export async function processImage(input: Buffer): Promise<ProcessedImage> {
   if (!meta.format || !ACCEPTED.has(meta.format)) {
     throw new DomainError("VALIDATION", `Unsupported image format${meta.format ? ` (${meta.format})` : ""}. Use JPEG, PNG or WebP.`);
   }
-  const base = () => sharp(input, { limitInputPixels: 100_000_000, failOn: "error" }).rotate();
+  // Transparent areas (PNG/WebP cut-outs) on white: JPEG has no alpha and would turn them black.
+  const base = () => sharp(input, { limitInputPixels: 100_000_000, failOn: "error" }).rotate().flatten({ background: "#ffffff" });
   try {
     const { data: full, info } = await base()
       .resize({ width: 2560, height: 2560, fit: "inside", withoutEnlargement: true })

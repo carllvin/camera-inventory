@@ -7,7 +7,8 @@ import { getExtractor } from "@/server/ai";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getCategoryTree } from "@/server/domain/categories";
-import { copyNames, suggestedSets } from "@/server/domain/document-sets";
+import { copyNames, deliveredItemsByLine, suggestedSets } from "@/server/domain/document-sets";
+import { TypePicker } from "@/components/type-picker";
 import { getConsolidation } from "@/server/domain/consolidate";
 import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
@@ -27,6 +28,7 @@ import {
   updateLineAction,
   createTypeFromLineAction,
   createSetFromDocumentAction,
+  changeLineTypeAction,
   createAllSetsFromDocumentAction,
   addFromListAction,
   removeNotOnListAction,
@@ -144,6 +146,8 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   const consolidation = isList && editable ? await getConsolidation(db, ctx, id) : null;
   const mode = isReturn ? ("return" as const) : ("delivery" as const);
   const setSuggestions = !isReturn && doc.status === "confirmed" ? await suggestedSets(db, ctx.workspaceId, id) : [];
+  // Confirmed delivery: what each line brought, so a wrongly chosen type can still be corrected.
+  const fromLine = !isReturn && doc.status === "confirmed" && doc.kind === "delivery_note" && hasRole(ctx, "member") ? (await deliveredItemsByLine(db, ctx.workspaceId, id)).items : null;
   const canCreateSets = hasRole(ctx, "member");
   const itemOptions = editable && isReturn && doc.projectId ? (await listReturnableItems(db, ctx, doc.projectId, doc.id)).map((i) => ({ value: i.id, label: i.label })) : [];
   // Unknown products on a delivery note: a pre-filled "create" strip per line.
@@ -581,6 +585,20 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                               (l.typeName ?? <span className="text-muted">—</span>)
                             )}
                             {l.matchReason && doc.status !== "confirmed" && <div className="text-xs text-muted">{l.matchReason}</div>}
+                            {fromLine && (fromLine.get(l.id)?.length ?? 0) > 0 && (
+                              <details className="mt-1">
+                                <summary className="cursor-pointer text-xs text-muted hover:text-text">Change type</summary>
+                                <ActionForm action={changeLineTypeAction.bind(null, id, l.id)} className="mt-2 w-64 space-y-2">
+                                  <TypePicker name="typeId" id={`type-${l.id}`} aria-label={`Right type for line ${l.lineNumber}`} />
+                                  <p className="text-xs text-muted">
+                                    Changes the {fromLine.get(l.id)!.reduce((n, i) => n + i.quantity, 0)} piece(s) from this line; the next note with “{l.description}” gets the right type.
+                                  </p>
+                                  <SubmitButton variant="secondary" className="!py-1 text-xs" pendingText="…">
+                                    Change type
+                                  </SubmitButton>
+                                </ActionForm>
+                              </details>
+                            )}
                           </td>
                           <td className="px-3 py-2">
                             <Badge tone={labels[l.resolution]?.tone}>

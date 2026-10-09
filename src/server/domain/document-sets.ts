@@ -66,19 +66,19 @@ export async function packEqualShares(tx: DbOrTx, ctx: Ctx, caseIds: string[], i
   }
 }
 
-/** Delivered items per suggested set (confirmed delivery notes only). */
-export async function suggestedSets(db: DbOrTx, workspaceId: string, documentId: string): Promise<SetSuggestion[]> {
+type Delivered = { id: string; typeId: string; typeName: string; quantity: number; caseId: string | null; projectId: string | null };
+
+/**
+ * The items each line of a confirmed delivery note brought (still on the project):
+ * the matched item first, further units of the line from the other delivered items of its type.
+ */
+export async function deliveredItemsByLine(db: DbOrTx, workspaceId: string, documentId: string) {
   const lines = await db
     .select()
     .from(s.documentLine)
     .where(and(eq(s.documentLine.documentId, documentId), eq(s.documentLine.workspaceId, workspaceId), inArray(s.documentLine.resolution, ["create_new", "match_existing"])))
     .orderBy(asc(s.documentLine.lineNumber));
-  const grouped = new Map<string, (typeof lines)[number][]>();
-  for (const l of lines) if (l.setName) grouped.set(l.setName, [...(grouped.get(l.setName) ?? []), l]);
-  if (grouped.size === 0) return [];
-
-  // Everything this note delivered, by type (lines with several units only link their first item).
-  const delivered = await db
+  const delivered: Delivered[] = await db
     .select({
       id: s.equipmentItem.id,
       typeId: s.equipmentItem.equipmentTypeId,
@@ -94,28 +94,38 @@ export async function suggestedSets(db: DbOrTx, workspaceId: string, documentId:
     .orderBy(asc(s.equipmentItem.createdAt), asc(s.equipmentItem.id));
   const byId = new Map(delivered.map((d) => [d.id, d]));
   const used = new Set<string>();
-  const take = (id: string | null | undefined) => {
-    if (!id || used.has(id) || !byId.get(id)?.projectId) return null;
-    used.add(id);
-    return byId.get(id)!;
-  };
+  const items = new Map<string, Delivered[]>();
+  for (const l of lines) {
+    const mine: Delivered[] = [];
+    const first = l.matchedEquipmentItemId ? byId.get(l.matchedEquipmentItemId) : undefined;
+    if (first && !used.has(first.id) && first.projectId) {
+      used.add(first.id);
+      mine.push(first);
+    }
+    // Further units of a multi-unit line: other delivered items of the same type.
+    let need = l.quantity - (mine[0]?.quantity ?? 0);
+    for (const d of delivered) {
+      if (need <= 0) break;
+      if (d.typeId !== l.matchedEquipmentTypeId || used.has(d.id) || !d.projectId) continue;
+      used.add(d.id);
+      mine.push(d);
+      need -= d.quantity;
+    }
+    items.set(l.id, mine);
+  }
+  return { lines, items };
+}
+
+/** Delivered items per suggested set (confirmed delivery notes only). */
+export async function suggestedSets(db: DbOrTx, workspaceId: string, documentId: string): Promise<SetSuggestion[]> {
+  const { lines, items: byLine } = await deliveredItemsByLine(db, workspaceId, documentId);
+  const grouped = new Map<string, (typeof lines)[number][]>();
+  for (const l of lines) if (l.setName) grouped.set(l.setName, [...(grouped.get(l.setName) ?? []), l]);
+  if (grouped.size === 0) return [];
 
   const out: SetSuggestion[] = [];
   for (const [name, group] of grouped) {
-    const items: (typeof delivered)[number][] = [];
-    for (const l of group) {
-      const first = take(l.matchedEquipmentItemId);
-      if (first) items.push(first);
-      // Further units of a multi-unit line: other delivered items of the same type.
-      let need = l.quantity - (first?.quantity ?? 0);
-      for (const d of delivered) {
-        if (need <= 0) break;
-        if (d.typeId !== l.matchedEquipmentTypeId || used.has(d.id) || !d.projectId) continue;
-        used.add(d.id);
-        items.push(d);
-        need -= d.quantity;
-      }
-    }
+    const items = group.flatMap((l) => byLine.get(l.id) ?? []);
     if (items.length === 0) continue;
     const caseIds = new Set(items.map((i) => i.caseId));
     const onlyCase = caseIds.size === 1 ? [...caseIds][0] : null;

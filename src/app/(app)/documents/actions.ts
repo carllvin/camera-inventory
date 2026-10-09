@@ -25,7 +25,8 @@ import {
   createTypeFromLine,
 } from "@/server/domain/documents";
 import { getStorage } from "@/server/storage";
-import { copyNames, createSetFromDocument, suggestedSets } from "@/server/domain/document-sets";
+import { copyNames, createSetFromDocument, deliveredItemsByLine, suggestedSets } from "@/server/domain/document-sets";
+import { changeItemType } from "@/server/domain/item-retype";
 import { addFromList, finishList, removeNotOnList } from "@/server/domain/consolidate";
 
 function scheduleExtraction(workspaceId: string, documentId: string) {
@@ -203,5 +204,20 @@ export async function finishListAction(id: string, _: ActionState, fd: FormData)
     const doc = await finishList(getDb(), await getCtx(), id);
     refreshList(id, doc.projectId);
     return "List checked and closed.";
+  });
+}
+
+/** Wrong type picked while importing: move everything this line brought to the right type. */
+export async function changeLineTypeAction(id: string, lineId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(null, async () => {
+    const ctx = await getCtx();
+    const typeId = String(fd.get("typeId") ?? "");
+    if (!typeId) throw new DomainError("VALIDATION", "Choose the right equipment type.");
+    const items = (await deliveredItemsByLine(getDb(), ctx.workspaceId, id)).items.get(lineId) ?? [];
+    if (items.length === 0) throw new DomainError("VALIDATION", "Nothing from this line is on the project any more.");
+    const r = await changeItemType(getDb(), ctx, items.map((i) => i.id), typeId, { documentLineId: lineId });
+    revalidatePath("/", "layout");
+    const pieces = items.reduce((n, i) => n + i.quantity, 0);
+    return r.changed ? `${pieces} piece${pieces === 1 ? "" : "s"} changed to ${r.typeName}.` : `Already ${r.typeName}.`;
   });
 }

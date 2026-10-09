@@ -11,12 +11,13 @@ import * as s from "../db/schema";
 import { recordEvent } from "./audit";
 import { packItem, unpackItem } from "./cases";
 import { DomainError, notFound, requireRole, type Ctx } from "./context";
+import { changeItemType } from "./item-retype";
 import { assignToProject, changeCondition, changeStatus, lockItem, ON_PROJECT_STATUSES, removeFromProject, updateItem } from "./equipment-items";
 
 type Changes = Record<string, { from: unknown; to: unknown }>;
 type EventLike = { action: string; changes?: Changes | null; metadata?: Record<string, unknown> | null; documentId?: string | null };
 
-const ITEM_FIELDS = ["serialNumber", "assetNumber", "barcode", "rentalHouseId", "notes", "quantity"];
+const ITEM_FIELDS = ["serialNumber", "assetNumber", "barcode", "rentalHouseId", "notes", "quantity", "equipmentTypeId"];
 const TYPE_FIELDS = ["manufacturer", "model", "name", "categoryId", "aliases", "description", "specs", "defaultTrackingMode", "archivedAt"];
 const same = (a: unknown, b: unknown) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 
@@ -119,6 +120,10 @@ export async function revertEvent(db: DbOrTx, ctx: Ctx, eventId: number) {
       case "equipment_item.updated": {
         const current = item as unknown as Record<string, unknown>;
         for (const [k, v] of Object.entries(changes)) if (!same(current[k], v.to)) throw changedSince();
+        if (changes.equipmentTypeId) {
+          await changeItemType(tx, rctx, [item.id], changes.equipmentTypeId.from as string);
+          break;
+        }
         const restore = Object.fromEntries(Object.entries(changes).map(([k, v]) => [k, v.from ?? null]));
         await updateItem(tx, rctx, item.id, {
           serialNumber: item.serialNumber,

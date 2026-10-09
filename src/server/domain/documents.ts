@@ -655,7 +655,7 @@ async function similarOpenLines(tx: DbOrTx, documentId: string, line: typeof s.d
  * The reviewer said which type a printed description means: keep that wording as an
  * alias, so the next note from this rental house is matched without asking.
  */
-async function learnAlias(tx: DbOrTx, ctx: Ctx, typeId: string, line: typeof s.documentLine.$inferSelect, documentId: string) {
+export async function learnAlias(tx: DbOrTx, ctx: Ctx, typeId: string, line: typeof s.documentLine.$inferSelect, documentId: string) {
   const alias = line.description.replace(/\s+/g, " ").trim();
   if (alias.length < 3 || alias.length > 120) return;
   const [type] = await tx.select().from(s.equipmentType).where(and(eq(s.equipmentType.id, typeId), eq(s.equipmentType.workspaceId, ctx.workspaceId)));

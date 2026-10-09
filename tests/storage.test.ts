@@ -84,6 +84,15 @@ describe("image processing", () => {
     expect((await sharp(out.thumb).metadata()).format).toBe("webp");
   });
 
+  it("puts transparent PNGs on white, not black", async () => {
+    const png = await sharp({ create: { width: 40, height: 40, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } }).png().toBuffer();
+    const out = await processImage(png);
+    for (const img of [out.full, out.thumb]) {
+      const { data } = await sharp(img).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+      expect(Math.min(...data)).toBeGreaterThan(245);
+    }
+  });
+
   it("refuses files that are not images", async () => {
     await expect(processImage(Buffer.from("%PDF-1.4 not an image"))).rejects.toBeInstanceOf(DomainError);
     await expect(processImage(Buffer.alloc(0))).rejects.toThrow("empty");

@@ -6,7 +6,8 @@ import { hasRole } from "@/server/domain/context";
 import { getItemDetail } from "@/server/domain/equipment-items";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { updateItemAction } from "../../actions";
+import { changeItemTypeAction, updateItemAction } from "../../actions";
+import { TypePicker } from "@/components/type-picker";
 
 export default async function EditItemPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -42,6 +43,16 @@ export default async function EditItemPage({ params }: { params: Promise<{ id: s
           <TextArea label="Notes" name="notes" defaultValue={item.notes} rows={4} />
           <p className="text-xs text-muted">Status, condition and project are changed from the item page so each change is recorded on its own.</p>
           <SubmitButton>Save changes</SubmitButton>
+        </ActionForm>
+      </Card>
+      <Card className="mt-6 max-w-2xl p-5">
+        <h2 className="text-sm font-semibold">Equipment type</h2>
+        <p className="mt-1 mb-3 text-sm text-muted">
+          Now <strong className="text-text">{d.type.name}</strong>. Wrong type (e.g. picked by mistake when importing)? Choose the right one; the item keeps its history.
+        </p>
+        <ActionForm action={changeItemTypeAction.bind(null, id)} className="flex flex-wrap items-end gap-3">
+          <TypePicker name="typeId" label="Right type" className="min-w-64 flex-1" />
+          <SubmitButton variant="secondary">Change type</SubmitButton>
         </ActionForm>
       </Card>
     </>

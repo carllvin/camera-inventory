@@ -2,7 +2,7 @@
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import * as s from "../src/server/db/schema";
 import { ExtractionError, type DocumentExtractor, type Extraction, type ExtractedLine } from "../src/server/ai/types";
@@ -483,5 +483,46 @@ describe("headings on a note", () => {
     expect(received).toBe(4); // 2 transmitters + 2 sandbags, no headings
     const [sg] = await suggestedSets(db, ctx.workspaceId, id);
     expect(sg).toMatchObject({ name: "Funk-Set A", lines: 2, units: 2 });
+  });
+});
+
+describe("changing the type after confirming", () => {
+  it("moves the line's pieces and its spelling to the right type; undo puts them back", async () => {
+    const { deliveredItemsByLine } = await import("../src/server/domain/document-sets");
+    const { changeItemType } = await import("../src/server/domain/item-retype");
+    const { revertEvent } = await import("../src/server/domain/revert");
+    const tag = Math.random().toString(36).slice(2, 7);
+    const rx = await createEquipmentType(db, ctx, { manufacturer: "Teradek", model: `Bolt RX ${tag}` });
+    const spelling = `Funkempfänger ${tag}`;
+    const id = await upload(new FakeExtractor(extraction([line({ description: spelling, serial_numbers: [`RX-${tag}-1`, `RX-${tag}-2`], quantity: 2 })], { rental_house_match: "ARRI Rental" })));
+    // The reviewer picks the wrong type (the transmitter) …
+    const [l] = (await getDocumentReview(db, ctx, id)).lines;
+    await updateLine(db, ctx, l!.id, { description: spelling, quantity: 2, serialNumber: l!.serialNumber, equipmentTypeId: teradekTx.id });
+    await confirmDelivery(db, ctx, id);
+    const [tx] = await db.select().from(s.equipmentType).where(eq(s.equipmentType.id, teradekTx.id));
+    expect(tx!.aliases).toContain(spelling);
+
+    // … and corrects it afterwards for everything the line brought.
+    const items = (await deliveredItemsByLine(db, ctx.workspaceId, id)).items.get(l!.id)!;
+    expect(items).toHaveLength(2);
+    const r = await changeItemType(db, ctx, items.map((i) => i.id), rx.id, { documentLineId: l!.id });
+    expect(r).toEqual({ changed: 2, typeName: rx.name });
+    const now = await db.select().from(s.equipmentItem).where(inArray(s.equipmentItem.id, items.map((i) => i.id)));
+    expect(now.every((i) => i.equipmentTypeId === rx.id)).toBe(true);
+    const [txAfter] = await db.select().from(s.equipmentType).where(eq(s.equipmentType.id, teradekTx.id));
+    expect(txAfter!.aliases).not.toContain(spelling);
+    const [rxAfter] = await db.select().from(s.equipmentType).where(eq(s.equipmentType.id, rx.id));
+    expect(rxAfter!.aliases).toContain(spelling);
+    expect((await getDocumentReview(db, ctx, id)).lines[0]!.matchedEquipmentTypeId).toBe(rx.id);
+
+    // The next note with that spelling gets the right type.
+    const next = await upload(new FakeExtractor(extraction([line({ description: spelling, serial_numbers: [`RX-${tag}-3`] })], { rental_house_match: "ARRI Rental" })));
+    expect((await getDocumentReview(db, ctx, next)).lines[0]!.matchedEquipmentTypeId).toBe(rx.id);
+
+    // Undo from the history.
+    const [ev] = await db.select().from(s.auditEvent).where(and(eq(s.auditEvent.equipmentItemId, items[0]!.id), eq(s.auditEvent.action, "equipment_item.updated")));
+    await revertEvent(db, ctx, ev!.id);
+    const [back] = await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.id, items[0]!.id));
+    expect(back!.equipmentTypeId).toBe(teradekTx.id);
   });
 });

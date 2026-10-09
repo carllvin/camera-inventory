@@ -13,6 +13,8 @@ import {
 } from "@/server/domain/equipment-items";
 import { createEquipmentType, deleteEquipmentTypes, restoreEquipmentType, updateEquipmentType } from "@/server/domain/equipment-types";
 import { updateItemState } from "@/server/domain/item-state";
+import { changeItemType } from "@/server/domain/item-retype";
+import { DomainError } from "@/server/domain/context";
 
 function refresh(itemId: string, projectId?: string | null) {
   revalidatePath(`/equipment/${itemId}`);
@@ -107,5 +109,17 @@ export async function restoreTypeAction(id: string, _: ActionState, fd: FormData
     await restoreEquipmentType(getDb(), await getCtx(), id);
     revalidatePath("/equipment", "layout");
     return "Restored.";
+  });
+}
+
+/** Correct an item's equipment type (e.g. picked wrongly while importing). */
+export async function changeItemTypeAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(null, async () => {
+    const typeId = String(fd.get("typeId") ?? "");
+    if (!typeId) throw new DomainError("VALIDATION", "Choose the right equipment type.");
+    const r = await changeItemType(getDb(), await getCtx(), [id], typeId);
+    revalidatePath("/", "layout");
+    redirect(`/equipment/${id}`);
+    return `Now ${r.typeName}.`;
   });
 }
