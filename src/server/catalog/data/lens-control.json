@@ -5434,6 +5434,807 @@
       "NiSi Pure Clear"
      ],
      "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Attenuator ND 0.3 Horizontal 4x5.65",
+     "aliases": [
+      "ND Attenuator 0.3 4x5.65",
+      "Grad ND Attenuator 0.3 4x5.65",
+      "Attenuator ND3 4x5.65",
+      "Tiffen Attenuator 0.3 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Attenuator ND 0.6 Horizontal 4x5.65",
+     "aliases": [
+      "ND Attenuator 0.6 4x5.65",
+      "Grad ND Attenuator 0.6 4x5.65",
+      "Attenuator ND6 4x5.65",
+      "Tiffen Attenuator 0.6 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Attenuator ND 0.9 Horizontal 4x5.65",
+     "aliases": [
+      "ND Attenuator 0.9 4x5.65",
+      "Grad ND Attenuator 0.9 4x5.65",
+      "Attenuator ND9 4x5.65",
+      "Tiffen Attenuator 0.9 4x5.65",
+      "A4565CGN9H"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Attenuator ND 1.2 Horizontal 4x5.65",
+     "aliases": [
+      "ND Attenuator 1.2 4x5.65",
+      "Grad ND Attenuator 1.2 4x5.65",
+      "Attenuator ND1.2 4x5.65",
+      "Tiffen Attenuator 1.2 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tobacco 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tobacco 1 Grad SE 4x5.65",
+      "Tobacco Grad 1 SE 4x5.65",
+      "Grad Tobacco 1 SE 4x5.65",
+      "Tobacco 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tobacco 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tobacco 1 Grad HE 4x5.65",
+      "Tobacco Grad 1 HE 4x5.65",
+      "Grad Tobacco 1 HE 4x5.65",
+      "Tobacco 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tobacco 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tobacco 2 Grad SE 4x5.65",
+      "Tobacco Grad 2 SE 4x5.65",
+      "Grad Tobacco 2 SE 4x5.65",
+      "Tobacco 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tobacco 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tobacco 2 Grad HE 4x5.65",
+      "Tobacco Grad 2 HE 4x5.65",
+      "Grad Tobacco 2 HE 4x5.65",
+      "Tobacco 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tobacco 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tobacco 3 Grad SE 4x5.65",
+      "Tobacco Grad 3 SE 4x5.65",
+      "Grad Tobacco 3 SE 4x5.65",
+      "Tobacco 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tobacco 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tobacco 3 Grad HE 4x5.65",
+      "Tobacco Grad 3 HE 4x5.65",
+      "Grad Tobacco 3 HE 4x5.65",
+      "Tobacco 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 1/2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 1/2 Grad SE 4x5.65",
+      "Coral Grad 1/2 SE 4x5.65",
+      "Grad Coral 1/2 SE 4x5.65",
+      "Coral 1/2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 1/2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 1/2 Grad HE 4x5.65",
+      "Coral Grad 1/2 HE 4x5.65",
+      "Grad Coral 1/2 HE 4x5.65",
+      "Coral 1/2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 1 Grad SE 4x5.65",
+      "Coral Grad 1 SE 4x5.65",
+      "Grad Coral 1 SE 4x5.65",
+      "Coral 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 1 Grad HE 4x5.65",
+      "Coral Grad 1 HE 4x5.65",
+      "Grad Coral 1 HE 4x5.65",
+      "Coral 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 2 Grad SE 4x5.65",
+      "Coral Grad 2 SE 4x5.65",
+      "Grad Coral 2 SE 4x5.65",
+      "Coral 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 2 Grad HE 4x5.65",
+      "Coral Grad 2 HE 4x5.65",
+      "Grad Coral 2 HE 4x5.65",
+      "Coral 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 3 Grad SE 4x5.65",
+      "Coral Grad 3 SE 4x5.65",
+      "Grad Coral 3 SE 4x5.65",
+      "Coral 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Coral 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Coral 3 Grad HE 4x5.65",
+      "Coral Grad 3 HE 4x5.65",
+      "Grad Coral 3 HE 4x5.65",
+      "Coral 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 1 Grad SE 4x5.65",
+      "Blue Grad 1 SE 4x5.65",
+      "Grad Blue 1 SE 4x5.65",
+      "Blue 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 1 Grad HE 4x5.65",
+      "Blue Grad 1 HE 4x5.65",
+      "Grad Blue 1 HE 4x5.65",
+      "Blue 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 2 Grad SE 4x5.65",
+      "Blue Grad 2 SE 4x5.65",
+      "Grad Blue 2 SE 4x5.65",
+      "Blue 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 2 Grad HE 4x5.65",
+      "Blue Grad 2 HE 4x5.65",
+      "Grad Blue 2 HE 4x5.65",
+      "Blue 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 3 Grad SE 4x5.65",
+      "Blue Grad 3 SE 4x5.65",
+      "Grad Blue 3 SE 4x5.65",
+      "Blue 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 3 Grad HE 4x5.65",
+      "Blue Grad 3 HE 4x5.65",
+      "Grad Blue 3 HE 4x5.65",
+      "Blue 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 4 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 4 Grad SE 4x5.65",
+      "Blue Grad 4 SE 4x5.65",
+      "Grad Blue 4 SE 4x5.65",
+      "Blue 4 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 4 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 4 Grad HE 4x5.65",
+      "Blue Grad 4 HE 4x5.65",
+      "Grad Blue 4 HE 4x5.65",
+      "Blue 4 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 5 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 5 Grad SE 4x5.65",
+      "Blue Grad 5 SE 4x5.65",
+      "Grad Blue 5 SE 4x5.65",
+      "Blue 5 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Blue 5 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Blue 5 Grad HE 4x5.65",
+      "Blue Grad 5 HE 4x5.65",
+      "Grad Blue 5 HE 4x5.65",
+      "Blue 5 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Sunset 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Sunset 1 Grad SE 4x5.65",
+      "Sunset Grad 1 SE 4x5.65",
+      "Grad Sunset 1 SE 4x5.65",
+      "Sunset 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Sunset 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Sunset 1 Grad HE 4x5.65",
+      "Sunset Grad 1 HE 4x5.65",
+      "Grad Sunset 1 HE 4x5.65",
+      "Sunset 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Sunset 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Sunset 2 Grad SE 4x5.65",
+      "Sunset Grad 2 SE 4x5.65",
+      "Grad Sunset 2 SE 4x5.65",
+      "Sunset 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Sunset 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Sunset 2 Grad HE 4x5.65",
+      "Sunset Grad 2 HE 4x5.65",
+      "Grad Sunset 2 HE 4x5.65",
+      "Sunset 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Sunset 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Sunset 3 Grad SE 4x5.65",
+      "Sunset Grad 3 SE 4x5.65",
+      "Grad Sunset 3 SE 4x5.65",
+      "Sunset 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Sunset 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Sunset 3 Grad HE 4x5.65",
+      "Sunset Grad 3 HE 4x5.65",
+      "Grad Sunset 3 HE 4x5.65",
+      "Sunset 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Straw 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Straw 1 Grad SE 4x5.65",
+      "Straw Grad 1 SE 4x5.65",
+      "Grad Straw 1 SE 4x5.65",
+      "Straw 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Straw 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Straw 1 Grad HE 4x5.65",
+      "Straw Grad 1 HE 4x5.65",
+      "Grad Straw 1 HE 4x5.65",
+      "Straw 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Straw 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Straw 2 Grad SE 4x5.65",
+      "Straw Grad 2 SE 4x5.65",
+      "Grad Straw 2 SE 4x5.65",
+      "Straw 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Straw 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Straw 2 Grad HE 4x5.65",
+      "Straw Grad 2 HE 4x5.65",
+      "Grad Straw 2 HE 4x5.65",
+      "Straw 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Straw 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Straw 3 Grad SE 4x5.65",
+      "Straw Grad 3 SE 4x5.65",
+      "Grad Straw 3 SE 4x5.65",
+      "Straw 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Straw 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Straw 3 Grad HE 4x5.65",
+      "Straw Grad 3 HE 4x5.65",
+      "Grad Straw 3 HE 4x5.65",
+      "Straw 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Skyfire 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Skyfire 1 Grad SE 4x5.65",
+      "Skyfire Grad 1 SE 4x5.65",
+      "Grad Skyfire 1 SE 4x5.65",
+      "Skyfire 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Skyfire 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Skyfire 1 Grad HE 4x5.65",
+      "Skyfire Grad 1 HE 4x5.65",
+      "Grad Skyfire 1 HE 4x5.65",
+      "Skyfire 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Skyfire 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Skyfire 2 Grad SE 4x5.65",
+      "Skyfire Grad 2 SE 4x5.65",
+      "Grad Skyfire 2 SE 4x5.65",
+      "Skyfire 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Skyfire 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Skyfire 2 Grad HE 4x5.65",
+      "Skyfire Grad 2 HE 4x5.65",
+      "Grad Skyfire 2 HE 4x5.65",
+      "Skyfire 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Skyfire 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Skyfire 3 Grad SE 4x5.65",
+      "Skyfire Grad 3 SE 4x5.65",
+      "Grad Skyfire 3 SE 4x5.65",
+      "Skyfire 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Skyfire 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Skyfire 3 Grad HE 4x5.65",
+      "Skyfire Grad 3 HE 4x5.65",
+      "Grad Skyfire 3 HE 4x5.65",
+      "Skyfire 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Twilight 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Twilight 1 Grad SE 4x5.65",
+      "Twilight Grad 1 SE 4x5.65",
+      "Grad Twilight 1 SE 4x5.65",
+      "Twilight 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Twilight 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Twilight 1 Grad HE 4x5.65",
+      "Twilight Grad 1 HE 4x5.65",
+      "Grad Twilight 1 HE 4x5.65",
+      "Twilight 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Twilight 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Twilight 2 Grad SE 4x5.65",
+      "Twilight Grad 2 SE 4x5.65",
+      "Grad Twilight 2 SE 4x5.65",
+      "Twilight 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Twilight 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Twilight 2 Grad HE 4x5.65",
+      "Twilight Grad 2 HE 4x5.65",
+      "Grad Twilight 2 HE 4x5.65",
+      "Twilight 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Twilight 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Twilight 3 Grad SE 4x5.65",
+      "Twilight Grad 3 SE 4x5.65",
+      "Grad Twilight 3 SE 4x5.65",
+      "Twilight 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Twilight 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Twilight 3 Grad HE 4x5.65",
+      "Twilight Grad 3 HE 4x5.65",
+      "Grad Twilight 3 HE 4x5.65",
+      "Twilight 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tangerine 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tangerine 1 Grad SE 4x5.65",
+      "Tangerine Grad 1 SE 4x5.65",
+      "Grad Tangerine 1 SE 4x5.65",
+      "Tangerine 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tangerine 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tangerine 1 Grad HE 4x5.65",
+      "Tangerine Grad 1 HE 4x5.65",
+      "Grad Tangerine 1 HE 4x5.65",
+      "Tangerine 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tangerine 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tangerine 2 Grad SE 4x5.65",
+      "Tangerine Grad 2 SE 4x5.65",
+      "Grad Tangerine 2 SE 4x5.65",
+      "Tangerine 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tangerine 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tangerine 2 Grad HE 4x5.65",
+      "Tangerine Grad 2 HE 4x5.65",
+      "Grad Tangerine 2 HE 4x5.65",
+      "Tangerine 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tangerine 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tangerine 3 Grad SE 4x5.65",
+      "Tangerine Grad 3 SE 4x5.65",
+      "Grad Tangerine 3 SE 4x5.65",
+      "Tangerine 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Tangerine 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Tangerine 3 Grad HE 4x5.65",
+      "Tangerine Grad 3 HE 4x5.65",
+      "Grad Tangerine 3 HE 4x5.65",
+      "Tangerine 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Cool Blue 1 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Cool Blue 1 Grad SE 4x5.65",
+      "Cool Blue Grad 1 SE 4x5.65",
+      "Grad Cool Blue 1 SE 4x5.65",
+      "Cool Blue 1 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Cool Blue 1 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Cool Blue 1 Grad HE 4x5.65",
+      "Cool Blue Grad 1 HE 4x5.65",
+      "Grad Cool Blue 1 HE 4x5.65",
+      "Cool Blue 1 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Cool Blue 2 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Cool Blue 2 Grad SE 4x5.65",
+      "Cool Blue Grad 2 SE 4x5.65",
+      "Grad Cool Blue 2 SE 4x5.65",
+      "Cool Blue 2 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Cool Blue 2 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Cool Blue 2 Grad HE 4x5.65",
+      "Cool Blue Grad 2 HE 4x5.65",
+      "Grad Cool Blue 2 HE 4x5.65",
+      "Cool Blue 2 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Cool Blue 3 Soft Edge Horizontal 4x5.65",
+     "aliases": [
+      "Cool Blue 3 Grad SE 4x5.65",
+      "Cool Blue Grad 3 SE 4x5.65",
+      "Grad Cool Blue 3 SE 4x5.65",
+      "Cool Blue 3 Soft Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Graduated Cool Blue 3 Hard Edge Horizontal 4x5.65",
+     "aliases": [
+      "Cool Blue 3 Grad HE 4x5.65",
+      "Cool Blue Grad 3 HE 4x5.65",
+      "Grad Cool Blue 3 HE 4x5.65",
+      "Cool Blue 3 Hard Edge Grad 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 4pt 2mm 4x5.65",
+     "aliases": [
+      "4 Point Star 2mm 4x5.65",
+      "Star 4pt 2mm",
+      "Star 4x 2mm 4x5.65",
+      "Sternfilter 4-fach 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 4pt 3mm 4x5.65",
+     "aliases": [
+      "4 Point Star 3mm 4x5.65",
+      "Star 4pt 3mm",
+      "Star 4x 3mm 4x5.65",
+      "Sternfilter 4-fach 3mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 4pt 4mm 4x5.65",
+     "aliases": [
+      "4 Point Star 4mm 4x5.65",
+      "Star 4pt 4mm",
+      "Star 4x 4mm 4x5.65",
+      "Sternfilter 4-fach 4mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 6pt 2mm 4x5.65",
+     "aliases": [
+      "6 Point Star 2mm 4x5.65",
+      "Star 6pt 2mm",
+      "Star 6x 2mm 4x5.65",
+      "Sternfilter 6-fach 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 6pt 3mm 4x5.65",
+     "aliases": [
+      "6 Point Star 3mm 4x5.65",
+      "Star 6pt 3mm",
+      "Star 6x 3mm 4x5.65",
+      "Sternfilter 6-fach 3mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 6pt 4mm 4x5.65",
+     "aliases": [
+      "6 Point Star 4mm 4x5.65",
+      "Star 6pt 4mm",
+      "Star 6x 4mm 4x5.65",
+      "Sternfilter 6-fach 4mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Streak 1mm 4x5.65",
+     "aliases": [
+      "Tiffen Streak 1mm 4x5.65",
+      "Streak Filter 1mm 4x5.65",
+      "Streakfilter 1mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Streak 2mm 4x5.65",
+     "aliases": [
+      "Tiffen Streak 2mm 4x5.65",
+      "Streak Filter 2mm 4x5.65",
+      "Streakfilter 2mm 4x5.65"
+     ],
+     "bulk": true
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Streak 3mm 4x5.65",
+     "aliases": [
+      "Tiffen Streak 3mm 4x5.65",
+      "Streak Filter 3mm 4x5.65",
+      "Streakfilter 3mm 4x5.65"
+     ],
+     "bulk": true
     }
    ]
   },

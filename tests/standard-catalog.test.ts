@@ -44,8 +44,8 @@ describe("catalog data", () => {
 
   it("covers the Tiffen cine filter range, each spelling naming only that filter", () => {
     const tiffen = all.filter((e) => e.manufacturer === "Tiffen" && e.category[1] === "Matte Boxes & Filters");
-    expect(tiffen.length).toBeGreaterThan(250);
-    for (const model of ["Black Pro-Mist 1/16 4x5.65", "Glimmerglass 5 4x5.65", "Soft/FX 1/2 6.6x6.6", "Smoque 2 4x5.65", "85N6 4x5.65", "Water White ND 0.9 4x5.65", "Graduated ND 0.6 Soft Edge Horizontal 4x5.65"])
+    expect(tiffen.length).toBeGreaterThan(320);
+    for (const model of ["Black Pro-Mist 1/16 4x5.65", "Glimmerglass 5 4x5.65", "Soft/FX 1/2 6.6x6.6", "Smoque 2 4x5.65", "85N6 4x5.65", "Water White ND 0.9 4x5.65", "Graduated ND 0.6 Soft Edge Horizontal 4x5.65", "Attenuator ND 0.9 Horizontal 4x5.65", "Graduated Tobacco 2 Soft Edge Horizontal 4x5.65", "Star 6pt 2mm 4x5.65"])
       expect(tiffen.map((e) => e.model)).toContain(model);
     const owners = new Map<string, Set<string>>();
     for (const e of all)
