@@ -195,6 +195,7 @@ test("project equipment: one line per type with quantity, serials when opened", 
   await login(page);
   await go(page, "/projects");
   await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
+  await page.getByRole("link", { name: "By type" }).click();
   const line = page.locator("summary").filter({ hasText: "bebob B290cine" });
   await expect(line).toHaveCount(1);
   await expect(line.getByLabel(/Quantity/)).toHaveText("6");
@@ -203,9 +204,9 @@ test("project equipment: one line per type with quantity, serials when opened", 
   await expect(page.getByText("SN B290-31131")).toBeVisible();
 });
 
-test("equipment page: one line per type by default, one picture per type as an option", async ({ page }) => {
+test("equipment page: one line per type in the type view, one picture per type as an option", async ({ page }) => {
   await login(page);
-  await go(page, "/equipment");
+  await go(page, "/equipment?view=types");
   const line = page.locator("summary").filter({ hasText: "ARRI ALEXA 35" });
   await expect(line).toHaveCount(1);
   await line.click();
@@ -256,7 +257,8 @@ test("equipment list: set cards instead of a set column", async ({ page }) => {
 
 test("equipment can be sorted, e.g. by quantity", async ({ page }) => {
   await login(page);
-  await go(page, "/equipment");
+  // One list by type (the default view groups by set).
+  await go(page, "/equipment?view=types");
   await page.getByLabel("Sort").selectOption("qty");
   await expect(page).toHaveURL(/sort=qty/);
   // The 10 sandbags come first.
@@ -267,7 +269,7 @@ test("equipment can be sorted, e.g. by quantity", async ({ page }) => {
 
 test("select mode: tick equipment and change it in one go", async ({ page }) => {
   await login(page);
-  await go(page, "/equipment");
+  await go(page, "/equipment?view=types");
   await page.getByRole("link", { name: "Select" }).click();
   await expect(page).toHaveURL(/select=1/);
   const bar = page.locator("form").filter({ has: page.getByLabel("Action") });
@@ -304,7 +306,7 @@ test("lists: just start typing, the list updates live", async ({ page }) => {
   await page.keyboard.type("bebob");
   await expect(page).toHaveURL(/q=bebob/);
   await expect(page.locator("summary").filter({ hasText: "Matthews Sandbag" })).toHaveCount(0);
-  await expect(page.locator("summary").filter({ hasText: "bebob B290cine" })).toBeVisible();
+  await expect(page.locator("summary").filter({ hasText: "bebob B290cine" }).first()).toBeVisible();
   // Escape clears it again.
   await page.keyboard.press("Escape");
   await expect(page).not.toHaveURL(/q=/);
@@ -314,8 +316,8 @@ test("lists: just start typing, the list updates live", async ({ page }) => {
 test("equipment grouped by set; ticking a type ticks it only in that set", async ({ page }) => {
   await login(page);
   await go(page, "/equipment");
-  await page.getByRole("link", { name: "By set" }).click();
-  await expect(page).toHaveURL(/view=sets/);
+  // By set is the default view.
+  await expect(page.getByRole("link", { name: "By set" })).toHaveAttribute("aria-current", "true");
   const aCam = page.getByRole("region", { name: "A-Cam Set" });
   const loose = page.getByRole("region", { name: "Not in a set" });
   await expect(aCam.locator("summary").filter({ hasText: "ARRI ALEXA 35" })).toBeVisible();

@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { ActionForm, Field, Select, SubmitButton, TextArea } from "@/components/forms";
+import { TypePicker } from "@/components/type-picker";
 import { Card, NoPermission, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
@@ -6,8 +8,7 @@ import { hasRole } from "@/server/domain/context";
 import { getItemDetail } from "@/server/domain/equipment-items";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { changeItemTypeAction, updateItemAction } from "../../actions";
-import { TypePicker } from "@/components/type-picker";
+import { updateItemAction } from "../../actions";
 
 export default async function EditItemPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -17,14 +18,17 @@ export default async function EditItemPage({ params }: { params: Promise<{ id: s
   const db = getDb();
   const [d, rentalHouses] = await Promise.all([orNotFound(getItemDetail(db, ctx, id)), listRentalHouses(db, ctx)]);
   const { item } = d;
+  const bulk = item.trackingMode === "bulk";
   return (
     <>
       <PageHeader title={`Edit ${d.label}`} back={{ href: `/equipment/${id}`, label: "Back to item" }} />
       <Card className="max-w-2xl p-5">
-        <ActionForm action={updateItemAction.bind(null, id)} className="space-y-5">
+        <ActionForm action={updateItemAction.bind(null, id)} className="space-y-4">
           <input type="hidden" name="expectedVersion" value={item.version} />
+          {/* Changing it here corrects a type picked wrongly (e.g. when importing); the item keeps its history. */}
+          <TypePicker name="typeId" label="Equipment type" defaultValue={{ id: d.type.id, name: d.type.name }} />
           <div className="grid gap-4 sm:grid-cols-2">
-            {item.trackingMode === "bulk" ? (
+            {bulk ? (
               <Field label="Quantity" name="quantity" type="number" min={1} defaultValue={item.quantity} />
             ) : (
               <Field label="Serial number" name="serialNumber" defaultValue={item.serialNumber} spellCheck={false} />
@@ -39,20 +43,14 @@ export default async function EditItemPage({ params }: { params: Promise<{ id: s
               options={rentalHouses.map((r) => ({ value: r.id, label: r.name }))}
             />
           </div>
-          {item.trackingMode === "bulk" && <input type="hidden" name="serialNumber" value={item.serialNumber ?? ""} />}
-          <TextArea label="Notes" name="notes" defaultValue={item.notes} rows={4} />
-          <p className="text-xs text-muted">Status, condition and project are changed from the item page so each change is recorded on its own.</p>
-          <SubmitButton>Save changes</SubmitButton>
-        </ActionForm>
-      </Card>
-      <Card className="mt-6 max-w-2xl p-5">
-        <h2 className="text-sm font-semibold">Equipment type</h2>
-        <p className="mt-1 mb-3 text-sm text-muted">
-          Now <strong className="text-text">{d.type.name}</strong>. Wrong type (e.g. picked by mistake when importing)? Choose the right one; the item keeps its history.
-        </p>
-        <ActionForm action={changeItemTypeAction.bind(null, id)} className="flex flex-wrap items-end gap-3">
-          <TypePicker name="typeId" label="Right type" className="min-w-64 flex-1" />
-          <SubmitButton variant="secondary">Change type</SubmitButton>
+          {bulk && <input type="hidden" name="serialNumber" value={item.serialNumber ?? ""} />}
+          <TextArea label="Notes" name="notes" defaultValue={item.notes} rows={2} />
+          <div className="flex items-center gap-4 pt-1">
+            <SubmitButton>Save</SubmitButton>
+            <Link href={`/equipment/${id}`} className="text-sm text-muted hover:text-text">
+              Cancel
+            </Link>
+          </div>
         </ActionForm>
       </Card>
     </>
