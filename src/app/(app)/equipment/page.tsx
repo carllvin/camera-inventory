@@ -10,8 +10,12 @@ import { hasRole } from "@/server/domain/context";
 import { listItems, type ItemFilters } from "@/server/domain/equipment-items";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { getCurrentProject } from "@/server/current-project";
+import { getT } from "@/server/i18n";
 
-export const metadata = { title: "Equipment" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("Equipment") };
+}
 
 const LIMIT = 300;
 
@@ -20,6 +24,7 @@ type SP = BrowserParams;
 export default async function EquipmentPage({ searchParams }: { searchParams: Promise<SP> }) {
   const sp = await searchParams;
   const ctx = await getCtx();
+  const t = await getT();
   const db = getDb();
   // The project chosen in the top bar scopes the list ("All projects" there shows everything).
   const { current } = await getCurrentProject();
@@ -35,12 +40,12 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
   return (
     <>
       <PageHeader
-        title={current ? `Equipment · ${current.name}` : "Equipment"}
-        subtitle={current ? "Equipment on the project chosen in the top bar" : "Every physical item, across all projects and rental houses"}
+        title={current ? t("Equipment · {project}", { project: current.name }) : t("Equipment")}
+        subtitle={current ? t("Equipment on the project chosen in the top bar") : t("Every physical item, across all projects and rental houses")}
         actions={
           hasRole(ctx, "member") && (
             <LinkButton href="/equipment/new" variant="primary">
-              <Plus className="size-4" /> Add equipment
+              <Plus className="size-4" /> {t("Add equipment")}
             </LinkButton>
           )
         }
@@ -48,8 +53,8 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
       <Tabs
         active="items"
         tabs={[
-          { key: "items", href: "/equipment", label: "Items" },
-          { key: "types", href: "/equipment/types", label: "Equipment types" },
+          { key: "items", href: "/equipment", label: t("Items") },
+          { key: "types", href: "/equipment/types", label: t("Equipment types") },
         ]}
       />
       <EquipmentBrowser
@@ -64,7 +69,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         hasFilters={hasFilters}
         bulkAction={projectId && hasRole(ctx, "member") ? bulkEquipmentAction.bind(null, projectId) : undefined}
         empty={
-          <EmptyState title="No equipment yet" action={hasRole(ctx, "member") && <LinkButton href="/equipment/new" variant="primary">Add equipment</LinkButton>} />
+          <EmptyState title={t("No equipment yet")} action={hasRole(ctx, "member") && <LinkButton href="/equipment/new" variant="primary">{t("Add equipment")}</LinkButton>} />
         }
       />
     </>

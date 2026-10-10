@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
+import { useT } from "@/components/i18n";
 import { CONDITION_LABEL, STATUS_LABEL } from "@/lib/format";
 import { assignAction, removeFromProjectAction, updateItemStateAction } from "./actions";
 
@@ -48,6 +49,7 @@ export function ItemActions({
   /** Cases of the item's project. */
   cases?: { value: string; label: string }[];
 }) {
+  const t = useT();
   const [s, setS] = useState(status);
   const [c, setC] = useState(condition);
   const [k, setK] = useState(caseId ?? "");
@@ -71,20 +73,20 @@ export function ItemActions({
         <input type="hidden" name="expectedVersion" value={version} />
         <div className="grid grid-cols-2 gap-3">
           {projectId && (
-            <Choice label="Status" id="state-status" name="status" value={s} onChange={setS} options={ON_PROJECT.map((v) => ({ value: v, label: STATUS_LABEL[v]! }))} />
+            <Choice label={t("Status")} id="state-status" name="status" value={s} onChange={setS} options={ON_PROJECT.map((v) => ({ value: v, label: t(STATUS_LABEL[v]!) }))} />
           )}
           <div className={projectId ? "" : "col-span-2"}>
-            <Choice label="Condition" id="state-condition" name="condition" value={c} onChange={setC} options={Object.entries(CONDITION_LABEL).map(([value, label]) => ({ value, label }))} />
+            <Choice label={t("Condition")} id="state-condition" name="condition" value={c} onChange={setC} options={Object.entries(CONDITION_LABEL).map(([value, label]) => ({ value, label: t(label) }))} />
           </div>
         </div>
         {projectId && cases.length > 0 && (
-          <Choice label="Set" id="state-case" name="caseId" value={k} onChange={setK} options={[{ value: "", label: "Not in a set" }, ...cases]} />
+          <Choice label={t("Set")} id="state-case" name="caseId" value={k} onChange={setK} options={[{ value: "", label: t("Not in a set") }, ...cases]} />
         )}
         {dirty && (
           <div className="space-y-3 rounded-lg bg-surface-2/60 p-3">
             {quantity > 1 && (
               <label className="flex items-center gap-2 text-sm">
-                Apply to
+                {t("Apply to")}
                 <input
                   type="number"
                   name="units"
@@ -92,17 +94,17 @@ export function ItemActions({
                   max={quantity}
                   defaultValue={quantity}
                   inputMode="numeric"
-                  aria-label={`Units (of ${quantity})`}
+                  aria-label={t("Units (of {n})", { n: quantity })}
                   className="w-16 rounded-md border border-border bg-surface px-1.5 py-1 text-right tabular-nums"
                 />
-                of {quantity} units
+                {t("of {n} units", { n: quantity })}
               </label>
             )}
-            <Field name="note" id="state-note" placeholder={c !== condition ? "What happened? (optional)" : "Note (optional)"} aria-label="Note" />
+            <Field name="note" id="state-note" placeholder={c !== condition ? t("What happened? (optional)") : t("Note (optional)")} aria-label={t("Note")} />
             <div className="flex items-center gap-3">
-              <SubmitButton>Save changes</SubmitButton>
+              <SubmitButton>{t("Save changes")}</SubmitButton>
               <button type="button" onClick={reset} className="text-sm text-muted hover:text-text">
-                Cancel
+                {t("Cancel")}
               </button>
             </div>
           </div>
@@ -111,9 +113,9 @@ export function ItemActions({
 
       {!projectId && (
         <ActionForm action={assignAction.bind(null, itemId)} className="space-y-2 border-t border-border pt-4">
-          <Select label="Add to project" name="projectId" placeholder="Choose project…" options={projects} required />
+          <Select label={t("Add to project")} name="projectId" placeholder={t("Choose project…")} options={projects} required />
           <SubmitButton variant="secondary" disabled={projects.length === 0}>
-            Add to project
+            {t("Add to project")}
           </SubmitButton>
         </ActionForm>
       )}
@@ -123,22 +125,22 @@ export function ItemActions({
           {showRemove ? (
             <ActionForm action={removeFromProjectAction.bind(null, itemId, projectId)} className="space-y-2">
               <Field
-                label="Remove from project"
+                label={t("Remove from project")}
                 name="reason"
-                placeholder="Reason, e.g. added by mistake"
-                hint="For mistakes only. Returns to a rental house go through return notes."
+                placeholder={t("Reason, e.g. added by mistake")}
+                hint={t("For mistakes only. Returns to a rental house go through return notes.")}
                 required
               />
               <div className="flex gap-2">
-                <SubmitButton variant="danger">Remove</SubmitButton>
+                <SubmitButton variant="danger">{t("Remove")}</SubmitButton>
                 <button type="button" className="text-sm text-muted hover:text-text" onClick={() => setShowRemove(false)}>
-                  Cancel
+                  {t("Cancel")}
                 </button>
               </div>
             </ActionForm>
           ) : (
             <button type="button" onClick={() => setShowRemove(true)} className="text-sm text-muted hover:text-danger">
-              Remove from project…
+              {t("Remove from project…")}
             </button>
           )}
         </div>

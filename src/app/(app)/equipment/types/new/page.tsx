@@ -6,22 +6,27 @@ import { getCategoryTree } from "@/server/domain/categories";
 import { hasRole } from "@/server/domain/context";
 import { createTypeAction } from "../../actions";
 import { TypeFields } from "../type-fields";
+import { getT } from "@/server/i18n";
 
-export const metadata = { title: "New equipment type" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("New equipment type") };
+}
 
 export default async function NewTypePage({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
   const { returnTo } = await searchParams;
   const ctx = await getCtx();
+  const t = await getT();
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const { flat } = await getCategoryTree(getDb(), ctx);
   return (
     <>
-      <PageHeader title="New equipment type" back={{ href: returnTo?.startsWith("/") ? returnTo : "/equipment/types", label: "Back" }} />
+      <PageHeader title={t("New equipment type")} back={{ href: returnTo?.startsWith("/") ? returnTo : "/equipment/types", label: t("Back") }} />
       <Card className="max-w-2xl p-5">
         <ActionForm action={createTypeAction} className="space-y-5">
           <input type="hidden" name="returnTo" value={returnTo ?? ""} />
           <TypeFields categories={flat.map((c) => ({ value: c.id, label: c.path }))} />
-          <SubmitButton>Create equipment type</SubmitButton>
+          <SubmitButton>{t("Create equipment type")}</SubmitButton>
         </ActionForm>
       </Card>
     </>

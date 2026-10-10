@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ActionForm, Field, Select, SubmitButton, TextArea } from "@/components/forms";
 import { TypePicker } from "@/components/type-picker";
+import { useT } from "@/components/i18n";
 import { CONDITION_LABEL } from "@/lib/format";
 import { createItemAction } from "./actions";
 
@@ -24,6 +25,7 @@ export function ItemCreateForm({
   projects: Option[];
   defaults: { projectId?: string; rentalHouseId?: string };
 }) {
+  const t = useT();
   const [tracking, setTracking] = useState(defaultType?.defaultTrackingMode ?? "serialized");
   const bulk = tracking === "bulk";
   const returnTo = `/equipment/new?${new URLSearchParams(
@@ -33,41 +35,41 @@ export function ItemCreateForm({
     <ActionForm action={createItemAction} className="space-y-5">
       <div>
         <TypePicker
-          label="Equipment type"
+          label={t("Equipment type")}
           name="equipmentTypeId"
           defaultValue={defaultType}
           onChange={(t) => setTracking(t?.tracking ?? "serialized")}
         />
         <p className="mt-1 text-xs text-muted">
-          Not listed?{" "}
+          {t("Not listed?")}{" "}
           <Link href={`/equipment/types/new?returnTo=${encodeURIComponent(returnTo)}`} className="text-accent hover:underline">
-            Create a new equipment type
+            {t("Create a new equipment type")}
           </Link>
         </p>
       </div>
       <input type="hidden" name="trackingMode" value={bulk ? "bulk" : "serialized"} />
       <div className="grid gap-4 sm:grid-cols-2">
         {bulk ? (
-          <Field label="Quantity" name="quantity" type="number" min={1} defaultValue={1} required hint="Bulk item: interchangeable units without individual serials" />
+          <Field label={t("Quantity")} name="quantity" type="number" min={1} defaultValue={1} required hint={t("Bulk item: interchangeable units without individual serials")} />
         ) : (
-          <Field label="Serial number" name="serialNumber" autoComplete="off" spellCheck={false} />
+          <Field label={t("Serial number")} name="serialNumber" autoComplete="off" spellCheck={false} />
         )}
-        <Field label="Asset number" name="assetNumber" autoComplete="off" spellCheck={false} hint="Rental-house inventory number" />
-        <Field label="QR / barcode" name="barcode" autoComplete="off" spellCheck={false} />
-        <Select label="Rental house" name="rentalHouseId" placeholder="Owned (not rented)" defaultValue={defaults.rentalHouseId} options={rentalHouses} />
-        <Select label="Project" name="projectId" placeholder="Not on a project" defaultValue={defaults.projectId} options={projects} />
+        <Field label={t("Asset number")} name="assetNumber" autoComplete="off" spellCheck={false} hint={t("Rental-house inventory number")} />
+        <Field label={t("QR / barcode")} name="barcode" autoComplete="off" spellCheck={false} />
+        <Select label={t("Rental house")} name="rentalHouseId" placeholder={t("Owned (not rented)")} defaultValue={defaults.rentalHouseId} options={rentalHouses} />
+        <Select label={t("Project")} name="projectId" placeholder={t("Not on a project")} defaultValue={defaults.projectId} options={projects} />
         <Select
-          label="Condition"
+          label={t("Condition")}
           name="condition"
           defaultValue="ok"
-          options={Object.entries(CONDITION_LABEL).map(([value, label]) => ({ value, label }))}
+          options={Object.entries(CONDITION_LABEL).map(([value, label]) => ({ value, label: t(label) }))}
         />
       </div>
-      <TextArea label="Notes" name="notes" />
+      <TextArea label={t("Notes")} name="notes" />
       <div className="flex flex-wrap gap-2">
-        <SubmitButton>Create item</SubmitButton>
+        <SubmitButton>{t("Create item")}</SubmitButton>
         <SubmitButton variant="secondary" name="another" value="1">
-          Create &amp; add another
+          {t("Create & add another")}
         </SubmitButton>
       </div>
     </ActionForm>

@@ -8,9 +8,13 @@ import { getEquipmentType } from "@/server/domain/equipment-types";
 import { listProjectOptions } from "@/server/domain/projects";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { UUID_RE } from "@/server/pages";
+import { getT } from "@/server/i18n";
 import { ItemCreateForm } from "../item-create-form";
 
-export const metadata = { title: "Add equipment" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("Add equipment") };
+}
 
 export default async function NewItemPage({
   searchParams,
@@ -19,6 +23,7 @@ export default async function NewItemPage({
 }) {
   const sp = await searchParams;
   const ctx = await getCtx();
+  const t = await getT();
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const db = getDb();
   const [defaultType, rentalHouses, projects, created] = await Promise.all([
@@ -27,20 +32,21 @@ export default async function NewItemPage({
     listProjectOptions(db, ctx, { activeOnly: true }),
     sp.created && UUID_RE.test(sp.created) ? getItemDetail(db, ctx, sp.created).catch(() => null) : null,
   ]);
+  const [createdBefore, createdAfter] = t("Created {item}. Add the next one:").split("{item}");
   return (
     <>
       <PageHeader
-        title="Add equipment"
-        subtitle="Create one physical item (or a quantity of interchangeable units)"
-        back={sp.projectId ? { href: `/projects/${sp.projectId}`, label: "Project" } : { href: "/equipment", label: "Equipment" }}
+        title={t("Add equipment")}
+        subtitle={t("Create one physical item (or a quantity of interchangeable units)")}
+        back={sp.projectId ? { href: `/projects/${sp.projectId}`, label: t("Project") } : { href: "/equipment", label: t("Equipment") }}
       />
       {created && (
         <p role="status" className="mb-4 max-w-2xl rounded-lg bg-ok/10 px-3 py-2 text-sm text-ok">
-          Created{" "}
+          {createdBefore}
           <Link href={`/equipment/${created.item.id}`} className="font-medium underline">
             {created.label}
           </Link>
-          . Add the next one:
+          {createdAfter}
         </p>
       )}
       <Card className="max-w-2xl p-5">

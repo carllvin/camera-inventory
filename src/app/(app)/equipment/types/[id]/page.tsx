@@ -13,38 +13,40 @@ import { getPickerDeps } from "@/server/ai/picker-deps";
 import { autoPickAction } from "../image-actions";
 import { deleteTypesAction, restoreTypeAction } from "../../actions";
 import { assertUuid, orNotFound } from "@/server/pages";
+import { getT } from "@/server/i18n";
 
 export default async function TypePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   assertUuid(id);
   const ctx = await getCtx();
+  const t = await getT();
   const db = getDb();
-  const [t, items] = await Promise.all([orNotFound(getEquipmentType(db, ctx, id)), listItems(db, ctx, { equipmentTypeId: id, limit: 500 })]);
-  const primary = t.photos[0];
+  const [et, items] = await Promise.all([orNotFound(getEquipmentType(db, ctx, id)), listItems(db, ctx, { equipmentTypeId: id, limit: 500 })]);
+  const primary = et.photos[0];
   const canSearch = Boolean(getPickerDeps().search);
-  const deleted = Boolean(t.archivedAt);
+  const deleted = Boolean(et.archivedAt);
   const canEdit = hasRole(ctx, "member") && !deleted;
   const onProject = items.filter((i) => i.projectId).reduce((n, i) => n + i.quantity, 0);
-  const specs = Object.entries(t.specs ?? {});
+  const specs = Object.entries(et.specs ?? {});
   return (
     <>
       <PageHeader
-        back={{ href: "/equipment/types", label: "Equipment types" }}
+        back={{ href: "/equipment/types", label: t("Equipment types") }}
         title={
           <span className="flex items-center gap-2">
-            <span className="truncate">{t.name}</span>
-            {deleted && <Badge>Deleted</Badge>}
+            <span className="truncate">{et.name}</span>
+            {deleted && <Badge>{t("Deleted")}</Badge>}
           </span>
         }
-        subtitle={t.categoryName ?? "Uncategorized"}
+        subtitle={et.categoryName ?? t("Uncategorized")}
         actions={
           canEdit && (
             <>
               <LinkButton href={`/equipment/new?typeId=${id}`} variant="primary">
-                <Plus className="size-4" /> Add item
+                <Plus className="size-4" /> {t("Add item")}
               </LinkButton>
               <LinkButton href={`/equipment/types/${id}/edit`}>
-                <Pencil className="size-4" /> Edit
+                <Pencil className="size-4" /> {t("Edit")}
               </LinkButton>
             </>
           )
@@ -52,22 +54,22 @@ export default async function TypePage({ params }: { params: Promise<{ id: strin
       />
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-[18rem_1fr]">
         <div className="space-y-2">
-          <TypeImage name={t.name} photoId={primary?.id} size="full" />
+          <TypeImage name={et.name} photoId={primary?.id} size="full" />
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="text-muted">
-              {primary?.attribution?.startsWith("auto-selected") ? <Badge tone="accent">auto-selected</Badge> : primary?.attribution}
+              {primary?.attribution?.startsWith("auto-selected") ? <Badge tone="accent">{t("auto-selected")}</Badge> : primary?.attribution}
             </span>
             {canEdit && (
               <span className="flex items-center gap-2">
                 {!primary && canSearch && (
                   <ActionForm action={autoPickAction.bind(null, id)}>
-                    <SubmitButton variant="ghost" className="!px-2 !py-1 text-xs" pendingText="Searching…">
-                      Find automatically
+                    <SubmitButton variant="ghost" className="!px-2 !py-1 text-xs" pendingText={t("Searching…")}>
+                      {t("Find automatically")}
                     </SubmitButton>
                   </ActionForm>
                 )}
                 <Link href={`/equipment/types/${id}/image`} className="font-medium text-accent hover:underline">
-                  {primary ? "Change image" : "Choose image"}
+                  {primary ? t("Change image") : t("Choose image")}
                 </Link>
               </span>
             )}
@@ -76,51 +78,51 @@ export default async function TypePage({ params }: { params: Promise<{ id: strin
         <Card className="p-4">
           <KeyValues
             items={[
-              { label: "Manufacturer", value: t.manufacturer },
-              { label: "Model", value: t.model },
-              { label: "Tracking", value: t.defaultTrackingMode === "bulk" ? "By quantity" : "Individually (serial numbers)" },
-              { label: "Aliases", value: t.aliases.length ? t.aliases.join(", ") : null },
+              { label: t("Manufacturer"), value: et.manufacturer },
+              { label: t("Model"), value: et.model },
+              { label: t("Tracking"), value: et.defaultTrackingMode === "bulk" ? t("By quantity") : t("Individually (serial numbers)") },
+              { label: t("Aliases"), value: et.aliases.length ? et.aliases.join(", ") : null },
               ...specs.map(([k, v]) => ({ label: k, value: String(v) })),
             ]}
           />
-          {t.description && <p className="mt-4 text-sm whitespace-pre-wrap text-muted">{t.description}</p>}
+          {et.description && <p className="mt-4 text-sm whitespace-pre-wrap text-muted">{et.description}</p>}
         </Card>
       </div>
       {deleted && hasRole(ctx, "member") && (
         <Card className="mb-6 flex flex-wrap items-center justify-between gap-3 p-4 text-sm">
-          <span className="text-muted">This type was deleted: it no longer shows up in lists, pickers or document matching.</span>
+          <span className="text-muted">{t("This type was deleted: it no longer shows up in lists, pickers or document matching.")}</span>
           <ActionForm action={restoreTypeAction.bind(null, id)}>
             <SubmitButton variant="secondary" pendingText="…">
-              Restore type
+              {t("Restore type")}
             </SubmitButton>
           </ActionForm>
         </Card>
       )}
       <Card>
-        <CardHeader title={`Physical items (${items.length})`} />
+        <CardHeader title={t("Physical items ({n})", { n: items.length })} />
         <div className="p-3">
-          {items.length === 0 ? <EmptyState title="No items of this type yet" /> : <EquipmentTable items={items} />}
+          {items.length === 0 ? <EmptyState title={t("No items of this type yet")} /> : <EquipmentTable items={items} />}
         </div>
       </Card>
       {canEdit && (
         <details className="mt-6 text-sm">
-          <summary className="cursor-pointer text-muted">Delete this type…</summary>
+          <summary className="cursor-pointer text-muted">{t("Delete this type…")}</summary>
           <div className="mt-2 space-y-3 rounded-xl border border-border bg-surface p-4">
             {onProject > 0 ? (
               <p className="text-warn">
-                {onProject} piece{onProject === 1 ? " is" : "s are"} on a project. Remove {onProject === 1 ? "it" : "them"} from the project first.
+                {onProject === 1 ? t("1 piece is on a project. Remove it from the project first.") : t("{n} pieces are on a project. Remove them from the project first.", { n: onProject })}
               </p>
             ) : (
               <>
                 <p className="text-muted">
-                  The type disappears from lists, pickers and document matching, and the standard catalog won&apos;t bring it back.
-                  {items.length > 0 && " Past pieces keep it, with their history."} You can undo this in the history.
+                  {t("The type disappears from lists, pickers and document matching, and the standard catalog won't bring it back.")}
+                  {items.length > 0 && ` ${t("Past pieces keep it, with their history.")}`} {t("You can undo this in the history.")}
                 </p>
                 <ActionForm action={deleteTypesAction}>
                   <input type="hidden" name="typeId" value={id} />
                   <input type="hidden" name="from" value="type" />
-                  <SubmitButton variant="danger" pendingText="Deleting…">
-                    Delete {t.name}
+                  <SubmitButton variant="danger" pendingText={t("Deleting…")}>
+                    {t("Delete {name}", { name: et.name })}
                   </SubmitButton>
                 </ActionForm>
               </>
