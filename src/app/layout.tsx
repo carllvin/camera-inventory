@@ -1,4 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { I18nProvider } from "@/components/i18n";
+import { dictionaryFor } from "@/lib/i18n/dictionaries";
+import { getLocale } from "@/server/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,10 +21,15 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
   return (
-    <html lang="en">
-      <body className="min-h-dvh font-sans">{children}</body>
+    <html lang={locale}>
+      <body className="min-h-dvh font-sans">
+        <I18nProvider locale={locale} dict={dictionaryFor(locale)}>
+          {children}
+        </I18nProvider>
+      </body>
     </html>
   );
 }

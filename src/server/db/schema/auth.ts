@@ -15,6 +15,8 @@ export const user = pgTable(
     email: text().notNull(),
     emailVerified: boolean().notNull().default(false),
     image: text(),
+    /** Interface language ("en" | "de"); null = follow the browser. */
+    locale: text(),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },

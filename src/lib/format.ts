@@ -105,9 +105,42 @@ export function formatTime(d: Date | string) {
 
 /** "Today", "Yesterday" or the date, in the app's time zone. */
 export function dayLabel(d: Date | string, now = new Date()) {
-  const date = typeof d === "string" ? new Date(d) : d;
-  const day = todayIso(date);
-  if (day === todayIso(now)) return "Today";
-  if (day === todayIso(new Date(now.getTime() - 86_400_000))) return "Yesterday";
-  return new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric", timeZone: TZ }).format(date);
+  return makeFormat("en-GB").dayLabel(d, now);
 }
+
+/**
+ * The date helpers above in the user's language: `getFormat()` (server) or
+ * `useFormat()` (client) return them bound to the locale and its texts.
+ */
+export function makeFormat(intl: string, t: (text: string, params?: Record<string, string | number>) => string = (x, p) => (p ? x.replace(/\{(\w+)\}/g, (m, k: string) => (k in p ? String(p[k]) : m)) : x)) {
+  const asDate = (d: Date | string) => (typeof d === "string" ? new Date(d.length === 10 ? `${d}T12:00:00Z` : d) : d);
+  const formatDate = (d: Date | string | null | undefined) =>
+    d ? new Intl.DateTimeFormat(intl, { day: "2-digit", month: "short", year: "numeric", timeZone: TZ }).format(asDate(d)) : "—";
+  return {
+    formatDate,
+    formatDateTime: (d: Date | string | null | undefined) =>
+      d
+        ? new Intl.DateTimeFormat(intl, { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: TZ }).format(asDate(d))
+        : "—",
+    formatTime: (d: Date | string) => new Intl.DateTimeFormat(intl, { hour: "2-digit", minute: "2-digit", timeZone: TZ }).format(asDate(d)),
+    formatRelative: (d: Date | string, now = new Date()) => {
+      const date = asDate(d);
+      const diff = (now.getTime() - date.getTime()) / 1000;
+      if (diff < 60) return t("just now");
+      if (diff < 3600) return t("{n} min ago", { n: Math.floor(diff / 60) });
+      if (diff < 86400) return t("{n} h ago", { n: Math.floor(diff / 3600) });
+      if (diff < 86400 * 7) return t("{n} d ago", { n: Math.floor(diff / 86400) });
+      return formatDate(date);
+    },
+    dateRange: (start: string | null, end: string | null) => (!start && !end ? null : `${formatDate(start)} – ${formatDate(end)}`),
+    dayLabel: (d: Date | string, now = new Date()) => {
+      const date = asDate(d);
+      const day = todayIso(date);
+      if (day === todayIso(now)) return t("Today");
+      if (day === todayIso(new Date(now.getTime() - 86_400_000))) return t("Yesterday");
+      return new Intl.DateTimeFormat(intl, { weekday: "short", day: "2-digit", month: "short", year: "numeric", timeZone: TZ }).format(date);
+    },
+  };
+}
+
+export type Format = ReturnType<typeof makeFormat>;

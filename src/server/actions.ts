@@ -2,6 +2,7 @@ import "server-only";
 import { unstable_rethrow } from "next/navigation";
 import { ZodError } from "zod";
 import { DomainError } from "./domain/context";
+import { getTranslateMessage } from "./i18n";
 
 export type ActionState = {
   ok: boolean;
@@ -24,9 +25,11 @@ export function formValues(fd: FormData): Record<string, string> {
  * Redirects / notFound thrown inside `fn` are re-thrown for Next.js to handle.
  */
 export async function runAction(fd: FormData | null, fn: () => Promise<string | void>): Promise<ActionState> {
+  // Messages are written in English; shown in the user's language.
+  const tm = await getTranslateMessage();
   try {
     const message = await fn();
-    return { ok: true, message: message ?? undefined };
+    return { ok: true, message: message ? tm(message) : undefined };
   } catch (err) {
     unstable_rethrow(err);
     const values = fd ? formValues(fd) : undefined;
@@ -34,15 +37,15 @@ export async function runAction(fd: FormData | null, fn: () => Promise<string | 
       const fieldErrors: Record<string, string> = {};
       for (const issue of err.issues) {
         const key = issue.path.join(".") || "_";
-        fieldErrors[key] ??= issue.message;
+        fieldErrors[key] ??= tm(issue.message);
       }
-      return { ok: false, error: "Please check the highlighted fields.", fieldErrors, values };
+      return { ok: false, error: tm("Please check the highlighted fields."), fieldErrors, values };
     }
     if (err instanceof DomainError) {
-      return { ok: false, error: err.message, values, details: err.details };
+      return { ok: false, error: tm(err.message), values, details: err.details };
     }
     console.error(err);
-    return { ok: false, error: "Something went wrong. Please try again.", values };
+    return { ok: false, error: tm("Something went wrong. Please try again."), values };
   }
 }
 

@@ -1,15 +1,35 @@
 "use server";
 
+import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { fromForm, runAction, type ActionState } from "@/server/actions";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
+import * as s from "@/server/db/schema";
+import { LOCALE_COOKIE } from "@/server/i18n";
+import { LOCALES } from "@/lib/i18n/core";
 import { createCategory, updateCategory } from "@/server/domain/categories";
 import { createRentalHouse, updateRentalHouse } from "@/server/domain/rental-houses";
 import { importStandardCatalog, importStandardRentalHouses } from "@/server/domain/standard-catalog";
 import { addMember, changeMemberRole, renameWorkspace } from "@/server/domain/workspaces";
+
+/** The interface language of the signed-in user ("" = follow the browser); also kept in a cookie for the sign-in pages. */
+export async function setLanguageAction(_: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const ctx = await getCtx();
+    const raw = fd.get("locale");
+    const locale = raw === "" ? null : z.enum(LOCALES).parse(raw);
+    await getDb().update(s.user).set({ locale }).where(eq(s.user.id, ctx.userId));
+    const jar = await cookies();
+    if (locale) jar.set(LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
+    else jar.delete(LOCALE_COOKIE);
+    revalidatePath("/", "layout");
+    return locale === "de" ? "Sprache gespeichert." : "Language saved.";
+  });
+}
 
 export async function renameWorkspaceAction(_: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
