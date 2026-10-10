@@ -12,6 +12,7 @@ import { recordEvent } from "./audit";
 import { packItem, unpackItem } from "./cases";
 import { DomainError, notFound, requireRole, type Ctx } from "./context";
 import { changeItemType } from "./item-retype";
+import { restoreProject } from "./projects";
 import { assignToProject, changeCondition, changeStatus, lockItem, ON_PROJECT_STATUSES, removeFromProject, updateItem } from "./equipment-items";
 
 type Changes = Record<string, { from: unknown; to: unknown }>;
@@ -47,6 +48,7 @@ export function isRevertible(e: EventLike) {
     case "equipment_type.updated":
     case "equipment_type.alias_learned":
     case "equipment_type.archived":
+    case "project.archived":
       return keys.length > 0 && keys.every((k) => TYPE_FIELDS.includes(k));
     default:
       return false;
@@ -76,6 +78,10 @@ export async function revertEvent(db: DbOrTx, ctx: Ctx, eventId: number) {
   if ((await undoneEventIds(db, ctx.workspaceId, [eventId])).has(eventId)) throw new DomainError("CONFLICT", "This change was undone already.");
   const rctx: Ctx = { ...ctx, revertOf: eventId };
 
+  if (e.action === "project.archived") {
+    await restoreProject(db, rctx, e.entityId);
+    return { summary: e.summary };
+  }
   return db.transaction(async (tx) => {
     if (e.entityType === "equipment_type") {
       const [type] = await tx.select().from(s.equipmentType).where(and(eq(s.equipmentType.id, e.entityId), eq(s.equipmentType.workspaceId, ctx.workspaceId))).for("update");

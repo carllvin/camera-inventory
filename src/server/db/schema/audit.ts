@@ -18,6 +18,8 @@ export const AUDIT_ACTIONS = [
   "project.created",
   "project.updated",
   "project.status_changed",
+  "project.archived",
+  "project.restored",
   "rental_house.created",
   "rental_house.updated",
   "rental_house.linked_to_project",

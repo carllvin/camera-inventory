@@ -12,7 +12,7 @@ import { fromForm, runAction, type ActionState } from "@/server/actions";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { assignToProject } from "@/server/domain/equipment-items";
-import { createProject, linkRentalHouse, updateProject } from "@/server/domain/projects";
+import { createProject, deleteProject, linkRentalHouse, restoreProject, updateProject } from "@/server/domain/projects";
 import { packItem, packUnits, unpackItem, unpackUnits } from "@/server/domain/cases";
 import { DomainError } from "@/server/domain/context";
 import { updateItemState } from "@/server/domain/item-state";
@@ -137,5 +137,21 @@ export async function bulkEquipmentAction(projectId: string, _: ActionState, fd:
     revalidatePath("/", "layout");
     const what = kind === "set" ? "added to the set" : kind === "unpack" ? "taken out of their set" : kind === "status" ? "updated (status)" : "updated (condition)";
     return `${pieces} piece${pieces === 1 ? "" : "s"} ${what}.`;
+  });
+}
+
+export async function deleteProjectAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await deleteProject(getDb(), await getCtx(), id);
+    revalidatePath("/", "layout");
+    redirect("/projects");
+  });
+}
+
+export async function restoreProjectAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await restoreProject(getDb(), await getCtx(), id);
+    revalidatePath("/", "layout");
+    redirect(`/projects/${id}`);
   });
 }

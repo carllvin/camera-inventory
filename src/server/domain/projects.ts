@@ -134,6 +134,66 @@ export async function createProject(db: DbOrTx, ctx: Ctx, input: ProjectInput) {
   }
 }
 
+/**
+ * Delete a project: it is archived, never removed, so equipment history, documents and
+ * sets keep pointing at it. Gone from lists, the project switcher and document matching;
+ * restore brings it back. Refused while equipment is still on the project.
+ */
+export async function deleteProject(db: DbOrTx, ctx: Ctx, id: string) {
+  requireRole(ctx, "admin");
+  return db.transaction(async (tx) => {
+    const [p] = await tx.select().from(s.project).where(and(eq(s.project.id, id), eq(s.project.workspaceId, ctx.workspaceId))).for("update");
+    if (!p) notFound("Project");
+    if (p.archivedAt) return p;
+    const [{ pieces }] = (await tx.execute<{ pieces: number }>(
+      sql`SELECT coalesce(sum(quantity), 0)::int AS pieces FROM equipment_item WHERE project_id = ${id}`,
+    )) as unknown as [{ pieces: number }];
+    if (pieces > 0) {
+      throw new DomainError("CONFLICT", `${p.name} still has ${pieces} piece${pieces === 1 ? "" : "s"} of equipment. Return or remove ${pieces === 1 ? "it" : "them"} first.`);
+    }
+    const now = new Date();
+    const [archived] = await tx.update(s.project).set({ archivedAt: now }).where(eq(s.project.id, id)).returning();
+    await recordEvent(tx, ctx, {
+      action: "project.archived",
+      entityType: "project",
+      entityId: id,
+      projectId: id,
+      summary: `Project ${p.name} deleted`,
+      changes: { archivedAt: { from: null, to: now.toISOString() } },
+    });
+    return archived!;
+  });
+}
+
+/** Bring a deleted project back. */
+export async function restoreProject(db: DbOrTx, ctx: Ctx, id: string) {
+  requireRole(ctx, "admin");
+  return db.transaction(async (tx) => {
+    const [p] = await tx.select().from(s.project).where(and(eq(s.project.id, id), eq(s.project.workspaceId, ctx.workspaceId))).for("update");
+    if (!p) notFound("Project");
+    if (!p.archivedAt) return p;
+    const [restored] = await tx.update(s.project).set({ archivedAt: null }).where(eq(s.project.id, id)).returning();
+    await recordEvent(tx, ctx, {
+      action: "project.restored",
+      entityType: "project",
+      entityId: id,
+      projectId: id,
+      summary: `Project ${p.name} restored`,
+      changes: { archivedAt: { from: p.archivedAt.toISOString(), to: null } },
+    });
+    return restored!;
+  });
+}
+
+/** Deleted projects of the workspace (newest first), for restoring. */
+export async function listDeletedProjects(db: DbOrTx, ctx: Ctx) {
+  return db
+    .select({ id: s.project.id, name: s.project.name, code: s.project.code, archivedAt: s.project.archivedAt })
+    .from(s.project)
+    .where(and(eq(s.project.workspaceId, ctx.workspaceId), sql`${s.project.archivedAt} IS NOT NULL`))
+    .orderBy(desc(s.project.archivedAt));
+}
+
 export async function updateProject(db: DbOrTx, ctx: Ctx, id: string, input: ProjectInput) {
   requireRole(ctx, "member");
   const data = projectInput.parse(input);
