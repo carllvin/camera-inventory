@@ -238,7 +238,6 @@ export const messages: Dict = {
   "Workspace renamed.": "Arbeitsbereich umbenannt.",
   "{name} added.": "{name} hinzugefügt.",
   "Role updated.": "Rolle geändert.",
-  "Language saved.": "Sprache gespeichert.",
 
   // ---------------------------------------------------------------------------
   // Generic action results

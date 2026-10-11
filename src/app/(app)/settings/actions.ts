@@ -27,6 +27,7 @@ export async function setLanguageAction(_: ActionState, fd: FormData): Promise<A
     if (locale) jar.set(LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
     else jar.delete(LOCALE_COOKIE);
     revalidatePath("/", "layout");
+    // Already in the new language (the request still translates into the old one), so not in a dictionary.
     return locale === "de" ? "Sprache gespeichert." : "Language saved.";
   });
 }
