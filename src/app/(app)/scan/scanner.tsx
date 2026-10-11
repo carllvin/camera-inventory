@@ -4,20 +4,22 @@ import Link from "next/link";
 import { useRef } from "react";
 import { BarcodeCamera } from "@/components/barcode-camera";
 import { ActionForm, Field, SubmitButton, useFormState } from "@/components/forms";
+import { useT } from "@/components/i18n";
 import { lookupCodeAction } from "./actions";
 
 function NotFoundHelp() {
   const state = useFormState();
+  const t = useT();
   const code = state?.details?.code as string | undefined;
   if (!code) return null;
   return (
     <p className="text-sm text-muted">
       <Link href={`/search?q=${encodeURIComponent(code)}`} className="text-accent hover:underline">
-        Search for “{code}”
+        {t("Search for “{code}”", { code })}
       </Link>{" "}
-      or{" "}
+      {t("or")}{" "}
       <Link href="/equipment/new" className="text-accent hover:underline">
-        add it as new equipment
+        {t("add it as new equipment")}
       </Link>
       .
     </p>
@@ -27,6 +29,7 @@ function NotFoundHelp() {
 /** Look up equipment or a case by code: camera where supported, typing everywhere. */
 export function Scanner() {
   const formRef = useRef<HTMLDivElement>(null);
+  const t = useT();
   const submit = (value: string) => {
     const input = formRef.current?.querySelector<HTMLInputElement>('input[name="code"]');
     if (!input) return;
@@ -35,11 +38,11 @@ export function Scanner() {
   };
   return (
     <div className="space-y-5">
-      <BarcodeCamera onCode={submit} label="Scan QR / barcode with camera" />
+      <BarcodeCamera onCode={submit} label={t("Scan QR / barcode with camera")} />
       <div ref={formRef}>
         <ActionForm action={lookupCodeAction} className="space-y-3">
-          <Field label="Code" name="code" placeholder="QR / barcode, serial or asset number" autoComplete="off" spellCheck={false} autoCapitalize="characters" enterKeyHint="search" />
-          <SubmitButton pendingText="Looking up…">Find</SubmitButton>
+          <Field label={t("Code")} name="code" placeholder={t("QR / barcode, serial or asset number")} autoComplete="off" spellCheck={false} autoCapitalize="characters" enterKeyHint="search" />
+          <SubmitButton pendingText={t("Looking up…")}>{t("Find")}</SubmitButton>
           <NotFoundHelp />
         </ActionForm>
       </div>

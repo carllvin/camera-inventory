@@ -2,10 +2,10 @@ import Link from "next/link";
 import { Minus, Pencil, Plus } from "lucide-react";
 import { ClientTabs } from "@/components/client-tabs";
 import { LinkButton, PageHeader, ProjectStatusBadge, Stat } from "@/components/ui";
-import { dateRange } from "@/lib/format";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
+import { getFormat, getT } from "@/server/i18n";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { getProjectSummary } from "@/server/domain/projects";
 
@@ -15,55 +15,56 @@ export default async function ProjectLayout({ children, params }: { children: Re
   const ctx = await getCtx();
   const { project, counts, rentalHouses } = await orNotFound(getProjectSummary(getDb(), ctx, id));
   const canEdit = hasRole(ctx, "member");
+  const [t, f] = await Promise.all([getT(), getFormat()]);
   const base = `/projects/${id}`;
   return (
     <>
       <PageHeader
-        back={{ href: "/projects", label: "Projects" }}
+        back={{ href: "/projects", label: t("Projects") }}
         title={
           <span className="flex items-center gap-2">
             <span className="truncate">{project.name}</span>
             <ProjectStatusBadge status={project.status} />
           </span>
         }
-        subtitle={[project.code, project.productionCompany, dateRange(project.startDate, project.endDate)].filter(Boolean).join(" · ")}
+        subtitle={[project.code, project.productionCompany, f.dateRange(project.startDate, project.endDate)].filter(Boolean).join(" · ")}
         actions={
           canEdit && (
             <>
               {project.status !== "closed" && (
                 <LinkButton href={`${base}/add-equipment`} variant="primary">
-                  <Plus className="size-4" /> Add equipment
+                  <Plus className="size-4" /> {t("Add equipment")}
                 </LinkButton>
               )}
               {counts.items > 0 && (
                 <LinkButton href={`${base}/remove`}>
-                  <Minus className="size-4" /> Remove
+                  <Minus className="size-4" /> {t("Remove")}
                 </LinkButton>
               )}
               <LinkButton href={`${base}/edit`}>
-                <Pencil className="size-4" /> Edit
+                <Pencil className="size-4" /> {t("Edit")}
               </LinkButton>
             </>
           )
         }
       />
       <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label={counts.units === 1 ? "piece" : "pieces"} value={counts.units} />
-        <Stat label="in use" value={counts.in_use} />
-        <Stat label="missing" value={counts.missing} tone={counts.missing ? "danger" : undefined} href={`${base}?status=missing`} />
-        <Stat label="open issues" value={counts.open_issues} tone={counts.open_issues ? "warn" : undefined} href={`${base}/issues`} />
+        <Stat label={counts.units === 1 ? t("piece") : t("pieces")} value={counts.units} />
+        <Stat label={t("in use")} value={counts.in_use} />
+        <Stat label={t("missing")} value={counts.missing} tone={counts.missing ? "danger" : undefined} href={`${base}?status=missing`} />
+        <Stat label={t("open issues")} value={counts.open_issues} tone={counts.open_issues ? "warn" : undefined} href={`${base}/issues`} />
       </div>
-      <section aria-label="Rental houses" className="mb-5">
+      <section aria-label={t("Rental houses")} className="mb-5">
         <div className="mb-2 flex items-center justify-between">
-          <h2 className="text-xs font-semibold tracking-wide text-muted uppercase">Rental houses</h2>
+          <h2 className="text-xs font-semibold tracking-wide text-muted uppercase">{t("Rental houses")}</h2>
           {canEdit && (
             <Link href={`${base}/rental-houses`} className="text-xs text-muted hover:text-text">
-              Manage
+              {t("Manage")}
             </Link>
           )}
         </div>
         {rentalHouses.length === 0 ? (
-          <p className="text-sm text-muted">No rental houses yet. They appear automatically when equipment is added.</p>
+          <p className="text-sm text-muted">{t("No rental houses yet. They appear automatically when equipment is added.")}</p>
         ) : (
           <ul className="flex gap-2 overflow-x-auto pb-1">
             {rentalHouses.map((rh) => (
@@ -74,7 +75,8 @@ export default async function ProjectLayout({ children, params }: { children: Re
                 >
                   <div className="font-medium">{rh.short_name ?? rh.name}</div>
                   <div className="text-xs text-muted tabular-nums">
-                    {rh.on_project} on project{rh.returned > 0 && ` · ${rh.returned} returned`}
+                    {t("{n} on project", { n: rh.on_project })}
+                    {rh.returned > 0 && ` · ${t("{n} returned", { n: rh.returned })}`}
                     {rh.order_reference && ` · ${rh.order_reference}`}
                   </div>
                 </Link>
@@ -85,11 +87,11 @@ export default async function ProjectLayout({ children, params }: { children: Re
       </section>
       <ClientTabs
         tabs={[
-          { href: base, label: "Equipment", count: counts.units, exact: true },
-          { href: `${base}/sets`, label: "Sets", count: counts.cases },
-          { href: `${base}/documents`, label: "Documents", count: counts.documents },
-          { href: `${base}/issues`, label: "Issues", count: counts.open_issues },
-          { href: `${base}/history`, label: "History" },
+          { href: base, label: t("Equipment"), count: counts.units, exact: true },
+          { href: `${base}/sets`, label: t("Sets"), count: counts.cases },
+          { href: `${base}/documents`, label: t("Documents"), count: counts.documents },
+          { href: `${base}/issues`, label: t("Issues"), count: counts.open_issues },
+          { href: `${base}/history`, label: t("History") },
         ]}
       />
       {children}

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Minus, Plus, Trash2, X } from "lucide-react";
 import { ActionForm, Field, SubmitButton } from "./forms";
 import { TypePicker } from "./type-picker";
+import { useT } from "./i18n";
 import type { ActionState } from "@/server/actions";
 
 type Action = (prev: ActionState, fd: FormData) => Promise<ActionState>;
@@ -20,23 +21,24 @@ export interface EditableLine {
 
 /** Edit expected lines (cases and templates share this). */
 export function LineEditor({ lines }: { lines: EditableLine[] }) {
-  if (lines.length === 0) return <p className="text-sm text-muted">Nothing expected yet.</p>;
+  const t = useT();
+  if (lines.length === 0) return <p className="text-sm text-muted">{t("Nothing expected yet.")}</p>;
   return (
     <ul className="divide-y divide-border">
       {lines.map((l) => (
         <li key={l.id} className="flex items-start gap-2 py-2">
           <ActionForm action={l.updateAction} className="flex flex-1 items-start gap-2">
-            <Field name="quantity" id={`qty-${l.id}`} type="number" min={1} max={999} defaultValue={l.quantity} aria-label={`Quantity of ${l.label}`} className="w-16" />
+            <Field name="quantity" id={`qty-${l.id}`} type="number" min={1} max={999} defaultValue={l.quantity} aria-label={t("Quantity of {label}", { label: l.label })} className="w-16" />
             <div className="min-w-0 flex-1">
-              <Field name="label" id={`label-${l.id}`} defaultValue={l.label} aria-label="Label" />
-              <p className="mt-0.5 truncate text-[11px] text-muted">{l.typeName ? `Type: ${l.typeName}` : `Category: ${l.categoryName} (incl. subcategories)`}</p>
+              <Field name="label" id={`label-${l.id}`} defaultValue={l.label} aria-label={t("Label")} />
+              <p className="mt-0.5 truncate text-[11px] text-muted">{l.typeName ? t("Type: {type}", { type: l.typeName }) : t("Category: {category} (incl. subcategories)", { category: String(l.categoryName) })}</p>
             </div>
             <SubmitButton variant="secondary" className="mt-0.5 !px-2.5 text-xs">
-              Save
+              {t("Save")}
             </SubmitButton>
           </ActionForm>
           <ActionForm action={l.removeAction}>
-            <SubmitButton variant="ghost" className="mt-0.5 !px-2 text-muted hover:text-danger" pendingText="…" aria-label={`Remove ${l.label}`}>
+            <SubmitButton variant="ghost" className="mt-0.5 !px-2 text-muted hover:text-danger" pendingText="…" aria-label={t("Remove {label}", { label: l.label })}>
               <Trash2 className="size-4" />
             </SubmitButton>
           </ActionForm>
@@ -48,12 +50,13 @@ export function LineEditor({ lines }: { lines: EditableLine[] }) {
 
 /** Add a line: pick an exact equipment type or "any item of a category". */
 export function AddLineForm({ action, categories }: { action: Action; categories: { value: string; label: string }[] }) {
+  const t = useT();
   return (
     <ActionForm action={action} className="grid gap-2 sm:grid-cols-[5rem_1fr_1fr_auto] sm:items-start" resetOnSuccess>
-      <Field name="quantity" id="add-qty" type="number" min={1} max={999} defaultValue={1} aria-label="Quantity" />
-      <TypePicker name="target" id="add-target" valuePrefix="type:" placeholder="Equipment type or category…" extraOptions={categories} extraLabel="any item of category" aria-label="Equipment type or category" />
-      <Field name="label" id="add-label" placeholder="Label (optional)" aria-label="Label" />
-      <SubmitButton>Add</SubmitButton>
+      <Field name="quantity" id="add-qty" type="number" min={1} max={999} defaultValue={1} aria-label={t("Quantity")} />
+      <TypePicker name="target" id="add-target" valuePrefix="type:" placeholder={t("Equipment type or category…")} extraOptions={categories} extraLabel={t("any item of category")} aria-label={t("Equipment type or category")} />
+      <Field name="label" id="add-label" placeholder={t("Label (optional)")} aria-label={t("Label")} />
+      <SubmitButton>{t("Add")}</SubmitButton>
     </ActionForm>
   );
 }
@@ -95,6 +98,7 @@ export function QuickExpectedEditor({
   categories: { value: string; label: string }[];
   useContents?: { action: Action; pieces: number };
 }) {
+  const t = useT();
   const form = useRef<HTMLDivElement>(null);
   const submitPick = () =>
     setTimeout(() => {
@@ -106,14 +110,14 @@ export function QuickExpectedEditor({
     <div className="space-y-4">
       {useContents && useContents.pieces > 0 && (
         <ActionForm action={useContents.action} className="flex flex-col items-start gap-2 rounded-lg bg-accent-soft/50 p-3 sm:flex-row sm:items-center">
-          <p className="min-w-0 flex-1 text-sm">Packed it already? Make the {useContents.pieces} pieces in it the expected contents.</p>
+          <p className="min-w-0 flex-1 text-sm">{t("Packed it already? Make the {n} pieces in it the expected contents.", { n: useContents.pieces })}</p>
           <SubmitButton variant="secondary" pendingText="…">
-            Use what&apos;s packed now
+            {t("Use what's packed now")}
           </SubmitButton>
         </ActionForm>
       )}
       {lines.length === 0 ? (
-        <p className="text-sm text-muted">Nothing expected yet.</p>
+        <p className="text-sm text-muted">{t("Nothing expected yet.")}</p>
       ) : (
         <ul className="divide-y divide-border">
           {lines.map((l) => (
@@ -123,17 +127,17 @@ export function QuickExpectedEditor({
                 <div className="truncate text-[11px] text-muted">{l.hint}</div>
               </div>
               <div className="flex items-center rounded-lg border border-border">
-                <IconAction action={l.less} label={`One ${l.label} less`}>
+                <IconAction action={l.less} label={t("One {label} less", { label: l.label })}>
                   <Minus className="size-3.5" />
                 </IconAction>
                 <span className="w-7 text-center text-sm font-medium tabular-nums" aria-label={`${l.label}: ${l.quantity}`}>
                   {l.quantity}
                 </span>
-                <IconAction action={l.more} label={`One ${l.label} more`}>
+                <IconAction action={l.more} label={t("One {label} more", { label: l.label })}>
                   <Plus className="size-3.5" />
                 </IconAction>
               </div>
-              <IconAction action={l.remove} label={`Remove ${l.label}`} className="!p-1.5 text-muted hover:text-danger">
+              <IconAction action={l.remove} label={t("Remove {label}", { label: l.label })} className="!p-1.5 text-muted hover:text-danger">
                 <X className="size-4" />
               </IconAction>
             </li>
@@ -147,10 +151,10 @@ export function QuickExpectedEditor({
             name="target"
             id="quick-add"
             valuePrefix="type:"
-            label="Add to the expected contents"
-            placeholder="Search a type, or a category for “any …”"
+            label={t("Add to the expected contents")}
+            placeholder={t("Search a type, or a category for “any …”")}
             extraOptions={categories}
-            extraLabel="any item of category"
+            extraLabel={t("any item of category")}
             onChange={submitPick}
           />
         </div>

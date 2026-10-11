@@ -2,30 +2,35 @@ import Link from "next/link";
 import { ImageIcon, Loader2 } from "lucide-react";
 import { ActionForm, Select, SubmitButton } from "@/components/forms";
 import { Badge, Card, CardHeader, PageHeader } from "@/components/ui";
-import { formatDateTime } from "@/lib/format";
 import { getPickerDeps } from "@/server/ai/picker-deps";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
+import { getFormat, getT } from "@/server/i18n";
 import { IMAGE_JOB_LIMITS, getImageJobOverview, imageJobAvailability } from "@/server/domain/image-jobs";
 import { AutoRefresh } from "../../documents/review";
 import { cancelImageJobAction, resumeImageJobAction, retryImageSearchAction, startImageJobAction } from "./actions";
 
-export const metadata = { title: "Automatic images" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("Automatic images") };
+}
 
-const STATUS: Record<string, { label: string; tone: "ok" | "accent" | "danger" | "neutral" | "info" }> = {
-  running: { label: "Running", tone: "info" },
-  done: { label: "Finished", tone: "ok" },
-  cancelled: { label: "Cancelled", tone: "neutral" },
-  failed: { label: "Stopped after errors", tone: "danger" },
-  interrupted: { label: "Interrupted", tone: "accent" },
-};
+type T = Awaited<ReturnType<typeof getT>>;
 
-const RESULT: Record<string, string> = {
-  not_confident: "no confident match",
-  download_failed: "the site refused the download",
-  error: "error",
-};
+const statusOf = (t: T): Record<string, { label: string; tone: "ok" | "accent" | "danger" | "neutral" | "info" }> => ({
+  running: { label: t("Running"), tone: "info" },
+  done: { label: t("Finished"), tone: "ok" },
+  cancelled: { label: t("Cancelled"), tone: "neutral" },
+  failed: { label: t("Stopped after errors"), tone: "danger" },
+  interrupted: { label: t("Interrupted"), tone: "accent" },
+});
+
+const resultOf = (t: T): Record<string, string> => ({
+  not_confident: t("no confident match"),
+  download_failed: t("the site refused the download"),
+  error: t("error"),
+});
 
 export default async function AutomaticImagesPage() {
   const ctx = await getCtx();
@@ -34,39 +39,46 @@ export default async function AutomaticImagesPage() {
   const available = imageJobAvailability(getPickerDeps());
   const { job, review, recentlyApplied, eligible } = await getImageJobOverview(db, ctx);
   const running = job?.status === "running";
+  const [t, f] = await Promise.all([getT(), getFormat()]);
+  const STATUS = statusOf(t);
+  const RESULT = resultOf(t);
 
   return (
     <>
       {running && <AutoRefresh intervalMs={4000} />}
-      <PageHeader title="Automatic images" subtitle="Find reference images for many equipment types at once" back={{ href: "/settings", label: "Settings" }} />
+      <PageHeader title={t("Automatic images")} subtitle={t("Find reference images for many equipment types at once")} back={{ href: "/settings", label: t("Settings") }} />
       <div className="grid max-w-3xl grid-cols-1 gap-6">
         <Card className="p-5">
           <p className="text-sm text-muted">
             {available.ok && available.aiChecked
-              ? "For each equipment type without an image, the server searches the web, lets the AI check the results and keeps the best one only if it clearly shows exactly that product. Uncertain cases are listed below for you to choose by hand."
-              : "For each equipment type without an image, the server searches the web and takes the first result (the next one if a site refuses the download). Types without any result are listed below."}{" "}
-            Images are downloaded into your own storage; you can change any of them on the type&apos;s image page. Each type costs one image search.
+              ? t(
+                  "For each equipment type without an image, the server searches the web, lets the AI check the results and keeps the best one only if it clearly shows exactly that product. Uncertain cases are listed below for you to choose by hand.",
+                )
+              : t(
+                  "For each equipment type without an image, the server searches the web and takes the first result (the next one if a site refuses the download). Types without any result are listed below.",
+                )}{" "}
+            {t("Images are downloaded into your own storage; you can change any of them on the type's image page. Each type costs one image search.")}
           </p>
           {!available.ok ? (
-            <p className="mt-4 rounded-lg bg-warn/10 px-3 py-2 text-sm text-warn">{available.reason} Add the key to the server&apos;s .env and restart the app.</p>
+            <p className="mt-4 rounded-lg bg-warn/10 px-3 py-2 text-sm text-warn">{available.reason} {t("Add the key to the server's .env and restart the app.")}</p>
           ) : !isAdmin ? (
-            <p className="mt-4 text-sm text-muted">Only admins can start an automatic search.</p>
+            <p className="mt-4 text-sm text-muted">{t("Only admins can start an automatic search.")}</p>
           ) : running ? null : (
             <ActionForm action={startImageJobAction} className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:items-end">
               <Select
-                label="Which equipment types"
+                label={t("Which equipment types")}
                 name="scope"
                 id="img-scope"
                 defaultValue="in_use"
                 options={[
-                  { value: "in_use", label: `With items (${eligible.in_use} without image)` },
-                  { value: "all", label: `All types (${eligible.all} without image)` },
+                  { value: "in_use", label: t("With items ({n} without image)", { n: eligible.in_use }) },
+                  { value: "all", label: t("All types ({n} without image)", { n: eligible.all }) },
                 ]}
               />
-              <Select label="At most" name="limit" id="img-limit" defaultValue="50" options={IMAGE_JOB_LIMITS.map((n) => ({ value: String(n), label: `${n} types in this run` }))} />
+              <Select label={t("At most")} name="limit" id="img-limit" defaultValue="50" options={IMAGE_JOB_LIMITS.map((n) => ({ value: String(n), label: t("{n} types in this run", { n }) }))} />
               <div className="sm:col-span-2">
-                <SubmitButton pendingText="Starting…">
-                  <ImageIcon className="size-4" /> Find images automatically
+                <SubmitButton pendingText={t("Starting…")}>
+                  <ImageIcon className="size-4" /> {t("Find images automatically")}
                 </SubmitButton>
               </div>
             </ActionForm>
@@ -75,12 +87,12 @@ export default async function AutomaticImagesPage() {
 
         {job && (
           <Card>
-            <CardHeader title="Latest run" />
+            <CardHeader title={t("Latest run")} />
             <div className="space-y-3 p-4">
               <div className="flex flex-wrap items-center gap-2 text-sm">
                 <Badge tone={STATUS[job.status]!.tone}>{STATUS[job.status]!.label}</Badge>
                 <span className="text-muted">
-                  {job.scope === "in_use" ? "types with items" : "all types"} · started {formatDateTime(job.createdAt)}
+                  {job.scope === "in_use" ? t("types with items") : t("all types")} · {t("started {date}", { date: f.formatDateTime(job.createdAt) })}
                 </span>
               </div>
               <div>
@@ -89,32 +101,32 @@ export default async function AutomaticImagesPage() {
                 </div>
                 <p className="mt-1.5 flex items-center gap-1.5 text-sm">
                   {running && <Loader2 className="size-3.5 animate-spin text-accent" />}
-                  {job.processed} of {job.total} checked · <span className="font-medium text-ok">{job.applied} images added</span>
-                  {job.processed - job.applied > 0 && ` · ${job.processed - job.applied} without`}
+                  {t("{n} of {total} checked", { n: job.processed, total: job.total })} · <span className="font-medium text-ok">{t("{n} images added", { n: job.applied })}</span>
+                  {job.processed - job.applied > 0 && ` · ${t("{n} without", { n: job.processed - job.applied })}`}
                 </p>
               </div>
               {job.lastError && <p className="text-sm text-danger">{job.lastError}</p>}
               {isAdmin && running && (
                 <ActionForm action={cancelImageJobAction.bind(null, job.id)}>
-                  <SubmitButton variant="secondary" pendingText="Stopping…" disabled={job.cancelRequested}>
-                    {job.cancelRequested ? "Stopping…" : "Cancel"}
+                  <SubmitButton variant="secondary" pendingText={t("Stopping…")} disabled={job.cancelRequested}>
+                    {job.cancelRequested ? t("Stopping…") : t("Cancel")}
                   </SubmitButton>
                 </ActionForm>
               )}
               {isAdmin && available.ok && (job.status === "interrupted" || job.status === "failed") && job.processed < job.total && (
                 <ActionForm action={resumeImageJobAction.bind(null, job.id)}>
-                  <SubmitButton variant="secondary" pendingText="Resuming…">
-                    Resume ({job.total - job.processed} left)
+                  <SubmitButton variant="secondary" pendingText={t("Resuming…")}>
+                    {t("Resume ({n} left)", { n: job.total - job.processed })}
                   </SubmitButton>
                 </ActionForm>
               )}
               {recentlyApplied.length > 0 && (
                 <ul className="grid grid-cols-4 gap-2 sm:grid-cols-6">
-                  {recentlyApplied.map((t) => (
-                    <li key={t.id}>
-                      <Link href={`/equipment/types/${t.id}/image`} title={t.name} className="block overflow-hidden rounded-lg border border-border bg-white">
+                  {recentlyApplied.map((ty) => (
+                    <li key={ty.id}>
+                      <Link href={`/equipment/types/${ty.id}/image`} title={ty.name} className="block overflow-hidden rounded-lg border border-border bg-white">
                         {/* eslint-disable-next-line @next/next/no-img-element -- private, auth-checked photo */}
-                        <img src={`/api/photos/${t.photoId}?size=thumb`} alt={t.name} loading="lazy" className="aspect-square w-full object-contain" />
+                        <img src={`/api/photos/${ty.photoId}?size=thumb`} alt={ty.name} loading="lazy" className="aspect-square w-full object-contain" />
                       </Link>
                     </li>
                   ))}
@@ -126,21 +138,21 @@ export default async function AutomaticImagesPage() {
 
         {review.length > 0 && (
           <Card>
-            <CardHeader title={`Choose by hand (${review.length})`} />
+            <CardHeader title={t("Choose by hand ({n})", { n: review.length })} />
             <ul className="divide-y divide-border">
-              {review.map((t) => (
-                <li key={t.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2.5 text-sm">
+              {review.map((ty) => (
+                <li key={ty.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2.5 text-sm">
                   <div className="min-w-0 flex-1">
-                    <div className="font-medium">{t.name}</div>
-                    <div className="text-xs text-muted">{t.note ?? RESULT[t.result] ?? t.result}</div>
+                    <div className="font-medium">{ty.name}</div>
+                    <div className="text-xs text-muted">{ty.note ?? RESULT[ty.result] ?? ty.result}</div>
                   </div>
-                  <Link href={`/equipment/types/${t.id}/image`} className="text-accent hover:underline">
-                    Choose image
+                  <Link href={`/equipment/types/${ty.id}/image`} className="text-accent hover:underline">
+                    {t("Choose image")}
                   </Link>
                   {isAdmin && (
-                    <ActionForm action={retryImageSearchAction.bind(null, t.id)}>
+                    <ActionForm action={retryImageSearchAction.bind(null, ty.id)}>
                       <SubmitButton variant="ghost" className="!px-2 text-xs" pendingText="…">
-                        Try again next run
+                        {t("Try again next run")}
                       </SubmitButton>
                     </ActionForm>
                   )}

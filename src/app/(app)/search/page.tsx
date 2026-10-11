@@ -4,16 +4,20 @@ import { EmptyState, PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { globalSearch, type SearchHit, type SearchHitKind } from "@/server/domain/search";
+import { getT } from "@/server/i18n";
 
-export const metadata = { title: "Search" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("Search") };
+}
 
-const GROUPS: { kind: SearchHitKind; label: string; icon: typeof Camera }[] = [
-  { kind: "item", label: "Equipment items", icon: Camera },
-  { kind: "type", label: "Equipment types", icon: Tag },
-  { kind: "case", label: "Sets", icon: Box },
-  { kind: "project", label: "Projects", icon: Briefcase },
-  { kind: "rental_house", label: "Rental houses", icon: Building2 },
-  { kind: "document", label: "Documents", icon: FileText },
+const groups = (t: (text: string) => string): { kind: SearchHitKind; label: string; icon: typeof Camera }[] => [
+  { kind: "item", label: t("Equipment items"), icon: Camera },
+  { kind: "type", label: t("Equipment types"), icon: Tag },
+  { kind: "case", label: t("Sets"), icon: Box },
+  { kind: "project", label: t("Projects"), icon: Briefcase },
+  { kind: "rental_house", label: t("Rental houses"), icon: Building2 },
+  { kind: "document", label: t("Documents"), icon: FileText },
 ];
 
 function href(h: SearchHit) {
@@ -36,19 +40,21 @@ function href(h: SearchHit) {
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const { q = "" } = await searchParams;
   const hits = q.trim().length >= 2 ? await globalSearch(getDb(), await getCtx(), q) : [];
+  const t = await getT();
   return (
     <>
-      <PageHeader title="Search" subtitle={q ? <>Results for “{q}”</> : "Find equipment, serial numbers, sets, projects, rental houses and documents"} />
+      <PageHeader title={t("Search")}
+        subtitle={q ? t("Results for “{q}”", { q }) : t("Find equipment, serial numbers, sets, projects, rental houses and documents")} />
       <form action="/search" className="mb-6 sm:hidden">
-        <input type="search" name="q" defaultValue={q} placeholder="Search…" className="input" autoFocus />
+        <input type="search" name="q" defaultValue={q} placeholder={t("Search…")} className="input" autoFocus />
       </form>
       {q.trim().length < 2 ? (
-        <EmptyState title="Type at least two characters">Aliases, serials with or without dashes and small typos all work.</EmptyState>
+        <EmptyState title={t("Type at least two characters")}>{t("Aliases, serials with or without dashes and small typos all work.")}</EmptyState>
       ) : hits.length === 0 ? (
-        <EmptyState title="Nothing found">Try a serial number, an asset number or part of a model name.</EmptyState>
+        <EmptyState title={t("Nothing found")}>{t("Try a serial number, an asset number or part of a model name.")}</EmptyState>
       ) : (
         <div className="space-y-6">
-          {GROUPS.map(({ kind, label, icon: Icon }) => {
+          {groups(t).map(({ kind, label, icon: Icon }) => {
             const group = hits.filter((h) => h.kind === kind);
             if (group.length === 0) return null;
             return (

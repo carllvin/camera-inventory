@@ -6,6 +6,7 @@ import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { getProjectSummary } from "@/server/domain/projects";
 import { listRentalHouses } from "@/server/domain/rental-houses";
+import { getT } from "@/server/i18n";
 import { orNotFound } from "@/server/pages";
 import { linkRentalHouseAction } from "../../actions";
 
@@ -15,6 +16,7 @@ export default async function ProjectRentalHousesPage({ params }: { params: Prom
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const db = getDb();
   const [summary, all] = await Promise.all([orNotFound(getProjectSummary(db, ctx, id)), listRentalHouses(db, ctx)]);
+  const t = await getT();
   const action = linkRentalHouseAction.bind(null, id);
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -26,43 +28,48 @@ export default async function ProjectRentalHousesPage({ params }: { params: Prom
                 {rh.name}
               </Link>
               <span className="text-xs text-muted tabular-nums">
-                {rh.on_project} on project · {rh.returned} returned
+                {t("{n} on project · {returned} returned", { n: rh.on_project, returned: rh.returned })}
               </span>
             </div>
             <ActionForm action={action} className="grid gap-3 sm:grid-cols-2">
               <input type="hidden" name="rentalHouseId" value={rh.id} />
-              <Field label="Order / account reference" name="orderReference" defaultValue={rh.order_reference} />
-              <Field label="Contact at rental house" name="contactName" defaultValue={rh.contact_name} />
+              <Field label={t("Order / account reference")} name="orderReference" defaultValue={rh.order_reference} />
+              <Field label={t("Contact at rental house")} name="contactName" defaultValue={rh.contact_name} />
               <div className="sm:col-span-2">
-                <SubmitButton variant="secondary">Save</SubmitButton>
+                <SubmitButton variant="secondary">{t("Save")}</SubmitButton>
               </div>
             </ActionForm>
           </Card>
         ))}
       </div>
       <Card className="self-start">
-        <CardHeader title="Link another rental house" />
+        <CardHeader title={t("Link another rental house")} />
         <div className="p-4">
           {all.length === 0 ? (
             <p className="text-sm text-muted">
-              No rental houses yet. <Link href="/settings/rental-houses/new" className="text-accent hover:underline">Create one</Link>.
+              {t("No rental houses yet.")}{" "}
+              <Link href="/settings/rental-houses/new" className="text-accent hover:underline">
+                {t("Create one")}
+              </Link>
+              .
             </p>
           ) : (
             <ActionForm action={action} className="space-y-3" resetOnSuccess>
               <Select
-                label="Rental house"
+                label={t("Rental house")}
                 name="rentalHouseId"
-                placeholder="Choose…"
+                placeholder={t("Choose…")}
                 options={all.filter((r) => !summary.rentalHouses.some((x) => x.id === r.id)).map((r) => ({ value: r.id, label: r.name }))}
               />
-              <Field label="Order / account reference" name="orderReference" />
-              <Field label="Contact at rental house" name="contactName" />
-              <SubmitButton>Link rental house</SubmitButton>
+              <Field label={t("Order / account reference")} name="orderReference" />
+              <Field label={t("Contact at rental house")} name="contactName" />
+              <SubmitButton>{t("Link rental house")}</SubmitButton>
             </ActionForm>
           )}
           <p className="mt-4 text-xs text-muted">
-            A project can hold equipment from any number of rental houses. Returns never close the relationship — what is still out is
-            always shown per rental house.
+            {t(
+              "A project can hold equipment from any number of rental houses. Returns never close the relationship — what is still out is always shown per rental house.",
+            )}
           </p>
         </div>
       </Card>

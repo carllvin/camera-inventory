@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { CaseSummary } from "@/server/domain/cases";
 import { cn } from "@/lib/format";
+import { getT } from "@/server/i18n";
 import { EmptyState } from "./ui";
 
 /** "7 / 8" completeness meter used on case cards. */
@@ -23,11 +24,12 @@ export function CaseProgress({ matched, expected, extra, size = "md" }: { matche
   );
 }
 
-export function CaseList({ cases, showProject, emptyAction }: { cases: CaseSummary[]; showProject?: boolean; emptyAction?: React.ReactNode }) {
+export async function CaseList({ cases, showProject, emptyAction }: { cases: CaseSummary[]; showProject?: boolean; emptyAction?: React.ReactNode }) {
+  const t = await getT();
   if (cases.length === 0) {
     return (
-      <EmptyState title="No sets yet" action={emptyAction}>
-        Sets group equipment for transport and checks. Create them from a template or start empty.
+      <EmptyState title={t("No sets yet")} action={emptyAction}>
+        {t("Sets group equipment for transport and checks. Create them from a template or start empty.")}
       </EmptyState>
     );
   }
@@ -47,10 +49,12 @@ export function CaseList({ cases, showProject, emptyAction }: { cases: CaseSumma
               </div>
               <p className={cn("mt-3 text-xs", cmp.complete ? "text-ok" : cmp.expectedTotal === 0 ? "text-muted" : "text-warn")}>
                 {cmp.expectedTotal === 0
-                  ? `${cmp.actualTotal} item${cmp.actualTotal === 1 ? "" : "s"} · no expected contents`
+                  ? cmp.actualTotal === 1
+                    ? t("1 item · no expected contents")
+                    : t("{n} items · no expected contents", { n: cmp.actualTotal })
                   : cmp.complete
-                    ? "Complete"
-                    : [cmp.missingTotal > 0 && `${cmp.missingTotal} missing`, cmp.extraTotal > 0 && `${cmp.extraTotal} not expected`].filter(Boolean).join(" · ")}
+                    ? t("Complete")
+                    : [cmp.missingTotal > 0 && t("{n} missing", { n: cmp.missingTotal }), cmp.extraTotal > 0 && t("{n} not expected", { n: cmp.extraTotal })].filter(Boolean).join(" · ")}
               </p>
             </Link>
           </li>

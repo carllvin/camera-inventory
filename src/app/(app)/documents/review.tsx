@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
+import { useT, useTranslateMessage } from "@/components/i18n";
 import { TypePicker } from "@/components/type-picker";
 import { Badge, Mono } from "@/components/ui";
 import { cn } from "@/lib/format";
 import type { ActionState } from "@/server/actions";
-import { RESOLUTION, RETURN_RESOLUTION } from "./resolution";
+import { RESOLUTION, RETURN_RESOLUTION, resolutionText } from "./resolution";
 
 type Action = (prev: ActionState, fd: FormData) => Promise<ActionState>;
 
@@ -62,25 +63,26 @@ export interface NewTypeDraft {
 
 /** Pre-filled "create this product" strip: one click on Create & use, or adjust the fields first. */
 function NewTypeStrip({ draft, lineId }: { draft: NewTypeDraft; lineId: string }) {
+  const t = useT();
   return (
     <ActionForm action={draft.action} className="grid gap-2 border-t border-dashed border-warn/40 bg-warn/5 px-4 py-3 sm:grid-cols-12">
-      <p className="text-xs font-medium text-warn sm:col-span-12">New product{draft.byAi && " — fields suggested by AI"}. Check and create it:</p>
-      <Field name="manufacturer" id={`nm-${lineId}`} aria-label="Manufacturer" placeholder="Manufacturer" defaultValue={draft.manufacturer} className="sm:col-span-3" />
-      <Field name="model" id={`nmo-${lineId}`} aria-label="Model" placeholder="Model" defaultValue={draft.model} className="sm:col-span-4" />
-      <Select name="categoryId" id={`nc-${lineId}`} aria-label="Category" placeholder="No category" defaultValue={draft.categoryId} options={draft.categories} className="sm:col-span-3" />
+      <p className="text-xs font-medium text-warn sm:col-span-12">{draft.byAi ? t("New product — fields suggested by AI. Check and create it:") : t("New product. Check and create it:")}</p>
+      <Field name="manufacturer" id={`nm-${lineId}`} aria-label={t("Manufacturer")} placeholder={t("Manufacturer")} defaultValue={draft.manufacturer} className="sm:col-span-3" />
+      <Field name="model" id={`nmo-${lineId}`} aria-label={t("Model")} placeholder={t("Model")} defaultValue={draft.model} className="sm:col-span-4" />
+      <Select name="categoryId" id={`nc-${lineId}`} aria-label={t("Category")} placeholder={t("No category")} defaultValue={draft.categoryId} options={draft.categories} className="sm:col-span-3" />
       <Select
         name="tracking"
         id={`nt-${lineId}`}
-        aria-label="Tracking"
+        aria-label={t("Tracking")}
         defaultValue={draft.tracking}
         options={[
-          { value: "serialized", label: "With serials" },
-          { value: "bulk", label: "Quantity only" },
+          { value: "serialized", label: t("With serials") },
+          { value: "bulk", label: t("Quantity only") },
         ]}
         className="sm:col-span-2"
       />
       <div className="sm:col-span-12">
-        <SubmitButton pendingText="Creating…">Create &amp; use</SubmitButton>
+        <SubmitButton pendingText={t("Creating…")}>{t("Create & use")}</SubmitButton>
       </div>
     </ActionForm>
   );
@@ -88,6 +90,8 @@ function NewTypeStrip({ draft, lineId }: { draft: NewTypeDraft; lineId: string }
 
 /** One reviewable line: collapsed summary, tap to edit. */
 export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine; items?: Option[]; mode?: "delivery" | "return" }) {
+  const t = useT();
+  const tm = useTranslateMessage();
   const needsAttention = line.resolution === "pending" || line.resolution === "discrepancy";
   const [open, setOpen] = useState(needsAttention);
   const labels = mode === "return" ? RETURN_RESOLUTION : RESOLUTION;
@@ -102,52 +106,52 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
         <span className="min-w-0 flex-1">
           <span className="flex flex-wrap items-center gap-2">
             <span className="font-medium">{line.quantity > 1 && `${line.quantity} × `}{line.description}</span>
-            <Badge tone={r.tone}>{line.resolution === "ignore" && line.matchReason?.startsWith("heading") ? "Heading" : r.label}</Badge>
-            {line.aiConfidence !== null && line.aiConfidence < 0.7 && <Badge tone="warn">unclear text</Badge>}
+            <Badge tone={r.tone}>{line.resolution === "ignore" && line.matchReason?.startsWith("heading") ? t("Heading") : resolutionText(t, r.label)}</Badge>
+            {line.aiConfidence !== null && line.aiConfidence < 0.7 && <Badge tone="warn">{t("unclear text")}</Badge>}
             {line.setName && <Badge>▣ {line.setName}</Badge>}
           </span>
           <span className="mt-0.5 block text-xs text-muted">
-            {[line.serialNumber && `SN ${line.serialNumber}`, line.assetNumber && `Asset ${line.assetNumber}`, typeLabel && `→ ${typeLabel}`].filter(Boolean).join(" · ")}
+            {[line.serialNumber && `SN ${line.serialNumber}`, line.assetNumber && t("Asset {n}", { n: line.assetNumber }), typeLabel && `→ ${typeLabel}`].filter(Boolean).join(" · ")}
           </span>
-          {line.matchReason && <span className={cn("mt-0.5 block text-xs", needsAttention ? "text-warn" : "text-muted")}>{line.matchReason}</span>}
+          {line.matchReason && <span className={cn("mt-0.5 block text-xs", needsAttention ? "text-warn" : "text-muted")}>{tm(line.matchReason)}</span>}
         </span>
-        <span className="text-xs text-muted">{open ? "Close" : "Edit"}</span>
+        <span className="text-xs text-muted">{open ? t("Close") : t("Edit")}</span>
       </button>
       {line.newType && line.resolution === "pending" && !line.matchedEquipmentTypeId && <NewTypeStrip draft={line.newType} lineId={line.id} />}
       {open && (
         <div className="border-t border-border px-4 py-3">
           {line.rawText && line.rawText !== line.description && (
             <p className="mb-2 text-xs text-muted">
-              On document: <Mono>{line.rawText}</Mono>
+              {t("On document:")} <Mono>{line.rawText}</Mono>
             </p>
           )}
           <ActionForm action={line.updateAction} className="grid gap-3 sm:grid-cols-6">
-            <Field label="Description" name="description" id={`d-${line.id}`} defaultValue={line.description} className="sm:col-span-4" />
-            <Field label="Qty" name="quantity" id={`q-${line.id}`} type="number" min={1} defaultValue={line.quantity} className="sm:col-span-2" />
-            <Field label="Serial number" name="serialNumber" id={`s-${line.id}`} defaultValue={line.serialNumber} spellCheck={false} className="sm:col-span-3" />
-            <Field label="Asset number" name="assetNumber" id={`a-${line.id}`} defaultValue={line.assetNumber} spellCheck={false} className="sm:col-span-3" />
+            <Field label={t("Description")} name="description" id={`d-${line.id}`} defaultValue={line.description} className="sm:col-span-4" />
+            <Field label={t("Qty")} name="quantity" id={`q-${line.id}`} type="number" min={1} defaultValue={line.quantity} className="sm:col-span-2" />
+            <Field label={t("Serial number")} name="serialNumber" id={`s-${line.id}`} defaultValue={line.serialNumber} spellCheck={false} className="sm:col-span-3" />
+            <Field label={t("Asset number")} name="assetNumber" id={`a-${line.id}`} defaultValue={line.assetNumber} spellCheck={false} className="sm:col-span-3" />
             {mode === "return" ? (
               <Select
-                label="Item on the project"
+                label={t("Item on the project")}
                 name="equipmentItemId"
                 id={`i-${line.id}`}
-                placeholder="Detect automatically"
+                placeholder={t("Detect automatically")}
                 defaultValue={line.matchedEquipmentItemId}
                 options={items ?? []}
                 className="sm:col-span-6"
-                hint="Pick the exact item when several identical ones are on the project."
+                hint={t("Pick the exact item when several identical ones are on the project.")}
               />
             ) : (
               <TypePicker
-                label="Equipment type"
+                label={t("Equipment type")}
                 name="equipmentTypeId"
                 id={`t-${line.id}`}
-                emptyLabel="Detect automatically"
+                emptyLabel={t("Detect automatically")}
                 defaultValue={line.matchedEquipmentTypeId && line.typeName ? { id: line.matchedEquipmentTypeId, name: line.typeName } : null}
                 className="sm:col-span-6"
                 hint={
                   <>
-                    Not in the list? {line.newType ? "Use “Create & use” above." : <><Link href="/equipment/types/new" target="_blank" className="text-accent hover:underline">Create the type</Link>, then reload.</>}
+                    {t("Not in the list?")} {line.newType ? t("Use “Create & use” above.") : <><Link href="/equipment/types/new" target="_blank" className="text-accent hover:underline">{t("Create the type")}</Link>{t(", then reload.")}</>}
                   </>
                 }
               />
@@ -156,29 +160,29 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
               <label className="flex items-center gap-2 text-sm sm:col-span-6">
                 <input type="hidden" name="containerField" value="1" />
                 <input type="checkbox" name="isContainer" value="1" defaultChecked={Boolean(line.isContainer)} className="size-4 accent-[var(--accent)]" />
-                This is a case (Koffer) — it becomes a set with the items grouped under it
+                {t("This is a case (Koffer) — it becomes a set with the items grouped under it")}
               </label>
             )}
             <label className="flex items-center gap-2 text-sm sm:col-span-6">
               <input type="checkbox" name="ignore" value="1" defaultChecked={line.resolution === "ignore"} className="size-4 accent-[var(--accent)]" />
-              {mode === "return" ? "Ignore this line (not equipment, or not actually returned)" : "Ignore this line (not equipment, or not actually delivered)"}
+              {mode === "return" ? t("Ignore this line (not equipment, or not actually returned)") : t("Ignore this line (not equipment, or not actually delivered)")}
             </label>
             <div className="flex items-center justify-between sm:col-span-6">
-              <SubmitButton variant="secondary">Save line</SubmitButton>
+              <SubmitButton variant="secondary">{t("Save line")}</SubmitButton>
             </div>
           </ActionForm>
           {line.reportAction && needsAttention && (
             <details className="mt-3 text-sm">
-              <summary className="cursor-pointer text-muted">Report as issue…</summary>
+              <summary className="cursor-pointer text-muted">{t("Report as issue…")}</summary>
               <ActionForm action={line.reportAction} className="mt-2 flex flex-wrap items-end gap-2">
-                <Field name="note" id={`n-${line.id}`} placeholder="What should be checked? (optional)" aria-label="Issue note" className="min-w-0 flex-1" />
-                <SubmitButton variant="secondary" pendingText="…">Report issue</SubmitButton>
+                <Field name="note" id={`n-${line.id}`} placeholder={t("What should be checked? (optional)")} aria-label={t("Issue note")} className="min-w-0 flex-1" />
+                <SubmitButton variant="secondary" pendingText="…">{t("Report issue")}</SubmitButton>
               </ActionForm>
             </details>
           )}
           <ActionForm action={line.removeAction} className="mt-2 flex justify-end">
             <SubmitButton variant="ghost" className="!px-2 text-xs text-muted hover:text-danger" pendingText="…">
-              <Trash2 className="size-3.5" /> Delete line
+              <Trash2 className="size-3.5" /> {t("Delete line")}
             </SubmitButton>
           </ActionForm>
         </div>
@@ -188,30 +192,31 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
 }
 
 export function AddLineCard({ action, items, mode = "delivery" }: { action: Action; items?: Option[]; mode?: "delivery" | "return" }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   if (!open) {
     return (
       <button type="button" onClick={() => setOpen(true)} className="w-full rounded-xl border border-dashed border-border px-4 py-3 text-sm text-muted hover:border-ring/60 hover:text-text">
-        + Add a line by hand
+        {t("+ Add a line by hand")}
       </button>
     );
   }
   return (
     <div className="rounded-xl border border-border bg-surface px-4 py-3">
       <ActionForm action={action} className="grid gap-3 sm:grid-cols-6" resetOnSuccess>
-        <Field label="Description" name="description" id="new-description" className="sm:col-span-4" autoFocus />
-        <Field label="Qty" name="quantity" id="new-quantity" type="number" min={1} defaultValue={1} className="sm:col-span-2" />
-        <Field label="Serial number" name="serialNumber" id="new-serial" spellCheck={false} className="sm:col-span-3" />
-        <Field label="Asset number" name="assetNumber" id="new-asset" spellCheck={false} className="sm:col-span-3" />
+        <Field label={t("Description")} name="description" id="new-description" className="sm:col-span-4" autoFocus />
+        <Field label={t("Qty")} name="quantity" id="new-quantity" type="number" min={1} defaultValue={1} className="sm:col-span-2" />
+        <Field label={t("Serial number")} name="serialNumber" id="new-serial" spellCheck={false} className="sm:col-span-3" />
+        <Field label={t("Asset number")} name="assetNumber" id="new-asset" spellCheck={false} className="sm:col-span-3" />
         {mode === "return" ? (
-          <Select label="Item on the project" name="equipmentItemId" id="new-item" placeholder="Detect automatically" options={items ?? []} className="sm:col-span-6" />
+          <Select label={t("Item on the project")} name="equipmentItemId" id="new-item" placeholder={t("Detect automatically")} options={items ?? []} className="sm:col-span-6" />
         ) : (
-          <TypePicker label="Equipment type" name="equipmentTypeId" id="new-type" emptyLabel="Detect automatically" className="sm:col-span-6" />
+          <TypePicker label={t("Equipment type")} name="equipmentTypeId" id="new-type" emptyLabel={t("Detect automatically")} className="sm:col-span-6" />
         )}
         <div className="flex gap-2 sm:col-span-6">
-          <SubmitButton>Add line</SubmitButton>
+          <SubmitButton>{t("Add line")}</SubmitButton>
           <button type="button" onClick={() => setOpen(false)} className="text-sm text-muted hover:text-text">
-            Cancel
+            {t("Cancel")}
           </button>
         </div>
       </ActionForm>
@@ -220,10 +225,17 @@ export function AddLineCard({ action, items, mode = "delivery" }: { action: Acti
 }
 
 export function ConfirmButton({ action, disabled, count, mode = "delivery" }: { action: Action; disabled: boolean; count: number; mode?: "delivery" | "return" }) {
+  const t = useT();
   return (
     <ActionForm action={action}>
-      <SubmitButton disabled={disabled} className="w-full py-3 text-base" pendingText="Confirming…">
-        {mode === "return" ? "Confirm return" : "Confirm delivery"} ({count} item{count === 1 ? "" : "s"})
+      <SubmitButton disabled={disabled} className="w-full py-3 text-base" pendingText={t("Confirming…")}>
+        {mode === "return"
+          ? count === 1
+            ? t("Confirm return (1 item)")
+            : t("Confirm return ({n} items)", { n: count })
+          : count === 1
+            ? t("Confirm delivery (1 item)")
+            : t("Confirm delivery ({n} items)", { n: count })}
       </SubmitButton>
     </ActionForm>
   );

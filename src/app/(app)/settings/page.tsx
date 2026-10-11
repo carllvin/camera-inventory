@@ -2,33 +2,42 @@ import Link from "next/link";
 import { Building2, ChevronRight, FolderTree, ImageIcon, Library } from "lucide-react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
 import { Card, CardHeader, PageHeader } from "@/components/ui";
+import { eq } from "drizzle-orm";
 import { ROLE_LABEL } from "@/lib/format";
+import { LOCALE_LABEL, LOCALES } from "@/lib/i18n/core";
+import * as s from "@/server/db/schema";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { listMembers } from "@/server/domain/overview";
-import { addMemberAction, changeRoleAction, renameWorkspaceAction } from "./actions";
+import { getT } from "@/server/i18n";
+import { addMemberAction, changeRoleAction, renameWorkspaceAction, setLanguageAction } from "./actions";
 
-export const metadata = { title: "Settings" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("Settings") };
+}
 
 export default async function SettingsPage() {
   const ctx = await getCtx();
   const members = await listMembers(getDb(), ctx);
+  const [me] = await getDb().select({ locale: s.user.locale }).from(s.user).where(eq(s.user.id, ctx.userId));
   const isAdmin = hasRole(ctx, "admin");
+  const t = await getT();
   const roles = Object.entries(ROLE_LABEL)
     .filter(([r]) => r !== "owner" || ctx.role === "owner")
-    .map(([value, label]) => ({ value, label }));
+    .map(([value, label]) => ({ value, label: t(label) }));
   return (
     <>
-      <PageHeader title="Settings" />
+      <PageHeader title={t("Settings")} />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="space-y-6">
           <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
             {[
-              { href: "/settings/rental-houses", label: "Rental houses", icon: Building2, hint: "Contacts and aliases used on documents" },
-              { href: "/settings/categories", label: "Categories", icon: FolderTree, hint: "Hierarchical equipment categories" },
-              { href: "/settings/catalog", label: "Standard catalog", icon: Library, hint: "Import common equipment types and rental houses" },
-              { href: "/settings/images", label: "Automatic images", icon: ImageIcon, hint: "Find reference images for many equipment types at once" },
+              { href: "/settings/rental-houses", label: t("Rental houses"), icon: Building2, hint: t("Contacts and aliases used on documents") },
+              { href: "/settings/categories", label: t("Categories"), icon: FolderTree, hint: t("Hierarchical equipment categories") },
+              { href: "/settings/catalog", label: t("Standard catalog"), icon: Library, hint: t("Import common equipment types and rental houses") },
+              { href: "/settings/images", label: t("Automatic images"), icon: ImageIcon, hint: t("Find reference images for many equipment types at once") },
             ].map(({ href, label, icon: Icon, hint }) => (
               <li key={href}>
                 <Link href={href} className="flex items-center gap-3 px-4 py-3.5 hover:bg-surface-2">
@@ -43,12 +52,27 @@ export default async function SettingsPage() {
             ))}
           </ul>
           <Card>
-            <CardHeader title="Workspace" />
+            <CardHeader title="Language · Sprache" />
+            <div className="p-4">
+              <ActionForm action={setLanguageAction} className="flex items-end gap-2">
+                <Select
+                  label={t("Interface language")}
+                  name="locale"
+                  defaultValue={me?.locale ?? ""}
+                  options={[{ value: "", label: t("Automatic (browser)") }, ...LOCALES.map((l) => ({ value: l, label: LOCALE_LABEL[l] }))]}
+                  className="flex-1"
+                />
+                <SubmitButton variant="secondary">{t("Save")}</SubmitButton>
+              </ActionForm>
+            </div>
+          </Card>
+          <Card>
+            <CardHeader title={t("Workspace")} />
             <div className="p-4">
               {isAdmin ? (
                 <ActionForm action={renameWorkspaceAction} className="flex items-end gap-2">
-                  <Field label="Name" name="name" defaultValue={ctx.workspaceName} className="flex-1" />
-                  <SubmitButton variant="secondary">Rename</SubmitButton>
+                  <Field label={t("Name")} name="name" defaultValue={ctx.workspaceName} className="flex-1" />
+                  <SubmitButton variant="secondary">{t("Rename")}</SubmitButton>
                 </ActionForm>
               ) : (
                 <p className="text-sm">{ctx.workspaceName}</p>
@@ -57,41 +81,41 @@ export default async function SettingsPage() {
           </Card>
         </div>
         <Card className="self-start">
-          <CardHeader title={`Team (${members.length})`} />
+          <CardHeader title={t("Team ({n})", { n: members.length })} />
           <ul className="divide-y divide-border">
             {members.map((m) => (
               <li key={m.id} className="flex items-center gap-3 px-4 py-2.5">
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-sm font-medium">
-                    {m.name} {m.id === ctx.userId && <span className="text-xs text-muted">(you)</span>}
+                    {m.name} {m.id === ctx.userId && <span className="text-xs text-muted">{t("(you)")}</span>}
                   </div>
                   <div className="truncate text-xs text-muted">{m.email}</div>
                 </div>
                 {isAdmin && m.id !== ctx.userId ? (
                   <ActionForm action={changeRoleAction.bind(null, m.id)} className="flex items-center gap-1">
-                    <Select name="role" aria-label={`Role of ${m.name}`} defaultValue={m.role} options={roles} className="w-28" />
-                    <SubmitButton variant="ghost" className="!px-2 text-xs">Save</SubmitButton>
+                    <Select name="role" aria-label={t("Role of {name}", { name: m.name })} defaultValue={m.role} options={roles} className="w-28" />
+                    <SubmitButton variant="ghost" className="!px-2 text-xs">{t("Save")}</SubmitButton>
                   </ActionForm>
                 ) : (
-                  <span className="text-xs text-muted">{ROLE_LABEL[m.role]}</span>
+                  <span className="text-xs text-muted">{ROLE_LABEL[m.role] && t(ROLE_LABEL[m.role]!)}</span>
                 )}
               </li>
             ))}
           </ul>
           {isAdmin && (
             <div className="border-t border-border p-4">
-              <h3 className="mb-3 text-sm font-semibold">Add team member</h3>
+              <h3 className="mb-3 text-sm font-semibold">{t("Add team member")}</h3>
               <ActionForm action={addMemberAction} className="grid gap-3 sm:grid-cols-2" resetOnSuccess>
-                <Field label="Email" name="email" type="email" required className="sm:col-span-2" />
-                <Field label="Name" name="name" hint="Only needed for new accounts" />
-                <Select label="Role" name="role" defaultValue="member" options={roles.filter((r) => r.value !== "owner")} />
-                <Field label="Temporary password" name="password" type="text" autoComplete="off" hint="Only for new accounts — hand it over in person" className="sm:col-span-2" />
+                <Field label={t("Email")} name="email" type="email" required className="sm:col-span-2" />
+                <Field label={t("Name")} name="name" hint={t("Only needed for new accounts")} />
+                <Select label={t("Role")} name="role" defaultValue="member" options={roles.filter((r) => r.value !== "owner")} />
+                <Field label={t("Temporary password")} name="password" type="text" autoComplete="off" hint={t("Only for new accounts — hand it over in person")} className="sm:col-span-2" />
                 <div className="sm:col-span-2">
-                  <SubmitButton>Add member</SubmitButton>
+                  <SubmitButton>{t("Add member")}</SubmitButton>
                 </div>
               </ActionForm>
               <p className="mt-3 text-xs text-muted">
-                Viewers can see everything but change nothing. Members manage projects and equipment. Admins also manage team and categories.
+                {t("Viewers can see everything but change nothing. Members manage projects and equipment. Admins also manage team and categories.")}
               </p>
             </div>
           )}

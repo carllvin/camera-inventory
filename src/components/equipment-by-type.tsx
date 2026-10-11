@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Camera, ChevronRight } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { STATUS_LABEL } from "@/lib/format";
+import type { T } from "@/lib/i18n/core";
+import { getT } from "@/server/i18n";
 import { groupItems, Thumb } from "./equipment-table";
 import { EntryTick, TypeTick } from "./select-tools";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
@@ -21,13 +23,13 @@ function byType(items: ItemRow[]) {
   return [...groups.values()];
 }
 
-export const EQUIPMENT_SORTS = [
-  { value: "category", label: "Sort: category" },
-  { value: "name", label: "Sort: name" },
-  { value: "qty", label: "Sort: quantity" },
-  { value: "recent", label: "Sort: recently changed" },
-  { value: "attention", label: "Sort: needs attention first" },
-] as const;
+export const equipmentSorts = (t: T) => [
+  { value: "category", label: t("Sort: category") },
+  { value: "name", label: t("Sort: name") },
+  { value: "qty", label: t("Sort: quantity") },
+  { value: "recent", label: t("Sort: recently changed") },
+  { value: "attention", label: t("Sort: needs attention first") },
+];
 
 const needsAttention = (g: TypeGroup) =>
   g.items.some((i) => i.status === "missing") ? 2 : g.items.some((i) => i.condition === "damaged" || i.condition === "defective") ? 1 : 0;
@@ -73,29 +75,49 @@ function sortGroups(groups: TypeGroup[], sort?: string) {
   }
 }
 
-/** "2 in use · 1 missing": everything that is not plainly on the project. */
-function statusSummary(items: ItemRow[]) {
-  const counts = new Map<string, number>();
-  for (const i of items) if (i.status !== "on_project") counts.set(i.status, (counts.get(i.status) ?? 0) + i.quantity);
-  return [...counts].map(([s, n]) => ({ status: s, label: `${n} ${STATUS_LABEL[s]?.toLowerCase() ?? s}` }));
+/** "2 in use", one text per status (German word order and case differ). */
+function statusCount(t: T, status: string, n: number) {
+  switch (status) {
+    case "available":
+      return t("{n} available", { n });
+    case "on_project":
+      return t("{n} on project", { n });
+    case "in_use":
+      return t("{n} in use", { n });
+    case "ready_for_return":
+      return t("{n} ready for return", { n });
+    case "missing":
+      return t("{n} missing", { n });
+    case "returned":
+      return t("{n} returned", { n });
+    default:
+      return `${n} ${STATUS_LABEL[status]?.toLowerCase() ?? status}`;
+  }
 }
 
-const where = (i: ItemRow, showProject: boolean, hideSet = false) =>
-  [showProject && (i.projectName ?? "Not on a project"), !hideSet && i.caseName && `▣ ${i.caseName}`, i.rentalHouseShort ?? i.rentalHouseName ?? "Owned"].filter(Boolean).join(" · ");
+/** "2 in use · 1 missing": everything that is not plainly on the project. */
+function statusSummary(items: ItemRow[], t: T) {
+  const counts = new Map<string, number>();
+  for (const i of items) if (i.status !== "on_project") counts.set(i.status, (counts.get(i.status) ?? 0) + i.quantity);
+  return [...counts].map(([s, n]) => ({ status: s, label: statusCount(t, s, n) }));
+}
+
+const where = (t: T, i: ItemRow, showProject: boolean, hideSet = false) =>
+  [showProject && (i.projectName ?? t("Not on a project")), !hideSet && i.caseName && `▣ ${i.caseName}`, i.rentalHouseShort ?? i.rentalHouseName ?? t("Owned")].filter(Boolean).join(" · ");
 
 type Entry = ReturnType<typeof groupItems>[number];
 
 /** Serial / asset / barcode, place, notes and state of one entry, linking to it. */
-function EntryBody({ e, showProject, hideSet }: { e: Entry; showProject: boolean; hideSet?: boolean }) {
+function EntryBody({ t, e, showProject, hideSet }: { t: T; e: Entry; showProject: boolean; hideSet?: boolean }) {
   return (
     <Link href={`/equipment/${e.id}`} className="flex min-w-0 flex-1 items-start gap-3 hover:text-accent">
       <div className="min-w-0 flex-1 text-sm">
         <div className="flex flex-wrap gap-x-3">
-          <Mono>{e.serialNumber ? `SN ${e.serialNumber}` : e.units > 1 ? `${e.units} pcs · no serial` : "No serial"}</Mono>
-          {e.assetNumber && <span className="text-muted"><Mono>Asset {e.assetNumber}</Mono></span>}
-          {e.barcode && <span className="text-muted"><Mono>Code {e.barcode}</Mono></span>}
+          <Mono>{e.serialNumber ? t("SN {serial}", { serial: e.serialNumber }) : e.units > 1 ? t("{n} pcs · no serial", { n: e.units }) : t("No serial")}</Mono>
+          {e.assetNumber && <span className="text-muted"><Mono>{t("Asset {asset}", { asset: e.assetNumber })}</Mono></span>}
+          {e.barcode && <span className="text-muted"><Mono>{t("Code {code}", { code: e.barcode })}</Mono></span>}
         </div>
-        <div className="text-xs text-muted">{where(e, showProject, hideSet)}</div>
+        <div className="text-xs text-muted">{where(t, e, showProject, hideSet)}</div>
         {e.notes && <div className="mt-0.5 line-clamp-2 text-xs text-muted italic">{e.notes}</div>}
       </div>
       <div className="flex shrink-0 flex-col items-end gap-1">
@@ -110,7 +132,7 @@ function EntryBody({ e, showProject, hideSet }: { e: Entry; showProject: boolean
  * One line per equipment type with its quantity; opening it shows the single
  * entries (serials, asset numbers, case, owner, state, notes).
  */
-export function EquipmentByType({
+export async function EquipmentByType({
   items,
   open = false,
   showProject = false,
@@ -126,11 +148,12 @@ export function EquipmentByType({
   /** Listed under a set's heading already: don't repeat the set on every line. */
   hideSet?: boolean;
 }) {
+  const t = await getT();
   const groups = sortGroups(byType(items), sort);
   return (
     <ul data-type-scope className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
       {groups.map((g) => {
-        const statuses = statusSummary(g.items);
+        const statuses = statusSummary(g.items, t);
         const damaged = g.items.filter((i) => i.condition !== "ok" && i.condition !== "unknown").reduce((n, i) => n + i.quantity, 0);
         const cases = [...new Set(g.items.map((i) => i.caseName).filter(Boolean))];
         const entries = groupItems(g.items);
@@ -144,16 +167,16 @@ export function EquipmentByType({
                   <div className="truncate text-sm font-medium">{g.typeName}</div>
                   <div className="flex flex-wrap gap-x-2 text-xs text-muted">
                     {g.categoryName && <span>{g.categoryName}</span>}
-                    {!hideSet && cases.length > 0 && <span>▣ {cases.length === 1 ? cases[0] : `${cases.length} sets`}</span>}
+                    {!hideSet && cases.length > 0 && <span>▣ {cases.length === 1 ? cases[0] : t("{n} sets", { n: cases.length })}</span>}
                     {statuses.map((s) => (
                       <span key={s.status} className={s.status === "missing" ? "font-medium text-danger" : "text-text"}>
                         {s.label}
                       </span>
                     ))}
-                    {damaged > 0 && <span className="text-warn">{damaged} damaged</span>}
+                    {damaged > 0 && <span className="text-warn">{t("{n} damaged", { n: damaged })}</span>}
                   </div>
                 </div>
-                <span className="text-sm font-semibold tabular-nums" aria-label={`Quantity ${g.units}`}>
+                <span className="text-sm font-semibold tabular-nums" aria-label={t("Quantity {n}", { n: g.units })}>
                   {g.units}
                 </span>
                 <ChevronRight className="size-4 shrink-0 text-muted transition-transform group-open:rotate-90" aria-hidden />
@@ -164,7 +187,7 @@ export function EquipmentByType({
                     {selectable && (
                       <EntryTick entryKey={e.id} itemIds={e.itemIds} units={e.units} typeId={g.typeId} label={e.serialNumber ? `${g.typeName} SN ${e.serialNumber}` : g.typeName} />
                     )}
-                    <EntryBody e={e} showProject={showProject} hideSet={hideSet} />
+                    <EntryBody t={t} e={e} showProject={showProject} hideSet={hideSet} />
                   </li>
                 ))}
               </ul>
@@ -177,11 +200,12 @@ export function EquipmentByType({
 }
 
 /** Image view: one card per equipment type with its quantity (opens that type in the list). */
-export function TypeGrid({ items, hrefFor, sort }: { items: ItemRow[]; hrefFor: (typeName: string) => string; sort?: string }) {
+export async function TypeGrid({ items, hrefFor, sort }: { items: ItemRow[]; hrefFor: (typeName: string) => string; sort?: string }) {
+  const t = await getT();
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {sortGroups(byType(items), sort).map((g) => {
-        const statuses = statusSummary(g.items);
+        const statuses = statusSummary(g.items, t);
         return (
           <li key={g.typeId}>
             <Link href={hrefFor(g.typeName)} className="block h-full overflow-hidden rounded-xl border border-border bg-surface hover:border-ring/60">

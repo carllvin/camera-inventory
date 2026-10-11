@@ -6,6 +6,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getTemplate, listLineTargets } from "@/server/domain/cases";
 import { hasRole } from "@/server/domain/context";
+import { getT } from "@/server/i18n";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { addTemplateLineAction, archiveTemplateAction, removeTemplateLineAction, updateTemplateAction, updateTemplateLineAction } from "../../actions";
 
@@ -17,17 +18,18 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
   const [tpl, targets] = await Promise.all([orNotFound(getTemplate(db, ctx, id)), listLineTargets(db, ctx)]);
   const canEdit = hasRole(ctx, "member") && !tpl.archivedAt;
   const total = tpl.lines.reduce((n, l) => n + l.quantity, 0);
+  const t = await getT();
   return (
     <>
       <PageHeader
         title={tpl.name}
-        subtitle={`${total} items · ${tpl.lines.length} lines${tpl.archivedAt ? " · archived" : ""}`}
-        back={{ href: "/sets/templates", label: "Templates" }}
-        actions={canEdit && <LinkButton href={`/sets/new?templateId=${id}`} variant="primary"><Plus className="size-4" /> New set from template</LinkButton>}
+        subtitle={tpl.archivedAt ? t("{items} items · {lines} lines · archived", { items: total, lines: tpl.lines.length }) : t("{items} items · {lines} lines", { items: total, lines: tpl.lines.length })}
+        back={{ href: "/sets/templates", label: t("Templates") }}
+        actions={canEdit && <LinkButton href={`/sets/new?templateId=${id}`} variant="primary"><Plus className="size-4" /> {t("New set from template")}</LinkButton>}
       />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <Card>
-          <CardHeader title="Expected contents" />
+          <CardHeader title={t("Expected contents")} />
           <div className="space-y-4 p-4">
             {canEdit ? (
               <>
@@ -43,7 +45,7 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
                   }))}
                 />
                 <div className="border-t border-border pt-4">
-                  <h3 className="mb-2 text-sm font-medium">Add item</h3>
+                  <h3 className="mb-2 text-sm font-medium">{t("Add item")}</h3>
                   <AddLineForm action={addTemplateLineAction.bind(null, id)} categories={targets.categories} />
                 </div>
               </>
@@ -61,18 +63,18 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
         {canEdit && (
           <div className="space-y-6">
             <Card>
-              <CardHeader title="Details" />
+              <CardHeader title={t("Details")} />
               <ActionForm action={updateTemplateAction.bind(null, id)} className="space-y-3 p-4">
-                <Field label="Name" name="name" defaultValue={tpl.name} />
-                <TextArea label="Description" name="description" defaultValue={tpl.description} />
-                <SubmitButton variant="secondary">Save</SubmitButton>
+                <Field label={t("Name")} name="name" defaultValue={tpl.name} />
+                <TextArea label={t("Description")} name="description" defaultValue={tpl.description} />
+                <SubmitButton variant="secondary">{t("Save")}</SubmitButton>
               </ActionForm>
             </Card>
             <Card>
-              <CardHeader title="Archive template" />
+              <CardHeader title={t("Archive template")} />
               <ActionForm action={archiveTemplateAction.bind(null, id)} className="space-y-3 p-4">
-                <p className="text-sm text-muted">Sets already created from it keep their expected contents.</p>
-                <SubmitButton variant="danger">Archive</SubmitButton>
+                <p className="text-sm text-muted">{t("Sets already created from it keep their expected contents.")}</p>
+                <SubmitButton variant="danger">{t("Archive")}</SubmitButton>
               </ActionForm>
             </Card>
           </div>

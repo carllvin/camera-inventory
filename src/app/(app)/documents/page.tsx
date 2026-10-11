@@ -8,30 +8,36 @@ import { getCurrentProject } from "@/server/current-project";
 import { FilterBar, FilterSelect } from "@/components/filters";
 import { DOCUMENT_SORTS, sortDocuments } from "@/lib/sorting";
 import { listDocuments } from "@/server/domain/overview";
+import { getT } from "@/server/i18n";
 
-export const metadata = { title: "Documents" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("Documents") };
+}
 
 export default async function DocumentsPage({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
   const { sort } = await searchParams;
   const ctx = await getCtx();
   const { current } = await getCurrentProject();
+  const t = await getT();
   const documents = sortDocuments(await listDocuments(getDb(), ctx, { projectId: current?.id }), sort);
+  const SORT_LABEL: Record<string, string> = { open: t("Sort: open first"), number: t("Sort: number"), oldest: t("Sort: oldest first") };
   return (
     <>
       <PageHeader
-        title="Documents"
-        subtitle={current ? `Delivery and return notes and lists of ${current.name}` : "Delivery and return notes and current lists"}
+        title={t("Documents")}
+        subtitle={current ? t("Delivery and return notes and lists of {project}", { project: current.name }) : t("Delivery and return notes and current lists")}
         actions={
           hasRole(ctx, "member") && (
             <>
               <LinkButton href="/documents/new" variant="primary">
-                <FileUp className="size-4" /> Delivery note
+                <FileUp className="size-4" /> {t("Delivery note")}
               </LinkButton>
               <LinkButton href="/documents/new?kind=return_note">
-                <FileDown className="size-4" /> Return note
+                <FileDown className="size-4" /> {t("Return note")}
               </LinkButton>
               <LinkButton href="/documents/new?kind=inventory_list">
-                <ListChecks className="size-4" /> Current list
+                <ListChecks className="size-4" /> {t("Current list")}
               </LinkButton>
             </>
           )
@@ -39,7 +45,7 @@ export default async function DocumentsPage({ searchParams }: { searchParams: Pr
       />
       {documents.length > 1 && (
         <FilterBar hasFilters={false}>
-          <FilterSelect name="sort" label="Sort" allLabel="Sort: newest first" value={sort} options={[...DOCUMENT_SORTS]} />
+          <FilterSelect name="sort" label={t("Sort")} allLabel={t("Sort: newest first")} value={sort} options={DOCUMENT_SORTS.map((o) => ({ value: o.value, label: SORT_LABEL[o.value] ?? o.label }))} />
         </FilterBar>
       )}
       <DocumentList documents={documents} showProject={!current} />

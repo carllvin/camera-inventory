@@ -3,9 +3,11 @@
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useTransition, type ReactNode } from "react";
 import { X } from "lucide-react";
+import { useT } from "./i18n";
 
 /** GET form that submits on every change (works without JS as a plain form too). */
 export function FilterBar({ children, hasFilters }: { children: ReactNode; hasFilters: boolean }) {
+  const t = useT();
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -32,8 +34,8 @@ export function FilterBar({ children, hasFilters }: { children: ReactNode; hasFi
       }}
       // The search updates the list while typing (shortly after the last key).
       onInput={(e) => {
-        const t = e.target as HTMLInputElement;
-        if (t.name !== "q" || (e.nativeEvent as InputEvent).isComposing) return;
+        const el = e.target as HTMLInputElement;
+        if (el.name !== "q" || (e.nativeEvent as InputEvent).isComposing) return;
         clearTimeout(typing.current ?? undefined);
         typing.current = setTimeout(submit, 250);
       }}
@@ -51,10 +53,10 @@ export function FilterBar({ children, hasFilters }: { children: ReactNode; hasFi
           onClick={() => startTransition(() => router.replace(pathname, { scroll: false }))}
           className="inline-flex items-center gap-1 rounded-lg px-2 py-2 text-sm text-muted hover:bg-surface-2 hover:text-text"
         >
-          <X className="size-3.5" /> Clear
+          <X className="size-3.5" /> {t("Clear")}
         </button>
       )}
-      {pending && <span className="py-2 text-xs text-muted">Updating…</span>}
+      {pending && <span className="py-2 text-xs text-muted">{t("Updating…")}</span>}
     </form>
   );
 }
@@ -91,6 +93,7 @@ const isEditable = (el: Element | null) =>
   !!el && (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement || (el as HTMLElement).isContentEditable);
 
 export function FilterSearch({ value, placeholder }: { value?: string | null; placeholder: string }) {
+  const t = useT();
   const ref = useRef<HTMLInputElement>(null);
   // Just start typing anywhere on the page: the keys go into the search ("/" jumps there too).
   useEffect(() => {
@@ -111,7 +114,7 @@ export function FilterSearch({ value, placeholder }: { value?: string | null; pl
   }, []);
   return (
     <label className="min-w-0 flex-[2_1_14rem]">
-      <span className="sr-only">Search</span>
+      <span className="sr-only">{t("Search")}</span>
       <input
         ref={ref}
         type="search"

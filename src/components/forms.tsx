@@ -5,6 +5,7 @@ import { useFormStatus } from "react-dom";
 import type { ActionState } from "@/server/actions";
 import { buttonVariants } from "./ui";
 import { cn } from "@/lib/format";
+import { useT } from "./i18n";
 
 type ServerAction = (prev: ActionState, fd: FormData) => Promise<ActionState>;
 
@@ -56,6 +57,7 @@ export function useFormState() {
 }
 
 function FormMessage() {
+  const t = useT();
   const state = useFormState();
   if (!state) return null;
   if (state.ok && state.message) {
@@ -74,7 +76,7 @@ function FormMessage() {
           <>
             {" "}
             <a className="font-medium underline" href={`/equipment/${existing}`}>
-              Open existing item
+              {t("Open existing item")}
             </a>
           </>
         )}
@@ -92,10 +94,11 @@ export function SubmitButton({
   disabled,
   ...rest
 }: ComponentProps<"button"> & { variant?: keyof typeof buttonVariants; pendingText?: string }) {
+  const t = useT();
   const { pending } = useFormStatus();
   return (
     <button type="submit" disabled={pending || disabled} className={cn(buttonVariants[variant], className)} {...rest}>
-      {pending ? (pendingText ?? "Saving…") : children}
+      {pending ? (pendingText ?? t("Saving…")) : children}
     </button>
   );
 }

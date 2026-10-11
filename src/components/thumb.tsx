@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Camera, X } from "lucide-react";
 import { cn } from "@/lib/format";
+import { useT } from "./i18n";
 
 /**
  * Small product picture (item photo or the type's reference image), a camera icon without one.
  * A click on the picture shows it large; it never opens the row or link it sits in.
  */
 export function Thumb({ photoId, name, className }: { photoId: string | null; name: string; className?: string }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const box = cn("flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-md bg-gradient-to-b from-white to-zinc-100 text-zinc-400", className);
   if (!photoId) {
@@ -23,7 +25,7 @@ export function Thumb({ photoId, name, className }: { photoId: string | null; na
     <>
       <button
         type="button"
-        aria-label={`Show picture of ${name}`}
+        aria-label={t("Show picture of {name}", { name })}
         onClick={(e) => {
           // Inside a link, a <summary> or a checkbox label: only open the picture.
           e.preventDefault();
@@ -42,6 +44,7 @@ export function Thumb({ photoId, name, className }: { photoId: string | null; na
 
 /** The picture large above the page; a click anywhere, Escape or × closes it. */
 function PicturePreview({ photoId, name, onClose }: { photoId: string; name: string; onClose: () => void }) {
+  const t = useT();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -67,7 +70,7 @@ function PicturePreview({ photoId, name, onClose }: { photoId: string; name: str
         {/* eslint-disable-next-line @next/next/no-img-element -- private, auth-checked images */}
         <img src={`/api/photos/${photoId}`} alt={name} className="max-h-[75vh] w-auto object-contain p-3" />
         <figcaption className="border-t border-zinc-200 px-4 py-2 text-sm text-zinc-700">{name}</figcaption>
-        <button type="button" aria-label="Close picture" onClick={onClose} className="absolute top-2 right-2 rounded-full bg-black/60 p-1.5 text-white hover:bg-black/80">
+        <button type="button" aria-label={t("Close picture")} onClick={onClose} className="absolute top-2 right-2 rounded-full bg-black/60 p-1.5 text-white hover:bg-black/80">
           <X className="size-4" />
         </button>
       </figure>

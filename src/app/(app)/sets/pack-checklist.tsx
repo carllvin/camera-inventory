@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ActionForm, SubmitButton } from "@/components/forms";
+import { useT } from "@/components/i18n";
 import { Badge, Mono } from "@/components/ui";
 import { cn } from "@/lib/format";
 import { Thumb } from "@/components/thumb";
@@ -27,6 +28,7 @@ export type ChecklistRow = {
  * another case moves it here (the row says so).
  */
 export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: (prev: ActionState, fd: FormData) => Promise<ActionState> }) {
+  const t = useT();
   const [ticked, setTicked] = useState<Set<string>>(new Set());
   const [counts, setCounts] = useState<Record<string, number>>({});
   const toggle = (key: string, on: boolean) =>
@@ -52,7 +54,7 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
     >
       {needed.length > 0 && (
         <button type="button" onClick={() => setTicked(new Set([...ticked, ...needed.map((r) => r.key)]))} className="mb-2 text-xs text-accent hover:underline">
-          Tick everything this case still needs ({needed.length})
+          {t("Tick everything this case still needs ({n})", { n: needed.length })}
         </button>
       )}
       <ul className="-mx-1 max-h-[32rem] divide-y divide-border overflow-y-auto">
@@ -67,13 +69,13 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
                 <span className="min-w-0 flex-1">
                   <span className="flex items-center gap-1.5">
                     <span className="truncate text-sm">{r.typeName}</span>
-                    {r.needed > 0 && <Badge tone="warn">needed</Badge>}
+                    {r.needed > 0 && <Badge tone="warn">{t("needed")}</Badge>}
                   </span>
                   <span className="block truncate text-xs text-muted">
-                    <Mono>{r.serialNumber ? `SN ${r.serialNumber}` : r.assetNumber ? `Asset ${r.assetNumber}` : r.units > 1 ? `${r.units} pcs · no serial` : "No serial"}</Mono>
-                    {r.status === "missing" && <span className="text-danger"> · missing</span>}
-                    {r.condition !== "ok" && r.condition !== "unknown" && <span className="text-warn"> · {r.condition.replaceAll("_", " ")}</span>}
-                    {r.caseName && <span className="text-warn"> · in {r.caseName}{on && " — will be moved"}</span>}
+                    <Mono>{r.serialNumber ? `SN ${r.serialNumber}` : r.assetNumber ? t("Asset {n}", { n: r.assetNumber }) : r.units > 1 ? t("{n} pcs · no serial", { n: r.units }) : t("No serial")}</Mono>
+                    {r.status === "missing" && <span className="text-danger"> · {t("missing")}</span>}
+                    {r.condition !== "ok" && r.condition !== "unknown" && <span className="text-warn"> · {r.condition === "minor_wear" ? t("minor wear") : r.condition === "damaged" ? t("damaged") : r.condition === "defective" ? t("defective") : r.condition.replaceAll("_", " ")}</span>}
+                    {r.caseName && <span className="text-warn"> · {on ? t("in {set} — will be moved", { set: r.caseName }) : t("in {set}", { set: r.caseName })}</span>}
                   </span>
                 </span>
               </label>
@@ -88,7 +90,7 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
                     disabled={!on}
                     onChange={(e) => setCounts({ ...counts, [r.key]: Math.max(1, Math.min(r.units, Number(e.target.value) || 1)) })}
                     inputMode="numeric"
-                    aria-label={`How many ${r.typeName} (of ${r.units})`}
+                    aria-label={t("How many {type} (of {n})", { type: r.typeName, n: r.units })}
                     className="w-12 rounded-md border border-border bg-surface px-1 py-0.5 text-right tabular-nums disabled:opacity-40"
                   />
                   /{r.units}
@@ -99,10 +101,10 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
         })}
       </ul>
       <div className="sticky bottom-0 -mx-4 mt-2 border-t border-border bg-surface px-4 pt-3 pb-1">
-        <SubmitButton className="w-full" disabled={total === 0} pendingText="Packing…">
-          {total === 0 ? "Tick what goes into this set" : `Add ${total} to this set`}
+        <SubmitButton className="w-full" disabled={total === 0} pendingText={t("Packing…")}>
+          {total === 0 ? t("Tick what goes into this set") : t("Add {n} to this set", { n: total })}
         </SubmitButton>
-        {moving > 0 && <p className="mt-1 text-center text-xs text-warn">{moving} ticked {moving === 1 ? "entry is" : "entries are"} moved from another case.</p>}
+        {moving > 0 && <p className="mt-1 text-center text-xs text-warn">{moving === 1 ? t("1 ticked entry is moved from another case.") : t("{n} ticked entries are moved from another case.", { n: moving })}</p>}
       </div>
     </ActionForm>
   );

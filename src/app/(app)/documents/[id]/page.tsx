@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CircleAlert, FileText, Loader2, Sparkles } from "lucide-react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
 import { Badge, Card, CardHeader, KeyValues, Mono, PageHeader } from "@/components/ui";
-import { DOCUMENT_KIND_LABEL, DOCUMENT_STATUS_LABEL, formatDate, formatDateTime } from "@/lib/format";
+import { DOCUMENT_KIND_LABEL, DOCUMENT_STATUS_LABEL } from "@/lib/format";
+import type { T } from "@/lib/i18n/core";
 import { getExtractor } from "@/server/ai";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
@@ -14,6 +15,7 @@ import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
 import { listProjectOptions } from "@/server/domain/projects";
 import { listRentalHouses } from "@/server/domain/rental-houses";
+import { getFormat, getT, getTranslateMessage } from "@/server/i18n";
 import { assertUuid, orNotFound } from "@/server/pages";
 import {
   addLineAction,
@@ -34,7 +36,7 @@ import {
   removeNotOnListAction,
   finishListAction,
 } from "../actions";
-import { RESOLUTION, RETURN_RESOLUTION } from "../resolution";
+import { RESOLUTION, RETURN_RESOLUTION, resolutionText } from "../resolution";
 import { AddLineCard, AutoRefresh, ConfirmButton, LineCard } from "../review";
 
 const STATUS_TONE: Record<string, "ok" | "accent" | "danger" | "neutral" | "info"> = {
@@ -46,10 +48,10 @@ const STATUS_TONE: Record<string, "ok" | "accent" | "danger" | "neutral" | "info
   discarded: "neutral",
 };
 
-function Files({ files }: { files: { id: string; fileName: string; mimeType: string }[] }) {
+function Files({ t, files }: { t: T; files: { id: string; fileName: string; mimeType: string }[] }) {
   return (
     <Card className="overflow-hidden">
-      <CardHeader title="Original" />
+      <CardHeader title={t("Original")} />
       <div className="space-y-3 p-3">
         {files.map((f) =>
           f.mimeType === "application/pdf" ? (
@@ -74,52 +76,52 @@ function Files({ files }: { files: { id: string; fileName: string; mimeType: str
 type Review = Awaited<ReturnType<typeof getDocumentReview>>;
 
 /** What the document says about the production, what was detected, and "create project" when it is new. */
-function ProjectPanel({ id, d }: { id: string; d: Review }) {
+function ProjectPanel({ id, d, t, tm }: { id: string; d: Review; t: T; tm: (msg: string | null | undefined) => string }) {
   const { doc, projectHints: hints } = d;
-  const printed = hints ? [hints.title, hints.number && `project no. ${hints.number}`, hints.customer].filter(Boolean).join(" · ") : null;
+  const printed = hints ? [hints.title, hints.number && t("project no. {n}", { n: hints.number }), hints.customer].filter(Boolean).join(" · ") : null;
   return (
     <Card className="p-4">
-      <h2 className="text-sm font-semibold">Project</h2>
+      <h2 className="text-sm font-semibold">{t("Project")}</h2>
       {printed && (
         <p className="mt-1 text-sm text-muted">
-          On the document: <span className="text-text">{printed}</span>
+          {t("On the document:")} <span className="text-text">{printed}</span>
         </p>
       )}
       {doc.projectId && d.projectDetection && (
         <p className="mt-2 text-sm text-ok">
-          Detected: <span className="font-medium">{d.projectName}</span> ({d.projectDetection.how}). Change it below if it is wrong.
+          {t("Detected:")} <span className="font-medium">{d.projectName}</span> {t("({how}). Change it below if it is wrong.", { how: tm(d.projectDetection.how) })}
         </p>
       )}
       {doc.projectId && !d.projectDetection && !d.projectMismatch && (
         <p className="mt-2 text-sm text-ok">
-          Using project <span className="font-medium">{d.projectName}</span>.
+          {t("Using project")} <span className="font-medium">{d.projectName}</span>.
         </p>
       )}
       {d.projectMismatch && (
         <p className="mt-2 flex items-start gap-1.5 text-sm text-warn">
           <CircleAlert className="mt-0.5 size-4 shrink-0" />
           <span>
-            This document looks like it is for{" "}
+            {t("This document looks like it is for")}{" "}
             <Link href={`/projects/${d.projectMismatch.id}`} className="font-medium underline">
               {d.projectMismatch.name}
             </Link>
-            , not {d.projectName}. Check the project below.
+            {t(", not {project}. Check the project below.", { project: d.projectName ?? "" })}
           </span>
         </p>
       )}
       {!doc.projectId && (
         <>
-          <p className="mt-2 text-sm text-warn">{hints ? "No matching project found. Choose one below, or create it from the document." : "Choose the project below."}</p>
+          <p className="mt-2 text-sm text-warn">{hints ? t("No matching project found. Choose one below, or create it from the document.") : t("Choose the project below.")}</p>
           <details className="mt-3" open={Boolean(hints?.title)}>
-            <summary className="cursor-pointer text-sm font-medium text-accent">Create project{hints?.title ? ` “${hints.title}”` : ""}</summary>
+            <summary className="cursor-pointer text-sm font-medium text-accent">{hints?.title ? t("Create project “{title}”", { title: hints.title }) : t("Create project")}</summary>
             <ActionForm action={createProjectFromDocumentAction.bind(null, id)} className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <Field label="Name" name="name" id="np-name" defaultValue={hints?.title} required />
-              <Field label="Code" name="code" id="np-code" placeholder="Short code (optional)" />
-              <Field label="Production company" name="productionCompany" id="np-company" defaultValue={hints?.customer} className="sm:col-span-2" />
-              <Field label="Start" name="startDate" id="np-start" type="date" defaultValue={hints?.startDate} />
-              <Field label="End" name="endDate" id="np-end" type="date" defaultValue={hints?.endDate} />
+              <Field label={t("Name")} name="name" id="np-name" defaultValue={hints?.title} required />
+              <Field label={t("Code")} name="code" id="np-code" placeholder={t("Short code (optional)")} />
+              <Field label={t("Production company")} name="productionCompany" id="np-company" defaultValue={hints?.customer} className="sm:col-span-2" />
+              <Field label={t("Start")} name="startDate" id="np-start" type="date" defaultValue={hints?.startDate} />
+              <Field label={t("End")} name="endDate" id="np-end" type="date" defaultValue={hints?.endDate} />
               <div className="sm:col-span-2">
-                <SubmitButton pendingText="Creating…">Create project and use it</SubmitButton>
+                <SubmitButton pendingText={t("Creating…")}>{t("Create project and use it")}</SubmitButton>
               </div>
             </ActionForm>
           </details>
@@ -137,6 +139,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   await releaseStaleExtractions(db);
   const d = await orNotFound(getDocumentReview(db, ctx, id));
   const { doc } = d;
+  const [t, tm, f] = await Promise.all([getT(), getTranslateMessage(), getFormat()]);
   const canEdit = hasRole(ctx, "member");
   const editable = canEdit && (doc.status === "uploaded" || doc.status === "extracted" || doc.status === "failed");
   const aiAvailable = getExtractor().available;
@@ -184,32 +187,35 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
     <>
       {doc.status === "processing" && <AutoRefresh />}
       <PageHeader
-        back={{ href: doc.projectId ? `/projects/${doc.projectId}/documents` : "/documents", label: d.projectName ?? "Documents" }}
+        back={{ href: doc.projectId ? `/projects/${doc.projectId}/documents` : "/documents", label: d.projectName ?? t("Documents") }}
         title={
           <span className="flex flex-wrap items-center gap-2">
-            {DOCUMENT_KIND_LABEL[doc.kind]} {doc.documentNumber && <Mono>{doc.documentNumber}</Mono>}
-            <Badge tone={STATUS_TONE[doc.status]}>{DOCUMENT_STATUS_LABEL[doc.status] === "Uploaded" ? "Enter lines" : DOCUMENT_STATUS_LABEL[doc.status]}</Badge>
+            {t(DOCUMENT_KIND_LABEL[doc.kind]!)} {doc.documentNumber && <Mono>{doc.documentNumber}</Mono>}
+            <Badge tone={STATUS_TONE[doc.status]}>{DOCUMENT_STATUS_LABEL[doc.status] === "Uploaded" ? t("Enter lines") : t(DOCUMENT_STATUS_LABEL[doc.status]!)}</Badge>
           </span>
         }
-        subtitle={[d.rentalHouseName, d.projectName, doc.documentDate && formatDate(doc.documentDate), d.uploadedBy && `uploaded by ${d.uploadedBy}`].filter(Boolean).join(" · ")}
+        subtitle={[d.rentalHouseName, d.projectName, doc.documentDate && f.formatDate(doc.documentDate), d.uploadedBy && t("uploaded by {name}", { name: d.uploadedBy })].filter(Boolean).join(" · ")}
       />
 
       {d.duplicate && doc.status !== "confirmed" && (
         <p className="mb-4 flex items-start gap-2 rounded-lg bg-warn/10 px-3 py-2 text-sm text-warn">
           <CircleAlert className="mt-0.5 size-4 shrink-0" />
           <span>
-            This looks like a document that was already uploaded ({d.duplicate.documentNumber ?? "same file"}, {DOCUMENT_STATUS_LABEL[d.duplicate.status]?.toLowerCase()}).{" "}
+            {t("This looks like a document that was already uploaded ({number}, {status}).", {
+              number: d.duplicate.documentNumber ?? t("same file"),
+              status: DOCUMENT_STATUS_LABEL[d.duplicate.status] ? t(DOCUMENT_STATUS_LABEL[d.duplicate.status]!).toLowerCase() : "",
+            })}{" "}
             <Link href={`/documents/${d.duplicate.id}`} className="font-medium underline">
-              Open it
+              {t("Open it")}
             </Link>{" "}
-            and discard this one if it is the same delivery.
+            {t("and discard this one if it is the same delivery.")}
           </span>
         </p>
       )}
 
       {d.outcome && (
         <p role="status" className="mb-4 rounded-lg bg-ok/10 px-3 py-2 text-sm text-ok">
-          {d.outcome.summary}
+          {tm(d.outcome.summary)}
         </p>
       )}
 
@@ -218,24 +224,24 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         <Card className="mb-6 flex items-center gap-3 p-5">
           <Loader2 className="size-5 animate-spin text-accent" />
           <div>
-            <div className="font-medium">Reading the document…</div>
-            <div className="text-sm text-muted">Usually 20–60 seconds. You can leave this page; nothing changes until you confirm.</div>
+            <div className="font-medium">{t("Reading the document…")}</div>
+            <div className="text-sm text-muted">{t("Usually 20–60 seconds. You can leave this page; nothing changes until you confirm.")}</div>
           </div>
         </Card>
       )}
 
       {doc.status === "failed" && (
         <Card className="mb-6 p-4">
-          <p className="text-sm text-danger">{doc.extractionError ?? "Reading the document failed."}</p>
+          <p className="text-sm text-danger">{doc.extractionError ? tm(doc.extractionError) : t("Reading the document failed.")}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {canEdit && aiAvailable && (
               <ActionForm action={retryExtractionAction.bind(null, id)}>
-                <SubmitButton variant="secondary" pendingText="Starting…">
-                  <Sparkles className="size-4" /> Read again
+                <SubmitButton variant="secondary" pendingText={t("Starting…")}>
+                  <Sparkles className="size-4" /> {t("Read again")}
                 </SubmitButton>
               </ActionForm>
             )}
-            <span className="self-center text-sm text-muted">or add the lines by hand below.</span>
+            <span className="self-center text-sm text-muted">{t("or add the lines by hand below.")}</span>
           </div>
         </Card>
       )}
@@ -243,7 +249,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
       {d.warnings.length > 0 && doc.status !== "confirmed" && (
         <Card className="mb-6 p-4">
           <h2 className="mb-1 flex items-center gap-1.5 text-sm font-semibold text-warn">
-            <Sparkles className="size-4" /> Notes from the AI reading
+            <Sparkles className="size-4" /> {t("Notes from the AI reading")}
           </h2>
           <ul className="list-inside list-disc text-sm text-muted">
             {d.warnings.map((w, i) => (
@@ -257,15 +263,15 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         <div className="min-w-0 space-y-4">
           {editable ? (
             <>
-              {(d.projectHints || !doc.projectId) && <ProjectPanel id={id} d={d} />}
+              {(d.projectHints || !doc.projectId) && <ProjectPanel id={id} d={d} t={t} tm={tm} />}
               <Card className="p-4">
                 <ActionForm action={updateHeaderAction.bind(null, id)} className="grid gap-3 sm:grid-cols-2">
-                  <Select label="Project" name="projectId" id="h-project" placeholder="Choose…" defaultValue={doc.projectId} options={projects.map((p) => ({ value: p.id, label: p.name }))} />
-                  <Select label="Rental house" name="rentalHouseId" id="h-rh" placeholder="Choose…" defaultValue={doc.rentalHouseId} options={houses.map((h) => ({ value: h.id, label: h.name }))} />
-                  <Field label="Document number" name="documentNumber" id="h-number" defaultValue={doc.documentNumber} spellCheck={false} />
-                  <Field label="Date" name="documentDate" id="h-date" type="date" defaultValue={doc.documentDate} />
+                  <Select label={t("Project")} name="projectId" id="h-project" placeholder={t("Choose…")} defaultValue={doc.projectId} options={projects.map((p) => ({ value: p.id, label: p.name }))} />
+                  <Select label={t("Rental house")} name="rentalHouseId" id="h-rh" placeholder={t("Choose…")} defaultValue={doc.rentalHouseId} options={houses.map((h) => ({ value: h.id, label: h.name }))} />
+                  <Field label={t("Document number")} name="documentNumber" id="h-number" defaultValue={doc.documentNumber} spellCheck={false} />
+                  <Field label={t("Date")} name="documentDate" id="h-date" type="date" defaultValue={doc.documentDate} />
                   <div className="sm:col-span-2">
-                    <SubmitButton variant="secondary">Save details</SubmitButton>
+                    <SubmitButton variant="secondary">{t("Save details")}</SubmitButton>
                   </div>
                 </ActionForm>
               </Card>
@@ -275,7 +281,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   const n = d.lines.filter((l) => l.resolution === k).length;
                   return n ? (
                     <Badge key={k} tone={labels[k]!.tone}>
-                      {n} × {labels[k]!.label}
+                      {n} × {resolutionText(t, labels[k]!.label)}
                     </Badge>
                   ) : null;
                 })}
@@ -283,7 +289,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
 
               {!isReturn && new Set(d.lines.map((l) => l.setName).filter(Boolean)).size > 0 && (
                 <p className="text-sm text-muted">
-                  ▣ The note groups items into {new Set(d.lines.map((l) => l.setName).filter(Boolean)).size} set(s). After confirming you can create them in one click.
+                  {t("▣ The note groups items into {n} set(s). After confirming you can create them in one click.", { n: new Set(d.lines.map((l) => l.setName).filter(Boolean)).size })}
                 </p>
               )}
               <ul className="space-y-2">
@@ -306,10 +312,10 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
 
               {d.returnOverview && d.returnOverview.removed.length > 0 && (
                 <Card className="p-4">
-                  <h2 className="text-sm font-semibold">Double check: removed with this note</h2>
+                  <h2 className="text-sm font-semibold">{t("Double check: removed with this note")}</h2>
                   <p className="mt-1 text-sm text-muted">
-                    {d.returnOverview.removed.filter((r) => r.onNote >= r.units).length} of {d.returnOverview.removed.length} found on the note.
-                    {d.returnOverview.removed.some((r) => r.onNote < r.units) && " Check the ones marked — they were removed but the note does not list them."}
+                    {t("{n} of {total} found on the note.", { n: d.returnOverview.removed.filter((r) => r.onNote >= r.units).length, total: d.returnOverview.removed.length })}
+                    {d.returnOverview.removed.some((r) => r.onNote < r.units) && ` ${t("Check the ones marked — they were removed but the note does not list them.")}`}
                   </p>
                   <ul className="mt-2 max-h-56 space-y-0.5 overflow-y-auto text-sm">
                     {d.returnOverview.removed.map((r) => (
@@ -318,9 +324,9 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                           {r.label}
                         </Link>
                         {r.onNote >= r.units ? (
-                          <span className="text-ok">✓ on note</span>
+                          <span className="text-ok">{t("✓ on note")}</span>
                         ) : (
-                          <span className="text-warn">{r.onNote > 0 ? `${r.onNote} of ${r.units} on note` : "not on note"}</span>
+                          <span className="text-warn">{r.onNote > 0 ? t("{n} of {total} on note", { n: r.onNote, total: r.units }) : t("not on note")}</span>
                         )}
                       </li>
                     ))}
@@ -330,13 +336,13 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
 
               {d.returnOverview && (
                 <Card className="p-4">
-                  <h2 className="text-sm font-semibold">After this return</h2>
+                  <h2 className="text-sm font-semibold">{t("After this return")}</h2>
                   <p className="mt-1 text-sm text-muted">
-                    {d.returnOverview.returning} going back to {d.rentalHouseName ?? "the rental house"} ·{" "}
+                    {d.rentalHouseName ? t("{n} going back to {house}", { n: d.returnOverview.returning, house: d.rentalHouseName }) : t("{n} going back to the rental house", { n: d.returnOverview.returning })} ·{" "}
                     <span className={d.returnOverview.staying.length ? "font-medium text-text" : ""}>
-                      {d.returnOverview.staying.reduce((n, i) => n + i.units, 0)} stay on the project
+                      {t("{n} stay on the project", { n: d.returnOverview.staying.reduce((n, i) => n + i.units, 0) })}
                     </span>
-                    {d.returnOverview.staying.length > 0 && " (partial return — that is fine)"}
+                    {d.returnOverview.staying.length > 0 && ` ${t("(partial return — that is fine)")}`}
                   </p>
                   {d.returnOverview.staying.length > 0 && (
                     <ul className="mt-2 max-h-56 space-y-0.5 overflow-y-auto text-sm">
@@ -355,16 +361,16 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
 
               {consolidation && (
                 <Card>
-                  <CardHeader title="Compared with the database" />
+                  <CardHeader title={t("Compared with the database")} />
                   {!doc.projectId || !doc.rentalHouseId ? (
-                    <p className="px-4 py-3 text-sm text-warn">Choose the project and the rental house above to compare.</p>
+                    <p className="px-4 py-3 text-sm text-warn">{t("Choose the project and the rental house above to compare.")}</p>
                   ) : (
                     <div className="divide-y divide-border">
                       <section className="px-4 py-3">
-                        <h3 className="text-sm font-medium text-ok">✓ On the list and in the database ({consolidation.present.reduce((n, x) => n + x.units, 0)})</h3>
+                        <h3 className="text-sm font-medium text-ok">{t("✓ On the list and in the database ({n})", { n: consolidation.present.reduce((n, x) => n + x.units, 0) })}</h3>
                         {consolidation.present.length > 0 && (
                           <details className="mt-1 text-sm text-muted">
-                            <summary className="cursor-pointer">Show</summary>
+                            <summary className="cursor-pointer">{t("Show")}</summary>
                             <ul className="mt-1 space-y-0.5">
                               {consolidation.present.map((x) => (
                                 <li key={`${x.lineId}-${x.label}`}>{x.label}</li>
@@ -375,29 +381,29 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                       </section>
                       <section className="px-4 py-3">
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <h3 className="text-sm font-medium text-warn">On the list, missing in the database ({consolidation.missing.reduce((n, x) => n + x.units, 0)})</h3>
+                          <h3 className="text-sm font-medium text-warn">{t("On the list, missing in the database ({n})", { n: consolidation.missing.reduce((n, x) => n + x.units, 0) })}</h3>
                           {consolidation.missing.filter((m) => m.canAdd).length > 1 && (
                             <ActionForm action={addFromListAction.bind(null, id, "all")}>
                               <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
-                                Add all
+                                {t("Add all")}
                               </SubmitButton>
                             </ActionForm>
                           )}
                         </div>
                         {consolidation.missing.length === 0 ? (
-                          <p className="mt-1 text-sm text-muted">Nothing.</p>
+                          <p className="mt-1 text-sm text-muted">{t("Nothing.")}</p>
                         ) : (
                           <ul className="mt-1 divide-y divide-border">
                             {consolidation.missing.map((m) => (
                               <li key={`${m.lineId}-${m.label}`} className="flex items-center gap-2 py-1.5">
                                 <div className="min-w-0 flex-1">
                                   <div className="truncate text-sm">{m.label}</div>
-                                  {m.reason && <div className="text-xs text-warn">{m.reason}</div>}
+                                  {m.reason && <div className="text-xs text-warn">{tm(m.reason)}</div>}
                                 </div>
                                 {m.canAdd && (
                                   <ActionForm action={addFromListAction.bind(null, id, m.lineId)}>
                                     <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
-                                      Add
+                                      {t("Add")}
                                     </SubmitButton>
                                   </ActionForm>
                                 )}
@@ -408,17 +414,17 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                       </section>
                       <section className="px-4 py-3">
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <h3 className="text-sm font-medium text-danger">In the database, not on the list ({consolidation.extra.reduce((n, x) => n + x.units, 0)})</h3>
+                          <h3 className="text-sm font-medium text-danger">{t("In the database, not on the list ({n})", { n: consolidation.extra.reduce((n, x) => n + x.units, 0) })}</h3>
                           {consolidation.extra.length > 1 && (
                             <ActionForm action={removeNotOnListAction.bind(null, id, "all")}>
                               <SubmitButton variant="secondary" className="!px-2.5 !py-1 text-xs" pendingText="…">
-                                Remove all
+                                {t("Remove all")}
                               </SubmitButton>
                             </ActionForm>
                           )}
                         </div>
                         {consolidation.extra.length === 0 ? (
-                          <p className="mt-1 text-sm text-muted">Nothing.</p>
+                          <p className="mt-1 text-sm text-muted">{t("Nothing.")}</p>
                         ) : (
                           <ul className="mt-1 divide-y divide-border">
                             {consolidation.extra.map((x) => (
@@ -428,14 +434,14 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                                 </Link>
                                 <ActionForm action={removeNotOnListAction.bind(null, id, x.itemId)}>
                                   <SubmitButton variant="ghost" className="!px-2.5 !py-1 text-xs text-muted hover:text-danger" pendingText="…">
-                                    Remove
+                                    {t("Remove")}
                                   </SubmitButton>
                                 </ActionForm>
                               </li>
                             ))}
                           </ul>
                         )}
-                        <p className="mt-2 text-xs text-muted">Removing records the item as returned, with this list as the reason. Nothing is deleted; it can be undone from the history.</p>
+                        <p className="mt-2 text-xs text-muted">{t("Removing records the item as returned, with this list as the reason. Nothing is deleted; it can be undone from the history.")}</p>
                       </section>
                     </div>
                   )}
@@ -445,25 +451,41 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
               <Card className="space-y-3 p-4">
                 {isList ? (
                   <>
-                    <p className="text-sm text-muted">When the differences are sorted out, close the list. It stays as a record of the check.</p>
+                    <p className="text-sm text-muted">{t("When the differences are sorted out, close the list. It stays as a record of the check.")}</p>
                     <ActionForm action={finishListAction.bind(null, id)}>
-                      <SubmitButton disabled={!doc.projectId || !doc.rentalHouseId}>Close the list</SubmitButton>
+                      <SubmitButton disabled={!doc.projectId || !doc.rentalHouseId}>{t("Close the list")}</SubmitButton>
                     </ActionForm>
                   </>
                 ) : d.blockers.length > 0 ? (
                   <ul className="space-y-1 text-sm text-warn">
                     {d.blockers.slice(0, 6).map((b, i) => (
-                      <li key={i}>• {b.message}</li>
+                      <li key={i}>• {tm(b.message)}</li>
                     ))}
-                    {d.blockers.length > 6 && <li>… and {d.blockers.length - 6} more</li>}
+                    {d.blockers.length > 6 && <li>{t("… and {n} more", { n: d.blockers.length - 6 })}</li>}
                   </ul>
                 ) : (
                   <p className="text-sm text-muted">
                     {isReturn
                       ? alreadyRemoved > 0
-                        ? `Confirming records the note: ${alreadyRemoved} already removed item${alreadyRemoved === 1 ? "" : "s"} confirmed${receiveCount - alreadyRemoved > 0 ? `, ${receiveCount - alreadyRemoved} more taken off ${d.projectName} as returned` : ""}. Every change is recorded in the history.`
-                        : `Confirming marks ${receiveCount} item${receiveCount === 1 ? "" : "s"} as returned and takes them off ${d.projectName}. Every change is recorded in the history.`
-                      : `Confirming puts ${receiveCount} item${receiveCount === 1 ? "" : "s"} on ${d.projectName}: ${d.counts.existing} known, the rest created new.${caseLines ? ` ${caseLines} case${caseLines === 1 ? "" : "s"} become${caseLines === 1 ? "s" : ""} a set.` : ""} Every change is recorded in the history.`}
+                        ? receiveCount - alreadyRemoved > 0
+                          ? alreadyRemoved === 1
+                            ? t("Confirming records the note: 1 already removed item confirmed, {more} more taken off {project} as returned. Every change is recorded in the history.", { more: receiveCount - alreadyRemoved, project: d.projectName ?? "" })
+                            : t("Confirming records the note: {n} already removed items confirmed, {more} more taken off {project} as returned. Every change is recorded in the history.", { n: alreadyRemoved, more: receiveCount - alreadyRemoved, project: d.projectName ?? "" })
+                          : alreadyRemoved === 1
+                            ? t("Confirming records the note: 1 already removed item confirmed. Every change is recorded in the history.")
+                            : t("Confirming records the note: {n} already removed items confirmed. Every change is recorded in the history.", { n: alreadyRemoved })
+                        : receiveCount === 1
+                          ? t("Confirming marks 1 item as returned and takes them off {project}. Every change is recorded in the history.", { project: d.projectName ?? "" })
+                          : t("Confirming marks {n} items as returned and takes them off {project}. Every change is recorded in the history.", { n: receiveCount, project: d.projectName ?? "" })
+                      : [
+                          receiveCount === 1
+                            ? t("Confirming puts 1 item on {project}: {known} known, the rest created new.", { project: d.projectName ?? "", known: d.counts.existing })
+                            : t("Confirming puts {n} items on {project}: {known} known, the rest created new.", { n: receiveCount, project: d.projectName ?? "", known: d.counts.existing }),
+                          caseLines ? (caseLines === 1 ? t("1 case becomes a set.") : t("{n} cases become a set.", { n: caseLines })) : null,
+                          t("Every change is recorded in the history."),
+                        ]
+                          .filter(Boolean)
+                          .join(" ")}
                   </p>
                 )}
                 {!isList && (
@@ -475,10 +497,10 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   />
                 )}
                 <details className="text-sm">
-                  <summary className="cursor-pointer text-muted">Discard this document</summary>
+                  <summary className="cursor-pointer text-muted">{t("Discard this document")}</summary>
                   <ActionForm action={discardDocumentAction.bind(null, id)} className="mt-2 flex items-end gap-2">
-                    <Field name="reason" id="discard-reason" placeholder="Reason (e.g. uploaded twice)" aria-label="Reason" className="flex-1" />
-                    <SubmitButton variant="danger">Discard</SubmitButton>
+                    <Field name="reason" id="discard-reason" placeholder={t("Reason (e.g. uploaded twice)")} aria-label={t("Reason")} className="flex-1" />
+                    <SubmitButton variant="danger">{t("Discard")}</SubmitButton>
                   </ActionForm>
                 </details>
               </Card>
@@ -489,11 +511,11 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 <Card className="p-4">
                   <KeyValues
                     items={[
-                      { label: "Rental house", value: d.rentalHouseName },
-                      { label: "Project", value: doc.projectId ? <Link className="hover:underline" href={`/projects/${doc.projectId}`}>{d.projectName}</Link> : null },
-                      { label: "Document date", value: formatDate(doc.documentDate) },
-                      { label: "Read by", value: doc.extractionModel ? `${doc.extractionProvider} (${doc.extractionModel})` : "entered manually" },
-                      { label: "Confirmed", value: doc.confirmedAt ? formatDateTime(doc.confirmedAt) : "Not yet" },
+                      { label: t("Rental house"), value: d.rentalHouseName },
+                      { label: t("Project"), value: doc.projectId ? <Link className="hover:underline" href={`/projects/${doc.projectId}`}>{d.projectName}</Link> : null },
+                      { label: t("Document date"), value: f.formatDate(doc.documentDate) },
+                      { label: t("Read by"), value: doc.extractionModel ? `${doc.extractionProvider} (${doc.extractionModel})` : t("entered manually") },
+                      { label: t("Confirmed"), value: doc.confirmedAt ? f.formatDateTime(doc.confirmedAt) : t("Not yet") },
                     ]}
                   />
                 </Card>
@@ -502,11 +524,11 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                     <thead className="border-b border-border bg-surface-2/60 text-left text-xs text-muted">
                       <tr>
                         <th className="px-4 py-2 font-medium">#</th>
-                        <th className="px-3 py-2 font-medium">On document</th>
-                        <th className="px-3 py-2 text-right font-medium">Qty</th>
-                        <th className="px-3 py-2 font-medium">Serial / asset</th>
-                        <th className="px-3 py-2 font-medium">Equipment</th>
-                        <th className="px-3 py-2 font-medium">Result</th>
+                        <th className="px-3 py-2 font-medium">{t("On document")}</th>
+                        <th className="px-3 py-2 text-right font-medium">{t("Qty")}</th>
+                        <th className="px-3 py-2 font-medium">{t("Serial / asset")}</th>
+                        <th className="px-3 py-2 font-medium">{t("Equipment")}</th>
+                        <th className="px-3 py-2 font-medium">{t("Result")}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-border">
@@ -526,17 +548,17 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                             ) : (
                               (l.typeName ?? <span className="text-muted">—</span>)
                             )}
-                            {l.matchReason && doc.status !== "confirmed" && <div className="text-xs text-muted">{l.matchReason}</div>}
+                            {l.matchReason && doc.status !== "confirmed" && <div className="text-xs text-muted">{tm(l.matchReason)}</div>}
                             {fromLine && (fromLine.get(l.id)?.length ?? 0) > 0 && (
                               <details className="mt-1">
-                                <summary className="cursor-pointer text-xs text-muted hover:text-text">Change type</summary>
+                                <summary className="cursor-pointer text-xs text-muted hover:text-text">{t("Change type")}</summary>
                                 <ActionForm action={changeLineTypeAction.bind(null, id, l.id)} className="mt-2 w-64 space-y-2">
-                                  <TypePicker name="typeId" id={`type-${l.id}`} aria-label={`Right type for line ${l.lineNumber}`} />
+                                  <TypePicker name="typeId" id={`type-${l.id}`} aria-label={t("Right type for line {n}", { n: l.lineNumber })} />
                                   <p className="text-xs text-muted">
-                                    Changes the {fromLine.get(l.id)!.reduce((n, i) => n + i.quantity, 0)} piece(s) from this line; the next note with “{l.description}” gets the right type.
+                                    {t("Changes the {n} piece(s) from this line; the next note with “{description}” gets the right type.", { n: fromLine.get(l.id)!.reduce((n, i) => n + i.quantity, 0), description: l.description })}
                                   </p>
                                   <SubmitButton variant="secondary" className="!py-1 text-xs" pendingText="…">
-                                    Change type
+                                    {t("Change type")}
                                   </SubmitButton>
                                 </ActionForm>
                               </details>
@@ -544,7 +566,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                           </td>
                           <td className="px-3 py-2">
                             <Badge tone={labels[l.resolution]?.tone}>
-                              {doc.status === "confirmed" && l.resolution === "create_new" ? "Created" : doc.status === "confirmed" && isReturn && l.resolution === "match_existing" ? "Returned" : labels[l.resolution]?.label}
+                              {doc.status === "confirmed" && l.resolution === "create_new" ? t("Created") : doc.status === "confirmed" && isReturn && l.resolution === "match_existing" ? t("Returned") : labels[l.resolution] ? resolutionText(t, labels[l.resolution]!.label) : undefined}
                             </Badge>
                           </td>
                         </tr>
@@ -558,16 +580,16 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         </div>
         {d.files.length > 0 && (
           <div className="min-w-0 lg:sticky lg:top-20 lg:self-start">
-            <Files files={d.files} />
+            <Files t={t} files={d.files} />
           </div>
         )}
       </div>
       {/* Last on the page: after confirming a note, the next step is turning its groups into sets. */}
       {setSuggestions.length > 0 && (
         <Card className="mt-6">
-          <CardHeader title="Sets on this note" />
+          <CardHeader title={t("Sets on this note")} />
           <p className="px-4 pt-3 text-sm text-muted">
-            The note groups these items into sets. Create them in one click: packed, with exactly these contents expected.
+            {t("The note groups these items into sets. Create them in one click: packed, with exactly these contents expected.")}
           </p>
           <ul className="divide-y divide-border">
             {setSuggestions.map((sg) => (
@@ -575,12 +597,12 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-sm font-medium">{sg.name}</div>
                   <div className="text-xs text-muted">
-                    {sg.units} piece{sg.units === 1 ? "" : "s"} from {sg.lines} line{sg.lines === 1 ? "" : "s"}
+                    {sg.units === 1 ? t("1 piece") : t("{n} pieces", { n: sg.units })} {sg.lines === 1 ? t("from 1 line") : t("from {n} lines", { n: sg.lines })}
                   </div>
                 </div>
                 {sg.existing ? (
                   <Link href={`/sets/${sg.existing.id}`} className="text-sm text-accent hover:underline">
-                    Open {sg.existing.name}
+                    {t("Open {name}", { name: sg.existing.name })}
                   </Link>
                 ) : sg.createdSets.length > 0 ? (
                   <span className="text-sm">
@@ -596,20 +618,20 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                 ) : sg.copies > 1 && canCreateSets ? (
                   <div className="w-full space-y-2 rounded-lg bg-surface-2/60 p-3">
                     <p className="text-sm">
-                      Everything comes {sg.copies}×: that makes <strong>{sg.copies} identical sets</strong> of{" "}
-                      {sg.perCopy.map((p) => `${p.units} × ${p.typeName}`).join(", ")}. Name them:
+                      {t("Everything comes {n}×: that makes", { n: sg.copies })} <strong>{t("{n} identical sets", { n: sg.copies })}</strong>{" "}
+                      {t("of {contents}. Name them:", { contents: sg.perCopy.map((p) => `${p.units} × ${p.typeName}`).join(", ") })}
                     </p>
                     <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)} className="space-y-2">
                       <div className="grid gap-2 sm:grid-cols-2">
                         {copyNames(sg.name, sg.copies).map((n, i) => (
-                          <Field key={n} name={`setName_${i}`} defaultValue={n} required maxLength={80} aria-label={`Name of set ${i + 1} of ${sg.name}`} />
+                          <Field key={n} name={`setName_${i}`} defaultValue={n} required maxLength={80} aria-label={t("Name of set {n} of {name}", { n: i + 1, name: sg.name })} />
                         ))}
                       </div>
-                      <SubmitButton pendingText="Creating…">Create {sg.copies} sets</SubmitButton>
+                      <SubmitButton pendingText={t("Creating…")}>{t("Create {n} sets", { n: sg.copies })}</SubmitButton>
                     </ActionForm>
                     <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
                       <SubmitButton variant="ghost" className="!px-0 text-xs" pendingText="…">
-                        Or one set with everything
+                        {t("Or one set with everything")}
                       </SubmitButton>
                     </ActionForm>
                   </div>
@@ -617,7 +639,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   canCreateSets && (
                     <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)}>
                       <SubmitButton variant="secondary" pendingText="…">
-                        Create set
+                        {t("Create set")}
                       </SubmitButton>
                     </ActionForm>
                   )
@@ -627,7 +649,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
           </ul>
           {canCreateSets && setSuggestions.filter((sg) => !sg.existing && sg.createdSets.length === 0).length > 1 && (
             <ActionForm action={createAllSetsFromDocumentAction.bind(null, id, setSuggestions.filter((sg) => !sg.existing && sg.createdSets.length === 0).map((sg) => sg.name))} className="border-t border-border px-4 py-3">
-              <SubmitButton pendingText="Creating…">Create all {setSuggestions.filter((sg) => !sg.existing && sg.createdSets.length === 0).length} sets</SubmitButton>
+              <SubmitButton pendingText={t("Creating…")}>{t("Create all {n} sets", { n: setSuggestions.filter((sg) => !sg.existing && sg.createdSets.length === 0).length })}</SubmitButton>
             </ActionForm>
           )}
         </Card>

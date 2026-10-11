@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Loader2, X } from "lucide-react";
 import { cn } from "@/lib/format";
 import { FieldShell, useField } from "./forms";
+import { useT } from "./i18n";
 
 export interface TypeChoice {
   id: string;
@@ -30,7 +31,7 @@ export function TypePicker({
   id = name,
   label,
   defaultValue,
-  placeholder = "Search manufacturer, model, alias…",
+  placeholder,
   emptyLabel,
   valuePrefix = "",
   extraOptions = [],
@@ -55,6 +56,7 @@ export function TypePicker({
   onChange?: (type: TypeChoice | null) => void;
   "aria-label"?: string;
 }) {
+  const t = useT();
   const echoed = useField(name, defaultValue ? `${valuePrefix}${defaultValue.id}` : null);
   const echoedLabel = useField(`${name}__label`, defaultValue?.name ?? null);
   const [selected, setSelected] = useState<{ value: string; label: string } | null>(echoed.value ? { value: echoed.value, label: echoedLabel.value || echoed.value } : null);
@@ -69,7 +71,7 @@ export function TypePicker({
   useEffect(() => {
     if (!open) return;
     const ctrl = new AbortController();
-    const t = setTimeout(async () => {
+    const timer = setTimeout(async () => {
       setLoading(true);
       try {
         const res = await fetch(`/api/equipment-types/search?q=${encodeURIComponent(query)}`, { signal: ctrl.signal });
@@ -84,7 +86,7 @@ export function TypePicker({
       }
     }, 150);
     return () => {
-      clearTimeout(t);
+      clearTimeout(timer);
       ctrl.abort();
     };
   }, [query, open]);
@@ -92,7 +94,7 @@ export function TypePicker({
   const words = query.toLowerCase().split(/\s+/).filter(Boolean);
   const extras = extraOptions.filter((o) => words.every((w) => o.label.toLowerCase().includes(w)));
   const options: Option[] = [
-    ...results.map((t) => ({ value: `${valuePrefix}${t.id}`, label: t.name, detail: t.category, type: t })),
+    ...results.map((r) => ({ value: `${valuePrefix}${r.id}`, label: r.name, detail: r.category, type: r })),
     ...extras.map((o) => ({ ...o, detail: extraLabel })),
   ];
 
@@ -122,7 +124,7 @@ export function TypePicker({
           autoComplete="off"
           spellCheck={false}
           className={cn("input pr-8", echoed.error && "border-danger")}
-          placeholder={selected ? selected.label : (emptyLabel ?? placeholder)}
+          placeholder={selected ? selected.label : (emptyLabel ?? placeholder ?? t("Search manufacturer, model, alias…"))}
           value={open ? query : (selected?.label ?? "")}
           onFocus={() => setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 120)}
@@ -154,7 +156,7 @@ export function TypePicker({
               inputRef.current?.focus();
             }}
             className="absolute inset-y-0 right-1 my-auto grid size-7 place-items-center rounded text-muted hover:text-text"
-            aria-label={emptyLabel ? `Clear (${emptyLabel})` : "Clear"}
+            aria-label={emptyLabel ? t("Clear ({label})", { label: emptyLabel }) : t("Clear")}
           >
             <X className="size-4" />
           </button>
@@ -181,10 +183,10 @@ export function TypePicker({
                 {o.detail && <span className="shrink-0 text-xs text-muted">{o.detail}</span>}
               </li>
             ))}
-            {!loading && options.length === 0 && <li className="px-3 py-1.5 text-muted">No matching equipment type</li>}
+            {!loading && options.length === 0 && <li className="px-3 py-1.5 text-muted">{t("No matching equipment type")}</li>}
             {loading && options.length === 0 && (
               <li className="flex items-center gap-2 px-3 py-1.5 text-muted">
-                <Loader2 className="size-3.5 animate-spin" /> Searching…
+                <Loader2 className="size-3.5 animate-spin" /> {t("Searching…")}
               </li>
             )}
           </ul>

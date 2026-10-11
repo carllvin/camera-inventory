@@ -7,6 +7,7 @@ import { getCategoryTree } from "@/server/domain/categories";
 import { hasRole } from "@/server/domain/context";
 import { listItems, type ItemFilters } from "@/server/domain/equipment-items";
 import { getProjectSummary } from "@/server/domain/projects";
+import { getT } from "@/server/i18n";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { bulkEquipmentAction } from "../actions";
 
@@ -25,6 +26,7 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
     listCases(db, ctx, { projectId: id }),
     orNotFound(getProjectSummary(db, ctx, id)),
   ]);
+  const t = await getT();
   return (
     <EquipmentBrowser
       basePath={`/projects/${id}`}
@@ -39,10 +41,10 @@ export default async function ProjectEquipmentPage({ params, searchParams }: { p
       bulkAction={hasRole(ctx, "member") ? bulkEquipmentAction.bind(null, id) : undefined}
       empty={
         <EmptyState
-          title="No equipment on this project yet"
-          action={summary.project.status !== "closed" && <LinkButton href={`/projects/${id}/add-equipment`} variant="primary">Add equipment</LinkButton>}
+          title={t("No equipment on this project yet")}
+          action={summary.project.status !== "closed" && <LinkButton href={`/projects/${id}/add-equipment`} variant="primary">{t("Add equipment")}</LinkButton>}
         >
-          Upload a delivery note, add equipment from the database or create new items.
+          {t("Upload a delivery note, add equipment from the database or create new items.")}
         </EmptyState>
       }
     />

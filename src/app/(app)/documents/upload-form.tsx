@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { FileUp } from "lucide-react";
 import { ActionForm, Select, SubmitButton } from "@/components/forms";
+import { useT } from "@/components/i18n";
 import { buttonVariants } from "@/components/ui";
+import type { T } from "@/lib/i18n/core";
 import { uploadDocumentAction } from "./actions";
 
 // Same limits as the server (MAX_DOCUMENT_* in server/domain/documents.ts); checked here
@@ -13,11 +15,11 @@ const MAX_FILES = 20;
 const MAX_FILE_BYTES = 25 * MB;
 const MAX_TOTAL_BYTES = 100 * MB;
 
-function sizeProblem(files: File[]): string | null {
-  if (files.length > MAX_FILES) return `At most ${MAX_FILES} files per document.`;
+function sizeProblem(files: File[], t: T): string | null {
+  if (files.length > MAX_FILES) return t("At most {n} files per document.", { n: MAX_FILES });
   const big = files.find((f) => f.size > MAX_FILE_BYTES);
-  if (big) return `${big.name} is ${(big.size / MB).toFixed(1)} MB - files can be at most 25 MB.`;
-  if (files.reduce((n, f) => n + f.size, 0) > MAX_TOTAL_BYTES) return "The files are larger than 100 MB together. Upload fewer pages or smaller photos.";
+  if (big) return t("{file} is {size} MB - files can be at most 25 MB.", { file: big.name, size: (big.size / MB).toFixed(1) });
+  if (files.reduce((n, f) => n + f.size, 0) > MAX_TOTAL_BYTES) return t("The files are larger than 100 MB together. Upload fewer pages or smaller photos.");
   return null;
 }
 
@@ -34,6 +36,7 @@ export function UploadForm({
   defaultProjectId?: string;
   aiAvailable: boolean;
 }) {
+  const t = useT();
   const [names, setNames] = useState<string[]>([]);
   const [problem, setProblem] = useState<string | null>(null);
   return (
@@ -41,14 +44,14 @@ export function UploadForm({
       <input type="hidden" name="kind" value={kind} />
       <div className="grid gap-4 sm:grid-cols-2">
         <Select
-          label="Project"
+          label={t("Project")}
           name="projectId"
-          placeholder={aiAvailable ? "Detect from document" : "Choose project…"}
+          placeholder={aiAvailable ? t("Detect from document") : t("Choose project…")}
           defaultValue={defaultProjectId}
           options={projects}
           required={!aiAvailable}
         />
-        <Select label="Rental house" name="rentalHouseId" placeholder={aiAvailable ? "Detect from document" : "Choose later"} options={rentalHouses} />
+        <Select label={t("Rental house")} name="rentalHouseId" placeholder={aiAvailable ? t("Detect from document") : t("Choose later")} options={rentalHouses} />
       </div>
       <div>
         <input
@@ -61,7 +64,7 @@ export function UploadForm({
           onChange={(e) => {
             const files = Array.from(e.target.files ?? []);
             setNames(files.map((f) => f.name));
-            setProblem(sizeProblem(files));
+            setProblem(sizeProblem(files, t));
           }}
         />
         <label
@@ -69,8 +72,8 @@ export function UploadForm({
           className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border bg-surface px-4 py-10 text-center hover:border-ring/60"
         >
           <FileUp className="size-8 text-accent" aria-hidden />
-          <span className="font-medium">{names.length ? `${names.length} file${names.length === 1 ? "" : "s"} selected` : "Choose PDF or take photos"}</span>
-          <span className="text-xs text-muted">PDF, or one photo per page (JPEG, PNG, WebP) · up to 20 files, 25 MB each, 100 MB in total</span>
+          <span className="font-medium">{names.length ? (names.length === 1 ? t("1 file selected") : t("{n} files selected", { n: names.length })) : t("Choose PDF or take photos")}</span>
+          <span className="text-xs text-muted">{t("PDF, or one photo per page (JPEG, PNG, WebP) · up to 20 files, 25 MB each, 100 MB in total")}</span>
           {names.length > 0 && <span className="max-w-full truncate text-xs text-text">{names.join(", ")}</span>}
         </label>
         {problem && (
@@ -81,11 +84,11 @@ export function UploadForm({
       </div>
       <p className="text-sm text-muted">
         {aiAvailable
-          ? "The document is read automatically. You review every line before anything changes on the project."
-          : "AI reading is not configured on this server, so you will enter the lines yourself after uploading."}
+          ? t("The document is read automatically. You review every line before anything changes on the project.")
+          : t("AI reading is not configured on this server, so you will enter the lines yourself after uploading.")}
       </p>
-      <SubmitButton className={`${buttonVariants.primary} w-full sm:w-auto`} pendingText="Uploading…" disabled={problem !== null}>
-        Upload
+      <SubmitButton className={`${buttonVariants.primary} w-full sm:w-auto`} pendingText={t("Uploading…")} disabled={problem !== null}>
+        {t("Upload")}
       </SubmitButton>
     </ActionForm>
   );

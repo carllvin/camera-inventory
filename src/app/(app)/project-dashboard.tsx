@@ -3,7 +3,7 @@ import { AlertTriangle, Box, CircleCheck, FileText, PackageOpen, Search, Wrench 
 import { ActivityList } from "@/components/activity";
 import { CaseProgress } from "@/components/case-list";
 import { Card, CardHeader, LinkButton, ProjectStatusBadge, Stat } from "@/components/ui";
-import { cn, dateRange, DOCUMENT_KIND_LABEL, todayIso } from "@/lib/format";
+import { cn, DOCUMENT_KIND_LABEL, todayIso } from "@/lib/format";
 import { projectTimeline } from "@/lib/project-timeline";
 import { getDb } from "@/server/db/client";
 import { listCases } from "@/server/domain/cases";
@@ -11,6 +11,7 @@ import type { Ctx } from "@/server/domain/context";
 import { listItems } from "@/server/domain/equipment-items";
 import { listActivity, listDocuments, listIssues } from "@/server/domain/overview";
 import { getProjectSummary } from "@/server/domain/projects";
+import { getFormat, getT, getTranslateMessage } from "@/server/i18n";
 
 type Attention = { key: string; icon: typeof Box; tone: "danger" | "warn" | "neutral"; text: string; href: string };
 
@@ -25,6 +26,7 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
     listDocuments(db, ctx, { projectId }),
     listActivity(db, ctx, { projectId, limit: 12 }),
   ]);
+  const [t, f, tm] = await Promise.all([getT(), getFormat(), getTranslateMessage()]);
   const base = `/projects/${projectId}`;
   const timeline = projectTimeline(project.startDate, project.endDate, todayIso());
 
@@ -36,22 +38,23 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
   const label = (i: (typeof items)[number]) => `${i.typeName}${i.serialNumber ? ` (SN ${i.serialNumber})` : i.quantity > 1 ? ` × ${i.quantity}` : ""}`;
 
   const attention: Attention[] = [
-    ...missing.slice(0, 5).map((i) => ({ key: `m-${i.id}`, icon: Search, tone: "danger" as const, text: `Missing: ${label(i)}`, href: `/equipment/${i.id}` })),
-    ...(missing.length > 5 ? [{ key: "m-more", icon: Search, tone: "danger" as const, text: `${missing.length - 5} more missing`, href: `${base}?status=missing` }] : []),
-    ...broken.slice(0, 5).map((i) => ({ key: `b-${i.id}`, icon: Wrench, tone: "warn" as const, text: `${i.condition === "defective" ? "Defective" : "Damaged"}: ${label(i)}`, href: `/equipment/${i.id}` })),
-    ...(issues.length ? [{ key: "issues", icon: AlertTriangle, tone: "warn" as const, text: `${issues.length} open issue${issues.length === 1 ? "" : "s"}${issues[0] ? ` — ${issues[0].title}${issues.length > 1 ? " …" : ""}` : ""}`, href: `${base}/issues` }] : []),
+    ...missing.slice(0, 5).map((i) => ({ key: `m-${i.id}`, icon: Search, tone: "danger" as const, text: t("Missing: {item}", { item: label(i) }), href: `/equipment/${i.id}` })),
+    ...(missing.length > 5 ? [{ key: "m-more", icon: Search, tone: "danger" as const, text: t("{n} more missing", { n: missing.length - 5 }), href: `${base}?status=missing` }] : []),
+    ...broken.slice(0, 5).map((i) => ({ key: `b-${i.id}`, icon: Wrench, tone: "warn" as const, text: i.condition === "defective" ? t("Defective: {item}", { item: label(i) }) : t("Damaged: {item}", { item: label(i) }), href: `/equipment/${i.id}` })),
+    ...(issues.length ? [{ key: "issues", icon: AlertTriangle, tone: "warn" as const, text: `${issues.length === 1 ? t("1 open issue") : t("{n} open issues", { n: issues.length })}${issues[0] ? ` — ${issues[0].title}${issues.length > 1 ? " …" : ""}` : ""}`, href: `${base}/issues` }] : []),
     ...toReview.map((d) => ({
       key: `d-${d.id}`,
       icon: FileText,
       tone: "neutral" as const,
-      text: `${d.status === "failed" ? "Could not be read" : d.status === "processing" ? "Being read" : "To review"}: ${DOCUMENT_KIND_LABEL[d.kind] ?? d.kind} ${d.documentNumber ?? d.title ?? ""}${d.rentalHouseName ? ` · ${d.rentalHouseName}` : ""}`,
+      text: `${d.status === "failed" ? t("Could not be read") : d.status === "processing" ? t("Being read") : t("To review")}: ${DOCUMENT_KIND_LABEL[d.kind] ? t(DOCUMENT_KIND_LABEL[d.kind]!) : d.kind} ${d.documentNumber ?? d.title ?? ""}${d.rentalHouseName ? ` · ${d.rentalHouseName}` : ""}`,
       href: `/documents/${d.id}`,
     })),
     ...(incomplete.length > 3
-      ? [{ key: "cases", icon: Box, tone: "warn" as const, text: `${incomplete.length} sets are not complete (${incomplete.reduce((n, c) => n + c.comparison.missingTotal, 0)} expected items missing)`, href: `${base}/sets` }]
-      : incomplete.map((c) => ({ key: `c-${c.id}`, icon: Box, tone: "warn" as const, text: `${c.name}: ${c.comparison.missingTotal} expected item${c.comparison.missingTotal === 1 ? "" : "s"} not in the set`, href: `/sets/${c.id}` }))),
-    ...(loose > 0 && cases.length > 0 ? [{ key: "loose", icon: PackageOpen, tone: "neutral" as const, text: `${loose} piece${loose === 1 ? "" : "s"} not in any set`, href: `/equipment?caseId=none` }] : []),
+      ? [{ key: "cases", icon: Box, tone: "warn" as const, text: t("{n} sets are not complete ({missing} expected items missing)", { n: incomplete.length, missing: incomplete.reduce((n, c) => n + c.comparison.missingTotal, 0) }), href: `${base}/sets` }]
+      : incomplete.map((c) => ({ key: `c-${c.id}`, icon: Box, tone: "warn" as const, text: c.comparison.missingTotal === 1 ? t("{set}: 1 expected item not in the set", { set: c.name }) : t("{set}: {n} expected items not in the set", { set: c.name, n: c.comparison.missingTotal }), href: `/sets/${c.id}` }))),
+    ...(loose > 0 && cases.length > 0 ? [{ key: "loose", icon: PackageOpen, tone: "neutral" as const, text: loose === 1 ? t("1 piece not in any set") : t("{n} pieces not in any set", { n: loose }), href: `/equipment?caseId=none` }] : []),
   ];
+  const switchHint = t("Showing the current project. Switch to {all} in the header for the workspace overview.").split("{all}");
   const toneClass = { danger: "text-danger", warn: "text-warn", neutral: "text-muted" };
 
   return (
@@ -62,35 +65,35 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
           <ProjectStatusBadge status={project.status} />
         </div>
         <p className="mt-1 text-sm text-muted">
-          {[project.code, project.productionCompany, dateRange(project.startDate, project.endDate)].filter(Boolean).join(" · ")}
+          {[project.code, project.productionCompany, f.dateRange(project.startDate, project.endDate)].filter(Boolean).join(" · ")}
           {timeline && (
             <>
               {" · "}
-              <span className={cn("font-medium", timeline.tone === "danger" ? "text-danger" : timeline.tone === "warn" ? "text-warn" : "text-text")}>{timeline.text}</span>
+              <span className={cn("font-medium", timeline.tone === "danger" ? "text-danger" : timeline.tone === "warn" ? "text-warn" : "text-text")}>{tm(timeline.text)}</span>
             </>
           )}
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
-          <LinkButton href={base}>Equipment</LinkButton>
-          <LinkButton href={`${base}/sets`}>Sets</LinkButton>
-          <LinkButton href="/documents/new">Upload a note</LinkButton>
+          <LinkButton href={base}>{t("Equipment")}</LinkButton>
+          <LinkButton href={`${base}/sets`}>{t("Sets")}</LinkButton>
+          <LinkButton href="/documents/new">{t("Upload a note")}</LinkButton>
         </div>
       </header>
 
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label={counts.units === 1 ? "piece" : "pieces"} value={counts.units} href={base} />
-        <Stat label="in use" value={counts.in_use} href={`${base}?status=in_use`} />
-        <Stat label="missing" value={counts.missing} tone={counts.missing ? "danger" : undefined} href={`${base}?status=missing`} />
-        <Stat label="open issues" value={counts.open_issues} tone={counts.open_issues ? "warn" : undefined} href={`${base}/issues`} />
+        <Stat label={counts.units === 1 ? t("piece") : t("pieces")} value={counts.units} href={base} />
+        <Stat label={t("in use")} value={counts.in_use} href={`${base}?status=in_use`} />
+        <Stat label={t("missing")} value={counts.missing} tone={counts.missing ? "danger" : undefined} href={`${base}?status=missing`} />
+        <Stat label={t("open issues")} value={counts.open_issues} tone={counts.open_issues ? "warn" : undefined} href={`${base}/issues`} />
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
         <div className="min-w-0 space-y-6">
           <Card>
-            <CardHeader title="Needs attention" />
+            <CardHeader title={t("Needs attention")} />
             {attention.length === 0 ? (
               <p className="flex items-center gap-2 px-4 py-4 text-sm text-ok">
-                <CircleCheck className="size-4" /> All good — nothing missing, no open issues, cases complete.
+                <CircleCheck className="size-4" /> {t("All good — nothing missing, no open issues, cases complete.")}
               </p>
             ) : (
               <ul className="divide-y divide-border">
@@ -107,10 +110,13 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
           </Card>
 
           <Card>
-            <CardHeader title="Sets" action={<Link href={`${base}/sets`} className="text-xs text-muted hover:text-text">All sets</Link>} />
+            <CardHeader title={t("Sets")} action={<Link href={`${base}/sets`} className="text-xs text-muted hover:text-text">{t("All sets")}</Link>} />
             {cases.length === 0 ? (
               <p className="px-4 py-4 text-sm text-muted">
-                No sets yet. <Link href="/sets/new" className="text-accent hover:underline">Create one</Link>
+                {t("No sets yet.")}{" "}
+                <Link href="/sets/new" className="text-accent hover:underline">
+                  {t("Create one")}
+                </Link>
               </p>
             ) : (
               <ul className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
@@ -132,16 +138,16 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
           </Card>
 
           <Card>
-            <CardHeader title="Recent activity" action={<Link href={`${base}/history`} className="text-xs text-muted hover:text-text">Full history</Link>} />
+            <CardHeader title={t("Recent activity")} action={<Link href={`${base}/history`} className="text-xs text-muted hover:text-text">{t("Full history")}</Link>} />
             <ActivityList events={activity} showProject={false} />
           </Card>
         </div>
 
         <div className="space-y-6">
           <Card>
-            <CardHeader title="Rental houses" />
+            <CardHeader title={t("Rental houses")} />
             {rentalHouses.length === 0 ? (
-              <p className="px-4 py-4 text-sm text-muted">No rental houses yet.</p>
+              <p className="px-4 py-4 text-sm text-muted">{t("No rental houses yet.")}</p>
             ) : (
               <ul className="divide-y divide-border">
                 {rentalHouses.map((rh) => (
@@ -153,9 +159,9 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
                       </div>
                       <div className="text-right text-xs tabular-nums">
                         <div>
-                          <span className="font-medium">{rh.on_project}</span> <span className="text-muted">out</span>
+                          <span className="font-medium">{rh.on_project}</span> <span className="text-muted">{t("out")}</span>
                         </div>
-                        {rh.returned > 0 && <div className="text-muted">{rh.returned} returned</div>}
+                        {rh.returned > 0 && <div className="text-muted">{t("{n} returned", { n: rh.returned })}</div>}
                       </div>
                     </Link>
                   </li>
@@ -164,7 +170,9 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
             )}
           </Card>
           <p className="text-center text-xs text-muted">
-            Showing the current project. Switch to <span className="font-medium">All projects</span> in the header for the workspace overview.
+            {switchHint[0]}
+            <span className="font-medium">{t("All projects")}</span>
+            {switchHint[1]}
           </p>
         </div>
       </div>

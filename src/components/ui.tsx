@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { CONDITION_LABEL, PROJECT_STATUS_LABEL, STATUS_LABEL, cn } from "@/lib/format";
+import { LabelText, NoPermissionText, NoPermissionTitle, SectionsNav } from "./ui-text";
 
 export function PageHeader({
   title,
@@ -92,7 +93,7 @@ const STATUS_TONE: Record<string, Tone> = {
 };
 
 export function StatusBadge({ status }: { status: string }) {
-  return <Badge tone={STATUS_TONE[status] ?? "neutral"}>{STATUS_LABEL[status] ?? status}</Badge>;
+  return <Badge tone={STATUS_TONE[status] ?? "neutral"}>{STATUS_LABEL[status] ? <LabelText text={STATUS_LABEL[status]} /> : status}</Badge>;
 }
 
 const CONDITION_COLOR: Record<string, string> = {
@@ -108,17 +109,17 @@ export function ConditionBadge({ condition, hideOk }: { condition: string; hideO
   return (
     <span className="inline-flex items-center gap-1.5 text-xs text-muted whitespace-nowrap">
       <span className={cn("size-2 rounded-full", CONDITION_COLOR[condition])} aria-hidden />
-      {CONDITION_LABEL[condition] ?? condition}
+      {CONDITION_LABEL[condition] ? <LabelText text={CONDITION_LABEL[condition]} /> : condition}
     </span>
   );
 }
 
 const PROJECT_TONE: Record<string, Tone> = { planning: "neutral", prep: "info", shooting: "ok", wrap: "violet", closed: "neutral" };
 export function ProjectStatusBadge({ status }: { status: string }) {
-  return <Badge tone={PROJECT_TONE[status] ?? "neutral"}>{PROJECT_STATUS_LABEL[status] ?? status}</Badge>;
+  return <Badge tone={PROJECT_TONE[status] ?? "neutral"}>{PROJECT_STATUS_LABEL[status] ? <LabelText text={PROJECT_STATUS_LABEL[status]} /> : status}</Badge>;
 }
 
-export function EmptyState({ title, children, action }: { title: string; children?: ReactNode; action?: ReactNode }) {
+export function EmptyState({ title, children, action }: { title: ReactNode; children?: ReactNode; action?: ReactNode }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border px-6 py-12 text-center">
       <p className="font-medium">{title}</p>
@@ -147,7 +148,7 @@ export function Stat({ label, value, tone, href }: { label: string; value: React
 
 export function Tabs({ tabs, active }: { tabs: { href: string; label: string; count?: number; key: string }[]; active: string }) {
   return (
-    <nav className="-mx-4 mb-4 overflow-x-auto border-b border-border px-4 sm:mx-0 sm:px-0" aria-label="Sections">
+    <SectionsNav className="-mx-4 mb-4 overflow-x-auto border-b border-border px-4 sm:mx-0 sm:px-0">
       <ul className="flex gap-1">
         {tabs.map((t) => (
           <li key={t.key}>
@@ -165,7 +166,7 @@ export function Tabs({ tabs, active }: { tabs: { href: string; label: string; co
           </li>
         ))}
       </ul>
-    </nav>
+    </SectionsNav>
   );
 }
 
@@ -188,8 +189,8 @@ export function Mono({ children }: { children: ReactNode }) {
 
 export function NoPermission() {
   return (
-    <EmptyState title="No permission">
-      Your role in this workspace does not allow this action. Ask a workspace admin.
+    <EmptyState title={<NoPermissionTitle />}>
+      <NoPermissionText />
     </EmptyState>
   );
 }

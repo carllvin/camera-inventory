@@ -1,9 +1,11 @@
 import { EmptyState, LinkButton } from "@/components/ui";
+import { getT } from "@/server/i18n";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const t = await getT();
   return (
-    <EmptyState title="Not found" action={<LinkButton href="/">Back to dashboard</LinkButton>}>
-      This page does not exist, or it belongs to another workspace.
+    <EmptyState title={t("Not found")} action={<LinkButton href="/">{t("Back to dashboard")}</LinkButton>}>
+      {t("This page does not exist, or it belongs to another workspace.")}
     </EmptyState>
   );
 }

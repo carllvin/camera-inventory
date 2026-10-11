@@ -22,7 +22,7 @@ test("switch the interface to German and back", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Projekte" })).toBeVisible();
 
   await go(page, "/settings");
-  await page.getByLabel("Oberflächensprache").selectOption("en");
+  await page.getByLabel("Sprache der Oberfläche").selectOption("en");
   await page.getByRole("button", { name: "Speichern", exact: true }).first().click();
   await expect(page.getByText("Language saved.")).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("lang", "en");

@@ -16,16 +16,18 @@ import {
 } from "lucide-react";
 import { Logo } from "./logo";
 import { cn } from "@/lib/format";
+import type { T } from "@/lib/i18n/core";
+import { useT } from "./i18n";
 
-const DESKTOP = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/projects", label: "Projects", icon: Briefcase },
-  { href: "/equipment", label: "Equipment", icon: Camera },
-  { href: "/sets", label: "Sets", icon: Boxes },
-  { href: "/documents", label: "Documents", icon: FileText },
-  { href: "/issues", label: "Issues", icon: CircleAlert },
-  { href: "/history", label: "History", icon: History },
-  { href: "/settings", label: "Settings", icon: Settings },
+const desktop = (t: T) => [
+  { href: "/", label: t("Dashboard"), icon: LayoutDashboard },
+  { href: "/projects", label: t("Projects"), icon: Briefcase },
+  { href: "/equipment", label: t("Equipment"), icon: Camera },
+  { href: "/sets", label: t("Sets"), icon: Boxes },
+  { href: "/documents", label: t("Documents"), icon: FileText },
+  { href: "/issues", label: t("Issues"), icon: CircleAlert },
+  { href: "/history", label: t("History"), icon: History },
+  { href: "/settings", label: t("Settings"), icon: Settings },
 ];
 
 function isActive(pathname: string, href: string) {
@@ -33,6 +35,7 @@ function isActive(pathname: string, href: string) {
 }
 
 export function Sidebar({ workspaceName, openIssues }: { workspaceName: string; openIssues: number }) {
+  const t = useT();
   const pathname = usePathname();
   return (
     <div className="hidden w-60 shrink-0 border-r border-border bg-surface lg:block">
@@ -44,9 +47,9 @@ export function Sidebar({ workspaceName, openIssues }: { workspaceName: string; 
           <div className="truncate text-xs text-muted">{workspaceName}</div>
         </div>
       </div>
-      <nav className="flex-1 px-3" aria-label="Main">
+      <nav className="flex-1 px-3" aria-label={t("Main")}>
         <ul className="space-y-0.5">
-          {DESKTOP.map(({ href, label, icon: Icon }) => {
+          {desktop(t).map(({ href, label, icon: Icon }) => {
             const active = isActive(pathname, href);
             return (
               <li key={href}>
@@ -71,7 +74,7 @@ export function Sidebar({ workspaceName, openIssues }: { workspaceName: string; 
       </nav>
       <div className="p-3">
         <Link href="/scan" className="flex items-center justify-center gap-2 rounded-lg bg-accent px-3 py-2.5 text-sm font-medium text-accent-fg hover:brightness-110">
-          <ScanLine className="size-4" aria-hidden /> Scan
+          <ScanLine className="size-4" aria-hidden /> {t("Scan")}
         </Link>
       </div>
     </aside>
@@ -79,20 +82,21 @@ export function Sidebar({ workspaceName, openIssues }: { workspaceName: string; 
   );
 }
 
-const MOBILE = [
-  { href: "/projects", label: "Projects", icon: Briefcase },
-  { href: "/equipment", label: "Equipment", icon: Camera },
-  { href: "/scan", label: "Scan", icon: ScanLine, primary: true },
-  { href: "/sets", label: "Sets", icon: Boxes },
-  { href: "/more", label: "More", icon: Menu },
+const mobile = (t: T) => [
+  { href: "/projects", label: t("Projects"), icon: Briefcase },
+  { href: "/equipment", label: t("Equipment"), icon: Camera },
+  { href: "/scan", label: t("Scan"), icon: ScanLine, primary: true },
+  { href: "/sets", label: t("Sets"), icon: Boxes },
+  { href: "/more", label: t("More"), icon: Menu },
 ];
 
 export function MobileNav() {
+  const t = useT();
   const pathname = usePathname();
   return (
-    <nav className="pb-safe fixed inset-x-0 bottom-0 z-30 border-t border-border bg-surface/95 backdrop-blur lg:hidden" aria-label="Main">
+    <nav className="pb-safe fixed inset-x-0 bottom-0 z-30 border-t border-border bg-surface/95 backdrop-blur lg:hidden" aria-label={t("Main")}>
       <ul className="mx-auto grid max-w-md grid-cols-5 items-end px-2 pt-1.5">
-        {MOBILE.map(({ href, label, icon: Icon, primary }) => {
+        {mobile(t).map(({ href, label, icon: Icon, primary }) => {
           const active = isActive(pathname, href) || (href === "/more" && ["/more", "/documents", "/issues", "/history", "/settings", "/search"].some((p) => isActive(pathname, p)));
           if (primary) {
             return (
@@ -100,7 +104,7 @@ export function MobileNav() {
                 <Link
                   href={href}
                   className="-mt-5 flex size-14 flex-col items-center justify-center rounded-full bg-accent text-accent-fg shadow-lg ring-4 ring-bg"
-                  aria-label="Scan"
+                  aria-label={t("Scan")}
                 >
                   <Icon className="size-6" aria-hidden />
                 </Link>

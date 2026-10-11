@@ -2,16 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import { SubmitButton } from "./forms";
+import { useT } from "./i18n";
+import { CONDITION_LABEL, STATUS_LABEL } from "@/lib/format";
 
 /**
  * Tick on a type line: ticks every entry of that type (without opening the line).
  * Handled by SelectionBar's native listener, so it keeps working after the form reset.
  */
 export function TypeTick({ typeId, label }: { typeId: string; label: string }) {
+  const t = useT();
   return (
     <input
       type="checkbox"
-      aria-label={`Select all ${label}`}
+      aria-label={t("Select all {label}", { label })}
       className="size-4 shrink-0"
       data-select-type={typeId}
       onClick={(e) => e.stopPropagation()}
@@ -21,9 +24,10 @@ export function TypeTick({ typeId, label }: { typeId: string; label: string }) {
 
 /** Tick on one entry; entries without serials get a count. */
 export function EntryTick({ entryKey, itemIds, units, typeId, label }: { entryKey: string; itemIds: string[]; units: number; typeId: string; label: string }) {
+  const t = useT();
   return (
     <span className="flex shrink-0 items-center gap-1.5">
-      <input type="checkbox" name="row" value={entryKey} data-type={typeId} aria-label={`Select ${label}`} className="size-4" />
+      <input type="checkbox" name="row" value={entryKey} data-type={typeId} aria-label={t("Select {label}", { label })} className="size-4" />
       <input type="hidden" name={`ids_${entryKey}`} value={itemIds.join(",")} />
       {units > 1 && (
         <input
@@ -33,7 +37,7 @@ export function EntryTick({ entryKey, itemIds, units, typeId, label }: { entryKe
           max={units}
           defaultValue={units}
           inputMode="numeric"
-          aria-label={`How many ${label} (of ${units})`}
+          aria-label={t("How many {label} (of {units})", { label, units })}
           className="w-12 rounded-md border border-border bg-surface px-1 py-0.5 text-right text-xs tabular-nums"
         />
       )}
@@ -41,21 +45,12 @@ export function EntryTick({ entryKey, itemIds, units, typeId, label }: { entryKe
   );
 }
 
-const STATUS = [
-  ["on_project", "On project"],
-  ["in_use", "In use"],
-  ["ready_for_return", "Ready for return"],
-  ["missing", "Missing"],
-] as const;
-const CONDITION = [
-  ["ok", "OK"],
-  ["minor_wear", "Minor wear"],
-  ["damaged", "Damaged"],
-  ["defective", "Defective"],
-] as const;
+const STATUS = ["on_project", "in_use", "ready_for_return", "missing"] as const;
+const CONDITION = ["ok", "minor_wear", "damaged", "defective"] as const;
 
 /** Sticky bar: what to do with the ticked entries. */
 export function SelectionBar({ sets }: { sets: { value: string; label: string }[] }) {
+  const t = useT();
   const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
   const [op, setOp] = useState("");
@@ -64,13 +59,13 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
     if (!form) return;
     const update = () => setCount(form.querySelectorAll('input[name="row"]:checked').length);
     const onChange = (e: Event) => {
-      const t = e.target as HTMLInputElement;
-      const typeId = t.dataset?.selectType;
+      const tick = e.target as HTMLInputElement;
+      const typeId = tick.dataset?.selectType;
       // Only within the tick's own list: in the set view one type can appear under several sets.
-      const scope = t.closest("[data-type-scope]") ?? form;
+      const scope = tick.closest("[data-type-scope]") ?? form;
       if (typeId)
         scope.querySelectorAll<HTMLInputElement>(`input[data-type="${CSS.escape(typeId)}"]`).forEach((c) => {
-          c.checked = t.checked;
+          c.checked = tick.checked;
         });
       update();
     };
@@ -89,11 +84,11 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
   }, []);
   return (
     <div ref={ref} className="sticky bottom-20 z-10 mt-3 flex flex-wrap items-center gap-2 rounded-xl border border-border bg-surface p-2 shadow-lg md:bottom-4">
-      <span className="px-1 text-sm font-medium tabular-nums">{count} selected</span>
-      <select name="op" value={op} onChange={(e) => setOp(e.target.value)} aria-label="Action" className="input !w-auto min-w-0 flex-1 !py-1.5 text-sm">
-        <option value="">Choose an action…</option>
+      <span className="px-1 text-sm font-medium tabular-nums">{t("{n} selected", { n: count })}</span>
+      <select name="op" value={op} onChange={(e) => setOp(e.target.value)} aria-label={t("Action")} className="input !w-auto min-w-0 flex-1 !py-1.5 text-sm">
+        <option value="">{t("Choose an action…")}</option>
         {sets.length > 0 && (
-          <optgroup label="Add to set">
+          <optgroup label={t("Add to set")}>
             {sets.map((s) => (
               <option key={s.value} value={`set:${s.value}`}>
                 ▣ {s.label}
@@ -101,25 +96,25 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
             ))}
           </optgroup>
         )}
-        <option value="unpack">Take out of their set</option>
-        <optgroup label="Status">
-          {STATUS.map(([v, l]) => (
+        <option value="unpack">{t("Take out of their set")}</option>
+        <optgroup label={t("Status")}>
+          {STATUS.map((v) => (
             <option key={v} value={`status:${v}`}>
-              {l}
+              {t(STATUS_LABEL[v]!)}
             </option>
           ))}
         </optgroup>
-        <optgroup label="Condition">
-          {CONDITION.map(([v, l]) => (
+        <optgroup label={t("Condition")}>
+          {CONDITION.map((v) => (
             <option key={v} value={`condition:${v}`}>
-              {l}
+              {t(CONDITION_LABEL[v]!)}
             </option>
           ))}
         </optgroup>
-        <option value="remove">Remove from project…</option>
+        <option value="remove">{t("Remove from project…")}</option>
       </select>
       <SubmitButton disabled={count === 0 || !op} className="!py-1.5" pendingText="…">
-        Apply
+        {t("Apply")}
       </SubmitButton>
     </div>
   );
@@ -127,6 +122,7 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
 
 /** Sticky bar for deleting the ticked equipment types (types list, select mode). */
 export function DeleteTypesBar() {
+  const t = useT();
   const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -144,9 +140,9 @@ export function DeleteTypesBar() {
   }, []);
   return (
     <div ref={ref} className="sticky bottom-20 z-10 mt-3 flex items-center justify-between gap-2 rounded-xl border border-border bg-surface p-2 shadow-lg md:bottom-4">
-      <span className="px-1 text-sm font-medium tabular-nums">{count} selected</span>
-      <SubmitButton variant="danger" disabled={count === 0} className="!py-1.5" pendingText="Deleting…">
-        Delete {count === 1 ? "type" : "types"}
+      <span className="px-1 text-sm font-medium tabular-nums">{t("{n} selected", { n: count })}</span>
+      <SubmitButton variant="danger" disabled={count === 0} className="!py-1.5" pendingText={t("Deleting…")}>
+        {count === 1 ? t("Delete type") : t("Delete types")}
       </SubmitButton>
     </div>
   );

@@ -3,15 +3,17 @@ import { Camera } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { cn } from "@/lib/format";
 import { groupUnits } from "@/lib/group-units";
+import type { T } from "@/lib/i18n/core";
+import { getT } from "@/server/i18n";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
 import { Thumb } from "./thumb";
 
 export { Thumb };
 
-function identifiers(i: ItemRow) {
+function identifiers(i: ItemRow, t: T) {
   const parts: string[] = [];
-  if (i.serialNumber) parts.push(`SN ${i.serialNumber}`);
-  if (i.assetNumber) parts.push(`Asset ${i.assetNumber}`);
+  if (i.serialNumber) parts.push(t("SN {serial}", { serial: i.serialNumber }));
+  if (i.assetNumber) parts.push(t("Asset {asset}", { asset: i.assetNumber }));
   return parts;
 }
 
@@ -22,7 +24,8 @@ export function groupItems(items: ItemRow[]) {
 }
 
 /** Equipment list: table on wide screens, stacked cards on phones. */
-export function EquipmentTable({ items: rows, showProject = true }: { items: ItemRow[]; showProject?: boolean }) {
+export async function EquipmentTable({ items: rows, showProject = true }: { items: ItemRow[]; showProject?: boolean }) {
+  const t = await getT();
   const items = groupItems(rows);
   return (
     <>
@@ -31,14 +34,14 @@ export function EquipmentTable({ items: rows, showProject = true }: { items: Ite
           <thead className="border-b border-border bg-surface-2/60 text-left text-xs text-muted">
             <tr>
               <th className="w-14 px-3 py-2 font-medium">
-                <span className="sr-only">Image</span>
+                <span className="sr-only">{t("Image")}</span>
               </th>
-              <th className="px-2 py-2 font-medium">Equipment</th>
-              <th className="px-3 py-2 text-right font-medium">Qty</th>
-              <th className="px-3 py-2 font-medium">Category</th>
-              <th className="px-3 py-2 font-medium">Rental house</th>
-              {showProject && <th className="px-3 py-2 font-medium">Project</th>}
-              <th className="px-3 py-2 font-medium">Status</th>
+              <th className="px-2 py-2 font-medium">{t("Equipment")}</th>
+              <th className="px-3 py-2 text-right font-medium">{t("Qty")}</th>
+              <th className="px-3 py-2 font-medium">{t("Category")}</th>
+              <th className="px-3 py-2 font-medium">{t("Rental house")}</th>
+              {showProject && <th className="px-3 py-2 font-medium">{t("Project")}</th>}
+              <th className="px-3 py-2 font-medium">{t("Status")}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-border">
@@ -52,13 +55,13 @@ export function EquipmentTable({ items: rows, showProject = true }: { items: Ite
                     {i.typeName}
                   </Link>
                   <div className="text-xs text-muted">
-                    <Mono>{identifiers(i).join(" · ") || "No serial"}</Mono>
+                    <Mono>{identifiers(i, t).join(" · ") || t("No serial")}</Mono>
                     {i.caseName && <span> · ▣ {i.caseName}</span>}
                   </div>
                 </td>
                 <td className="px-3 py-2 text-right tabular-nums">{i.units}</td>
                 <td className="px-3 py-2 text-muted">{i.categoryName ?? "—"}</td>
-                <td className="px-3 py-2">{i.rentalHouseShort ?? i.rentalHouseName ?? <span className="text-muted">Owned</span>}</td>
+                <td className="px-3 py-2">{i.rentalHouseShort ?? i.rentalHouseName ?? <span className="text-muted">{t("Owned")}</span>}</td>
                 {showProject && <td className="px-3 py-2">{i.projectName ?? <span className="text-muted">—</span>}</td>}
                 <td className="px-3 py-2">
                   <div className="flex flex-col items-start gap-1">
@@ -84,13 +87,13 @@ export function EquipmentTable({ items: rows, showProject = true }: { items: Ite
                       {i.typeName}
                     </div>
                     <div className="text-xs text-muted">
-                      <Mono>{identifiers(i).join(" · ") || "No serial"}</Mono>
+                      <Mono>{identifiers(i, t).join(" · ") || t("No serial")}</Mono>
                     </div>
                   </div>
                   <StatusBadge status={i.status} />
                 </div>
                 <div className="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-muted">
-                  <span>{i.rentalHouseShort ?? i.rentalHouseName ?? "Owned"}</span>
+                  <span>{i.rentalHouseShort ?? i.rentalHouseName ?? t("Owned")}</span>
                   {showProject && i.projectName && <span>{i.projectName}</span>}
                   {i.caseName && <span>▣ {i.caseName}</span>}
                   <ConditionBadge condition={i.condition} hideOk />
@@ -105,7 +108,8 @@ export function EquipmentTable({ items: rows, showProject = true }: { items: Ite
 }
 
 /** Image view: product pictures first, for recognising equipment at a glance. */
-export function EquipmentGrid({ items: rows, showProject = true }: { items: ItemRow[]; showProject?: boolean }) {
+export async function EquipmentGrid({ items: rows, showProject = true }: { items: ItemRow[]; showProject?: boolean }) {
+  const t = await getT();
   const items = groupItems(rows);
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -124,7 +128,7 @@ export function EquipmentGrid({ items: rows, showProject = true }: { items: Item
             <div className="space-y-1 p-3">
               <div className="line-clamp-2 text-sm font-medium">{i.typeName}</div>
               <div className="truncate text-xs text-muted">
-                <Mono>{identifiers(i).join(" · ") || "No serial"}</Mono>
+                <Mono>{identifiers(i, t).join(" · ") || t("No serial")}</Mono>
               </div>
               <div className="flex flex-wrap items-center gap-1.5">
                 <StatusBadge status={i.status} />

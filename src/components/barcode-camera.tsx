@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Camera, CameraOff } from "lucide-react";
 import { buttonVariants } from "./ui";
 import { cn } from "@/lib/format";
+import { useT } from "./i18n";
 
 type Detector = { detect: (src: CanvasImageSource) => Promise<{ rawValue: string }[]> };
 declare global {
@@ -29,7 +30,7 @@ export function useBarcodeSupport() {
 export function BarcodeCamera({
   onCode,
   continuous = false,
-  label = "Scan with camera",
+  label,
   compact = false,
 }: {
   onCode: (code: string) => void;
@@ -37,9 +38,10 @@ export function BarcodeCamera({
   label?: string;
   compact?: boolean;
 }) {
+  const t = useT();
   const supported = useBarcodeSupport();
   const [active, setActive] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const onCodeRef = useRef(onCode);
   onCodeRef.current = onCode;
@@ -79,14 +81,14 @@ export function BarcodeCamera({
         };
         tick();
       } catch {
-        setError("Camera not available. Check the camera permission, or type the code.");
+        setError(true);
         setActive(false);
       }
     })();
     return () => {
       cancelled = true;
       if (timer) clearTimeout(timer);
-      stream?.getTracks().forEach((t) => t.stop());
+      stream?.getTracks().forEach((track) => track.stop());
     };
   }, [active, continuous]);
 
@@ -94,7 +96,7 @@ export function BarcodeCamera({
   if (!supported) {
     return compact ? null : (
       <p className="rounded-lg bg-surface-2 px-3 py-2 text-sm text-muted">
-        This browser cannot read barcodes from the camera. Type the code, or use a handheld scanner (it types into the field).
+        {t("This browser cannot read barcodes from the camera. Type the code, or use a handheld scanner (it types into the field).")}
       </p>
     );
   }
@@ -105,22 +107,22 @@ export function BarcodeCamera({
           <video ref={videoRef} className={cn("w-full object-cover", compact ? "aspect-video" : "aspect-[3/4] sm:aspect-video")} muted playsInline />
           <div className="pointer-events-none absolute inset-8 rounded-xl border-2 border-white/70" aria-hidden />
           <button type="button" onClick={() => setActive(false)} className={`${buttonVariants.secondary} absolute right-3 bottom-3`}>
-            <CameraOff className="size-4" /> Stop
+            <CameraOff className="size-4" /> {t("Stop")}
           </button>
         </div>
       ) : (
         <button
           type="button"
           onClick={() => {
-            setError(null);
+            setError(false);
             setActive(true);
           }}
           className={cn(buttonVariants.primary, "w-full", !compact && "py-3 text-base")}
         >
-          <Camera className="size-5" /> {label}
+          <Camera className="size-5" /> {label ?? t("Scan with camera")}
         </button>
       )}
-      {error && <p className="text-sm text-danger">{error}</p>}
+      {error && <p className="text-sm text-danger">{t("Camera not available. Check the camera permission, or type the code.")}</p>}
     </div>
   );
 }

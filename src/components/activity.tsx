@@ -14,8 +14,10 @@ import {
   Wrench,
 } from "lucide-react";
 import { activityTone, groupActivity } from "@/lib/activity-groups";
-import { cn, dayLabel, formatDateTime, formatTime } from "@/lib/format";
+import { cn, type Format } from "@/lib/format";
+import type { T } from "@/lib/i18n/core";
 import { undoEventAction } from "@/app/(app)/history-actions";
+import { getFormat, getT, getTranslateMessage } from "@/server/i18n";
 import { UndoButton } from "./undo-button";
 
 export interface ActivityEvent {
@@ -67,13 +69,13 @@ function Dot({ e, small }: { e: ActivityEvent; small?: boolean }) {
   );
 }
 
-function Details({ e, showProject, compact }: { e: ActivityEvent; showProject: boolean; compact: boolean }) {
+function Details({ t, f, e, showProject, compact }: { t: T; f: Format; e: ActivityEvent; showProject: boolean; compact: boolean }) {
   const note = (e.metadata?.note ?? e.metadata?.reason) as string | undefined;
   return (
     <div className="space-y-1 text-xs text-muted">
       {note && <p className="italic">“{note}”</p>}
       <p>
-        {formatDateTime(e.occurredAt)} · {e.actorType === "ai" ? "AI" : e.actorType === "system" ? "System" : (e.actorName ?? "Unknown")}
+        {f.formatDateTime(e.occurredAt)} · {e.actorType === "ai" ? t("AI") : e.actorType === "system" ? t("System") : (e.actorName ?? t("Unknown"))}
         {showProject && e.projectId && e.projectName && (
           <>
             {" · "}
@@ -86,7 +88,7 @@ function Details({ e, showProject, compact }: { e: ActivityEvent; showProject: b
           <>
             {" · "}
             <Link href={`/documents/${e.documentId}`} className="hover:underline">
-              document
+              {t("document")}
             </Link>
           </>
         )}
@@ -94,12 +96,12 @@ function Details({ e, showProject, compact }: { e: ActivityEvent; showProject: b
           <>
             {" · "}
             <Link href={`/equipment/${e.equipmentItemId}`} className="hover:underline">
-              equipment
+              {t("equipment")}
             </Link>
           </>
         )}
       </p>
-      {e.undo === "done" && <p>Undone</p>}
+      {e.undo === "done" && <p>{t("Undone")}</p>}
       {e.undo === "can" && <UndoButton action={undoEventAction.bind(null, e.id)} label={e.summary} />}
     </div>
   );
@@ -116,9 +118,12 @@ function withoutSubject(summary: string, subject?: string) {
   return rest ? rest[0]!.toUpperCase() + rest.slice(1) : summary;
 }
 
-export function ActivityList({ events, showProject = true, compact = false, subject }: { events: ActivityEvent[]; showProject?: boolean; compact?: boolean; subject?: string }) {
-  if (events.length === 0) return <p className="px-4 py-6 text-sm text-muted">No history yet.</p>;
-  const days = groupActivity(events, (d) => dayLabel(d));
+export async function ActivityList({ events: raw, showProject = true, compact = false, subject }: { events: ActivityEvent[]; showProject?: boolean; compact?: boolean; subject?: string }) {
+  // Summaries are stored in English; shown in the user's language.
+  const [tm, t, f] = await Promise.all([getTranslateMessage(), getT(), getFormat()]);
+  const events = raw.map((e) => ({ ...e, summary: tm(e.summary) }));
+  if (events.length === 0) return <p className="px-4 py-6 text-sm text-muted">{t("No history yet.")}</p>;
+  const days = groupActivity(events, (d) => f.dayLabel(d));
   return (
     <div>
       {days.map(({ day, groups }) => (
@@ -132,15 +137,15 @@ export function ActivityList({ events, showProject = true, compact = false, subj
                     <Dot e={head} />
                     <span className={cn("min-w-0 flex-1 text-sm", head.undo === "done" && "text-muted line-through decoration-muted/60")}>
                       <span className="line-clamp-2">{withoutSubject(head.summary, subject)}</span>
-                      {rest.length > 0 && <span className="text-xs text-muted">+{rest.length} more</span>}
+                      {rest.length > 0 && <span className="text-xs text-muted">{t("+{n} more", { n: rest.length })}</span>}
                     </span>
                     <time className="shrink-0 text-xs text-muted tabular-nums" dateTime={new Date(head.occurredAt).toISOString()}>
-                      {formatTime(head.occurredAt)}
+                      {f.formatTime(head.occurredAt)}
                     </time>
                     <ChevronRight className="size-3.5 shrink-0 text-muted transition-transform group-open:rotate-90" aria-hidden />
                   </summary>
                   <div className="space-y-2 pr-4 pb-3 pl-14">
-                    <Details e={head} showProject={showProject} compact={compact} />
+                    <Details t={t} f={f} e={head} showProject={showProject} compact={compact} />
                     {rest.length > 0 && (
                       <ul className="space-y-1.5 border-l border-border pl-3">
                         {rest.map((e) => (

@@ -5,35 +5,50 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { standardCatalogStatus, standardRentalHouseStatus } from "@/server/domain/standard-catalog";
+import { getT } from "@/server/i18n";
 import { importCatalogAction, importRentalHousesAction } from "../actions";
 
-export const metadata = { title: "Standard catalog" };
+export async function generateMetadata() {
+  const t = await getT();
+  return { title: t("Standard catalog") };
+}
 
 export default async function CatalogPage() {
   const ctx = await getCtx();
   const [sections, regions] = await Promise.all([standardCatalogStatus(getDb(), ctx), standardRentalHouseStatus(getDb(), ctx)]);
   const isAdmin = hasRole(ctx, "admin");
+  const t = await getT();
+  const [typesIntro, typesRest = ""] = t(
+    "Adds equipment {types} (e.g. “ARRI Signature Prime 35mm T1.8”), not physical items. Every lens focal length is its own type. Types you already have are skipped and never changed; you can edit or archive anything afterwards under {link}.",
+  ).split("{types}");
+  const [typesMiddle, typesEnd] = typesRest.split("{link}");
+  const housesIntro = t(
+    "Camera rental houses with the company and branch names printed on their delivery notes, so documents are matched to the right sender. Rental houses you already have are skipped and never changed; manage them under {link}.",
+  ).split("{link}");
+  const presence = (missing: number, present: number, total: number) =>
+    missing === 0 ? t("all {n} present", { n: total }) : present ? t("{n} new · {present} already present", { n: missing, present }) : t("{n} new", { n: missing });
   return (
     <>
       <PageHeader
-        title="Standard catalog"
-        subtitle="Common equipment types and rental houses, with the names used on rental paperwork"
-        back={{ href: "/settings", label: "Settings" }}
+        title={t("Standard catalog")}
+        subtitle={t("Common equipment types and rental houses, with the names used on rental paperwork")}
+        back={{ href: "/settings", label: t("Settings") }}
       />
       <Card className="max-w-2xl p-5">
-        <h2 className="mb-1 font-semibold">Equipment types</h2>
+        <h2 className="mb-1 font-semibold">{t("Equipment types")}</h2>
         <p className="mb-4 text-sm text-muted">
-          Adds equipment <em>types</em> (e.g. “ARRI Signature Prime 35mm T1.8”), not physical items. Every lens focal length is its own type. Types you
-          already have are skipped and never changed; you can edit or archive anything afterwards under{" "}
+          {typesIntro}
+          <em>{t("types")}</em>
+          {typesMiddle}
           <Link href="/equipment/types" className="text-accent hover:underline">
-            Equipment types
+            {t("Equipment types")}
           </Link>
-          .
+          {typesEnd}
         </p>
         {isAdmin ? (
           <ActionForm action={importCatalogAction} className="space-y-4">
             <fieldset className="space-y-2">
-              <legend className="mb-1 text-sm font-medium">Areas to import</legend>
+              <legend className="mb-1 text-sm font-medium">{t("Areas to import")}</legend>
               {sections.map((sec) => {
                 const missing = sec.total - sec.present;
                 const todo = missing > 0 || sec.newSpellings > 0;
@@ -44,8 +59,8 @@ export default async function CatalogPage() {
                       <span className="flex flex-wrap items-baseline justify-between gap-x-2">
                         <span className="font-medium">{sec.label}</span>
                         <span className="text-xs text-muted tabular-nums">
-                          {missing === 0 ? `all ${sec.total} present` : `${missing} new${sec.present ? ` · ${sec.present} already present` : ""}`}
-                          {sec.newSpellings > 0 && ` · new spellings for ${sec.newSpellings}`}
+                          {presence(missing, sec.present, sec.total)}
+                          {sec.newSpellings > 0 && ` · ${t("new spellings for {n}", { n: sec.newSpellings })}`}
                         </span>
                       </span>
                       <span className="block text-xs text-muted">{sec.description}</span>
@@ -55,30 +70,29 @@ export default async function CatalogPage() {
               })}
             </fieldset>
             {sections.some((sec) => sec.present < sec.total || sec.newSpellings > 0) ? (
-              <SubmitButton pendingText="Importing…">Import selected areas</SubmitButton>
+              <SubmitButton pendingText={t("Importing…")}>{t("Import selected areas")}</SubmitButton>
             ) : (
-              <p className="text-sm text-muted">Everything from the standard catalog is already in your equipment types.</p>
+              <p className="text-sm text-muted">{t("Everything from the standard catalog is already in your equipment types.")}</p>
             )}
           </ActionForm>
         ) : (
-          <p className="text-sm text-muted">Only admins can import the catalog.</p>
+          <p className="text-sm text-muted">{t("Only admins can import the catalog.")}</p>
         )}
       </Card>
       {regions.length > 0 && (
         <Card className="mt-6 max-w-2xl p-5">
-          <h2 className="mb-1 font-semibold">Rental houses</h2>
+          <h2 className="mb-1 font-semibold">{t("Rental houses")}</h2>
           <p className="mb-4 text-sm text-muted">
-            Camera rental houses with the company and branch names printed on their delivery notes, so documents are matched to the right sender. Rental houses you
-            already have are skipped and never changed; manage them under{" "}
+            {housesIntro[0]}
             <Link href="/settings/rental-houses" className="text-accent hover:underline">
-              Rental houses
+              {t("Rental houses")}
             </Link>
-            .
+            {housesIntro[1]}
           </p>
           {isAdmin ? (
             <ActionForm action={importRentalHousesAction} className="space-y-4">
               <fieldset className="space-y-2">
-                <legend className="mb-1 text-sm font-medium">Regions to import</legend>
+                <legend className="mb-1 text-sm font-medium">{t("Regions to import")}</legend>
                 {regions.map((r) => {
                   const missing = r.total - r.present;
                   return (
@@ -88,7 +102,7 @@ export default async function CatalogPage() {
                         <span className="flex flex-wrap items-baseline justify-between gap-x-2">
                           <span className="font-medium">{r.label}</span>
                           <span className="text-xs text-muted tabular-nums">
-                            {missing === 0 ? `all ${r.total} present` : `${missing} new${r.present ? ` · ${r.present} already present` : ""}`}
+                            {presence(missing, r.present, r.total)}
                           </span>
                         </span>
                         <span className="block text-xs text-muted">{r.description}</span>
@@ -98,13 +112,13 @@ export default async function CatalogPage() {
                 })}
               </fieldset>
               {regions.some((r) => r.present < r.total) ? (
-                <SubmitButton pendingText="Importing…">Import selected regions</SubmitButton>
+                <SubmitButton pendingText={t("Importing…")}>{t("Import selected regions")}</SubmitButton>
               ) : (
-                <p className="text-sm text-muted">All standard rental houses are already in your list.</p>
+                <p className="text-sm text-muted">{t("All standard rental houses are already in your list.")}</p>
               )}
             </ActionForm>
           ) : (
-            <p className="text-sm text-muted">Only admins can import rental houses.</p>
+            <p className="text-sm text-muted">{t("Only admins can import rental houses.")}</p>
           )}
         </Card>
       )}
