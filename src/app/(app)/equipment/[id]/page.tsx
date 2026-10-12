@@ -15,7 +15,7 @@ import { withUndo } from "@/server/domain/revert";
 import { listPhotos } from "@/server/domain/photos";
 import { listProjectOptions } from "@/server/domain/projects";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { getFormat, getT } from "@/server/i18n";
+import { getFormat, getT, getTN } from "@/server/i18n";
 import { ItemActions } from "../item-actions";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
@@ -30,7 +30,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
   assertUuid(id);
   const ctx = await getCtx();
   const db = getDb();
-  const [t, f] = await Promise.all([getT(), getFormat()]);
+  const [t, f, tn] = await Promise.all([getT(), getFormat(), getTN()]);
   const [d, projects, photos] = await Promise.all([
     orNotFound(getItemDetail(db, ctx, id)),
     listProjectOptions(db, ctx, { activeOnly: true }),
@@ -45,7 +45,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
     <>
       <PageHeader
         back={{ href: item.projectId ? `/projects/${item.projectId}` : "/equipment", label: item.projectId ? d.project?.name ?? t("Project") : t("Equipment") }}
-        title={type.name}
+        title={tn(type.name)}
         subtitle={
           <span className="flex flex-wrap items-center gap-2">
             {item.serialNumber && <Mono>{t("SN {sn}", { sn: item.serialNumber })}</Mono>}
@@ -66,9 +66,9 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="min-w-0 space-y-6">
           <Card className="grid gap-5 p-4 sm:grid-cols-[14rem_1fr]">
-            <Link href={`/equipment/types/${type.id}`} aria-label={t("Equipment type {name}", { name: type.name })}>
+            <Link href={`/equipment/types/${type.id}`} aria-label={t("Equipment type {name}", { name: tn(type.name) })}>
               <TypeImage
-                name={type.name}
+                name={tn(type.name)}
                 photoId={d.referencePhoto?.id}
                 // Without a picture a small placeholder on phones, not half a screen of grey.
                 className={d.referencePhoto ? undefined : "aspect-auto h-20 sm:aspect-[4/3] sm:h-auto"}
@@ -77,7 +77,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
             <KeyValues
               items={[
                 { label: t("Model"), value: <Link className="hover:underline" href={`/equipment/types/${type.id}`}>{type.manufacturer} {type.model}</Link> },
-                { label: t("Category"), value: d.categoryName },
+                { label: t("Category"), value: d.categoryName && tn(d.categoryName) },
                 { label: t("Serial number"), value: item.serialNumber ? <Mono>{item.serialNumber}</Mono> : null },
                 { label: t("Asset number"), value: item.assetNumber ? <Mono>{item.assetNumber}</Mono> : null },
                 { label: t("QR / barcode"), value: item.barcode ? <Mono>{item.barcode}</Mono> : null },

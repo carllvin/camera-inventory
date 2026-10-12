@@ -21,8 +21,9 @@ import lenses from "./data/lenses.json";
 import power from "./data/power.json";
 import support from "./data/support.json";
 import video from "./data/video.json";
+import { genericNamesDe } from "../../lib/i18n/de/catalog";
 
-export const STANDARD_CATALOG_VERSION = 8;
+export const STANDARD_CATALOG_VERSION = 9;
 
 export interface CatalogEntry {
   manufacturer: string;
@@ -109,6 +110,13 @@ function expandSeries(s: LensSeries): CatalogEntry[] {
   });
 }
 
+/** Brandless types are shown in German to German users; the German name is also an alias, so German notes match. */
+function withGermanName(e: CatalogEntry): CatalogEntry {
+  const de = genericNamesDe[e.name ?? e.model];
+  if (!de || de === (e.name ?? e.model) || e.aliases?.includes(de)) return e;
+  return { ...e, aliases: [...(e.aliases ?? []), de] };
+}
+
 function load(d: DataSection): CatalogSection {
   return {
     key: d.key,
@@ -116,9 +124,9 @@ function load(d: DataSection): CatalogSection {
     description: d.description,
     groups: d.groups.map((g) => ({
       category: g.category,
-      entries: [...(g.lensSeries ?? []).flatMap(expandSeries), ...(g.entries ?? [])].map((e) =>
+      entries: [...(g.lensSeries ?? []).flatMap(expandSeries), ...(g.entries ?? [])].map((e) => withGermanName(
         e.discontinued ? { ...e, specs: { ...e.specs, availability: "discontinued" } } : e,
-      ),
+      )),
     })),
   };
 }

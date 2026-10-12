@@ -6,7 +6,7 @@ import { getCategoryTree } from "@/server/domain/categories";
 import { hasRole } from "@/server/domain/context";
 import { createTypeAction } from "../../actions";
 import { TypeFields } from "../type-fields";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 
 export async function generateMetadata() {
   const t = await getT();
@@ -16,7 +16,7 @@ export async function generateMetadata() {
 export default async function NewTypePage({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
   const { returnTo } = await searchParams;
   const ctx = await getCtx();
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const { flat } = await getCategoryTree(getDb(), ctx);
   return (
@@ -25,7 +25,7 @@ export default async function NewTypePage({ searchParams }: { searchParams: Prom
       <Card className="max-w-2xl p-5">
         <ActionForm action={createTypeAction} className="space-y-5">
           <input type="hidden" name="returnTo" value={returnTo ?? ""} />
-          <TypeFields categories={flat.map((c) => ({ value: c.id, label: c.path }))} />
+          <TypeFields categories={flat.map((c) => ({ value: c.id, label: tn(c.path) }))} />
           <SubmitButton>{t("Create equipment type")}</SubmitButton>
         </ActionForm>
       </Card>

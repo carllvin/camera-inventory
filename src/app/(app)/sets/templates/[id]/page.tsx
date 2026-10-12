@@ -6,7 +6,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getTemplate, listLineTargets } from "@/server/domain/cases";
 import { hasRole } from "@/server/domain/context";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { addTemplateLineAction, archiveTemplateAction, removeTemplateLineAction, updateTemplateAction, updateTemplateLineAction } from "../../actions";
 
@@ -18,7 +18,7 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
   const [tpl, targets] = await Promise.all([orNotFound(getTemplate(db, ctx, id)), listLineTargets(db, ctx)]);
   const canEdit = hasRole(ctx, "member") && !tpl.archivedAt;
   const total = tpl.lines.reduce((n, l) => n + l.quantity, 0);
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   return (
     <>
       <PageHeader
@@ -46,7 +46,7 @@ export default async function TemplatePage({ params }: { params: Promise<{ id: s
                 />
                 <div className="border-t border-border pt-4">
                   <h3 className="mb-2 text-sm font-medium">{t("Add item")}</h3>
-                  <AddLineForm action={addTemplateLineAction.bind(null, id)} categories={targets.categories} />
+                  <AddLineForm action={addTemplateLineAction.bind(null, id)} categories={targets.categories.map((c) => ({ ...c, label: t("Any {category}", { category: tn(c.label.replace(/^Any /, "")) }) }))} />
                 </div>
               </>
             ) : (

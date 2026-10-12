@@ -15,7 +15,7 @@ import { hasRole } from "@/server/domain/context";
 import { getDocumentReview, listReturnableItems, releaseStaleExtractions } from "@/server/domain/documents";
 import { listProjectOptions } from "@/server/domain/projects";
 import { listRentalHouses } from "@/server/domain/rental-houses";
-import { getFormat, getT, getTranslateMessage } from "@/server/i18n";
+import { getFormat, getT, getTN, getTranslateMessage } from "@/server/i18n";
 import { assertUuid, orNotFound } from "@/server/pages";
 import {
   addLineAction,
@@ -139,7 +139,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   await releaseStaleExtractions(db);
   const d = await orNotFound(getDocumentReview(db, ctx, id));
   const { doc } = d;
-  const [t, tm, f] = await Promise.all([getT(), getTranslateMessage(), getFormat()]);
+  const [t, tm, f, tn] = await Promise.all([getT(), getTranslateMessage(), getFormat(), getTN()]);
   const canEdit = hasRole(ctx, "member");
   const editable = canEdit && (doc.status === "uploaded" || doc.status === "extracted" || doc.status === "failed");
   const aiAvailable = getExtractor().available;
@@ -156,7 +156,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   // Unknown products on a delivery note: a pre-filled "create" strip per line.
   const unknown = editable && !isReturn ? d.lines.filter((l) => l.resolution === "pending" && !l.matchedEquipmentTypeId) : [];
   const categoryTree = unknown.length ? (await getCategoryTree(db, ctx)).flat : [];
-  const categoryOptions = categoryTree.map((c) => ({ value: c.id, label: `${"  ".repeat(c.depth)}${c.name}` }));
+  const categoryOptions = categoryTree.map((c) => ({ value: c.id, label: `${"  ".repeat(c.depth)}${tn(c.name)}` }));
   const categoryByPath = new Map(
     categoryTree.map((c) => {
       const parent = categoryTree.find((p) => p.id === c.parentId);
@@ -543,10 +543,10 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                           <td className="px-3 py-2">
                             {l.matchedEquipmentItemId ? (
                               <Link href={`/equipment/${l.matchedEquipmentItemId}`} className="hover:underline">
-                                {l.typeName}
+                                {l.typeName && tn(l.typeName)}
                               </Link>
                             ) : (
-                              (l.typeName ?? <span className="text-muted">—</span>)
+                              (l.typeName ? tn(l.typeName) : <span className="text-muted">—</span>)
                             )}
                             {l.matchReason && doc.status !== "confirmed" && <div className="text-xs text-muted">{tm(l.matchReason)}</div>}
                             {fromLine && (fromLine.get(l.id)?.length ?? 0) > 0 && (
@@ -619,7 +619,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   <div className="w-full space-y-2 rounded-lg bg-surface-2/60 p-3">
                     <p className="text-sm">
                       {t("Everything comes {n}×: that makes", { n: sg.copies })} <strong>{t("{n} identical sets", { n: sg.copies })}</strong>{" "}
-                      {t("of {contents}. Name them:", { contents: sg.perCopy.map((p) => `${p.units} × ${p.typeName}`).join(", ") })}
+                      {t("of {contents}. Name them:", { contents: sg.perCopy.map((p) => `${p.units} × ${tn(p.typeName)}`).join(", ") })}
                     </p>
                     <ActionForm action={createSetFromDocumentAction.bind(null, id, sg.name)} className="space-y-2">
                       <div className="grid gap-2 sm:grid-cols-2">

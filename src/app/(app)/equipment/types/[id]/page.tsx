@@ -13,13 +13,13 @@ import { getPickerDeps } from "@/server/ai/picker-deps";
 import { autoPickAction } from "../image-actions";
 import { deleteTypesAction, restoreTypeAction } from "../../actions";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 
 export default async function TypePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   assertUuid(id);
   const ctx = await getCtx();
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   const db = getDb();
   const [et, items] = await Promise.all([orNotFound(getEquipmentType(db, ctx, id)), listItems(db, ctx, { equipmentTypeId: id, limit: 500 })]);
   const primary = et.photos[0];
@@ -34,11 +34,11 @@ export default async function TypePage({ params }: { params: Promise<{ id: strin
         back={{ href: "/equipment/types", label: t("Equipment types") }}
         title={
           <span className="flex items-center gap-2">
-            <span className="truncate">{et.name}</span>
+            <span className="truncate">{tn(et.name)}</span>
             {deleted && <Badge>{t("Deleted")}</Badge>}
           </span>
         }
-        subtitle={et.categoryName ?? t("Uncategorized")}
+        subtitle={et.categoryName ? tn(et.categoryName) : t("Uncategorized")}
         actions={
           canEdit && (
             <>
@@ -54,7 +54,7 @@ export default async function TypePage({ params }: { params: Promise<{ id: strin
       />
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-[18rem_1fr]">
         <div className="space-y-2">
-          <TypeImage name={et.name} photoId={primary?.id} size="full" />
+          <TypeImage name={tn(et.name)} photoId={primary?.id} size="full" />
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="text-muted">
               {primary?.attribution?.startsWith("auto-selected") ? <Badge tone="accent">{t("auto-selected")}</Badge> : primary?.attribution}
@@ -122,7 +122,7 @@ export default async function TypePage({ params }: { params: Promise<{ id: strin
                   <input type="hidden" name="typeId" value={id} />
                   <input type="hidden" name="from" value="type" />
                   <SubmitButton variant="danger" pendingText={t("Deleting…")}>
-                    {t("Delete {name}", { name: et.name })}
+                    {t("Delete {name}", { name: tn(et.name) })}
                   </SubmitButton>
                 </ActionForm>
               </>

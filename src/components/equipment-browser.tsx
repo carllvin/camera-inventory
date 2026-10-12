@@ -11,7 +11,7 @@ import { STATUS_LABEL, cn } from "@/lib/format";
 import type { CaseSummary } from "@/server/domain/cases";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import type { T } from "@/lib/i18n/core";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 
 export type BrowserParams = {
   q?: string;
@@ -74,7 +74,7 @@ export async function EquipmentBrowser({
   bulkAction?: (prev: ActionState, fd: FormData) => Promise<ActionState>;
   empty: ReactNode;
 }) {
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   const view = browserView(sp);
   const canSelect = Boolean(projectId && bulkAction);
   const selecting = canSelect && sp.select === "1" && view !== "grid";
@@ -121,7 +121,7 @@ export async function EquipmentBrowser({
       <FilterBar hasFilters={hasFilters}>
         <FilterSearch value={sp.q} placeholder={t("Name, alias, serial, asset, barcode…")} />
         <FilterSelect name="categoryId" label={t("Category")} allLabel={t("All categories")} value={sp.categoryId}
-          options={categories.map((c) => ({ value: c.id, label: `${" ".repeat(c.depth)}${c.name}` }))} />
+          options={categories.map((c) => ({ value: c.id, label: `${" ".repeat(c.depth)}${tn(c.name)}` }))} />
         <FilterSelect name="rentalHouseId" label={t("Rental house")} allLabel={t("All rental houses")} value={sp.rentalHouseId}
           options={[...rentalHouses.map((r) => ({ value: r.id, label: r.name })), { value: "owned", label: t("Owned (not rented)") }]} />
         <FilterSelect name="status" label={t("Status")} allLabel={t("Any status")} value={sp.status}

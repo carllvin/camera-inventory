@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Minus, Plus, Trash2, X } from "lucide-react";
 import { ActionForm, Field, SubmitButton } from "./forms";
 import { TypePicker } from "./type-picker";
-import { useT } from "./i18n";
+import { useT, useTN } from "./i18n";
 import type { ActionState } from "@/server/actions";
 
 type Action = (prev: ActionState, fd: FormData) => Promise<ActionState>;
@@ -22,6 +22,7 @@ export interface EditableLine {
 /** Edit expected lines (cases and templates share this). */
 export function LineEditor({ lines }: { lines: EditableLine[] }) {
   const t = useT();
+  const tn = useTN();
   if (lines.length === 0) return <p className="text-sm text-muted">{t("Nothing expected yet.")}</p>;
   return (
     <ul className="divide-y divide-border">
@@ -31,7 +32,7 @@ export function LineEditor({ lines }: { lines: EditableLine[] }) {
             <Field name="quantity" id={`qty-${l.id}`} type="number" min={1} max={999} defaultValue={l.quantity} aria-label={t("Quantity of {label}", { label: l.label })} className="w-16" />
             <div className="min-w-0 flex-1">
               <Field name="label" id={`label-${l.id}`} defaultValue={l.label} aria-label={t("Label")} />
-              <p className="mt-0.5 truncate text-[11px] text-muted">{l.typeName ? t("Type: {type}", { type: l.typeName }) : t("Category: {category} (incl. subcategories)", { category: String(l.categoryName) })}</p>
+              <p className="mt-0.5 truncate text-[11px] text-muted">{l.typeName ? t("Type: {type}", { type: tn(l.typeName) }) : t("Category: {category} (incl. subcategories)", { category: tn(String(l.categoryName)) })}</p>
             </div>
             <SubmitButton variant="secondary" className="mt-0.5 !px-2.5 text-xs">
               {t("Save")}

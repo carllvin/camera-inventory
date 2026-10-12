@@ -11,7 +11,7 @@ import { listEquipmentTypes } from "@/server/domain/equipment-types";
 import { UUID_RE } from "@/server/pages";
 import { ActionForm } from "@/components/forms";
 import { DeleteTypesBar } from "@/components/select-tools";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 import { deleteTypesAction } from "../actions";
 
 export async function generateMetadata() {
@@ -24,7 +24,7 @@ const PAGE_SIZE = 60;
 export default async function TypesPage({ searchParams }: { searchParams: Promise<{ q?: string; categoryId?: string; use?: string; page?: string; select?: string }> }) {
   const sp = await searchParams;
   const ctx = await getCtx();
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   const db = getDb();
   const categoryId = sp.categoryId && UUID_RE.test(sp.categoryId) ? sp.categoryId : null;
   const inUse = sp.use === "in_use";
@@ -49,9 +49,9 @@ export default async function TypesPage({ searchParams }: { searchParams: Promis
             <TypeImage name={et.model} photoId={et.imageId} className="rounded-none" />
             <div className="p-3">
               <div className="text-xs text-muted">{et.manufacturer}</div>
-              <div className="truncate text-sm font-medium">{et.model}</div>
+              <div className="truncate text-sm font-medium">{tn(et.model)}</div>
               <div className="mt-1 text-xs text-muted">
-                {et.categoryName ?? t("Uncategorized")} · {t("{n} items", { n: et.itemCount })}{et.onProjectCount > 0 && ` · ${t("{n} out", { n: et.onProjectCount })}`}
+                {et.categoryName ? tn(et.categoryName) : t("Uncategorized")} · {t("{n} items", { n: et.itemCount })}{et.onProjectCount > 0 && ` · ${t("{n} out", { n: et.onProjectCount })}`}
               </div>
             </div>
           </>
@@ -104,7 +104,7 @@ export default async function TypesPage({ searchParams }: { searchParams: Promis
       <FilterBar hasFilters={Boolean(sp.q || categoryId || inUse)}>
         <FilterSearch value={sp.q} placeholder={t("Manufacturer, model, alias…")} />
         <FilterSelect name="categoryId" label={t("Category")} allLabel={t("All categories")} value={categoryId}
-          options={flat.map((c) => ({ value: c.id, label: `${" ".repeat(c.depth)}${c.name}` }))} />
+          options={flat.map((c) => ({ value: c.id, label: `${" ".repeat(c.depth)}${tn(c.name)}` }))} />
         <FilterSelect name="use" label={t("Items")} allLabel={t("All types")} value={inUse ? "in_use" : null} options={[{ value: "in_use", label: t("With items only") }]} />
       </FilterBar>
       {canEdit && types.length > 0 && (

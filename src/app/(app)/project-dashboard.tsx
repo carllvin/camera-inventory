@@ -11,7 +11,7 @@ import type { Ctx } from "@/server/domain/context";
 import { listItems } from "@/server/domain/equipment-items";
 import { listActivity, listDocuments, listIssues } from "@/server/domain/overview";
 import { getProjectSummary } from "@/server/domain/projects";
-import { getFormat, getT, getTranslateMessage } from "@/server/i18n";
+import { getFormat, getT, getTranslateMessage, getTN } from "@/server/i18n";
 
 type Attention = { key: string; icon: typeof Box; tone: "danger" | "warn" | "neutral"; text: string; href: string };
 
@@ -26,7 +26,7 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
     listDocuments(db, ctx, { projectId }),
     listActivity(db, ctx, { projectId, limit: 12 }),
   ]);
-  const [t, f, tm] = await Promise.all([getT(), getFormat(), getTranslateMessage()]);
+  const [t, f, tm, tn] = await Promise.all([getT(), getFormat(), getTranslateMessage(), getTN()]);
   const base = `/projects/${projectId}`;
   const timeline = projectTimeline(project.startDate, project.endDate, todayIso());
 
@@ -35,7 +35,7 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
   const toReview = documents.filter((d) => ["uploaded", "processing", "extracted", "failed"].includes(d.status));
   const incomplete = cases.filter((c) => c.comparison.missingTotal > 0);
   const loose = items.filter((i) => !i.caseId).reduce((n, i) => n + i.quantity, 0);
-  const label = (i: (typeof items)[number]) => `${i.typeName}${i.serialNumber ? ` (SN ${i.serialNumber})` : i.quantity > 1 ? ` × ${i.quantity}` : ""}`;
+  const label = (i: (typeof items)[number]) => `${tn(i.typeName)}${i.serialNumber ? ` (SN ${i.serialNumber})` : i.quantity > 1 ? ` × ${i.quantity}` : ""}`;
 
   const attention: Attention[] = [
     ...missing.slice(0, 5).map((i) => ({ key: `m-${i.id}`, icon: Search, tone: "danger" as const, text: t("Missing: {item}", { item: label(i) }), href: `/equipment/${i.id}` })),

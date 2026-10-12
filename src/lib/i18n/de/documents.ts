@@ -420,4 +420,5 @@ export const documents: Dict = {
   "recognised by AI": "von der KI erkannt",
   "same production title": "gleicher Produktionstitel",
   "similar production title": "ähnlicher Produktionstitel",
+  "Any {category}": "Beliebig: {category}",
 };

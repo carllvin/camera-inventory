@@ -57,3 +57,27 @@ describe("translations", () => {
     expect(wrong).toEqual([]);
   });
 });
+
+describe("equipment names", () => {
+  it("translates categories (also paths) and brandless types, leaves brands alone", async () => {
+    const { makeTN } = await import("@/lib/i18n/core");
+    const { namesFor } = await import("@/lib/i18n/dictionaries");
+    const tn = makeTN(namesFor("de"));
+    expect(tn("Lenses")).toBe("Objektive");
+    expect(tn("Lenses › Spherical")).toBe("Objektive › Sphärisch");
+    expect(tn("Sandbag 15 kg")).toBe("Sandsack 15 kg");
+    expect(tn("ARRI Signature Prime 35mm T1.8")).toBe("ARRI Signature Prime 35mm T1.8");
+    expect(makeTN(namesFor("en"))("Lenses")).toBe("Lenses");
+  });
+
+  it("has a German name for every brandless catalog type and category, kept as an alias", async () => {
+    const { STANDARD_CATALOG } = await import("@/server/catalog/standard-catalog");
+    const { categoriesDe, genericNamesDe } = await import("@/lib/i18n/de/catalog");
+    const generic = STANDARD_CATALOG.flatMap((s) => s.groups.flatMap((g) => g.entries)).filter((e) => e.manufacturer === "Generic");
+    expect(generic.filter((e) => !genericNamesDe[e.name ?? e.model]).map((e) => e.model)).toEqual([]);
+    const sandbag = generic.find((e) => e.model === "Sandbag 15 kg")!;
+    expect(sandbag.aliases).toContain("Sandsack 15 kg");
+    const cats = new Set(STANDARD_CATALOG.flatMap((s) => s.groups.flatMap((g) => g.category)));
+    expect([...cats].filter((c) => !categoriesDe[c])).toEqual([]);
+  });
+});

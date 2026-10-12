@@ -76,3 +76,8 @@ export function translateMessage(dict: Dict | null, msg: string | null | undefin
 
 export type T = (text: string, params?: Params) => string;
 export const makeT = (dict: Dict | null): T => (text, params) => translate(dict, text, params);
+
+/** Name of a category (also a path "Lenses › Spherical") or brandless type in the user's language; anything else unchanged. */
+export type TN = (name: string) => string;
+export const makeTN = (names: Dict | null): TN => (name) =>
+  !names ? name : name.includes(" › ") ? name.split(" › ").map((n) => names[n] || n).join(" › ") : names[name] || name;

@@ -57,13 +57,13 @@ export default async function CatalogPage() {
                     <input type="checkbox" name="sections" value={sec.key} defaultChecked={todo} disabled={!todo} className="mt-1 size-4 accent-[var(--accent)]" />
                     <span className="min-w-0 flex-1">
                       <span className="flex flex-wrap items-baseline justify-between gap-x-2">
-                        <span className="font-medium">{sec.label}</span>
+                        <span className="font-medium">{t(sec.label)}</span>
                         <span className="text-xs text-muted tabular-nums">
                           {presence(missing, sec.present, sec.total)}
                           {sec.newSpellings > 0 && ` · ${t("new spellings for {n}", { n: sec.newSpellings })}`}
                         </span>
                       </span>
-                      <span className="block text-xs text-muted">{sec.description}</span>
+                      <span className="block text-xs text-muted">{t(sec.description)}</span>
                     </span>
                   </label>
                 );

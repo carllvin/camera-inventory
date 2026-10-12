@@ -8,14 +8,14 @@ import { ActionForm, SubmitButton } from "@/components/forms";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { Badge, Card, CardHeader, ConditionBadge, LinkButton, Mono, PageHeader, StatusBadge } from "@/components/ui";
 import { cn } from "@/lib/format";
-import type { T } from "@/lib/i18n/core";
+import type { T, TN } from "@/lib/i18n/core";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { getCaseDetail, groupUnits, listLineTargets, listPackCandidates } from "@/server/domain/cases";
 import { hasRole } from "@/server/domain/context";
 import { listActivity } from "@/server/domain/overview";
 import { listPhotos } from "@/server/domain/photos";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { addLineAction, applyContentsAction, packByCodeAction, packChecklistAction, removeLineAction, stepLineAction, unpackItemAction, unpackUnitsAction } from "../actions";
 import { PackChecklist } from "../pack-checklist";
@@ -35,7 +35,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
   const ctx = await getCtx();
   const db = getDb();
   const d = await orNotFound(getCaseDetail(db, ctx, id));
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   const canEdit = hasRole(ctx, "member") && !d.case.archivedAt;
   const [photos, history, candidates, targets] = await Promise.all([
     listPhotos(db, ctx, { caseId: id }),
@@ -130,15 +130,15 @@ export default async function CasePage({ params, searchParams }: { params: Promi
               <QuickExpectedEditor
                 lines={d.lines.map((l) => ({
                   id: l.id,
-                  label: l.label,
+                  label: tn(l.label),
                   quantity: l.quantity,
-                  hint: l.typeName ? l.typeName : l.categoryName ? t("any {category} (incl. subcategories)", { category: l.categoryName }) : t("any item (incl. subcategories)"),
+                  hint: l.typeName ? tn(l.typeName) : l.categoryName ? t("any {category} (incl. subcategories)", { category: tn(l.categoryName) }) : t("any item (incl. subcategories)"),
                   less: stepLineAction.bind(null, id, l.id, -1),
                   more: stepLineAction.bind(null, id, l.id, 1),
                   remove: removeLineAction.bind(null, id, l.id),
                 }))}
                 addAction={addLineAction.bind(null, id)}
-                categories={targets.categories}
+                categories={targets.categories.map((c) => ({ ...c, label: t("Any {category}", { category: tn(c.label.replace(/^Any /, "")) }) }))}
                 useContents={{ action: applyContentsAction.bind(null, id), pieces: packedPieces }}
               />
             </div>
@@ -179,8 +179,8 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                       <li key={r.line.id} className="px-4 py-2.5">
                         <div className="flex items-center gap-3">
                           {ok ? <CircleCheck className="size-4 shrink-0 text-ok" aria-label={t("Complete")} /> : <CircleAlert className="size-4 shrink-0 text-warn" aria-label={t("Incomplete")} />}
-                          <Thumb photoId={lineImage.get(r.line.id) ?? null} name={r.line.label} className="size-9" />
-                          <span className="min-w-0 flex-1 text-sm font-medium">{r.line.label}</span>
+                          <Thumb photoId={lineImage.get(r.line.id) ?? null} name={tn(r.line.label)} className="size-9" />
+                          <span className="min-w-0 flex-1 text-sm font-medium">{tn(r.line.label)}</span>
                           <span className={cn("text-sm tabular-nums", ok ? "text-muted" : "font-semibold text-warn")}>
                             {r.matched} / {r.line.quantity}
                           </span>
@@ -188,7 +188,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                         {(r.items.length > 0 || !ok) && (
                           <ul className="mt-1 ml-7 space-y-1 border-l border-border pl-3">
                             {r.items.map((x) => (
-                              <PackedPiece key={x.id} t={t} caseId={id} canEdit={canEdit} item={byId.get(x.id)!} units={x.units} />
+                              <PackedPiece key={x.id} t={t} tn={tn} caseId={id} canEdit={canEdit} item={byId.get(x.id)!} units={x.units} />
                             ))}
                             {!ok && <li className="text-xs text-warn">{t("{n} missing — pack from the project below", { n: r.missing })}</li>}
                           </ul>
@@ -205,8 +205,8 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                   {cmp.lines.length > 0 && <h3 className="mb-1 text-xs font-semibold tracking-wide text-danger uppercase">{t("Not expected in this set")}</h3>}
                   <ul className="space-y-1">
                     {cmp.lines.length === 0
-                      ? packedRows.map((i) => <PackedPiece key={i.id} t={t} caseId={id} canEdit={canEdit} item={i} units={i.units} itemIds={i.itemIds} withName />)
-                      : cmp.extras.map((e) => <PackedPiece key={e.id} t={t} caseId={id} canEdit={canEdit} item={byId.get(e.id)!} units={e.units} withName />)}
+                      ? packedRows.map((i) => <PackedPiece key={i.id} t={t} tn={tn} caseId={id} canEdit={canEdit} item={i} units={i.units} itemIds={i.itemIds} withName />)
+                      : cmp.extras.map((e) => <PackedPiece key={e.id} t={t} tn={tn} caseId={id} canEdit={canEdit} item={byId.get(e.id)!} units={e.units} withName />)}
                   </ul>
                 </div>
               )}
@@ -226,7 +226,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
                       rows={sortedCandidates.map((c) => ({
                         key: c.id,
                         itemIds: c.itemIds,
-                        typeName: c.typeName,
+                        typeName: tn(c.typeName),
                         serialNumber: c.serialNumber,
                         assetNumber: c.assetNumber,
                         units: c.units,
@@ -260,12 +260,12 @@ export default async function CasePage({ params, searchParams }: { params: Promi
 type PackedItem = Awaited<ReturnType<typeof getCaseDetail>>["items"][number];
 
 /** One packed piece (or several units without serial): identifiers, state, "Take out". */
-function PackedPiece({ t, caseId, canEdit, item, units, itemIds, withName = false }: { t: T; caseId: string; canEdit: boolean; item: PackedItem; units: number; itemIds?: string[]; withName?: boolean }) {
+function PackedPiece({ t, tn, caseId, canEdit, item, units, itemIds, withName = false }: { t: T; tn: TN; caseId: string; canEdit: boolean; item: PackedItem; units: number; itemIds?: string[]; withName?: boolean }) {
   return (
     <li className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-      {withName && <Thumb photoId={item.imageId} name={item.typeName} className="size-8" />}
+      {withName && <Thumb photoId={item.imageId} name={tn(item.typeName)} className="size-8" />}
       <Link href={`/equipment/${item.id}`} className="min-w-0 flex-1 hover:underline">
-        {withName && <span className="mr-2 font-medium">{item.typeName}</span>}
+        {withName && <span className="mr-2 font-medium">{tn(item.typeName)}</span>}
         <span className="text-xs text-muted">
           <Mono>{item.serialNumber ? `SN ${item.serialNumber}` : units > 1 ? t("{n} pcs · no serial", { n: units }) : t("No serial")}</Mono>
         </span>

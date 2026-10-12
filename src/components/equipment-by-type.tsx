@@ -3,8 +3,8 @@ import { Camera, ChevronRight } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { STATUS_LABEL } from "@/lib/format";
 import type { T } from "@/lib/i18n/core";
-import { getT } from "@/server/i18n";
-import { groupItems, Thumb } from "./equipment-table";
+import { getT, getTN } from "@/server/i18n";
+import { groupItems, localizeNames, Thumb } from "./equipment-table";
 import { EntryTick, TypeTick } from "./select-tools";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
 
@@ -148,8 +148,8 @@ export async function EquipmentByType({
   /** Listed under a set's heading already: don't repeat the set on every line. */
   hideSet?: boolean;
 }) {
-  const t = await getT();
-  const groups = sortGroups(byType(items), sort);
+  const [t, tn] = await Promise.all([getT(), getTN()]);
+  const groups = sortGroups(byType(localizeNames(items, tn)), sort);
   return (
     <ul data-type-scope className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface">
       {groups.map((g) => {
@@ -201,7 +201,7 @@ export async function EquipmentByType({
 
 /** Image view: one card per equipment type with its quantity (opens that type in the list). */
 export async function TypeGrid({ items, hrefFor, sort }: { items: ItemRow[]; hrefFor: (typeName: string) => string; sort?: string }) {
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {sortGroups(byType(items), sort).map((g) => {
@@ -212,15 +212,15 @@ export async function TypeGrid({ items, hrefFor, sort }: { items: ItemRow[]; hre
               <div className="relative flex aspect-[4/3] items-center justify-center bg-gradient-to-b from-white to-zinc-100 text-zinc-400">
                 {g.imageId ? (
                   // eslint-disable-next-line @next/next/no-img-element -- private, auth-checked images
-                  <img src={`/api/photos/${g.imageId}?size=thumb`} alt={g.typeName} loading="lazy" className="h-full w-full object-contain p-2 mix-blend-multiply" />
+                  <img src={`/api/photos/${g.imageId}?size=thumb`} alt={tn(g.typeName)} loading="lazy" className="h-full w-full object-contain p-2 mix-blend-multiply" />
                 ) : (
                   <Camera className="size-10" strokeWidth={1.25} aria-hidden />
                 )}
                 <span className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-0.5 text-xs font-medium text-white tabular-nums">× {g.units}</span>
               </div>
               <div className="space-y-0.5 p-3">
-                <div className="line-clamp-2 text-sm font-medium">{g.typeName}</div>
-                <div className="truncate text-xs text-muted">{g.categoryName ?? " "}</div>
+                <div className="line-clamp-2 text-sm font-medium">{tn(g.typeName)}</div>
+                <div className="truncate text-xs text-muted">{g.categoryName ? tn(g.categoryName) : " "}</div>
                 {statuses.length > 0 && (
                   <div className="flex flex-wrap gap-x-2 text-xs">
                     {statuses.map((s) => (

@@ -3,8 +3,8 @@ import { eq } from "drizzle-orm";
 import { cookies, headers } from "next/headers";
 import { cache } from "react";
 import { makeFormat } from "@/lib/format";
-import { INTL_LOCALE, isLocale, makeT, translateMessage, type Locale } from "@/lib/i18n/core";
-import { dictionaryFor } from "@/lib/i18n/dictionaries";
+import { INTL_LOCALE, isLocale, makeT, makeTN, translateMessage, type Locale } from "@/lib/i18n/core";
+import { dictionaryFor, namesFor } from "@/lib/i18n/dictionaries";
 import { getSessionUser } from "./auth/context";
 import { getDb } from "./db/client";
 import * as s from "./db/schema";
@@ -46,4 +46,9 @@ export async function getIntlLocale() {
 export async function getFormat() {
   const locale = await getLocale();
   return makeFormat(INTL_LOCALE[locale], makeT(dictionaryFor(locale)));
+}
+
+/** Category / brandless equipment names in the user's language: `const tn = await getTN(); tn(type.name)`. */
+export async function getTN() {
+  return makeTN(namesFor(await getLocale()));
 }

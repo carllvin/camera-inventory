@@ -7,7 +7,7 @@ import { getDb } from "@/server/db/client";
 import { listCases } from "@/server/domain/cases";
 import { requireRole } from "@/server/domain/context";
 import { listItems } from "@/server/domain/equipment-items";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 import { assertUuid } from "@/server/pages";
 import { removeEquipmentAction } from "../../actions";
 
@@ -23,7 +23,7 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
   const ctx = await getCtx();
   requireRole(ctx, "member");
   const db = getDb();
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   const [items, cases] = await Promise.all([listItems(db, ctx, { projectId: id, limit: 500 }), listCases(db, ctx, { projectId: id })]);
   if (items.length === 0) return <EmptyState title={t("Nothing on this project")} />;
   const rows = groupItems(items);
@@ -57,11 +57,11 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
           <ul className="divide-y divide-border">
             {rows.map((r) => (
               <li key={r.id} className="flex items-center gap-3 px-4 py-2">
-                <input type="checkbox" name="row" value={r.id} id={`row-${r.id}`} defaultChecked={r.itemIds.some((i) => preselected.has(i))} aria-label={t("Remove {item}", { item: `${r.typeName}${r.serialNumber ? ` ${r.serialNumber}` : ""}` })} className={check} />
+                <input type="checkbox" name="row" value={r.id} id={`row-${r.id}`} defaultChecked={r.itemIds.some((i) => preselected.has(i))} aria-label={t("Remove {item}", { item: `${tn(r.typeName)}${r.serialNumber ? ` ${r.serialNumber}` : ""}` })} className={check} />
                 <input type="hidden" name={`ids_${r.id}`} value={r.itemIds.join(",")} />
-                <Thumb photoId={r.imageId} name={r.typeName} className="size-9" />
+                <Thumb photoId={r.imageId} name={tn(r.typeName)} className="size-9" />
                 <label htmlFor={`row-${r.id}`} className="min-w-0 flex-1 cursor-pointer">
-                  <div className="truncate text-sm">{r.typeName}</div>
+                  <div className="truncate text-sm">{tn(r.typeName)}</div>
                   <div className="truncate text-xs text-muted">
                     <Mono>{r.serialNumber ? t("SN {sn}", { sn: r.serialNumber }) : t("No serial")}</Mono>
                     {r.caseName && ` · ${r.caseName}`}
@@ -77,7 +77,7 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
                       max={r.units}
                       defaultValue={r.units}
                       inputMode="numeric"
-                      aria-label={t("How many {item} (of {n})", { item: r.typeName, n: r.units })}
+                      aria-label={t("How many {item} (of {n})", { item: tn(r.typeName), n: r.units })}
                       className="w-14 rounded-md border border-border bg-surface px-1.5 py-1 text-right tabular-nums"
                     />
                     {t("of {n}", { n: r.units })}

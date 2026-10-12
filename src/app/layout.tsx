@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { I18nProvider } from "@/components/i18n";
-import { dictionaryFor } from "@/lib/i18n/dictionaries";
+import { dictionaryFor, namesFor } from "@/lib/i18n/dictionaries";
 import { getLocale } from "@/server/i18n";
 import "./globals.css";
 
@@ -26,7 +26,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang={locale}>
       <body className="min-h-dvh font-sans">
-        <I18nProvider locale={locale} dict={dictionaryFor(locale)}>
+        <I18nProvider locale={locale} dict={dictionaryFor(locale)} names={namesFor(locale)}>
           {children}
         </I18nProvider>
       </body>

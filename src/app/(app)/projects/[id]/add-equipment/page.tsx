@@ -6,7 +6,7 @@ import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { listItems } from "@/server/domain/equipment-items";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 import { addItemToProjectAction } from "../../actions";
 
 export default async function AddEquipmentPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ q?: string }> }) {
@@ -14,7 +14,7 @@ export default async function AddEquipmentPage({ params, searchParams }: { param
   const ctx = await getCtx();
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const items = await listItems(getDb(), ctx, { location: "off_project", q, limit: 100 });
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_18rem]">
       <Card className="self-start p-4 lg:order-last">
@@ -41,7 +41,7 @@ export default async function AddEquipmentPage({ params, searchParams }: { param
             {items.map((i) => (
               <li key={i.id} className="flex items-center gap-3 px-4 py-2.5">
                 <div className="min-w-0 flex-1">
-                  <div className="truncate text-sm font-medium">{i.typeName}</div>
+                  <div className="truncate text-sm font-medium">{tn(i.typeName)}</div>
                   <div className="text-xs text-muted">
                     <Mono>{[i.serialNumber && t("SN {sn}", { sn: i.serialNumber }), i.assetNumber && t("Asset {n}", { n: i.assetNumber }), i.trackingMode === "bulk" && t("Qty {n}", { n: i.quantity })].filter(Boolean).join(" · ") || t("No serial")}</Mono>
                     {" · "}

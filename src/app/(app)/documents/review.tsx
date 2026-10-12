@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
-import { useT, useTranslateMessage } from "@/components/i18n";
+import { useT, useTN, useTranslateMessage } from "@/components/i18n";
 import { TypePicker } from "@/components/type-picker";
 import { Badge, Mono } from "@/components/ui";
 import { cn } from "@/lib/format";
@@ -91,6 +91,7 @@ function NewTypeStrip({ draft, lineId }: { draft: NewTypeDraft; lineId: string }
 /** One reviewable line: collapsed summary, tap to edit. */
 export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine; items?: Option[]; mode?: "delivery" | "return" }) {
   const t = useT();
+  const tn = useTN();
   const tm = useTranslateMessage();
   const needsAttention = line.resolution === "pending" || line.resolution === "discrepancy";
   const [open, setOpen] = useState(needsAttention);
@@ -98,7 +99,7 @@ export function LineCard({ line, items, mode = "delivery" }: { line: ReviewLine;
   const r = labels[line.resolution] ?? labels.pending!;
   const typeLabel = mode === "return" && line.matchedEquipmentItemId
     ? items?.find((i) => i.value === line.matchedEquipmentItemId)?.label
-    : line.typeName;
+    : line.typeName && tn(line.typeName);
   return (
     <li className={cn("rounded-xl border bg-surface", needsAttention ? "border-warn/50" : "border-border", line.resolution === "ignore" && "opacity-70")}>
       <button type="button" onClick={() => setOpen((o) => !o)} className="flex w-full items-start gap-3 px-4 py-3 text-left" aria-expanded={open}>

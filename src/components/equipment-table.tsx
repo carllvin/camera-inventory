@@ -3,8 +3,8 @@ import { Camera } from "lucide-react";
 import type { ItemRow } from "@/server/domain/equipment-items";
 import { cn } from "@/lib/format";
 import { groupUnits } from "@/lib/group-units";
-import type { T } from "@/lib/i18n/core";
-import { getT } from "@/server/i18n";
+import type { T, TN } from "@/lib/i18n/core";
+import { getT, getTN } from "@/server/i18n";
 import { ConditionBadge, Mono, StatusBadge } from "./ui";
 import { Thumb } from "./thumb";
 
@@ -19,14 +19,19 @@ function identifiers(i: ItemRow, t: T) {
 
 /** Small square product image (item photo or the type's reference image) on a neutral background. */
 /** Items without a serial number of the same type, owner, place and state show as one row with their unit count. */
+/** Category and brandless type names in the user's language. */
+export function localizeNames<R extends { typeName: string; categoryName: string | null }>(rows: R[], tn: TN): R[] {
+  return rows.map((r) => ({ ...r, typeName: tn(r.typeName), categoryName: r.categoryName && tn(r.categoryName) }));
+}
+
 export function groupItems(items: ItemRow[]) {
   return groupUnits(items.map((i) => ({ ...i, equipmentTypeId: i.typeId })));
 }
 
 /** Equipment list: table on wide screens, stacked cards on phones. */
 export async function EquipmentTable({ items: rows, showProject = true }: { items: ItemRow[]; showProject?: boolean }) {
-  const t = await getT();
-  const items = groupItems(rows);
+  const [t, tn] = await Promise.all([getT(), getTN()]);
+  const items = groupItems(localizeNames(rows, tn));
   return (
     <>
       <div className="hidden overflow-hidden rounded-xl border border-border bg-surface md:block">
@@ -109,8 +114,8 @@ export async function EquipmentTable({ items: rows, showProject = true }: { item
 
 /** Image view: product pictures first, for recognising equipment at a glance. */
 export async function EquipmentGrid({ items: rows, showProject = true }: { items: ItemRow[]; showProject?: boolean }) {
-  const t = await getT();
-  const items = groupItems(rows);
+  const [t, tn] = await Promise.all([getT(), getTN()]);
+  const items = groupItems(localizeNames(rows, tn));
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {items.map((i) => (

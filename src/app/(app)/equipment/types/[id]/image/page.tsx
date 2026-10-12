@@ -11,7 +11,7 @@ import { getEquipmentType } from "@/server/domain/equipment-types";
 import { defaultImageQuery, googleImagesUrl, listCandidates } from "@/server/domain/image-picker";
 import { listPhotos } from "@/server/domain/photos";
 import { assertUuid, orNotFound } from "@/server/pages";
-import { getT } from "@/server/i18n";
+import { getT, getTN } from "@/server/i18n";
 import { searchImagesAction, setPrimaryAction, useCandidateAction, useImageUrlAction } from "../../image-actions";
 
 export async function generateMetadata() {
@@ -23,7 +23,7 @@ export default async function TypeImagePage({ params }: { params: Promise<{ id: 
   const { id } = await params;
   assertUuid(id);
   const ctx = await getCtx();
-  const t = await getT();
+  const [t, tn] = await Promise.all([getT(), getTN()]);
   if (!hasRole(ctx, "member")) return <NoPermission />;
   const db = getDb();
   const [et, photos, candidates] = await Promise.all([orNotFound(getEquipmentType(db, ctx, id)), listPhotos(db, ctx, { equipmentTypeId: id }), listCandidates(db, ctx, id)]);
@@ -31,7 +31,7 @@ export default async function TypeImagePage({ params }: { params: Promise<{ id: 
   const query = candidates[0]?.query ?? defaultImageQuery(et);
   return (
     <>
-      <PageHeader title={t("Reference image")} subtitle={et.name} back={{ href: `/equipment/types/${id}`, label: et.name }} />
+      <PageHeader title={t("Reference image")} subtitle={tn(et.name)} back={{ href: `/equipment/types/${id}`, label: tn(et.name) }} />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="min-w-0 space-y-6">
           <Card>

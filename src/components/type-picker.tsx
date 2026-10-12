@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Loader2, X } from "lucide-react";
 import { cn } from "@/lib/format";
 import { FieldShell, useField } from "./forms";
-import { useT } from "./i18n";
+import { useT, useTN } from "./i18n";
 
 export interface TypeChoice {
   id: string;
@@ -57,6 +57,7 @@ export function TypePicker({
   "aria-label"?: string;
 }) {
   const t = useT();
+  const tn = useTN();
   const echoed = useField(name, defaultValue ? `${valuePrefix}${defaultValue.id}` : null);
   const echoedLabel = useField(`${name}__label`, defaultValue?.name ?? null);
   const [selected, setSelected] = useState<{ value: string; label: string } | null>(echoed.value ? { value: echoed.value, label: echoedLabel.value || echoed.value } : null);
@@ -94,7 +95,7 @@ export function TypePicker({
   const words = query.toLowerCase().split(/\s+/).filter(Boolean);
   const extras = extraOptions.filter((o) => words.every((w) => o.label.toLowerCase().includes(w)));
   const options: Option[] = [
-    ...results.map((r) => ({ value: `${valuePrefix}${r.id}`, label: r.name, detail: r.category, type: r })),
+    ...results.map((r) => ({ value: `${valuePrefix}${r.id}`, label: tn(r.name), detail: r.category && tn(r.category), type: r })),
     ...extras.map((o) => ({ ...o, detail: extraLabel })),
   ];
 
