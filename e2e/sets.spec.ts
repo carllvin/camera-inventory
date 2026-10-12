@@ -193,10 +193,13 @@ test("remove items from a project without a return note, then add them back", as
   await expect(free).toHaveCount(n - 1);
 });
 
-test("project equipment: one line per type with quantity, serials when opened", async ({ page }) => {
+test("project equipment (Equipment tab): one line per type with quantity, serials when opened", async ({ page }) => {
   await login(page);
   await go(page, "/projects");
   await page.getByRole("main").getByRole("link", { name: /Feature Film X/ }).first().click();
+  // The project's Equipment tab opens the equipment list for this project.
+  await page.getByRole("navigation", { name: "Sections" }).getByRole("link", { name: /^Equipment/ }).click();
+  await expect(page).toHaveURL(/\/equipment\?projectId=/);
   await page.getByRole("link", { name: "By type" }).click();
   const line = page.locator("summary").filter({ hasText: "bebob B290cine" });
   await expect(line).toHaveCount(1);
