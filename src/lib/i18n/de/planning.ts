@@ -116,4 +116,11 @@ export const planning: Dict = {
   "Until (return)": "Bis (Rückgabe)",
   "Order by": "Bestellen bis",
   "Reminder day; empty = {n} days before": "Erinnerungstag; leer = {n} Tage vorher",
+  "Plan extra equipment on {date}": "Zusatzmaterial planen für {date}",
+  "Click a day in the calendar (or + next to it) to plan extra equipment for it.": "Einen Tag im Kalender anklicken (oder das + daneben), um dafür Zusatzmaterial zu planen.",
+  "Plan from today": "Ab heute planen",
+  "Equipment on this project": "Equipment auf diesem Projekt",
+  Overview: "Übersicht",
+  "{workspace} · all projects": "{workspace} · alle Projekte",
+  "Choose a project.": "Ein Projekt wählen.",
 };

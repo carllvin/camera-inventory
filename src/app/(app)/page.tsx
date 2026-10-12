@@ -8,24 +8,25 @@ import { getDashboard } from "@/server/domain/overview";
 import { listProjects } from "@/server/domain/projects";
 import { getCurrentProject } from "@/server/current-project";
 import { getFormat, getT } from "@/server/i18n";
-import { ProjectDashboard } from "./project-dashboard";
+import { redirect } from "next/navigation";
 
 export async function generateMetadata() {
   const t = await getT();
-  return { title: t("Dashboard") };
+  return { title: t("Overview") };
 }
 
 export default async function DashboardPage() {
   const ctx = await getCtx();
   const { current } = await getCurrentProject();
-  if (current) return <ProjectDashboard ctx={ctx} projectId={current.id} />;
+  // The start page is the current project's page.
+  if (current) redirect(`/projects/${current.id}`);
   const db = getDb();
   const [{ counts, recent, issues }, projects] = await Promise.all([getDashboard(db, ctx), listProjects(db, ctx)]);
   const [t, f] = await Promise.all([getT(), getFormat()]);
   const active = projects.filter((p) => p.status !== "closed");
   return (
     <>
-      <PageHeader title={t("Dashboard")} subtitle={ctx.workspaceName} />
+      <PageHeader title={t("Overview")} subtitle={t("{workspace} · all projects", { workspace: ctx.workspaceName })} />
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         <Stat label={t("Active projects")} value={counts.active_projects} href="/projects" />
         <Stat label={t("Items on projects")} value={counts.on_projects} href="/equipment?location=on_project" />

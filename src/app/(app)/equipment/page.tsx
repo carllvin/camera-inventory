@@ -1,4 +1,6 @@
-import { Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
+import { getProjectSummary } from "@/server/domain/projects";
+import { UUID_RE } from "@/server/pages";
 import { EquipmentBrowser, type BrowserParams } from "@/components/equipment-browser";
 import { bulkEquipmentAction } from "../projects/actions";
 import { Tabs, EmptyState, LinkButton, PageHeader } from "@/components/ui";
@@ -17,19 +19,22 @@ export async function generateMetadata() {
   return { title: t("Equipment") };
 }
 
-const LIMIT = 300;
+const LIMIT = 500;
 
-type SP = BrowserParams;
+type SP = BrowserParams & { projectId?: string };
 
 export default async function EquipmentPage({ searchParams }: { searchParams: Promise<SP> }) {
   const sp = await searchParams;
   const ctx = await getCtx();
   const t = await getT();
   const db = getDb();
-  // The project chosen in the top bar scopes the list ("All projects" there shows everything).
-  const { current } = await getCurrentProject();
-  const projectId = current?.id;
-  const { view: _view, sort: _sort, select: _select, ...filterParams } = sp;
+  // A project's Equipment tab passes ?projectId=; otherwise the project chosen in the top bar
+  // scopes the list ("All projects" there shows everything).
+  const { current, active } = await getCurrentProject();
+  const fromUrl = sp.projectId && UUID_RE.test(sp.projectId) ? await getProjectSummary(db, ctx, sp.projectId) : null;
+  const project = fromUrl ? { id: fromUrl.project.id, name: fromUrl.project.name, status: fromUrl.project.status } : current ? { id: current.id, name: current.name, status: active.find((p) => p.id === current.id)?.status ?? "prep" } : null;
+  const projectId = project?.id;
+  const { view: _view, sort: _sort, select: _select, projectId: _p, ...filterParams } = sp;
   const [items, { flat: categories }, rentalHouses, cases] = await Promise.all([
     listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, limit: LIMIT }),
     getCategoryTree(db, ctx),
@@ -40,14 +45,29 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
   return (
     <>
       <PageHeader
-        title={current ? t("Equipment · {project}", { project: current.name }) : t("Equipment")}
-        subtitle={current ? t("Equipment on the project chosen in the top bar") : t("Every physical item, across all projects and rental houses")}
+        title={project ? t("Equipment · {project}", { project: project.name }) : t("Equipment")}
+        subtitle={project ? (fromUrl ? t("Equipment on this project") : t("Equipment on the project chosen in the top bar")) : t("Every physical item, across all projects and rental houses")}
+        back={fromUrl ? { href: `/projects/${fromUrl.project.id}`, label: fromUrl.project.name } : undefined}
         actions={
-          hasRole(ctx, "member") && (
+          hasRole(ctx, "member") &&
+          (project ? (
+            <>
+              {project.status !== "closed" && (
+                <LinkButton href={`/projects/${project.id}/add-equipment`} variant="primary">
+                  <Plus className="size-4" /> {t("Add equipment")}
+                </LinkButton>
+              )}
+              {items.length > 0 && (
+                <LinkButton href={`/projects/${project.id}/remove`}>
+                  <Minus className="size-4" /> {t("Remove")}
+                </LinkButton>
+              )}
+            </>
+          ) : (
             <LinkButton href="/equipment/new" variant="primary">
               <Plus className="size-4" /> {t("Add equipment")}
             </LinkButton>
-          )
+          ))
         }
       />
       <Tabs
@@ -69,7 +89,16 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         hasFilters={hasFilters}
         bulkAction={projectId && hasRole(ctx, "member") ? bulkEquipmentAction.bind(null, projectId) : undefined}
         empty={
-          <EmptyState title={t("No equipment yet")} action={hasRole(ctx, "member") && <LinkButton href="/equipment/new" variant="primary">{t("Add equipment")}</LinkButton>} />
+          project ? (
+            <EmptyState
+              title={t("No equipment on this project yet")}
+              action={hasRole(ctx, "member") && project.status !== "closed" && <LinkButton href={`/projects/${project.id}/add-equipment`} variant="primary">{t("Add equipment")}</LinkButton>}
+            >
+              {t("Upload a delivery note, add equipment from the database or create new items.")}
+            </EmptyState>
+          ) : (
+            <EmptyState title={t("No equipment yet")} action={hasRole(ctx, "member") && <LinkButton href="/equipment/new" variant="primary">{t("Add equipment")}</LinkButton>} />
+          )
         }
       />
     </>

@@ -93,7 +93,8 @@ test("new user signs up, creates a workspace and sees an empty, isolated dashboa
   const withCatalog = info.project.name === "desktop";
   if (!withCatalog) await page.getByLabel(/standard equipment catalog/).uncheck();
   await page.getByRole("button", { name: "Create workspace" }).click();
-  await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
+  // No project yet: the workspace overview.
+  await expect(page.getByRole("heading", { name: "Overview" })).toBeVisible();
   await expect(page.getByText("No active projects")).toBeVisible();
   // Demo workspace data must not leak into the new workspace.
   await go(page, "/search?q=35-10421");
@@ -109,10 +110,12 @@ test("new user signs up, creates a workspace and sees an empty, isolated dashboa
   }
 });
 
-test("start page focuses on the current project: what needs attention, sets, rental houses", async ({ page }) => {
+test("start page is the current project's page: what needs attention, calendar, sets", async ({ page }) => {
   await login(page);
   await go(page, "/");
+  await expect(page).toHaveURL(/\/projects\/[0-9a-f-]{36}$/);
   await expect(page.getByRole("heading", { name: "Feature Film X" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Calendar" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Needs attention" })).toBeVisible();
   // The seed has one missing battery and an A-Cam set short of one item (or, after other tests, a summary line).
   await expect(page.getByRole("link", { name: /A-Cam Set: 1 expected item not in the set|sets are not complete/ })).toBeVisible();

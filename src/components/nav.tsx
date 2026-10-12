@@ -9,7 +9,6 @@ import {
   CircleAlert,
   FileText,
   History,
-  LayoutDashboard,
   Menu,
   ScanLine,
   Settings,
@@ -21,7 +20,6 @@ import type { T } from "@/lib/i18n/core";
 import { useT } from "./i18n";
 
 const desktop = (t: T) => [
-  { href: "/", label: t("Dashboard"), icon: LayoutDashboard },
   { href: "/projects", label: t("Projects"), icon: Briefcase },
   { href: "/equipment", label: t("Equipment"), icon: Camera },
   { href: "/sets", label: t("Sets"), icon: Boxes },

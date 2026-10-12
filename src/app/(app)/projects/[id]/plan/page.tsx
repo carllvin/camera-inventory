@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { CalendarPlus } from "lucide-react";
-import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
-import { TypePicker } from "@/components/type-picker";
+import { ActionForm, SubmitButton } from "@/components/forms";
+import { NeedFields } from "@/components/need-fields";
 import { Badge, Card, CardHeader, EmptyState } from "@/components/ui";
 import { todayIso } from "@/lib/format";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
-import { DEFAULT_ORDER_DAYS, listNeeds, type PlannedNeed } from "@/server/domain/planned-needs";
+import { listNeeds, type PlannedNeed } from "@/server/domain/planned-needs";
 import { listRentalHouses } from "@/server/domain/rental-houses";
 import { getFormat, getT, getTN } from "@/server/i18n";
 import { cancelNeedAction, createNeedAction, restoreNeedAction, updateNeedAction } from "../../actions";
@@ -17,8 +17,9 @@ export async function generateMetadata() {
   return { title: t("Plan extra equipment") };
 }
 
-export default async function ProjectPlanPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function ProjectPlanPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ from?: string }> }) {
+  const [{ id }, sp] = await Promise.all([params, searchParams]);
+  const from = sp.from && /^\d{4}-\d{2}-\d{2}$/.test(sp.from) ? sp.from : undefined;
   const ctx = await getCtx();
   const db = getDb();
   const [t, tn, f] = await Promise.all([getT(), getTN(), getFormat()]);
@@ -30,32 +31,7 @@ export default async function ProjectPlanPage({ params }: { params: Promise<{ id
   const cancelled = needs.filter((n) => n.status === "cancelled");
   const houseOptions = houses.map((h) => ({ value: h.id, label: h.name }));
 
-  const fields = (n: PlannedNeed | null, key: string) => (
-    <>
-      <TypePicker
-        name="equipmentTypeId"
-        id={`type-${key}`}
-        label={t("Equipment type")}
-        defaultValue={n?.equipmentTypeId && n.typeName ? { id: n.equipmentTypeId, name: n.typeName } : null}
-        emptyLabel={t("No type (describe it below)")}
-        className="sm:col-span-2"
-      />
-      <Field label={t("Description")} name="label" id={`label-${key}`} defaultValue={n && n.label !== n.typeName ? n.label : ""} hint={t("Optional with a type; e.g. “Technocrane remote head”")} className="sm:col-span-2" />
-      <Field label={t("Quantity")} name="quantity" id={`qty-${key}`} type="number" min={1} max={999} defaultValue={n?.quantity ?? 1} />
-      <Select label={t("Rental house")} name="rentalHouseId" id={`rh-${key}`} placeholder={t("Any")} defaultValue={n?.rentalHouseId ?? null} options={houseOptions} />
-      <Field label={t("Needed from")} name="needFrom" id={`from-${key}`} type="date" required defaultValue={n?.needFrom ?? ""} />
-      <Field label={t("Until (return)")} name="needUntil" id={`until-${key}`} type="date" required defaultValue={n?.needUntil ?? ""} />
-      <Field
-        label={t("Order by")}
-        name="orderBy"
-        id={`order-${key}`}
-        type="date"
-        defaultValue={n?.orderBy ?? ""}
-        hint={t("Reminder day; empty = {n} days before", { n: DEFAULT_ORDER_DAYS })}
-      />
-      <Field label={t("Notes")} name="notes" id={`notes-${key}`} defaultValue={n?.notes ?? ""} />
-    </>
-  );
+  const fields = (n: PlannedNeed | null, key: string) => <NeedFields t={t} need={n} formKey={key} rentalHouses={houseOptions} from={key === "new" ? from : undefined} />;
 
   const span = (n: PlannedNeed) => (n.needFrom === n.needUntil ? f.formatDate(n.needFrom) : `${f.formatDate(n.needFrom)} – ${f.formatDate(n.needUntil)}`);
 

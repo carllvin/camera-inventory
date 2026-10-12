@@ -2,12 +2,12 @@ import Link from "next/link";
 import { AlertTriangle, Box, CalendarClock, CalendarPlus, CircleCheck, FileText, PackageOpen, Search, Wrench } from "lucide-react";
 import { ActivityList } from "@/components/activity";
 import { CaseProgress } from "@/components/case-list";
-import { Card, CardHeader, LinkButton, ProjectStatusBadge, Stat } from "@/components/ui";
+import { Card, CardHeader } from "@/components/ui";
 import { cn, DOCUMENT_KIND_LABEL, todayIso } from "@/lib/format";
-import { projectTimeline } from "@/lib/project-timeline";
 import { getDb } from "@/server/db/client";
 import { listCases } from "@/server/domain/cases";
-import type { Ctx } from "@/server/domain/context";
+import { hasRole, type Ctx } from "@/server/domain/context";
+import { CalendarView } from "@/components/calendar-view";
 import { listItems } from "@/server/domain/equipment-items";
 import { listActivity, listDocuments, listIssues } from "@/server/domain/overview";
 import { getProjectSummary } from "@/server/domain/projects";
@@ -18,7 +18,8 @@ import { getFormat, getT, getTranslateMessage, getTN } from "@/server/i18n";
 type Attention = { key: string; icon: typeof Box; tone: "danger" | "warn" | "neutral"; text: string; href: string };
 
 /** Start page while a project is in focus: where it stands and what needs doing. */
-export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId: string }) {
+/** The project page: what needs doing, the calendar, sets, activity. Header and figures come from the project layout. */
+export async function ProjectDashboard({ ctx, projectId, month, add }: { ctx: Ctx; projectId: string; month?: string; add?: string }) {
   const db = getDb();
   const [{ project, counts, rentalHouses }, items, cases, issues, documents, activity] = await Promise.all([
     getProjectSummary(db, ctx, projectId),
@@ -35,7 +36,8 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
   ]);
   const [t, f, tm, tn] = await Promise.all([getT(), getFormat(), getTranslateMessage(), getTN()]);
   const base = `/projects/${projectId}`;
-  const timeline = projectTimeline(project.startDate, project.endDate, todayIso());
+  // The equipment list (Equipment tab) for this project.
+  const eq = `/equipment?projectId=${projectId}`;
 
   const missing = items.filter((i) => i.status === "missing");
   const broken = items.filter((i) => i.condition === "damaged" || i.condition === "defective");
@@ -79,7 +81,7 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
       ? [{ key: "undated", icon: CalendarClock, tone: "neutral" as const, text: t("{pieces} without a return date: set the project's end or a date on the delivery note", { pieces: pieces(due.undatedUnits) }), href: `${base}/edit` }]
       : []),
     ...missing.slice(0, 5).map((i) => ({ key: `m-${i.id}`, icon: Search, tone: "danger" as const, text: t("Missing: {item}", { item: label(i) }), href: `/equipment/${i.id}` })),
-    ...(missing.length > 5 ? [{ key: "m-more", icon: Search, tone: "danger" as const, text: t("{n} more missing", { n: missing.length - 5 }), href: `${base}?status=missing` }] : []),
+    ...(missing.length > 5 ? [{ key: "m-more", icon: Search, tone: "danger" as const, text: t("{n} more missing", { n: missing.length - 5 }), href: `${eq}&status=missing` }] : []),
     ...broken.slice(0, 5).map((i) => ({ key: `b-${i.id}`, icon: Wrench, tone: "warn" as const, text: i.condition === "defective" ? t("Defective: {item}", { item: label(i) }) : t("Damaged: {item}", { item: label(i) }), href: `/equipment/${i.id}` })),
     ...(issues.length ? [{ key: "issues", icon: AlertTriangle, tone: "warn" as const, text: `${issues.length === 1 ? t("1 open issue") : t("{n} open issues", { n: issues.length })}${issues[0] ? ` — ${issues[0].title}${issues.length > 1 ? " …" : ""}` : ""}`, href: `${base}/issues` }] : []),
     ...toReview.map((d) => ({
@@ -92,43 +94,12 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
     ...(incomplete.length > 3
       ? [{ key: "cases", icon: Box, tone: "warn" as const, text: t("{n} sets are not complete ({missing} expected items missing)", { n: incomplete.length, missing: incomplete.reduce((n, c) => n + c.comparison.missingTotal, 0) }), href: `${base}/sets` }]
       : incomplete.map((c) => ({ key: `c-${c.id}`, icon: Box, tone: "warn" as const, text: c.comparison.missingTotal === 1 ? t("{set}: 1 expected item not in the set", { set: c.name }) : t("{set}: {n} expected items not in the set", { set: c.name, n: c.comparison.missingTotal }), href: `/sets/${c.id}` }))),
-    ...(loose > 0 && cases.length > 0 ? [{ key: "loose", icon: PackageOpen, tone: "neutral" as const, text: loose === 1 ? t("1 piece not in any set") : t("{n} pieces not in any set", { n: loose }), href: `/equipment?caseId=none` }] : []),
+    ...(loose > 0 && cases.length > 0 ? [{ key: "loose", icon: PackageOpen, tone: "neutral" as const, text: loose === 1 ? t("1 piece not in any set") : t("{n} pieces not in any set", { n: loose }), href: `${eq}&caseId=none` }] : []),
   ];
-  const switchHint = t("Showing the current project. Switch to {all} in the header for the workspace overview.").split("{all}");
   const toneClass = { danger: "text-danger", warn: "text-warn", neutral: "text-muted" };
 
   return (
     <>
-      <header className="mb-5">
-        <div className="flex flex-wrap items-center gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">{project.name}</h1>
-          <ProjectStatusBadge status={project.status} />
-        </div>
-        <p className="mt-1 text-sm text-muted">
-          {[project.code, project.productionCompany, f.dateRange(project.startDate, project.endDate)].filter(Boolean).join(" · ")}
-          {timeline && (
-            <>
-              {" · "}
-              <span className={cn("font-medium", timeline.tone === "danger" ? "text-danger" : timeline.tone === "warn" ? "text-warn" : "text-text")}>{tm(timeline.text)}</span>
-            </>
-          )}
-        </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <LinkButton href={base}>{t("Equipment")}</LinkButton>
-          <LinkButton href={`${base}/sets`}>{t("Sets")}</LinkButton>
-          <LinkButton href="/documents/new">{t("Upload a note")}</LinkButton>
-          <LinkButton href="/calendar">{t("Calendar")}</LinkButton>
-          <LinkButton href={`${base}/plan`}>{t("Plan extra equipment")}</LinkButton>
-        </div>
-      </header>
-
-      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label={counts.units === 1 ? t("piece") : t("pieces")} value={counts.units} href={base} />
-        <Stat label={t("in use")} value={counts.in_use} href={`${base}?status=in_use`} />
-        <Stat label={t("missing")} value={counts.missing} tone={counts.missing ? "danger" : undefined} href={`${base}?status=missing`} />
-        <Stat label={t("open issues")} value={counts.open_issues} tone={counts.open_issues ? "warn" : undefined} href={`${base}/issues`} />
-      </div>
-
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
         <div className="min-w-0 space-y-6">
           <Card>
@@ -151,6 +122,14 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
             )}
           </Card>
 
+          <section aria-label={t("Calendar")}>
+            <h2 className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">{t("Calendar")}</h2>
+            <CalendarView ctx={ctx} projectId={projectId} basePath={base} month={month} add={add} canEdit={hasRole(ctx, "member")} showOverdue={false} />
+          </section>
+
+        </div>
+
+        <div className="min-w-0 space-y-6">
           <Card>
             <CardHeader title={t("Sets")} action={<Link href={`${base}/sets`} className="text-xs text-muted hover:text-text">{t("All sets")}</Link>} />
             {cases.length === 0 ? (
@@ -161,7 +140,7 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
                 </Link>
               </p>
             ) : (
-              <ul className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
+              <ul className="grid grid-cols-1 gap-px bg-border">
                 {cases.map((c) => (
                   <li key={c.id} className="bg-surface">
                     <Link href={`/sets/${c.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-2">
@@ -183,39 +162,6 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
             <CardHeader title={t("Recent activity")} action={<Link href={`${base}/history`} className="text-xs text-muted hover:text-text">{t("Full history")}</Link>} />
             <ActivityList events={activity} showProject={false} />
           </Card>
-        </div>
-
-        <div className="space-y-6">
-          <Card>
-            <CardHeader title={t("Rental houses")} />
-            {rentalHouses.length === 0 ? (
-              <p className="px-4 py-4 text-sm text-muted">{t("No rental houses yet.")}</p>
-            ) : (
-              <ul className="divide-y divide-border">
-                {rentalHouses.map((rh) => (
-                  <li key={rh.id}>
-                    <Link href={`${base}?rentalHouseId=${rh.id}`} className="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-2">
-                      <div className="min-w-0 flex-1">
-                        <div className="truncate text-sm font-medium">{rh.short_name ?? rh.name}</div>
-                        <div className="text-xs text-muted">{[rh.order_reference, rh.contact_name].filter(Boolean).join(" · ") || " "}</div>
-                      </div>
-                      <div className="text-right text-xs tabular-nums">
-                        <div>
-                          <span className="font-medium">{rh.on_project}</span> <span className="text-muted">{t("out")}</span>
-                        </div>
-                        {rh.returned > 0 && <div className="text-muted">{t("{n} returned", { n: rh.returned })}</div>}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </Card>
-          <p className="text-center text-xs text-muted">
-            {switchHint[0]}
-            <span className="font-medium">{t("All projects")}</span>
-            {switchHint[1]}
-          </p>
         </div>
       </div>
     </>

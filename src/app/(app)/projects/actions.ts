@@ -16,6 +16,7 @@ import { assignToProject } from "@/server/domain/equipment-items";
 import { createProject, deleteProject, linkRentalHouse, restoreProject, updateProject } from "@/server/domain/projects";
 import { packItem, packUnits, unpackItem, unpackUnits } from "@/server/domain/cases";
 import { DomainError } from "@/server/domain/context";
+import { UUID_RE } from "@/server/pages";
 import { updateItemState } from "@/server/domain/item-state";
 import { asc, inArray } from "drizzle-orm";
 import * as s from "@/server/db/schema";
@@ -187,5 +188,16 @@ export async function restoreNeedAction(id: string, _: ActionState, fd: FormData
     await restoreNeed(getDb(), await getCtx(), id);
     revalidatePath("/", "layout");
     return "Plan restored.";
+  });
+}
+
+/** From the workspace calendar: the project is chosen in the form. */
+export async function createNeedInProjectAction(_: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const projectId = String(fd.get("projectId") ?? "");
+    if (!UUID_RE.test(projectId)) throw new DomainError("VALIDATION", "Choose a project.");
+    await createNeed(getDb(), await getCtx(), projectId, fromForm(fd));
+    revalidatePath("/", "layout");
+    return "Planned.";
   });
 }

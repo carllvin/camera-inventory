@@ -41,7 +41,7 @@ export default async function RentalHousePage({ params }: { params: Promise<{ id
             <ul className="divide-y divide-border">
               {projects.map((p) => (
                 <li key={p.project_id}>
-                  <Link href={`/projects/${p.project_id}?rentalHouseId=${id}`} className="flex items-center justify-between px-4 py-2.5 text-sm hover:bg-surface-2">
+                  <Link href={`/equipment?projectId=${p.project_id}&rentalHouseId=${id}`} className="flex items-center justify-between px-4 py-2.5 text-sm hover:bg-surface-2">
                     <span>
                       <span className="font-medium">{p.project_name}</span>
                       <span className="ml-2 text-xs text-muted">{PROJECT_STATUS_LABEL[p.status] && t(PROJECT_STATUS_LABEL[p.status]!)}</span>
