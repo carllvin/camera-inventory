@@ -1,6 +1,7 @@
 import { sql } from "drizzle-orm";
 import {
   check,
+  date,
   foreignKey,
   index,
   integer,
@@ -48,6 +49,8 @@ export const equipmentItem = pgTable(
     status: equipmentStatus().notNull().default("available"),
     condition: equipmentCondition().notNull().default("unknown"),
     notes: text(),
+    /** Own return date; null = the set's, the delivery's or the project's end (in that order). */
+    returnDue: date({ mode: "string" }),
     /** Set when a bulk item was split (e.g. partial return of 12 of 20). */
     splitFromItemId: uuid(),
     /** Optimistic-concurrency counter; incremented by the app on every update (also eases offline sync later). */

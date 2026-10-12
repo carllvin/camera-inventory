@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight, CircleAlert, FileText, History, LayoutDashboard, LogOut, Search, Settings } from "lucide-react";
+import { CalendarDays, ChevronRight, CircleAlert, FileText, History, LayoutDashboard, LogOut, Search, Settings } from "lucide-react";
 import { PageHeader } from "@/components/ui";
 import { getCtx } from "@/server/auth/context";
 import { getT } from "@/server/i18n";
@@ -16,6 +16,7 @@ export default async function MorePage() {
   const LINKS = [
     { href: "/", label: t("Dashboard"), icon: LayoutDashboard },
     { href: "/search", label: t("Search"), icon: Search },
+    { href: "/calendar", label: t("Calendar"), icon: CalendarDays },
     { href: "/documents", label: t("Documents"), icon: FileText },
     { href: "/issues", label: t("Issues"), icon: CircleAlert },
     { href: "/history", label: t("History"), icon: History },

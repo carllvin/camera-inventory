@@ -133,6 +133,23 @@ stops by itself after repeated errors (invalid key, quota used up). Each type co
 Optional: `IMAGE_AI_RANKING=true` (with `ANTHROPIC_API_KEY`) lets Claude check the results and only keep
 confident matches; uncertain types are then listed for you to choose by hand.
 
+### Return dates, calendar and reminders
+
+Every piece on a project has a return date: its own, else its set's, else its delivery note's (read from the
+note when printed there, editable in review), else the project's end. Change or move it on the item, set or
+delivery page; every change is in the history and can be undone. The dashboard lists what is overdue and due
+in the next days, **Calendar** shows return dates, deliveries, project dates and planned extra equipment, and
+each person can subscribe to it from their own calendar app (Settings or Calendar → "Create calendar link";
+the link uses `PUBLIC_URL`).
+
+**Plan** (project tab) holds extra equipment needed for a few days: you get reminded to order it, and the
+delivery note that brings it fulfils the plan; those pieces then go back on the plan's end date.
+
+Daily reminders go out via [ntfy](https://ntfy.sh): each person enters a topic in **Settings → Reminders**
+and subscribes to it in the ntfy app; the summary is sent once a day at their chosen hour (Europe/Berlin).
+`NTFY_DEFAULT_SERVER` sets the server used when a person names none (e.g. your own ntfy); `REMINDERS=off`
+stops sending.
+
 ### Backups
 
 Two volumes hold everything: `pgdata` (database) and `storage` (photos and documents).

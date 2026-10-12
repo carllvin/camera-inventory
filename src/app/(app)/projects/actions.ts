@@ -1,5 +1,6 @@
 "use server";
 
+import { cancelNeed, createNeed, restoreNeed, updateNeed } from "@/server/domain/planned-needs";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { after } from "next/server";
@@ -153,5 +154,38 @@ export async function restoreProjectAction(id: string, _: ActionState, fd: FormD
     await restoreProject(getDb(), await getCtx(), id);
     revalidatePath("/", "layout");
     redirect(`/projects/${id}`);
+  });
+}
+
+/** Planned extra equipment (a plan, not equipment: a delivery note fulfils it). */
+export async function createNeedAction(projectId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await createNeed(getDb(), await getCtx(), projectId, fromForm(fd));
+    revalidatePath("/", "layout");
+    return "Planned.";
+  });
+}
+
+export async function updateNeedAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await updateNeed(getDb(), await getCtx(), id, fromForm(fd));
+    revalidatePath("/", "layout");
+    return "Plan saved.";
+  });
+}
+
+export async function cancelNeedAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await cancelNeed(getDb(), await getCtx(), id);
+    revalidatePath("/", "layout");
+    return "Plan cancelled.";
+  });
+}
+
+export async function restoreNeedAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await restoreNeed(getDb(), await getCtx(), id);
+    revalidatePath("/", "layout");
+    return "Plan restored.";
   });
 }

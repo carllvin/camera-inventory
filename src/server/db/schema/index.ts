@@ -8,4 +8,5 @@ export * from "./documents";
 export * from "./issues";
 export * from "./media";
 export * from "./audit";
+export * from "./planning";
 export * from "./relations";

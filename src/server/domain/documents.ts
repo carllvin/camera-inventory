@@ -20,6 +20,8 @@ import { createCase, packItem, setExpectedFromContents } from "./cases";
 import { packEqualShares } from "./document-sets";
 import { createProject, projectInput } from "./projects";
 import { itemsRemovedWithNote } from "./project-removal";
+import { fulfilNeeds } from "./planned-needs";
+import { todayIso } from "@/lib/format";
 import { expandReturnLines, loadProjectItems, matchReturnLines, type ReturnLine } from "./return-matching";
 import { optionalDate, optionalText, optionalUuid } from "./validation";
 
@@ -310,6 +312,8 @@ export async function runExtraction(db: DbOrTx, storage: StorageProvider, extrac
           ...(!current.projectId && detected ? { projectId: detected.id, projectSource: "detected" } : {}),
           documentNumber: current.documentNumber ?? documentNumber,
           documentDate: current.documentDate ?? isIsoDate(ex.document_date),
+          // A return date printed on a delivery note is a proposal the reviewer sees and can change.
+          ...(current.kind === "delivery_note" ? { returnDue: current.returnDue ?? isIsoDate(ex.rental_end_date) } : {}),
           extraction: { ...ex, _meta: result.meta, _projectDetection: detected } as unknown as Record<string, unknown>,
           extractionProvider: result.provider,
           extractionModel: result.model,
@@ -375,6 +379,8 @@ export const headerInput = z.object({
   rentalHouseId: optionalUuid,
   documentNumber: optionalText(100),
   documentDate: optionalDate,
+  /** Delivery notes: return by (empty = the project's end). */
+  returnDue: optionalDate,
 });
 
 /** Re-run matching for every line, keeping the reviewer's explicit choices. */
@@ -450,6 +456,7 @@ export async function updateDocumentHeader(db: DbOrTx, ctx: Ctx, id: string, inp
         rentalHouseId: data.rentalHouseId ?? null,
         documentNumber: data.documentNumber ?? null,
         documentDate: data.documentDate ?? null,
+        ...(d.kind === "delivery_note" && data.returnDue !== undefined ? { returnDue: data.returnDue ?? null } : {}),
       })
       .where(eq(s.document.id, id))
       .returning();
@@ -923,12 +930,16 @@ export async function confirmDelivery(db: DbOrTx, ctx: Ctx, id: string) {
 
     const rctx = { doc, project, rentalHouseId, now, correlationId };
     const itemsBySet = new Map<string, string[]>();
+    const allIds: string[] = [];
     for (const l of lines) {
       if (l.resolution === "ignore" || l.resolution === "create_set") continue;
       const ids: string[] = [];
       received += await receiveDeliveryLine(tx, ctx, rctx, l, l.quantity, ids);
+      allIds.push(...ids);
       if (l.setName) itemsBySet.set(l.setName, [...(itemsBySet.get(l.setName) ?? []), ...ids]);
     }
+    // Planned extra equipment this note brings: fulfilled, and its end becomes the pieces' return date.
+    await fulfilNeeds(tx, ctx, doc, allIds, todayIso(now), correlationId);
     // Case lines become sets holding what the note groups with them.
     const setsCreated: string[] = [];
     for (const l of lines.filter((x) => x.resolution === "create_set")) {

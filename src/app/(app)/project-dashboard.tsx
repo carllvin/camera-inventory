@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AlertTriangle, Box, CircleCheck, FileText, PackageOpen, Search, Wrench } from "lucide-react";
+import { AlertTriangle, Box, CalendarClock, CalendarPlus, CircleCheck, FileText, PackageOpen, Search, Wrench } from "lucide-react";
 import { ActivityList } from "@/components/activity";
 import { CaseProgress } from "@/components/case-list";
 import { Card, CardHeader, LinkButton, ProjectStatusBadge, Stat } from "@/components/ui";
@@ -11,6 +11,8 @@ import type { Ctx } from "@/server/domain/context";
 import { listItems } from "@/server/domain/equipment-items";
 import { listActivity, listDocuments, listIssues } from "@/server/domain/overview";
 import { getProjectSummary } from "@/server/domain/projects";
+import { listNeeds } from "@/server/domain/planned-needs";
+import { addDays, bucketDue, listDueItems, type DueItem } from "@/server/domain/return-dates";
 import { getFormat, getT, getTranslateMessage, getTN } from "@/server/i18n";
 
 type Attention = { key: string; icon: typeof Box; tone: "danger" | "warn" | "neutral"; text: string; href: string };
@@ -26,6 +28,11 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
     listDocuments(db, ctx, { projectId }),
     listActivity(db, ctx, { projectId, limit: 12 }),
   ]);
+  const today = todayIso();
+  const [dueItems, needs] = await Promise.all([
+    listDueItems(db, ctx, { projectId }),
+    listNeeds(db, ctx, { projectId, status: ["open"], until: addDays(today, 7) }),
+  ]);
   const [t, f, tm, tn] = await Promise.all([getT(), getFormat(), getTranslateMessage(), getTN()]);
   const base = `/projects/${projectId}`;
   const timeline = projectTimeline(project.startDate, project.endDate, todayIso());
@@ -37,7 +44,40 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
   const loose = items.filter((i) => !i.caseId).reduce((n, i) => n + i.quantity, 0);
   const label = (i: (typeof items)[number]) => `${tn(i.typeName)}${i.serialNumber ? ` (SN ${i.serialNumber})` : i.quantity > 1 ? ` × ${i.quantity}` : ""}`;
 
+  const due = bucketDue(dueItems, today, 3);
+  // One line per day and rental house: "Overdue since 12 Oct: 5 pieces to ARRI".
+  const byDay = (list: DueItem[]) => {
+    const groups = new Map<string, { due: string; house: string | null; units: number }>();
+    for (const i of list) {
+      const k = `${i.due}|${i.rentalHouseName ?? ""}`;
+      const g = groups.get(k) ?? { due: i.due!, house: i.rentalHouseName, units: 0 };
+      g.units += i.units;
+      groups.set(k, g);
+    }
+    return [...groups.values()];
+  };
+  const pieces = (n: number) => (n === 1 ? t("1 piece") : t("{n} pieces", { n }));
+  const dueText = (g: { due: string; house: string | null; units: number }, overdue: boolean) => {
+    const what = g.house ? t("{pieces} to {house}", { pieces: pieces(g.units), house: g.house }) : pieces(g.units);
+    if (overdue) return t("Overdue since {date}: {what}", { date: f.formatDate(g.due), what });
+    if (g.due === today) return t("Due back today: {what}", { what });
+    return t("Due back {date}: {what}", { date: f.formatDate(g.due), what });
+  };
+  const toOrder = needs.filter((n) => (n.orderBy ?? n.needFrom) <= addDays(today, 1));
+
   const attention: Attention[] = [
+    ...byDay(due.overdue).map((g) => ({ key: `od-${g.due}-${g.house}`, icon: CalendarClock, tone: "danger" as const, text: dueText(g, true), href: "/calendar" })),
+    ...byDay(due.soon).map((g) => ({ key: `ds-${g.due}-${g.house}`, icon: CalendarClock, tone: "warn" as const, text: dueText(g, false), href: "/calendar" })),
+    ...toOrder.map((n) => ({
+      key: `need-${n.id}`,
+      icon: CalendarPlus,
+      tone: "warn" as const,
+      text: t("Order: {n} × {label} for {date}", { n: n.quantity, label: tn(n.label), date: f.formatDate(n.needFrom) }),
+      href: `${base}/plan`,
+    })),
+    ...(due.undatedUnits > 0
+      ? [{ key: "undated", icon: CalendarClock, tone: "neutral" as const, text: t("{pieces} without a return date: set the project's end or a date on the delivery note", { pieces: pieces(due.undatedUnits) }), href: `${base}/edit` }]
+      : []),
     ...missing.slice(0, 5).map((i) => ({ key: `m-${i.id}`, icon: Search, tone: "danger" as const, text: t("Missing: {item}", { item: label(i) }), href: `/equipment/${i.id}` })),
     ...(missing.length > 5 ? [{ key: "m-more", icon: Search, tone: "danger" as const, text: t("{n} more missing", { n: missing.length - 5 }), href: `${base}?status=missing` }] : []),
     ...broken.slice(0, 5).map((i) => ({ key: `b-${i.id}`, icon: Wrench, tone: "warn" as const, text: i.condition === "defective" ? t("Defective: {item}", { item: label(i) }) : t("Damaged: {item}", { item: label(i) }), href: `/equipment/${i.id}` })),
@@ -77,6 +117,8 @@ export async function ProjectDashboard({ ctx, projectId }: { ctx: Ctx; projectId
           <LinkButton href={base}>{t("Equipment")}</LinkButton>
           <LinkButton href={`${base}/sets`}>{t("Sets")}</LinkButton>
           <LinkButton href="/documents/new">{t("Upload a note")}</LinkButton>
+          <LinkButton href="/calendar">{t("Calendar")}</LinkButton>
+          <LinkButton href={`${base}/plan`}>{t("Plan extra equipment")}</LinkButton>
         </div>
       </header>
 

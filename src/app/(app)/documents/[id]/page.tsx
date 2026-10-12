@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CircleAlert, FileText, Loader2, Sparkles } from "lucide-react";
 import { ActionForm, Field, Select, SubmitButton } from "@/components/forms";
 import { Badge, Card, CardHeader, KeyValues, Mono, PageHeader } from "@/components/ui";
-import { DOCUMENT_KIND_LABEL, DOCUMENT_STATUS_LABEL } from "@/lib/format";
+import { DOCUMENT_KIND_LABEL, DOCUMENT_STATUS_LABEL, todayIso } from "@/lib/format";
 import type { T } from "@/lib/i18n/core";
 import { getExtractor } from "@/server/ai";
 import { getCtx } from "@/server/auth/context";
@@ -38,6 +38,9 @@ import {
 } from "../actions";
 import { RESOLUTION, RETURN_RESOLUTION, resolutionText } from "../resolution";
 import { AddLineCard, AutoRefresh, ConfirmButton, LineCard } from "../review";
+import { ReturnDueCard } from "@/components/return-due";
+import { containerReturnInfo } from "@/server/domain/return-dates";
+import { previewNeedsForDocument } from "@/server/domain/planned-needs";
 
 const STATUS_TONE: Record<string, "ok" | "accent" | "danger" | "neutral" | "info"> = {
   confirmed: "ok",
@@ -148,6 +151,8 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
   const isList = doc.kind === "inventory_list";
   const consolidation = isList && editable ? await getConsolidation(db, ctx, id) : null;
   const mode = isReturn ? ("return" as const) : ("delivery" as const);
+  const due = doc.kind === "delivery_note" ? await containerReturnInfo(db, ctx, { kind: "document", id }) : null;
+  const needsPreview = editable && doc.kind === "delivery_note" ? await previewNeedsForDocument(db, ctx, doc, todayIso()) : [];
   const setSuggestions = !isReturn && doc.status === "confirmed" ? await suggestedSets(db, ctx.workspaceId, id) : [];
   // Confirmed delivery: what each line brought, so a wrongly chosen type can still be corrected.
   const fromLine = !isReturn && doc.status === "confirmed" && doc.kind === "delivery_note" && hasRole(ctx, "member") ? (await deliveredItemsByLine(db, ctx.workspaceId, id)).items : null;
@@ -270,6 +275,16 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   <Select label={t("Rental house")} name="rentalHouseId" id="h-rh" placeholder={t("Choose…")} defaultValue={doc.rentalHouseId} options={houses.map((h) => ({ value: h.id, label: h.name }))} />
                   <Field label={t("Document number")} name="documentNumber" id="h-number" defaultValue={doc.documentNumber} spellCheck={false} />
                   <Field label={t("Date")} name="documentDate" id="h-date" type="date" defaultValue={doc.documentDate} />
+                  {doc.kind === "delivery_note" && (
+                    <Field
+                      label={t("Return by")}
+                      name="returnDue"
+                      id="h-return"
+                      type="date"
+                      defaultValue={doc.returnDue}
+                      hint={due?.inherited ? t("Empty = project end ({date})", { date: f.formatDate(due.inherited) }) : t("Empty = project end (not set yet)")}
+                    />
+                  )}
                   <div className="sm:col-span-2">
                     <SubmitButton variant="secondary">{t("Save details")}</SubmitButton>
                   </div>
@@ -488,6 +503,18 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                           .join(" ")}
                   </p>
                 )}
+                {needsPreview.length > 0 && (
+                  <div className="rounded-lg border border-violet-500/30 bg-violet-500/5 p-3 text-sm">
+                    <p className="font-medium">{t("This delivery brings planned equipment:")}</p>
+                    <ul className="mt-1 space-y-0.5 text-muted">
+                      {needsPreview.map((n) => (
+                        <li key={n.id}>
+                          {t("{n} × {label} ({from} – {until}) · return by {until}", { n: n.units, label: tn(n.label), from: f.formatDate(n.needFrom), until: f.formatDate(n.needUntil) })}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 {!isList && (
                   <ConfirmButton
                     action={(isReturn ? confirmReturnAction : confirmDeliveryAction).bind(null, id)}
@@ -519,6 +546,13 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                     ]}
                   />
                 </Card>
+                {due && doc.status === "confirmed" && (
+                  <ReturnDueCard
+                    target={{ kind: "document", id }}
+                    info={{ due: due.due, own: due.own, source: due.own ? "document" : due.inherited ? "project" : null }}
+                    canEdit={hasRole(ctx, "member")}
+                  />
+                )}
                 <div className="overflow-x-auto rounded-xl border border-border bg-surface">
                   <table className="w-full min-w-[36rem] text-sm">
                     <thead className="border-b border-border bg-surface-2/60 text-left text-xs text-muted">

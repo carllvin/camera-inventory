@@ -13,6 +13,8 @@ import { packItem, unpackItem } from "./cases";
 import { DomainError, notFound, requireRole, type Ctx } from "./context";
 import { changeItemType } from "./item-retype";
 import { restoreProject } from "./projects";
+import { setReturnDue, type DueTarget } from "./return-dates";
+import { restoreNeed } from "./planned-needs";
 import { assignToProject, changeCondition, changeStatus, lockItem, ON_PROJECT_STATUSES, removeFromProject, updateItem } from "./equipment-items";
 
 type Changes = Record<string, { from: unknown; to: unknown }>;
@@ -28,6 +30,9 @@ export function isRevertible(e: EventLike) {
   const keys = Object.keys(c);
   // An undo is not undone again (that would only blur the history; make the change anew).
   if (e.metadata?.revertOf) return false;
+  // Dates and plans are changed by hand, also on a document.
+  if (e.action === "return_due.changed") return keys.length === 1 && keys[0] === "returnDue";
+  if (e.action === "need.cancelled") return true;
   // Document-driven changes (deliveries, return notes) are corrected on the document, not here.
   if (e.documentId && !e.metadata?.withoutReview) return false;
   switch (e.action) {
@@ -80,6 +85,15 @@ export async function revertEvent(db: DbOrTx, ctx: Ctx, eventId: number) {
 
   if (e.action === "project.archived") {
     await restoreProject(db, rctx, e.entityId);
+    return { summary: e.summary };
+  }
+  if (e.action === "return_due.changed") {
+    const kind = (e.metadata as { target?: DueTarget["kind"] } | null)?.target ?? "item";
+    await setReturnDue(db, rctx, { kind, id: e.entityId }, changes.returnDue!.from ?? null, { expectCurrent: (changes.returnDue!.to as string | null) ?? null });
+    return { summary: e.summary };
+  }
+  if (e.action === "need.cancelled") {
+    await restoreNeed(db, rctx, e.entityId);
     return { summary: e.summary };
   }
   return db.transaction(async (tx) => {

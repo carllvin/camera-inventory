@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ReturnDueCard } from "@/components/return-due";
+import { itemReturnInfo } from "@/server/domain/return-dates";
 import { Pencil } from "lucide-react";
 import { ActivityList } from "@/components/activity";
 import { IssueList } from "@/components/issues";
@@ -40,6 +42,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
   const timeline = await withUndo(db, ctx, d.timeline as (typeof d.timeline[number] & { changes: Record<string, { from: unknown; to: unknown }> | null; metadata: Record<string, unknown> | null })[]);
   const canEdit = hasRole(ctx, "member");
   const cases = canEdit && item.projectId ? await listCases(db, ctx, { projectId: item.projectId }) : [];
+  const due = item.projectId ? await itemReturnInfo(db, ctx, item.id) : null;
   const [splitBefore, splitAfter] = t("Split from {link}.").split("{link}");
   return (
     <>
@@ -106,6 +109,14 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
                 cases={cases.map((c) => ({ value: c.id, label: c.code ? `${c.name} (${c.code})` : c.name }))}
               />
             </Card>
+          )}
+
+          {due && (
+            <ReturnDueCard
+              target={{ kind: "item", id: item.id }}
+              info={{ due: due.due, own: due.own, source: due.source, sourceName: due.source === "case" ? due.caseName : due.documentNumber }}
+              canEdit={canEdit}
+            />
           )}
 
           {d.sameUnits.length > 0 && (

@@ -63,6 +63,12 @@ export const AUDIT_ACTIONS = [
   "issue.updated",
   "issue.resolved",
   "issue.dismissed",
+  "return_due.changed",
+  "need.created",
+  "need.updated",
+  "need.cancelled",
+  "need.restored",
+  "need.fulfilled",
 ] as const;
 export type AuditAction = (typeof AUDIT_ACTIONS)[number];
 

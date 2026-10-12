@@ -13,6 +13,7 @@ import {
   Menu,
   ScanLine,
   Settings,
+  CalendarDays,
 } from "lucide-react";
 import { Logo } from "./logo";
 import { cn } from "@/lib/format";
@@ -25,6 +26,7 @@ const desktop = (t: T) => [
   { href: "/equipment", label: t("Equipment"), icon: Camera },
   { href: "/sets", label: t("Sets"), icon: Boxes },
   { href: "/documents", label: t("Documents"), icon: FileText },
+  { href: "/calendar", label: t("Calendar"), icon: CalendarDays },
   { href: "/issues", label: t("Issues"), icon: CircleAlert },
   { href: "/history", label: t("History"), icon: History },
   { href: "/settings", label: t("Settings"), icon: Settings },

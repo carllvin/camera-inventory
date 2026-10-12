@@ -90,6 +90,7 @@ export default async function ProjectLayout({ children, params }: { children: Re
           { href: base, label: t("Equipment"), count: counts.units, exact: true },
           { href: `${base}/sets`, label: t("Sets"), count: counts.cases },
           { href: `${base}/documents`, label: t("Documents"), count: counts.documents },
+          { href: `${base}/plan`, label: t("Plan") },
           { href: `${base}/issues`, label: t("Issues"), count: counts.open_issues },
           { href: `${base}/history`, label: t("History") },
         ]}

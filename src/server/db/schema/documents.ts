@@ -40,6 +40,8 @@ export const document = pgTable(
     rentalHouseId: uuid(),
     documentNumber: text(),
     documentDate: date({ mode: "string" }),
+    /** Delivery notes: return by this date (from the note or set by hand); null = the project's end. */
+    returnDue: date({ mode: "string" }),
     title: text(),
     /** Raw structured AI output, kept verbatim for traceability. */
     extraction: jsonb().$type<Record<string, unknown>>(),

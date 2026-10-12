@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { check, foreignKey, index, integer, pgTable, text, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import { check, date, foreignKey, index, integer, pgTable, text, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { createdAt, id, tsz, updatedAt } from "./_shared";
 import { category, equipmentType } from "./catalog";
 import { project, workspace } from "./workspace";
@@ -79,6 +79,8 @@ export const equipmentCase = pgTable(
     barcode: text(),
     description: text(),
     notes: text(),
+    /** Return date for what is packed (unless an item has its own); null = from delivery / project. */
+    returnDue: date({ mode: "string" }),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
     archivedAt: tsz(),

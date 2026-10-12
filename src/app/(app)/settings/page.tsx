@@ -11,7 +11,10 @@ import { getDb } from "@/server/db/client";
 import { hasRole } from "@/server/domain/context";
 import { listMembers } from "@/server/domain/overview";
 import { getT } from "@/server/i18n";
-import { addMemberAction, changeRoleAction, renameWorkspaceAction, setLanguageAction } from "./actions";
+import { addMemberAction, changeRoleAction, renameWorkspaceAction, saveRemindersAction, setLanguageAction, testReminderAction } from "./actions";
+import { CalendarLinkCard } from "@/components/calendar-link";
+import { DEFAULT_NTFY_SERVER, getReminderSettings } from "@/server/domain/reminders";
+import { randomBytes } from "node:crypto";
 
 export async function generateMetadata() {
   const t = await getT();
@@ -22,6 +25,8 @@ export default async function SettingsPage() {
   const ctx = await getCtx();
   const members = await listMembers(getDb(), ctx);
   const [me] = await getDb().select({ locale: s.user.locale }).from(s.user).where(eq(s.user.id, ctx.userId));
+  const reminders = await getReminderSettings(getDb(), ctx.userId);
+  const suggestedTopic = `camera-${randomBytes(6).toString("hex")}`;
   const isAdmin = hasRole(ctx, "admin");
   const t = await getT();
   const roles = Object.entries(ROLE_LABEL)
@@ -66,6 +71,47 @@ export default async function SettingsPage() {
               </ActionForm>
             </div>
           </Card>
+          <Card id="reminders">
+            <CardHeader title={t("Reminders")} />
+            <div className="space-y-3 p-4">
+              <p className="text-sm text-muted">
+                {t("A daily summary on your phone via ntfy: what is overdue, what goes back soon, what to order. Install the ntfy app and subscribe to your topic.")}
+              </p>
+              <ActionForm action={saveRemindersAction} className="grid gap-3 sm:grid-cols-2">
+                <Field label={t("ntfy topic")} name="ntfyTopic" defaultValue={reminders.ntfyTopic ?? ""} placeholder={suggestedTopic} spellCheck={false} autoComplete="off" hint={t("Long and hard to guess: anyone who knows it can read it.")} />
+                <Field label={t("ntfy server")} name="ntfyServer" defaultValue={reminders.ntfyServer ?? ""} placeholder={DEFAULT_NTFY_SERVER} spellCheck={false} autoComplete="off" hint={t("Empty = {server}", { server: DEFAULT_NTFY_SERVER })} />
+                <Select
+                  label={t("Time")}
+                  name="reminderHour"
+                  defaultValue={String(reminders.reminderHour)}
+                  options={Array.from({ length: 24 }, (_, h) => ({ value: String(h), label: `${String(h).padStart(2, "0")}:00` }))}
+                />
+                <Select
+                  label={t("Look ahead")}
+                  name="reminderDaysBefore"
+                  defaultValue={String(reminders.reminderDaysBefore)}
+                  options={[0, 1, 2, 3, 5, 7].map((d) => ({ value: String(d), label: d === 0 ? t("Only today") : d === 1 ? t("Today and tomorrow") : t("The next {n} days", { n: d }) }))}
+                />
+                <Field
+                  label={t("Access token (optional)")}
+                  name="ntfyToken"
+                  type="password"
+                  autoComplete="off"
+                  className="sm:col-span-2"
+                  hint={reminders.hasToken ? t("A token is saved. Leave empty to keep it, enter - to remove it.") : t("Only for protected topics on your own server.")}
+                />
+                <div className="sm:col-span-2">
+                  <SubmitButton variant="secondary">{t("Save reminders")}</SubmitButton>
+                </div>
+              </ActionForm>
+              {reminders.ntfyTopic && (
+                <ActionForm action={testReminderAction}>
+                  <SubmitButton variant="ghost" className="!px-2.5 text-xs">{t("Send now (test)")}</SubmitButton>
+                </ActionForm>
+              )}
+            </div>
+          </Card>
+          <CalendarLinkCard token={reminders.calendarToken} />
           <Card>
             <CardHeader title={t("Workspace")} />
             <div className="p-4">

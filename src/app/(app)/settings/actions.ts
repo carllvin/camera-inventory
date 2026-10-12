@@ -9,8 +9,14 @@ import { fromForm, runAction, type ActionState } from "@/server/actions";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
 import * as s from "@/server/db/schema";
-import { LOCALE_COOKIE } from "@/server/i18n";
+import { getT, LOCALE_COOKIE } from "@/server/i18n";
 import { LOCALES } from "@/lib/i18n/core";
+import { todayIso } from "@/lib/format";
+import { DomainError } from "@/server/domain/context";
+import { DEFAULT_NTFY_SERVER, getReminderSettings, saveReminderSettings } from "@/server/domain/reminders";
+import { buildDigest } from "@/server/reminders/digest";
+import { sendNtfy } from "@/server/reminders/ntfy";
+import { publicBaseUrl } from "@/server/public-url";
 import { createCategory, updateCategory } from "@/server/domain/categories";
 import { createRentalHouse, updateRentalHouse } from "@/server/domain/rental-houses";
 import { importStandardCatalog, importStandardRentalHouses } from "@/server/domain/standard-catalog";
@@ -108,5 +114,37 @@ export async function importRentalHousesAction(_: ActionState, fd: FormData): Pr
     return r.created === 0
       ? `Nothing new to add — all ${r.skipped} rental houses of these regions are already in your list.`
       : `${r.created} rental house${r.created === 1 ? "" : "s"} added${r.skipped ? ` (${r.skipped} already present, left unchanged)` : ""}.`;
+  });
+}
+
+/** The person's own reminders (ntfy). */
+export async function saveRemindersAction(_: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const ctx = await getCtx();
+    await saveReminderSettings(getDb(), ctx.userId, fromForm(fd));
+    revalidatePath("/settings");
+    return "Reminders saved.";
+  });
+}
+
+/** Send today's summary now (or a short test message when nothing is due), without counting it as the daily one. */
+export async function testReminderAction(_: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    const ctx = await getCtx();
+    const db = getDb();
+    const r = await getReminderSettings(db, ctx.userId);
+    if (!r.ntfyTopic) throw new DomainError("VALIDATION", "Enter an ntfy topic first and save.");
+    const [u] = await db.select({ token: s.user.ntfyToken }).from(s.user).where(eq(s.user.id, ctx.userId));
+    const digest = await buildDigest(db, ctx.userId, todayIso());
+    const base = await publicBaseUrl();
+    const t = await getT();
+    try {
+      await sendNtfy(r.ntfyServer || DEFAULT_NTFY_SERVER, r.ntfyTopic, u?.token ?? null, digest
+        ? { title: digest.title, message: digest.message, click: `${base}${digest.path}` }
+        : { title: t("Camera Inventory"), message: t("Test: reminders work. Nothing is due in the next days."), click: `${base}/calendar` });
+    } catch (err) {
+      throw new DomainError("VALIDATION", `Could not send: ${err instanceof Error ? err.message : String(err)}`);
+    }
+    return digest ? "Summary sent." : "Test message sent.";
   });
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { CircleCheck, CircleAlert, Pencil } from "lucide-react";
 import { ActivityList } from "@/components/activity";
+import { ReturnDueCard } from "@/components/return-due";
+import { containerReturnInfo } from "@/server/domain/return-dates";
 import { CaseProgress } from "@/components/case-list";
 import { FilterBar, FilterSearch } from "@/components/filters";
 import { QuickExpectedEditor } from "@/components/line-editor";
@@ -44,6 +46,7 @@ export default async function CasePage({ params, searchParams }: { params: Promi
     canEdit && sp.edit === "1" ? listLineTargets(db, ctx) : Promise.resolve(null),
   ]);
   const { comparison: cmp } = d;
+  const due = d.case.archivedAt ? null : await containerReturnInfo(db, ctx, { kind: "case", id });
   const isNeeded = (c: { equipmentTypeId: string; categoryId: string | null; caseId: string | null; status: string }) =>
     !c.caseId && c.status !== "missing" && (d.neededTypeIds.has(c.equipmentTypeId) || (c.categoryId !== null && d.neededCategoryIds.has(c.categoryId)));
   // Items without a serial number are interchangeable: one row per group with its unit count.
@@ -245,6 +248,9 @@ export default async function CasePage({ params, searchParams }: { params: Promi
         </Card>
 
         <div className="min-w-0 space-y-6">
+        {due && (
+          <ReturnDueCard target={{ kind: "case", id }} info={{ due: due.due, own: due.own, source: due.own ? "case" : due.inherited ? "project" : null }} canEdit={canEdit} />
+        )}
         <PhotoGallery photos={photos} target={{ kind: "case", id }} canEdit={canEdit} />
 
         <Card className="min-w-0">

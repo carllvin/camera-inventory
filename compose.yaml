@@ -44,6 +44,9 @@ services:
       BRAVE_SEARCH_API_KEY: ${BRAVE_SEARCH_API_KEY:-}
       # true: Claude checks image results (needs ANTHROPIC_API_KEY); default: first result
       IMAGE_AI_RANKING: ${IMAGE_AI_RANKING:-false}
+      # Reminders (each person sets an ntfy topic in Settings); REMINDERS=off disables sending
+      NTFY_DEFAULT_SERVER: ${NTFY_DEFAULT_SERVER:-https://ntfy.sh}
+      REMINDERS: ${REMINDERS:-on}
       STORAGE_DRIVER: local
       STORAGE_LOCAL_DIR: /app/storage
     volumes:
