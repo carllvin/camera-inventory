@@ -294,6 +294,14 @@ test("select mode: tick equipment and change it in one go", async ({ page }) => 
   await bar.getByRole("button", { name: "Apply" }).click();
   await expect(page.locator("summary").filter({ hasText: "ARRI Top Handle" })).not.toContainText("in use");
 
+  // Everything at once, and nothing again.
+  const selectAll = bar.getByRole("button", { name: /^Select all \(\d+\)$/ });
+  const total = Number((await selectAll.innerText()).match(/\d+/)![0]);
+  await selectAll.click();
+  await expect(bar.getByText(`${total} selected`)).toBeVisible();
+  await bar.getByRole("button", { name: "Select none" }).click();
+  await expect(bar.getByText("0 selected")).toBeVisible();
+
   // Into a set and out again.
   await page.getByLabel("Select all bebob VS2-Cine Charger").check();
   const setValue = await bar.getByLabel("Action").locator("option", { hasText: "A-Cam Set" }).getAttribute("value");

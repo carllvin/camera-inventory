@@ -29,9 +29,10 @@ import { copyNames, createSetFromDocument, deliveredItemsByLine, suggestedSets }
 import { changeItemType } from "@/server/domain/item-retype";
 import { addFromList, finishList, removeNotOnList } from "@/server/domain/consolidate";
 
-function scheduleExtraction(workspaceId: string, documentId: string) {
+function scheduleExtraction(workspaceId: string, documentId: string, batch = false) {
   // Runs after the response is sent; the page polls until the status changes.
-  after(() => runExtraction(getDb(), getStorage(), getExtractor(), workspaceId, documentId));
+  // batch: the discounted AI queue (half price, answered within 24 h, collected in the background).
+  after(() => runExtraction(getDb(), getStorage(), getExtractor(), workspaceId, documentId, { batch }));
 }
 
 export async function uploadDocumentAction(_: ActionState, fd: FormData): Promise<ActionState> {
@@ -41,7 +42,7 @@ export async function uploadDocumentAction(_: ActionState, fd: FormData): Promis
     if (files.length === 0) throw new DomainError("VALIDATION", "Add the PDF or photos of the document.");
     const uploaded = await Promise.all(files.map(async (f) => ({ name: f.name, type: f.type, bytes: Buffer.from(await f.arrayBuffer()) })));
     const { document, startExtraction } = await createDocumentFromUpload(getDb(), getStorage(), ctx, getExtractor(), fromForm(fd), uploaded);
-    if (startExtraction) scheduleExtraction(ctx.workspaceId, document.id);
+    if (startExtraction) scheduleExtraction(ctx.workspaceId, document.id, fd.get("aiBatch") === "on");
     revalidatePath(`/projects/${document.projectId}`, "layout");
     redirect(`/documents/${document.id}`);
   });
@@ -51,7 +52,7 @@ export async function retryExtractionAction(id: string, _: ActionState, fd: Form
   return runAction(fd, async () => {
     const ctx = await getCtx();
     await requestExtraction(getDb(), ctx, getExtractor(), id);
-    scheduleExtraction(ctx.workspaceId, id);
+    scheduleExtraction(ctx.workspaceId, id, fd.get("aiBatch") === "on");
     revalidatePath(`/documents/${id}`);
   });
 }

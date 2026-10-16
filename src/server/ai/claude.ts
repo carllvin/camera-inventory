@@ -9,6 +9,7 @@ import {
   type ExtractionContext,
   type ExtractionInputFile,
   type ExtractionResult,
+  type BatchOutcome,
 } from "./types";
 
 /**
@@ -127,10 +128,9 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
     this.client = client ?? new Anthropic();
   }
 
-  async extract(files: ExtractionInputFile[], ctx: ExtractionContext): Promise<ExtractionResult> {
-    // Reference lists first (cached: repeated uploads within minutes reuse them at a fraction of the price),
-    // then the document, then the per-request instruction.
-    const content: Anthropic.Beta.BetaContentBlockParam[] = [{ type: "text", text: referenceBlock(ctx), cache_control: { type: "ephemeral" } }];
+  /** Reference lists first (cached), then the document, then the per-request instruction. */
+  private async content(files: ExtractionInputFile[], ctx: ExtractionContext): Promise<Anthropic.ContentBlockParam[]> {
+    const content: Anthropic.ContentBlockParam[] = [{ type: "text", text: referenceBlock(ctx), cache_control: { type: "ephemeral" } }];
     for (const f of files) {
       if (f.mimeType === "application/pdf") {
         content.push({ type: "document", source: { type: "base64", media_type: "application/pdf", data: f.bytes.toString("base64") }, title: f.name });
@@ -140,36 +140,37 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
     }
     if (content.length === 1) throw new ExtractionError("No readable file (PDF or image) in this document.", false);
     content.push({ type: "text", text: `The user uploaded this as a ${ctx.expectedKind === "delivery_note" ? "delivery note" : ctx.expectedKind === "inventory_list" ? "current list of all equipment rented to the production (Mietliste / Bestandsliste)" : "return note"}. Extract the document.` });
+    return content;
+  }
 
-    let message;
-    try {
-      const stream = this.client.beta.messages.stream({
-        model: this.model,
-        max_tokens: 64000,
-        betas: ["server-side-fallback-2026-07-01"],
-        // On a safety-classifier decline the API retries on Anthropic's recommended fallback model.
-        fallbacks: "default",
-        thinking: { type: "adaptive" },
-        output_config: { effort: this.effort, format: { type: formatType, schema: outputSchema } },
-        system: SYSTEM_PROMPT,
-        messages: [{ role: "user", content }],
-      });
-      message = await stream.finalMessage();
-    } catch (err) {
-      if (err instanceof Anthropic.AuthenticationError) throw new ExtractionError("The Anthropic API key is invalid. Check ANTHROPIC_API_KEY.", false);
-      if (err instanceof Anthropic.RateLimitError) throw new ExtractionError("The AI service is busy (rate limit). Try again in a minute.", true);
-      if (err instanceof Anthropic.BadRequestError) throw new ExtractionError(`The AI service rejected the document: ${err.message}`, false);
-      if (err instanceof Anthropic.APIError) throw new ExtractionError(`AI service error (${err.status ?? "network"}). Try again.`, true);
-      throw err;
-    }
+  /** Request parameters shared by the direct call and the batch (no fallbacks: the Batches API rejects them). */
+  private params(content: Anthropic.ContentBlockParam[]): Anthropic.MessageCreateParamsNonStreaming {
+    return {
+      model: this.model,
+      max_tokens: 64000,
+      thinking: { type: "adaptive" },
+      output_config: { effort: this.effort, format: { type: formatType, schema: outputSchema } },
+      system: SYSTEM_PROMPT,
+      messages: [{ role: "user", content }],
+    };
+  }
 
+  private static apiError(err: unknown): never {
+    if (err instanceof Anthropic.AuthenticationError) throw new ExtractionError("The Anthropic API key is invalid. Check ANTHROPIC_API_KEY.", false);
+    if (err instanceof Anthropic.RateLimitError) throw new ExtractionError("The AI service is busy (rate limit). Try again in a minute.", true);
+    if (err instanceof Anthropic.BadRequestError) throw new ExtractionError(`The AI service rejected the document: ${err.message}`, false);
+    if (err instanceof Anthropic.APIError) throw new ExtractionError(`AI service error (${err.status ?? "network"}). Try again.`, true);
+    throw err;
+  }
+
+  private result(message: { content: { type: string; text?: string }[]; stop_reason: string | null; model: string; usage: object & { iterations?: { type: string }[] | null } }, extra: Record<string, unknown> = {}): ExtractionResult {
     if (message.stop_reason === "refusal") {
       throw new ExtractionError("The AI declined to read this document. Enter the lines manually.", false);
     }
     if (message.stop_reason === "max_tokens") {
       throw new ExtractionError("The document is too long to read in one go. Split it into smaller uploads.", false);
     }
-    const text = message.content.flatMap((b) => (b.type === "text" ? [b.text] : [])).join("");
+    const text = message.content.flatMap((b) => (b.type === "text" && b.text ? [b.text] : [])).join("");
     let parsed;
     try {
       parsed = extractionSchema.parse(fromWire(JSON.parse(text)));
@@ -184,7 +185,67 @@ export class ClaudeDocumentExtractor implements DocumentExtractor {
         stopReason: message.stop_reason,
         usage: message.usage,
         servedByFallback: (message.usage.iterations ?? []).some((i) => i.type === "fallback_message"),
+        ...extra,
       },
     };
+  }
+
+  async extract(files: ExtractionInputFile[], ctx: ExtractionContext): Promise<ExtractionResult> {
+    const content = await this.content(files, ctx);
+    let message;
+    try {
+      const stream = this.client.beta.messages.stream({
+        ...(this.params(content) as Anthropic.Beta.MessageCreateParamsNonStreaming),
+        betas: ["server-side-fallback-2026-07-01"],
+        // On a safety-classifier decline the API retries on Anthropic's recommended fallback model.
+        fallbacks: "default",
+      });
+      message = await stream.finalMessage();
+    } catch (err) {
+      ClaudeDocumentExtractor.apiError(err);
+    }
+    return this.result(message);
+  }
+
+  readonly supportsBatch = true;
+
+  /** Message Batches API: half the price, answered within 24 hours (usually much sooner). Returns the batch id. */
+  async submitBatch(files: ExtractionInputFile[], ctx: ExtractionContext, customId: string): Promise<string> {
+    const content = await this.content(files, ctx);
+    try {
+      const batch = await this.client.messages.batches.create({ requests: [{ custom_id: customId, params: this.params(content) }] });
+      return batch.id;
+    } catch (err) {
+      ClaudeDocumentExtractor.apiError(err);
+    }
+  }
+
+  async batchResult(batchId: string): Promise<BatchOutcome> {
+    let batch;
+    try {
+      batch = await this.client.messages.batches.retrieve(batchId);
+    } catch (err) {
+      if (err instanceof Anthropic.NotFoundError) return { status: "failed", error: new ExtractionError("The AI queue no longer knows this document. Read it again.", false) };
+      ClaudeDocumentExtractor.apiError(err);
+    }
+    if (batch.processing_status !== "ended") return { status: "pending" };
+    for await (const r of await this.client.messages.batches.results(batchId)) {
+      switch (r.result.type) {
+        case "succeeded":
+          try {
+            return { status: "done", result: this.result(r.result.message, { batch: true }) };
+          } catch (err) {
+            if (err instanceof ExtractionError) return { status: "failed", error: err };
+            throw err;
+          }
+        case "errored":
+          return { status: "failed", error: new ExtractionError(r.result.error.error.type === "invalid_request_error" ? `The AI service rejected the document: ${r.result.error.error.message}` : "AI service error in the queue. Read it again.", r.result.error.error.type !== "invalid_request_error") };
+        case "expired":
+          return { status: "failed", error: new ExtractionError("The AI queue did not get to this document within 24 hours. Read it again.", true) };
+        case "canceled":
+          return { status: "failed", error: new ExtractionError("Reading in the AI queue was cancelled. Read it again.", true) };
+      }
+    }
+    return { status: "failed", error: new ExtractionError("The AI queue returned no result. Read it again.", true) };
   }
 }

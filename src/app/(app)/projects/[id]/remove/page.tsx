@@ -1,4 +1,5 @@
 import { Thumb, groupItems } from "@/components/equipment-table";
+import { TickAll } from "@/components/select-tools";
 import { ActionForm, SubmitButton } from "@/components/forms";
 import { Card, CardHeader, EmptyState, Mono } from "@/components/ui";
 import { getExtractor } from "@/server/ai";
@@ -53,7 +54,7 @@ export default async function RemoveEquipmentPage({ params, searchParams }: { pa
           </Card>
         )}
         <Card>
-          <CardHeader title={t("Single items")} />
+          <CardHeader title={t("Single items")} action={rows.length > 1 && <TickAll name="row" />} />
           <ul className="divide-y divide-border">
             {rows.map((r) => (
               <li key={r.id} className="flex items-center gap-3 px-4 py-2">

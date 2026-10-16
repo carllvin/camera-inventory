@@ -8,7 +8,7 @@ import { z } from "zod";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
 import { getCategoryTree } from "./categories";
-import { ExtractionError, type DocumentExtractor, type Extraction } from "../ai/types";
+import { ExtractionError, type DocumentExtractor, type Extraction, type ExtractionResult } from "../ai/types";
 import type { StorageProvider } from "../storage";
 import { recordEvent } from "./audit";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
@@ -265,7 +265,14 @@ const isIsoDate = (v: string | null) => (v && /^\d{4}-\d{2}-\d{2}$/.test(v) && !
  * Read a document with the AI provider and store the proposals. Safe to retry:
  * it replaces earlier proposals and never touches inventory.
  */
-export async function runExtraction(db: DbOrTx, storage: StorageProvider, extractor: DocumentExtractor, workspaceId: string, documentId: string) {
+export async function runExtraction(
+  db: DbOrTx,
+  storage: StorageProvider,
+  extractor: DocumentExtractor,
+  workspaceId: string,
+  documentId: string,
+  opts: { batch?: boolean } = {},
+) {
   const [doc] = await db.select().from(s.document).where(and(eq(s.document.id, documentId), eq(s.document.workspaceId, workspaceId)));
   if (!doc || doc.status !== "processing") return;
   try {
@@ -276,7 +283,63 @@ export async function runExtraction(db: DbOrTx, storage: StorageProvider, extrac
       if (!obj) throw new ExtractionError(`File ${f.fileName} is missing from storage.`, false);
       inputs.push({ name: f.fileName, mimeType: f.mimeType, bytes: obj.body });
     }
-    const result = await extractor.extract(inputs, await extractionContext(db, workspaceId, doc.kind as DocumentKind));
+    const context = await extractionContext(db, workspaceId, doc.kind as DocumentKind);
+    if (opts.batch && extractor.supportsBatch && extractor.submitBatch) {
+      // Discounted queue: the answer is collected later by pollExtractionBatches.
+      const batchId = await extractor.submitBatch(inputs, context, documentId);
+      await db.update(s.document).set({ extractionBatchId: batchId, extractionBatchAt: new Date() }).where(and(eq(s.document.id, documentId), eq(s.document.status, "processing")));
+      return;
+    }
+    await applyExtraction(db, workspaceId, documentId, await extractor.extract(inputs, context));
+  } catch (err) {
+    await failExtraction(db, documentId, err);
+  }
+}
+
+async function failExtraction(db: DbOrTx, documentId: string, err: unknown) {
+  const message = err instanceof ExtractionError ? err.message : "Reading the document failed unexpectedly. Try again or enter the lines manually.";
+  if (!(err instanceof ExtractionError)) console.error("extraction failed", err);
+  await db
+    .update(s.document)
+    .set({ status: "failed", extractionError: message, extractionBatchId: null })
+    .where(and(eq(s.document.id, documentId), eq(s.document.status, "processing")));
+}
+
+/**
+ * Collect answers from the discounted AI queue (runs every few minutes). Documents
+ * whose queue entry is done get their proposals exactly as a direct reading would.
+ */
+export async function pollExtractionBatches(db: DbOrTx, extractor: DocumentExtractor) {
+  if (!extractor.batchResult) return { done: 0 };
+  const waiting = await db
+    .select({ id: s.document.id, workspaceId: s.document.workspaceId, batchId: s.document.extractionBatchId, at: s.document.extractionBatchAt })
+    .from(s.document)
+    .where(and(eq(s.document.status, "processing"), sql`${s.document.extractionBatchId} is not null`));
+  let done = 0;
+  for (const d of waiting) {
+    try {
+      const outcome = await extractor.batchResult(d.batchId!);
+      if (outcome.status === "pending") {
+        // The queue answers within 24 hours; after that something went wrong.
+        if (d.at && Date.now() - d.at.getTime() > 26 * 3_600_000) await failExtraction(db, d.id, new ExtractionError("The AI queue did not answer within 24 hours. Read it again.", true));
+        continue;
+      }
+      if (outcome.status === "failed") await failExtraction(db, d.id, outcome.error);
+      else await applyExtraction(db, d.workspaceId, d.id, outcome.result);
+      done++;
+    } catch (err) {
+      // Network or API trouble while asking: try again on the next round.
+      console.error(`[extraction queue] document ${d.id}:`, err instanceof Error ? err.message : err);
+    }
+  }
+  return { done };
+}
+
+/** Store an AI reading as proposals for review (never touches inventory). */
+async function applyExtraction(db: DbOrTx, workspaceId: string, documentId: string, result: ExtractionResult) {
+  {
+    const [doc] = await db.select().from(s.document).where(and(eq(s.document.id, documentId), eq(s.document.workspaceId, workspaceId)));
+    if (!doc || doc.status !== "processing") return;
     const ex: Extraction = result.extraction;
     const rentalHouseId = doc.rentalHouseId ?? (await findRentalHouse(db, workspaceId, ex.rental_house_name, ex.rental_house_match));
     const documentNumber = ex.document_number?.trim().slice(0, 100) || null;
@@ -318,6 +381,7 @@ export async function runExtraction(db: DbOrTx, storage: StorageProvider, extrac
           extractionProvider: result.provider,
           extractionModel: result.model,
           extractionError: null,
+          extractionBatchId: null,
           extractedAt: new Date(),
           possibleDuplicateOfId: duplicateOf,
         })
@@ -341,13 +405,6 @@ export async function runExtraction(db: DbOrTx, storage: StorageProvider, extrac
         },
       });
     });
-  } catch (err) {
-    const message = err instanceof ExtractionError ? err.message : "Reading the document failed unexpectedly. Try again or enter the lines manually.";
-    if (!(err instanceof ExtractionError)) console.error("extraction failed", err);
-    await db
-      .update(s.document)
-      .set({ status: "failed", extractionError: message })
-      .where(and(eq(s.document.id, documentId), eq(s.document.status, "processing")));
   }
 }
 
@@ -367,7 +424,8 @@ export async function releaseStaleExtractions(db: DbOrTx, olderThanMinutes = 15)
   await db
     .update(s.document)
     .set({ status: "failed", extractionError: "Reading was interrupted. Try again." })
-    .where(and(eq(s.document.status, "processing"), sql`${s.document.updatedAt} < now() - make_interval(mins => ${olderThanMinutes})`));
+    // Not documents waiting in the discounted AI queue: those are collected by pollExtractionBatches.
+    .where(and(eq(s.document.status, "processing"), sql`${s.document.extractionBatchId} is null`, sql`${s.document.updatedAt} < now() - make_interval(mins => ${olderThanMinutes})`));
 }
 
 // ---------------------------------------------------------------------------

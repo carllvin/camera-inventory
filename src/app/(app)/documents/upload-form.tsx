@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FileUp } from "lucide-react";
 import { ActionForm, Select, SubmitButton } from "@/components/forms";
 import { useT } from "@/components/i18n";
@@ -29,12 +29,15 @@ export function UploadForm({
   rentalHouses,
   defaultProjectId,
   aiAvailable,
+  aiBatch = false,
 }: {
   kind: "delivery_note" | "return_note" | "inventory_list";
   projects: { value: string; label: string }[];
   rentalHouses: { value: string; label: string }[];
   defaultProjectId?: string;
   aiAvailable: boolean;
+  /** The AI provider offers the discounted queue. */
+  aiBatch?: boolean;
 }) {
   const t = useT();
   const [names, setNames] = useState<string[]>([]);
@@ -87,9 +90,45 @@ export function UploadForm({
           ? t("The document is read automatically. You review every line before anything changes on the project.")
           : t("AI reading is not configured on this server, so you will enter the lines yourself after uploading.")}
       </p>
+      {aiBatch && <AiQueueCheckbox t={t} />}
       <SubmitButton className={`${buttonVariants.primary} w-full sm:w-auto`} pendingText={t("Uploading…")} disabled={problem !== null}>
         {t("Upload")}
       </SubmitButton>
     </ActionForm>
+  );
+}
+
+/** Discounted AI queue (Message Batches): half the price, the answer comes later. Remembered per browser. */
+export function AiQueueCheckbox({ t }: { t: T }) {
+  const [on, setOn] = useState(false);
+  // After hydration (the server can't know the browser's choice).
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem("aiBatch") === "1") setOn(true);
+    } catch {
+      /* no storage */
+    }
+  }, []);
+  return (
+    <label className="flex items-start gap-3 rounded-lg border border-border bg-surface p-3 text-sm">
+      <input
+        type="checkbox"
+        name="aiBatch"
+        checked={on}
+        onChange={(e) => {
+          setOn(e.target.checked);
+          try {
+            window.localStorage.setItem("aiBatch", e.target.checked ? "1" : "0");
+          } catch {
+            /* private mode: just not remembered */
+          }
+        }}
+        className="mt-0.5 size-4"
+      />
+      <span>
+        <span className="font-medium">{t("AI queue: 50 % cheaper")}</span>
+        <span className="block text-xs text-muted">{t("Read in Anthropic's batch queue at half the price. Usually within an hour, at most 24 hours; you can close the page meanwhile.")}</span>
+      </span>
+    </label>
   );
 }

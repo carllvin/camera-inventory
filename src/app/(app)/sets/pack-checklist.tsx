@@ -52,11 +52,18 @@ export function PackChecklist({ rows, action }: { rows: ChecklistRow[]; action: 
         setCounts({});
       }}
     >
-      {needed.length > 0 && (
-        <button type="button" onClick={() => setTicked(new Set([...ticked, ...needed.map((r) => r.key)]))} className="mb-2 text-xs text-accent hover:underline">
-          {t("Tick everything this case still needs ({n})", { n: needed.length })}
-        </button>
-      )}
+      <div className="mb-2 flex flex-wrap gap-x-4 gap-y-1">
+        {needed.length > 0 && (
+          <button type="button" onClick={() => setTicked(new Set([...ticked, ...needed.map((r) => r.key)]))} className="text-xs text-accent hover:underline">
+            {t("Tick everything this case still needs ({n})", { n: needed.length })}
+          </button>
+        )}
+        {rows.length > 1 && (
+          <button type="button" onClick={() => setTicked(ticked.size === rows.length ? new Set() : new Set(rows.map((r) => r.key)))} className="text-xs text-accent hover:underline">
+            {ticked.size === rows.length ? t("Select none") : t("Select all ({n})", { n: rows.length })}
+          </button>
+        )}
+      </div>
       <ul className="-mx-1 max-h-[32rem] divide-y divide-border overflow-y-auto">
         {rows.map((r) => {
           const on = ticked.has(r.key);

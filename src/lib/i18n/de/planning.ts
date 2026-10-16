@@ -123,4 +123,13 @@ export const planning: Dict = {
   Overview: "Übersicht",
   "{workspace} · all projects": "{workspace} · alle Projekte",
   "Choose a project.": "Ein Projekt wählen.",
+  // AI queue (Message Batches) and selecting
+  "AI queue: 50 % cheaper": "KI-Warteschlange: 50 % günstiger",
+  "Read in Anthropic's batch queue at half the price. Usually within an hour, at most 24 hours; you can close the page meanwhile.":
+    "In der Batch-Warteschlange von Anthropic zum halben Preis lesen. Meist innerhalb einer Stunde, höchstens 24 Stunden; die Seite kann solange geschlossen werden.",
+  "Waiting in the AI queue (50 % cheaper)…": "Wartet in der KI-Warteschlange (50 % günstiger) …",
+  "Sent {time}. Usually within an hour, at most 24 hours. You can close this page; the lines appear here when the answer arrives.":
+    "Gesendet {time}. Meist innerhalb einer Stunde, höchstens 24 Stunden. Die Seite kann geschlossen werden; die Zeilen erscheinen hier, sobald die Antwort da ist.",
+  "Select all ({n})": "Alle auswählen ({n})",
+  "Select none": "Auswahl aufheben",
 };

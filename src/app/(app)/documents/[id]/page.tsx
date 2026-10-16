@@ -190,7 +190,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
 
   return (
     <>
-      {doc.status === "processing" && <AutoRefresh />}
+      {doc.status === "processing" && <AutoRefresh intervalMs={doc.extractionBatchId ? 60_000 : 3000} />}
       <PageHeader
         back={{ href: doc.projectId ? `/projects/${doc.projectId}/documents` : "/documents", label: d.projectName ?? t("Documents") }}
         title={
@@ -229,8 +229,19 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         <Card className="mb-6 flex items-center gap-3 p-5">
           <Loader2 className="size-5 animate-spin text-accent" />
           <div>
-            <div className="font-medium">{t("Reading the document…")}</div>
-            <div className="text-sm text-muted">{t("Usually 20–60 seconds. You can leave this page; nothing changes until you confirm.")}</div>
+            {doc.extractionBatchId ? (
+              <>
+                <div className="font-medium">{t("Waiting in the AI queue (50 % cheaper)…")}</div>
+                <div className="text-sm text-muted">
+                  {t("Sent {time}. Usually within an hour, at most 24 hours. You can close this page; the lines appear here when the answer arrives.", { time: doc.extractionBatchAt ? f.formatDateTime(doc.extractionBatchAt) : "—" })}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="font-medium">{t("Reading the document…")}</div>
+                <div className="text-sm text-muted">{t("Usually 20–60 seconds. You can leave this page; nothing changes until you confirm.")}</div>
+              </>
+            )}
           </div>
         </Card>
       )}
@@ -240,10 +251,15 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
           <p className="text-sm text-danger">{doc.extractionError ? tm(doc.extractionError) : t("Reading the document failed.")}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {canEdit && aiAvailable && (
-              <ActionForm action={retryExtractionAction.bind(null, id)}>
+              <ActionForm action={retryExtractionAction.bind(null, id)} className="flex flex-wrap items-center gap-3">
                 <SubmitButton variant="secondary" pendingText={t("Starting…")}>
                   <Sparkles className="size-4" /> {t("Read again")}
                 </SubmitButton>
+                {getExtractor().supportsBatch && (
+                  <label className="flex items-center gap-2 text-sm">
+                    <input type="checkbox" name="aiBatch" className="size-4" /> {t("AI queue: 50 % cheaper")}
+                  </label>
+                )}
               </ActionForm>
             )}
             <span className="self-center text-sm text-muted">{t("or add the lines by hand below.")}</span>

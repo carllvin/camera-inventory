@@ -736,4 +736,10 @@ export const messages: Dict = {
   "Enter the server address, e.g. https://ntfy.example.com": "Serveradresse eingeben, z. B. https://ntfy.example.com",
   "New calendar link created. The old one no longer works.": "Neuer Kalender-Link erstellt. Der alte funktioniert nicht mehr.",
   "Calendar link switched off.": "Kalender-Link ausgeschaltet.",
+  "The AI queue no longer knows this document. Read it again.": "Die KI-Warteschlange kennt dieses Dokument nicht mehr. Bitte neu lesen.",
+  "AI service error in the queue. Read it again.": "Fehler beim KI-Dienst in der Warteschlange. Bitte neu lesen.",
+  "The AI queue did not get to this document within 24 hours. Read it again.": "Die KI-Warteschlange hat dieses Dokument nicht innerhalb von 24 Stunden gelesen. Bitte neu lesen.",
+  "Reading in the AI queue was cancelled. Read it again.": "Das Lesen in der KI-Warteschlange wurde abgebrochen. Bitte neu lesen.",
+  "The AI queue returned no result. Read it again.": "Die KI-Warteschlange hat kein Ergebnis geliefert. Bitte neu lesen.",
+  "The AI queue did not answer within 24 hours. Read it again.": "Die KI-Warteschlange hat nicht innerhalb von 24 Stunden geantwortet. Bitte neu lesen.",
 };

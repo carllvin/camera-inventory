@@ -49,6 +49,9 @@ export const document = pgTable(
     extractionModel: text(),
     extractionError: text(),
     extractedAt: tsz(),
+    /** Waiting in the discounted AI queue (Message Batches): the batch and when it was sent. */
+    extractionBatchId: text(),
+    extractionBatchAt: tsz(),
     /** Set when the user is warned this looks like an already imported document. */
     possibleDuplicateOfId: uuid(),
     uploadedById: uuid().references(() => user.id),

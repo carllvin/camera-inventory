@@ -45,6 +45,32 @@ export function EntryTick({ entryKey, itemIds, units, typeId, label }: { entryKe
   );
 }
 
+/**
+ * "Select all" / "Select none" for the ticks in the bar's form. Ticks are plain inputs, so
+ * setting them and announcing a change keeps the bar's count and the type ticks in step.
+ */
+function SelectAllButton({ formRef, selector, extra, count, total }: { formRef: React.RefObject<HTMLDivElement | null>; selector: string; extra?: string; count: number; total: number }) {
+  const t = useT();
+  const all = total > 0 && count === total;
+  return (
+    <button
+      type="button"
+      disabled={total === 0}
+      onClick={() => {
+        const form = formRef.current?.closest("form");
+        if (!form) return;
+        form.querySelectorAll<HTMLInputElement>([selector, extra].filter(Boolean).join(",")).forEach((c) => {
+          if (!c.disabled) c.checked = !all;
+        });
+        form.dispatchEvent(new Event("change", { bubbles: true }));
+      }}
+      className="rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium hover:bg-surface-2 disabled:opacity-50"
+    >
+      {all ? t("Select none") : t("Select all ({n})", { n: total })}
+    </button>
+  );
+}
+
 const STATUS = ["on_project", "in_use", "ready_for_return", "missing"] as const;
 const CONDITION = ["ok", "minor_wear", "damaged", "defective"] as const;
 
@@ -53,11 +79,15 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
   const t = useT();
   const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
+  const [total, setTotal] = useState(0);
   const [op, setOp] = useState("");
   useEffect(() => {
     const form = ref.current?.closest("form");
     if (!form) return;
-    const update = () => setCount(form.querySelectorAll('input[name="row"]:checked').length);
+    const update = () => {
+      setCount(form.querySelectorAll('input[name="row"]:checked').length);
+      setTotal(form.querySelectorAll('input[name="row"]:not(:disabled)').length);
+    };
     const onChange = (e: Event) => {
       const tick = e.target as HTMLInputElement;
       const typeId = tick.dataset?.selectType;
@@ -85,6 +115,7 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
   return (
     <div ref={ref} className="sticky bottom-20 z-10 mt-3 flex flex-wrap items-center gap-2 rounded-xl border border-border bg-surface p-2 shadow-lg md:bottom-4">
       <span className="px-1 text-sm font-medium tabular-nums">{t("{n} selected", { n: count })}</span>
+      <SelectAllButton formRef={ref} selector='input[name="row"]' extra="input[data-select-type]" count={count} total={total} />
       <select name="op" value={op} onChange={(e) => setOp(e.target.value)} aria-label={t("Action")} className="input !w-auto min-w-0 flex-1 !py-1.5 text-sm">
         <option value="">{t("Choose an action…")}</option>
         {sets.length > 0 && (
@@ -125,10 +156,14 @@ export function DeleteTypesBar() {
   const t = useT();
   const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     const form = ref.current?.closest("form");
     if (!form) return;
-    const update = () => setCount(form.querySelectorAll('input[name="typeId"]:checked').length);
+    const update = () => {
+      setCount(form.querySelectorAll('input[name="typeId"]:checked').length);
+      setTotal(form.querySelectorAll('input[name="typeId"]:not(:disabled)').length);
+    };
     const onReset = () => setTimeout(update, 0);
     form.addEventListener("change", update);
     form.addEventListener("reset", onReset);
@@ -140,10 +175,49 @@ export function DeleteTypesBar() {
   }, []);
   return (
     <div ref={ref} className="sticky bottom-20 z-10 mt-3 flex items-center justify-between gap-2 rounded-xl border border-border bg-surface p-2 shadow-lg md:bottom-4">
-      <span className="px-1 text-sm font-medium tabular-nums">{t("{n} selected", { n: count })}</span>
+      <span className="flex items-center gap-2">
+        <span className="px-1 text-sm font-medium tabular-nums">{t("{n} selected", { n: count })}</span>
+        <SelectAllButton formRef={ref} selector='input[name="typeId"]' count={count} total={total} />
+      </span>
       <SubmitButton variant="danger" disabled={count === 0} className="!py-1.5" pendingText={t("Deleting…")}>
         {count === 1 ? t("Delete type") : t("Delete types")}
       </SubmitButton>
     </div>
+  );
+}
+
+/** "Select all" for a plain list of checkboxes in a form (e.g. what to remove from a project). */
+export function TickAll({ name }: { name: string }) {
+  const t = useT();
+  const ref = useRef<HTMLButtonElement>(null);
+  const [state, setState] = useState({ count: 0, total: 0 });
+  useEffect(() => {
+    const form = ref.current?.closest("form");
+    if (!form) return;
+    const update = () =>
+      setState({
+        count: form.querySelectorAll(`input[name="${CSS.escape(name)}"]:checked`).length,
+        total: form.querySelectorAll(`input[name="${CSS.escape(name)}"]:not(:disabled)`).length,
+      });
+    form.addEventListener("change", update);
+    update();
+    return () => form.removeEventListener("change", update);
+  }, [name]);
+  const all = state.total > 0 && state.count === state.total;
+  return (
+    <button
+      ref={ref}
+      type="button"
+      onClick={() => {
+        const form = ref.current?.closest("form");
+        form?.querySelectorAll<HTMLInputElement>(`input[name="${CSS.escape(name)}"]`).forEach((c) => {
+          if (!c.disabled) c.checked = !all;
+        });
+        form?.dispatchEvent(new Event("change", { bubbles: true }));
+      }}
+      className="text-xs text-accent hover:underline"
+    >
+      {all ? t("Select none") : t("Select all ({n})", { n: state.total })}
+    </button>
   );
 }

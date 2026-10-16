@@ -17,6 +17,8 @@ import {
   getDocumentReview,
   requestExtraction,
   runExtraction,
+  pollExtractionBatches,
+  releaseStaleExtractions,
   updateLine,
   createTypeFromLine,
 } from "../src/server/domain/documents";
@@ -529,5 +531,55 @@ describe("changing the type after confirming", () => {
     await revertEvent(db, ctx, ev!.id);
     const [back] = await db.select().from(s.equipmentItem).where(eq(s.equipmentItem.id, items[0]!.id));
     expect(back!.equipmentTypeId).toBe(teradekTx.id);
+  });
+});
+
+describe("discounted AI queue (batch)", () => {
+  class FakeQueue extends FakeExtractor {
+    readonly supportsBatch = true;
+    submitted: string[] = [];
+    outcome: "pending" | "done" | "failed" = "pending";
+    async submitBatch(_files: unknown, _ctx: unknown, customId: string) {
+      this.submitted.push(customId);
+      return `batch-${customId}`;
+    }
+    async batchResult() {
+      if (this.outcome === "pending") return { status: "pending" as const };
+      if (this.outcome === "failed") return { status: "failed" as const, error: new ExtractionError("The AI queue did not get to this document within 24 hours. Read it again.", true) };
+      return { status: "done" as const, result: await this.extract() };
+    }
+  }
+
+  it("sends the document to the queue, keeps it waiting, then stores the proposals", async () => {
+    const q = new FakeQueue(extraction([line({ description: "Teradek Bolt TX", catalog_match: "Teradek Bolt 6 XT 750 TX" })]));
+    const r = await createDocumentFromUpload(db, storage, ctx, q, { kind: "delivery_note", projectId: f.project.id }, [{ name: "q.pdf", type: "application/pdf", bytes: pdf(`queue-${Date.now()}`) }]);
+    await runExtraction(db, storage, q, ctx.workspaceId, r.document.id, { batch: true });
+    expect(q.calls).toBe(0);
+    expect(q.submitted).toEqual([r.document.id]);
+    let [doc] = await db.select().from(s.document).where(eq(s.document.id, r.document.id));
+    expect(doc).toMatchObject({ status: "processing", extractionBatchId: `batch-${r.document.id}` });
+
+    // Not answered yet: stays waiting, and the stale-reading cleanup leaves it alone.
+    await pollExtractionBatches(db, q);
+    await releaseStaleExtractions(db, -1);
+    [doc] = await db.select().from(s.document).where(eq(s.document.id, r.document.id));
+    expect(doc!.status).toBe("processing");
+
+    q.outcome = "done";
+    await pollExtractionBatches(db, q);
+    [doc] = await db.select().from(s.document).where(eq(s.document.id, r.document.id));
+    expect(doc).toMatchObject({ status: "extracted", extractionBatchId: null });
+    const lines = await db.select().from(s.documentLine).where(eq(s.documentLine.documentId, r.document.id));
+    expect(lines).toHaveLength(1);
+  });
+
+  it("marks the document failed when the queue gives up, so it can be read again", async () => {
+    const q = new FakeQueue(extraction([]));
+    const r = await createDocumentFromUpload(db, storage, ctx, q, { kind: "delivery_note", projectId: f.project.id }, [{ name: "q2.pdf", type: "application/pdf", bytes: pdf(`queue2-${Date.now()}`) }]);
+    await runExtraction(db, storage, q, ctx.workspaceId, r.document.id, { batch: true });
+    q.outcome = "failed";
+    await pollExtractionBatches(db, q);
+    const [doc] = await db.select().from(s.document).where(eq(s.document.id, r.document.id));
+    expect(doc).toMatchObject({ status: "failed", extractionBatchId: null, extractionError: "The AI queue did not get to this document within 24 hours. Read it again." });
   });
 });

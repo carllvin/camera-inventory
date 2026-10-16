@@ -47,6 +47,7 @@ export default async function NewDocumentPage({ searchParams }: { searchParams: 
           rentalHouses={houses.map((r) => ({ value: r.id, label: r.name }))}
           defaultProjectId={defaultProjectId}
           aiAvailable={aiAvailable}
+          aiBatch={aiAvailable && getExtractor().supportsBatch === true}
         />
       </Card>
     </>

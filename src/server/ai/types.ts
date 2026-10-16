@@ -89,12 +89,19 @@ export interface ExtractionResult {
   meta: Record<string, unknown>;
 }
 
+/** Where a queued (batch) reading stands. */
+export type BatchOutcome = { status: "pending" } | { status: "done"; result: ExtractionResult } | { status: "failed"; error: ExtractionError };
+
 export interface DocumentExtractor {
   readonly provider: string;
   readonly model: string;
   /** False when no AI is configured: documents are then entered manually. */
   readonly available: boolean;
   extract(files: ExtractionInputFile[], ctx: ExtractionContext): Promise<ExtractionResult>;
+  /** Discounted queue (Message Batches: half price, answered within 24 h). */
+  readonly supportsBatch?: boolean;
+  submitBatch?(files: ExtractionInputFile[], ctx: ExtractionContext, customId: string): Promise<string>;
+  batchResult?(batchId: string): Promise<BatchOutcome>;
 }
 
 /** A provider failure the user should see (refusal, unreadable document, missing key …). */
