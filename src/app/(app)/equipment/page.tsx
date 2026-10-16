@@ -39,7 +39,8 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
     listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, limit: LIMIT }),
     getCategoryTree(db, ctx),
     listRentalHouses(db, ctx),
-    projectId ? listCases(db, ctx, { projectId }) : Promise.resolve([]),
+    // All projects: every active set (cards and grouping work the same as for one project).
+    listCases(db, ctx, projectId ? { projectId } : {}),
   ]);
   const hasFilters = Object.values(filterParams).some(Boolean);
   return (
@@ -87,7 +88,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
         rentalHouses={rentalHouses}
         cases={cases}
         hasFilters={hasFilters}
-        bulkAction={projectId && hasRole(ctx, "member") ? bulkEquipmentAction.bind(null, projectId) : undefined}
+        bulkAction={hasRole(ctx, "member") ? bulkEquipmentAction.bind(null, projectId ?? null) : undefined}
         empty={
           project ? (
             <EmptyState

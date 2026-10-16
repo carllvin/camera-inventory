@@ -18,7 +18,7 @@ import { packItem, packUnits, unpackItem, unpackUnits } from "@/server/domain/ca
 import { DomainError } from "@/server/domain/context";
 import { UUID_RE } from "@/server/pages";
 import { updateItemState } from "@/server/domain/item-state";
-import { asc, inArray } from "drizzle-orm";
+import { and, asc, eq, inArray } from "drizzle-orm";
 import * as s from "@/server/db/schema";
 
 
@@ -94,17 +94,28 @@ export async function removeEquipmentAction(projectId: string, _: ActionState, f
  * Select mode on the equipment list: apply one action to the ticked entries.
  * op = "set:<id>" | "unpack" | "status:<s>" | "condition:<c>" | "remove".
  */
-export async function bulkEquipmentAction(projectId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+/** Ticked equipment in the list; projectId null = the all-projects list (removing then needs one project). */
+export async function bulkEquipmentAction(projectId: string | null, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     const op = String(fd.get("op") ?? "");
     const { items, groups } = readRows(fd);
     if (!items.length && !groups.length) throw new DomainError("VALIDATION", "Tick some equipment first.");
     if (!op) throw new DomainError("VALIDATION", "Choose what to do with it.");
-    if (op === "remove") {
-      const ids = [...items.map((i) => i.id), ...groups.flatMap((g) => g.itemIds)];
-      redirect(`/projects/${projectId}/remove?items=${[...new Set(ids)].join(",")}`);
-    }
     const ctx = await getCtx();
+    if (op === "remove") {
+      const ids = [...new Set([...items.map((i) => i.id), ...groups.flatMap((g) => g.itemIds)])];
+      let target = projectId;
+      if (!target) {
+        const rows = await getDb()
+          .selectDistinct({ projectId: s.equipmentItem.projectId })
+          .from(s.equipmentItem)
+          .where(and(eq(s.equipmentItem.workspaceId, ctx.workspaceId), inArray(s.equipmentItem.id, ids)));
+        const projects = rows.map((r) => r.projectId).filter((p): p is string => Boolean(p));
+        if (projects.length !== 1 || rows.length !== 1) throw new DomainError("VALIDATION", "Tick equipment of one project to remove it from that project.");
+        target = projects[0]!;
+      }
+      redirect(`/projects/${target}/remove?items=${ids.join(",")}`);
+    }
     const db = getDb();
     const [kind, value] = op.split(":") as [string, string | undefined];
     const pieces = await db.transaction(async (tx) => {

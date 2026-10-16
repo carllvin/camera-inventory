@@ -76,7 +76,7 @@ export async function EquipmentBrowser({
 }) {
   const [t, tn] = await Promise.all([getT(), getTN()]);
   const view = browserView(sp);
-  const canSelect = Boolean(projectId && bulkAction);
+  const canSelect = Boolean(bulkAction);
   const selecting = canSelect && sp.select === "1" && view !== "grid";
   const href = (patch: Partial<BrowserParams>) => {
     const next = { ...sp, ...patch };
@@ -187,7 +187,7 @@ export async function EquipmentBrowser({
               return selecting && bulkAction ? (
                 <ActionForm action={bulkAction}>
                   {list}
-                  <SelectionBar sets={cases.map((c) => ({ value: c.id, label: c.name }))} />
+                  <SelectionBar sets={cases.map((c) => ({ value: c.id, label: projectId ? c.name : `${c.name} · ${c.projectName}` }))} />
                 </ActionForm>
               ) : (
                 list

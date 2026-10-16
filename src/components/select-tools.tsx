@@ -116,7 +116,7 @@ export function SelectionBar({ sets }: { sets: { value: string; label: string }[
     <div ref={ref} className="sticky bottom-20 z-10 mt-3 flex flex-wrap items-center gap-2 rounded-xl border border-border bg-surface p-2 shadow-lg md:bottom-4">
       <span className="px-1 text-sm font-medium tabular-nums">{t("{n} selected", { n: count })}</span>
       <SelectAllButton formRef={ref} selector='input[name="row"]' extra="input[data-select-type]" count={count} total={total} />
-      <select name="op" value={op} onChange={(e) => setOp(e.target.value)} aria-label={t("Action")} className="input !w-auto min-w-0 flex-1 !py-1.5 text-sm">
+      <select name="op" value={op} onChange={(e) => setOp(e.target.value)} aria-label={t("Action")} className="input !w-auto min-w-40 flex-1 basis-40 !py-1.5 text-sm">
         <option value="">{t("Choose an action…")}</option>
         {sets.length > 0 && (
           <optgroup label={t("Add to set")}>

@@ -742,4 +742,5 @@ export const messages: Dict = {
   "Reading in the AI queue was cancelled. Read it again.": "Das Lesen in der KI-Warteschlange wurde abgebrochen. Bitte neu lesen.",
   "The AI queue returned no result. Read it again.": "Die KI-Warteschlange hat kein Ergebnis geliefert. Bitte neu lesen.",
   "The AI queue did not answer within 24 hours. Read it again.": "Die KI-Warteschlange hat nicht innerhalb von 24 Stunden geantwortet. Bitte neu lesen.",
+  "Tick equipment of one project to remove it from that project.": "Equipment eines einzigen Projekts ankreuzen, um es aus diesem Projekt zu entfernen.",
 };
