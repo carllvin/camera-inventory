@@ -472,6 +472,30 @@
             "Tilta Hydra Alien Pro Kit",
             "Hydra Alien"
           ]
+        },
+        {
+          "manufacturer": "GFM",
+          "model": "Vibration Isolator",
+          "aliases": [
+            "GFM Vibration Isolator",
+            "GF Vibration Isolator"
+          ]
+        },
+        {
+          "manufacturer": "GFM",
+          "model": "GF-Combi Rig",
+          "aliases": [
+            "GFM GF-Combi Rig",
+            "GFM Combi Rig"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "Fig Rig",
+          "aliases": [
+            "Manfrotto FigRig",
+            "Manfrotto 595B Fig Rig"
+          ]
         }
       ]
     },
@@ -579,6 +603,54 @@
             "Steel C-Stand 40"
           ],
           "bulk": true
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "007BU Stand",
+          "aliases": [
+            "Manfrotto Stativ 007BU (1,23 - 2,74 m)",
+            "Manfrotto-Lichtstativ 007BU",
+            "Manfrotto 007BU"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "1004BAC Master Stand",
+          "aliases": [
+            "Manfrotto Stativ 1004BAC (1,20 - 3,60 m) Luftgedämpft",
+            "Manfrotto 1004BAC"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "126CSU Stand",
+          "aliases": [
+            "Manfrotto Stativ 126CSU (1,30 - 3,30 m Stahl)",
+            "Manfrotto 126CSU"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "008CSU Stand",
+          "aliases": [
+            "Manfrotto Stativ 008CSU (1,13 - 1,77 m Stahl)",
+            "Manfrotto 008CSU"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D650 Junior Boom Arm",
+          "aliases": [
+            "Avenger D650 Junior Boom Arm",
+            "Manfrotto Avenger Junior Boom D650"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D600 Mini Boom Arm",
+          "aliases": [
+            "Avenger D600 Mini Boom Arm"
+          ]
         }
       ]
     },
@@ -804,7 +876,9 @@
           "manufacturer": "Freefly",
           "model": "MoVI Pro",
           "aliases": [
-            "Freefly Movi"
+            "Freefly Movi",
+            "Freefly MoVI Pro",
+            "MoVI Pro Gimbal"
           ],
           "discontinued": true
         },
@@ -1083,6 +1157,108 @@
             "Steadystick - Glidecam HD-2000",
             "Glidecam HD2000"
           ]
+        },
+        {
+          "manufacturer": "Edelkrone",
+          "model": "HeadPLUS PRO v2",
+          "aliases": [
+            "Edelkrone HeadPlus Pro V2"
+          ]
+        },
+        {
+          "manufacturer": "Edelkrone",
+          "model": "HeadONE",
+          "aliases": [
+            "Edelkrone HeadONE"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema 3 400N",
+          "aliases": [
+            "Easyrig Cinema 3 400N",
+            "EasyRig Cinema 3 400N"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema 3 500N",
+          "aliases": [
+            "Easyrig Cinema 3 500N",
+            "Cinema 3 EasyRig 500N"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema 3 700N",
+          "aliases": [
+            "Easyrig Cinema 3 700N",
+            "Cinema 3 EasyRig 700N"
+          ]
+        },
+        {
+          "manufacturer": "Cinema Devices",
+          "model": "Ergorig",
+          "aliases": [
+            "Cinema Devices Ergorig",
+            "ErgoRig"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin-S",
+          "aliases": [
+            "DJI Ronin S",
+            "DJI Ronin-S Gimbal"
+          ]
+        },
+        {
+          "manufacturer": "Shotover",
+          "model": "G1",
+          "aliases": [
+            "Shotover G1 Gimbal"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Armor Man 2",
+          "aliases": [
+            "Tilta Armor Man 2",
+            "Armor Man 2.0",
+            "Tilta Armor Man 2.0",
+            "Tiltamax Armor Man 2.0 Exoskelett"
+          ]
+        },
+        {
+          "manufacturer": "Zhiyun",
+          "model": "Crane 2",
+          "aliases": [
+            "Gimbal ZHIYUN Crane 2 (inkl. Fokusmotor)",
+            "Zhiyun Crane 2"
+          ]
+        },
+        {
+          "manufacturer": "Zhiyun",
+          "model": "Weebill Lab",
+          "aliases": [
+            "Gimbal ZHIYUN Weebill Lab",
+            "Zhiyun Weebill Lab"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS 4 Mini",
+          "aliases": [
+            "Gimbal DJI RS 4 Mini",
+            "DJI RS4 Mini"
+          ]
+        },
+        {
+          "manufacturer": "Glidecam",
+          "model": "Devin Graham Signature Series",
+          "aliases": [
+            "Glidecam Devin Graham Signature Series"
+          ]
         }
       ]
     },
@@ -1180,7 +1356,9 @@
           "model": "1030Ds Fluid Head",
           "name": "O'Connor 1030Ds",
           "aliases": [
-            "O'Connor 1030"
+            "O'Connor 1030",
+            "OConnor Ultimate 1030Ds Stativsystem",
+            "OConnor Ultimate 1030Ds"
           ]
         },
         {
@@ -1217,7 +1395,11 @@
           "manufacturer": "OConnor",
           "model": "2560 Fluid Head",
           "name": "O'Connor 2560",
-          "aliases": []
+          "aliases": [
+            "O Connor Ultimate 2560 Stativkopf",
+            "OConnor Ultimate 2560",
+            "O'Connor Ultimate 2560"
+          ]
         },
         {
           "manufacturer": "OConnor",
@@ -1341,7 +1523,8 @@
           "model": "Video 20 S2",
           "aliases": [
             "Sachtler Video 20",
-            "Video20"
+            "Video20",
+            "Sachtler Video 20 (Classic)"
           ]
         },
         {
@@ -1634,6 +1817,118 @@
             "Ronford F7 MK III",
             "Ronford Fluid 7"
           ]
+        },
+        {
+          "manufacturer": "Miller",
+          "model": "ArrowX 3",
+          "aliases": [
+            "MILLER Arrow X3",
+            "Miller Arrow X 3"
+          ]
+        },
+        {
+          "manufacturer": "Miller",
+          "model": "ArrowX 5",
+          "aliases": [
+            "MILLER Arrow X5",
+            "Miller Arrow X 5"
+          ]
+        },
+        {
+          "manufacturer": "Miller",
+          "model": "ArrowX 7",
+          "aliases": [
+            "MILLER Arrow X7",
+            "Miller Arrow X 7"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "MVH502AH",
+          "aliases": [
+            "Manfrotto Pro Fluid Video-Neiger MVH502AH",
+            "Manfrotto 502 Videostativ",
+            "Manfrotto 502"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "Nitrotech 612",
+          "aliases": [
+            "Manfrotto Nitrotech 612",
+            "Manfrotto N12"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "504HD",
+          "aliases": [
+            "Manfrotto 504 HD 525MBV",
+            "Manfrotto 504HD"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "503HDV",
+          "aliases": [
+            "Manfrotto 503 525MBV",
+            "Manfrotto 503"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 30 II",
+          "aliases": [
+            "Sachtler Stativkopf Video 30 II",
+            "Sachtler Video 30"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 20 III",
+          "aliases": [
+            "Sachtler Video20 III",
+            "Sachtler Video 20 III"
+          ]
+        },
+        {
+          "manufacturer": "Benro",
+          "model": "S7 Video Head",
+          "aliases": [
+            "Benro S7"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Focus 8",
+          "aliases": [
+            "CARTONI FOCUS 8 TRIPOD KIT (75MM)",
+            "Cartoni Focus 8"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Focus 10",
+          "aliases": [
+            "CARTONI FOCUS 10 TRIPOD KIT (100MM)",
+            "Cartoni Focus 10"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Focus 12",
+          "aliases": [
+            "CARTONI FOCUS 12 TRIPOD (100MM)",
+            "Cartoni Focus 12"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Focus 18",
+          "aliases": [
+            "CARTONI FOCUS 18 TRIPOD KIT (100MM)",
+            "Cartoni Focus 18"
+          ]
         }
       ]
     },
@@ -1650,7 +1945,9 @@
           "aliases": [
             "Dana Dolly",
             "Dana Dolly Kit",
-            "Dana Dolly Rental Kit"
+            "Dana Dolly Rental Kit",
+            "Dana Dolly Kit (inkl. Portable Pipe Kit)",
+            "Dana Dolly Dana dolly"
           ]
         },
         {
@@ -1658,7 +1955,10 @@
           "model": "Model 11 Dolly",
           "aliases": [
             "Fisher Eleven",
-            "Fisher 11"
+            "Fisher 11",
+            "J.L. Fisher 11",
+            "JL Fisher Model 11",
+            "J.L. Fisher Fisher 11"
           ]
         },
         {
@@ -1842,7 +2142,9 @@
           "model": "Hybrid IV Dolly",
           "aliases": [
             "Chapman Hybrid",
-            "Chapman Hybrid IV"
+            "Chapman Hybrid IV",
+            "Chapman/Leonard Hybrid IV",
+            "Chapman Leonard Hybrid IV"
           ]
         },
         {
@@ -1867,7 +2169,10 @@
           "aliases": [
             "Fisher 10",
             "Fisher Dolly 10",
-            "Fisher #10"
+            "Fisher #10",
+            "J.L. Fisher 10",
+            "JL Fisher Model 10",
+            "J.L. Fisher Fisher 10"
           ]
         },
         {
@@ -1957,7 +2262,9 @@
           "model": "Slider 4ft",
           "aliases": [
             "Ronford Slider 4ft.",
-            "Ronford Slider 4ft"
+            "Ronford Slider 4ft",
+            "Ronford Baker 4′ Slider Mitchell",
+            "Ronford Baker 4' Slider"
           ]
         },
         {
@@ -1983,6 +2290,160 @@
             "Edelkrone Slider Plus v5 Pro Long",
             "Edelkrone Slider v5 Pro long",
             "Edelkrone SliderPLUS"
+          ]
+        },
+        {
+          "manufacturer": "Edelkrone",
+          "model": "DollyONE",
+          "aliases": [
+            "Edelkrone Dolly One"
+          ]
+        },
+        {
+          "manufacturer": "Edelkrone",
+          "model": "SliderPLUS PRO Long v4",
+          "aliases": [
+            "Edelkrone SliderPlus Pro Long V4"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "Super PeeWee III Plus Dolly",
+          "aliases": [
+            "Chapman Super PeeWee III+",
+            "Super Peewee III+",
+            "Chapman Super-PeeWee III Plus",
+            "Chapman/Leonard Super Peewee III+"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "Super PeeWee IV Dolly",
+          "aliases": [
+            "Chapman Super PeeWee IV",
+            "Super Peewee IV",
+            "Chapman Super-PeeWee IV Plus",
+            "Chapman/Leonard Super Peewee IV"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "Hybrid III Dolly",
+          "aliases": [
+            "Chapman Hybrid III",
+            "Chapman/Leonard Hybrid III"
+          ]
+        },
+        {
+          "manufacturer": "Motion Impossible",
+          "model": "Agito",
+          "aliases": [
+            "Motion Impossible AGITO",
+            "Agito Modular Dolly"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Dolly S",
+          "aliases": [
+            "Sachtler Dolly S",
+            "Sachtler Dolly S for 100mm/150mm"
+          ]
+        },
+        {
+          "manufacturer": "Prosup",
+          "model": "Tango Slider",
+          "aliases": [
+            "Prosup Tango Slider"
+          ]
+        },
+        {
+          "manufacturer": "P+S Technik",
+          "model": "Skater Dolly",
+          "aliases": [
+            "P+S Skater Dolly",
+            "P+S Skater"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Doorway Dolly",
+          "aliases": [
+            "MATTHEWS DOORWAY DOLLY",
+            "Matthews Doorway Dolly"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Western Dolly",
+          "aliases": [
+            "MATTHEWS WESTERN DOLLY",
+            "Matthews Western Dolly"
+          ]
+        },
+        {
+          "manufacturer": "Syrp",
+          "model": "Magic Carpet Pro",
+          "aliases": [
+            "SYRP MAGIC CARPET PRO KIT",
+            "Syrp Magic Carpet PRO Slider Short + Medium Combo Kit (60+90cm)"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Tristar Dolly",
+          "aliases": [
+            "PANTHER TRISTAR DOLLY",
+            "Panther Tristar"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "PeeWee III+ Dolly",
+          "aliases": [
+            "Chapman Leonard Peewee III+",
+            "Chapman PeeWee III"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "PeeWee IV Dolly",
+          "aliases": [
+            "Chapman Leonard Peewee IV/IV+",
+            "Chapman PeeWee IV"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "PeeWee V Dolly",
+          "aliases": [
+            "Chapman Leonard Peewee V",
+            "Chapman PeeWee V"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "Hybrid V Dolly",
+          "aliases": [
+            "Chapman Leonard Hybrid V",
+            "Chapman Hybrid V"
+          ]
+        },
+        {
+          "manufacturer": "Ronford-Baker",
+          "model": "Slider 6ft",
+          "aliases": [
+            "Ronford Baker 6′ Slider Mitchell",
+            "Ronford 72\" (183cm) slider Mitchell base",
+            "Ronford Baker 6' Slider"
+          ]
+        },
+        {
+          "manufacturer": "Ronford-Baker",
+          "model": "Rolling Spider",
+          "aliases": [
+            "Ronford-Baker Rolling Spider",
+            "Ronford rolling spider"
           ]
         }
       ]
@@ -2398,6 +2859,22 @@
             "Manfrotto 529b",
             "Manfrotto 529B Hi-Hat"
           ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "30L Tripod",
+          "aliases": [
+            "O'Connor Stativ 30L Carbon (100er)",
+            "OConnor 30L"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "60L Tripod",
+          "aliases": [
+            "Stativ O'Connor 60L 2-fach (Carbon)",
+            "OConnor 60L"
+          ]
         }
       ]
     },
@@ -2454,7 +2931,8 @@
           "model": "Crane 100",
           "aliases": [
             "ABC Crane 100",
-            "Leichtkran ABC Crane 100"
+            "Leichtkran ABC Crane 100",
+            "ABC Kran 100"
           ]
         },
         {
@@ -2573,6 +3051,192 @@
             "Prosup EJib",
             "EJIB"
           ]
+        },
+        {
+          "manufacturer": "Edelkrone",
+          "model": "JibONE v2",
+          "aliases": [
+            "Edelkrone JibONE V2"
+          ]
+        },
+        {
+          "manufacturer": "Fisher",
+          "model": "Model 23 Jib Arm",
+          "aliases": [
+            "Fisher 23",
+            "JL Fisher 23",
+            "J.L. Fisher Fisher 23"
+          ]
+        },
+        {
+          "manufacturer": "Egripment",
+          "model": "JanJib F75",
+          "aliases": [
+            "Egripment JanJib F75",
+            "JanJib F75"
+          ]
+        },
+        {
+          "manufacturer": "Egripment",
+          "model": "JanJib F120",
+          "aliases": [
+            "Egripment JanJib F120",
+            "JanJib F120"
+          ]
+        },
+        {
+          "manufacturer": "FilmAir",
+          "model": "Giraffe Classic",
+          "aliases": [
+            "FilmAir Giraffe Classic",
+            "Giraffe Crane"
+          ]
+        },
+        {
+          "manufacturer": "MovieBird",
+          "model": "MovieBird 30",
+          "aliases": [
+            "MovieBird 30",
+            "Moviebird 30 Telescopic Crane"
+          ]
+        },
+        {
+          "manufacturer": "MovieBird",
+          "model": "MovieBird 45",
+          "aliases": [
+            "MovieBird 45",
+            "Moviebird 45 Telescopic Crane"
+          ]
+        },
+        {
+          "manufacturer": "MovieBird",
+          "model": "MovieBird 62",
+          "aliases": [
+            "MovieBird 62",
+            "Moviebird 62 Telescopic Crane"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio 20L Telescopic Crane",
+          "aliases": [
+            "Scorpio 20L",
+            "Servicevision Scorpio 20L"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio 23L Telescopic Crane",
+          "aliases": [
+            "Scorpio 23L",
+            "Servicevision Scorpio 23L"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio 23A Telescopic Crane",
+          "aliases": [
+            "Scorpio 23A",
+            "Servicevision Scorpio 23A"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio 45 Telescopic Crane",
+          "aliases": [
+            "Scorpio 45",
+            "Servicevision Scorpio 45",
+            "Service Vision Scorpio 45",
+            "Scorpio 45 crane"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "JIBo",
+          "aliases": [
+            "Cartoni JIBo",
+            "Cartoni Jibo Jib"
+          ]
+        },
+        {
+          "manufacturer": "Libec",
+          "model": "Swift Jib 50",
+          "aliases": [
+            "Libec Swift Jib 50",
+            "Libec Swift Jib50"
+          ]
+        },
+        {
+          "manufacturer": "Movietech",
+          "model": "Gizmo Jib XL",
+          "aliases": [
+            "Movietech Gizmo JIB Version XL",
+            "MovieTech Gizmo Jib"
+          ]
+        },
+        {
+          "manufacturer": "Miller",
+          "model": "ProJib",
+          "aliases": [
+            "MILLER PROJIB",
+            "Miller Pro Jib"
+          ]
+        },
+        {
+          "manufacturer": "Varizoom",
+          "model": "SnapCrane 16",
+          "aliases": [
+            "VARIZOOM SNAPCRANE 16",
+            "Varizoom Snapcrane 16"
+          ]
+        },
+        {
+          "manufacturer": "Technocrane",
+          "model": "Supertechno 15",
+          "aliases": [
+            "Technocrane Supertechno 15",
+            "Super Technocrane 15"
+          ]
+        },
+        {
+          "manufacturer": "Technocrane",
+          "model": "Supertechno 50+",
+          "aliases": [
+            "Technocrane Supertechno 50+",
+            "Super Technocrane 50"
+          ]
+        },
+        {
+          "manufacturer": "Technocrane",
+          "model": "Supertechno 75+",
+          "aliases": [
+            "Technocrane Supertechno 75+",
+            "Super Technocrane 75"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio 23 Telescopic Crane",
+          "aliases": [
+            "Service Vision Scorpio 23",
+            "Scorpio 23 crane"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio 78 Telescopic Crane",
+          "aliases": [
+            "Scorpio 78 crane",
+            "Service Vision Scorpio 78"
+          ]
+        },
+        {
+          "manufacturer": "GFM",
+          "model": "GF-Jib",
+          "aliases": [
+            "GFM GF-Jib",
+            "GF Jib"
+          ]
         }
       ]
     },
@@ -2634,6 +3298,78 @@
             "Scorpio Head",
             "Scorpio 3-Axis Head",
             "Scorpio Stabilized"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Mini Scorpio Head",
+          "aliases": [
+            "Servicevision Mini Scorpio Head",
+            "Mini Scorpio"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Micro Scorpio Head",
+          "aliases": [
+            "Servicevision Micro Scorpio Head",
+            "Micro Scorpio"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Mini Scorpio EZ",
+          "aliases": [
+            "Servicevision Mini Scorpio EZ",
+            "Mini Scorpio EZ Head"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio Classic Head",
+          "aliases": [
+            "Servicevision Scorpio Classic Head",
+            "Scorpio Classic"
+          ]
+        },
+        {
+          "manufacturer": "Vinten",
+          "model": "Fusion FHR-35",
+          "aliases": [
+            "Vinten Fusion FHR-35",
+            "Vinten FHR-35 Remote Head"
+          ]
+        },
+        {
+          "manufacturer": "Libec",
+          "model": "REMO30",
+          "aliases": [
+            "Libec REMO30",
+            "Libec REMO 30 Robotic Head"
+          ]
+        },
+        {
+          "manufacturer": "Filmotechnic",
+          "model": "Flight Head V",
+          "aliases": [
+            "Filmotechnic Flighthead V",
+            "Flighthead V"
+          ]
+        },
+        {
+          "manufacturer": "Filmotechnic",
+          "model": "Flight Head VI",
+          "aliases": [
+            "Filmotechnic Flighthead VI",
+            "Flighthead VI"
+          ]
+        },
+        {
+          "manufacturer": "Mo-Sys",
+          "model": "Lambda",
+          "aliases": [
+            "Mo-Sys Lambda",
+            "Mo-sys engineering Mo-Sys Lambda"
           ]
         }
       ]

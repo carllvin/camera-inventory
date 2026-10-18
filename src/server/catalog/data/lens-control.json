@@ -453,7 +453,10 @@
      "manufacturer": "ARRI",
      "model": "MB-19",
      "name": "ARRI MB-19 Production Matte Box",
-     "aliases": [],
+     "aliases": [
+      "Mattebox MB-19 4x4/4x5,65",
+      "ARRI MB-19 4x4/4x5.65"
+     ],
      "discontinued": true
     },
     {
@@ -584,7 +587,8 @@
      "manufacturer": "Formatt-Hitech",
      "model": "Firecrest IRND 4x5.65 0.3",
      "aliases": [
-      "Firecrest 0.3 4x5.65"
+      "Firecrest 0.3 4x5.65",
+      "Firecrest ND 4x5.65 ND 0.3"
      ],
      "bulk": true
     },
@@ -592,7 +596,8 @@
      "manufacturer": "Formatt-Hitech",
      "model": "Firecrest IRND 4x5.65 0.6",
      "aliases": [
-      "Firecrest 0.6 4x5.65"
+      "Firecrest 0.6 4x5.65",
+      "Firecrest ND 4x5.65 ND 0.6"
      ],
      "bulk": true
     },
@@ -600,7 +605,8 @@
      "manufacturer": "Formatt-Hitech",
      "model": "Firecrest IRND 4x5.65 0.9",
      "aliases": [
-      "Firecrest 0.9 4x5.65"
+      "Firecrest 0.9 4x5.65",
+      "Firecrest ND 4x5.65 ND 0.9"
      ],
      "bulk": true
     },
@@ -608,7 +614,8 @@
      "manufacturer": "Formatt-Hitech",
      "model": "Firecrest IRND 4x5.65 1.2",
      "aliases": [
-      "Firecrest 1.2 4x5.65"
+      "Firecrest 1.2 4x5.65",
+      "Firecrest ND 4x5.65 ND 1.2"
      ],
      "bulk": true
     },
@@ -616,7 +623,8 @@
      "manufacturer": "Formatt-Hitech",
      "model": "Firecrest IRND 4x5.65 1.5",
      "aliases": [
-      "Firecrest 1.5 4x5.65"
+      "Firecrest 1.5 4x5.65",
+      "Firecrest ND 4x5.65 ND 1.5"
      ],
      "bulk": true
     },
@@ -624,7 +632,8 @@
      "manufacturer": "Formatt-Hitech",
      "model": "Firecrest IRND 4x5.65 1.8",
      "aliases": [
-      "Firecrest 1.8 4x5.65"
+      "Firecrest 1.8 4x5.65",
+      "Firecrest ND 4x5.65 ND 1.8"
      ],
      "bulk": true
     },
@@ -632,7 +641,10 @@
      "manufacturer": "Formatt-Hitech",
      "model": "Firecrest IRND 4x5.65 2.1",
      "aliases": [
-      "Firecrest 2.1 4x5.65"
+      "Firecrest 2.1 4x5.65",
+      "Firecrest ND 4x5.65 ND 2.1",
+      "FORMATT FIRECREST ND 2.1 4X5.65 (ND)",
+      "Formatt Firecrest ND 2.1 4x5.65"
      ],
      "bulk": true
     },
@@ -805,7 +817,8 @@
      "model": "Black Frost 1 4x5.65",
      "aliases": [
       "BF 1 4x5.65",
-      "Black Frost 4x5.65 1"
+      "Black Frost 4x5.65 1",
+      "Black Frost 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -823,7 +836,8 @@
      "model": "Black Frost 1/4 4x5.65",
      "aliases": [
       "BF 1/4 4x5.65",
-      "Black Frost 4x5.65 1/4"
+      "Black Frost 4x5.65 1/4",
+      "Schneider - 4x5.65 - Black Frost 1/4"
      ],
      "bulk": true
     },
@@ -832,7 +846,8 @@
      "model": "Black Frost 1/8 4x5.65",
      "aliases": [
       "BF 1/8 4x5.65",
-      "Black Frost 4x5.65 1/8"
+      "Black Frost 4x5.65 1/8",
+      "Black Frost 1/8 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -841,7 +856,8 @@
      "model": "Black Frost 2 4x5.65",
      "aliases": [
       "BF 2 4x5.65",
-      "Black Frost 4x5.65 2"
+      "Black Frost 4x5.65 2",
+      "Black Frost 2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -850,7 +866,11 @@
      "model": "Classic Soft 1 4x5.65",
      "aliases": [
       "CS 1 4x5.65",
-      "Classic Soft 4x5.65 1"
+      "Classic Soft 4x5.65 1",
+      "Schneider - 4x5.65 - Classic Soft 1",
+      "Classic Soft 1 Filter 4x5.65",
+      "SCHNEIDER OPTICS CLASSIC SOFT HD 1 - 4X5.65 (DIFFUSION)",
+      "Schneider Classic Soft HD 1 4x5.65"
      ],
      "bulk": true
     },
@@ -859,7 +879,11 @@
      "model": "Classic Soft 1/2 4x5.65",
      "aliases": [
       "CS 1/2 4x5.65",
-      "Classic Soft 4x5.65 1/2"
+      "Classic Soft 4x5.65 1/2",
+      "Schneider - 4x5.65 - Classic Soft 1/2",
+      "Classic Soft 1/2 Filter 4x5.65",
+      "SCHNEIDER OPTICS CLASSIC SOFT HD 1/2 - 4X5.65 (DIFFUSION)",
+      "Schneider Classic Soft HD 1/2 4x5.65"
      ],
      "bulk": true
     },
@@ -868,7 +892,11 @@
      "model": "Classic Soft 1/4 4x5.65",
      "aliases": [
       "CS 1/4 4x5.65",
-      "Classic Soft 4x5.65 1/4"
+      "Classic Soft 4x5.65 1/4",
+      "Schneider - 4x5.65 - Classic Soft 1/4",
+      "Classic Soft 1/4 Filter 4x5.65",
+      "SCHNEIDER OPTICS CLASSIC SOFT HD 1/4 - 4X5.65 (DIFFUSION)",
+      "Schneider Classic Soft HD 1/4 4x5.65"
      ],
      "bulk": true
     },
@@ -877,7 +905,10 @@
      "model": "Classic Soft 1/8 4x5.65",
      "aliases": [
       "CS 1/8 4x5.65",
-      "Classic Soft 4x5.65 1/8"
+      "Classic Soft 4x5.65 1/8",
+      "Schneider - 4x5.65 - Classic Soft 1/8",
+      "SCHNEIDER OPTICS CLASSIC SOFT HD 1/8 - 4X5.65 (DIFFUSION)",
+      "Schneider Classic Soft HD 1/8 4x5.65"
      ],
      "bulk": true
     },
@@ -886,7 +917,9 @@
      "model": "Classic Soft 2 4x5.65",
      "aliases": [
       "CS 2 4x5.65",
-      "Classic Soft 4x5.65 2"
+      "Classic Soft 4x5.65 2",
+      "Schneider - 4x5.65 - Classic Soft 2",
+      "Classic Soft 2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -895,7 +928,9 @@
      "model": "Hollywood Black Magic 1 4x5.65",
      "aliases": [
       "HBM 1 4x5.65",
-      "Hollywood Black Magic 4x5.65 1"
+      "Hollywood Black Magic 4x5.65 1",
+      "Hollywood Black Magic 1/1 Filter 4x5.65",
+      "Schneider 4×5.65 Hollywood Black Magic 1 Filter"
      ],
      "bulk": true
     },
@@ -904,7 +939,10 @@
      "model": "Hollywood Black Magic 1/2 4x5.65",
      "aliases": [
       "HBM 1/2 4x5.65",
-      "Hollywood Black Magic 4x5.65 1/2"
+      "Hollywood Black Magic 4x5.65 1/2",
+      "Schneider - 4x5.65 - Hollywood Black Magic 1/2",
+      "Hollywood Black Magic 1/2 Filter 4x5.65",
+      "Schneider 4×5.65 Hollywood Black Magic 1/2 Filter"
      ],
      "bulk": true
     },
@@ -913,7 +951,10 @@
      "model": "Hollywood Black Magic 1/4 4x5.65",
      "aliases": [
       "HBM 1/4 4x5.65",
-      "Hollywood Black Magic 4x5.65 1/4"
+      "Hollywood Black Magic 4x5.65 1/4",
+      "Schneider - 4x5.65 - Hollywood Black Magic 1/4",
+      "Hollywood Black Magic 1/4 Filter 4x5.65",
+      "Schneider 4×5.65 Hollywood Black Magic 1/4 Filter"
      ],
      "bulk": true
     },
@@ -922,7 +963,10 @@
      "model": "Hollywood Black Magic 1/8 4x5.65",
      "aliases": [
       "HBM 1/8 4x5.65",
-      "Hollywood Black Magic 4x5.65 1/8"
+      "Hollywood Black Magic 4x5.65 1/8",
+      "Schneider - 4x5.65 - Hollywood Black Magic 1/8",
+      "Hollywood Black Magic 1/8 Filter 4x5.65",
+      "Schneider 4×5.65 Hollywood Black Magic 1/8 Filter"
      ],
      "bulk": true
     },
@@ -931,7 +975,8 @@
      "model": "Hollywood Black Magic 2 4x5.65",
      "aliases": [
       "HBM 2 4x5.65",
-      "Hollywood Black Magic 4x5.65 2"
+      "Hollywood Black Magic 4x5.65 2",
+      "Hollywood Black Magic 2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -942,7 +987,8 @@
       "IRND 0.3",
       "ND 0.3 4x5.65",
       "ND3",
-      "IRND 0.3 4x5.65"
+      "IRND 0.3 4x5.65",
+      "Schneider 4×5.65 Platinum IRND 0.3 Filter"
      ],
      "bulk": true
     },
@@ -955,7 +1001,8 @@
       "ND6",
       "IRND 0.6 4x5.65",
       "FILTER Platinum ND 0.6 4\"x5,65\"",
-      "Platinum ND 0.6 4x5.65"
+      "Platinum ND 0.6 4x5.65",
+      "Schneider 4×5.65 Platinum IRND 0.6 Filter"
      ],
      "bulk": true
     },
@@ -968,7 +1015,8 @@
       "ND9",
       "IRND 0.9 4x5.65",
       "FILTER Platinum ND 0.9 4\"x5,65\"",
-      "Platinum ND 0.9 4x5.65"
+      "Platinum ND 0.9 4x5.65",
+      "Schneider 4×5.65 Platinum IRND 0.9 Filter"
      ],
      "bulk": true
     },
@@ -980,7 +1028,9 @@
       "ND 1.2 4x5.65",
       "IRND 1.2 4x5.65",
       "FILTER Platinum ND 1.2 4\"x5,65\"",
-      "Platinum ND 1.2 4x5.65"
+      "Platinum ND 1.2 4x5.65",
+      "Schneider IRND 1.2 Filter 4x5.65",
+      "Schneider 4×5.65 Platinum IRND 1.2 Filter"
      ],
      "bulk": true
     },
@@ -1010,7 +1060,9 @@
      "manufacturer": "Schneider",
      "model": "Platinum IRND 4x5.65 2.1",
      "aliases": [
-      "IRND 2.1 4x5.65"
+      "IRND 2.1 4x5.65",
+      "Schneider IRND 2.1 Filter 4x5.65",
+      "Schneider 4×5.65 Platinum IRND 2.1 Filter"
      ],
      "bulk": true
     },
@@ -1084,7 +1136,8 @@
      "model": "Radiant Soft 1 4x5.65",
      "aliases": [
       "RS 1 4x5.65",
-      "Radiant Soft 4x5.65 1"
+      "Radiant Soft 4x5.65 1",
+      "Radiant Soft 1 Filter 4x5.65 Schneider"
      ],
      "bulk": true
     },
@@ -1102,7 +1155,8 @@
      "model": "Radiant Soft 1/4 4x5.65",
      "aliases": [
       "RS 1/4 4x5.65",
-      "Radiant Soft 4x5.65 1/4"
+      "Radiant Soft 4x5.65 1/4",
+      "Radiant Soft 1/4 Filter 4x5.65 Schneider"
      ],
      "bulk": true
     },
@@ -1162,7 +1216,9 @@
      "model": "Black Pro-Mist 1 4x5.65",
      "aliases": [
       "BPM 1 4x5.65",
-      "Black Pro-Mist 4x5.65 1"
+      "Black Pro-Mist 4x5.65 1",
+      "Tiffen - 4x5.65 - Black Pro Mist 1",
+      "BPM 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -1171,7 +1227,9 @@
      "model": "Black Pro-Mist 1 6.6x6.6",
      "aliases": [
       "BPM 1 6.6x6.6",
-      "Black Pro-Mist 6.6x6.6 1"
+      "Black Pro-Mist 6.6x6.6 1",
+      "Tiffen - 6x6 - Black Pro Mist 1",
+      "BPM 1 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -1182,7 +1240,11 @@
       "BPM 1/2",
       "Black Pro Mist 1/2",
       "BPM 1/2 4x5.65",
-      "Black Pro-Mist 4x5.65 1/2"
+      "Black Pro-Mist 4x5.65 1/2",
+      "Tiffen - 4x5.65 - Black Pro Mist 1/2",
+      "BPM 1/2 Filter 4x5.65",
+      "Tiffen 4×5.65 Black Pro-Mist 1/2 Filter",
+      "Tiffen 4x5.65 Black Pro-Mist 1/2 Filter"
      ],
      "bulk": true
     },
@@ -1191,7 +1253,8 @@
      "model": "Black Pro-Mist 1/2 6.6x6.6",
      "aliases": [
       "BPM 1/2 6.6x6.6",
-      "Black Pro-Mist 6.6x6.6 1/2"
+      "Black Pro-Mist 6.6x6.6 1/2",
+      "BPM 1/2 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -1202,7 +1265,11 @@
       "BPM 1/4",
       "Black Pro Mist 1/4",
       "BPM 1/4 4x5.65",
-      "Black Pro-Mist 4x5.65 1/4"
+      "Black Pro-Mist 4x5.65 1/4",
+      "Tiffen - 4x5.65 - Black Pro Mist 1/4",
+      "BPM 1/4 Filter 4x5.65",
+      "Tiffen 4×5.65 Black Pro-Mist 1/4 Filter",
+      "Tiffen 4x5.65 Black Pro-Mist 1/4 Filter"
      ],
      "bulk": true
     },
@@ -1211,7 +1278,8 @@
      "model": "Black Pro-Mist 1/4 6.6x6.6",
      "aliases": [
       "BPM 1/4 6.6x6.6",
-      "Black Pro-Mist 6.6x6.6 1/4"
+      "Black Pro-Mist 6.6x6.6 1/4",
+      "BPM 1/4 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -1222,7 +1290,12 @@
       "BPM 1/8",
       "Black Pro Mist 1/8",
       "BPM 1/8 4x5.65",
-      "Black Pro-Mist 4x5.65 1/8"
+      "Black Pro-Mist 4x5.65 1/8",
+      "Tiffen - 4x5.65 - Black Pro Mist 1/8",
+      "BPM 1/8 Filter 4x5.65",
+      "Tiffen 4×5.65 Black Pro-Mist 1/8 Filter",
+      "Tiffen 4x5.65 Black Pro-Mist 1/8 Filter",
+      "TIFFEN BLACK PRO MIST 1/8 (Ø82MM)"
      ],
      "bulk": true
     },
@@ -1231,7 +1304,8 @@
      "model": "Black Pro-Mist 1/8 6.6x6.6",
      "aliases": [
       "BPM 1/8 6.6x6.6",
-      "Black Pro-Mist 6.6x6.6 1/8"
+      "Black Pro-Mist 6.6x6.6 1/8",
+      "BPM 1/8 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -1240,7 +1314,8 @@
      "model": "Black Pro-Mist 2 4x5.65",
      "aliases": [
       "BPM 2 4x5.65",
-      "Black Pro-Mist 4x5.65 2"
+      "Black Pro-Mist 4x5.65 2",
+      "Tiffen - 4x5.65 - Black Pro Mist 2"
      ],
      "bulk": true
     },
@@ -1258,7 +1333,11 @@
      "model": "Black Satin 1 4x5.65",
      "aliases": [
       "BS 1 4x5.65",
-      "Black Satin 4x5.65 1"
+      "Black Satin 4x5.65 1",
+      "Tiffen - 4x5.65 - Black Satin 1",
+      "Black Satin 1 Filter 4x5.65 (Tiffen)",
+      "TIFFEN BLACK SATIN FX 1 - 4X5.65 (DIFFUSION)",
+      "Tiffen Black Satin FX 1 4x5.65"
      ],
      "bulk": true
     },
@@ -1276,7 +1355,10 @@
      "model": "Black Satin 1/4 4x5.65",
      "aliases": [
       "BS 1/4 4x5.65",
-      "Black Satin 4x5.65 1/4"
+      "Black Satin 4x5.65 1/4",
+      "Black Satin 1/4 Filter 4x5.65 (Tiffen)",
+      "TIFFEN BLACK SATIN FX 1/4 - 4X5.65 (DIFFUSION)",
+      "Tiffen Black Satin FX 1/4 4x5.65"
      ],
      "bulk": true
     },
@@ -1285,7 +1367,9 @@
      "model": "Black Satin 1/8 4x5.65",
      "aliases": [
       "BS 1/8 4x5.65",
-      "Black Satin 4x5.65 1/8"
+      "Black Satin 4x5.65 1/8",
+      "TIFFEN BLACK SATIN FX 1/8 - 4X5.65 (DIFFUSION)",
+      "Tiffen Black Satin FX 1/8 4x5.65"
      ],
      "bulk": true
     },
@@ -1293,7 +1377,9 @@
      "manufacturer": "Tiffen",
      "model": "Full Spectrum IRND 4x5.65 0.3",
      "aliases": [
-      "Tiffen IRND 0.3 4x5.65"
+      "Tiffen IRND 0.3 4x5.65",
+      "IRND 0.3 Filter 4x5.65 Tiffen",
+      "TIFFEN IRND 03 4x5.65 (ND)"
      ],
      "bulk": true
     },
@@ -1301,7 +1387,9 @@
      "manufacturer": "Tiffen",
      "model": "Full Spectrum IRND 4x5.65 0.6",
      "aliases": [
-      "Tiffen IRND 0.6 4x5.65"
+      "Tiffen IRND 0.6 4x5.65",
+      "IRND 0.6 Filter 4x5.65 Tiffen",
+      "TIFFEN IRND 06 4x5.65 (ND)"
      ],
      "bulk": true
     },
@@ -1309,7 +1397,9 @@
      "manufacturer": "Tiffen",
      "model": "Full Spectrum IRND 4x5.65 0.9",
      "aliases": [
-      "Tiffen IRND 0.9 4x5.65"
+      "Tiffen IRND 0.9 4x5.65",
+      "IRND 0.9 Filter 4x5.65 Tiffen",
+      "TIFFEN IRND 09 4x5.65 (ND)"
      ],
      "bulk": true
     },
@@ -1317,7 +1407,8 @@
      "manufacturer": "Tiffen",
      "model": "Full Spectrum IRND 4x5.65 1.2",
      "aliases": [
-      "Tiffen IRND 1.2 4x5.65"
+      "Tiffen IRND 1.2 4x5.65",
+      "TIFFEN IRND 12 4x5.65 (ND)"
      ],
      "bulk": true
     },
@@ -1327,7 +1418,8 @@
      "aliases": [
       "Tiffen IRND 1.5 4x5.65",
       "Filter 4x5.65 ND 1.5 / IR Tiffen",
-      "Tiffen ND 1.5 IR 4x5.65"
+      "Tiffen ND 1.5 IR 4x5.65",
+      "TIFFEN IRND 15 4x5.65 (ND)"
      ],
      "bulk": true
     },
@@ -1335,7 +1427,8 @@
      "manufacturer": "Tiffen",
      "model": "Full Spectrum IRND 4x5.65 1.8",
      "aliases": [
-      "Tiffen IRND 1.8 4x5.65"
+      "Tiffen IRND 1.8 4x5.65",
+      "TIFFEN IRND 18 4x5.65 (ND)"
      ],
      "bulk": true
     },
@@ -1343,7 +1436,8 @@
      "manufacturer": "Tiffen",
      "model": "Full Spectrum IRND 4x5.65 2.1",
      "aliases": [
-      "Tiffen IRND 2.1 4x5.65"
+      "Tiffen IRND 2.1 4x5.65",
+      "TIFFEN IRND 21 4x5.65 (ND)"
      ],
      "bulk": true
     },
@@ -1361,7 +1455,9 @@
      "aliases": [
       "GG 1/2 4x5.65",
       "Glimmerglass 4x5.65 1/2",
-      "FILTER Glimmer Glass 1/2 4\"x5,65\""
+      "FILTER Glimmer Glass 1/2 4\"x5,65\"",
+      "Tiffen - 4x5.65 - Glimmerglass 1/2",
+      "Tiffen 4×5.65 Glimmerglass 1/2 Filter"
      ],
      "bulk": true
     },
@@ -1370,7 +1466,9 @@
      "model": "Pearlescent 1 4x5.65",
      "aliases": [
       "Pearl 1 4x5.65",
-      "Pearlescent 4x5.65 1"
+      "Pearlescent 4x5.65 1",
+      "Pearlescent 1 Filter 4x5.65",
+      "Tiffen - 4x5.65 - Perlascent 1"
      ],
      "bulk": true
     },
@@ -1397,7 +1495,9 @@
      "model": "Pearlescent 1/4 4x5.65",
      "aliases": [
       "Pearl 1/4 4x5.65",
-      "Pearlescent 4x5.65 1/4"
+      "Pearlescent 4x5.65 1/4",
+      "Pearlescent 1/4 Filter 4x5.65",
+      "Tiffen - 4x5.65 - Perlascent 1/4"
      ],
      "bulk": true
     },
@@ -1485,7 +1585,8 @@
       "BPM 4x4 1/8",
       "Black Pro Mist 4x4 1/8",
       "Filter 4x4 Black Pro Mist (BPM) 1/8 Tiffen",
-      "Tiffen BPM 1/8 4x4"
+      "Tiffen BPM 1/8 4x4",
+      "Tiffen 4×4 Black Pro-Mist 1/8 Filter"
      ],
      "bulk": true
     },
@@ -1499,7 +1600,8 @@
       "BPM 4x4 1/4",
       "Black Pro Mist 4x4 1/4",
       "Filter 4x4 Black Pro Mist (BPM) 1/4 Tiffen",
-      "Tiffen BPM 1/4 4x4"
+      "Tiffen BPM 1/4 4x4",
+      "Tiffen 4x4 Black Pro-Mist 1/4 Filter"
      ],
      "bulk": true
     },
@@ -1553,7 +1655,9 @@
       "Pro Mist 1/8 4x5.65",
       "Pro-Mist 4x5.65 1/8",
       "PM 4x5.65 1/8",
-      "Pro Mist 4x5.65 1/8"
+      "Pro Mist 4x5.65 1/8",
+      "TIffen - 4x5.65 - Pro Mist 1/8",
+      "Pro Mist 1/8 Filter 4x5.65 Tiffen"
      ],
      "bulk": true
     },
@@ -1565,7 +1669,9 @@
       "Pro Mist 1/4 4x5.65",
       "Pro-Mist 4x5.65 1/4",
       "PM 4x5.65 1/4",
-      "Pro Mist 4x5.65 1/4"
+      "Pro Mist 4x5.65 1/4",
+      "Tiffen - 4x5.65 - Pro Mist 1/4",
+      "Pro Mist 1/4 Filter 4x5.65 Tiffen"
      ],
      "bulk": true
     },
@@ -1577,7 +1683,9 @@
       "Pro Mist 1/2 4x5.65",
       "Pro-Mist 4x5.65 1/2",
       "PM 4x5.65 1/2",
-      "Pro Mist 4x5.65 1/2"
+      "Pro Mist 4x5.65 1/2",
+      "Tiffen - 4x5.65 - Pro Mist 1/2",
+      "Pro Mist 1/2 Filter 4x5.65 Tiffen"
      ],
      "bulk": true
     },
@@ -1589,7 +1697,9 @@
       "Pro Mist 1 4x5.65",
       "Pro-Mist 4x5.65 1",
       "PM 4x5.65 1",
-      "Pro Mist 4x5.65 1"
+      "Pro Mist 4x5.65 1",
+      "Tiffen - 4x5.65 - Pro Mist 1",
+      "Pro Mist 1 Filter 4x5.65 Tiffen"
      ],
      "bulk": true
     },
@@ -1613,7 +1723,8 @@
       "Pro Mist 1/8 6.6x6.6",
       "Pro-Mist 6.6x6.6 1/8",
       "PM 6.6x6.6 1/8",
-      "Pro Mist 6.6x6.6 1/8"
+      "Pro Mist 6.6x6.6 1/8",
+      "PM 1/8 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -1637,7 +1748,8 @@
       "Pro Mist 1/2 6.6x6.6",
       "Pro-Mist 6.6x6.6 1/2",
       "PM 6.6x6.6 1/2",
-      "Pro Mist 6.6x6.6 1/2"
+      "Pro Mist 6.6x6.6 1/2",
+      "PM 1/2 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -1674,7 +1786,8 @@
       "Pro-Mist 4x4 1/8",
       "PM 4x4 1/8",
       "Pro Mist 4x4 1/8",
-      "Filter 4x4 Pro Mist (PM) 1/8 Tiffen"
+      "Filter 4x4 Pro Mist (PM) 1/8 Tiffen",
+      "Pro-Mist 1/8 Filter 4x4"
      ],
      "bulk": true
     },
@@ -1796,7 +1909,11 @@
      "aliases": [
       "BS 2 4x5.65",
       "Black Satin 4x5.65 2",
-      "BS 4x5.65 2"
+      "BS 4x5.65 2",
+      "Tiffen - 4x5.65 - Black Satin 2",
+      "Black Satin 2 Filter 4x5.65 (Tiffen)",
+      "TIFFEN BLACK SATIN FX 2 - 4X5.65 (DIFFUSION)",
+      "Tiffen Black Satin FX 2 4x5.65"
      ],
      "bulk": true
     },
@@ -1884,7 +2001,9 @@
      "manufacturer": "Tiffen",
      "model": "Satin 1/8 4x5.65",
      "aliases": [
-      "Satin 4x5.65 1/8"
+      "Satin 4x5.65 1/8",
+      "TIFFEN SATIN FX 1/8 - 4X5.65 (DIFFUSION)",
+      "Tiffen Satin FX 1/8 4x5.65"
      ],
      "bulk": true
     },
@@ -1892,7 +2011,9 @@
      "manufacturer": "Tiffen",
      "model": "Satin 1/4 4x5.65",
      "aliases": [
-      "Satin 4x5.65 1/4"
+      "Satin 4x5.65 1/4",
+      "TIFFEN SATIN FX 1/4 - 4X5.65 (DIFFUSION)",
+      "Tiffen Satin FX 1/4 4x5.65"
      ],
      "bulk": true
     },
@@ -1900,7 +2021,9 @@
      "manufacturer": "Tiffen",
      "model": "Satin 1/2 4x5.65",
      "aliases": [
-      "Satin 4x5.65 1/2"
+      "Satin 4x5.65 1/2",
+      "TIFFEN SATIN FX 1/2 - 4X5.65 (DIFFUSION)",
+      "Tiffen Satin FX 1/2 4x5.65"
      ],
      "bulk": true
     },
@@ -1908,7 +2031,9 @@
      "manufacturer": "Tiffen",
      "model": "Satin 1 4x5.65",
      "aliases": [
-      "Satin 4x5.65 1"
+      "Satin 4x5.65 1",
+      "TIFFEN SATIN FX 1 - 4X5.65 (DIFFUSION)",
+      "Tiffen Satin FX 1 4x5.65"
      ],
      "bulk": true
     },
@@ -1916,7 +2041,9 @@
      "manufacturer": "Tiffen",
      "model": "Satin 2 4x5.65",
      "aliases": [
-      "Satin 4x5.65 2"
+      "Satin 4x5.65 2",
+      "TIFFEN SATIN FX 2 - 4X5.65 (DIFFUSION)",
+      "Tiffen Satin FX 2 4x5.65"
      ],
      "bulk": true
     },
@@ -1929,7 +2056,9 @@
       "Glimmerglass 4x5.65 1/8",
       "GG 4x5.65 1/8",
       "Glimmer Glass 4x5.65 1/8",
-      "FILTER Glimmer Glass 1/8 4\"x5,65\""
+      "FILTER Glimmer Glass 1/8 4\"x5,65\"",
+      "Tiffen - 4x5.65 - Glimmerglass 1/8",
+      "Tiffen 4×5.65 Glimmerglass 1/8 Filter"
      ],
      "bulk": true
     },
@@ -1942,7 +2071,10 @@
       "Glimmerglass 4x5.65 1/4",
       "GG 4x5.65 1/4",
       "Glimmer Glass 4x5.65 1/4",
-      "FILTER Glimmer Glass 1/4 4\"x5,65\""
+      "FILTER Glimmer Glass 1/4 4\"x5,65\"",
+      "Tiffen - 4x5.65 - Glimmerglass 1/4",
+      "Tiffen 4×5.65 Glimmerglass 1/4 Filter",
+      "Glimmer Glas 1/4 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -1955,7 +2087,9 @@
       "Glimmerglass 4x5.65 1",
       "GG 4x5.65 1",
       "Glimmer Glass 4x5.65 1",
-      "FILTER Glimmer Glass 1 4\"x5,65\""
+      "FILTER Glimmer Glass 1 4\"x5,65\"",
+      "Tiffen 4×5.65 Glimmerglass 1 Filter",
+      "Glimmer Glas 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -1980,7 +2114,8 @@
       "Glimmer Glass 3 4x5.65",
       "Glimmerglass 4x5.65 3",
       "GG 4x5.65 3",
-      "Glimmer Glass 4x5.65 3"
+      "Glimmer Glass 4x5.65 3",
+      "Glimmer Glas 3 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -1992,7 +2127,8 @@
       "Glimmer Glass 4 4x5.65",
       "Glimmerglass 4x5.65 4",
       "GG 4x5.65 4",
-      "Glimmer Glass 4x5.65 4"
+      "Glimmer Glass 4x5.65 4",
+      "Glimmer Glas 4 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2004,7 +2140,8 @@
       "Glimmer Glass 5 4x5.65",
       "Glimmerglass 4x5.65 5",
       "GG 4x5.65 5",
-      "Glimmer Glass 4x5.65 5"
+      "Glimmer Glass 4x5.65 5",
+      "Glimmer Glas 5 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2270,7 +2407,8 @@
       "Soft FX 1/8 4x5.65",
       "Soft/FX 4x5.65 1/8",
       "SFX 4x5.65 1/8",
-      "Soft FX 4x5.65 1/8"
+      "Soft FX 4x5.65 1/8",
+      "SFX 1/8 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2282,7 +2420,8 @@
       "Soft FX 1/4 4x5.65",
       "Soft/FX 4x5.65 1/4",
       "SFX 4x5.65 1/4",
-      "Soft FX 4x5.65 1/4"
+      "Soft FX 4x5.65 1/4",
+      "SFX 1/4 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2310,7 +2449,9 @@
       "SFX 4x5.65 1",
       "Soft FX 4x5.65 1",
       "Filter 4x5.65 SFX 1 Tiffen",
-      "Tiffen SFX 1 4x5.65"
+      "Tiffen SFX 1 4x5.65",
+      "Tiffen - 4x5.65 - Soft FX 1",
+      "SFX 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2322,7 +2463,8 @@
       "Soft FX 2 4x5.65",
       "Soft/FX 4x5.65 2",
       "SFX 4x5.65 2",
-      "Soft FX 4x5.65 2"
+      "Soft FX 4x5.65 2",
+      "Tiffen - 4x5.65 - Soft FX 2"
      ],
      "bulk": true
     },
@@ -2394,7 +2536,8 @@
       "Soft FX 1/2 6.6x6.6",
       "Soft/FX 6.6x6.6 1/2",
       "SFX 6.6x6.6 1/2",
-      "Soft FX 6.6x6.6 1/2"
+      "Soft FX 6.6x6.6 1/2",
+      "SFX 1/2 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -2406,7 +2549,9 @@
       "Soft FX 1 6.6x6.6",
       "Soft/FX 6.6x6.6 1",
       "SFX 6.6x6.6 1",
-      "Soft FX 6.6x6.6 1"
+      "Soft FX 6.6x6.6 1",
+      "Tiffen - 6x6 - Soft FX 1",
+      "SFX 1 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -2418,7 +2563,9 @@
       "Soft FX 2 6.6x6.6",
       "Soft/FX 6.6x6.6 2",
       "SFX 6.6x6.6 2",
-      "Soft FX 6.6x6.6 2"
+      "Soft FX 6.6x6.6 2",
+      "Tiffen - 6x6 - Soft FX 2",
+      "SFX 2 Filter 6.6x6.6"
      ],
      "bulk": true
     },
@@ -2456,7 +2603,8 @@
       "SFX 4x4 1/2",
       "Soft FX 4x4 1/2",
       "Filter 4x4 SFX 1/2 Tiffen",
-      "Tiffen SFX 1/2 4x4"
+      "Tiffen SFX 1/2 4x4",
+      "SFX 1/2 Filter 4x4"
      ],
      "bulk": true
     },
@@ -2470,7 +2618,8 @@
       "SFX 4x4 1",
       "Soft FX 4x4 1",
       "Filter 4x4 SFX 1 Tiffen",
-      "Tiffen SFX 1 4x4"
+      "Tiffen SFX 1 4x4",
+      "SFX 1 Filter 4x4"
      ],
      "bulk": true
     },
@@ -2484,7 +2633,8 @@
       "SFX 4x4 2",
       "Soft FX 4x4 2",
       "Filter 4x4 SFX 2 Tiffen",
-      "Tiffen SFX 2 4x4"
+      "Tiffen SFX 2 4x4",
+      "SFX 2 Filter 4x4"
      ],
      "bulk": true
     },
@@ -2496,7 +2646,9 @@
       "Black Diffusion FX 1/4 4x5.65",
       "Black Diffusion/FX 4x5.65 1/4",
       "BDFX 4x5.65 1/4",
-      "Black Diffusion FX 4x5.65 1/4"
+      "Black Diffusion FX 4x5.65 1/4",
+      "Tiffen - 4x5.65 - Black Diffusion FX 1/4",
+      "Black Diffusion FX 1/4 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2508,7 +2660,8 @@
       "Black Diffusion FX 1/2 4x5.65",
       "Black Diffusion/FX 4x5.65 1/2",
       "BDFX 4x5.65 1/2",
-      "Black Diffusion FX 4x5.65 1/2"
+      "Black Diffusion FX 4x5.65 1/2",
+      "Black Diffusion FX 1/2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2520,7 +2673,9 @@
       "Black Diffusion FX 1 4x5.65",
       "Black Diffusion/FX 4x5.65 1",
       "BDFX 4x5.65 1",
-      "Black Diffusion FX 4x5.65 1"
+      "Black Diffusion FX 4x5.65 1",
+      "Tiffen - 4x5.65 - Black Diffusion FX 1",
+      "Black Diffusion FX 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2692,7 +2847,8 @@
      "aliases": [
       "SMQ 1 4x5.65",
       "Smoque 4x5.65 1",
-      "SMQ 4x5.65 1"
+      "SMQ 4x5.65 1",
+      "Smoque 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2702,7 +2858,8 @@
      "aliases": [
       "SMQ 2 4x5.65",
       "Smoque 4x5.65 2",
-      "SMQ 4x5.65 2"
+      "SMQ 4x5.65 2",
+      "Smoque 2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2712,7 +2869,8 @@
      "aliases": [
       "SMQ 3 4x5.65",
       "Smoque 4x5.65 3",
-      "SMQ 4x5.65 3"
+      "SMQ 4x5.65 3",
+      "Smoque 3 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2722,7 +2880,8 @@
      "aliases": [
       "SMQ 4 4x5.65",
       "Smoque 4x5.65 4",
-      "SMQ 4x5.65 4"
+      "SMQ 4x5.65 4",
+      "Smoque 4 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2854,7 +3013,8 @@
      "manufacturer": "Tiffen",
      "model": "Fog 1 4x5.65",
      "aliases": [
-      "Fog 4x5.65 1"
+      "Fog 4x5.65 1",
+      "Tiffen - 4x5.65 - Fog 1"
      ],
      "bulk": true
     },
@@ -2862,7 +3022,8 @@
      "manufacturer": "Tiffen",
      "model": "Fog 2 4x5.65",
      "aliases": [
-      "Fog 4x5.65 2"
+      "Fog 4x5.65 2",
+      "Tiffen - 4x5.65 - Fog 2"
      ],
      "bulk": true
     },
@@ -2870,7 +3031,8 @@
      "manufacturer": "Tiffen",
      "model": "Fog 3 4x5.65",
      "aliases": [
-      "Fog 4x5.65 3"
+      "Fog 4x5.65 3",
+      "Tiffen - 4x5.65 - Fog 3"
      ],
      "bulk": true
     },
@@ -2940,7 +3102,8 @@
      "aliases": [
       "UC 1/8 4x5.65",
       "Ultra Contrast 4x5.65 1/8",
-      "UC 4x5.65 1/8"
+      "UC 4x5.65 1/8",
+      "Ultra Contrast 1/8 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2950,7 +3113,9 @@
      "aliases": [
       "UC 1/4 4x5.65",
       "Ultra Contrast 4x5.65 1/4",
-      "UC 4x5.65 1/4"
+      "UC 4x5.65 1/4",
+      "Tiffen - 4x5.65 - Ultra Contrast 1/4",
+      "Ultra Contrast 1/4 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2960,7 +3125,8 @@
      "aliases": [
       "UC 1/2 4x5.65",
       "Ultra Contrast 4x5.65 1/2",
-      "UC 4x5.65 1/2"
+      "UC 4x5.65 1/2",
+      "Ultra Contrast 1/2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2970,7 +3136,9 @@
      "aliases": [
       "UC 1 4x5.65",
       "Ultra Contrast 4x5.65 1",
-      "UC 4x5.65 1"
+      "UC 4x5.65 1",
+      "Tiffen - 4x5.65 - Ultra Contrast 1",
+      "Ultra Contrast 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -2980,7 +3148,9 @@
      "aliases": [
       "UC 2 4x5.65",
       "Ultra Contrast 4x5.65 2",
-      "UC 4x5.65 2"
+      "UC 4x5.65 2",
+      "Ultra Contrast 2 Filter 4x5.65",
+      "Tiffen 4×5.65 Ultra Contrast 2 Filter"
      ],
      "bulk": true
     },
@@ -2990,7 +3160,8 @@
      "aliases": [
       "UC 3 4x5.65",
       "Ultra Contrast 4x5.65 3",
-      "UC 4x5.65 3"
+      "UC 4x5.65 3",
+      "Ultra Contrast 3 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -3030,7 +3201,8 @@
      "aliases": [
       "LC 1 4x5.65",
       "Low Contrast 4x5.65 1",
-      "LC 4x5.65 1"
+      "LC 4x5.65 1",
+      "Tiffen - 4x5.65 - Low Contrast 1"
      ],
      "bulk": true
     },
@@ -3040,7 +3212,8 @@
      "aliases": [
       "LC 2 4x5.65",
       "Low Contrast 4x5.65 2",
-      "LC 4x5.65 2"
+      "LC 4x5.65 2",
+      "Tiffen - 4x5.65 - Low Contrast 2"
      ],
      "bulk": true
     },
@@ -3262,7 +3435,8 @@
      "manufacturer": "Tiffen",
      "model": "Antique Suede 1 4x5.65",
      "aliases": [
-      "Antique Suede 4x5.65 1"
+      "Antique Suede 4x5.65 1",
+      "Antique Suede 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -3270,7 +3444,8 @@
      "manufacturer": "Tiffen",
      "model": "Antique Suede 2 4x5.65",
      "aliases": [
-      "Antique Suede 4x5.65 2"
+      "Antique Suede 4x5.65 2",
+      "Antique Suede 2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -3278,7 +3453,8 @@
      "manufacturer": "Tiffen",
      "model": "Antique Suede 3 4x5.65",
      "aliases": [
-      "Antique Suede 4x5.65 3"
+      "Antique Suede 4x5.65 3",
+      "Antique Suede 3 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -3310,7 +3486,8 @@
      "manufacturer": "Tiffen",
      "model": "Chocolate 1 4x5.65",
      "aliases": [
-      "Chocolate 4x5.65 1"
+      "Chocolate 4x5.65 1",
+      "Chocolate 1 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -3318,7 +3495,8 @@
      "manufacturer": "Tiffen",
      "model": "Chocolate 2 4x5.65",
      "aliases": [
-      "Chocolate 4x5.65 2"
+      "Chocolate 4x5.65 2",
+      "Chocolate 2 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -3482,7 +3660,8 @@
       "85ND3 4x5.65",
       "85 ND 0.3 4x5.65",
       "85/ND 0.3 4x5.65",
-      "Tiffen 85N3 4x5.65"
+      "Tiffen 85N3 4x5.65",
+      "Tiffen - 4x5.65 - 85 ND 0.3"
      ],
      "bulk": true
     },
@@ -3493,7 +3672,8 @@
       "85ND6 4x5.65",
       "85 ND 0.6 4x5.65",
       "85/ND 0.6 4x5.65",
-      "Tiffen 85N6 4x5.65"
+      "Tiffen 85N6 4x5.65",
+      "Tiffen - 4x5.65 - 85 ND 0.6"
      ],
      "bulk": true
     },
@@ -3504,7 +3684,8 @@
       "85ND9 4x5.65",
       "85 ND 0.9 4x5.65",
       "85/ND 0.9 4x5.65",
-      "Tiffen 85N9 4x5.65"
+      "Tiffen 85N9 4x5.65",
+      "Tiffen - 4x5.65 - 85 ND 0.9"
      ],
      "bulk": true
     },
@@ -3926,7 +4107,8 @@
       "Clear Coated 4x5.65",
       "Optical Flat 4x5.65",
       "Klarglas 4x5.65",
-      "FILTER Clear 4\"x5,65\""
+      "FILTER Clear 4\"x5,65\"",
+      "TIFFEN CLEAR FILTER - 4X5.65"
      ],
      "bulk": true
     },
@@ -4114,7 +4296,8 @@
      "aliases": [
       "RS 2 4x5.65",
       "Radiant Soft 4x5.65 2",
-      "68-092456"
+      "68-092456",
+      "Radiant Soft 2 Filter 4x5.65 Schneider"
      ],
      "bulk": true
     },
@@ -4260,7 +4443,8 @@
      "manufacturer": "Schneider",
      "model": "Digicon 1/4 4x5.65",
      "aliases": [
-      "Digicon 4x5.65 1/4"
+      "Digicon 4x5.65 1/4",
+      "Schneider - 4x5.65 - Digicon 1/4"
      ],
      "bulk": true
     },
@@ -4286,7 +4470,8 @@
      "aliases": [
       "True Streak Blue 1mm 4x5.65",
       "True-Streak 4x5.65 Blue 1mm",
-      "Streak Blue 1mm 4x5.65"
+      "Streak Blue 1mm 4x5.65",
+      "True Streak Blue 1mm Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -4329,7 +4514,8 @@
      "aliases": [
       "True Streak Clear 1mm 4x5.65",
       "True-Streak 4x5.65 Clear 1mm",
-      "Streak Clear 1mm 4x5.65"
+      "Streak Clear 1mm 4x5.65",
+      "True Streak Clear 1mm Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -4533,7 +4719,8 @@
       "True Cut 750 4x5.65",
       "IR Cut 750 4x5.65",
       "True-Cut IR 750 4x5.65",
-      "68-121056"
+      "68-121056",
+      "True Cut IR 750 Filter 4x5.65"
      ],
      "bulk": true
     },
@@ -4722,7 +4909,8 @@
      "model": "ND 4x5.65 0.6",
      "aliases": [
       "Schneider ND 0.6 4x5.65",
-      "MPTV ND 0.6 4x5.65"
+      "MPTV ND 0.6 4x5.65",
+      "Schneider - 4x5.65 - ND 0.6"
      ],
      "bulk": true
     },
@@ -4731,7 +4919,8 @@
      "model": "ND 4x5.65 0.9",
      "aliases": [
       "Schneider ND 0.9 4x5.65",
-      "MPTV ND 0.9 4x5.65"
+      "MPTV ND 0.9 4x5.65",
+      "Schneider - 4x5.65 - ND 0.9"
      ],
      "bulk": true
     },
@@ -5151,7 +5340,9 @@
      "aliases": [
       "Clear Supermist 4x5.65 1/8",
       "Supermist Clear 1/8 4x5.65",
-      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1/8 Formatt"
+      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1/8 Formatt",
+      "FORMATT SUPERMIST CLEAR 1/8 4X5.65 (DIFFUSION)",
+      "Formatt Supermist Clear 1/8 4x5.65"
      ],
      "bulk": true
     },
@@ -5161,7 +5352,9 @@
      "aliases": [
       "Clear Supermist 4x5.65 1/4",
       "Supermist Clear 1/4 4x5.65",
-      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1/4 Formatt"
+      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1/4 Formatt",
+      "FORMATT SUPERMIST CLEAR 1/4 4X5.65 (DIFFUSION)",
+      "Formatt Supermist Clear 1/4 4x5.65"
      ],
      "bulk": true
     },
@@ -5171,7 +5364,9 @@
      "aliases": [
       "Clear Supermist 4x5.65 1/2",
       "Supermist Clear 1/2 4x5.65",
-      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1/2 Formatt"
+      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1/2 Formatt",
+      "FORMATT SUPERMIST CLEAR 1/2 4X5.65 (DIFFUSION)",
+      "Formatt Supermist Clear 1/2 4x5.65"
      ],
      "bulk": true
     },
@@ -5181,7 +5376,9 @@
      "aliases": [
       "Clear Supermist 4x5.65 1",
       "Supermist Clear 1 4x5.65",
-      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1 Formatt"
+      "Filter 4x5.65 Pro Mist (PM) (Supermist Clear) 1 Formatt",
+      "FORMATT SUPERMIST CLEAR 1 4X5.65 (DIFFUSION)",
+      "Formatt Supermist Clear 1 4x5.65"
      ],
      "bulk": true
     },
@@ -6452,7 +6649,8 @@
      "model": "80B 4x4",
      "aliases": [
       "Filter 4x4 80B Tiffen",
-      "Tiffen 80B 4x4"
+      "Tiffen 80B 4x4",
+      "Tiffen - 4x4 - 80 B"
      ]
     },
     {
@@ -6476,7 +6674,8 @@
      "model": "Black Diffusion/FX 1 4x4",
      "aliases": [
       "Filter 4x4 Black Diffusion FX 1 Tiffen",
-      "Tiffen Black Diffusion/FX 1 4x4"
+      "Tiffen Black Diffusion/FX 1 4x4",
+      "Tiffen - 4x4 - Black Diffusion FX 1"
      ]
     },
     {
@@ -6492,7 +6691,8 @@
      "model": "Black Diffusion/FX 1/4 4x4",
      "aliases": [
       "Filter 4x4 Black Diffusion FX 1/4",
-      "Tiffen Black Diffusion/FX 1/4 4x4"
+      "Tiffen Black Diffusion/FX 1/4 4x4",
+      "Tiffen - 4x4 - Black Diffusion FX 1/4"
      ]
     },
     {
@@ -6644,7 +6844,8 @@
      "model": "Fog 1/2 4x4",
      "aliases": [
       "Filter 4x4 Fog 1/2 Tiffen",
-      "Tiffen Fog 1/2 4x4"
+      "Tiffen Fog 1/2 4x4",
+      "Tiffen - 4x4 - Fog 1/2"
      ]
     },
     {
@@ -7116,7 +7317,8 @@
      "model": "Standard ND 0.3 4x5.65",
      "aliases": [
       "Filter 4x5.65 ND 0.3 Tiffen",
-      "Tiffen ND 0.3 4x5.65"
+      "Tiffen ND 0.3 4x5.65",
+      "Tiffen - 4x5.65 - ND 0.3"
      ]
     },
     {
@@ -7124,7 +7326,8 @@
      "model": "Standard ND 0.6 4x5.65",
      "aliases": [
       "Filter 4x5.65 ND 0.6 Tiffen",
-      "Tiffen ND 0.6 4x5.65"
+      "Tiffen ND 0.6 4x5.65",
+      "Tiffen - 4x5.65 - ND 0.6"
      ]
     },
     {
@@ -7132,7 +7335,8 @@
      "model": "Standard ND 0.9 4x5.65",
      "aliases": [
       "Filter 4x5.65 ND 0.9 Tiffen",
-      "Tiffen ND 0.9 4x5.65"
+      "Tiffen ND 0.9 4x5.65",
+      "Tiffen - 4x5.65 - ND 0.9"
      ]
     },
     {
@@ -7140,7 +7344,8 @@
      "model": "Standard ND 1.2 4x5.65",
      "aliases": [
       "Filter 4x5.65 ND 1.2 Tiffen",
-      "Tiffen ND 1.2 4x5.65"
+      "Tiffen ND 1.2 4x5.65",
+      "Tiffen - 4x5.65 - ND 1.2"
      ]
     },
     {
@@ -7495,6 +7700,213 @@
       "Filter 6.6x6.6 Supermist Clear 1",
       "Formatt-Hitech Clear Supermist 1 6.6x6.6"
      ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MB-16",
+     "aliases": [
+      "Mattebox MB-16 4x4",
+      "ARRI MB-16 4x4"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "MB-17",
+     "aliases": [
+      "Mattebox MB-17 4x4 (15mm)",
+      "ARRI MB-17 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Vocas",
+     "model": "MB-255",
+     "aliases": [
+      "Vocas MB-255 2-Stage Kompendium",
+      "Vocas MB-255 Matte Box"
+     ]
+    },
+    {
+     "manufacturer": "Chrosziel",
+     "model": "MB-450",
+     "aliases": [
+      "Matte Box Chrosziel MB-450",
+      "Chrosziel MB 450"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "80A 4x4",
+     "aliases": [
+      "Tiffen - 4x4 - 80 A",
+      "80A Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "80C 4x4",
+     "aliases": [
+      "Tiffen - 4x4 - 80 C",
+      "80C Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85 4x4",
+     "aliases": [
+      "Tiffen - 4x4 - 85",
+      "Tiffen 85 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85N3 4x4",
+     "aliases": [
+      "Tiffen - 4x4 - 85 ND 0.3",
+      "Tiffen 85N3 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85N6 4x4",
+     "aliases": [
+      "Tiffen - 4x4 - 85 ND 0.6",
+      "Tiffen 85N6 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "85N9 4x4",
+     "aliases": [
+      "Tiffen - 4x4 - 85 ND 0.9",
+      "Tiffen 85N9 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Gold Diffusion/FX 1/4 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Gold Diffusion FX 1/4",
+      "Gold Diffusion 1/4 4x5.65"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Gold Diffusion/FX 1/2 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Gold Diffusion FX 1/2",
+      "Gold Diffusion 1/2 4x5.65"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Gold Diffusion/FX 1 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Gold Diffusion FX 1",
+      "Gold Diffusion 1 4x5.65"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Gold Diffusion/FX 2 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Gold Diffusion FX 2",
+      "Gold Diffusion 2 4x5.65"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Gold Diffusion/FX 3 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Gold Diffusion FX 3",
+      "Gold Diffusion 3 4x5.65"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Low Contrast 1/8 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Low Contrast 1/8",
+      "Tiffen Low Contrast 4x5.65 1/8"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Low Contrast 1/4 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Low Contrast 1/4",
+      "Tiffen Low Contrast 4x5.65 1/4"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 8pt 2mm 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Star 8pt 2mm"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 8pt 3mm 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Star 8pt 3mm"
+     ]
+    },
+    {
+     "manufacturer": "Tiffen",
+     "model": "Star 8pt 4mm 4x5.65",
+     "aliases": [
+      "Tiffen - 4x5.65 - Star 8pt 4mm"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1/8 4x4",
+     "aliases": [
+      "Supermist black 1/8 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1/4 4x4",
+     "aliases": [
+      "Supermist black 1/4 Filter 4x4",
+      "Formatt 4x4 Supermist Black 1/4 Filter"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1/2 4x4",
+     "aliases": [
+      "Supermist black 1/2 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 1 4x4",
+     "aliases": [
+      "Supermist black 1 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Black Supermist 2 4x4",
+     "aliases": [
+      "Supermist black 2 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Clear Supermist 1/4 4x4",
+     "aliases": [
+      "Supermist Clear 1/4 Filter 4x4"
+     ]
+    },
+    {
+     "manufacturer": "Formatt-Hitech",
+     "model": "Clear Supermist 1 4x4",
+     "aliases": [
+      "Supermist Clear 1 Filter 4x4"
+     ]
     }
    ]
   },
@@ -7699,7 +8111,9 @@
       "Schärfezieheinrichtung FF-4",
       "ARRI FF-4 Schärfenzieheinrichtung 15/19mm",
       "FF-4 Schärfenzieheinrichtung",
-      "Arri FF4"
+      "Arri FF4",
+      "ARRI Studio Follow Focus FF IV",
+      "ARRI FollowFocus IV"
      ],
      "discontinued": true
     },
@@ -7710,7 +8124,10 @@
       "FF-5",
       "ARRI Follow Focus",
       "Schärfezieheinrichtung FF-5",
-      "KK.0005757"
+      "KK.0005757",
+      "ARRI FF-5 CinePro",
+      "ARRI FF-5 CinePro Schärfeziehvorrichtung",
+      "ARRI FF-5 Manual Follow Focus"
      ]
     },
     {
@@ -9519,6 +9936,75 @@
      "aliases": [
       "Hinterkamerabedienung Libec ZC-3DV",
       "Libec ZC-3DV LANC Zoom Controller"
+     ]
+    },
+    {
+     "manufacturer": "Redrock Micro",
+     "model": "microFollowFocus v2",
+     "aliases": [
+      "RedRock Follow Focus V2",
+      "Redrock microFollowFocus"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Follow Focus FF-2",
+     "aliases": [
+      "Follow Focus Arri FF-2",
+      "ARRI FF-2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "CLM-2",
+     "aliases": [
+      "CLM-2 Motor Unit",
+      "ARRI CLM-2 Motor",
+      "CLM-2 Lens Motor",
+      "ARRI CLM-2 Lens Motor",
+      "ARRI CLM-2",
+      "ARRI Controlled Lens Motor CLM-2"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SMC-1",
+     "aliases": [
+      "SMC-1 Single Motor Controller",
+      "ARRI SMC-1",
+      "Single Motor Controller SMC-1",
+      "ARRI Single Motor Controller SMC-1",
+      "Arri Single Motor Controller SMC-1 (Set)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ZMU-3A",
+     "aliases": [
+      "ARRI ZMU-3A Zoom Unit",
+      "ZMU-3A Zoom Main Unit",
+      "ARRI ZMU-3A Zoom Main Unit",
+      "Arri ZMU-3A"
+     ]
+    },
+    {
+     "manufacturer": "cmotion",
+     "model": "Pan-Bar Zoom",
+     "aliases": [
+      "cmotion Pan-Bar Zoom",
+      "Arri cmotion Pan Bar Zoom (Set)",
+      "cmotion Pan Bar Zoom",
+      "pan bar zoom",
+      "Cmotion Pan-Bar-Zoom",
+      "cmotion pan bar"
+     ]
+    },
+    {
+     "manufacturer": "cmotion",
+     "model": "cfinder",
+     "aliases": [
+      "cmotion cfinder Optisches Laser Distanzmessgerät",
+      "cmotion cfinder"
      ]
     }
    ]

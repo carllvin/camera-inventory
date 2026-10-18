@@ -22,7 +22,9 @@
           "model": "T12 Fresnel 10/12kW",
           "aliases": [
             "ARRI 10kW/12kW Stufe T12",
-            "ARRI T12"
+            "ARRI T12",
+            "ARRI Studio T12 – 12 000W",
+            "ARRI Studio T12 12000W"
           ]
         },
         {
@@ -74,7 +76,9 @@
           "aliases": [
             "Dinolight 12x1kW PAR64",
             "Dino 12",
-            "ABELS Dinolight 12x1KW"
+            "ABELS Dinolight 12x1KW",
+            "Dinolight 12x 1000W",
+            "Dinolight 12x 1000W CP"
           ]
         },
         {
@@ -198,7 +202,9 @@
             "ARRI 2KW Junior",
             "ARRI Junior 2000",
             "ARRI Junior 2K",
-            "Arri 2kw"
+            "Arri 2kw",
+            "ARRI 2000 2kW Fresnel Lampe",
+            "ARRI 2000 2kW Fresnel"
           ]
         },
         {
@@ -207,7 +213,10 @@
           "aliases": [
             "ARRI 5KW Junior&Studio",
             "ARRI 5KW Studio",
-            "ARRI Junior 5000"
+            "ARRI Junior 5000",
+            "ARRI T5 FRESNEL (TUNGSTEN)",
+            "ARRI T5 Fresnel",
+            "ARRI T5"
           ]
         },
         {
@@ -257,7 +266,9 @@
           "model": "Rifa eX 55",
           "aliases": [
             "Rifalight LC55",
-            "Lowel Rifa LC55"
+            "Lowel Rifa LC55",
+            "Lowel Rifa-Lite LC 55",
+            "LOWEL Rifa-Lite 500W small LC 55"
           ]
         },
         {
@@ -298,6 +309,214 @@
           "aliases": [
             "MOLE Ziplight 4000W",
             "Mole Ziplight 4K"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "True Blue T1 Fresnel",
+          "aliases": [
+            "ARRI True Blue 1000 Watt Fresnel",
+            "ARRI True Blue T1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "True Blue T2 Fresnel",
+          "aliases": [
+            "ARRI True Blue 2000 Watt Fresnel",
+            "ARRI True Blue T2"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "MoleBeam 2kW",
+          "aliases": [
+            "Molebeam 2kW Tungsten",
+            "Mole Richardson 2kW Molebeam"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "MoleBeam 5kW",
+          "aliases": [
+            "Molebeam 5kW Tungsten",
+            "Mole Richardson 5kW Molebeam",
+            "Mole-Richardson 8331 5kW 24in MoleBeam"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "MoleBeam 10kW",
+          "aliases": [
+            "Molebeam 10kW Tungsten",
+            "Mole Richardson 10kW Molebeam",
+            "Mole-Richardson 8371 10kW 24in MoleBeam"
+          ]
+        },
+        {
+          "manufacturer": "Cinemills",
+          "model": "20kW Fresnel",
+          "aliases": [
+            "Cinemills 20kW",
+            "Cinemills 20K Fresnel"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLH650",
+          "aliases": [
+            "Dedolight DLH650",
+            "Dedo 650W",
+            "Dedolight DLH650 650W",
+            "Dedo DLH650"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLH1000S+",
+          "aliases": [
+            "Dedolight DLH1000S+",
+            "Dedolight DLH1000"
+          ]
+        },
+        {
+          "manufacturer": "Ianiro",
+          "model": "Redhead 800W",
+          "aliases": [
+            "Ianiro 800W Redhead",
+            "Ianiro Redhead"
+          ]
+        },
+        {
+          "manufacturer": "Ianiro",
+          "model": "Blonde 2000W",
+          "aliases": [
+            "Ianiro 2kw Blonde",
+            "Ianiro Blonde"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Arrilite 800 Open Face",
+          "aliases": [
+            "ARRI Arrilite 800 Open Face Lampe",
+            "ARRI Arrilite 800"
+          ]
+        },
+        {
+          "manufacturer": "Ianiro",
+          "model": "Iris 1 Cyc",
+          "aliases": [
+            "Ianiro Iris 1 Cyc Tungsten Flutlicht",
+            "Ianiro Iris 1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "T1 Fresnel 1kW",
+          "aliases": [
+            "ARRI T1 FRESNEL (TUNGSTEN)",
+            "ARRI T1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "T2 Fresnel 2kW",
+          "aliases": [
+            "ARRI T2 FRESNEL (TUNGSTEN)",
+            "ARRI T2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "300 Plus Fresnel",
+          "aliases": [
+            "ARRI 300/500 PLUS FRESNEL (TUNGSTEN)",
+            "ARRI 300 Plus"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "650 Plus Fresnel",
+          "aliases": [
+            "ARRI 650W PLUS (TUNGSTEN)",
+            "ARRI 650 Plus 650W Fresnel Lampe",
+            "ARRI 650 Plus"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "1000 Plus Fresnel",
+          "aliases": [
+            "ARRI 1000 Plus 1kW Fresnel Lampe",
+            "ARRI 1000 Plus"
+          ]
+        },
+        {
+          "manufacturer": "Ianiro",
+          "model": "Varibeam 2kW",
+          "aliases": [
+            "IANIRO VARIBEAM 2KW OPENFACE (TUNGSTEN- BLONDE)",
+            "Ianiro Varibeam 2000"
+          ]
+        },
+        {
+          "manufacturer": "Ianiro",
+          "model": "Ianibeam 800W",
+          "aliases": [
+            "IANIRO IANIBEAM 800W OPENFACE (MANDARINE - TUNGSTEN )",
+            "Ianiro Ianibeam 800"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRILITE 750 Plus",
+          "aliases": [
+            "ARRILITE 750",
+            "ARRI Arrilite 750"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRILITE 2000 Plus",
+          "aliases": [
+            "ARRILITE 2000",
+            "ARRI Arrilite 2000",
+            "Arrilite 2000 Open Face",
+            "ARRI Arrilite 2000 Open Face",
+            "ARRILITE 2K OPENFACE (TUNGSTEN)"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "MoleBeam 20kW",
+          "aliases": [
+            "Mole-Richardson 8351 20kW 36in MoleBeam",
+            "MoleBeam 20kW"
+          ]
+        },
+        {
+          "manufacturer": "Filmgear",
+          "model": "Tungsten Power Beam 5kW",
+          "aliases": [
+            "Filmgear 5kW/2kW L05020TPB Tungsten Power Beam",
+            "Filmgear Power Beam 5kW"
+          ]
+        },
+        {
+          "manufacturer": "Filmgear",
+          "model": "Tungsten Power Beam 12kW",
+          "aliases": [
+            "Filmgear 12kW/10kW L12010TPB Tungsten Power Beam",
+            "Filmgear Power Beam 12kW"
+          ]
+        },
+        {
+          "manufacturer": "Filmgear",
+          "model": "Tungsten Power Beam 24kW",
+          "aliases": [
+            "Filmgear 24kW/20kW L24020TPB Tungsten Power Beam",
+            "Filmgear Power Beam 24kW"
           ]
         }
       ]
@@ -487,7 +706,9 @@
           "model": "M8",
           "aliases": [
             "ARRI 800W M8",
-            "ARRI M8"
+            "ARRI M8",
+            "ARRI M8 HMI",
+            "ARRI M-Serie M8"
           ]
         },
         {
@@ -495,7 +716,9 @@
           "model": "Lightstream DPB 70 1.2kW",
           "aliases": [
             "Dedolight 1,2kW Lightstream DPB 70",
-            "DPB70"
+            "DPB70",
+            "Lightstream PB70 parallel beam HMI 1200W",
+            "Lightstream PB70"
           ]
         },
         {
@@ -549,7 +772,9 @@
           "model": "MoleBeam 2.5/4kW",
           "aliases": [
             "MoleBeam 2,5/4kW",
-            "MoleBeam"
+            "MoleBeam",
+            "Mole-Richardson 8361 2.5kW/4kW 24in MoleBeam",
+            "MoleRichardson 8361 MoleBeam"
           ]
         },
         {
@@ -572,7 +797,9 @@
           "model": "Joker-Bug 1600",
           "aliases": [
             "K5600 Joker Bug 1600",
-            "Joker 1600"
+            "Joker 1600",
+            "K5600 JOKER 1600W BASIC KIT PAR (HMI)",
+            "K5600 Joker 1600W"
           ]
         },
         {
@@ -581,6 +808,142 @@
           "aliases": [
             "400W KOBOLD",
             "Kobold 400W"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "True Blue D12 Fresnel",
+          "aliases": [
+            "ARRI HMI Fresnel D12, 1200W",
+            "ARRI True Blue D12"
+          ]
+        },
+        {
+          "manufacturer": "K5600",
+          "model": "Joker-Bug 200",
+          "aliases": [
+            "Joker Bug 200",
+            "K5600 Joker 200",
+            "K5600 200W Joker Bug-Lite",
+            "K5600 Joker Bug 200W",
+            "Joker 200",
+            "K5600 JOKER 200W BASIC KIT PAR/BUG (HMI)"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLH400S",
+          "aliases": [
+            "Dedolight DLH400S",
+            "Dedo 400 MSR DLH400S"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRISUN 2 PAR 200W",
+          "aliases": [
+            "ARRISUN 2",
+            "ArriSun 2",
+            "ARRISUN HMI PAR 200W Cine-PAR",
+            "ARRI Arrisun 2 200W HMI Lampe",
+            "ARRI Arrisun 2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "X60 Flood 6kW",
+          "aliases": [
+            "ARRI X 60",
+            "ARRI X60"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 4000 Fresnel",
+          "aliases": [
+            "ARRI Compact 4000",
+            "ARRI Compact 4KW HMI Stufe",
+            "ARRI 4kW Stufe Compact"
+          ]
+        },
+        {
+          "manufacturer": "Martin",
+          "model": "Atomic 3000 DMX",
+          "aliases": [
+            "Martin Atomic 3000",
+            "Atomic 3000 DMX Strobe"
+          ]
+        },
+        {
+          "manufacturer": "Briese",
+          "model": "Focus 77 HMI",
+          "aliases": [
+            "Briese Focus 77",
+            "Focus Modul 77 HMI"
+          ]
+        },
+        {
+          "manufacturer": "Briese",
+          "model": "Focus 100 HMI",
+          "aliases": [
+            "Briese Focus 100",
+            "Focus Modul 100 HMI"
+          ]
+        },
+        {
+          "manufacturer": "Briese",
+          "model": "Focus 140 HMI",
+          "aliases": [
+            "Briese Focus 140",
+            "Focus Modul 140 HMI"
+          ]
+        },
+        {
+          "manufacturer": "Briese",
+          "model": "Focus 180 HMI",
+          "aliases": [
+            "Briese Focus 180",
+            "Focus Modul 180 HMI"
+          ]
+        },
+        {
+          "manufacturer": "Briese",
+          "model": "Focus 220 HMI",
+          "aliases": [
+            "Briese Focus 220",
+            "Focus Modul 220 HMI"
+          ]
+        },
+        {
+          "manufacturer": "LTM",
+          "model": "Cinepar 4000",
+          "aliases": [
+            "LTM HMI Cinepar 4000 Flickerfree",
+            "LTM Cinepar 4K"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "D25 Fresnel 2.5kW",
+          "aliases": [
+            "ARRI D25 FRESNEL (HMI)",
+            "ARRI D25"
+          ]
+        },
+        {
+          "manufacturer": "K5600",
+          "model": "Alpha 1600",
+          "aliases": [
+            "K5600 ALPHA 1.6kW BASIC KIT OPENFACE / FRESNEL (HMI)",
+            "K5600 Alpha 1.6kW"
+          ]
+        },
+        {
+          "manufacturer": "K5600",
+          "model": "Alpha 4K",
+          "aliases": [
+            "K5600 ALPHA 4/2.5KW OPEN FACE / FRESNEL (HMI)",
+            "K5600 Alpha 4/2.5kW"
           ]
         }
       ]
@@ -710,7 +1073,8 @@
           "model": "Spotlight Mount",
           "aliases": [
             "Aputure Spotlight Mount",
-            "Aputure Spotlight"
+            "Aputure Spotlight",
+            "Aputure Spotlight Mount Set 19°/26°/36°"
           ]
         },
         {
@@ -767,6 +1131,159 @@
             "Lumenradio Moonlite DMX",
             "LumenRadio MoonLite"
           ]
+        },
+        {
+          "manufacturer": "Cinelex",
+          "model": "SKYNODE",
+          "aliases": [
+            "Cinelex Skynode",
+            "Skynode 5-pin DMX receiver"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Light Dome Mini III",
+          "aliases": [
+            "Aputure Light Dome Mini III",
+            "Softbox Light Dome Mini III"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Lantern",
+          "aliases": [
+            "Aputure Lantern",
+            "Aputure Lantern Softbox"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "F14 Fresnel",
+          "aliases": [
+            "Aputure F14 Fresnel (CS15 & XT26)",
+            "Aputure F14"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Spotlight Max",
+          "aliases": [
+            "Aputure Spotlight Max (19°, 26°, 36° Lens)",
+            "Aputure Spotlight Mount MAX Set"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Quartz Plus Lightbank Small",
+          "aliases": [
+            "Chimera Quartz+ S",
+            "Chimera Quartz Plus S"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Quartz Plus Lightbank Medium",
+          "aliases": [
+            "Chimera Quartz+ M",
+            "Chimera Quartz Plus M"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Quartz Plus Lightbank Large",
+          "aliases": [
+            "Chimera Quartz+ L",
+            "Chimera Quartz Plus L"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Daylight Plus Lightbank Small",
+          "aliases": [
+            "Chimera Daylight+ S",
+            "Chimera Daylight Plus S"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Daylight Plus Lightbank Medium",
+          "aliases": [
+            "Chimera Daylight+ M",
+            "Chimera Daylight Plus M"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Daylight Plus Lightbank Large",
+          "aliases": [
+            "Chimera Daylight+ L",
+            "Chimera Daylight Plus L"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Pancake Lantern Medium",
+          "aliases": [
+            "Chimera Pancake M",
+            "Chimera Pancake Lantern M"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Pancake Lantern Large",
+          "aliases": [
+            "Chimera Pancake L",
+            "Chimera Pancake Lantern L"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Octaplus 5",
+          "aliases": [
+            "Chimera Octaplus 5 HiHeat",
+            "Chimera Octaplus 5ft",
+            "Chimera Octa Plus 5'/7'"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Triolet",
+          "aliases": [
+            "Chimera Triolet QR",
+            "Chimera Triolet Kit"
+          ]
+        },
+        {
+          "manufacturer": "Chimera",
+          "model": "Octaplus 3",
+          "aliases": [
+            "Chimera Octa Plus 3'",
+            "Chimera Octaplus 3ft"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "FL-35E Fresnel Lens",
+          "aliases": [
+            "NANLUX FL-35E Motorized Fresnel for Evoke 2400B",
+            "Nanlux FL-35E"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "FL-45E Fresnel Lens",
+          "aliases": [
+            "NANLUX FL-45E Motorized Fresnel for Evoke 5000B",
+            "Nanlux FL-45E"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "AsteraBox ART7",
+          "aliases": [
+            "AsteraBox ART7",
+            "Astera ART7 CRMX Box"
+          ]
         }
       ]
     },
@@ -788,7 +1305,9 @@
           "model": "L5-C",
           "aliases": [
             "ARRI L5-C DMX Bicolor/RGBW",
-            "L5-C"
+            "L5-C",
+            "ARRI L5-C LED Fresnel Licht",
+            "ARRI L5-C LED Fresnel"
           ]
         },
         {
@@ -804,7 +1323,9 @@
           "model": "AX5 TriplePAR",
           "aliases": [
             "Astera AX5 RGBAW",
-            "AX5"
+            "AX5",
+            "ASTERA AX5 LED LIGHT(RGB)",
+            "Astera AX5"
           ]
         },
         {
@@ -837,7 +1358,13 @@
           "model": "LS 300d II",
           "aliases": [
             "Aputure LS 300D Mk II DMX",
-            "LS 300D II"
+            "LS 300D II",
+            "Aputure Light Storm 300D II Kit",
+            "Aputure Light Storm 300D II",
+            "LS C300d II",
+            "Aputure LS C300d II",
+            "Aputure Light Storm LS C300d II geräuschlose LED Tageslicht Lampe",
+            "Aputure 300d II"
           ]
         },
         {
@@ -846,7 +1373,9 @@
           "aliases": [
             "Aputure LS 300X Bi-Color II DMX",
             "LS 300X",
-            "LS300X"
+            "LS300X",
+            "Aputure Light Storm 300x Kit",
+            "Aputure Light Storm 300x"
           ]
         },
         {
@@ -855,7 +1384,11 @@
           "aliases": [
             "Aputure LS 600D Pro II DMX",
             "LS 600D Pro",
-            "Aputure LS 600D"
+            "Aputure LS 600D",
+            "Aputure Light Storm 600D Pro Kit",
+            "Aputure Light Storm 600D Pro",
+            "APUTURE AP-LSC600D PRO (DAYLIGHT)",
+            "Aputure LS C600d Pro"
           ]
         },
         {
@@ -877,7 +1410,9 @@
             "LS 600C Pro",
             "APUTURE 600c",
             "Aputure 600c",
-            "Aputure LS 600C"
+            "Aputure LS 600C",
+            "Aputure Light Storm 600C Pro Kit",
+            "Aputure Light Storm 600C Pro"
           ]
         },
         {
@@ -885,7 +1420,9 @@
           "model": "LS 1200d Pro",
           "aliases": [
             "Aputure LS 1200D DMX",
-            "LS 1200D"
+            "LS 1200D",
+            "APUTURE AP-ALS1200D (DAYLIGHT)",
+            "Aputure AP-LS1200D"
           ]
         },
         {
@@ -916,7 +1453,9 @@
           "model": "DLED9-BI",
           "aliases": [
             "Dedolight DLED9-BI 90W DMX Bicolor",
-            "DLED9"
+            "DLED9",
+            "DEDOLIGHT D-LED D9-BI LED SPOT (BICOLOR)",
+            "Dedolight D9-BI"
           ]
         },
         {
@@ -924,7 +1463,9 @@
           "model": "DLED4-BI",
           "aliases": [
             "Dedolight DLED4-BI 40W DMX Bicolor",
-            "DLED4"
+            "DLED4",
+            "DEDOLIGHT D-LED D4-BI LED SPOT (BICOLOR)",
+            "Dedolight D4-BI"
           ]
         },
         {
@@ -1076,7 +1617,9 @@
           "model": "LS 60x",
           "aliases": [
             "Aputure LS 60X",
-            "LS60X"
+            "LS60X",
+            "Aputure Light Storm 60X",
+            "Light Storm 60X"
           ]
         },
         {
@@ -1085,6 +1628,357 @@
           "aliases": [
             "Aputure LS 60D",
             "LS60D"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM 400x",
+          "aliases": [
+            "Aputure STORM 400x"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "CF4 Fresnel",
+          "aliases": [
+            "Aputure CF4 Fresnel + Barn Doors",
+            "Aputure CF4",
+            "Aputure CF4 Fresnel (80c)"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "CF7 Fresnel",
+          "aliases": [
+            "Aputure CF7 Fresnel + Barn Doors",
+            "Aputure CF7",
+            "Aputure CF7 Fresnel"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran 150c",
+          "aliases": [
+            "Aputure Amaran 150c | RGBWW",
+            "Amaran 150c"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Gemini 1x1 Hard",
+          "aliases": [
+            "Litepanels Gemini 1x1 Hard",
+            "Gemini Hard 1x1",
+            "Litepanels Gemini 1x1 Hard LED Panel"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Gemini 2x1 Hard",
+          "aliases": [
+            "Litepanels Gemini 2x1 Hard",
+            "Gemini Hard 2x1"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Evoke 150C",
+          "aliases": [
+            "Nanlux Evoke 150C",
+            "NANLUX EVOKE 150C (RGB)"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Evoke 600C",
+          "aliases": [
+            "Nanlux Evoke 600C",
+            "NANLUX EVOKE 600C (RGBW)"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Evoke 900C",
+          "aliases": [
+            "Nanlux Evoke 900C",
+            "Nanlux Evoke 900",
+            "NANLUX EVOKE 900C (RGBW)",
+            "NANLUX Evoke 900C RGB"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "Forza 60C",
+          "aliases": [
+            "Nanlite Forza 60C",
+            "Nanlux/Nanlite Forza 60C",
+            "NANLITE FORZA 60C SPOT (RGB)",
+            "Nanlite Forza 60C LED Spotlight",
+            "Nanlite Forza 60CR"
+          ]
+        },
+        {
+          "manufacturer": "Profoto",
+          "model": "L1600D",
+          "aliases": [
+            "Profoto L1600D"
+          ]
+        },
+        {
+          "manufacturer": "Profoto",
+          "model": "L600C",
+          "aliases": [
+            "Profoto L600C"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "Forza 150B",
+          "aliases": [
+            "Nanlite Forza 150B",
+            "Nanlux/Nanlite Forza 150B",
+            "Nanlite Forza 150B LED Spotlight"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "Forza 60B II",
+          "aliases": [
+            "Nanlite Forza 60B II",
+            "Nanlux/Nanlite Forza 60B II",
+            "Nanlite Forza 60B II spotlight",
+            "Cromalite Nanlite Forza 60B II"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM 700x",
+          "aliases": [
+            "Aputure Storm 700x"
+          ]
+        },
+        {
+          "manufacturer": "Creamsource",
+          "model": "Vortex24",
+          "aliases": [
+            "Creamsource Vortex 24",
+            "Vortex 24",
+            "Creamsource Vortex24 RGBW System"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM CS15",
+          "aliases": [
+            "Aputure CS15 - 1500W RGB LED Spot",
+            "Aputure CS15",
+            "Aputure Storm CS15"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM XT26",
+          "aliases": [
+            "Aputure XT26 - 2600W BiColor LED Spot",
+            "Aputure XT26",
+            "Aputure Storm XT26"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran 300c",
+          "aliases": [
+            "Amaran 300c inkl V-Mount Bay",
+            "Aputure Amaran 300c"
+          ]
+        },
+        {
+          "manufacturer": "Prolycht",
+          "model": "Orion 300 FS",
+          "aliases": [
+            "Prolycht Orion 300 FS"
+          ]
+        },
+        {
+          "manufacturer": "Prolycht",
+          "model": "Orion 675 FS",
+          "aliases": [
+            "Prolycht Orion 675 FS",
+            "Prolycht Orion 675 FS Fresnel",
+            "Prolycht Orion 675 FS RGB",
+            "Prolycht Orion 675"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "PixelBrick",
+          "aliases": [
+            "Astera Pixelbrick 8er Koffer",
+            "Astera PixelBrick Kit",
+            "Astera PixelBrick PB15",
+            "Astera Kit PixelBrick"
+          ]
+        },
+        {
+          "manufacturer": "HIVE Lighting",
+          "model": "Wasp 100-C",
+          "aliases": [
+            "HIVE WASP 100-C",
+            "Hive Wasp 100C"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS C120d II",
+          "aliases": [
+            "Aputure Light Storm LS C120d II geräuschlose Tageslicht LED Lampe",
+            "Aputure LS C120d II",
+            "Aputure 120d II"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran COB 60x",
+          "aliases": [
+            "Led Amaran COB 60x",
+            "Amaran COB 60x"
+          ]
+        },
+        {
+          "manufacturer": "Godox",
+          "model": "VL300",
+          "aliases": [
+            "Godox VL 300 Led",
+            "Godox VL300"
+          ]
+        },
+        {
+          "manufacturer": "Godox",
+          "model": "VL150",
+          "aliases": [
+            "Led Godox VL 150",
+            "Godox VL150"
+          ]
+        },
+        {
+          "manufacturer": "Godox",
+          "model": "SZ150R",
+          "aliases": [
+            "Led Godox SZ150R RGB",
+            "Godox SZ150R"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLED4.1-D",
+          "aliases": [
+            "Dedolight DLED4.1-D LED Tageslicht Lampe BIN2D",
+            "Dedolight DLED4.1-D"
+          ]
+        },
+        {
+          "manufacturer": "Kelvin",
+          "model": "Epos 300",
+          "aliases": [
+            "KELVIN EPOS-300 LED SPOT (RGB)",
+            "Kelvin Epos-300"
+          ]
+        },
+        {
+          "manufacturer": "Kelvin",
+          "model": "Epos 600",
+          "aliases": [
+            "KELVIN EPOS-600 LED SPOT (RGB)",
+            "Kelvin Epos-600"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS C300d",
+          "aliases": [
+            "APUTURE AP-LSC300D (DAYLIGHT)",
+            "Aputure LS C300d"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "Forza 300B",
+          "aliases": [
+            "Nanlite Forza 300B LED Spotlight",
+            "Nanlite Forza 300B"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "Forza 500B",
+          "aliases": [
+            "Nanlite Forza 500B LED Spotlight",
+            "Nanlite Forza 500B"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "Forza 500B II",
+          "aliases": [
+            "Nanlite Forza 500B II bicolor Spotlight"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "Forza 720B",
+          "aliases": [
+            "Nanlite Forza 720B LED Spotlight",
+            "Nanlite Forza 720B"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "PlutoFresnel",
+          "aliases": [
+            "Astera PlutoFresnel AF80",
+            "Astera Pluto Fresnel",
+            "Astera Kit 2 x PlutoFresnel"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "LeoFresnel",
+          "aliases": [
+            "Astera LeoFresnel",
+            "Astera Leo Fresnel",
+            "Astera Kit LeoFresnel"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "QuikPunch",
+          "aliases": [
+            "Astera QuikPunch",
+            "Astera Kit 8 x QuikPunch"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "QuikSpot",
+          "aliases": [
+            "Astera QuikSpot",
+            "Astera Kit 8 x Quikspot"
+          ]
+        },
+        {
+          "manufacturer": "BB&S",
+          "model": "Compact Beamlight",
+          "aliases": [
+            "BB&S Compact Beamlight",
+            "BB&S Compact Beamlight Bi-Color"
+          ]
+        },
+        {
+          "manufacturer": "Robert Juliat",
+          "model": "Dalis 860",
+          "aliases": [
+            "Robert Juliat Dalis 860",
+            "RJ Dalis 860"
           ]
         }
       ]
@@ -1161,7 +2055,8 @@
           "model": "Amaran AL-MC",
           "aliases": [
             "Aputure AL-MC (interner Akku) RGBWW/FX",
-            "AL-MC"
+            "AL-MC",
+            "Aputure AL-MC | RGBWW"
           ]
         },
         {
@@ -1227,7 +2122,8 @@
           "model": "MAXI SWITCH",
           "aliases": [
             "DMG Lumiere Maxi Switch BiColor",
-            "DMG Maxi Switch"
+            "DMG Maxi Switch",
+            "Rosco DMG Lumière Maxi Switch"
           ]
         },
         {
@@ -1243,7 +2139,8 @@
           "model": "SL1 MIX",
           "aliases": [
             "DMG Lumiere SL1 Mix",
-            "DMG SL1 Mix"
+            "DMG SL1 Mix",
+            "Rosco DMG Lumière SL1 mix"
           ]
         },
         {
@@ -1251,7 +2148,9 @@
           "model": "SL1 SWITCH",
           "aliases": [
             "DMG Lumiere SL1 Switch BiColor",
-            "DMG SL1 Switch"
+            "DMG SL1 Switch",
+            "Rosco DMG Lumière SL1",
+            "Rosco DMG Lumiere SL1"
           ]
         },
         {
@@ -1484,7 +2383,9 @@
           "aliases": [
             "LiteGear LiteMat+ Plus 2L 29x101cm Bicolor",
             "LiteMat Plus 2L",
-            "Litegear LiteMat Plus 2L"
+            "Litegear LiteMat Plus 2L",
+            "LiteGear LiteMat 2L Plus Hybrid",
+            "Litemat S2 PLUS 2L"
           ]
         },
         {
@@ -1493,7 +2394,8 @@
           "aliases": [
             "LiteGear LiteMat+ Plus 4 53x101cm Bicolor",
             "LiteMat Plus 4",
-            "Litegear LiteMat Plus 4"
+            "Litegear LiteMat Plus 4",
+            "LiteGear LiteMat 4 Plus Hybrid"
           ]
         },
         {
@@ -1595,7 +2497,9 @@
           "aliases": [
             "TheLight Velvet Light 1 1x1ft 30x30cm DMX Bicolor",
             "THE LITE Velvet 1",
-            "Velvet 1"
+            "Velvet 1",
+            "THELIGHT Velvet1",
+            "Velvet1"
           ]
         },
         {
@@ -1812,6 +2716,500 @@
             "Aputure MC-4",
             "Aputure MC 4-Light Kit"
           ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran P60c",
+          "aliases": [
+            "Aputure Amaran P60c | RGBWW",
+            "Amaran P60c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran F21x",
+          "aliases": [
+            "Aputure Amaran F21x Flexible | BiColor",
+            "Amaran F21x"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Astra 1x1 Bi-Color",
+          "aliases": [
+            "LitePanels Astra 1x1 Bi-Color",
+            "Litepanels Astra 1x1"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Gemini 2x1 Soft",
+          "aliases": [
+            "Litepanels Gemini 2x1",
+            "Litepanels Gemini 2x1 Soft Panel",
+            "Gemini 2x1 RGBWW Soft Panel",
+            "Litepanel Gemini 2'x1' Soft Panel",
+            "Litepanels Gemini 2×1 RGB LED Soft Panel"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Gemini 1x1 Soft",
+          "aliases": [
+            "Litepanels Gemini 1x1",
+            "Litepanel Gemini 1'x1' Soft Panel",
+            "Litepanels Gemini 1×1 Soft Panel"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Astra 6X Bi-Color",
+          "aliases": [
+            "Litepanels Astra 6X",
+            "Litepanel Astra 6X",
+            "Astra 6X Bi-Color LED",
+            "Litepanels Astra 6x Bi-Color"
+          ]
+        },
+        {
+          "manufacturer": "Profoto",
+          "model": "ProPanel 3x2",
+          "aliases": [
+            "Profoto ProPanel 3x2"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "Fabric-Lite 350",
+          "aliases": [
+            "Aladdin Fabric-Lite 350W",
+            "Aladdin Fabric Lite 350"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "Mosaic 4x4",
+          "aliases": [
+            "Aladdin Mosaic 4x4",
+            "Aladdin Mosaic 2 4x4"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle Mini",
+          "aliases": [
+            "Kino Flo FreeStyle Mini",
+            "Kino-Flo FreeStyle Mini"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "MC Pro",
+          "aliases": [
+            "Aputure MC Pro",
+            "Aputure MC Pro 8 Lightkit"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "INFINIMAT 8x8",
+          "aliases": [
+            "Aputure Infinimat 8x8",
+            "Aputure INFINIMAT 8'x8'"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat+ Plus 3",
+          "aliases": [
+            "LiteGear LiteMat 3 Plus Hybrid",
+            "LiteMat Plus 3"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat Spectrum 8",
+          "aliases": [
+            "LiteGear LiteMat Spectrum 8",
+            "LiteMat S2 8",
+            "Litegear Litemat Spectrum 8 2023"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteTile Plus 4",
+          "aliases": [
+            "LiteGear LiteTile Plus 4 Hybrid",
+            "LiteTile+ 4"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteTile Plus 8",
+          "aliases": [
+            "LiteGear LiteTile Plus 8 Hybrid",
+            "LiteTile+ 8"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Astra 4X Bi-Color",
+          "aliases": [
+            "Litepanels Astra 4X",
+            "Litepanel Astra 4X"
+          ]
+        },
+        {
+          "manufacturer": "Lightstar",
+          "model": "Luxed-P9",
+          "aliases": [
+            "Lightstar Luxed-Pro-P9",
+            "Luxed-Pro-P9",
+            "Lightstar Luxed P9"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle Air",
+          "aliases": [
+            "Kino Flo FreeStyle Air Panel",
+            "KinoFlo FreeStyle Air"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle Air Mini",
+          "aliases": [
+            "KinoFlo FreeStyle Air Mini",
+            "Kino Flo FreeStyle Air Mini RGB LED Light Panel"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle Air Max",
+          "aliases": [
+            "Kino Flo FreeStyle Air Max Panel",
+            "KinoFlo FreeStyle Air Max",
+            "Kino Flo FreeStyle Air Max RGB LED Light Panel",
+            "Kino Flo FreeStyle Air"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 400Q",
+          "aliases": [
+            "Kino Flo Celeb 400Q DMX",
+            "KinoFlo Celeb 400Q"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "4Long LED Studio",
+          "aliases": [
+            "TheLight 4long LED Studio",
+            "The Light 4Long"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteTile 4x4",
+          "aliases": [
+            "Lite Tile 4x4",
+            "LiteGear LiteTile+ 4x4"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteTile 8x8",
+          "aliases": [
+            "Lite Tile 8x8",
+            "LiteGear LiteTile+ 8x8"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "1x1 Bi-Color",
+          "aliases": [
+            "LITEPANEL 1x1 Bi-Color",
+            "Litepanels 1x1 Bi-Color",
+            "Lite Panel 1x1 bi-color",
+            "LITEPANEL 1×1 Bi-Color 50°",
+            "Litepanels 1x1 Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "MiniPlus",
+          "aliases": [
+            "LITEPANEL miniPlus",
+            "Litepanels MiniPlus"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Gemini 1x1",
+          "aliases": [
+            "Litepanels 1x1 Gemini",
+            "Litepanels Gemini 1x1 Soft"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "Velvet Mini 1",
+          "aliases": [
+            "Velvet Mini 1, 50W",
+            "TheLight Velvet Mini 1"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Select 20",
+          "aliases": [
+            "Kino Flo Select 20",
+            "KinoFlo Select 20"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 400",
+          "aliases": [
+            "Kino Flo Celeb 400",
+            "KinoFlo Celeb 400 DMX"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "Bi-Flex 2",
+          "aliases": [
+            "Aladdin BI-FLEX 2",
+            "Aladdin Biflex 2"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "Bi-Flex 4",
+          "aliases": [
+            "Aladdin BI-FLEX 4",
+            "Aladdin Biflex 4"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "All-In 2",
+          "aliases": [
+            "Aladdin All-In 2 RGB / Bi-Color LED",
+            "Aladdin All In 2",
+            "Led Aladdin ALL-IN 2 Color",
+            "Aladdin All-In 2",
+            "Aladdin ALL-IN 2 LED light panel"
+          ]
+        },
+        {
+          "manufacturer": "DMG Lumière",
+          "model": "MINI SWITCH",
+          "aliases": [
+            "DMG Lumiere Mini Switch",
+            "Rosco DMG Lumière Mini"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "FABRIC-LITE 200",
+          "aliases": [
+            "Led Aladdin FABRIC-LITE 200W Bi-Color KIT",
+            "Aladdin Fabric-Lite 200"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "Eye-Lite Bi-Color",
+          "aliases": [
+            "Aladdin Eye Lite Bi-Color mit Dimmer"
+          ]
+        },
+        {
+          "manufacturer": "Lupo",
+          "model": "Dayled 1000",
+          "aliases": [
+            "Led 1000 Lupo Day 5600°K",
+            "Lupo Dayled 1000"
+          ]
+        },
+        {
+          "manufacturer": "Lupo",
+          "model": "Dayled 650",
+          "aliases": [
+            "Led 650 Lupo Day 5600°K",
+            "Lupo Dayled 650"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Nova II 2x1",
+          "aliases": [
+            "APUTURE NOVA II 2X1 1000W (RGB)",
+            "Aputure Nova II 2x1"
+          ]
+        },
+        {
+          "manufacturer": "Falcon Eyes",
+          "model": "RX-736",
+          "aliases": [
+            "FALCON EYES RX-736 LED PANEL (RGBW)"
+          ]
+        },
+        {
+          "manufacturer": "Falcon Eyes",
+          "model": "RX-748",
+          "aliases": [
+            "FALCON EYES RX-748 LED PANEL (RGBW)"
+          ]
+        },
+        {
+          "manufacturer": "Falcon Eyes",
+          "model": "RX-18TD",
+          "aliases": [
+            "FALCON EYES RX-18TD LED PANEL (BICOLOR)"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Brick Bi-Color",
+          "aliases": [
+            "Litepanels Brick Bi-color on-camera light",
+            "Litepanels Brick"
+          ]
+        },
+        {
+          "manufacturer": "Litepanels",
+          "model": "Micro",
+          "aliases": [
+            "Litepanels Micro on-camera light",
+            "Litepanels Micro LED"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Dyno 650C",
+          "aliases": [
+            "Nanlux Dyno 650C"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Dyno 1200C",
+          "aliases": [
+            "Nanlux Dyno 1200C",
+            "Nanlux Dyno 1200C LED RGBWW Soft Panel Light"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "TK-280B",
+          "aliases": [
+            "Nanlux TK-280B Bicolor 280W Soft Panel Light",
+            "Nanlux TK280B"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "INFINIMAT 4x4",
+          "aliases": [
+            "Aputure INFINIMAT 4X4",
+            "Aputure Infinimat"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Imara S6",
+          "aliases": [
+            "Kino Flo Imara S6",
+            "KinoFlo Imara S6 DMX"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "Auroris",
+          "aliases": [
+            "Litegear Auroris",
+            "LiteGear Auroris X"
+          ]
+        },
+        {
+          "manufacturer": "Pheon Lux",
+          "model": "Air Lux H14C",
+          "aliases": [
+            "Pheon Lux Air Lux H14C"
+          ]
+        },
+        {
+          "manufacturer": "Pheon Lux",
+          "model": "Air Lux H18C",
+          "aliases": [
+            "Pheon Lux Air Lux H18C"
+          ]
+        },
+        {
+          "manufacturer": "Pheon Lux",
+          "model": "Air Lux H24C",
+          "aliases": [
+            "Pheon Lux Air Lux H24C"
+          ]
+        },
+        {
+          "manufacturer": "Pheon Lux",
+          "model": "Air Lux H44C",
+          "aliases": [
+            "Pheon Lux Air Lux H44C"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "ALL-IN 1",
+          "aliases": [
+            "Aladdin ALL-IN 1 LED light panel",
+            "Aladdin All-In 1 Gaffer Kit"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "Eye-Lite",
+          "aliases": [
+            "Aladdin Eye-Lite",
+            "Aladdin Eyelite"
+          ]
+        },
+        {
+          "manufacturer": "Cineroid",
+          "model": "FL400",
+          "aliases": [
+            "Cineroid FL400 flexible LED panel",
+            "Cineroid FL400"
+          ]
+        },
+        {
+          "manufacturer": "Cineroid",
+          "model": "FL800",
+          "aliases": [
+            "Cineroid FL800 flexible LED panel",
+            "Cineroid FL800"
+          ]
+        },
+        {
+          "manufacturer": "Sumolight",
+          "model": "SumoSPACE+",
+          "aliases": [
+            "Sumolight SumoSPACE +",
+            "Sumolight SumoSpace Plus"
+          ]
+        },
+        {
+          "manufacturer": "Fiilex",
+          "model": "Q3 Color",
+          "aliases": [
+            "Fiilex Q3 Colour",
+            "Fiilex Q3 Color 90W LED Fresnel"
+          ]
         }
       ]
     },
@@ -1849,7 +3247,8 @@
             "LED RGBW Titan Tube Astera FP1",
             "Astera FP1 Titan Tube",
             "Astera Titan Tube 4er Set",
-            "Astera Titan Tube 8er Set"
+            "Astera Titan Tube 8er Set",
+            "Astera FP1 Titan Tube Kit"
           ]
         },
         {
@@ -1893,7 +3292,114 @@
           "aliases": [
             "Pavo Tube II 6C",
             "Nanlite Pavo Tube II 6C",
-            "LED RGBW Pavo Tube II 6C"
+            "LED RGBW Pavo Tube II 6C",
+            "Nanlux/Nanlite Pavotube II x 10\" 6C",
+            "Nanlite Pavotube II 6C 10 inch"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran T2c",
+          "aliases": [
+            "Aputure Amaran T2c | RGBWW",
+            "Amaran T2c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran T4c",
+          "aliases": [
+            "Aputure Amaran T4c | RGBWW",
+            "Amaran T4c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "MT Pro",
+          "aliases": [
+            "Aputure MT Pro Tube Light | RGBWW",
+            "Aputure MT Pro",
+            "Aputure MT PRO RGBWW LED Tube Lampe",
+            "Aputure MT Pro Tube"
+          ]
+        },
+        {
+          "manufacturer": "Westcott",
+          "model": "Ice Light 2",
+          "aliases": [
+            "Westcott Ice Light 2",
+            "Westcott 5900 Ice Light 2"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "PavoTube II 15X",
+          "aliases": [
+            "Nanlite Pavotube II 15X",
+            "Nanlux/Nanlite Pavotube II 15x 2ft"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "INFINIBAR PB12",
+          "aliases": [
+            "INFINIBAR PB12 4-Light Kit",
+            "INFINIBAR PB12 8-Light Kit",
+            "Aputure Infinibar PB12"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "INFINIBAR PB6",
+          "aliases": [
+            "Aputure INFINIBAR PB6 RGB LED Light Panel",
+            "Aputure Infinibar PB6"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "PavoBulb 10C",
+          "aliases": [
+            "Nanlite Pavobulb 10C",
+            "Nanlite PavoBulb 10C 4-bulb set"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "AX2 PixelBar",
+          "aliases": [
+            "Astera AX2-100 Pixel bar",
+            "Astera AX2 PixelBar"
+          ]
+        },
+        {
+          "manufacturer": "BB&S",
+          "model": "Pipeline Raw",
+          "aliases": [
+            "BB&S PipeLine RAW",
+            "BB&S Pipeline Raw 5600K"
+          ]
+        },
+        {
+          "manufacturer": "BB&S",
+          "model": "Pipeline Free",
+          "aliases": [
+            "BB&S Pipeline FREE",
+            "BB&S Pipeline Free 5600K"
+          ]
+        },
+        {
+          "manufacturer": "Kinotehnik",
+          "model": "Practilite 604",
+          "aliases": [
+            "Kinotehnik Practilite 604"
+          ]
+        },
+        {
+          "manufacturer": "Cineo",
+          "model": "Matchstix",
+          "aliases": [
+            "Cineo Matchstix"
           ]
         }
       ]
@@ -1912,7 +3418,9 @@
             "Kino Flo 4Bank 4ft",
             "Kino 4x4",
             "Kino Flo 4 bank / 4 feet",
-            "Kino Flo 4 Bank 4 Feet"
+            "Kino Flo 4 Bank 4 Feet",
+            "Kino Flo 4Bank 4'",
+            "Kino Flo 4Bank 4′"
           ]
         },
         {
@@ -1929,7 +3437,9 @@
           "model": "2-Bank 4ft",
           "aliases": [
             "KINOFLO 2-Bank 4ft",
-            "Kino Flo 2Bank 4ft"
+            "Kino Flo 2Bank 4ft",
+            "KinoFlo Double 4ft",
+            "Kino Flo Double 4ft"
           ]
         },
         {
@@ -1937,7 +3447,11 @@
           "model": "2-Bank 2ft",
           "aliases": [
             "KINOFLO 2-Bank 2ft",
-            "Kino Flo 2Bank 2ft"
+            "Kino Flo 2Bank 2ft",
+            "KinoFlo Double 2ft",
+            "Kino Flo Double 2ft",
+            "Kino Flo 2Bank 2'",
+            "Kino Flo 2Bank 2′"
           ]
         },
         {
@@ -1945,7 +3459,9 @@
           "model": "1-Bank 4ft",
           "aliases": [
             "KINOFLO 1-Bank 4ft",
-            "Kino Flo Single 4ft"
+            "Kino Flo Single 4ft",
+            "Kino Flo 1Bank 4'",
+            "Kino Flo 1Bank 4′"
           ]
         },
         {
@@ -1953,7 +3469,10 @@
           "model": "1-Bank 2ft",
           "aliases": [
             "KINOFLO 1-Bank 2ft",
-            "Kino Flo Single 2ft"
+            "Kino Flo Single 2ft",
+            "KinoFlo Single 2ft",
+            "Kino Flo 1Bank 2'",
+            "Kino Flo 1Bank 2′"
           ]
         },
         {
@@ -2059,6 +3578,31 @@
           "aliases": [
             "KINOFLO Wall O Light",
             "Wall O Lite"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Diva-Lite 401",
+          "aliases": [
+            "Kino Flo Diva Lite 401",
+            "Kino Flo Diva-Lite 401",
+            "KinoFlo DivaLite 401"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Diva-Lite 400",
+          "aliases": [
+            "KinoFlo Divalite 400 Kit",
+            "Kino Flo Diva-Lite 400"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Tegra 4-Bank",
+          "aliases": [
+            "Kino Flo Tegra 4 Bank",
+            "Kino Flo Tegra"
           ]
         }
       ]

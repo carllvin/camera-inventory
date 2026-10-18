@@ -15,7 +15,9 @@
      "aliases": [
       "BMD Video Assist 5",
       "Video Assist 5 12G",
-      "Blackmagic Video Assist 5\""
+      "Blackmagic Video Assist 5\"",
+      "Blackmagic Design Video Assist 12G HDR 5″",
+      "Blackmagic Video Assist 12G HDR 5"
      ],
      "specs": {
       "screen_in": 5
@@ -122,6 +124,106 @@
       "Konverter - Atomos Connect S2H HD-SDI auf HDMI",
       "Atomos Connect S2H"
      ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja TX",
+     "aliases": [
+      "Atomos Ninja TX"
+     ]
+    },
+    {
+     "manufacturer": "AJA",
+     "model": "Ki Pro Ultra 12G",
+     "aliases": [
+      "Aja KiPro 12G Video Recorder",
+      "AJA Ki Pro 12G"
+     ]
+    },
+    {
+     "manufacturer": "Video Devices",
+     "model": "PIX-E5",
+     "aliases": [
+      "Video Devices Pix E5",
+      "PIX E5",
+      "Video Devices Pix-E5",
+      "VideoDevices PIX-E5"
+     ]
+    },
+    {
+     "manufacturer": "Sound Devices",
+     "model": "PIX 240i",
+     "aliases": [
+      "Sound Devices Pix 240 HD Recorder",
+      "Sound Devices PIX-240",
+      "Sound Devices PIX 240i"
+     ]
+    },
+    {
+     "manufacturer": "Ovide",
+     "model": "Smart Assist 2 EVO",
+     "aliases": [
+      "Ovide Smart Assist 2 Evo"
+     ]
+    },
+    {
+     "manufacturer": "Ovide",
+     "model": "Smart Assist 4 EVO",
+     "aliases": [
+      "Ovide Smart Assist 4 Evo"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "COLR",
+     "aliases": [
+      "Teradek COLR"
+     ]
+    },
+    {
+     "manufacturer": "Convergent Design",
+     "model": "Odyssey 7Q+",
+     "aliases": [
+      "Convergent Odyssey 7Q+",
+      "Odyssey 7Q Plus",
+      "Convergent Design Odyssey7Q+",
+      "Odyssey7Q+",
+      "Convergent Design Odyssey 7Q+",
+      "Odysse 7Q+",
+      "Convergent Design Odyssey7Q+ REC"
+     ]
+    },
+    {
+     "manufacturer": "Video Devices",
+     "model": "PIX-E7",
+     "aliases": [
+      "Video Devices PIX-E7",
+      "VideoDevices PIX-E7"
+     ]
+    },
+    {
+     "manufacturer": "AJA",
+     "model": "Ki Pro Mini",
+     "aliases": [
+      "AJA KiPro Mini",
+      "AJA Ki Pro Mini"
+     ]
+    },
+    {
+     "manufacturer": "AJA",
+     "model": "Ki Pro",
+     "aliases": [
+      "AJA KiPro Recorder",
+      "AJA KiPro"
+     ]
+    },
+    {
+     "manufacturer": "Sound Devices",
+     "model": "PIX 240",
+     "aliases": [
+      "Sound Devices Pix 240",
+      "Sound Devices PIX240i"
+     ]
     }
    ]
   },
@@ -157,7 +259,6 @@
      "aliases": [
       "Ninja 5",
       "Atomos Ninja",
-      "Ninja V Plus",
       "ATOMOS Ninja V5"
      ],
      "specs": {
@@ -236,7 +337,10 @@
     {
      "manufacturer": "Atomos",
      "model": "Sumo 19 SE",
-     "aliases": [],
+     "aliases": [
+      "Atomos Sumo SE 4K HDR Produktionsmonitor/Recorder 19”",
+      "Atomos Sumo SE 19"
+     ],
      "specs": {
       "screen_in": 19
      }
@@ -644,7 +748,11 @@
      "aliases": [
       "F7H",
       "TV Logic F-7H",
-      "F-7H mkII"
+      "F-7H mkII",
+      "TVLogic F-7H MKII",
+      "TV-Logic F-7H mk2",
+      "TV-Logic F-7H 7 MKII",
+      "TVLogic F-7H MKII Ultra Bright Full HD Monitor 7″"
      ],
      "specs": {
       "screen_in": 7,
@@ -980,7 +1088,10 @@
      "model": "LVM-243W",
      "aliases": [
       "TV Logic LVM 243W",
-      "LVM243W"
+      "LVM243W",
+      "TV-Logic 243W-3G Multiformat 24in",
+      "TVLogic LVM-243W-3G",
+      "TV-Logic LVM-243W"
      ]
     },
     {
@@ -1070,6 +1181,458 @@
      "aliases": [
       "Monitor 24\" Lilliput Q24",
       "Lilliput Q24 12G-SDI"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja V Plus",
+     "aliases": [
+      "Ninja V+",
+      "Atomos Ninja V+",
+      "Atomos Ninja V Plus",
+      "Atomos Ninja V+ Pro Kit"
+     ]
+    },
+    {
+     "manufacturer": "Astro Design",
+     "model": "DM-3105",
+     "aliases": [
+      "Astro DM-3105 5in",
+      "Astro DM-3105"
+     ]
+    },
+    {
+     "manufacturer": "Astro Design",
+     "model": "WM-3014",
+     "aliases": [
+      "Astro WM-3014 6in",
+      "Astro WM-3014"
+     ]
+    },
+    {
+     "manufacturer": "Astro Design",
+     "model": "WM-3209-B",
+     "aliases": [
+      "Astro WM-3209-B 8in",
+      "Astro WM-3209"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC2 Touch 4.7\" LCD",
+     "aliases": [
+      "Red DSMC2 Touch LCD 4.7in",
+      "RED Touch 4.7 LCD"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC2 Touch 7.0\" LCD",
+     "aliases": [
+      "Red DSMC2 Touch LCD Pogo 7in",
+      "RED DSMC2 Touch 7 LCD"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "Touch 5.0\" LCD",
+     "aliases": [
+      "Red Touch LCD 5.0in",
+      "RED Touch 5 LCD"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "Touch 7.0\" LCD (LEMO)",
+     "aliases": [
+      "Red Touch LCD Lemo 7in",
+      "RED Touch 7 LCD LEMO"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "702 OLED",
+     "aliases": [
+      "SmallHD 702 OLED 7in",
+      "SmallHD 702 OLED"
+     ]
+    },
+    {
+     "manufacturer": "Transvideo",
+     "model": "StarliteHD5-ARRI",
+     "aliases": [
+      "Transvideo Starlite HD5-ARRI Oled 5in",
+      "Transvideo Starlite HD5-ARRI 5\" OLED",
+      "Transvideo StarliteHD5 ARRI"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "VFM-058W",
+     "aliases": [
+      "TV-Logic 5.46 VFM-058W",
+      "TV Logic VFM-058W",
+      "TVLogic VFM-058W",
+      "TVlogic VFM-058W 5,5\"",
+      "HD TV-Logic VFM-058W"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM240",
+     "aliases": [
+      "Flanders DM240 24in",
+      "Flanders DM240"
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "BT-LH1760",
+     "aliases": [
+      "Panasonic BT-LH1760",
+      "17\" Panasonic BT-LH1760",
+      "BT-LH1760E",
+      "Panasonic BT-LH1760E",
+      "Panasonic BT-LH1760E 17\""
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "BT-LH1710",
+     "aliases": [
+      "Panasonic BT-LH1710"
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "BT-LH2550W",
+     "aliases": [
+      "Panasonic BT-LH2550W",
+      "Panasonic BT-LH2550"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LQM-171W",
+     "aliases": [
+      "TVLogic LQM-171W",
+      "TV Logic LQM-171"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XM651U",
+     "aliases": [
+      "Flanders Scientific XM651U",
+      "FSI XM651U"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "1703 HDR",
+     "aliases": [
+      "SmallHD 1703 HDR",
+      "17\" SmallHD 1703 HDR"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Cine 8",
+     "aliases": [
+      "Vaxis Cine 8",
+      "Vaxis Cine 8 Wireless Monitor"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-171S",
+     "aliases": [
+      "TV Logic LVM-171S",
+      "TVLogic LVM-171S 3G"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-181S",
+     "aliases": [
+      "TV Logic LVM-181S",
+      "TVLogic LVM-181S 3G",
+      "TVLogic LVM-181S 18.5\"",
+      "TV Logic LVM 181S"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-095W",
+     "aliases": [
+      "TV Logic LVM-095W",
+      "TVLogic LVM-095",
+      "TVlogic LVM-095W 9\"",
+      "TV Logic LVM-095W-N2",
+      "TV-Logic 095W-N2",
+      "TVLogic LVM-095W-N2"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "WFM-058W",
+     "aliases": [
+      "TV Logic WFM-058W",
+      "TVLogic WFM-058"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-741",
+     "aliases": [
+      "Sony PVM-741 OLED",
+      "Sony PVM741"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-1741",
+     "aliases": [
+      "Sony PVM-1741 OLED",
+      "Sony PVM1741"
+     ]
+    },
+    {
+     "manufacturer": "Marshall",
+     "model": "V-LCD101MD",
+     "aliases": [
+      "Marshall V-LCD101MD",
+      "Marshall Double 10\" Monitor"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "LMD-2451TD",
+     "aliases": [
+      "Sony LMD-2451TD 3D Monitor",
+      "Sony LMD 2451TD"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-740",
+     "aliases": [
+      "Sony PVM-740 OLED",
+      "Sony PVM 740"
+     ]
+    },
+    {
+     "manufacturer": "JVC",
+     "model": "DT-V17G1",
+     "aliases": [
+      "17 Zoll HD Monitor JVC DT-V17G1",
+      "JVC DT-V17G1Z"
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "BT-LH900",
+     "aliases": [
+      "Panasonic BT-LH900 9\"",
+      "Panasonic BT-LH900E"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "CM171",
+     "aliases": [
+      "Flanders CM171 17\"",
+      "FSI CM171"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "DP7-PRO High Bright",
+     "aliases": [
+      "SmallHD DP7-Pro, High Bright 7\"",
+      "SmallHD DP7 Pro"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "DP4",
+     "aliases": [
+      "SmallHD DP4 Kamera Monitor 4,3″",
+      "SmallHD DP4 EVF"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus 5",
+     "aliases": [
+      "SmallHD Focus 5 Zoll HDMI",
+      "SmallHD Focus 5in"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus 5 SDI",
+     "aliases": [
+      "SmallHD Focus 5 Zoll SDI",
+      "SmallHD Focus SDI"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "FM-215HDR",
+     "aliases": [
+      "SWIT FM-215HDR"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "BM-U243",
+     "aliases": [
+      "SWIT BM-U243"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "FM-24DCI",
+     "aliases": [
+      "SWIT 24\" FM-24DCI",
+      "SWIT FM-24DCI"
+     ]
+    },
+    {
+     "manufacturer": "Ovide",
+     "model": "Koko 10",
+     "aliases": [
+      "Ovide Koko HDR Monitor/Rekorder 10″",
+      "Ovide Koko Recording Monitor",
+      "KOKO Ovide V-Mount 10\"",
+      "Ovide Koko"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Mars M1",
+     "aliases": [
+      "Monitor Hollyland Mars M1",
+      "Hollyland Mars M1"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "NEON 17",
+     "aliases": [
+      "Atomos NEON 17 Monitor/Recorder",
+      "Atomos Neon 17"
+     ]
+    },
+    {
+     "manufacturer": "Lilliput",
+     "model": "BM280-4K",
+     "aliases": [
+      "Lilliput BM280-4K LCD Regiemonitor 28″",
+      "Lilliput BM280-4K"
+     ]
+    },
+    {
+     "manufacturer": "Lilliput",
+     "model": "BM120-4KS",
+     "aliases": [
+      "Lilliput BM120-4KS 12″ Flightcase-Monitor",
+      "Lilliput BM120-4KS"
+     ]
+    },
+    {
+     "manufacturer": "Transvideo",
+     "model": "StarliteHD",
+     "aliases": [
+      "ARRI/Transvideo Starlite HD",
+      "Transvideo Starlite HD"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "PVM-1741A",
+     "aliases": [
+      "SONY PVM-1741A MONITOR (17\")",
+      "Sony PVM-1741A OLED"
+     ]
+    },
+    {
+     "manufacturer": "Konvision",
+     "model": "KUM-2410W",
+     "aliases": [
+      "KONVISION KUM-2410W 4K MONITOR (24\")"
+     ]
+    },
+    {
+     "manufacturer": "Konvision",
+     "model": "KVM-2250W",
+     "aliases": [
+      "KONVISION KVM-2250W HD MONITOR (22\")"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-212W",
+     "aliases": [
+      "TVLogic LVM-212W 21.5\"",
+      "TV Logic LVM 212W"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-240W",
+     "aliases": [
+      "TVLogic LVM-240W 24\"",
+      "TV Logic LVM 240W"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-181H",
+     "aliases": [
+      "TVLogic LUM-181H 18 inch DCI-UHD Monitor",
+      "TV Logic LUM 181H"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "LMD-A170",
+     "aliases": [
+      "Sony LMD-A170 HDR monitor",
+      "Sony LMD A170"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "LMD-A240",
+     "aliases": [
+      "Sony LMD-A240 HDR monitor",
+      "Sony LMD A240"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "LMD-940W",
+     "aliases": [
+      "Sony LMD-940W monitor",
+      "Sony LMD 940W"
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "BT-LH2600WE",
+     "aliases": [
+      "Panasonic BT-LH2600",
+      "Panasonic BT-LH2600WE 26\""
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "BT-LH910GJ",
+     "aliases": [
+      "Panasonic BT-LH910",
+      "Panasonic BT-LH910GJ 9\""
      ]
     }
    ]
@@ -1198,7 +1761,9 @@
       "TC Box",
       "Tentacle E",
       "Sync E",
-      "Timecode Tentacle"
+      "Timecode Tentacle",
+      "Tentacle Sync Tentacle",
+      "Tentacle Sync Tentacle E"
      ]
     },
     {
@@ -1359,7 +1924,8 @@
      "model": "Bolt 3000 XT TX",
      "aliases": [
       "Teradek Bolt 3000 XT Transmitter",
-      "Teradek Bolt 3000 XT Sender"
+      "Teradek Bolt 3000 XT Sender",
+      "Teradek Bolt 3000 XT SDI/HDMI Wireless TX/RX"
      ],
      "discontinued": true
     },
@@ -1710,7 +2276,9 @@
       "TERADEK Bolt XT 500 RX TX Set",
       "Teradek Bolt XT 500 TX",
       "Teradek Bolt 500 XT TX (Sender)",
-      "Bolt 500 XT Sender"
+      "Bolt 500 XT Sender",
+      "Teradek Bolt 500 XT Deluxe Kit",
+      "Bolt 500 XT SDI/HDMI Wireless TX/RX Deluxe Kit"
      ]
     },
     {
@@ -1727,7 +2295,9 @@
      "model": "Bolt 1000 XT TX",
      "aliases": [
       "TERADEK Bolt XT 1000 RX TX Set",
-      "Teradek Bolt XT 1000 TX"
+      "Teradek Bolt XT 1000 TX",
+      "Teradek Bolt 1000 XT Deluxe Kit",
+      "Bolt 1000 XT SDI/HDMI Wireless TX/RX Deluxe Kit"
      ]
     },
     {
@@ -1805,6 +2375,90 @@
      "aliases": [
       "Gimbal - DJI RS2/ RS3 - RavenEye Bildübertragungsgerät",
       "DJI RavenEye"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Pro 600 TX",
+     "aliases": [
+      "Teradek BOLT Pro 600 Set",
+      "Teradek Bolt 600-Set",
+      "Teradek Bolt Pro 600",
+      "Teradek Bolt Pro 600 Videofunk Set"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Pro 600 RX",
+     "aliases": [
+      "Teradek Bolt Pro 600 Zusatz-Empfänger",
+      "Bolt Pro 600 Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Transmission RX",
+     "aliases": [
+      "DJI Transmission Extra Receiver",
+      "DJI Video Transmission Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 755",
+     "aliases": [
+      "Teradek Cube 755"
+     ]
+    },
+    {
+     "manufacturer": "Dwarf Connection",
+     "model": "ULR1",
+     "aliases": [
+      "DwarfConnection ULR1 Kit (1Tx - 2Rx)",
+      "Dwarf ULR1",
+      "DwarfConnection ULR1"
+     ]
+    },
+    {
+     "manufacturer": "Dwarf Connection",
+     "model": "CLR2",
+     "aliases": [
+      "DwarfConnection CLR2 Kit (1Tx - 2Rx)",
+      "Dwarf CLR2",
+      "DwarfConnection CLR2"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Pro 2000 TX",
+     "aliases": [
+      "Teradek Bolt Pro 2000",
+      "Teradek Bolt 2000 Pro Set"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Sidekick",
+     "aliases": [
+      "Teradek Bolt Pro Sidekick",
+      "Teradek Bolt Pro Sidekick I",
+      "Teradek Sidekick"
+     ]
+    },
+    {
+     "manufacturer": "Paralinx",
+     "model": "Arrow-X",
+     "aliases": [
+      "Paralinx Arrow-X 600feet",
+      "Paralinx Arrow X"
+     ]
+    },
+    {
+     "manufacturer": "Paralinx",
+     "model": "Tomahawk",
+     "aliases": [
+      "Paralinx Tomahawk 2000feet",
+      "Paralinx Tomahawk 2000"
      ]
     }
    ]

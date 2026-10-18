@@ -1069,7 +1069,9 @@
             "Rialto 2",
             "Venice Rialto",
             "CBK-3620XS",
-            "VENICE Extension System 2"
+            "VENICE Extension System 2",
+            "Rialto 2 (compatible with Venice and Venice 2)",
+            "Sony Rialto 2"
           ]
         },
         {
@@ -1318,7 +1320,8 @@
           "model": "Bolt Sidekick II",
           "aliases": [
             "Teradek Sidekick II",
-            "Sidekick II"
+            "Sidekick II",
+            "Teradek Bolt Sidekick 2"
           ]
         },
         {
@@ -1358,7 +1361,9 @@
           "aliases": [
             "SmallHD 703 Ultra Bright",
             "SmallHD 703 UB",
-            "SmallHD 703"
+            "SmallHD 703",
+            "SmallHD 703 7in",
+            "SmallHD 703 Ultrabright 7in"
           ]
         },
         {
@@ -1503,6 +1508,16 @@
           "aliases": [
             "Stativplatte / Schnappplatte VCT-14-U14",
             "VCT-U14 Quick Release Plate"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "XDCA-FS7",
+          "aliases": [
+            "Sony XDCA-FS7",
+            "XDCA-FS7 Extension Unit",
+            "Sony XDCA-FS7 Extension Unit",
+            "Sony XDCA-FS7 Erweiterungsmodul für PXW-FS7"
           ]
         }
       ]
@@ -2146,7 +2161,9 @@
           "aliases": [
             "Ember 5K",
             "Freefly Ember",
-            "Ember S5K High Speed"
+            "Ember S5K High Speed",
+            "FreeFly Ember S5K HS",
+            "Freefly Ember S5K high-speed camera"
           ],
           "specs": {
             "sensor": "Super 35 5K global shutter",
@@ -2390,7 +2407,8 @@
             "RED Gemini",
             "DSMC2 Gemini",
             "Epic-W Gemini 5K S35",
-            "Gemini 5K S35 DSMC2"
+            "Gemini 5K S35 DSMC2",
+            "Red Gemini 5K S35"
           ],
           "specs": {
             "sensor": "5K Super 35"
@@ -2425,7 +2443,9 @@
             "Weapon Monstro 8K VV DSMC2 BASIC",
             "Weapon Monstro 8K VV DSMC2 PREMIUM",
             "RED Monstro 8K VV",
-            "Monstro 8K VV"
+            "Monstro 8K VV",
+            "Red Monstro W 8k VV",
+            "RED Weapon Monstro 8K VV"
           ],
           "specs": {
             "sensor": "8K VV"
@@ -2452,7 +2472,10 @@
           "model": "KOMODO-X 6K",
           "aliases": [
             "Komodo X",
-            "Komodo-X Kamera"
+            "Komodo-X Kamera",
+            "RED Komodo-X",
+            "RED Komodo X",
+            "Komodo-X"
           ],
           "specs": {
             "sensor": "6K Super 35 global shutter",
@@ -2840,7 +2863,9 @@
           "model": "ARRICAM LT",
           "aliases": [
             "Arricam LT",
-            "ARRI Arricam LT"
+            "ARRI Arricam LT",
+            "Arricam Lite",
+            "ARRI Arricam Lite"
           ]
         },
         {
@@ -2900,7 +2925,9 @@
           "aliases": [
             "5D MkII",
             "EOS 5D MkII",
-            "Canon 5D Mark II"
+            "Canon 5D Mark II",
+            "Canon EOS 5D MK II",
+            "Canon 5D MK II"
           ]
         },
         {
@@ -3016,7 +3043,9 @@
           "aliases": [
             "FS7 II",
             "FS7II",
-            "PXW-FS7II"
+            "PXW-FS7II",
+            "Sony FS7 Mark II",
+            "Sony FS7 MKII"
           ]
         },
         {
@@ -3061,7 +3090,9 @@
             "Sony Alpha 7S MKIII",
             "Sony A7S MKIII",
             "Alpha 7S MK3",
-            "Sony A7S III"
+            "Sony A7S III",
+            "Sony Alpha a7S III",
+            "Sony A7S3"
           ]
         },
         {
@@ -3345,7 +3376,8 @@
           "model": "fp",
           "aliases": [
             "Sigma fp Kamera",
-            "Sigma fp camera"
+            "Sigma fp camera",
+            "Sigma fp (digital Viewfinder)"
           ]
         },
         {
@@ -3473,6 +3505,384 @@
             "A7s MKI",
             "Kamera Sony A7s MKI",
             "Sony A7s"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-Z200",
+          "aliases": [
+            "Sony PXW-Z200",
+            "Sony Z200",
+            "SONY PXW-Z200 KIT (1\")"
+          ]
+        },
+        {
+          "manufacturer": "Insta360",
+          "model": "X4",
+          "aliases": [
+            "Insta360 X4"
+          ]
+        },
+        {
+          "manufacturer": "Insta360",
+          "model": "ONE RS",
+          "aliases": [
+            "Insta360 One RS Twin Edition",
+            "Insta360 ONE RS"
+          ]
+        },
+        {
+          "manufacturer": "Insta360",
+          "model": "Pro 2",
+          "aliases": [
+            "Insta360 Pro 2.0",
+            "Insta360 Pro 2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIFLEX 435 Advanced",
+          "aliases": [
+            "Arriflex 435 Advanced",
+            "ARRI 435 Advanced",
+            "435 Advanced"
+          ]
+        },
+        {
+          "manufacturer": "Panavision",
+          "model": "Millennium XL2",
+          "aliases": [
+            "Panavision Millennium XL2",
+            "Panavision XL2",
+            "Millennium XL 2"
+          ]
+        },
+        {
+          "manufacturer": "Panavision",
+          "model": "Panaflex Platinum",
+          "aliases": [
+            "Panavision Panaflex Platinum",
+            "Panavision Platinum"
+          ]
+        },
+        {
+          "manufacturer": "Panavision",
+          "model": "Panaflex Lightweight II",
+          "aliases": [
+            "Panavision Panaflex Lightweight II",
+            "Panavision Lightweight II"
+          ]
+        },
+        {
+          "manufacturer": "Panavision",
+          "model": "Millennium DXL-M",
+          "aliases": [
+            "Panavision DXL-M",
+            "DXL-M",
+            "Panavision DXL M"
+          ]
+        },
+        {
+          "manufacturer": "Panavision",
+          "model": "System 65 Studio",
+          "aliases": [
+            "Panavision System 65 Studio",
+            "Panaflex System 65"
+          ]
+        },
+        {
+          "manufacturer": "Panavision",
+          "model": "System 65 High Speed",
+          "aliases": [
+            "Panavision System 65 High Speed",
+            "System 65 HS"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIFLEX 535B",
+          "aliases": [
+            "Arriflex 535-B",
+            "Arri 535B",
+            "Arriflex 535 B"
+          ]
+        },
+        {
+          "manufacturer": "Aaton",
+          "model": "Penelope",
+          "aliases": [
+            "Aaton Penelope",
+            "Aaton Penelope 35mm"
+          ]
+        },
+        {
+          "manufacturer": "Aaton",
+          "model": "Xtera",
+          "aliases": [
+            "Aaton Xtera",
+            "Aaton X-Tera",
+            "Aaton Xtera S16"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "Action Cam",
+          "aliases": [
+            "Codex Action Cam",
+            "Codex ActionCam"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Immersive",
+          "aliases": [
+            "Blackmagic URSA Cine Immersive",
+            "BMD URSA Cine Immersive",
+            "Blackmagic URSA Cine Immersive 100G",
+            "URSA Cine Immersive 100G"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AW-UE150",
+          "aliases": [
+            "Panasonic AW-UE150",
+            "AW-UE150 PTZ"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "ME20F-SH",
+          "aliases": [
+            "Canon ME20F-SH",
+            "ME20F-SH Low Light Camera"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PMW-EX3",
+          "aliases": [
+            "Sony PMW EX3",
+            "Sony PWM EX-3"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Micro Studio Camera 4K",
+          "aliases": [
+            "Blackmagic Micro Studio Camera 4K",
+            "BMD Micro Studio Camera 4K"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini Pro 4.6K",
+          "aliases": [
+            "Blackmagic URSA Mini Pro 4,6K",
+            "URSA Mini Pro 4.6K G1",
+            "Blackmagic URSA Mini Pro Kamera"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Alpha 7R IV",
+          "aliases": [
+            "Sony Alpha A7R IV",
+            "Sony A7R IV",
+            "A7R MKIV"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Alpha 7R V",
+          "aliases": [
+            "Sony Alpha A7R V",
+            "Sony A7R V",
+            "A7R MKV",
+            "SONY A7R V KIT (FE)",
+            "Sony ILCE-7RM5"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Alpha 7 III",
+          "aliases": [
+            "Sony Alpha 7 III",
+            "Sony A7 III",
+            "ILCE-7M3"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PDW-700",
+          "aliases": [
+            "Sony PDW-700 XDCAM",
+            "Sony XDCam PDW-700",
+            "Sony PDW 700 XDCAM Set"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX GH5",
+          "aliases": [
+            "Panasonic Lumix GH5",
+            "Panasonic GH5",
+            "DC-GH5"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EOS-1Ds Mark III",
+          "aliases": [
+            "Canon 1Ds Mk III",
+            "Canon EOS 1Ds Mark III"
+          ]
+        },
+        {
+          "manufacturer": "Nikon",
+          "model": "D3",
+          "aliases": [
+            "Nikon D3 Body"
+          ]
+        },
+        {
+          "manufacturer": "Nikon",
+          "model": "D800",
+          "aliases": [
+            "Nikon D800 Body"
+          ]
+        },
+        {
+          "manufacturer": "GoPro",
+          "model": "HERO11 Black",
+          "aliases": [
+            "GoPro Hero 11 Black",
+            "GoPro Hero 11",
+            "GoPro Hero11 Black Edition"
+          ]
+        },
+        {
+          "manufacturer": "GoPro",
+          "model": "HERO13 Black",
+          "aliases": [
+            "GoPro Hero 13 Black",
+            "GoPro Hero 13",
+            "GoPro Hero13 Black",
+            "GoPro Hero13 Black Edition"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Osmo Pocket 3",
+          "aliases": [
+            "DJI Osmo Pocket 3",
+            "DJI Osmo Pocket 3 Creator Combo"
+          ]
+        },
+        {
+          "manufacturer": "Insta360",
+          "model": "X3",
+          "aliases": [
+            "Insta 360 X3",
+            "Insta360 X3"
+          ]
+        },
+        {
+          "manufacturer": "Insta360",
+          "model": "X5",
+          "aliases": [
+            "Insta360 - X5",
+            "Insta360 X5"
+          ]
+        },
+        {
+          "manufacturer": "Bolex",
+          "model": "H16 Reflex",
+          "aliases": [
+            "Bolex H16 Reflex",
+            "Bolex H16 RX"
+          ]
+        },
+        {
+          "manufacturer": "Bolex",
+          "model": "H16 Reflex SBM",
+          "aliases": [
+            "Bolex H16 Reflex SBM Super 16",
+            "Bolex H16 SBM"
+          ]
+        },
+        {
+          "manufacturer": "Bolex",
+          "model": "H16 EL",
+          "aliases": [
+            "Bolex H16 EL Electric Super 16",
+            "Bolex H16 EL Super 16",
+            "Bolex H16 EL"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Micro Cinema Camera",
+          "aliases": [
+            "Blackmagic Micro Cinema Kamera",
+            "Blackmagic Micro Cinema Camera"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Micro Studio Camera 4K G2",
+          "aliases": [
+            "Blackmagic Micro Studio Camera 4K G2"
+          ]
+        },
+        {
+          "manufacturer": "Nikon",
+          "model": "Z8",
+          "aliases": [
+            "NIKON Z8 KIT (Z)",
+            "Nikon Z 8"
+          ]
+        },
+        {
+          "manufacturer": "Nikon",
+          "model": "Z9",
+          "aliases": [
+            "NIKON Z9 KIT (Z)",
+            "Nikon Z 9"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Alpha 9 III",
+          "aliases": [
+            "SONY A9 III KIT (FE)",
+            "Sony a9 III",
+            "Sony ILCE-9M3"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Wave",
+          "aliases": [
+            "Freefly Wave High Speed Camera",
+            "FreeFly Wave 4K S35 HS",
+            "Freefly Wave 4K"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR XE 8K VV",
+          "aliases": [
+            "Red V-Raptor XE",
+            "RED V-RAPTOR XE"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-Z300",
+          "aliases": [
+            "Sony Z300",
+            "Sony PXW Z300"
           ]
         }
       ]
@@ -4703,7 +5113,38 @@
           "aliases": [
             "Zacuto Kameleon Pro EVF HDMI",
             "Zacuto Kameleon EVF Pro",
-            "Kameleon Pro EVF"
+            "Kameleon Pro EVF",
+            "Zacuto Kameleon EVF"
+          ]
+        },
+        {
+          "manufacturer": "Zacuto",
+          "model": "Gratical Eye",
+          "aliases": [
+            "Zacuto Gratical Eye EVF",
+            "Zacuto Gratical Eye",
+            "Gratical Eye OLED Viewfinder",
+            "Zacuto Gratical EYE Sucher",
+            "Zacuto Gratical Eye Micro OLED viewfinder",
+            "Gratical Eye EVF"
+          ]
+        },
+        {
+          "manufacturer": "Zacuto",
+          "model": "Gratical HD",
+          "aliases": [
+            "Zacuto Sucher GraticalHD",
+            "Zacuto Gratical HD",
+            "Gratical HD OLED Viewfinder",
+            "Zacuto Gratical HD Sucher"
+          ]
+        },
+        {
+          "manufacturer": "Alphatron",
+          "model": "EVF-035W-3G",
+          "aliases": [
+            "Alphatron Electronic View Finder EVF-035W-3G",
+            "Alphatron EVF-035W"
           ]
         }
       ]

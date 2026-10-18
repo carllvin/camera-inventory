@@ -356,7 +356,8 @@
      "aliases": [
       "Bebob V98",
       "V98microC",
-      "BEBOB V-Mount Akku 98Wh V98micro"
+      "BEBOB V-Mount Akku 98Wh V98micro",
+      "Bebob V98 - 14.4V - 98Wh - Akku - V-Mount"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -1140,6 +1141,174 @@
       "Akku V-Mount [Swit] S-8192S",
       "SWIT S-8192S"
      ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-R160S+",
+     "aliases": [
+      "SWIT PB-R160S - 14.4V - 160Wh - Akku - V-Mount",
+      "SWIT PB-R160S+ (V-Mount, 160Wh/11.1Ah/14.4V)",
+      "SWIT PB-R160S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-R160A",
+     "aliases": [
+      "SWIT PB-R160A - 14.4V - 160Wh - Akku - Goldmount"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "MINO-S140",
+     "aliases": [
+      "SWIT mino-S140 - 14.4V - 140Wh - Akku - V-Mount",
+      "SWIT mino-S140 (V-Mount, 140Wh/9.7Ah/14.4V)",
+      "SWIT mino-S140"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-C420S",
+     "aliases": [
+      "SWIT PB-C420S (V-Mount, 420Wh/29.4Ah/14.4V)"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-M45S",
+     "aliases": [
+      "SWIT PB-M45S Akku (V-Mount, 45Wh/3.1Ah/14.4V)"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "BIVO-160",
+     "aliases": [
+      "SWIT BIVO-160 Akku - 160Wh - B-Mount",
+      "SWIT BIVO-160 Bi-Voltage Akku (B-Mount, 160Wh/14.4V+28.8V)"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "BIVO-98",
+     "aliases": [
+      "SWIT BIVO-98 Akku Bi-Voltage (B-Mount, 14.4V/28.8V, 98Wh)"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-8U63",
+     "aliases": [
+      "SWIT S-8U63 Akku for Sony FS7 mit D-Tap"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-8U93",
+     "aliases": [
+      "SWIT S-8U93 Akku for Sony FS7 mit D-Tap"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "LB-SF65C",
+     "aliases": [
+      "SWIT LB-SF65C 7,2V 65Wh NP-F Li-Ion Akku mit 12V D-Tap und USB-C PD 25W"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "LB-SU90C",
+     "aliases": [
+      "Swit LB-SU90C 14,4V 90Wh BP-U Li-Ion Akku mit D-Tap und USB-C PD 45W In/Out"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-8PE6",
+     "aliases": [
+      "SWIT S-8PE6 LP-E6 7,2V 10Wh Lithium-Ionen-Akku",
+      "Canon Akku (S-8PE6) für SmallHD"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "DUO-150",
+     "aliases": [
+      "IDX Endura DUO-150 14,8V 146Wh V-Mount Lithium-Ionen Akku mit zwei D-Tap-Ausgängen und USB",
+      "IDX Endura DUO-150"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "DUO-C190",
+     "aliases": [
+      "IDX Endura DUO-C190 14,4V 185Wh V-Mount Lithium-Ionen Akku mit zwei D-Tap-Ausgängen und USB",
+      "IDX Endura DUO-C190"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "DUO-C95",
+     "aliases": [
+      "IDX Endura DUO-C95 14,4V 93Wh V-Mount Lithium-Ionen Akku mit dual D-Tap und USB",
+      "IDX Endura DUO-C95"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "IPL-150",
+     "aliases": [
+      "IDX IPL-150 14,4V 143Wh Stapelbarer V-Mount Li-Ion Akku mit dual D-Tap und USB"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "IPL-98",
+     "aliases": [
+      "IDX IPL-98 14,4V 96Wh Stapelbarer V-Mount Li-Ion Akku mit dual D-Tap und USB"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "SB-U98",
+     "aliases": [
+      "IDX SB-U98 14,4V 96Wh BP-U Li-Ion Akku mit Doppel D-Tap und USB"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BP-U60",
+     "aliases": [
+      "Sony BP-U60 Akku for Sony FS7",
+      "Akku Sony BP-U 60",
+      "Sony BP-U 60"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "NP-F570",
+     "aliases": [
+      "Sony L Battery Sony NP-F570",
+      "Sony NP-F570"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "NP-F770",
+     "aliases": [
+      "Sony L Battery Sony NP-F770",
+      "Sony NP-F770"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BP-U100",
+     "aliases": [
+      "SONY BP-U100 BATTERY (BP-U)",
+      "Sony BP-U 100"
+     ]
     }
    ]
   },
@@ -1570,6 +1739,78 @@
       "Ladegerät Swit Panasonic S 3602P",
       "SWIT S-3602P"
      ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PC-P461S",
+     "aliases": [
+      "SWIT PC-P461S - 4-fach Ladegerät - V-Mount",
+      "SWIT V-Mount Charger 4-fach (PC-P461S) + NK"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PC-P461A",
+     "aliases": [
+      "SWIT PC-P461-A - 4-fach Ladegerät - Goldmount"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PC-P461B",
+     "aliases": [
+      "SWIT PC-P461B - 4-fach Ladegerät - B-Mount",
+      "SWIT B-Mount Charger 4-fach (PC-P461B) + NK"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-3602V",
+     "aliases": [
+      "SWIT Charger dual (Model S-3602V) für Sony FS7 + NK"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "SC-302S",
+     "aliases": [
+      "SWIT SC-302S Dual V-Mount Ladegerät"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-3802S",
+     "aliases": [
+      "SWIT S-3802S Dual V-Mount Ladegerät & 13,8V DC Netzteil"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "VL-2000S",
+     "aliases": [
+      "IDX VL-2000S Simultan-2-Kanal-V-Mount-Akkuladegerät"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "VL-DT1",
+     "aliases": [
+      "IDX VL-DT1 D-Tap Advanced Akku Ladegerät"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-ATM4",
+     "aliases": [
+      "Hawk-Woods VL-ATM4 lüfterloses simultanes 4-Kanal-V-Mount-Akkuladegerät"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AC-VQ1050D",
+     "aliases": [
+      "Sony AC-VQ1050D Dual NP-F L Type Ladegerät"
+     ]
     }
    ]
   },
@@ -1893,6 +2134,15 @@
      "aliases": [
       "Netzadapter/ Netzteil ACK - E6 für Canon EOS 5D/7D",
       "Canon ACK-E6"
+     ]
+    },
+    {
+     "manufacturer": "PESS Energy",
+     "model": "WATTMAN 6kW 10kWh",
+     "aliases": [
+      "PESS Energy WATTMAN",
+      "PESS WATTMAN 6kW",
+      "Wattman 6kW 10kWh"
      ]
     }
    ]

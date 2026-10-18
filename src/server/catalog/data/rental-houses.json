@@ -150,7 +150,8 @@
      "notes": "Standort: München. Kamera, Ton, Gimbal, Licht, Videoassist.",
      "sources": [
       "https://www.crew-united.com/de/Videolink-GmbH_3840.html"
-     ]
+     ],
+     "website": "https://www.videolink.de"
     },
     {
      "name": "UFO Filmgerät",
@@ -165,7 +166,8 @@
      "sources": [
       "https://eyca.org/discounts/c88020260120235447810911",
       "https://digitalproduction.com/2013/06/25/frisch-gelandet-ufo-filmgeraet/"
-     ]
+     ],
+     "website": "https://www.ufo-filmgeraet.de"
     },
     {
      "name": "RGB Rental",
@@ -177,7 +179,8 @@
      "notes": "Standort: Berlin-Kreuzberg. Kamera, Objektive, Licht, Grip, Ton; Fokus Kinofilm und Serie. Website nicht verifiziert.",
      "sources": [
       "https://www.crew-united.com/de/RGB-Rental-eK_723630.html"
-     ]
+     ],
+     "website": "https://rgbrental.com"
     },
     {
      "name": "Delight Rental Services",
@@ -216,7 +219,7 @@
       "Finder TV GmbH Kameraverleih",
       "Finder TV"
      ],
-     "website": "https://www.findertv-kameraverleih.de",
+     "website": "https://findermedia-kameraverleih.de",
      "address": "Arnoldsstraße 17, 50679 Köln",
      "phone": "+49 221 888224-0",
      "notes": "Standort: Köln-Deutz.",
@@ -329,7 +332,8 @@
      "notes": "Standort: Wien. ALEXA Mini LF, ALEXA 35, Venice, RED, Cooke/Zeiss/ARRI Objektive. Website nicht verifiziert.",
      "sources": [
       "https://www.viennafilmcommission.at/en/industries/av-professional-gmbh"
-     ]
+     ],
+     "website": "https://www.avpro.at"
     },
     {
      "name": "kameraWERK",
@@ -340,7 +344,8 @@
      "notes": "Standort: Wien. Kameraverleih und Filmproduktion. Website nicht verifiziert.",
      "sources": [
       "https://www.viennafilmcommission.at/en/industries/kamerawerk"
-     ]
+     ],
+     "website": "https://kamerawerk.at"
     },
     {
      "name": "equipment.cafe",
@@ -498,7 +503,8 @@
      "sources": [
       "https://britishcinematographer.co.uk/sunbelt-rentals-acquires-movietech/",
       "https://www.newswire.ca/news-releases/william-f-white-international-and-movietech-join-forces-in-the-uk-film-and-television-rental-market-882215195.html"
-     ]
+     ],
+     "website": "https://filmandtv.sunbeltrentals.co.uk"
     },
     {
      "name": "VMI",
@@ -555,7 +561,8 @@
      "sources": [
       "https://www.fdtimes.com/2025/11/12/otto-nemenz-1941-2025/",
       "https://theasc.com/news/in-memoriam-otto-nemenz"
-     ]
+     ],
+     "website": "https://ottonemenz.com"
     },
     {
      "name": "Camtec Motion Picture Cameras",
@@ -581,7 +588,8 @@
      "sources": [
       "https://www.fdtimes.com/2023/11/30/sebastiaan-van-zuylen-and-yke-erkens-buy-camalot/",
       "https://www.denormaalstezaak.nl/partners/camalot-audiovisual-facilities/"
-     ]
+     ],
+     "website": "https://camalot.be"
     },
     {
      "name": "TSF",
@@ -610,7 +618,8 @@
      "notes": "Standorte: Barcelona, Madrid (Spanien). Kamera, Licht, Ton; Ovide Smart entwickelt Video-Assist-Systeme. Website nicht verifiziert.",
      "sources": [
       "https://www.crew-united.com/en/Ovide_844627.html"
-     ]
+     ],
+     "website": "https://www.ovide.com"
     },
     {
      "name": "LITES",
@@ -623,19 +632,22 @@
      "notes": "Standort: Vilvoorde bei Brüssel. Kamera, Licht, Grip seit 1990. Website nicht verifiziert.",
      "sources": [
       "https://www.thelocationguide.com/belgium/vilvoorde/global-directory/lites-camera-lighting-grip-rental"
-     ]
+     ],
+     "website": "https://www.lites.be"
     },
     {
      "name": "Dagsljus",
      "aliases": [
       "Dagsljus Filmequipment AB",
-      "Dagsljus Filmequipment"
+      "Dagsljus Filmequipment",
+      "Storyline Rental",
+      "Storyline"
      ],
-     "website": "https://dagsljus.com",
+     "website": "https://storylinerental.com",
      "address": "Harpsundsvägen 199-201, 124 59 Bandhagen, Sweden",
      "phone": "+46 8 503 822 00",
      "email": "info@dagsljus.com",
-     "notes": "Standorte: Stockholm, Göteborg, Boden. Kamera, Licht, Grip, Ton.",
+     "notes": "Standorte: Stockholm, Göteborg, Boden. Kamera, Licht, Grip, Ton. Dagsljus ist heute Teil von Storyline Rental (storylinerental.com).",
      "sources": [
       "https://filmstockholm.se/stockholm-film-commission/local-resources/rental-houses/"
      ]
