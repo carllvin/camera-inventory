@@ -42,6 +42,7 @@ export const categoriesDe: Dict = {
   Lighting: "Licht",
   "LED Panels": "LED-Flächen",
   "LED Tubes": "LED-Röhren",
+  Fluorescent: "Leuchtstoff",
   "LED Spots & Fresnels": "LED-Spots & Stufenlinsen",
   HMI: "HMI",
   Tungsten: "Kunstlicht",

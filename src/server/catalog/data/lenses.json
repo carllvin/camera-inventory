@@ -1644,7 +1644,9 @@
           "manufacturer": "ZEISS",
           "model": "Master Diopter +0.5",
           "aliases": [
-            "Master Diopter +1/2"
+            "Master Diopter +1/2",
+            "ARRI Master Diopter +0.5",
+            "ARRI/Zeiss Master Diopter +0.5"
           ],
           "specs": {
             "diopter": "+0.5"
@@ -1653,7 +1655,10 @@
         {
           "manufacturer": "ZEISS",
           "model": "Master Diopter +1",
-          "aliases": [],
+          "aliases": [
+            "ARRI Master Diopter +1",
+            "ARRI/Zeiss Master Diopter +1"
+          ],
           "specs": {
             "diopter": "+1"
           }
@@ -1661,7 +1666,10 @@
         {
           "manufacturer": "ZEISS",
           "model": "Master Diopter +2",
-          "aliases": [],
+          "aliases": [
+            "ARRI Master Diopter +2",
+            "ARRI/Zeiss Master Diopter +2"
+          ],
           "specs": {
             "diopter": "+2"
           }
@@ -1697,6 +1705,22 @@
             "Insertring Master Diopter 95mm"
           ],
           "bulk": true
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Alura 2x Extender",
+          "aliases": [
+            "ARRI Alura Extender 2.0x",
+            "Alura Extender 2x"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "PLx2 Doppler VV",
+          "aliases": [
+            "IB/E PLx2 VV",
+            "IBE PLx2 VV"
+          ]
         }
       ]
     },
@@ -2937,7 +2961,9 @@
             "Super Speed Mk III",
             "Zeiss HS",
             "Zeiss HS Superspeed",
-            "Zeiss High Speed"
+            "Zeiss High Speed",
+            "Zeiss Highspeed",
+            "ZEISS T1.3"
           ],
           "discontinued": true
         },
@@ -5185,6 +5211,44 @@
           ],
           "mount": "XPL",
           "format": "65 mm"
+        },
+        {
+          "manufacturer": "ZEISS",
+          "series": "Super Speed Uncoated",
+          "focals": [
+            [
+              18,
+              "T1.3"
+            ],
+            [
+              25,
+              "T1.3"
+            ],
+            [
+              35,
+              "T1.3"
+            ],
+            [
+              50,
+              "T1.3"
+            ],
+            [
+              65,
+              "T1.3"
+            ],
+            [
+              85,
+              "T1.3"
+            ]
+          ],
+          "extraSeries": [
+            "Zeiss Highspeed uncoated",
+            "ZEISS T1.3 uncoated",
+            "Uncoated Zeiss High Speed",
+            "Zeiss Super Speed uncoated"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
         }
       ],
       "entries": [
@@ -5223,7 +5287,9 @@
           "manufacturer": "ZEISS",
           "model": "Macro 60mm T3",
           "aliases": [
-            "Zeiss Macro 60mm"
+            "Zeiss Macro 60mm",
+            "Zeiss Makro Planar 60mm",
+            "Zeiss Makro-Planar 60mm"
           ],
           "specs": {
             "focal_length_mm": 60,
@@ -5974,7 +6040,9 @@
           "aliases": [
             "Optimo 15-40",
             "Angenieux 15-40",
-            "Angenieux Zoom Optimo 15-40mm"
+            "Angenieux Zoom Optimo 15-40mm",
+            "ANGENIEUX Opt. 15-40mm",
+            "Angenieux Opt. 15-40"
           ],
           "specs": {
             "mount": "PL",
@@ -6019,7 +6087,8 @@
             "Optimo 24-290",
             "Angenieux 24-290",
             "Optimo 12x",
-            "Angenieux Zoom Optimo 24-290mm"
+            "Angenieux Zoom Optimo 24-290mm",
+            "ANGENIEUX Opt. 24-290mm"
           ],
           "specs": {
             "mount": "PL",
@@ -6063,7 +6132,8 @@
           "aliases": [
             "Optimo 28-76",
             "Angenieux 28-76",
-            "Angenieux Zoom Optimo 28-76mm"
+            "Angenieux Zoom Optimo 28-76mm",
+            "ANGENIEUX Opt. 28-76mm"
           ],
           "specs": {
             "mount": "PL",
@@ -6076,7 +6146,8 @@
           "aliases": [
             "Optimo 45-120",
             "Angenieux 45-120",
-            "Angenieux Zoom Optimo 45-120mm"
+            "Angenieux Zoom Optimo 45-120mm",
+            "ANGENIEUX Opt. 45-120mm"
           ],
           "specs": {
             "mount": "PL",
@@ -6181,7 +6252,11 @@
             "Optimo Ultra 12x 24-290",
             "Optimo Ultra 12x 26-320",
             "Angenieux Ultra 12x",
-            "Optimo Ultra 12x FF"
+            "Optimo Ultra 12x FF",
+            "Optimo Ultra 12x FF/VV",
+            "Optimo Ultra 12x S35",
+            "Angénieux Optimo Ultra 12x S35",
+            "Angenieux Optimo Ultra 12x S35"
           ],
           "specs": {
             "mount": "PL",
@@ -6195,7 +6270,10 @@
           "model": "Optimo Ultra Compact 21-56 T2.9",
           "aliases": [
             "Ultra Compact 21-56",
-            "Angenieux 21-56"
+            "Angenieux 21-56",
+            "Optimo Ultra Compact 16-42mm (U35 rear Element)",
+            "Optimo Ultra Compact 16-42mm",
+            "Optimo Ultra Compact 21-56mm (FF/Vistavision rear Element)"
           ],
           "specs": {
             "mount": "PL",
@@ -6224,7 +6302,10 @@
             "Angenieux EZ-1",
             "EZ-1 45-135 T3",
             "Angenieux EZ1 45-135mm (FF) / 30-90mm (S35)",
-            "Angenieux EZ1"
+            "Angenieux EZ1",
+            "Angenieux EZ-1 45-135mm",
+            "Angenieux EZ-1 45-135mm (FF/Vistavision rear Element)",
+            "EZ-1 45-135mm"
           ],
           "specs": {
             "format": "Super 35 (FF rear group: 45-135 T3)",
@@ -6241,7 +6322,11 @@
             "Angenieux EZ-2",
             "EZ-2 22-60 T3",
             "Angenieux EZ2 22-60mm (FF) / 15-40mm (S35)",
-            "Angenieux EZ2"
+            "Angenieux EZ2",
+            "Angenieux EZ-2 22-60mm",
+            "Angenieux EZ-2 22-60mm (FF/Vistavision rear Element)",
+            "EZ-2 22-60mm",
+            "Angenieux EZ-2 15-40mm (S35 rear Element)"
           ],
           "specs": {
             "format": "Super 35 (FF rear group: 22-60 T3)",
@@ -6579,7 +6664,8 @@
           "aliases": [
             "Cooke 25-250",
             "Cinetal 25-250",
-            "Cooke 25-250 Mk3"
+            "Cooke 25-250 Mk3",
+            "COOKE MK3 25-250mm"
           ],
           "specs": {
             "focal_length_mm": "25-250",
@@ -7189,7 +7275,9 @@
           "model": "HR 25-250 T3.5",
           "aliases": [
             "Angenieux Zoom HR 25-250mm",
-            "Angenieux HR 25-250"
+            "Angenieux HR 25-250",
+            "ANGENIEUX Optimo 25-250mm HR",
+            "Angenieux 25-250mm HR"
           ],
           "specs": {
             "t_stop": "3.5"
@@ -7329,6 +7417,15 @@
             "mount": "PL",
             "format": "Super 35"
           }
+        },
+        {
+          "manufacturer": "Cooke",
+          "model": "Varopanchro 20-60mm T3.1",
+          "aliases": [
+            "Cooke Zoom 20-60mm",
+            "COOKE ZOOM 20-60mm",
+            "Cooke 20-60mm"
+          ]
         }
       ]
     },

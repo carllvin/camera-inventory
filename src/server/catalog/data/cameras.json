@@ -1255,6 +1255,117 @@
             "Tragegurt"
           ],
           "bulk": true
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 300 TX",
+          "aliases": [
+            "Bolt Pro 300 Sender"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 300 RX",
+          "aliases": [
+            "Bolt Pro 300 Empfänger"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 500 TX",
+          "aliases": [
+            "Bolt Pro 500 Sender"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 500 RX",
+          "aliases": [
+            "Bolt Pro 500 Empfänger"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 1000 TX",
+          "aliases": [
+            "Bolt Pro 1000 Sender"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 1000 RX",
+          "aliases": [
+            "Bolt Pro 1000 Empfänger"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 3000 TX",
+          "aliases": [
+            "Bolt Pro 3000 Sender"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Pro 3000 RX",
+          "aliases": [
+            "Bolt Pro 3000 Empfänger"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Sidekick II",
+          "aliases": [
+            "Teradek Sidekick II",
+            "Sidekick II"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Bolt Sidekick LT",
+          "aliases": [
+            "Teradek Sidekick LT",
+            "Sidekick LT"
+          ]
+        },
+        {
+          "manufacturer": "Teradek",
+          "model": "Link Wi-Fi Router",
+          "aliases": [
+            "Teradek Link (WiFi Router)",
+            "Teradek Link WiFi Router"
+          ]
+        },
+        {
+          "manufacturer": "SmallHD",
+          "model": "502 Bright",
+          "aliases": [
+            "SmallHD 502"
+          ]
+        },
+        {
+          "manufacturer": "SmallHD",
+          "model": "503 UltraBright",
+          "aliases": [
+            "SmallHD 503 Ultra Bright",
+            "SmallHD 503"
+          ]
+        },
+        {
+          "manufacturer": "SmallHD",
+          "model": "703 UltraBright",
+          "aliases": [
+            "SmallHD 703 Ultra Bright",
+            "SmallHD 703 UB"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Video Assist 4K",
+          "aliases": [
+            "Blackmagic Video Assist 4K",
+            "BMD Video Assist 4K"
+          ]
         }
       ]
     },
@@ -1422,7 +1533,9 @@
           "model": "ALEXA Studio",
           "aliases": [
             "Alexa Classic Studio",
-            "Alexa Studio Kamera"
+            "Alexa Studio Kamera",
+            "ARRI Alexa Studio XR",
+            "ALEXA Studio XR"
           ],
           "specs": {
             "sensor": "Super 35 ALEV III",
@@ -3046,6 +3159,23 @@
           "aliases": [
             "Moviecam SL",
             "Moviecam Superlight"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "EPIC MX",
+          "aliases": [
+            "RED Epic MX",
+            "EPIC Mysterium-X",
+            "Epic-M MX"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "fp",
+          "aliases": [
+            "Sigma fp Kamera",
+            "Sigma fp camera"
           ]
         }
       ]

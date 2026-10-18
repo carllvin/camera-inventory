@@ -959,6 +959,14 @@
             "16x9 Kong Adapter"
           ],
           "bulk": true
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "MoVI M15",
+          "aliases": [
+            "Freefly MóVI M15",
+            "MoVI M15"
+          ]
         }
       ]
     },
@@ -1543,7 +1551,9 @@
           "model": "Mitchell Slider 25in",
           "aliases": [
             "Ronford Baker Mitchell 25\"",
-            "Ronford Baker Slider 63cm"
+            "Ronford Baker Slider 63cm",
+            "Ronford Slider 2ft.",
+            "Ronford Slider 2ft"
           ]
         },
         {
@@ -1551,7 +1561,9 @@
           "model": "Mitchell Slider 35in",
           "aliases": [
             "Ronford Baker Mitchell 35\"",
-            "Ronford Baker Slider 89cm"
+            "Ronford Baker Slider 89cm",
+            "Ronford Slider 3ft.",
+            "Ronford Slider 3ft"
           ]
         },
         {
@@ -1609,6 +1621,88 @@
           "aliases": [
             "ARRI Hover Dolly",
             "Hover Dolly with Delta Track"
+          ]
+        },
+        {
+          "manufacturer": "GFM",
+          "model": "Primo Dolly",
+          "aliases": [
+            "GFM Primo",
+            "GF-Primo"
+          ]
+        },
+        {
+          "manufacturer": "GFM",
+          "model": "Secondo Dolly",
+          "aliases": [
+            "GFM Secondo",
+            "GF-Secondo"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Husky Dolly",
+          "aliases": [
+            "Panther Husky"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Mini Dolly",
+          "aliases": [
+            "Panther Mini"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Twister Dolly",
+          "aliases": [
+            "Panther Twister"
+          ]
+        },
+        {
+          "manufacturer": "Movietech",
+          "model": "Rocker Dolly",
+          "aliases": [
+            "Rocker Dolly MT",
+            "MovieTech Rocker"
+          ]
+        },
+        {
+          "manufacturer": "Movietech",
+          "model": "Sprinter Dolly",
+          "aliases": [
+            "Sprinter Dolly MT",
+            "MovieTech Sprinter"
+          ]
+        },
+        {
+          "manufacturer": "Solidgrip",
+          "model": "Twin Dolly",
+          "aliases": [
+            "SolidGrip Twin Dolly"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "U-Bangi 2m",
+          "aliases": [
+            "PANTHER U-Bangi 2m"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "U-Bangi 3m",
+          "aliases": [
+            "PANTHER U-Bangi 3m"
+          ]
+        },
+        {
+          "manufacturer": "Ronford-Baker",
+          "model": "Slider 4ft",
+          "aliases": [
+            "Ronford Slider 4ft.",
+            "Ronford Slider 4ft"
           ]
         }
       ]
@@ -2104,6 +2198,65 @@
           "aliases": [
             "ARRI Hexatron",
             "Hexatron Crane Base"
+          ]
+        },
+        {
+          "manufacturer": "Movietech",
+          "model": "Mini Jib",
+          "aliases": [
+            "MOVIETECH Mini Jib",
+            "MovieTech Mini Jib"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Vario Jib Arm",
+          "aliases": [
+            "PANTHER Vario-Jibarm (groß)",
+            "Panther Vario-Jibarm",
+            "Panther Vario Jib"
+          ]
+        },
+        {
+          "manufacturer": "Movietech",
+          "model": "Felix Crane",
+          "aliases": [
+            "MOVIE TECH Felix Kran",
+            "MovieTech Felix Kran",
+            "Felix Kran"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Foxy Crane",
+          "aliases": [
+            "PANTHER Foxy",
+            "Panther Foxy Kran"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Foxy Advanced Crane",
+          "aliases": [
+            "PANTHER Foxy Advanced",
+            "Panther Foxy Advanced Kran"
+          ]
+        },
+        {
+          "manufacturer": "GFM",
+          "model": "GF-9 Crane",
+          "aliases": [
+            "GF 9 Kran",
+            "GFM GF-9",
+            "Grip Factory Munich GF 9 Kran"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Mini Jib Arm",
+          "aliases": [
+            "PANTHER Mini Jib",
+            "Panther Mini Jib"
           ]
         }
       ]

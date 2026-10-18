@@ -30,7 +30,8 @@
           "model": "T24 Fresnel 20/24kW",
           "aliases": [
             "ARRI 20kW/24kW Stufe T24",
-            "ARRI T24"
+            "ARRI T24",
+            "ARRI Studio T24"
           ]
         },
         {
@@ -62,7 +63,9 @@
           "model": "9x1kW MaxiBrute PAR64",
           "aliases": [
             "Dinolight 9x1kW MaxiBrute PAR64",
-            "MaxiBrute 9"
+            "MaxiBrute 9",
+            "ABELS Maxi Brut 9x1KW",
+            "Maxi Brut 9x1KW"
           ]
         },
         {
@@ -70,7 +73,8 @@
           "model": "12x1kW PAR64",
           "aliases": [
             "Dinolight 12x1kW PAR64",
-            "Dino 12"
+            "Dino 12",
+            "ABELS Dinolight 12x1KW"
           ]
         },
         {
@@ -153,6 +157,147 @@
             "Space Light 6x800W Halogen Fluter",
             "Space Light"
           ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Junior 150W Fresnel",
+          "aliases": [
+            "ARRI 150W Junior",
+            "ARRI Junior 150"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Junior 300W Fresnel",
+          "aliases": [
+            "ARRI 300W Junior",
+            "ARRI Junior 300"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Junior 650W Fresnel",
+          "aliases": [
+            "ARRI 650W Junior",
+            "ARRI Junior 650"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Junior 1000W Fresnel",
+          "aliases": [
+            "ARRI 1KW Junior",
+            "ARRI Junior 1000",
+            "ARRI Junior 1K"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Junior 2000W Fresnel",
+          "aliases": [
+            "ARRI 2KW Junior",
+            "ARRI Junior 2000",
+            "ARRI Junior 2K"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Studio 5000W Fresnel",
+          "aliases": [
+            "ARRI 5KW Junior&Studio",
+            "ARRI 5KW Studio",
+            "ARRI Junior 5000"
+          ]
+        },
+        {
+          "manufacturer": "Dinolight",
+          "model": "24x1kW PAR64",
+          "aliases": [
+            "ABELS Dinolight 24x1KW",
+            "Dinolight 24x1KW"
+          ]
+        },
+        {
+          "manufacturer": "Thomas",
+          "model": "PAR64 Short 1kW",
+          "aliases": [
+            "THOMAS Par64 kurz 1KW",
+            "Par64 kurz 1KW"
+          ]
+        },
+        {
+          "manufacturer": "Thomas",
+          "model": "PAR64 Long 1kW",
+          "aliases": [
+            "THOMAS Par64 lang 1KW",
+            "Par64 lang 1KW"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLH4",
+          "aliases": [
+            "Dedolight 150W / 24V",
+            "Dedolight 100W / 12V",
+            "Dedolight 150W",
+            "DLH4 Kit"
+          ]
+        },
+        {
+          "manufacturer": "Lowel",
+          "model": "Rifa eX 44",
+          "aliases": [
+            "Rifalight LC44",
+            "Lowel Rifa LC44"
+          ]
+        },
+        {
+          "manufacturer": "Lowel",
+          "model": "Rifa eX 55",
+          "aliases": [
+            "Rifalight LC55",
+            "Lowel Rifa LC55"
+          ]
+        },
+        {
+          "manufacturer": "Lowel",
+          "model": "Rifa eX 66",
+          "aliases": [
+            "Rifalight LC66",
+            "Lowel Rifa LC66"
+          ]
+        },
+        {
+          "manufacturer": "Lowel",
+          "model": "Rifa eX 88",
+          "aliases": [
+            "Rifalight LC88",
+            "Lowel Rifa LC88"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "Ziplight 1000W",
+          "aliases": [
+            "MOLE Ziplight 1000W",
+            "Mole Ziplight 1K"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "Ziplight 2000W",
+          "aliases": [
+            "MOLE Ziplight 2000W",
+            "Mole Ziplight 2K"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "Ziplight 4000W",
+          "aliases": [
+            "MOLE Ziplight 4000W",
+            "Mole Ziplight 4K"
+          ]
         }
       ]
     },
@@ -183,7 +328,8 @@
           "model": "Compact 1200 Fresnel",
           "aliases": [
             "ARRI 1,2kW Stufe Compact",
-            "ARRI Compact 1200"
+            "ARRI Compact 1200",
+            "ARRI Compact 1200 (1,2KW)"
           ]
         },
         {
@@ -319,7 +465,8 @@
           "model": "Compact 6000 Fresnel",
           "aliases": [
             "ARRI 6kW Stufe Arri Compact",
-            "ARRI Compact 6000"
+            "ARRI Compact 6000",
+            "ARRI Compact 6000 Plus"
           ]
         },
         {
@@ -399,6 +546,37 @@
             "MoleBeam 2,5/4kW",
             "MoleBeam"
           ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 125 Fresnel",
+          "aliases": [
+            "ARRI Compact 125"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 12000 Baby Fresnel",
+          "aliases": [
+            "ARRI Compact 12000 Baby",
+            "ARRI Compact 12K Baby"
+          ]
+        },
+        {
+          "manufacturer": "K5600",
+          "model": "Joker-Bug 1600",
+          "aliases": [
+            "K5600 Joker Bug 1600",
+            "Joker 1600"
+          ]
+        },
+        {
+          "manufacturer": "Kobold",
+          "model": "400W HMI Open Face",
+          "aliases": [
+            "400W KOBOLD",
+            "Kobold 400W"
+          ]
         }
       ]
     },
@@ -457,6 +635,14 @@
           "model": "Flyer Boom Kit",
           "aliases": [
             "BB&S Flyer Boom Kit"
+          ]
+        },
+        {
+          "manufacturer": "Lightbridge",
+          "model": "CRLS Reflector System",
+          "aliases": [
+            "Lightbridge CRLS Reflektor System",
+            "CRLS Reflektor"
           ]
         }
       ]
@@ -679,6 +865,20 @@
           "model": "PAR64 RGB LED",
           "aliases": [
             "PAR64 RGB Studio DMX"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "LoCaster",
+          "aliases": [
+            "ARRI LoCaster 2"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Evoke 2400B",
+          "aliases": [
+            "Nanlux Evoke 2400"
           ]
         }
       ]
@@ -1180,7 +1380,9 @@
           "manufacturer": "The Light",
           "model": "Velvet Light 1",
           "aliases": [
-            "TheLight Velvet Light 1 1x1ft 30x30cm DMX Bicolor"
+            "TheLight Velvet Light 1 1x1ft 30x30cm DMX Bicolor",
+            "THE LITE Velvet 1",
+            "Velvet 1"
           ]
         },
         {
@@ -1194,14 +1396,17 @@
           "manufacturer": "The Light",
           "model": "Velvet Light 2",
           "aliases": [
-            "TheLight Velvet Light 2 2x1ft 60x30cm DMX Bicolor"
+            "TheLight Velvet Light 2 2x1ft 60x30cm DMX Bicolor",
+            "THE LITE Velvet 2",
+            "Velvet 2"
           ]
         },
         {
           "manufacturer": "The Light",
           "model": "Velvet Light 2 EVO",
           "aliases": [
-            "TheLight Velvet Light 2 EVO 2x1ft 60x30cm DMX RGBWW"
+            "TheLight Velvet Light 2 EVO 2x1ft 60x30cm DMX RGBWW",
+            "Velvet EVO 2"
           ]
         },
         {
@@ -1225,6 +1430,87 @@
           "aliases": [
             "ARRI BrikLok",
             "BrikLok LED"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "Bi-Flex 1",
+          "aliases": [
+            "ALADDIN Biflex 1",
+            "Aladdin BI-FLEX1"
+          ]
+        },
+        {
+          "manufacturer": "BB&S",
+          "model": "Area 48",
+          "aliases": [
+            "BBS Area48",
+            "BB&S Area48 Soft"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat 1",
+          "aliases": [
+            "Litegear Litemat 1"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat 2L",
+          "aliases": [
+            "Litegear Litemat 2L"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat 2L S2",
+          "aliases": [
+            "Litegear Litemat 2L S2"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat 4",
+          "aliases": [
+            "Litegear Litemat 4"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "Velvet Light 4",
+          "aliases": [
+            "THE LITE Velvet 4",
+            "Velvet 4"
+          ]
+        },
+        {
+          "manufacturer": "Tecpro",
+          "model": "Felloni 1x1",
+          "aliases": [
+            "TECPRO Felloni 1×1",
+            "Rosco TECPRO Felloni 1x1"
+          ]
+        },
+        {
+          "manufacturer": "Rosco",
+          "model": "LitePad AX Kit",
+          "aliases": [
+            "ROSCO Litepad Kit AX"
+          ]
+        },
+        {
+          "manufacturer": "Rosco",
+          "model": "LitePad Basic Kit",
+          "aliases": [
+            "ROSCO Basic Kit"
+          ]
+        },
+        {
+          "manufacturer": "Rosco",
+          "model": "LitePad Gaffer's Kit",
+          "aliases": [
+            "ROSCO Gaffers Kit"
           ]
         }
       ]
@@ -1290,6 +1576,169 @@
           "model": "Magic Tube (4 Kit)",
           "aliases": [
             "Soonwell Magic Tube RGBW 4er Kit"
+          ]
+        }
+      ]
+    },
+    {
+      "category": [
+        "Lighting",
+        "Fluorescent"
+      ],
+      "entries": [
+        {
+          "manufacturer": "Kino Flo",
+          "model": "4-Bank 4ft",
+          "aliases": [
+            "KINOFLO 4-Bank 4ft",
+            "Kino Flo 4Bank 4ft",
+            "Kino 4x4"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "4-Bank 2ft",
+          "aliases": [
+            "KINOFLO 4-Bank 2ft",
+            "Kino Flo 4Bank 2ft",
+            "Kino 2x4"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "2-Bank 4ft",
+          "aliases": [
+            "KINOFLO 2-Bank 4ft",
+            "Kino Flo 2Bank 4ft"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "2-Bank 2ft",
+          "aliases": [
+            "KINOFLO 2-Bank 2ft",
+            "Kino Flo 2Bank 2ft"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "1-Bank 4ft",
+          "aliases": [
+            "KINOFLO 1-Bank 4ft",
+            "Kino Flo Single 4ft"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "1-Bank 2ft",
+          "aliases": [
+            "KINOFLO 1-Bank 2ft",
+            "Kino Flo Single 2ft"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Mega 1-Bank 8ft",
+          "aliases": [
+            "KINOFLO Mega 1-Bank 8ft"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "12V Single Kit",
+          "aliases": [
+            "KINOFLO 12V Single Kit"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Barfly 200",
+          "aliases": [
+            "KINOFLO Barfly 200"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Blanket-Lite",
+          "aliases": [
+            "KINOFLO Blanket Light",
+            "Kino Flo Blanket Light"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Diva-Lite 201",
+          "aliases": [
+            "KINOFLO Diva-Light 201",
+            "Diva-Light 201"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Diva-Lite 415",
+          "aliases": [
+            "KINOFLO Diva-Light 415",
+            "Diva-Light 415"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Flathead 80",
+          "aliases": [
+            "KINOFLO Flat Head",
+            "Kino Flo Flat Head"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Imara S10",
+          "aliases": [
+            "KINOFLO Imara S10"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Microflo",
+          "aliases": [
+            "KINOFLO Microflo"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Miniflo",
+          "aliases": [
+            "KINOFLO Miniflo"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "ParaBeam 410",
+          "aliases": [
+            "KINOFLO Parabeam 410"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "VistaBeam 300",
+          "aliases": [
+            "KINOFLO Vista Beam 300",
+            "Vista Beam 300"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "VistaBeam 600",
+          "aliases": [
+            "KINOFLO Vista Beam 600",
+            "Vista Beam 600"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Wall-O-Lite",
+          "aliases": [
+            "KINOFLO Wall O Light",
+            "Wall O Lite"
           ]
         }
       ]
