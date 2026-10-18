@@ -3177,6 +3177,16 @@
             "Sigma fp Kamera",
             "Sigma fp camera"
           ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "FX5",
+          "aliases": [
+            "Sony FX5",
+            "SONY FX5",
+            "Sony FX5 Body",
+            "Sony Cinema Line FX5"
+          ]
         }
       ]
     },

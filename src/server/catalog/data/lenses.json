@@ -1047,23 +1047,23 @@
             ],
             [
               40,
-              null
+              "T2.2"
             ],
             [
               50,
-              null
+              "T2.2"
             ],
             [
               60,
-              null
+              "T2.2"
             ],
             [
               75,
-              null
+              "T2.2"
             ],
             [
               100,
-              null
+              "T3"
             ]
           ],
           "extraSeries": [
@@ -1073,51 +1073,70 @@
           ],
           "mount": "PL",
           "format": "Super 35",
-          "squeeze": "2x"
+          "squeeze": "2x",
+          "formerly": {
+            "40": "Hawk C-Series 40mm",
+            "50": "Hawk C-Series 50mm",
+            "60": "Hawk C-Series 60mm",
+            "75": "Hawk C-Series 75mm",
+            "100": "Hawk C-Series 100mm"
+          }
         },
         {
           "manufacturer": "Vantage",
           "series": "Hawk V-Series",
           "focals": [
             [
+              25,
+              "T2.2"
+            ],
+            [
               30,
-              null
+              "T2.2"
             ],
             [
               35,
-              null
+              "T2.2"
             ],
             [
               40,
-              null
+              "T2.2"
             ],
             [
               50,
-              null
+              "T2.2"
             ],
             [
               60,
-              null
+              "T2.2"
             ],
             [
               75,
-              null
+              "T2.2"
             ],
             [
               100,
-              null
+              "T2.2"
+            ],
+            [
+              120,
+              "T3.5"
             ],
             [
               135,
-              null
+              "T3"
             ],
             [
               180,
-              null
+              "T3"
             ],
             [
               250,
-              null
+              "T3"
+            ],
+            [
+              350,
+              "T4"
             ]
           ],
           "extraSeries": [
@@ -1126,7 +1145,19 @@
           ],
           "mount": "PL",
           "format": "Super 35",
-          "squeeze": "2x"
+          "squeeze": "2x",
+          "formerly": {
+            "30": "Hawk V-Series 30mm",
+            "35": "Hawk V-Series 35mm",
+            "40": "Hawk V-Series 40mm",
+            "50": "Hawk V-Series 50mm",
+            "60": "Hawk V-Series 60mm",
+            "75": "Hawk V-Series 75mm",
+            "100": "Hawk V-Series 100mm",
+            "135": "Hawk V-Series 135mm",
+            "180": "Hawk V-Series 180mm",
+            "250": "Hawk V-Series 250mm"
+          }
         },
         {
           "manufacturer": "JDC",
@@ -1193,6 +1224,191 @@
           "mount": "PL",
           "format": "Super 35",
           "squeeze": "2x"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Hawk Class-X",
+          "focals": [
+            [
+              28,
+              "T2.2"
+            ],
+            [
+              35,
+              "T2.2"
+            ],
+            [
+              45,
+              "T2.2"
+            ],
+            [
+              55,
+              "T2.2"
+            ],
+            [
+              65,
+              "T2.2"
+            ],
+            [
+              80,
+              "T2.2"
+            ],
+            [
+              110,
+              "T3"
+            ],
+            [
+              140,
+              "T3.5"
+            ]
+          ],
+          "extraSeries": [
+            "Hawk Class-X",
+            "Hawk Class X"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "2x"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Hawk V-Lite 1.3x",
+          "focals": [
+            [
+              20,
+              "T2.2"
+            ],
+            [
+              24,
+              "T2.2"
+            ],
+            [
+              28,
+              "T2.2"
+            ],
+            [
+              35,
+              "T2.2"
+            ],
+            [
+              45,
+              "T2.2"
+            ],
+            [
+              55,
+              "T2.2"
+            ],
+            [
+              65,
+              "T2.2"
+            ],
+            [
+              80,
+              "T2.2"
+            ],
+            [
+              110,
+              "T3"
+            ],
+            [
+              140,
+              "T3.5"
+            ]
+          ],
+          "extraSeries": [
+            "Hawk V-Lite 1.3x",
+            "Hawk 1.3x V-Lite",
+            "Hawk 1.3x"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "1.3x"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Hawk V-Lite 16 1.3x",
+          "focals": [
+            [
+              14,
+              "T1.5"
+            ],
+            [
+              18,
+              "T1.5"
+            ],
+            [
+              24,
+              "T1.5"
+            ],
+            [
+              28,
+              "T1.5"
+            ],
+            [
+              35,
+              "T1.5"
+            ]
+          ],
+          "extraSeries": [
+            "Hawk V-Lite 16",
+            "Hawk V-Lite 16 1.3x"
+          ],
+          "mount": "PL",
+          "format": "Super 16",
+          "squeeze": "1.3x"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Hawk 1.3x Vintage '74",
+          "focals": [
+            [
+              20,
+              "T2.3"
+            ],
+            [
+              24,
+              "T2.3"
+            ],
+            [
+              28,
+              "T2.3"
+            ],
+            [
+              35,
+              "T2.3"
+            ],
+            [
+              45,
+              "T2.3"
+            ],
+            [
+              55,
+              "T2.3"
+            ],
+            [
+              65,
+              "T2.3"
+            ],
+            [
+              80,
+              "T2.3"
+            ],
+            [
+              110,
+              "T3.1"
+            ],
+            [
+              140,
+              "T3.6"
+            ]
+          ],
+          "extraSeries": [
+            "Hawk 1.3x Vintage 74",
+            "Hawk Vintage '74 1.3x"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "1.3x"
         }
       ],
       "entries": [
@@ -1425,6 +1641,99 @@
             "format": "Super 35",
             "squeeze": "2x"
           }
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk V-Plus Zoom 45-90mm T2.8",
+          "aliases": [
+            "Hawk 45-90mm",
+            "Hawk V-Plus 45-90"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk V-Plus Zoom 80-180mm T2.8",
+          "aliases": [
+            "Hawk 80-180mm",
+            "Hawk V-Plus 80-180"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk Class-X Zoom 38-80mm T2.8",
+          "aliases": [
+            "Hawk Class-X 38-80"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk Class-X Zoom 80-180mm T2.8",
+          "aliases": [
+            "Hawk Class-X 80-180"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk 1.3x Zoom 30-60mm T2.8",
+          "aliases": [
+            "Hawk 1.3x 30-60"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk 1.3x Zoom 45-90mm T2.8",
+          "aliases": [
+            "Hawk 1.3x 45-90"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk 1.3x Zoom 80-180mm T2.8",
+          "aliases": [
+            "Hawk 1.3x 80-180"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk V-Plus Vintage '74 Zoom 30-60mm T2.9",
+          "aliases": [
+            "Hawk Vintage 74 30-60"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk V-Plus Vintage '74 Zoom 45-90mm T2.9",
+          "aliases": [
+            "Hawk Vintage 74 45-90"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk V-Plus Vintage '74 Zoom 80-180mm T2.9",
+          "aliases": [
+            "Hawk Vintage 74 80-180"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk C-Series Zoom 55-165mm T4",
+          "aliases": [
+            "Hawk C-Series 55-165"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk V-Series Zoom 46-230mm T4",
+          "aliases": [
+            "Hawk V-Series 46-230"
+          ]
+        },
+        {
+          "manufacturer": "Vantage",
+          "model": "Hawk V-Series Zoom 300-900mm T4",
+          "aliases": [
+            "Hawk V-Series 300-900"
+          ]
         }
       ]
     },
@@ -5249,6 +5558,162 @@
           ],
           "mount": "PL",
           "format": "Super 35"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Hawk MHX",
+          "focals": [
+            [
+              24,
+              "T1.9"
+            ],
+            [
+              28,
+              "T1.9"
+            ],
+            [
+              35,
+              "T1.9"
+            ],
+            [
+              45,
+              "T1.9"
+            ],
+            [
+              55,
+              "T1.9"
+            ],
+            [
+              65,
+              "T1.9"
+            ],
+            [
+              85,
+              "T1.9"
+            ],
+            [
+              105,
+              "T1.9"
+            ],
+            [
+              135,
+              "T1.9"
+            ],
+            [
+              180,
+              "T1.9"
+            ]
+          ],
+          "extraSeries": [
+            "Hawk MHX",
+            "Vantage MHX"
+          ],
+          "mount": "LPL",
+          "format": "Large Format"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Vantage One",
+          "focals": [
+            [
+              14.5,
+              "T1"
+            ],
+            [
+              17.5,
+              "T1"
+            ],
+            [
+              21,
+              "T1"
+            ],
+            [
+              25,
+              "T1"
+            ],
+            [
+              32,
+              "T1"
+            ],
+            [
+              40,
+              "T1"
+            ],
+            [
+              50,
+              "T1"
+            ],
+            [
+              65,
+              "T1"
+            ],
+            [
+              90,
+              "T1"
+            ],
+            [
+              120,
+              "T1"
+            ]
+          ],
+          "extraSeries": [
+            "Vantage One T1",
+            "Vantage One PU"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Vantage One4",
+          "focals": [
+            [
+              19,
+              "T1.4"
+            ],
+            [
+              22,
+              "T1.4"
+            ],
+            [
+              27,
+              "T1.4"
+            ],
+            [
+              35,
+              "T1.4"
+            ],
+            [
+              42,
+              "T1.4"
+            ],
+            [
+              50,
+              "T1.4"
+            ],
+            [
+              65,
+              "T1.4"
+            ],
+            [
+              80,
+              "T1.4"
+            ],
+            [
+              105,
+              "T1.4"
+            ],
+            [
+              140,
+              "T1.4"
+            ]
+          ],
+          "extraSeries": [
+            "Vantage One 4",
+            "Vantage One4"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
         }
       ],
       "entries": [
