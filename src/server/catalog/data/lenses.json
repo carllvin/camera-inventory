@@ -246,7 +246,9 @@
           "extraSeries": [
             "Cooke Anamorphic FF",
             "Anamorphic/i FF Plus",
-            "Cooke Anamorphic/i FF"
+            "Cooke Anamorphic/i FF",
+            "COOKE Anamorphic 1.8x FF",
+            "Cooke Anamorphic 1.8x"
           ]
         },
         {
@@ -325,7 +327,9 @@
           "extraSeries": [
             "Atlas Orion",
             "Atlas Orion Anamorphic",
-            "Atlas Lens Co. Orion Anamorphic"
+            "Atlas Lens Co. Orion Anamorphic",
+            "Atlas Orion Prime Anamorph",
+            "Orion Prime Anamorph"
           ]
         },
         {
@@ -669,7 +673,12 @@
           "squeeze": "2x",
           "extraSeries": [
             "Kowa Anamorphic",
-            "Kowa Prominar Anamorphic"
+            "Kowa Prominar Anamorphic",
+            "KOWA Prominar NAC",
+            "Kowa Prominar-NAC",
+            "Kowa Prominar NAC 35BS",
+            "Kowa Prominar Anamorphics",
+            "KOWA Anamorphotic"
           ],
           "discontinued": true
         },
@@ -702,7 +711,12 @@
           "squeeze": "1.5x",
           "extraSeries": [
             "Laowa Nanomorph",
-            "Nanomorph S35"
+            "Nanomorph S35",
+            "Laowa Nanomorph Anamorphic Primes",
+            "Nanomorph Silver Edition",
+            "Nanomorph Amber Edition",
+            "Laowa Nanomorph Silver",
+            "Laowa Nanomorph Amber"
           ]
         },
         {
@@ -770,7 +784,9 @@
           "format": "Full Frame",
           "squeeze": "1.6x",
           "extraSeries": [
-            "Sirui Saturn"
+            "Sirui Saturn",
+            "Sirui Saturn Anamorphic 1,6x",
+            "Sirui Saturn E"
           ]
         },
         {
@@ -805,7 +821,9 @@
           "format": "Full Frame",
           "squeeze": "1.6x",
           "extraSeries": [
-            "Sirui Venus"
+            "Sirui Venus",
+            "Sirui Venus Anamorphic 1,6x",
+            "Sirui Venus RF"
           ]
         },
         {
@@ -886,7 +904,9 @@
           "format": "Full Frame",
           "squeeze": "1.5x",
           "extraSeries": [
-            "Blazar Remus"
+            "Blazar Remus",
+            "BLAZAR Remus 1,5X",
+            "Blazar Remus 1.5x"
           ]
         },
         {
@@ -914,7 +934,9 @@
           "format": "Full Frame",
           "squeeze": "2x",
           "extraSeries": [
-            "Blazar Cato"
+            "Blazar Cato",
+            "BLAZAR Cato 2X",
+            "Blazar Cato 2x"
           ]
         },
         {
@@ -1409,6 +1431,108 @@
           "mount": "PL",
           "format": "Super 35",
           "squeeze": "1.3x"
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "series": "Arcana",
+          "focals": [
+            [
+              32,
+              "T2.1"
+            ],
+            [
+              45,
+              "T2.1"
+            ],
+            [
+              75,
+              "T2.1"
+            ]
+          ],
+          "extraSeries": [
+            "DZO Arcana 1,5x",
+            "DZO Arcana",
+            "DZOFilm Arcana"
+          ],
+          "mount": "PL",
+          "format": "Full Frame",
+          "squeeze": "1.5x"
+        },
+        {
+          "manufacturer": "Viltrox",
+          "series": "1.33x FF Anamorphic",
+          "focals": [
+            [
+              35,
+              "T2"
+            ],
+            [
+              50,
+              "T2"
+            ],
+            [
+              75,
+              "T2"
+            ]
+          ],
+          "extraSeries": [
+            "VILTROX 1.33x FF",
+            "Viltrox 1.33x Anamorphic"
+          ],
+          "mount": "PL",
+          "format": "Full Frame",
+          "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "LOMO",
+          "series": "Square Front Anamorphic",
+          "focals": [
+            [
+              35,
+              "T2.5"
+            ],
+            [
+              50,
+              "T2.5"
+            ],
+            [
+              80,
+              "T2.4"
+            ]
+          ],
+          "extraSeries": [
+            "LOMO Square Front",
+            "Lomo Squarefront",
+            "LOMO Anamorphic Square Front"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "2x"
+        },
+        {
+          "manufacturer": "Viltrox",
+          "series": "EPIC 1.33x Anamorphic",
+          "focals": [
+            [
+              35,
+              "T2"
+            ],
+            [
+              50,
+              "T2"
+            ],
+            [
+              75,
+              "T2"
+            ]
+          ],
+          "extraSeries": [
+            "Viltrox Anamorphic",
+            "Viltrox EPIC Anamorphic",
+            "Viltrox Anamorphic 1.33x"
+          ],
+          "format": "Full Frame",
+          "squeeze": "1.33x"
         }
       ],
       "entries": [
@@ -1734,6 +1858,14 @@
           "aliases": [
             "Hawk V-Series 300-900"
           ]
+        },
+        {
+          "manufacturer": "Blazar",
+          "model": "Cato 45mm T2",
+          "aliases": [
+            "BLAZAR Cato 2X 45mm",
+            "Blazar Cato 45mm"
+          ]
         }
       ]
     },
@@ -1760,7 +1892,9 @@
           "model": "PLx2 Doppler S35",
           "aliases": [
             "IBE PLx2 Extender",
-            "PL 2x Extender IB/E"
+            "PL 2x Extender IB/E",
+            "Extender PL2X IB/E",
+            "Extender S35 2x IB/E PL2X"
           ],
           "specs": {
             "factor": "2x",
@@ -1877,7 +2011,9 @@
           "aliases": [
             "Tiffen Diopter +1/2 138",
             "Nahlinse +1/2 138mm",
-            "138 Diopter +1/2"
+            "138 Diopter +1/2",
+            "Nahlinse/Diopter Tiffen 138mm Close Up +1/2",
+            "Tiffen 138mm Close Up +1/2"
           ],
           "specs": {
             "diameter_mm": 138
@@ -2028,7 +2164,135 @@
           "model": "PLx2 Doppler VV",
           "aliases": [
             "IB/E PLx2 VV",
-            "IBE PLx2 VV"
+            "IBE PLx2 VV",
+            "Extender FF PL2X IB/E VV",
+            "IB/E 2x VV Extender"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "HDx35 B4-PL Converter",
+          "aliases": [
+            "IB/E Optics HDx35 B4 to PL",
+            "IBE HDx35",
+            "HDx35 MKIII"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "E-PL Autofocus Adapter",
+          "aliases": [
+            "TILTA Autofocus Adapter E - PL",
+            "Tilta Autofocus Adapter E-PL"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Extender EF 1.4x III",
+          "aliases": [
+            "Canon Extender 1.4x III",
+            "EF 1.4x III",
+            "Canon 1.4x Extender III"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Extender EF 2x III",
+          "aliases": [
+            "Canon Extender 2x III",
+            "EF 2x III",
+            "Canon 2x Extender III"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "LF Extender 1.6x",
+          "aliases": [
+            "Extender FF 1.6x Atlas Orion LF",
+            "Atlas Orion LF Extender",
+            "Atlas 1.6x Extender"
+          ]
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "Cinema 1.6x Expander",
+          "aliases": [
+            "Extender FF 1.6x Tokina Cinema Expander",
+            "Tokina Cinema Expander",
+            "Tokina 1.6x Expander"
+          ]
+        },
+        {
+          "manufacturer": "DENZ",
+          "model": "FDC Collimator",
+          "aliases": [
+            "DENZ FDC Collimator",
+            "Denz FDC",
+            "FDC Kollimator"
+          ]
+        },
+        {
+          "manufacturer": "Metabones",
+          "model": "Speed Booster XL 0.64x EF-MFT",
+          "aliases": [
+            "Metabones Speedbooster -T XL 0.64x",
+            "Metabones Speedbooster XL 0.64x"
+          ]
+        },
+        {
+          "manufacturer": "Metabones",
+          "model": "T CINE Speed Booster XL 0.64x EF-MFT",
+          "aliases": [
+            "Metabones Speedbooster-T Cine XL 0.64x",
+            "Metabones Cine XL 0.64x"
+          ]
+        },
+        {
+          "manufacturer": "Metabones",
+          "model": "T Speed Booster Ultra 0.71x EF-MFT",
+          "aliases": [
+            "Metabones Speedbooster-T Ultra 0.71x"
+          ]
+        },
+        {
+          "manufacturer": "Metabones",
+          "model": "Speed Booster 0.58x EF-BMPCC",
+          "aliases": [
+            "Metabones Speedbooster-Z - BMPCC 0.58x",
+            "Metabones BMPCC Speedbooster"
+          ]
+        },
+        {
+          "manufacturer": "Metabones",
+          "model": "T Speed Booster Ultra EF-E",
+          "aliases": [
+            "Mountadapter Sony E Mount --> Canon EF [Metabones Speedbooster-T Ultra]",
+            "Metabones Speedbooster Ultra E-Mount"
+          ]
+        },
+        {
+          "manufacturer": "Metabones",
+          "model": "T Smart Adapter Mark IV EF-E",
+          "aliases": [
+            "Mountadapter Sony E Mount --> Canon EF [Metabones Mark IV]",
+            "Metabones Mark IV",
+            "Metabones Mark IV-T"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Mount Adapter EF-EOS R",
+          "aliases": [
+            "Mountadapter Canon RF Mount --> Canon EF",
+            "Canon EF-EOS R Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Drop-In Filter Mount Adapter EF-EOS R",
+          "aliases": [
+            "Mountadapter Canon RF Mount --> Canon EF mit Drop In Filter Mount",
+            "Canon Drop-In Filter Adapter"
           ]
         }
       ]
@@ -2200,7 +2464,8 @@
             "ARRI/Zeiss Ultra Prime",
             "ARRI LDS Ultra Prime",
             "ARRI Ultra Prime",
-            "LDS Ultra Prime"
+            "LDS Ultra Prime",
+            "ARRI Ultra Primes"
           ]
         },
         {
@@ -2342,7 +2607,8 @@
           ],
           "extraSeries": [
             "Cooke S4i",
-            "S4i"
+            "S4i",
+            "Cooke S4"
           ]
         },
         {
@@ -2412,7 +2678,11 @@
             "S7 ",
             "Cooke S7 "
           ],
-          "extraSeries": []
+          "extraSeries": [
+            "COOKE S7/i FF",
+            "Cooke S7/i",
+            "Cooke S7/i Full Frame Plus"
+          ]
         },
         {
           "manufacturer": "Cooke",
@@ -2487,7 +2757,8 @@
           },
           "extraSeries": [
             "Cooke Panchro/i Classic",
-            "Panchro Classic"
+            "Panchro Classic",
+            "Cooke Panchro Classic S35"
           ]
         },
         {
@@ -2665,7 +2936,10 @@
             "Sigma Cine Prime",
             "Sigma FF High Speed Prime PL",
             "Sigma FF High Speed Prime",
-            "Sigma FF High Speed"
+            "Sigma FF High Speed",
+            "Sigma FF High Speed Primes",
+            "Sigma FF High Speed Prime (Vollformat / PL-Mount)",
+            "Objektiv Sigma FF High Speed Prime"
           ]
         },
         {
@@ -2705,6 +2979,11 @@
           "format": "Full Frame",
           "short": [
             "Sumire "
+          ],
+          "extraSeries": [
+            "Canon Sumire",
+            "Sumire Prime",
+            "Canon Sumire PL"
           ]
         },
         {
@@ -3163,7 +3442,12 @@
             "CP2 "
           ],
           "extraSeries": [
-            "Compact Prime CP.2"
+            "Compact Prime CP.2",
+            "ZEISS Compact Primes CP.2",
+            "Zeiss Compact Primes",
+            "Zeiss CP.2",
+            "Zeiss CP2",
+            "Carl Zeiss CP2"
           ],
           "discontinued": true
         },
@@ -3272,7 +3556,13 @@
             "Zeiss HS Superspeed",
             "Zeiss High Speed",
             "Zeiss Highspeed",
-            "ZEISS T1.3"
+            "ZEISS T1.3",
+            "ZEISS HS S16 MK3",
+            "Arri Zeiss High Speed",
+            "Arri High Speed",
+            "Arri Zeiss High Speed Mk II",
+            "Arri High Speed Distagon Mk II",
+            "Zeiss Super Speed Mk II"
           ],
           "discontinued": true
         },
@@ -3341,7 +3631,9 @@
           "extraSeries": [
             "Zeiss Standard Speed",
             "Zeiss T2.1",
-            "Zeiss Standard"
+            "Zeiss Standard",
+            "Arri Zeiss Standard Speed",
+            "Arri Standard Speed"
           ],
           "discontinued": true
         },
@@ -3545,7 +3837,11 @@
           ],
           "extraSeries": [
             "Cooke S8/i",
-            "S8/i FF"
+            "S8/i FF",
+            "Cooke S8i FF",
+            "Cooke S8i",
+            "Cooke S8/i FF",
+            "S8i FF"
           ]
         },
         {
@@ -4125,7 +4421,9 @@
           "format": "Full Frame",
           "extraSeries": [
             "Sigma Classic",
-            "FF Classic Prime"
+            "FF Classic Prime",
+            "SIGMA FF Classic Art",
+            "Sigma Classic Art"
           ]
         },
         {
@@ -4304,7 +4602,9 @@
             "Vespid "
           ],
           "extraSeries": [
-            "DZO Vespid"
+            "DZO Vespid",
+            "DZOFILM Vespid Primes",
+            "DZOFilm Vespid"
           ]
         },
         {
@@ -4346,7 +4646,9 @@
             "Retro "
           ],
           "extraSeries": [
-            "DZO Vespid Retro"
+            "DZO Vespid Retro",
+            "DZOFILM Vespid Retro Primes",
+            "DZOFilm Vespid Retro"
           ]
         },
         {
@@ -4757,7 +5059,9 @@
             ]
           ],
           "extraSeries": [
-            "ARRI Macro"
+            "ARRI Macro",
+            "ARRI Zeiss Macro",
+            "ARRI/Zeiss Macro"
           ],
           "mount": "PL",
           "format": "Super 35"
@@ -4935,7 +5239,10 @@
           "extraSeries": [
             "Cooke Panchro S2/S3 TLS Rehoused",
             "Cooke Panchro S2 TLS",
-            "Cooke Panchro TLS"
+            "Cooke Panchro TLS",
+            "COOKE Speed Panchro S2 / S3",
+            "Cooke Speed Panchro S2/S3",
+            "Cooke Speed Panchro S2 TLS"
           ],
           "mount": "PL",
           "format": "Super 35"
@@ -4967,7 +5274,9 @@
           ],
           "extraSeries": [
             "HIT Celere HS",
-            "Celere HS"
+            "Celere HS",
+            "HANSE INNOTECH Celere High Speed",
+            "Hanse Innotech Celere HS"
           ],
           "mount": "PL",
           "format": "Super 35"
@@ -5714,6 +6023,521 @@
           ],
           "mount": "PL",
           "format": "Full Frame"
+        },
+        {
+          "manufacturer": "HIT",
+          "series": "Celere HS Uncoated",
+          "focals": [
+            [
+              18.5,
+              "T1.5"
+            ],
+            [
+              25,
+              "T1.5"
+            ],
+            [
+              36,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.5"
+            ],
+            [
+              85,
+              "T1.5"
+            ]
+          ],
+          "extraSeries": [
+            "HANSE INNOTECH Celere High Speed uncoated",
+            "HIT Celere HS uncoated",
+            "Celere HS uncoated"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Canon",
+          "series": "FD TLS Rehoused",
+          "focals": [
+            [
+              14,
+              "T2.9"
+            ],
+            [
+              20,
+              "T2.9"
+            ],
+            [
+              24,
+              "T1.4"
+            ],
+            [
+              28,
+              "T2.1"
+            ],
+            [
+              35,
+              "T2.1"
+            ],
+            [
+              55,
+              "T1.4"
+            ],
+            [
+              85,
+              "T1.4"
+            ],
+            [
+              100,
+              "T2.1"
+            ],
+            [
+              135,
+              "T2.1"
+            ],
+            [
+              200,
+              "T2.9"
+            ]
+          ],
+          "extraSeries": [
+            "CANON FD TLS",
+            "Canon FD TLS",
+            "TLS Canon FD"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Olympus",
+          "series": "OM Zuiko Whitepoint Rehoused",
+          "focals": [
+            [
+              18,
+              "T3.6"
+            ],
+            [
+              21,
+              "T2.1"
+            ],
+            [
+              24,
+              "T2.1"
+            ],
+            [
+              28,
+              "T2.1"
+            ],
+            [
+              35,
+              "T2.1"
+            ],
+            [
+              40,
+              "T2.1"
+            ],
+            [
+              50,
+              "T1.3"
+            ],
+            [
+              85,
+              "T2.1"
+            ],
+            [
+              100,
+              "T2.1"
+            ]
+          ],
+          "extraSeries": [
+            "OLYMPUS Zuiko",
+            "Olympus OM Zuiko",
+            "Olympus Zuiko Whitepoint"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Nikon",
+          "series": "AI Nikkor Whitepoint Rehoused",
+          "focals": [
+            [
+              20,
+              "T2.9"
+            ],
+            [
+              24,
+              "T2.1"
+            ],
+            [
+              28,
+              "T2.1"
+            ],
+            [
+              35,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.5"
+            ],
+            [
+              85,
+              "T1.5"
+            ],
+            [
+              105,
+              "T1.9"
+            ],
+            [
+              135,
+              "T2.1"
+            ]
+          ],
+          "extraSeries": [
+            "NIKON AI (NIKKOR)",
+            "Nikon AI",
+            "Nikon AI Nikkor"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Mamiya",
+          "series": "645 TLS Rehoused",
+          "focals": [
+            [
+              19,
+              "T3"
+            ],
+            [
+              25,
+              "T2.8"
+            ],
+            [
+              32,
+              "T2.3"
+            ],
+            [
+              39,
+              "T2.3"
+            ],
+            [
+              50,
+              "T2.3"
+            ],
+            [
+              57,
+              "T1.6"
+            ],
+            [
+              78,
+              "T2.3"
+            ],
+            [
+              107,
+              "T2.6"
+            ]
+          ],
+          "extraSeries": [
+            "MAMIYA 645 TLS",
+            "Mamiya 645 TLS"
+          ],
+          "mount": "LPL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "LOMO",
+          "series": "OKS Standard Speed",
+          "focals": [
+            [
+              22,
+              "T2.1"
+            ],
+            [
+              28,
+              "T2.1"
+            ],
+            [
+              35,
+              "T2.1"
+            ],
+            [
+              40,
+              "T2.6"
+            ],
+            [
+              50,
+              "T2.1"
+            ],
+            [
+              75,
+              "T2.1"
+            ],
+            [
+              100,
+              "T2.1"
+            ]
+          ],
+          "extraSeries": [
+            "LOMO Standard Speed",
+            "Lomo OKS",
+            "Lomo OKC"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "LOMO",
+          "series": "Optica Elite",
+          "focals": [
+            [
+              16,
+              "T1.3"
+            ],
+            [
+              24,
+              "T1.3"
+            ],
+            [
+              35,
+              "T1.3"
+            ],
+            [
+              50,
+              "T1.3"
+            ],
+            [
+              75,
+              "T1.4"
+            ],
+            [
+              100,
+              "T1.3"
+            ]
+          ],
+          "extraSeries": [
+            "Optica Elite",
+            "LOMO Optica Elite"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "Richard Gale",
+          "series": "Clavius",
+          "focals": [
+            [
+              22,
+              "T2"
+            ],
+            [
+              28,
+              "T2"
+            ],
+            [
+              38,
+              "T2"
+            ],
+            [
+              58,
+              "T2"
+            ],
+            [
+              88,
+              "T2"
+            ]
+          ],
+          "extraSeries": [
+            "CLAVIUS Richard Gale",
+            "Richard Gale Clavius"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "ZEISS",
+          "series": "Super Speed S16",
+          "focals": [
+            [
+              9.5,
+              "T1.3"
+            ],
+            [
+              12,
+              "T1.3"
+            ],
+            [
+              16,
+              "T1.3"
+            ]
+          ],
+          "extraSeries": [
+            "ZEISS HS S16 MK3",
+            "Zeiss High Speed S16",
+            "Zeiss Super Speed S16 MkIII",
+            "Arri Zeiss High Speed Super16",
+            "Arri High Speed S16",
+            "Zeiss Super Speed Super 16",
+            "Zeiss Super Speed S16"
+          ],
+          "mount": "PL",
+          "format": "Super 16"
+        },
+        {
+          "manufacturer": "Samyang",
+          "series": "Xeen",
+          "focals": [
+            [
+              14,
+              "T3.1"
+            ],
+            [
+              20,
+              "T1.9"
+            ],
+            [
+              24,
+              "T1.5"
+            ],
+            [
+              35,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.5"
+            ],
+            [
+              85,
+              "T1.5"
+            ]
+          ],
+          "extraSeries": [
+            "Samyang Xeen",
+            "XEEN Cinema Prime",
+            "Xeen Cinema",
+            "Rokinon Xeen"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Samyang",
+          "series": "VDSLR",
+          "focals": [
+            [
+              14,
+              "T3.1"
+            ],
+            [
+              20,
+              "T1.9"
+            ],
+            [
+              24,
+              "T1.5"
+            ],
+            [
+              35,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.5"
+            ],
+            [
+              85,
+              "T1.5"
+            ]
+          ],
+          "extraSeries": [
+            "Walimex Pro VDSLR",
+            "Samyang VDSLR",
+            "Walimex Pro / Samyang VDSLR",
+            "Rokinon Cine DS",
+            "Walimex pro VDSLR (Vollformat / E-Mount)",
+            "Walimex pro VDSLR (Vollformat/E-Mount)",
+            "Objektiv Walimex pro VDSLR"
+          ],
+          "mount": "EF",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Kowa",
+          "series": "Cine Prominar",
+          "focals": [
+            [
+              20,
+              null
+            ],
+            [
+              25,
+              null
+            ],
+            [
+              32,
+              null
+            ],
+            [
+              40,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              100,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Kowa Cine Prominar",
+            "Kowa Cine Prominar TLS",
+            "Kowa Cine Prominar spherical"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "Mamiya",
+          "series": "Sekor C 645",
+          "focals": [
+            [
+              35,
+              null
+            ],
+            [
+              45,
+              null
+            ],
+            [
+              55,
+              null
+            ],
+            [
+              80,
+              null
+            ],
+            [
+              110,
+              null
+            ],
+            [
+              150,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Mamiya 645 Sekor C",
+            "Mamiya Sekor C"
+          ]
         }
       ],
       "entries": [
@@ -5754,7 +6578,10 @@
           "aliases": [
             "Zeiss Macro 60mm",
             "Zeiss Makro Planar 60mm",
-            "Zeiss Makro-Planar 60mm"
+            "Zeiss Makro-Planar 60mm",
+            "ARRI Zeiss Macro 60mm",
+            "ZEISS Standard Speed 60mm",
+            "Zeiss Standard Speed 60mm Macro"
           ],
           "specs": {
             "focal_length_mm": 60,
@@ -5825,7 +6652,11 @@
           "model": "Cinema AT-X Macro 100mm T2.9",
           "aliases": [
             "Tokina Cinema AT-X 4K Macro 100mm",
-            "Tokina Macro 100mm"
+            "Tokina Macro 100mm",
+            "TOKINA ATX Macro 100mm",
+            "Tokina ATX Macro 100mm",
+            "Tokina 100mm (Makro - Naheinstellgrenze 30cm, 1zu1)",
+            "Tokina 100mm Makro"
           ],
           "specs": {
             "focal_length_mm": 100,
@@ -5871,7 +6702,9 @@
           "model": "Century Rehoused 9.8mm T2.3",
           "aliases": [
             "Kinoptik Century Rehoused 9,8mm",
-            "Kinoptik 9.8mm"
+            "Kinoptik 9.8mm",
+            "Kinoptik Century 9,8mm T2.3 PL",
+            "Kinoptik Tegea 9.8mm"
           ],
           "specs": {
             "focal_length_mm": 9.8,
@@ -5906,7 +6739,14 @@
           "model": "Macro Probe 24mm T14",
           "aliases": [
             "Laowa Macro Probe 24mm",
-            "Laowa 24mm Probe"
+            "Laowa 24mm Probe",
+            "Laowa Probe 24mm",
+            "Laowa Probe 24mm T14",
+            "Laowa Probe Schnorchel-Objektiv 24mm F14",
+            "Laowa 24mm F14 2X Makro Probe",
+            "Objektiv Laowa 24mm F14 2X Makro Probe PL",
+            "Objektiv Laowa 24mm F14 2X Makro Probe EF",
+            "Laowa 24mm 2X Makro Probe"
           ],
           "specs": {
             "focal_length_mm": 24,
@@ -5917,7 +6757,10 @@
           "manufacturer": "Laowa",
           "model": "Pro2be 24mm T8",
           "aliases": [
-            "Laowa Pro2be 24mm"
+            "Laowa Pro2be 24mm",
+            "LAOWA Pro2Be Macro 24mm",
+            "LAOWA Pro2Be Macro",
+            "Laowa Pro2Be 24mm Macro"
           ],
           "specs": {
             "focal_length_mm": 24,
@@ -6041,7 +6884,9 @@
           "model": "Pro Prime 300mm T2.8",
           "aliases": [
             "Red ProPrime 300mm",
-            "RED Pro Prime 300mm"
+            "RED Pro Prime 300mm",
+            "Objektiv Red Pro Prime 300mm T2,9",
+            "Red Pro Prime 300mm T2.9"
           ],
           "specs": {
             "focal_length_mm": 300,
@@ -6053,7 +6898,9 @@
           "model": "MKII Mir-20M 20mm T3.6",
           "aliases": [
             "Iron Glass Mir-20M 20mm",
-            "Iron Glass MKII Mir-20M 20mm"
+            "Iron Glass MKII Mir-20M 20mm",
+            "IRONGLASS MK2 20mm",
+            "Ironglass MK2 20mm"
           ],
           "specs": {
             "focal_length_mm": 20,
@@ -6065,7 +6912,9 @@
           "model": "MKII Mir-10A 28mm T3.6",
           "aliases": [
             "Iron Glass Mir-10A 28mm",
-            "Iron Glass MKII Mir-10A 28mm"
+            "Iron Glass MKII Mir-10A 28mm",
+            "IRONGLASS MK2 28mm",
+            "Ironglass MK2 28mm"
           ],
           "specs": {
             "focal_length_mm": 28,
@@ -6077,7 +6926,9 @@
           "model": "MKII Mir-1V 37mm T2.9",
           "aliases": [
             "Iron Glass Mir-1V 37mm",
-            "Iron Glass MKII Mir-1V 37mm"
+            "Iron Glass MKII Mir-1V 37mm",
+            "IRONGLASS MK2 37mm",
+            "Ironglass MK2 37mm"
           ],
           "specs": {
             "focal_length_mm": 37,
@@ -6102,7 +6953,9 @@
           "aliases": [
             "Iron Glass Helios 44-2 58mm",
             "Helios 44-2",
-            "Iron Glass MKII Helios 44-2 58mm"
+            "Iron Glass MKII Helios 44-2 58mm",
+            "IRONGLASS MK2 58mm",
+            "Ironglass MK2 58mm"
           ],
           "specs": {
             "focal_length_mm": 58,
@@ -6140,7 +6993,9 @@
           "model": "Leitz R Elmarit 19mm T2.8 (EF)",
           "aliases": [
             "Leitz R EF Elmarit (TLS) 19mm",
-            "Leitz R Elmarit 19mm EF"
+            "Leitz R Elmarit 19mm EF",
+            "Leica R EF-Mount 19mm T2.8 MkII Elmarit TLS Cine Mod",
+            "Leica R 19mm Elmarit TLS"
           ],
           "specs": {
             "focal_length_mm": 19,
@@ -6153,7 +7008,9 @@
           "model": "Leitz R Elmarit 19mm T2.9 (PL)",
           "aliases": [
             "Leitz R PL Elmarit (TLS) 19mm",
-            "Leitz R Elmarit 19mm PL"
+            "Leitz R Elmarit 19mm PL",
+            "LEICA R Summicron TLS 19mm",
+            "Leica R TLS 19mm"
           ],
           "specs": {
             "focal_length_mm": 19,
@@ -6166,7 +7023,9 @@
           "model": "Leitz R Elmarit 24mm T2.8 (EF)",
           "aliases": [
             "Leitz R EF Elmarit (TLS) 24mm",
-            "Leitz R Elmarit 24mm EF"
+            "Leitz R Elmarit 24mm EF",
+            "Leica R EF-Mount 24mm T2.8 Elmarit TLS Cine Mod",
+            "Leica R 24mm Elmarit TLS"
           ],
           "specs": {
             "focal_length_mm": 24,
@@ -6192,7 +7051,9 @@
           "model": "Leitz R Elmarit 28mm T2.8 (EF)",
           "aliases": [
             "Leitz R EF Elmarit (TLS) 28mm",
-            "Leitz R Elmarit 28mm EF"
+            "Leitz R Elmarit 28mm EF",
+            "Leica R EF-Mount 28mm T2.8 MkI Elmarit TLS Cine Mod",
+            "Leica R 28mm Elmarit TLS"
           ],
           "specs": {
             "focal_length_mm": 28,
@@ -6205,7 +7066,9 @@
           "model": "Leitz R Elmarit 28mm T2.9 (PL)",
           "aliases": [
             "Leitz R PL Elmarit (TLS) 28mm",
-            "Leitz R Elmarit 28mm PL"
+            "Leitz R Elmarit 28mm PL",
+            "LEICA R Summicron TLS 28mm",
+            "Leica R TLS 28mm"
           ],
           "specs": {
             "focal_length_mm": 28,
@@ -6218,7 +7081,9 @@
           "model": "Leitz R Elmarit 135mm T2.8 (EF)",
           "aliases": [
             "Leitz R EF Elmarit (TLS) 135mm",
-            "Leitz R Elmarit 135mm EF"
+            "Leitz R Elmarit 135mm EF",
+            "Leica R EF-Mount 135mm T2.8 MkII Elmarit TLS Cine Mod",
+            "Leica R 135mm Elmarit TLS"
           ],
           "specs": {
             "focal_length_mm": 135,
@@ -6270,7 +7135,9 @@
           "model": "Leitz R Elmarit APO Macro 100mm T2.8 (EF)",
           "aliases": [
             "Leitz R EF Elmarit APO Macro (TLS) 100mm",
-            "Leitz R Elmarit APO Macro 100mm EF"
+            "Leitz R Elmarit APO Macro 100mm EF",
+            "Leica R EF-Mount 100mm T2.8 Elmarit Apo-Macro TLS Cine Mod",
+            "Leica R 100mm Apo-Macro TLS"
           ],
           "specs": {
             "focal_length_mm": 100,
@@ -6322,7 +7189,9 @@
           "model": "Leitz R Summicron 35mm T2 (PL)",
           "aliases": [
             "Leitz R PL Summicron (TLS) 35mm",
-            "Leitz R Summicron 35mm PL"
+            "Leitz R Summicron 35mm PL",
+            "LEICA R Summicron TLS 35mm",
+            "Leica R TLS 35mm"
           ],
           "specs": {
             "focal_length_mm": 35,
@@ -6348,7 +7217,9 @@
           "model": "Leitz R Summicron 50mm T2 (PL)",
           "aliases": [
             "Leitz R PL Summicron (TLS) 50mm",
-            "Leitz R Summicron 50mm PL"
+            "Leitz R Summicron 50mm PL",
+            "LEICA R Summicron TLS 50mm",
+            "Leica R TLS 50mm"
           ],
           "specs": {
             "focal_length_mm": 50,
@@ -6374,7 +7245,9 @@
           "model": "Leitz R Summicron 90mm T2 (PL)",
           "aliases": [
             "Leitz R PL Summicron (TLS) 90mm",
-            "Leitz R Summicron 90mm PL"
+            "Leitz R Summicron 90mm PL",
+            "LEICA R Summicron TLS 90mm",
+            "Leica R TLS 90mm"
           ],
           "specs": {
             "focal_length_mm": 90,
@@ -6387,7 +7260,9 @@
           "model": "Leitz R Summilux 35mm T1.4 (EF)",
           "aliases": [
             "Leitz R EF Summilux (TLS) 35mm",
-            "Leitz R Summilux 35mm EF"
+            "Leitz R Summilux 35mm EF",
+            "Leica R EF-Mount 35mm T1.4 Summilux TLS Cine Mod",
+            "Leica R 35mm Summilux TLS"
           ],
           "specs": {
             "focal_length_mm": 35,
@@ -6413,7 +7288,9 @@
           "model": "Leitz R Summilux 50mm T1.4 (EF)",
           "aliases": [
             "Leitz R EF Summilux (TLS) 50mm",
-            "Leitz R Summilux 50mm EF"
+            "Leitz R Summilux 50mm EF",
+            "Leica R EF-Mount 50mm T1.4 MkI Summilux TLS Cine Mod",
+            "Leica R 50mm Summilux TLS"
           ],
           "specs": {
             "focal_length_mm": 50,
@@ -6439,7 +7316,9 @@
           "model": "Leitz R Summilux 80mm T1.4 (EF)",
           "aliases": [
             "Leitz R EF Summilux (TLS) 80mm",
-            "Leitz R Summilux 80mm EF"
+            "Leitz R Summilux 80mm EF",
+            "Leica R EF-Mount 80mm T1.4 Summilux TLS Cine Mod",
+            "Leica R 80mm Summilux TLS"
           ],
           "specs": {
             "focal_length_mm": 80,
@@ -6489,6 +7368,77 @@
           "model": "Periscope Lens System",
           "aliases": [
             "Century Periscope"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Zero-D Cine 12mm T2.9",
+          "aliases": [
+            "LAOWA Zero-D Cine 12mm",
+            "Laowa 12mm Cine"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "Cine FF High Speed 65mm T1.5",
+          "aliases": [
+            "SIGMA FF High Speed 65mm",
+            "Sigma Cine 65mm T1.5 FF"
+          ]
+        },
+        {
+          "manufacturer": "TLS",
+          "model": "Leitz R 15mm T4 (PL)",
+          "aliases": [
+            "LEICA R Summicron TLS 15mm",
+            "Leica R TLS 15mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Standard Speed 8mm T2.1",
+          "aliases": [
+            "Arri Standard Speed 8mm 2.1",
+            "Zeiss Standard Speed 8mm",
+            "Zeiss Distagon 8mm T2.1"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Tele-Apotessar 300mm F2.8 (PL)",
+          "aliases": [
+            "Carl Zeiss Tele-Apotessar 300mm 2,8 PL",
+            "Zeiss Tele-Apotessar 300mm",
+            "Tele-Apotessar 300mm"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "12mm T2.9 Zero-D Cine",
+          "aliases": [
+            "Laowa Zero-D 12mm PL",
+            "Laowa 12mm Zero-D",
+            "Laowa 12mm T2.9",
+            "Objektiv Laowa 12mm Zero-D T2.9 PL",
+            "Laowa 12mm Zero-D Cine",
+            "Laowa 12mm T2.9 Zero-D"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "CP.2 25mm T2.9",
+          "aliases": [
+            "Zeiss CP.2 25mm T2.9",
+            "Objektiv [Zeiss] CP.2 25mm T2.9",
+            "CP2 25 T2.9"
+          ]
+        },
+        {
+          "manufacturer": "TLS",
+          "model": "Leitz R Apo-Telyt 180mm T3.4 (EF)",
+          "aliases": [
+            "Leica R EF-Mount 180mm T3.4 Elmarit Apo-Telyt TLS Cine Mod",
+            "Leica R 180mm Apo-Telyt TLS"
           ]
         }
       ]
@@ -6626,7 +7576,12 @@
             "Optimo DP 16-42",
             "Optimo Rouge 16-42",
             "Angenieux DP 16-42",
-            "Angenieux Zoom Optimo DP 16-42mm"
+            "Angenieux Zoom Optimo DP 16-42mm",
+            "ANGÉNIEUX Optimo Rouge 16-42mm",
+            "Angenieux Optimo Rouge 16-42mm",
+            "Angénieux Optimo Rouge DP 16-42mm T2,8 PL",
+            "Optimo Rouge DP 16-42",
+            "Optimo DP Rouge 16-42"
           ],
           "specs": {
             "focal_length_mm": "16-42",
@@ -6643,7 +7598,12 @@
             "Optimo DP 30-80",
             "Optimo Rouge 30-80",
             "Angenieux DP 30-80",
-            "Angenieux Zoom Optimo DP 30-80mm"
+            "Angenieux Zoom Optimo DP 30-80mm",
+            "ANGÉNIEUX Optimo Rouge 30-80mm",
+            "Angenieux Optimo Rouge 30-80mm",
+            "Angénieux Optimo Rouge DP 30-80mm T2,8 PL",
+            "Optimo Rouge DP 30-80",
+            "Optimo DP Rouge 30-80"
           ],
           "specs": {
             "focal_length_mm": "30-80",
@@ -6659,7 +7619,9 @@
           "aliases": [
             "Optimo Style 16-40",
             "Angenieux Style 16-40",
-            "Angenieux Zoom Optimo Style 16-40mm"
+            "Angenieux Zoom Optimo Style 16-40mm",
+            "ANGÉNIEUX Optimo Style 16-40mm",
+            "Angenieux Optimo Style 16-40mm"
           ],
           "specs": {
             "focal_length_mm": "16-40",
@@ -6686,7 +7648,9 @@
           "aliases": [
             "Optimo Style 30-76",
             "Angenieux Style 30-76",
-            "Angenieux Zoom Optimo Style 30-76mm"
+            "Angenieux Zoom Optimo Style 30-76mm",
+            "ANGÉNIEUX Optimo Style 30-76mm",
+            "Angenieux Optimo Style 30-76mm"
           ],
           "specs": {
             "focal_length_mm": "30-76",
@@ -6770,7 +7734,13 @@
             "Angenieux EZ1",
             "Angenieux EZ-1 45-135mm",
             "Angenieux EZ-1 45-135mm (FF/Vistavision rear Element)",
-            "EZ-1 45-135mm"
+            "EZ-1 45-135mm",
+            "ANGÉNIEUX EZ Serie 30-90mm",
+            "ANGÉNIEUX EZ Serie 45-135mm",
+            "Angenieux EZ 30-90mm",
+            "Angenieux EZ 45-135mm",
+            "Angénieux EZ Type 1 30-90mm / 45-135mm",
+            "Angenieux EZ Type 1"
           ],
           "specs": {
             "format": "Super 35 (FF rear group: 45-135 T3)",
@@ -6791,7 +7761,13 @@
             "Angenieux EZ-2 22-60mm",
             "Angenieux EZ-2 22-60mm (FF/Vistavision rear Element)",
             "EZ-2 22-60mm",
-            "Angenieux EZ-2 15-40mm (S35 rear Element)"
+            "Angenieux EZ-2 15-40mm (S35 rear Element)",
+            "ANGÉNIEUX EZ Serie 15-40mm",
+            "ANGÉNIEUX EZ Serie 22-60mm",
+            "Angenieux EZ 15-40mm",
+            "Angenieux EZ 22-60mm",
+            "Angénieux EZ Type 2 15-40mm / 22-60mm",
+            "Angenieux EZ Type 2"
           ],
           "specs": {
             "format": "Super 35 (FF rear group: 22-60 T3)",
@@ -6807,7 +7783,10 @@
             "Alura Wide Zoom",
             "Alura LWZ 15.5-45",
             "ARRI/Fujinon Alura 15.5-45",
-            "ARRI Lightweight Zoom Alura LWZ 15.5-45mm"
+            "ARRI Lightweight Zoom Alura LWZ 15.5-45mm",
+            "ARRI/FUJINON lightweight",
+            "ARRI/Fujinon Lightweight Zoom 15.5-45mm",
+            "ARRI/FUJINON lightweight 15.5-45mm"
           ],
           "specs": {
             "mount": "PL",
@@ -6825,7 +7804,9 @@
             "Alura Studio Zoom 18-80",
             "Alura Studio 18-80",
             "ARRI/Fujinon Alura 18-80",
-            "ARRI Alura Zoom 18-80mm"
+            "ARRI Alura Zoom 18-80mm",
+            "ARRI Alura Zoom 18-80mm T2.6",
+            "Objektiv ARRI Alura Zoom 18-80mm"
           ],
           "specs": {
             "mount": "PL",
@@ -6861,7 +7842,9 @@
             "Alura Studio Zoom 45-250",
             "Alura Studio 45-250",
             "ARRI/Fujinon Alura 45-250",
-            "ARRI Alura Zoom 45-250mm"
+            "ARRI Alura Zoom 45-250mm",
+            "ARRI FUJINON Alura",
+            "ARRI FUJINON Alura 45-250mm"
           ],
           "specs": {
             "mount": "PL",
@@ -6968,7 +7951,9 @@
           "aliases": [
             "CN-E 18-80mm T4.4 L IS KAS S",
             "CN-E 18-80",
-            "Canon 18-80"
+            "Canon 18-80",
+            "Canon CN-E 18-80mm Cine Servo EF",
+            "CN-E18-80mm T4,4 L KAS S"
           ],
           "specs": {
             "focal_length_mm": "18-80",
@@ -7054,7 +8039,10 @@
           "aliases": [
             "CN10x25",
             "Canon Cine-Servo 25-250",
-            "CN10x25 IAS S 25-250mm T2.95"
+            "CN10x25 IAS S 25-250mm T2.95",
+            "Canon CN 10×25 25-250mm IAS S/P1",
+            "Canon CN10x25 IAS S/P1",
+            "CN10x25 IAS S/P1"
           ],
           "specs": {
             "focal_length_mm": "25-250",
@@ -7071,7 +8059,9 @@
           "aliases": [
             "CN20x50",
             "Canon Cine-Servo 50-1000",
-            "Canon Zoom CN20x50 IAS 50-1000mm"
+            "Canon Zoom CN20x50 IAS 50-1000mm",
+            "Canon Cine-Servo CN20x50",
+            "CANON Cine-Servo 50-1000mm"
           ],
           "specs": {
             "focal_length_mm": "50-1000",
@@ -7085,7 +8075,8 @@
           "aliases": [
             "CN7x17",
             "Canon 17-120",
-            "Canon Zoom CN7x17 KAS 17-120mm"
+            "Canon Zoom CN7x17 KAS 17-120mm",
+            "Canon CN7x17 17-120mm KAS S"
           ],
           "specs": {
             "mount": "PL / EF",
@@ -7147,7 +8138,9 @@
             "Cooke 20-100",
             "Varotal 20-100",
             "Cooke Zoom 20-100",
-            "Cooke Zoom Varotal 20-100mm"
+            "Cooke Zoom Varotal 20-100mm",
+            "Cooke 20-100mm/3.1",
+            "Cooke 20-100mm T3.1"
           ],
           "specs": {
             "focal_length_mm": "20-100",
@@ -7203,7 +8196,9 @@
           "model": "Catta Ace 18-35mm T2.9",
           "aliases": [
             "Catta Ace 18-35",
-            "DZO Catta 18-35"
+            "DZO Catta 18-35",
+            "DZO Catta Ace 18-35mm",
+            "DZOFilm Catta Ace 18-35mm"
           ],
           "specs": {
             "focal_length_mm": "18-35",
@@ -7216,7 +8211,9 @@
           "model": "Catta Ace 35-80mm T2.9",
           "aliases": [
             "Catta Ace 35-80",
-            "DZO Catta 35-80"
+            "DZO Catta 35-80",
+            "DZO Catta Ace 35-80mm",
+            "DZOFilm Catta Ace 35-80mm"
           ],
           "specs": {
             "focal_length_mm": "35-80",
@@ -7229,7 +8226,9 @@
           "model": "Catta Ace 70-135mm T2.9",
           "aliases": [
             "Catta Ace 70-135",
-            "DZO Catta 70-135"
+            "DZO Catta 70-135",
+            "DZO Catta Ace 70-135mm",
+            "DZOFilm Catta Ace 70-135mm"
           ],
           "specs": {
             "focal_length_mm": "70-135",
@@ -7242,7 +8241,9 @@
           "model": "Pictor 12-25mm T2.8",
           "aliases": [
             "Pictor 12-25",
-            "DZO Pictor 12-25"
+            "DZO Pictor 12-25",
+            "DZO Pictor 12-25mm",
+            "DZO Film 12-25mm"
           ],
           "specs": {
             "focal_length_mm": "12-25",
@@ -7255,7 +8256,9 @@
           "model": "Pictor 14-30mm T2.8",
           "aliases": [
             "Pictor 14-30",
-            "DZO Pictor 14-30"
+            "DZO Pictor 14-30",
+            "DZO Pictor 14-30mm",
+            "DZO Film 14-30mm"
           ],
           "specs": {
             "focal_length_mm": "14-30",
@@ -7268,7 +8271,9 @@
           "model": "Pictor 20-55mm T2.8",
           "aliases": [
             "Pictor 20-55",
-            "DZO Pictor 20-55"
+            "DZO Pictor 20-55",
+            "DZO Pictor 20-55mm",
+            "DZO Film 20-55mm"
           ],
           "specs": {
             "focal_length_mm": "20-55",
@@ -7281,7 +8286,9 @@
           "model": "Pictor 50-125mm T2.8",
           "aliases": [
             "Pictor 50-125",
-            "DZO Pictor 50-125"
+            "DZO Pictor 50-125",
+            "DZO Pictor 50-125mm",
+            "DZO Film 50-125mm"
           ],
           "specs": {
             "focal_length_mm": "50-125",
@@ -7310,7 +8317,9 @@
           "aliases": [
             "Cabrio 19-90",
             "ZK4.7x19",
-            "Fujinon Zoom Cabrio 19-90mm"
+            "Fujinon Zoom Cabrio 19-90mm",
+            "FUJINON Cabrio 19-90mm",
+            "Fujinon ZK19-90mm Cabrio"
           ],
           "specs": {
             "mount": "PL",
@@ -7508,7 +8517,10 @@
           "aliases": [
             "Premista 28-100",
             "Fuji Premista 28-100",
-            "Fujinon Premista XD/i FF 28-100mm"
+            "Fujinon Premista XD/i FF 28-100mm",
+            "FUJINON Premista",
+            "FUJINON Premista 28-100mm",
+            "Fujinon Prevista 28-100mm"
           ],
           "specs": {
             "mount": "PL",
@@ -7586,7 +8598,12 @@
           "aliases": [
             "Sigma 18-35 Cine",
             "HSZ 18-35",
-            "Sigma PL Zoom 18-35mm"
+            "Sigma PL Zoom 18-35mm",
+            "Sigma 18-35mm T2 PL",
+            "Sigma 18-35mm T2 EF",
+            "Sigma 18-35mm T2.0",
+            "Sigma Cine Zoom (s35 / PL-Mount) 18-35mm T2.0",
+            "Sigma Cine Zoom 18-35mm"
           ],
           "specs": {
             "focal_length_mm": "18-35",
@@ -7600,7 +8617,12 @@
           "aliases": [
             "Sigma 50-100 Cine",
             "HSZ 50-100",
-            "Sigma PL Zoom 50-100mm"
+            "Sigma PL Zoom 50-100mm",
+            "Sigma 50-100mm T2 PL",
+            "Sigma 50-100mm T2 EF",
+            "Sigma 50-100mm T2.0",
+            "Sigma Cine Zoom (s35 / PL-Mount) 50-100mm T2.0",
+            "Sigma Cine Zoom 50-100mm"
           ],
           "specs": {
             "focal_length_mm": "50-100",
@@ -7613,7 +8635,9 @@
           "model": "Cinema 11-20mm T2.9",
           "aliases": [
             "Tokina 11-20 Cine",
-            "Cinema ATX 11-20"
+            "Cinema ATX 11-20",
+            "TOKINA Cinema ATX",
+            "TOKINA Cinema ATX 11-20mm"
           ],
           "specs": {
             "focal_length_mm": "11-20",
@@ -7666,7 +8690,9 @@
           "aliases": [
             "CZ.2 15-30",
             "Zeiss 15-30",
-            "Zeiss Compact Zoom CZ.2 PL/EF 15-30mm"
+            "Zeiss Compact Zoom CZ.2 PL/EF 15-30mm",
+            "Zeiss CZ 15-30mm/2.9",
+            "Zeiss Compact Zoom 15-30mm/2.9"
           ],
           "specs": {
             "focal_length_mm": "15-30",
@@ -7681,7 +8707,9 @@
           "aliases": [
             "CZ.2 28-80",
             "Zeiss 28-80",
-            "Zeiss Compact Zoom CZ.2 28-80mm"
+            "Zeiss Compact Zoom CZ.2 28-80mm",
+            "Zeiss CZ 28-80mm/2.9",
+            "Zeiss Compact Zoom 28-80mm/2.9"
           ],
           "specs": {
             "focal_length_mm": "28-80",
@@ -7696,7 +8724,9 @@
           "aliases": [
             "CZ.2 70-200",
             "Zeiss 70-200",
-            "Zeiss Compact Zoom CZ.2 70-200mm"
+            "Zeiss Compact Zoom CZ.2 70-200mm",
+            "Zeiss CZ 70-200mm/2.9",
+            "Zeiss Compact Zoom 70-200mm/2.9"
           ],
           "specs": {
             "focal_length_mm": "70-200",
@@ -7729,7 +8759,9 @@
             "LWZ3 21-100",
             "Zeiss 21-100",
             "Zeiss Lightweight Zoom LWZ3 21-100mm",
-            "LWZ3"
+            "LWZ3",
+            "Zeiss LWZ.3 21-100mm/2.9-3.9",
+            "Zeiss LWZ.3 21-100mm"
           ],
           "specs": {
             "format": "Super 35"
@@ -7775,7 +8807,8 @@
           "model": "Cine Varotal 25-250mm T3.9 MkII",
           "aliases": [
             "Cooke Zoom Cine Varotal MKII 25-250mm",
-            "Cooke Varotal 25-250"
+            "Cooke Varotal 25-250",
+            "Cooke Cine Varotal 25-250mm MkII / T3.9"
           ],
           "specs": {
             "t_stop": "3.9"
@@ -7797,7 +8830,9 @@
           "model": "Tokina 11-16mm T2.8",
           "aliases": [
             "Duclos/Tokina 11-16mm",
-            "Duclos 11-16"
+            "Duclos 11-16",
+            "Duclos 11-16mm/2.8 PL",
+            "Duclos 11-16mm"
           ],
           "specs": {
             "t_stop": "2.8"
@@ -7891,6 +8926,88 @@
             "COOKE ZOOM 20-60mm",
             "Cooke 20-60mm"
           ]
+        },
+        {
+          "manufacturer": "Angénieux",
+          "model": "10x25 25-250mm T3.9",
+          "aliases": [
+            "ANGÉNIEUX 10x25",
+            "Angenieux 10x25",
+            "Angenieux 10x25 25-250mm"
+          ]
+        },
+        {
+          "manufacturer": "Angénieux",
+          "model": "4x25 25-100mm",
+          "aliases": [
+            "ANGÉNIEUX 25-100mm Zoom",
+            "Angenieux 25-100mm",
+            "Angenieux 4x25"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "8-64mm T2.4",
+          "aliases": [
+            "CANON 8-64mm",
+            "Canon 8-64mm T2.4",
+            "Canon Zoom 8-64mm",
+            "Zoom PL Canon 8-64mm / 2.4 S16",
+            "Canon 8-64mm S16",
+            "8-64mm T2.4 S16",
+            "Canon 8-64mm T2.4 S16"
+          ]
+        },
+        {
+          "manufacturer": "Cooke",
+          "model": "CXX 15-40mm T2",
+          "aliases": [
+            "COOKE CXX S4/i Zoom",
+            "Cooke CXX 15-40mm",
+            "Cooke 15-40mm CXX"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Vario-Sonnar 11-110mm T2.2",
+          "aliases": [
+            "ZEISS Vario-Sonnar",
+            "Zeiss 11-110mm",
+            "Zeiss Vario-Sonnar 11-110mm S16"
+          ]
+        },
+        {
+          "manufacturer": "Voigtländer",
+          "model": "Zoomar 36-82mm T3.1",
+          "aliases": [
+            "VOIGTLÄNDER Zoomar",
+            "Voigtlander Zoomar",
+            "Voigtländer Zoomar 36-82mm"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "X-Tract 18-28mm T8 Probe Zoom 0°",
+          "aliases": [
+            "DZO X-Tract 18-28mm T8 0°",
+            "DZOFILM X-TRACT 18-28mm T.8 FF 0°"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "X-Tract 18-28mm T8 Probe Zoom 90°",
+          "aliases": [
+            "DZO X-Tract 18-28mm T8 90°",
+            "DZOFILM X-TRACT 18-28mm T.8 FF 90°"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "X-Tract 18-28mm T8 Probe Zoom 360°",
+          "aliases": [
+            "DZO X-Tract 18-28mm T8 360°",
+            "DZOFILM X-TRACT 18-28mm T.8 FF 360°"
+          ]
         }
       ]
     },
@@ -7914,7 +9031,8 @@
           "manufacturer": "Canon",
           "model": "EF 16-35mm f/2.8L II USM",
           "aliases": [
-            "Canon EF Zoom 16-35mm L II USM"
+            "Canon EF Zoom 16-35mm L II USM",
+            "Canon EF Zoom 16-35mm T2.8 L II"
           ],
           "specs": {
             "mount": "EF"
@@ -7924,7 +9042,9 @@
           "manufacturer": "Canon",
           "model": "EF 24-70mm f/2.8L II USM",
           "aliases": [
-            "Canon EF Zoom 24-70mm L II USM"
+            "Canon EF Zoom 24-70mm L II USM",
+            "Canon EF 24-70mm 2,8 L USM II",
+            "Canon EF Zoom 24-70mm T2.8 L II USM"
           ],
           "specs": {
             "mount": "EF"
@@ -7944,7 +9064,9 @@
           "manufacturer": "Canon",
           "model": "EF 24-105mm f/4L IS USM",
           "aliases": [
-            "Canon EF Zoom 24-105mm L IS USM"
+            "Canon EF Zoom 24-105mm L IS USM",
+            "Canon EF Zoom 24-105mm T4.0 L IS mit Stabilisator",
+            "Canon EF Zoom 24-105mm T4.0 L IS"
           ],
           "specs": {
             "mount": "EF"
@@ -7964,7 +9086,9 @@
           "manufacturer": "Canon",
           "model": "EF 70-200mm f/2.8L IS II USM",
           "aliases": [
-            "Canon EF Zoom 70-200mm L IS II USM"
+            "Canon EF Zoom 70-200mm L IS II USM",
+            "Canon EF Zoom 70-200mm T2.8 L II mit Stabilisator",
+            "Canon EF Zoom 70-200mm T2.8 L II"
           ],
           "specs": {
             "mount": "EF"
@@ -8004,7 +9128,9 @@
           "manufacturer": "Canon",
           "model": "EF-S 17-55mm f/2.8 IS USM",
           "aliases": [
-            "Canon EF-S Zoom 17-55mm IS USM"
+            "Canon EF-S Zoom 17-55mm IS USM",
+            "Canon EF-S Zoom 17-55mm f/2.8 EF-S IS USM",
+            "Canon EF-S Zoom 17-55mm"
           ],
           "specs": {
             "mount": "EF"
@@ -8024,7 +9150,9 @@
           "manufacturer": "Canon",
           "model": "EF 14mm f/2.8L II USM",
           "aliases": [
-            "Canon EF 14mm L II USM"
+            "Canon EF 14mm L II USM",
+            "Canon EF 14mm f2,8 L",
+            "Canon EF 14mm T2.8 L II USM"
           ],
           "specs": {
             "mount": "EF"
@@ -8034,7 +9162,9 @@
           "manufacturer": "Canon",
           "model": "EF 24mm f/1.4L II USM",
           "aliases": [
-            "Canon EF 24mm L II USM"
+            "Canon EF 24mm L II USM",
+            "Canon EF 24mm 1,4 L",
+            "Canon EF 24mm T1.4 L II"
           ],
           "specs": {
             "mount": "EF"
@@ -8054,7 +9184,8 @@
           "manufacturer": "Canon",
           "model": "EF 35mm f/1.4L II USM",
           "aliases": [
-            "Canon EF 35mm L II USM"
+            "Canon EF 35mm L II USM",
+            "Canon EF 35mm T1.4 L II USM"
           ],
           "specs": {
             "mount": "EF"
@@ -8064,7 +9195,8 @@
           "manufacturer": "Canon",
           "model": "EF 35mm f/1.4L USM",
           "aliases": [
-            "Canon EF 35mm L USM"
+            "Canon EF 35mm L USM",
+            "Canon EF 35mm T1.4 L"
           ],
           "specs": {
             "mount": "EF"
@@ -8074,7 +9206,8 @@
           "manufacturer": "Canon",
           "model": "EF 35mm f/2 IS USM",
           "aliases": [
-            "Canon EF 35mm L IS USM"
+            "Canon EF 35mm L IS USM",
+            "Canon EF 35mm T2.0 IS USM"
           ],
           "specs": {
             "mount": "EF"
@@ -8084,7 +9217,9 @@
           "manufacturer": "Canon",
           "model": "EF 50mm f/1.2L USM",
           "aliases": [
-            "Canon EF 50mm L USM"
+            "Canon EF 50mm L USM",
+            "Canon EF L 50mm/1.2",
+            "Canon EF 50mm T1.2 L USM"
           ],
           "specs": {
             "mount": "EF"
@@ -8094,7 +9229,9 @@
           "manufacturer": "Canon",
           "model": "EF 85mm f/1.2L II USM",
           "aliases": [
-            "Canon EF 85mm L II USM"
+            "Canon EF 85mm L II USM",
+            "Canon EF L 85mm / 1,2",
+            "Canon EF 85mm T1.2 L II USM"
           ],
           "specs": {
             "mount": "EF"
@@ -8104,7 +9241,10 @@
           "manufacturer": "Canon",
           "model": "EF 100mm f/2.8L Macro IS USM",
           "aliases": [
-            "Canon EF Macro 100mm L IS USM"
+            "Canon EF Macro 100mm L IS USM",
+            "Canon EF L 100mm / 2,8",
+            "Canon EF 100mm T2.8 L IS USM (Makro)",
+            "Canon EF 100mm T2.8 L IS USM"
           ],
           "specs": {
             "mount": "EF"
@@ -8134,7 +9274,9 @@
           "manufacturer": "Canon",
           "model": "TS-E 24mm f/3.5L II",
           "aliases": [
-            "Canon TS-E Tilt-Shift 24mm"
+            "Canon TS-E Tilt-Shift 24mm",
+            "Canon EF TS 24mm",
+            "Canon TS 24mm"
           ],
           "specs": {
             "mount": "EF"
@@ -8267,7 +9409,11 @@
         {
           "manufacturer": "Sigma",
           "model": "14-24mm F2.8 DG DN Art",
-          "aliases": [],
+          "aliases": [
+            "SIGMA Art DG DN 14-24mm",
+            "SIGMA Art AF DG DN 14-24mm",
+            "Sigma Art 14-24mm f/2.8 DG DN"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8276,7 +9422,9 @@
           "manufacturer": "Tamron",
           "model": "SP 24-70mm F2.8 Di VC USD (EF)",
           "aliases": [
-            "Tamron EF SP 24-70mm DI VC USD"
+            "Tamron EF SP 24-70mm DI VC USD",
+            "Tamron Zoom SP 24-70mm T2.8 DI VC USD (Canon EF)",
+            "ObjektivTamron Zoom SP 24-70mm T2.8 DI VC USD"
           ],
           "specs": {
             "mount": "EF"
@@ -8293,7 +9441,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 14mm F1.8 GM",
-          "aliases": [],
+          "aliases": [
+            "Sony GM 14mm 1.8",
+            "Sony FE 14mm 1.8 GM"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8309,7 +9460,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 35mm F1.4 GM",
-          "aliases": [],
+          "aliases": [
+            "Sony GM 35mm 1.4",
+            "Sony FE 35mm 1.4 GM"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8327,7 +9481,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 50mm F1.2 GM",
-          "aliases": [],
+          "aliases": [
+            "Sony GM 50mm 1.2",
+            "Sony FE 50mm 1.2 GM"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8351,7 +9508,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 90mm F2.8 Macro G OSS",
-          "aliases": [],
+          "aliases": [
+            "Sony GM 90mm 2.8 Macro",
+            "Sony FE 90mm 2.8 Macro GM OSS"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8359,7 +9519,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 12-24mm F2.8 GM",
-          "aliases": [],
+          "aliases": [
+            "Sony 12-24mm GM 2.8",
+            "Sony 12-24mm 2.8"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8368,7 +9531,8 @@
           "manufacturer": "Sony",
           "model": "FE 16-35mm F2.8 GM",
           "aliases": [
-            "Sony FE 16-35mm GM"
+            "Sony FE 16-35mm GM",
+            "Sony 16-35mm GM 2.8"
           ],
           "specs": {
             "mount": "E"
@@ -8377,7 +9541,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 16-35mm F2.8 GM II",
-          "aliases": [],
+          "aliases": [
+            "Sony 16-35mm GM II 2.8",
+            "Sony 16-35mm 2.8 II"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8403,7 +9570,8 @@
           "model": "E 18-200mm F3.5-6.3 OSS",
           "aliases": [
             "Sony E 18-200mm OSS",
-            "Sony OSS 18-200mm"
+            "Sony OSS 18-200mm",
+            "Sony E-Mount Zoom 18-200mm T3.5-6.3 OSS"
           ],
           "specs": {
             "mount": "E"
@@ -8413,7 +9581,9 @@
           "manufacturer": "Sony",
           "model": "FE 24-70mm F2.8 GM",
           "aliases": [
-            "Sony FE 24-70mm GM"
+            "Sony FE 24-70mm GM",
+            "Sony 24-70mm GM2.8",
+            "Sony 24-70mm GM 2.8"
           ],
           "specs": {
             "mount": "E"
@@ -8422,7 +9592,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 24-70mm F2.8 GM II",
-          "aliases": [],
+          "aliases": [
+            "Sony 24-70mm GM II 2.8",
+            "Sony 24-70mm 2.8 II"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8430,7 +9603,10 @@
         {
           "manufacturer": "Sony",
           "model": "FE 24-105mm F4 G OSS",
-          "aliases": [],
+          "aliases": [
+            "Sony 24-105mm G 4.0",
+            "Sony 24-105mm 4.0"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8447,7 +9623,9 @@
           "manufacturer": "Sony",
           "model": "FE PZ 28-135mm F4 G OSS",
           "aliases": [
-            "Sony 28-135mm OSS"
+            "Sony 28-135mm OSS",
+            "Sony G OSS 28-135mm / 4 E-Mount",
+            "SELP28135G"
           ],
           "specs": {
             "mount": "E"
@@ -8477,7 +9655,9 @@
           "manufacturer": "Sony",
           "model": "FE 200-600mm F5.6-6.3 G OSS",
           "aliases": [
-            "Sony FE 200-600mm G OSS"
+            "Sony FE 200-600mm G OSS",
+            "Sony SEL 200-600mm F5.6-6.3",
+            "SEL200600G"
           ],
           "specs": {
             "mount": "E"
@@ -8486,7 +9666,9 @@
         {
           "manufacturer": "ZEISS",
           "model": "Batis 18mm F2.8",
-          "aliases": [],
+          "aliases": [
+            "Zeiss Batis 18mm 2.8"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8494,7 +9676,9 @@
         {
           "manufacturer": "ZEISS",
           "model": "Batis 25mm F2",
-          "aliases": [],
+          "aliases": [
+            "Zeiss Batis 25mm 2.0"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8502,7 +9686,9 @@
         {
           "manufacturer": "ZEISS",
           "model": "Batis 40mm F2 CF",
-          "aliases": [],
+          "aliases": [
+            "Zeiss Batis 40mm 2.0"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8510,7 +9696,9 @@
         {
           "manufacturer": "ZEISS",
           "model": "Batis 85mm F1.8",
-          "aliases": [],
+          "aliases": [
+            "Zeiss Batis 85mm 1.8"
+          ],
           "specs": {
             "mount": "E"
           }
@@ -8724,6 +9912,614 @@
           "specs": {
             "mount": "EF"
           }
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "AT-X Pro 28-70mm f/2.6-2.8",
+          "aliases": [
+            "TOKINA AT-X Pro",
+            "Tokina AT-X Pro MKI",
+            "Tokina AT-X Pro 28-70mm"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "24-70mm F2.8 DG DN Art",
+          "aliases": [
+            "SIGMA Art AF DG ND 24-70mm",
+            "SIGMA Art AF DG DN 24-70mm",
+            "Sigma 24-70mm f/2.8 DG DN Art"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "70-200mm F2.8 DG DN OS Sports",
+          "aliases": [
+            "SIGMA Art AF DG DN 70-200mm",
+            "Sigma 70-200mm f/2.8 DG DN"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "9mm f/5.6 FF RL",
+          "aliases": [
+            "Laowa Dreamer 9mm E",
+            "Laowa 9mm f/5.6",
+            "Laowa 9mm FF RL"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RF 15-35mm F2.8L IS USM",
+          "aliases": [
+            "Canon RF 15-35mm /2.8 L IS USM",
+            "Canon 15-35mm 2.8 L IS"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RF 24-70mm F2.8L IS USM",
+          "aliases": [
+            "Canon RF 24-70mm /2.8 L IS USM",
+            "Canon 24-70mm 2.8 L IS"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RF 24-105mm F4L IS USM",
+          "aliases": [
+            "Canon RF 24-105mm /4.0 L IS USM",
+            "Canon 24-105mm 4.0 L IS"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RF 100mm F2.8L Macro IS USM",
+          "aliases": [
+            "Canon RF 100mm L IS / 2.8 Macro",
+            "Canon RF 100mm Macro"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 11-24mm f/4L USM",
+          "aliases": [
+            "Canon EF 11-24mm f4 L",
+            "Canon EF 11-24mm",
+            "Canon EF Zoom 11-24mm T4.0 L USM"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 70-200mm f/2.8L IS III USM",
+          "aliases": [
+            "Canon 70-200mm 2,8 IS III",
+            "Canon EF 70-200mm L IS III"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 100-400mm f/4.5-5.6L IS II USM",
+          "aliases": [
+            "Canon 100-400MM / 4.5 – 5.6 L IS II USM",
+            "Canon EF 100-400mm L IS II"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 200-400mm f/4L IS USM Extender 1.4x",
+          "aliases": [
+            "Canon 200-400mm f/4 L IS USM Extender 1.4x",
+            "Canon 200-400mm f/4"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "FE 24mm F1.4 GM",
+          "aliases": [
+            "Sony GM 24mm 1.4",
+            "Sony FE 24mm 1.4 GM"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "FE 85mm F1.4 GM",
+          "aliases": [
+            "Sony GM 85mm 1.4",
+            "Sony FE 85mm 1.4 GM"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "FE 70-200mm F2.8 GM OSS",
+          "aliases": [
+            "Sony 70-200mm GM 2.8",
+            "SEL70200GM"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Vario-Tessar T* FE 16-35mm F4 ZA OSS",
+          "aliases": [
+            "Sony 16-35mm F4 OSS",
+            "SEL1635Z",
+            "Sony Zeiss 16-35mm F4"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "E PZ 18-110mm F4 G OSS",
+          "aliases": [
+            "Sony 18-110mm / 4 G OSS E-Mount",
+            "SELP18110G",
+            "Sony 18-110mm F4"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S PRO 24-70mm F2.8",
+          "aliases": [
+            "Lumix S Pro 24-70mm 2,8",
+            "Lumix S Pro 24-70"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S PRO 70-200mm F2.8 O.I.S.",
+          "aliases": [
+            "Lumix S Pro 70-200mm 2,8",
+            "Lumix S Pro 70-200"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S 24-105mm F4 Macro O.I.S.",
+          "aliases": [
+            "Lumix S 24-105mm F4"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX G VARIO 7-14mm F4.0 ASPH.",
+          "aliases": [
+            "Lumix 7-14mm F4.0",
+            "Lumix 7-14mm"
+          ]
+        },
+        {
+          "manufacturer": "Olympus",
+          "model": "M.Zuiko Digital ED 12-100mm F4.0 IS PRO",
+          "aliases": [
+            "Olympus 12-100mm F4.0 IS Pro",
+            "Olympus 12-100mm"
+          ]
+        },
+        {
+          "manufacturer": "Olympus",
+          "model": "M.Zuiko Digital ED 12mm F2.0",
+          "aliases": [
+            "Olympus 12mm / 2,0 MFT",
+            "Olympus 12mm F2"
+          ]
+        },
+        {
+          "manufacturer": "Voigtländer",
+          "model": "Nokton 10.5mm F0.95",
+          "aliases": [
+            "Voigtländer 10,5mm",
+            "Voigtlander Nokton 10.5mm"
+          ]
+        },
+        {
+          "manufacturer": "Voigtländer",
+          "model": "Nokton 17.5mm F0.95",
+          "aliases": [
+            "Voigtländer 17,5mm",
+            "Voigtlander Nokton 17.5mm"
+          ]
+        },
+        {
+          "manufacturer": "Voigtländer",
+          "model": "Nokton 25mm F0.95",
+          "aliases": [
+            "Voigtländer 25mm",
+            "Voigtlander Nokton 25mm"
+          ]
+        },
+        {
+          "manufacturer": "Voigtländer",
+          "model": "Nokton 42.5mm F0.95",
+          "aliases": [
+            "Voigtländer 42,5mm",
+            "Voigtlander Nokton 42.5mm"
+          ]
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "AT-X 11-16mm F2.8 PRO DX",
+          "aliases": [
+            "Tokina 11-16mm/2.8 EF",
+            "Tokina 11-16mm EF"
+          ]
+        },
+        {
+          "manufacturer": "Lensbaby",
+          "model": "Muse",
+          "aliases": [
+            "Lensbaby Muse EF",
+            "Lensbaby Muse"
+          ]
+        },
+        {
+          "manufacturer": "Lensbaby",
+          "model": "Composer Pro",
+          "aliases": [
+            "Lensbaby Composer Pro EF",
+            "Lensbaby Composer Pro E",
+            "Lensbaby Composer"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 24mm f/2.8 IS USM",
+          "aliases": [
+            "Canon EF 24mm T2.8 IS USM"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 50mm f/1.8",
+          "aliases": [
+            "Canon EF 50mm T1.8"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 50mm f/1.8 II",
+          "aliases": [
+            "Canon EF 50mm T1.8 II"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 85mm f/1.2L USM",
+          "aliases": [
+            "Canon EF 85mm T1.2 L I USM",
+            "Canon EF 85mm L USM"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 85mm f/1.8 USM",
+          "aliases": [
+            "Canon EF 85mm T1.8 USM"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 100mm f/2 USM",
+          "aliases": [
+            "Canon EF 100mm T2.0 USM"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "MP-E 65mm f/2.8 1-5x Macro",
+          "aliases": [
+            "Canon EF MP-E 65mm T2.8",
+            "Canon MP-E 65mm Makro"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EF 16-35mm f/2.8L III USM",
+          "aliases": [
+            "Canon EF Zoom 16-35mm T2.8 L III USM"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 14mm f/2.8L",
+          "aliases": [
+            "Canon FD 14mm T2.8 L"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 28mm f/2",
+          "aliases": [
+            "Canon FD 28mm T2.0"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 28mm f/2.8",
+          "aliases": [
+            "Canon FD 28mm T2.8"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 50mm f/1.4",
+          "aliases": [
+            "Canon FD 50mm T1.4"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 85mm f/1.2L",
+          "aliases": [
+            "Canon FD 85mm T1.2 L"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 85mm f/1.8",
+          "aliases": [
+            "Canon FD 85mm T1.8"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 100mm f/2.8",
+          "aliases": [
+            "Canon FD 100mm T2.8"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 135mm f/2.5",
+          "aliases": [
+            "Canon FD 135mm T2.5"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 200mm f/2.8",
+          "aliases": [
+            "Canon FD 200mm T2.8"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "FD 35-70mm f/2.8-3.5",
+          "aliases": [
+            "Canon FD Zoom 35-70mm T2.8 - 3.5"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Distagon 18mm F3.5 (ZF)",
+          "aliases": [
+            "Zeiss ZF 18mm T3.5",
+            "Zeiss ZF 18mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Distagon 21mm F2.8 (ZF.2)",
+          "aliases": [
+            "Zeiss ZF.2 21mm T2.8",
+            "Zeiss ZF.2 21mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Distagon 25mm F2 (ZF.2)",
+          "aliases": [
+            "Zeiss ZF.2 25mm T2.0",
+            "Zeiss ZF.2 25mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Distagon 28mm F2 (ZF.2)",
+          "aliases": [
+            "Zeiss ZF.2 28mm T2.0",
+            "Zeiss ZF.2 28mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Distagon 35mm F2 (ZF.2)",
+          "aliases": [
+            "Zeiss ZF.2 35mm T2.0",
+            "Zeiss ZF.2 35mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Planar 50mm F1.4 (ZF.2)",
+          "aliases": [
+            "Zeiss ZF.2 50mm T1.4",
+            "Zeiss ZF.2 50mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Planar 85mm F1.4 (ZF.2)",
+          "aliases": [
+            "Zeiss ZF.2 85mm T1.4",
+            "Zeiss ZF.2 85mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Milvus 100mm F2 Macro (ZF.2)",
+          "aliases": [
+            "Zeiss ZF.2 Milvus 100mm T2.0",
+            "Zeiss Milvus 100mm ZF.2"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "Leica DG Vario-Elmarit 8-18mm F2.8-4 ASPH",
+          "aliases": [
+            "Leica MFT Zoom DG Vario-Elmarit 8-18mm T2.8-4.0",
+            "Leica DG 8-18mm"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "Lumix G X Vario 12-35mm F2.8",
+          "aliases": [
+            "Panasonic MFT Zoom Lumix G X Vario 12-35mm T2.8",
+            "Lumix 12-35mm"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "18-35mm F1.8 DC HSM Art",
+          "aliases": [
+            "Sigma Zoom A (APS-C) 18-35mm T1.8 DC HSM",
+            "Sigma 18-35mm Art"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "50-100mm F1.8 DC HSM Art",
+          "aliases": [
+            "Sigma Zoom A (APS-C) 50-100mm T1.8 DC HSM",
+            "Sigma 50-100mm Art"
+          ]
+        },
+        {
+          "manufacturer": "Nikon",
+          "model": "AF-S 17-35mm f/2.8D IF-ED",
+          "aliases": [
+            "Nikon Zoom 17-35mm T2,8",
+            "Nikon 17-35mm"
+          ]
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "AT-X 116 PRO DX II 11-16mm F2.8",
+          "aliases": [
+            "Tokina AT-X 116 Pro DX II 11-16mm T2.8",
+            "Tokina 11-16mm"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Vario-Tessar T* FE 24-70mm F4 ZA OSS",
+          "aliases": [
+            "Zeiss Vario-Tessar (Vollformat / E-Mount) 24-70mm T4.0 Zeiss ZA OSS",
+            "Sony Zeiss 24-70mm F4"
+          ]
+        }
+      ],
+      "lensSeries": [
+        {
+          "manufacturer": "Olympus",
+          "series": "OM Zuiko Cine Mod",
+          "focals": [
+            [
+              21,
+              null
+            ],
+            [
+              24,
+              null
+            ],
+            [
+              28,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              40,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              55,
+              null
+            ],
+            [
+              85,
+              null
+            ],
+            [
+              90,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "OLYMPUS Zuiko / Cine Mod.",
+            "Olympus Zuiko Cine Mod"
+          ],
+          "mount": "EF",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Minolta",
+          "series": "Rokkor Cine Mod",
+          "focals": [
+            [
+              16,
+              null
+            ],
+            [
+              21,
+              null
+            ],
+            [
+              24,
+              null
+            ],
+            [
+              28,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              58,
+              null
+            ],
+            [
+              85,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "MINOLTA Rokkor Cine Mod.",
+            "Minolta Rokkor"
+          ],
+          "mount": "MD",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Lomography",
+          "series": "Petzval MkII",
+          "focals": [
+            [
+              35,
+              null
+            ],
+            [
+              55,
+              null
+            ],
+            [
+              80.5,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "LOMOGRAPHY Petzval",
+            "Lomography Petzval"
+          ],
+          "mount": "E",
+          "format": "Full Frame"
         }
       ]
     }

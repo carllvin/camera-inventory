@@ -1274,7 +1274,8 @@
           "manufacturer": "Teradek",
           "model": "Bolt Pro 500 TX",
           "aliases": [
-            "Bolt Pro 500 Sender"
+            "Bolt Pro 500 Sender",
+            "Teradek Bolt Pro 500"
           ]
         },
         {
@@ -1356,7 +1357,8 @@
           "model": "703 UltraBright",
           "aliases": [
             "SmallHD 703 Ultra Bright",
-            "SmallHD 703 UB"
+            "SmallHD 703 UB",
+            "SmallHD 703"
           ]
         },
         {
@@ -1365,6 +1367,142 @@
           "aliases": [
             "Blackmagic Video Assist 4K",
             "BMD Video Assist 4K"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "RM-IP500 PTZ Remote Controller",
+          "aliases": [
+            "Sony RM-IP500",
+            "RM-IP500",
+            "Sony RM-IP 500"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 4D Flex",
+          "aliases": [
+            "DJI Ronin 4D Flex",
+            "DJI Flex"
+          ]
+        },
+        {
+          "manufacturer": "Kippertie",
+          "model": "Revolva RF-PL Mount Adapter",
+          "aliases": [
+            "KipperTie Revolva RF-PL",
+            "Kippertie Revolva",
+            "Revolva RF-PL"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EU-V2 Expansion Unit",
+          "aliases": [
+            "Expansion Unit Canon EU-V2",
+            "Canon EU-V2",
+            "EU-V2"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini SSD Recorder",
+          "aliases": [
+            "Blackmagic Ursa Mini Pro SSD Rekorder",
+            "URSA Mini Pro SSD Recorder",
+            "BMD URSA SSD Recorder"
+          ]
+        },
+        {
+          "manufacturer": "Ikan",
+          "model": "PT-ELITE-PRO Teleprompter",
+          "aliases": [
+            "Teleprompter Ikan PT-ELITE-Pro",
+            "Ikan PT-ELITE-Pro",
+            "PT-ELITE-PRO"
+          ]
+        },
+        {
+          "manufacturer": "Datavideo",
+          "model": "TP-600 Teleprompter",
+          "aliases": [
+            "Teleprompter Datavideo TP-600",
+            "Datavideo TP-600 ENG",
+            "TP-600 ENG"
+          ]
+        },
+        {
+          "manufacturer": "Datavideo",
+          "model": "TP-650 Teleprompter",
+          "aliases": [
+            "Teleprompter Datavideo TP-650",
+            "Datavideo TP-650 ENG",
+            "TP-650 ENG"
+          ]
+        },
+        {
+          "manufacturer": "SmallRig",
+          "model": "Cage for BMPCC 4K/6K 2203B",
+          "aliases": [
+            "SmallRig 2203B",
+            "Cage für Blackmagic Pocket 4K/6K [SmallRig 2203B]"
+          ]
+        },
+        {
+          "manufacturer": "SmallRig",
+          "model": "Half Cage for BMPCC 4K/6K CVB2254",
+          "aliases": [
+            "SmallRig CVB2254",
+            "Cage für Blackmagic Pocket 4K/6K (Half Cage) [SmallRig CVB2254]"
+          ]
+        },
+        {
+          "manufacturer": "SmallRig",
+          "model": "Cage for Panasonic GH6 3784",
+          "aliases": [
+            "SmallRig 3784",
+            "Cage für Panasonic GH6 [SmallRig 3784]"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Camera Cage for BMPCC 4K/6K TA-T01-B-G",
+          "aliases": [
+            "Tilta TA-T01-B-G",
+            "Cage für Blackmagic Pocket 4K/6K [Tilta TA-T01-B-G]"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Director's Monitor Cage v3",
+          "aliases": [
+            "Directors Monitor Cage v3 Wooden Camera",
+            "WC Director's Monitor Cage V3"
+          ]
+        },
+        {
+          "manufacturer": "Vocas",
+          "model": "USBP-15 MKII Universal Shoulder Base Plate",
+          "aliases": [
+            "Vocas USBP-15 MKII",
+            "Baseplate Vocas USBP-15 MKII"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "VCT-14",
+          "aliases": [
+            "Stativplatte / Schnappplatte VCT-14",
+            "VCT-14 Quick Release Plate",
+            "Sony VCT-14 Schnappplatte"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "VCT-U14",
+          "aliases": [
+            "Stativplatte / Schnappplatte VCT-14-U14",
+            "VCT-U14 Quick Release Plate"
           ]
         }
       ]
@@ -1723,7 +1861,9 @@
           "aliases": [
             "BMPCC 6K Pro",
             "Pocket 6K Pro",
-            "P6K Pro"
+            "P6K Pro",
+            "Blackmagic Pocket Pro 6K",
+            "Pocket Pro 6K"
           ],
           "specs": {
             "sensor": "Super 35 6K",
@@ -1749,7 +1889,9 @@
             "Pyxis",
             "Blackmagic Pyxis",
             "Pyxis 6K Kamera",
-            "BMD Pyxis 6K"
+            "BMD Pyxis 6K",
+            "Blackmagic Pyxis 6K PL/EF",
+            "Blackmagic Pyxis 6K"
           ],
           "specs": {
             "sensor": "Full Frame 6K"
@@ -1803,7 +1945,8 @@
           "aliases": [
             "UMP 4.6K G2",
             "URSA Mini Pro G2",
-            "URSA 4.6K G2"
+            "URSA 4.6K G2",
+            "Blackmagic URSA Mini Pro G2"
           ],
           "specs": {
             "sensor": "Super 35 4.6K",
@@ -1847,7 +1990,10 @@
             "C300 MkIII",
             "C300 Mark 3",
             "C300III",
-            "Canon C300 Mark 3"
+            "Canon C300 Mark 3",
+            "Canon C300 Mark III PL/EF-Mount",
+            "Canon C300 Mk III",
+            "C300 Mk III"
           ],
           "specs": {
             "sensor": "Super 35 4K",
@@ -1859,7 +2005,9 @@
           "model": "EOS C400",
           "aliases": [
             "C400",
-            "Canon C400 Kamera"
+            "Canon C400 Kamera",
+            "Canon C400 RF",
+            "EOS C400 Body"
           ],
           "specs": {
             "sensor": "Full Frame 6K",
@@ -1886,7 +2034,10 @@
             "C500 Mark 2",
             "C500II",
             "Canon C500 Mark 2",
-            "EOS C500 MKII PL"
+            "EOS C500 MKII PL",
+            "Canon C500 Mark II PL/EF-Mount",
+            "C500 II",
+            "C500 II Body"
           ],
           "specs": {
             "sensor": "Full Frame 5.9K",
@@ -1898,7 +2049,9 @@
           "model": "EOS C70",
           "aliases": [
             "C70",
-            "Canon C70 Kamera"
+            "Canon C70 Kamera",
+            "Canon C70 RF",
+            "EOS C70 Body"
           ],
           "specs": {
             "sensor": "Super 35 4K",
@@ -1922,7 +2075,9 @@
           "model": "EOS C80",
           "aliases": [
             "C80",
-            "Canon C80 Kamera"
+            "Canon C80 Kamera",
+            "Canon C80 RF",
+            "EOS C80 Body"
           ],
           "specs": {
             "sensor": "Full Frame 6K",
@@ -2268,7 +2423,9 @@
             "DSMC2 Monstro",
             "Weapon Monstro 8K VV",
             "Weapon Monstro 8K VV DSMC2 BASIC",
-            "Weapon Monstro 8K VV DSMC2 PREMIUM"
+            "Weapon Monstro 8K VV DSMC2 PREMIUM",
+            "RED Monstro 8K VV",
+            "Monstro 8K VV"
           ],
           "specs": {
             "sensor": "8K VV"
@@ -2281,7 +2438,9 @@
           "aliases": [
             "Komodo",
             "RED Komodo",
-            "Komodo Kamera"
+            "Komodo Kamera",
+            "Kamera RED Komodo (s35 / RF Mount)",
+            "RED Komodo s35 RF"
           ],
           "specs": {
             "sensor": "6K Super 35 global shutter",
@@ -2391,7 +2550,9 @@
             "VRaptor 8K",
             "Raptor VV",
             "V-Raptor VV",
-            "Raptor 8K VV"
+            "Raptor 8K VV",
+            "RED V-Raptor",
+            "RED Raptor"
           ],
           "specs": {
             "sensor": "8K VV",
@@ -2882,7 +3043,12 @@
           "aliases": [
             "A7S II",
             "A7S MKII",
-            "Alpha 7S MKII"
+            "Alpha 7S MKII",
+            "Kamera Sony A7s MKII",
+            "Sony A7s MKII",
+            "Sony A7s II",
+            "Sony Alpha 7S MKII",
+            "Alpha 7S MK2"
           ]
         },
         {
@@ -2891,7 +3057,11 @@
           "aliases": [
             "A7S III",
             "A7S MKIII",
-            "Alpha 7S MKIII"
+            "Alpha 7S MKIII",
+            "Sony Alpha 7S MKIII",
+            "Sony A7S MKIII",
+            "Alpha 7S MK3",
+            "Sony A7S III"
           ]
         },
         {
@@ -3187,6 +3357,123 @@
             "Sony FX5 Body",
             "Sony Cinema Line FX5"
           ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Osmo 360",
+          "aliases": [
+            "DJI Osmo 360"
+          ]
+        },
+        {
+          "manufacturer": "GoPro",
+          "model": "MISSION 1",
+          "aliases": [
+            "GoPro MISSION 1",
+            "GoPro Mission 1"
+          ]
+        },
+        {
+          "manufacturer": "Aaton",
+          "model": "A-Minima",
+          "aliases": [
+            "AATON A Minima S16",
+            "Aaton A-Minima S16",
+            "Aaton Minima"
+          ]
+        },
+        {
+          "manufacturer": "Pixboom",
+          "model": "Spark",
+          "aliases": [
+            "Pixboom Spark PL / EF",
+            "Pixboom Spark PL",
+            "Pixboom Spark EF"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-Z280",
+          "aliases": [
+            "Sony Z280",
+            "Z280",
+            "PXW-Z280V"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-Z190",
+          "aliases": [
+            "Sony Z190",
+            "Z190",
+            "PXW-Z190V"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-Z90",
+          "aliases": [
+            "Sony Z90",
+            "Z90",
+            "PXW-Z90V"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EOS R5",
+          "aliases": [
+            "Canon Eos R5",
+            "Canon R5"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EOS R5 C",
+          "aliases": [
+            "Canon R5 C",
+            "EOS R5C",
+            "R5 C"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Alpha 7 IV",
+          "aliases": [
+            "A7 IV",
+            "ILCE-7M4",
+            "Alpha 7 IV Body only"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX GH5S",
+          "aliases": [
+            "Panasonic GH5s MFT",
+            "GH5S",
+            "DC-GH5S",
+            "Lumix DC-GH5S"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX GH6",
+          "aliases": [
+            "DC-GH6",
+            "GH6",
+            "Kamera Panasonic Lumix GH6 (MFT)",
+            "Panasonic Lumix GH6"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "Alpha 7S",
+          "aliases": [
+            "ILCE-7S",
+            "A7S",
+            "A7s MKI",
+            "Kamera Sony A7s MKI",
+            "Sony A7s"
+          ]
         }
       ]
     },
@@ -3226,7 +3513,9 @@
             "CFast 2.0 512GB",
             "Angelbird CFast 512",
             "Angelbird CFast 512GB",
-            "AV PRO CFast 512"
+            "AV PRO CFast 512",
+            "Speicherkarte CFast 2.0 512GB Angelbird AV PRO CF",
+            "Angelbird AV PRO CF 512GB"
           ],
           "specs": {
             "capacity": "512GB"
@@ -3405,7 +3694,9 @@
             "CDR",
             "CD Reader",
             "Codex Reader USB-C",
-            "CODEX Compact Drive Reader (USB-C)"
+            "CODEX Compact Drive Reader (USB-C)",
+            "Lesegerät ARRI Codex Compact Drive",
+            "ARRI Codex Compact Drive Reader"
           ]
         },
         {
@@ -3567,7 +3858,9 @@
           "model": "CFexpress Card Reader",
           "aliases": [
             "RED CFexpress Reader",
-            "RED CFe Reader USB-C"
+            "RED CFe Reader USB-C",
+            "Lesegerät CFexpress Typ-B (RED)",
+            "RED CFexpress Typ-B Lesegerät"
           ]
         },
         {
@@ -3965,6 +4258,251 @@
             "capacity": "8-32 GB"
           },
           "bulk": true
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO SDXC UHS-I 64GB",
+          "aliases": [
+            "Speicherkarte SDXC UHS-I U3 (V30) 64GB SanDisk Extreme Pro",
+            "SanDisk Extreme Pro SDXC 64GB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO SDXC UHS-I 128GB",
+          "aliases": [
+            "Speicherkarte SDXC UHS-I U3 (V30) 128GB SanDisk Extreme Pro",
+            "SanDisk Extreme Pro SDXC 128GB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO SDXC UHS-II V60 64GB",
+          "aliases": [
+            "Speicherkarte SDXC UHS-II U3 (V60) 64GB SanDisk Extreme Pro"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO SDXC UHS-II V60 128GB",
+          "aliases": [
+            "Speicherkarte SDXC UHS-II U3 (V60) 128GB SanDisk Extreme Pro"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO SDXC UHS-II V90 64GB",
+          "aliases": [
+            "Speicherkarte SDXC UHS-II U3 (V90) 64GB SanDisk Extreme Pro"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO SDXC UHS-II V90 128GB",
+          "aliases": [
+            "Speicherkarte SDXC UHS-II U3 (V90) 128GB SanDisk Extreme Pro"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme microSDHC 32GB",
+          "aliases": [
+            "Speicherkarte SDXC Micro UHS-I U3 V30 32GB SanDisk Extreme",
+            "SanDisk Extreme microSD 32GB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme microSDXC 64GB",
+          "aliases": [
+            "Speicherkarte SDXC Micro UHS-I U3 V30 64GB SanDisk Extreme",
+            "SanDisk Extreme microSD 64GB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme microSDXC 128GB",
+          "aliases": [
+            "Speicherkarte SDXC Micro UHS-I U3 V30 128GB SanDisk Extreme",
+            "SanDisk Extreme microSD 128GB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO CompactFlash 32GB",
+          "aliases": [
+            "Speicherkarte CF 32GB SanDisk Extreme Pro (160MB/s)",
+            "SanDisk Extreme Pro CF 32GB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO CompactFlash 64GB",
+          "aliases": [
+            "Speicherkarte CF 64GB SanDisk Extreme Pro (160MB/s)",
+            "SanDisk Extreme Pro CF 64GB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO CFast 2.0 Reader",
+          "aliases": [
+            "Lesegerät CFast 2.0 USB 3.0 SanDisk",
+            "SanDisk CFast Reader"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "ImageMate PRO Multi-Card Reader",
+          "aliases": [
+            "Lesegerät CF/SD/microSD SanDisk ImageMate Pro",
+            "SanDisk ImageMate Pro"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO 2.5\" SATA SSD 480GB",
+          "aliases": [
+            "SSD 480GB 2,5\" SanDisk Extreme Pro",
+            "SanDisk Extreme Pro SSD 480GB"
+          ]
+        },
+        {
+          "manufacturer": "Lexar",
+          "model": "Professional 3600x CFast 2.0 256GB",
+          "aliases": [
+            "Speicherkarte CFast 2.0 256GB Lexar Professional 3600x",
+            "Lexar CFast 256GB"
+          ]
+        },
+        {
+          "manufacturer": "Lexar",
+          "model": "Professional 2933x XQD 128GB",
+          "aliases": [
+            "Speicherkarte XQD 128GB Lexar Professional 2933x",
+            "Lexar XQD 128GB"
+          ]
+        },
+        {
+          "manufacturer": "Lexar",
+          "model": "Professional Workflow XR2 XQD Reader",
+          "aliases": [
+            "Lesegerät XQD Lexar XR2",
+            "Lexar XR2"
+          ]
+        },
+        {
+          "manufacturer": "Lexar",
+          "model": "Professional Workflow HR2 Hub",
+          "aliases": [
+            "Lesegerät XQD/HUB - Lexar HR2",
+            "Lexar HR2"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "XQD G Series 128GB",
+          "aliases": [
+            "Speicherkarte XQD 128GB Sony G-Serie",
+            "Sony XQD G 128GB"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBP-8",
+          "aliases": [
+            "Speicherkarte SxS PRO 8 GB (SBP-8)",
+            "SxS PRO 8GB"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBP-16",
+          "aliases": [
+            "Speicherkarte SxS PRO 16 GB (SBP-16)",
+            "SxS PRO 16GB"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "MRW-S1",
+          "aliases": [
+            "Lesegerät SDXC/SDHC UHS-II (Sony MRW-S1)",
+            "Sony MRW-S1 Reader"
+          ]
+        },
+        {
+          "manufacturer": "Samsung",
+          "model": "Portable SSD T5 500GB",
+          "aliases": [
+            "SSD Samsung Portable SSD T5 500GB",
+            "Samsung T5 500GB"
+          ]
+        },
+        {
+          "manufacturer": "Samsung",
+          "model": "Portable SSD T5 1TB",
+          "aliases": [
+            "SSD Samsung Portable SSD T5 1TB",
+            "Samsung T5 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Samsung",
+          "model": "860 EVO 2.5\" SSD 500GB",
+          "aliases": [
+            "SSD 500GB 2,5\" Samsung 860 EVO",
+            "Samsung 860 EVO 500GB"
+          ]
+        },
+        {
+          "manufacturer": "Samsung",
+          "model": "860 EVO 2.5\" SSD 1TB",
+          "aliases": [
+            "SSD 1TB 2,5\" Samsung 860 EVO",
+            "Samsung 860 EVO 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Samsung",
+          "model": "860 PRO 2.5\" SSD 512GB",
+          "aliases": [
+            "SSD 512GB 2,5\" Samsung 860 PRO",
+            "Samsung 860 PRO 512GB"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "Station REDMAG 1.8\"",
+          "aliases": [
+            "RED STATION SSD REDMAG 1.8\"",
+            "Lesegerät RED SSD RED Station",
+            "RED Station REDMAG"
+          ]
+        },
+        {
+          "manufacturer": "G-Technology",
+          "model": "EV Series Reader Atomos Master Caddy Edition",
+          "aliases": [
+            "G-Technology EV Series Reader Atomos Mastercaddy Edition",
+            "Lesegerät SSD Docking Station USB3.0 (G-Technology EV Series Reader) Atomos Mastercaddy Edition"
+          ]
+        },
+        {
+          "manufacturer": "HighPoint",
+          "model": "RocketStor 5212",
+          "aliases": [
+            "Lesegerät SSD Dockingstation HighPoint RocketStor 5212",
+            "HighPoint RocketStor 5212 Thunderbolt"
+          ]
+        },
+        {
+          "manufacturer": "LaCie",
+          "model": "Rugged Mini 5TB",
+          "aliases": [
+            "Festplatte extern Lacie Rugged mini USB3.0 5TB",
+            "LaCie Rugged Mini 5TB"
+          ]
         }
       ]
     },
@@ -4036,7 +4574,9 @@
           "model": "URSA Cine EVF",
           "aliases": [
             "URSA Cine Sucher",
-            "BMD URSA Cine VF"
+            "BMD URSA Cine VF",
+            "Blackmagic URSA Cine Viewfinder",
+            "Blackmagic Blackmagic URSA Cine Viewfinder"
           ]
         },
         {
@@ -4156,6 +4696,15 @@
             "F55 LCD Sucher"
           ],
           "discontinued": true
+        },
+        {
+          "manufacturer": "Zacuto",
+          "model": "Kameleon Pro EVF",
+          "aliases": [
+            "Zacuto Kameleon Pro EVF HDMI",
+            "Zacuto Kameleon EVF Pro",
+            "Kameleon Pro EVF"
+          ]
         }
       ]
     }

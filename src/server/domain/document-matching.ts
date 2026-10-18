@@ -216,11 +216,26 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
   }
   // A different model number on the line rules a type out ("C700" is not a "C70", "RX" not a "TX").
   const tokens = text.toUpperCase().split(/[^A-Z0-9]+/).filter((w) => /\d/.test(w));
-  // A word of the model itself is no conflict ("S7" in "Cooke S7/i 25mm" for the model "S7/i 25mm T2").
+  // The model's own words, alone or run together from the start, are no conflict:
+  // "S7" in "Cooke S7/i 25mm" for "S7/i 25mm T2", "CP3" in "Zeiss CP3 25mm" for "CP.3 25mm T2.1".
   const conflicts = (model: string) => {
     const m = compact(model);
-    const own = new Set(model.toUpperCase().split(/[^A-Z0-9]+/));
-    return /\d/.test(m) && tokens.some((w) => w !== m && !own.has(w) && (w.startsWith(m) || m.startsWith(w)) && Math.min(w.length, m.length) >= 2);
+    const words = model.toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
+    const runs = words.map((_, i) => words.slice(0, i + 1).join(""));
+    const own = new Set([...words, ...runs]);
+    // Same letters with another number ("CP3XD" is not the "CP.2", "FX6" not the "FX3"), or the same
+    // number with other letters ("7R" is not the "7S"). T-stops ("T2") are left out: notes round them.
+    const head = (x: string) => /^([A-Z]+)(\d+)/.exec(x) ?? /^(\d+)([A-Z]+)/.exec(x);
+    const otherNumber = (w: string) => {
+      const a = head(w);
+      if (!a || /^T\d/.test(w)) return false;
+      return [...words, ...runs].some((r) => {
+        const b = head(r);
+        // Both "letters then number" or both "number then letters": the first part equal, the second not.
+        return !!b && !/^T\d/.test(r) && /^\d/.test(a[0]) === /^\d/.test(b[0]) && a[1] === b[1] && a[2] !== b[2];
+      });
+    };
+    return /\d/.test(m) && tokens.some((w) => !own.has(w) && ((w !== m && (w.startsWith(m) || m.startsWith(w)) && Math.min(w.length, m.length) >= 2) || otherNumber(w)));
   };
   candidates = candidates.filter((c) => !conflicts(c.model));
   const [best, second] = candidates.sort((a, b) => b.score - a.score);

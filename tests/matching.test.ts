@@ -65,6 +65,11 @@ describe("findType", () => {
     await createEquipmentType(db, ctx, { manufacturer: "Cooke", model: "S7/i 25mm T2" });
     await createEquipmentType(db, ctx, { manufacturer: "Cooke", model: "5/i 25mm T1.4" });
     expect((await findType(db, ctx.workspaceId, line("Cooke S7/i 25mm")))?.name).toBe("Cooke S7/i 25mm T2");
+    await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "CP.3 25mm T2.1" });
+    await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "CP.2 25mm T2.1" });
+    expect((await findType(db, ctx.workspaceId, line("Zeiss CP3 25mm")))?.name).toBe("ZEISS CP.3 25mm T2.1");
+    await createEquipmentType(db, ctx, { manufacturer: "Sony", model: "Alpha 7S III" });
+    expect((await findType(db, ctx.workspaceId, line("Sony Alpha 7R III")))?.name).not.toBe("Sony Alpha 7S III");
   });
 
   it("a catalog import teaches existing types the spellings rental houses use", async () => {

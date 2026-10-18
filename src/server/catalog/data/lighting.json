@@ -197,7 +197,8 @@
           "aliases": [
             "ARRI 2KW Junior",
             "ARRI Junior 2000",
-            "ARRI Junior 2K"
+            "ARRI Junior 2K",
+            "Arri 2kw"
           ]
         },
         {
@@ -329,7 +330,9 @@
           "aliases": [
             "ARRI 1,2kW Stufe Compact",
             "ARRI Compact 1200",
-            "ARRI Compact 1200 (1,2KW)"
+            "ARRI Compact 1200 (1,2KW)",
+            "Arri 1,2 kw HMI",
+            "Arri 1.2kW HMI"
           ]
         },
         {
@@ -449,7 +452,9 @@
           "model": "Compact 575 / D5 Fresnel",
           "aliases": [
             "ARRI 575W Stufe Compact / D5",
-            "ARRI D5"
+            "ARRI D5",
+            "Arri 575W HMI",
+            "ARRI 575W"
           ]
         },
         {
@@ -644,6 +649,124 @@
             "Lightbridge CRLS Reflektor System",
             "CRLS Reflektor"
           ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Light Dome 150",
+          "aliases": [
+            "Softbox Light Dome 150",
+            "Aputure Light Dome 150"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Light Dome II",
+          "aliases": [
+            "Softbox Light Dome II",
+            "Aputure Light Dome II"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Light Dome Mini II",
+          "aliases": [
+            "Softbox Light Dome Mini II",
+            "Aputure Light Dome Mini II"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Lantern 90",
+          "aliases": [
+            "Aputure Lantern 90"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Fresnel 2X",
+          "aliases": [
+            "Aputure Fresnel 2X",
+            "Aputure 2x Fresnel"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "F10 Fresnel",
+          "aliases": [
+            "Aputure Fresnel F10",
+            "Aputure F10"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "CF12 Fresnel",
+          "aliases": [
+            "Aputure Fresnel CF12",
+            "Aputure CF12"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Spotlight Mount",
+          "aliases": [
+            "Aputure Spotlight Mount",
+            "Aputure Spotlight"
+          ]
+        },
+        {
+          "manufacturer": "Godox",
+          "model": "LiteFlow K1 Reflector Kit",
+          "aliases": [
+            "Godox LiteFlow K1"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Lightstream Reflector Starter Kit",
+          "aliases": [
+            "Dedolight Lightstream Reflector Starter Kit 50x50"
+          ]
+        },
+        {
+          "manufacturer": "California Sunbounce",
+          "model": "Sun-Bounce Mini 3x4",
+          "aliases": [
+            "Sunbounce Mini 3x4",
+            "California Sunbounce Mini"
+          ]
+        },
+        {
+          "manufacturer": "California Sunbounce",
+          "model": "Sun-Bounce Pro 4x6",
+          "aliases": [
+            "Sunbounce Pro 4x6",
+            "California Sunbounce Pro"
+          ]
+        },
+        {
+          "manufacturer": "California Sunbounce",
+          "model": "Sun-Swatter 4x6",
+          "aliases": [
+            "Sun Swatter 4x6",
+            "California Sunbounce Sun Swatter 4×6"
+          ]
+        },
+        {
+          "manufacturer": "DoPchoice",
+          "model": "OCTA 5",
+          "aliases": [
+            "DOP’s Choice Octa 5′",
+            "DOPs choice Octa 5",
+            "DoPchoice Octa 5"
+          ]
+        },
+        {
+          "manufacturer": "LumenRadio",
+          "model": "MoonLite",
+          "aliases": [
+            "Lumenradio Moonlite DMX",
+            "LumenRadio MoonLite"
+          ]
         }
       ]
     },
@@ -697,7 +820,8 @@
           "model": "NYX Bulb (8 Kit)",
           "aliases": [
             "Astera NYX Bulb RGB (W)DMX 8fach Koffer",
-            "NYX Bulb"
+            "NYX Bulb",
+            "LED RGBW Astera NYX Bulb"
           ]
         },
         {
@@ -721,7 +845,8 @@
           "model": "LS 300x",
           "aliases": [
             "Aputure LS 300X Bi-Color II DMX",
-            "LS 300X"
+            "LS 300X",
+            "LS300X"
           ]
         },
         {
@@ -729,7 +854,8 @@
           "model": "LS 600d Pro",
           "aliases": [
             "Aputure LS 600D Pro II DMX",
-            "LS 600D Pro"
+            "LS 600D Pro",
+            "Aputure LS 600D"
           ]
         },
         {
@@ -737,7 +863,10 @@
           "model": "LS 600x Pro",
           "aliases": [
             "Aputure LS 600X Pro DMX",
-            "LS 600X Pro"
+            "LS 600X Pro",
+            "APUTURE 600x",
+            "Aputure 600x",
+            "Aputure LS 600X"
           ]
         },
         {
@@ -745,7 +874,10 @@
           "model": "LS 600c Pro",
           "aliases": [
             "Aputure LS 600C Pro RGBWW (W)DMX",
-            "LS 600C Pro"
+            "LS 600C Pro",
+            "APUTURE 600c",
+            "Aputure 600c",
+            "Aputure LS 600C"
           ]
         },
         {
@@ -880,6 +1012,80 @@
           "aliases": [
             "Nanlux Evoke 2400"
           ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM 80c",
+          "aliases": [
+            "APUTURE Storm 80C",
+            "Aputure 80C",
+            "Aputure LS 80C",
+            "LS80C"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM 1000c",
+          "aliases": [
+            "APUTURE Storm 1000c",
+            "Aputure 1000c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM 1200x",
+          "aliases": [
+            "APUTURE Storm 1200x",
+            "Aputure 1200x"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "STORM XT52",
+          "aliases": [
+            "APUTURE Storm XT52",
+            "Aputure XT52"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "AX9 PowerPAR",
+          "aliases": [
+            "ASTERA AX9",
+            "Astera AX9"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Evoke 5000B",
+          "aliases": [
+            "NANLUX Evoke 5000B",
+            "Nanlux Evoke 5000"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 600c Pro II",
+          "aliases": [
+            "Aputure LS 600C Pro II",
+            "LS 600 C Pro II"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 60x",
+          "aliases": [
+            "Aputure LS 60X",
+            "LS60X"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 60d",
+          "aliases": [
+            "Aputure LS 60D",
+            "LS60D"
+          ]
         }
       ]
     },
@@ -904,7 +1110,8 @@
           "aliases": [
             "ARRI Skypanel S120-C (4x1 ft)",
             "S120-C",
-            "SkyPanel S120"
+            "SkyPanel S120",
+            "Arri Skypanel S120"
           ]
         },
         {
@@ -913,7 +1120,8 @@
           "aliases": [
             "ARRI Skypanel S60-C (2x1 ft)",
             "S60-C",
-            "SkyPanel S60"
+            "SkyPanel S60",
+            "Arri Skypanel S60"
           ]
         },
         {
@@ -922,7 +1130,8 @@
           "aliases": [
             "ARRI Skypanel S30-C (1x1 ft)",
             "S30-C",
-            "SkyPanel S30"
+            "SkyPanel S30",
+            "Arri Skypanel S30"
           ]
         },
         {
@@ -1273,14 +1482,18 @@
           "manufacturer": "LiteGear",
           "model": "LiteMat+ Plus 2L",
           "aliases": [
-            "LiteGear LiteMat+ Plus 2L 29x101cm Bicolor"
+            "LiteGear LiteMat+ Plus 2L 29x101cm Bicolor",
+            "LiteMat Plus 2L",
+            "Litegear LiteMat Plus 2L"
           ]
         },
         {
           "manufacturer": "LiteGear",
           "model": "LiteMat+ Plus 4",
           "aliases": [
-            "LiteGear LiteMat+ Plus 4 53x101cm Bicolor"
+            "LiteGear LiteMat+ Plus 4 53x101cm Bicolor",
+            "LiteMat Plus 4",
+            "Litegear LiteMat Plus 4"
           ]
         },
         {
@@ -1512,6 +1725,93 @@
           "aliases": [
             "ROSCO Gaffers Kit"
           ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "MC",
+          "aliases": [
+            "APUTURE MC Video LED",
+            "Aputure MC RGBWW"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran F21c",
+          "aliases": [
+            "AMARAN F21c",
+            "Amaran F21c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran F22c",
+          "aliases": [
+            "AMARAN F22c",
+            "Amaran F22c"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SkyPanel X21",
+          "aliases": [
+            "ARRI Skypanel X21"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SkyPanel X23",
+          "aliases": [
+            "ARRI Skypanel X23"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "PavoSlim 60CL",
+          "aliases": [
+            "Nanlite PavoSlim 60cl",
+            "PavoSlim 60cl"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "PavoSlim 120C",
+          "aliases": [
+            "Nanlite PavoSlim 120c",
+            "PavoSlim 120c"
+          ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "PavoSlim 240CL",
+          "aliases": [
+            "Nanlite PavoSlim 240cl",
+            "PavoSlim 240cl"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Nova P300c",
+          "aliases": [
+            "Aputure Nova P300c",
+            "Nova P300c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Nova P600c",
+          "aliases": [
+            "Aputure Nova P600c",
+            "Nova P600c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "MC 4-Light Travel Kit",
+          "aliases": [
+            "LED RGBW Aputure MC-4",
+            "Aputure MC-4",
+            "Aputure MC 4-Light Kit"
+          ]
         }
       ]
     },
@@ -1526,7 +1826,9 @@
           "model": "AX1 PixelTube (8 Kit)",
           "aliases": [
             "Astera AX1 PixelTube RGBW 8fach Koffer",
-            "AX1 PixelTube"
+            "AX1 PixelTube",
+            "LED RGBW Tubes Astera AX1",
+            "Astera AX1 8er Set"
           ]
         },
         {
@@ -1543,7 +1845,11 @@
           "aliases": [
             "Astera Titan Tube RGBW 8fach Koffer",
             "Titan Tube",
-            "Astera Titan Tubes"
+            "Astera Titan Tubes",
+            "LED RGBW Titan Tube Astera FP1",
+            "Astera FP1 Titan Tube",
+            "Astera Titan Tube 4er Set",
+            "Astera Titan Tube 8er Set"
           ]
         },
         {
@@ -1551,7 +1857,10 @@
           "model": "Helios Tube (8 Kit)",
           "aliases": [
             "Astera Helios Tube RGBW 8fach Koffer",
-            "Helios Tube"
+            "Helios Tube",
+            "LED RGBW Helios Tube Astera FP2",
+            "Astera FP2 Helios Tube",
+            "Astera Helios Tube 4er Set"
           ]
         },
         {
@@ -1577,6 +1886,15 @@
           "aliases": [
             "Soonwell Magic Tube RGBW 4er Kit"
           ]
+        },
+        {
+          "manufacturer": "Nanlite",
+          "model": "PavoTube II 6C",
+          "aliases": [
+            "Pavo Tube II 6C",
+            "Nanlite Pavo Tube II 6C",
+            "LED RGBW Pavo Tube II 6C"
+          ]
         }
       ]
     },
@@ -1592,7 +1910,9 @@
           "aliases": [
             "KINOFLO 4-Bank 4ft",
             "Kino Flo 4Bank 4ft",
-            "Kino 4x4"
+            "Kino 4x4",
+            "Kino Flo 4 bank / 4 feet",
+            "Kino Flo 4 Bank 4 Feet"
           ]
         },
         {

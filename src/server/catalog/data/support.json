@@ -445,7 +445,8 @@
           "model": "Vacu Mount C3",
           "aliases": [
             "Vacu Mount C3 (Tri-Mount)",
-            "IdeaVision C3"
+            "IdeaVision C3",
+            "Idea Vision VacuMount C3 Kit"
           ]
         },
         {
@@ -453,6 +454,23 @@
           "model": "Light Mover Natrix",
           "aliases": [
             "Natrix"
+          ]
+        },
+        {
+          "manufacturer": "GFM",
+          "model": "GF-HiLo Swivel Set",
+          "aliases": [
+            "GFM GF-HiLo Swivel",
+            "GF-HiLo Swivel"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Hydra Alien Car Mounting System Pro Kit",
+          "aliases": [
+            "Tilta Hydra Alien Car Mount",
+            "Tilta Hydra Alien Pro Kit",
+            "Hydra Alien"
           ]
         }
       ]
@@ -697,14 +715,21 @@
           "manufacturer": "DJI",
           "model": "Ronin 2",
           "aliases": [
-            "DJI Ronin II"
+            "DJI Ronin II",
+            "DJI Ronin 2 Gimbal",
+            "Gimbal DJI Ronin 2"
           ]
         },
         {
           "manufacturer": "DJI",
           "model": "RS 2",
           "aliases": [
-            "Ronin RS 2"
+            "Ronin RS 2",
+            "DJI Ronin RS 2 Gimbal",
+            "DJI Ronin RS 2",
+            "Gimbal - DJI Ronin RS2 Pro",
+            "DJI Ronin RS2 Pro",
+            "DJI Ronin RS2"
           ]
         },
         {
@@ -721,7 +746,8 @@
           "manufacturer": "DJI",
           "model": "RS 4 Pro",
           "aliases": [
-            "Ronin RS 4 Pro"
+            "Ronin RS 4 Pro",
+            "DJI Ronin RS 4 Pro Combo"
           ],
           "specs": {
             "payload_kg": 4.5
@@ -793,7 +819,9 @@
           "model": "GS",
           "name": "Ready Rig GS Gimbal Support Vest",
           "aliases": [
-            "ReadyRig"
+            "ReadyRig",
+            "Readyrig + Pro Arms",
+            "Readyrig Pro Arms"
           ]
         },
         {
@@ -966,6 +994,94 @@
           "aliases": [
             "Freefly MóVI M15",
             "MoVI M15"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS 4",
+          "aliases": [
+            "DJI Ronin RS 4 Gimbal",
+            "DJI RS 4",
+            "Ronin RS 4"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Master Wheels",
+          "aliases": [
+            "DJI Master Wheels"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Force Pro",
+          "aliases": [
+            "DJI Force Pro"
+          ]
+        },
+        {
+          "manufacturer": "Cinemilled",
+          "model": "PRO-Ring Handlebar",
+          "aliases": [
+            "CINEMILLED PRO-Ring Handlebar",
+            "Cinemilled Pro Ring Handlebar"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Advanced Ring Grip for DJI RS",
+          "aliases": [
+            "Tilta Advanced Ring Grip"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Armor Man 3",
+          "aliases": [
+            "Tilta Armor Man 3",
+            "Armor Man 3.0",
+            "Tilta Armor Man"
+          ]
+        },
+        {
+          "manufacturer": "NODO",
+          "model": "Inertia Wheels 2-Axis",
+          "aliases": [
+            "NODO Inertia Wheels 2-Axis",
+            "NODO Inertia Wheels"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Gravity G2X",
+          "aliases": [
+            "Gimbal - Tilta G2-X Gravity",
+            "Tilta G2-X",
+            "Tilta Gravity G2-X"
+          ]
+        },
+        {
+          "manufacturer": "Glidecam",
+          "model": "Smooth Shooter",
+          "aliases": [
+            "Steadycam Glidecam Smooth Shooter 4000pro Kit",
+            "Glidecam Smooth Shooter"
+          ]
+        },
+        {
+          "manufacturer": "Glidecam",
+          "model": "X-20",
+          "aliases": [
+            "Steadycam Glidecam X-20",
+            "Glidecam X20"
+          ]
+        },
+        {
+          "manufacturer": "Glidecam",
+          "model": "HD-2000",
+          "aliases": [
+            "Steadystick - Glidecam HD-2000",
+            "Glidecam HD2000"
           ]
         }
       ]
@@ -1348,7 +1464,9 @@
           "aliases": [
             "O'Connor 2065",
             "Ultimate 2065",
-            "OConnor 2065"
+            "OConnor 2065",
+            "O’Connor 2065 Set",
+            "O'Connor 2065 Set"
           ],
           "specs": {
             "payload_kg": 32
@@ -1382,6 +1500,140 @@
             "O'Connor Arri Dovetail Slide Plate"
           ],
           "bulk": true
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Spinhead",
+          "aliases": [
+            "CARTONI Spinhead"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv8",
+          "aliases": [
+            "Sachtler flowtech aktiv8",
+            "Sachtler aktiv8"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 20 S1",
+          "aliases": [
+            "Sachtler Video 20 S1"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 18 S1",
+          "aliases": [
+            "Sachtler Video 18 S1"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 6",
+          "aliases": [
+            "Sachtler FSB 6",
+            "FSB6"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 8",
+          "aliases": [
+            "Sachtler FSB 8",
+            "FSB8"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 10",
+          "aliases": [
+            "Sachtler FSB 10",
+            "FSB10"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "DV 6",
+          "aliases": [
+            "Stativkopf Sachtler DV6",
+            "Sachtler DV6"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "DV 8",
+          "aliases": [
+            "Stativkopf Sachtler DV8/100",
+            "Sachtler DV8"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "DV 12",
+          "aliases": [
+            "Stativkopf Sachtler DV12",
+            "Sachtler DV12"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "ace M",
+          "aliases": [
+            "Stativkopf Sachtler ace M",
+            "Sachtler Ace M"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 4",
+          "aliases": [
+            "Stativkopf Sachtler FSB4",
+            "Sachtler FSB4"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 18 III",
+          "aliases": [
+            "Stativkopf Sachtler Video 18 III",
+            "Sachtler Video 18 III"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "501HDV",
+          "aliases": [
+            "Stativkopf Manfrotto 501",
+            "Manfrotto 501"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "Nitrotech N8 MVHN8AH",
+          "aliases": [
+            "Stativkopf Manfrotto Nitrotech N8 (MVHN8AH)",
+            "Manfrotto Nitrotech N8",
+            "MVHN8AH"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Digidutch",
+          "aliases": [
+            "Dutchhead Cartoni Digidutch",
+            "Cartoni Digi Dutch"
+          ]
+        },
+        {
+          "manufacturer": "Ronford-Baker",
+          "model": "F7 Mk III",
+          "aliases": [
+            "Ronford F7 MK III",
+            "Ronford Fluid 7"
+          ]
         }
       ]
     },
@@ -1489,7 +1741,8 @@
           "model": "Bangi Slider",
           "aliases": [
             "GF Bangi",
-            "Bangi/Slider GF Bangi GFM"
+            "Bangi/Slider GF Bangi GFM",
+            "GF Slider"
           ]
         },
         {
@@ -1535,7 +1788,9 @@
           "model": "Scooter Slider 1.6m",
           "aliases": [
             "MovieTech Scooter",
-            "MovieTech Scooter 1,6m"
+            "MovieTech Scooter 1,6m",
+            "MOVIETECH Scooter Dolly",
+            "MovieTech Scooter Dolly"
           ]
         },
         {
@@ -1703,6 +1958,31 @@
           "aliases": [
             "Ronford Slider 4ft.",
             "Ronford Slider 4ft"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Mono Track",
+          "aliases": [
+            "PANTHER Mono Track",
+            "Panther Monotrack"
+          ]
+        },
+        {
+          "manufacturer": "Raptor",
+          "model": "Rickshaw 2",
+          "aliases": [
+            "RAPTOR Rikscha 2",
+            "Raptor Rickshaw 2"
+          ]
+        },
+        {
+          "manufacturer": "Edelkrone",
+          "model": "SliderPLUS v5 PRO Long",
+          "aliases": [
+            "Edelkrone Slider Plus v5 Pro Long",
+            "Edelkrone Slider v5 Pro long",
+            "Edelkrone SliderPLUS"
           ]
         }
       ]
@@ -2110,6 +2390,14 @@
             "Cinekinetic Marsupial"
           ],
           "bulk": true
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "529B",
+          "aliases": [
+            "Manfrotto 529b",
+            "Manfrotto 529B Hi-Hat"
+          ]
         }
       ]
     },
@@ -2156,7 +2444,9 @@
           "model": "Crane 120-9.0",
           "aliases": [
             "ABC Crane 120",
-            "Leichtkran ABC Crane 120-9.0"
+            "Leichtkran ABC Crane 120-9.0",
+            "ABC Kran 120 – 9m",
+            "ABC Kran 120"
           ]
         },
         {
@@ -2257,6 +2547,31 @@
           "aliases": [
             "PANTHER Mini Jib",
             "Panther Mini Jib"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio 10 Telescopic Crane",
+          "aliases": [
+            "SCORPIO Crane 10",
+            "Scorpio 10"
+          ]
+        },
+        {
+          "manufacturer": "Jimmy Jib",
+          "model": "Triangle Pro",
+          "aliases": [
+            "JIMMY Jib Triangle Pro",
+            "Jimmy Jib Triangle Pro Series"
+          ]
+        },
+        {
+          "manufacturer": "Prosup",
+          "model": "EJib Arm",
+          "aliases": [
+            "Pro Sup EJIb-Arm",
+            "Prosup EJib",
+            "EJIB"
           ]
         }
       ]
