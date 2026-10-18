@@ -36,6 +36,16 @@ export const categoriesDe: Dict = {
   Weights: "Gewichte",
   Wireless: "Funk",
   Zoom: "Zoom",
+  "Photo Lenses": "Fotoobjektive",
+  Cranes: "Kräne",
+  "Remote Heads": "Remote Heads",
+  Lighting: "Licht",
+  "LED Panels": "LED-Flächen",
+  "LED Tubes": "LED-Röhren",
+  "LED Spots & Fresnels": "LED-Spots & Stufenlinsen",
+  HMI: "HMI",
+  Tungsten: "Kunstlicht",
+  "Lighting Accessories": "Lichtzubehör",
 };
 
 /** Sections of the standard catalog (Settings → Standard catalog). */
@@ -54,6 +64,8 @@ export const catalogSectionsDe: Dict = {
   "Tripods, heads, gimbals, stabilisers, remote heads and camera-department grip": "Stative, Köpfe, Gimbals, Stabilisatoren, Remote Heads und Kamera-Grip",
   Cables: "Kabel",
   "Video, power and control cables (tracked as bulk quantities)": "Video-, Strom- und Steuerkabel (als Stückzahl geführt)",
+  Lighting: "Licht",
+  "LED panels, tubes and spots, HMI and tungsten lights": "LED-Flächen, -Röhren und -Spots, HMI und Kunstlicht",
 };
 
 /**
@@ -187,4 +199,9 @@ export const genericNamesDe: Dict = {
   "BNC Cable 20 m": "BNC-Kabel 20 m",
   "BNC Cable 30 m": "BNC-Kabel 30 m",
   "BNC Cable 50 m": "BNC-Kabel 50 m",
+  "MiniBrute 4x650W PAR36": "MiniBrute 4x650W PAR36",
+  "MiniBrute 6x650W PAR36": "MiniBrute 6x650W PAR36",
+  "MiniBrute 8x650W PAR36": "MiniBrute 8x650W PAR36",
+  "Space Light 6x800W": "Space Light 6x800W",
+  "PAR64 RGB LED": "LED-PAR64 RGB",
 };

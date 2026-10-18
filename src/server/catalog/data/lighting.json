@@ -1,0 +1,1290 @@
+{
+  "key": "lighting",
+  "label": "Lighting",
+  "description": "LED panels, tubes and spots, HMI and tungsten lights",
+  "groups": [
+    {
+      "category": [
+        "Lighting",
+        "Tungsten"
+      ],
+      "entries": [
+        {
+          "manufacturer": "ACL",
+          "model": "Aircraft Landing Light 16x600W",
+          "aliases": [
+            "ACL 16x600W",
+            "ACL 16x600W (28V)"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "T12 Fresnel 10/12kW",
+          "aliases": [
+            "ARRI 10kW/12kW Stufe T12",
+            "ARRI T12"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "T24 Fresnel 20/24kW",
+          "aliases": [
+            "ARRI 20kW/24kW Stufe T24",
+            "ARRI T24"
+          ]
+        },
+        {
+          "manufacturer": "Barger",
+          "model": "3-Lite 3x800W",
+          "aliases": [
+            "Barger 3x800W 3-Lite",
+            "Barger 3-Lite"
+          ]
+        },
+        {
+          "manufacturer": "Barger",
+          "model": "6-Lite 6x800W",
+          "aliases": [
+            "Barger 6x800W 6-Lite",
+            "Barger 6-Lite"
+          ]
+        },
+        {
+          "manufacturer": "Dinolight",
+          "model": "6x1kW PAR64",
+          "aliases": [
+            "Dinolight 6 x 1000 Watt",
+            "Dino 6"
+          ]
+        },
+        {
+          "manufacturer": "Dinolight",
+          "model": "9x1kW MaxiBrute PAR64",
+          "aliases": [
+            "Dinolight 9x1kW MaxiBrute PAR64",
+            "MaxiBrute 9"
+          ]
+        },
+        {
+          "manufacturer": "Dinolight",
+          "model": "12x1kW PAR64",
+          "aliases": [
+            "Dinolight 12x1kW PAR64",
+            "Dino 12"
+          ]
+        },
+        {
+          "manufacturer": "Dinolight",
+          "model": "18x1kW PAR64",
+          "aliases": [
+            "Dinolight 18 x 1kW PAR64",
+            "Dino 18"
+          ]
+        },
+        {
+          "manufacturer": "ETC",
+          "model": "Source Four 575/750W Profile",
+          "aliases": [
+            "ETC Source4 575/750W Profiler",
+            "Source4",
+            "Source Four"
+          ]
+        },
+        {
+          "manufacturer": "JEM",
+          "model": "Springball 19in 500W",
+          "aliases": [
+            "JEM Ball 500W Springball 19\", E27",
+            "JEM Ball 19\""
+          ]
+        },
+        {
+          "manufacturer": "JEM",
+          "model": "Springball 22in 500W/1kW",
+          "aliases": [
+            "JEM Ball 500W/1kW Springball 22\"",
+            "JEM Ball 22\""
+          ]
+        },
+        {
+          "manufacturer": "JEM",
+          "model": "Springball 30in 1kW/2kW",
+          "aliases": [
+            "JEM Ball 1kW/2kW Springball 30\"",
+            "JEM Ball 30\""
+          ]
+        },
+        {
+          "manufacturer": "JEM",
+          "model": "Ball 5kW Flood",
+          "aliases": [
+            "JEM Ball 5KW Fluter",
+            "JEM Ball 5kW"
+          ]
+        },
+        {
+          "manufacturer": "Generic",
+          "model": "MiniBrute 4x650W PAR36",
+          "aliases": [
+            "MiniBrute 4x650W Blinder (PAR 36)",
+            "MiniBrute 4"
+          ]
+        },
+        {
+          "manufacturer": "Generic",
+          "model": "MiniBrute 6x650W PAR36",
+          "aliases": [
+            "MiniBrute 6x650W Blinder (PAR 36)",
+            "MiniBrute 6"
+          ]
+        },
+        {
+          "manufacturer": "Generic",
+          "model": "MiniBrute 8x650W PAR36",
+          "aliases": [
+            "MiniBrute 8x650W Blinder (PAR 36)",
+            "MiniBrute 8"
+          ]
+        },
+        {
+          "manufacturer": "Generic",
+          "model": "Space Light 6x800W",
+          "aliases": [
+            "Space Light 6x800W Halogen Fluter",
+            "Space Light"
+          ]
+        }
+      ]
+    },
+    {
+      "category": [
+        "Lighting",
+        "HMI"
+      ],
+      "entries": [
+        {
+          "manufacturer": "ARRI",
+          "model": "X12 Flood 1.2kW",
+          "aliases": [
+            "ARRI 1,2kW Fluter X12",
+            "ARRI X12"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRISUN 12 PAR 1.2kW",
+          "aliases": [
+            "ARRI 1,2kW PAR ArriSun 12",
+            "ArriSun 12"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 1200 Fresnel",
+          "aliases": [
+            "ARRI 1,2kW Stufe Compact",
+            "ARRI Compact 1200"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "M18",
+          "aliases": [
+            "ARRI 1,2kW/1,8kW M18",
+            "ARRI M18"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRILUX 125 Pocket PAR",
+          "aliases": [
+            "ARRI 125W PocketPAR Arrilux",
+            "Pocket PAR 125"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRILUX 200 Pocket PAR",
+          "aliases": [
+            "ARRI 200W PocketPAR Arrilux",
+            "Pocket PAR 200"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRILUX 400 Pocket PAR",
+          "aliases": [
+            "ARRI 400W PocketPAR Arrilux",
+            "Pocket PAR 400"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRISUN 120 PAR 12kW",
+          "aliases": [
+            "ARRI 12kW PAR ArriSun 120",
+            "ArriSun 120"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIMAX 18/12",
+          "aliases": [
+            "ARRI 12kW/18kW ArriMax",
+            "ArriMax"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Daylight 18/12 Fresnel",
+          "aliases": [
+            "ARRI 12kW/18kW Stufe Daylight (Fresnel)",
+            "ARRI 18/12 Fresnel"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 2500 Fresnel",
+          "aliases": [
+            "ARRI 2,5kW Stufe Compact",
+            "ARRI Compact 2500"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "X40/25 Flood",
+          "aliases": [
+            "ARRI 2,5kW/4kW Fluter Arri X 40/25",
+            "ARRI X40"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "M40",
+          "aliases": [
+            "ARRI 2,5kW/4kW M40",
+            "ARRI M40"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRISUN 40/25 PAR",
+          "aliases": [
+            "ARRI 2,5kW/4kW PAR ArriSun 40/25",
+            "ArriSun 40/25"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 200 Fresnel",
+          "aliases": [
+            "ARRI 200W Stufe Compact",
+            "ARRI Compact 200"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "True Blue D40 Fresnel",
+          "aliases": [
+            "ARRI 4kW Stufe D40 True Blue",
+            "ARRI D40"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRISUN 5 PAR 575W",
+          "aliases": [
+            "ARRI 575W PAR ArriSun 5",
+            "ArriSun 5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 575 / D5 Fresnel",
+          "aliases": [
+            "ARRI 575W Stufe Compact / D5",
+            "ARRI D5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRISUN 60 PAR 6kW",
+          "aliases": [
+            "ARRI 6kW PAR ArriSun 60",
+            "ArriSun 60"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact 6000 Fresnel",
+          "aliases": [
+            "ARRI 6kW Stufe Arri Compact",
+            "ARRI Compact 6000"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "M90",
+          "aliases": [
+            "ARRI 6kW/9kW M90",
+            "ARRI M90"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "M8",
+          "aliases": [
+            "ARRI 800W M8",
+            "ARRI M8"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Lightstream DPB 70 1.2kW",
+          "aliases": [
+            "Dedolight 1,2kW Lightstream DPB 70",
+            "DPB70"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLH200D",
+          "aliases": [
+            "Dedolight 200W DLH200D"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLH400D",
+          "aliases": [
+            "Dedolight 400W DLH400D"
+          ]
+        },
+        {
+          "manufacturer": "Filmgear",
+          "model": "F1.8k Faceted PAR",
+          "aliases": [
+            "Filmgear 1,2kW/1,8kW PAR Faceted F1,8k (\"M18\")",
+            "Filmgear 1.8k PAR"
+          ]
+        },
+        {
+          "manufacturer": "Filmgear",
+          "model": "1.2/1.8kW Fresnel",
+          "aliases": [
+            "Filmgear 1,2kW/1,8kW Stufe",
+            "Filmgear 1.8k Fresnel"
+          ]
+        },
+        {
+          "manufacturer": "K5600",
+          "model": "Joker-Bug 400",
+          "aliases": [
+            "Joker Bug 400W Par K5600",
+            "Joker 400"
+          ]
+        },
+        {
+          "manufacturer": "K5600",
+          "model": "Joker-Bug 800",
+          "aliases": [
+            "Joker Bug 800W Par K5600",
+            "Joker 800"
+          ]
+        },
+        {
+          "manufacturer": "Mole-Richardson",
+          "model": "MoleBeam 2.5/4kW",
+          "aliases": [
+            "MoleBeam 2,5/4kW",
+            "MoleBeam"
+          ]
+        }
+      ]
+    },
+    {
+      "category": [
+        "Lighting",
+        "Lighting Accessories"
+      ],
+      "entries": [
+        {
+          "manufacturer": "ARRI",
+          "model": "Bug-a-Beam for Pocket PAR 400",
+          "aliases": [
+            "ARRI Bug-a-Beam (Source4 Adapter)",
+            "Bug-a-Beam"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Panaura 3",
+          "aliases": [
+            "Dedolight Panaura 3"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Panaura 5",
+          "aliases": [
+            "Dedolight Panaura 5"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Panaura 7",
+          "aliases": [
+            "Dedolight Panaura 7"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DP400 Imager",
+          "aliases": [
+            "Dedolight Projektionsvorsatz DP400",
+            "DP400"
+          ]
+        },
+        {
+          "manufacturer": "K5600",
+          "model": "Bug-a-Beam for Joker 800",
+          "aliases": [
+            "Joker Bug Bug-a-Beam (Source4 Adapter)"
+          ]
+        },
+        {
+          "manufacturer": "BB&S",
+          "model": "Flyer Boom Kit",
+          "aliases": [
+            "BB&S Flyer Boom Kit"
+          ]
+        }
+      ]
+    },
+    {
+      "category": [
+        "Lighting",
+        "LED Spots & Fresnels"
+      ],
+      "entries": [
+        {
+          "manufacturer": "ARRI",
+          "model": "Orbiter",
+          "aliases": [
+            "ARRI Orbiter (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "L5-C",
+          "aliases": [
+            "ARRI L5-C DMX Bicolor/RGBW",
+            "L5-C"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "L7-C",
+          "aliases": [
+            "ARRI L7-C DMX Bicolor/RGBW",
+            "L7-C"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "AX5 TriplePAR",
+          "aliases": [
+            "Astera AX5 RGBAW",
+            "AX5"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "AX10 SpotMax",
+          "aliases": [
+            "Astera AX10 SpotMax Akku RGBW",
+            "AX10"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "NYX Bulb (8 Kit)",
+          "aliases": [
+            "Astera NYX Bulb RGB (W)DMX 8fach Koffer",
+            "NYX Bulb"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Accent B7c (8 Light Kit)",
+          "aliases": [
+            "Aputure Accent B7c 8 Light Kit",
+            "Accent B7c"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 300d II",
+          "aliases": [
+            "Aputure LS 300D Mk II DMX",
+            "LS 300D II"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 300x",
+          "aliases": [
+            "Aputure LS 300X Bi-Color II DMX",
+            "LS 300X"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 600d Pro",
+          "aliases": [
+            "Aputure LS 600D Pro II DMX",
+            "LS 600D Pro"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 600x Pro",
+          "aliases": [
+            "Aputure LS 600X Pro DMX",
+            "LS 600X Pro"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 600c Pro",
+          "aliases": [
+            "Aputure LS 600C Pro RGBWW (W)DMX",
+            "LS 600C Pro"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "LS 1200d Pro",
+          "aliases": [
+            "Aputure LS 1200D DMX",
+            "LS 1200D"
+          ]
+        },
+        {
+          "manufacturer": "Creamsource",
+          "model": "Vortex8",
+          "aliases": [
+            "Creamsource Vortex 8",
+            "Vortex 8"
+          ]
+        },
+        {
+          "manufacturer": "Creamsource",
+          "model": "Vortex4",
+          "aliases": [
+            "Creamsource Vortex4",
+            "Vortex 4"
+          ]
+        },
+        {
+          "manufacturer": "Creamsource",
+          "model": "Micro Colour",
+          "aliases": [
+            "Creamsource Micro Colour RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLED9-BI",
+          "aliases": [
+            "Dedolight DLED9-BI 90W DMX Bicolor",
+            "DLED9"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLED4-BI",
+          "aliases": [
+            "Dedolight DLED4-BI 40W DMX Bicolor",
+            "DLED4"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLED7-BI",
+          "aliases": [
+            "Dedolight DLED7-BI 90W Bicolor",
+            "DLED7"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Ledzilla2",
+          "aliases": [
+            "Dedolight LEDZILLA2 DLOBML2 Daylight",
+            "Ledzilla"
+          ]
+        },
+        {
+          "manufacturer": "Fiilex",
+          "model": "P3 Color",
+          "aliases": [
+            "Fiilex P3 Color Pro Bundle RGBW/DMX"
+          ]
+        },
+        {
+          "manufacturer": "Fiilex",
+          "model": "Q5 Color",
+          "aliases": [
+            "Fiilex Q5 Color RGBW/DMX"
+          ]
+        },
+        {
+          "manufacturer": "Fiilex",
+          "model": "Q8 Color",
+          "aliases": [
+            "Fiilex Q8 Color RGBW/(W)DMX/LumenRadio"
+          ]
+        },
+        {
+          "manufacturer": "Fiilex",
+          "model": "Q10 Color",
+          "aliases": [
+            "Fiilex Q10 Color RGBWW/(W)DMX/LumenRadio"
+          ]
+        },
+        {
+          "manufacturer": "Hudson Spider",
+          "model": "Mozzie Deluxe Kit",
+          "aliases": [
+            "Hudson Spider MOZZIE Deluxe Kit"
+          ]
+        },
+        {
+          "manufacturer": "Hudson Spider",
+          "model": "Redback",
+          "aliases": [
+            "Hudson Spider Redback DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Nanlux",
+          "model": "Evoke 1200",
+          "aliases": [
+            "Nanlux Evoke 1200 Spot DMX/LumenRadio"
+          ]
+        },
+        {
+          "manufacturer": "Generic",
+          "model": "PAR64 RGB LED",
+          "aliases": [
+            "PAR64 RGB Studio DMX"
+          ]
+        }
+      ]
+    },
+    {
+      "category": [
+        "Lighting",
+        "LED Panels"
+      ],
+      "entries": [
+        {
+          "manufacturer": "ARRI",
+          "model": "SkyPanel S360-C",
+          "aliases": [
+            "ARRI Skypanel S360-C (4x3 ft)",
+            "S360-C",
+            "SkyPanel S360"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SkyPanel S120-C",
+          "aliases": [
+            "ARRI Skypanel S120-C (4x1 ft)",
+            "S120-C",
+            "SkyPanel S120"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SkyPanel S60-C",
+          "aliases": [
+            "ARRI Skypanel S60-C (2x1 ft)",
+            "S60-C",
+            "SkyPanel S60"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SkyPanel S30-C",
+          "aliases": [
+            "ARRI Skypanel S30-C (1x1 ft)",
+            "S30-C",
+            "SkyPanel S30"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SkyPanel X",
+          "aliases": [
+            "ARRI Skypanel X"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "Hydra Panel (4 Kit)",
+          "aliases": [
+            "Astera Hydra Panel RGBAM 4er Kit",
+            "Hydra Panel"
+          ]
+        },
+        {
+          "manufacturer": "Aladdin",
+          "model": "A-Lite",
+          "aliases": [
+            "Aladdin A-Lite (interner Akku) USB Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Aputure",
+          "model": "Amaran AL-MC",
+          "aliases": [
+            "Aputure AL-MC (interner Akku) RGBWW/FX",
+            "AL-MC"
+          ]
+        },
+        {
+          "manufacturer": "Carpetlight",
+          "model": "CL84",
+          "aliases": [
+            "Carpetlight CL84 234x126cm"
+          ]
+        },
+        {
+          "manufacturer": "Carpetlight",
+          "model": "CL44",
+          "aliases": [
+            "Carpetlight CL44"
+          ]
+        },
+        {
+          "manufacturer": "Carpetlight",
+          "model": "CL42",
+          "aliases": [
+            "Carpetlight CL42"
+          ]
+        },
+        {
+          "manufacturer": "Carpetlight",
+          "model": "CL21",
+          "aliases": [
+            "Carpetlight CL21",
+            "Carpetlight CL-21"
+          ]
+        },
+        {
+          "manufacturer": "Carpetlight",
+          "model": "Carpetino",
+          "aliases": [
+            "Carpetlight Carpetino"
+          ]
+        },
+        {
+          "manufacturer": "Carpetlight",
+          "model": "Stripe & Panel Kit",
+          "aliases": [
+            "Carpetlight Stripe & Panel Kit DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Creamsource",
+          "model": "Doppio",
+          "aliases": [
+            "Creamsource Doppio (2x1 ft) Spot lenses, Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "DMG Lumière",
+          "model": "MAXI MIX",
+          "aliases": [
+            "DMG Lumiere Maxi Mix",
+            "DMG Maxi Mix"
+          ]
+        },
+        {
+          "manufacturer": "DMG Lumière",
+          "model": "MAXI SWITCH",
+          "aliases": [
+            "DMG Lumiere Maxi Switch BiColor",
+            "DMG Maxi Switch"
+          ]
+        },
+        {
+          "manufacturer": "DMG Lumière",
+          "model": "MINI MIX",
+          "aliases": [
+            "DMG Lumiere Mini Mix DMX",
+            "DMG Mini Mix"
+          ]
+        },
+        {
+          "manufacturer": "DMG Lumière",
+          "model": "SL1 MIX",
+          "aliases": [
+            "DMG Lumiere SL1 Mix",
+            "DMG SL1 Mix"
+          ]
+        },
+        {
+          "manufacturer": "DMG Lumière",
+          "model": "SL1 SWITCH",
+          "aliases": [
+            "DMG Lumiere SL1 Switch BiColor",
+            "DMG SL1 Switch"
+          ]
+        },
+        {
+          "manufacturer": "Fomex",
+          "model": "FL1200",
+          "aliases": [
+            "Fomex FL1200 2x1ft Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Fomex",
+          "model": "FC1200",
+          "aliases": [
+            "Fomex FC1200 2x1 ft RGBWW/(W)DMX"
+          ]
+        },
+        {
+          "manufacturer": "Fomex",
+          "model": "FL600",
+          "aliases": [
+            "Fomex FL600 1x1ft 30x30cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Fomex",
+          "model": "RollLite RL21",
+          "aliases": [
+            "Fomex RollLite RL21 70x35cm DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Fomex",
+          "model": "RollLite RL31",
+          "aliases": [
+            "Fomex RollLite RL31 92x46cm DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Fomex",
+          "model": "RollLite RL33",
+          "aliases": [
+            "Fomex RollLite RL33 92x92cm DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Inteca",
+          "model": "Butterfly-LedZ 100",
+          "aliases": [
+            "Inteca Butterfly-LedZ 100 120x120cm"
+          ]
+        },
+        {
+          "manufacturer": "Inteca",
+          "model": "Butterfly-LedZ 81",
+          "aliases": [
+            "Inteca Butterfly-LedZ 81 120x120cm"
+          ]
+        },
+        {
+          "manufacturer": "Inteca",
+          "model": "Smart Wing 203",
+          "aliases": [
+            "Inteca Smart Wing 203, 2ft"
+          ]
+        },
+        {
+          "manufacturer": "Inteca",
+          "model": "Smart Wing 403",
+          "aliases": [
+            "Inteca Smart Wing 403, 4ft"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 200",
+          "aliases": [
+            "KinoFlo Celeb 200 (2x1 ft) Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 250",
+          "aliases": [
+            "KinoFlo Celeb 250 (2x1 ft) (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 401",
+          "aliases": [
+            "KinoFlo Celeb 401 (4x1 ft) Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 401Q",
+          "aliases": [
+            "KinoFlo Celeb 401Q (2x2 ft) (W)DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 450",
+          "aliases": [
+            "KinoFlo Celeb 450 Kit (4x1 ft) (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Celeb 850",
+          "aliases": [
+            "KinoFlo Celeb 850 (114cm x 66cmt) (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Diva-Lite 20",
+          "aliases": [
+            "KinoFlo Diva Lite 20 (2x1 ft)"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle 21",
+          "aliases": [
+            "KinoFlo FreeStyle 21 (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle 31",
+          "aliases": [
+            "KinoFlo Freestyle 31 (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle 41",
+          "aliases": [
+            "KinoFlo FreeStyle 41 (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "FreeStyle T44",
+          "aliases": [
+            "KinoFlo FreeStyle T44 (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Kino Flo",
+          "model": "Select 30",
+          "aliases": [
+            "KinoFlo Select 30 (W)DMX Bicolor/RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Lightstar",
+          "model": "Luxed-S",
+          "aliases": [
+            "Lightstar Luxed-S Full Bi-Color/DMX"
+          ]
+        },
+        {
+          "manufacturer": "Lightstar",
+          "model": "Luxed-4",
+          "aliases": [
+            "Lightstar Luxed-4 Bi-Color"
+          ]
+        },
+        {
+          "manufacturer": "Lightstar",
+          "model": "Luxed-9",
+          "aliases": [
+            "Lightstar Luxed-9 Bi-Color"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat Spectrum 1",
+          "aliases": [
+            "LiteGear LiteMat Spectrum 1 29x53cm RGBWWA"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat Spectrum 2",
+          "aliases": [
+            "LiteGear LiteMat Spectrum 2 53x53cm RGBWWA"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat Spectrum 2L",
+          "aliases": [
+            "LiteGear LiteMat Spectrum 2L 29x101cm RGBWWA"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat Spectrum 3",
+          "aliases": [
+            "LiteGear LiteMat Spectrum 3 53x77cm RGBWWA"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat Spectrum 4",
+          "aliases": [
+            "LiteGear LiteMat Spectrum 4 53x101cm RGBWWA"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat+ Plus 1",
+          "aliases": [
+            "LiteGear LiteMat+ Plus 1 29x53cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat+ Plus 2",
+          "aliases": [
+            "LiteGear LiteMat+ Plus 2 53x53cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat+ Plus 2L",
+          "aliases": [
+            "LiteGear LiteMat+ Plus 2L 29x101cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat+ Plus 4",
+          "aliases": [
+            "LiteGear LiteMat+ Plus 4 53x101cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteMat+ Plus 8",
+          "aliases": [
+            "LiteGear LiteMat+ Plus 8"
+          ]
+        },
+        {
+          "manufacturer": "LiteGear",
+          "model": "LiteTile 2x8",
+          "aliases": [
+            "LiteGear LiteTile 2x8 Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "Sumolight",
+          "model": "SumoMAX",
+          "aliases": [
+            "Sumolight SumoMAX RGB"
+          ]
+        },
+        {
+          "manufacturer": "Sumolight",
+          "model": "Sumo100",
+          "aliases": [
+            "Sumolight Sumo100 Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "SWIT",
+          "model": "PL-E60",
+          "aliases": [
+            "Swit PLE60 1x1ft 60W BiColor",
+            "Swit PLE60"
+          ]
+        },
+        {
+          "manufacturer": "SWIT",
+          "model": "PL-E90",
+          "aliases": [
+            "Swit PLE90 2x1ft90W BiColor",
+            "Swit PLE90"
+          ]
+        },
+        {
+          "manufacturer": "SWIT",
+          "model": "S-2410",
+          "aliases": [
+            "Swit S2410 rund, 41,5cm, Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "SWIT",
+          "model": "S-2610",
+          "aliases": [
+            "Swit S2610 Flexible 46x60cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "SWIT",
+          "model": "S-2620",
+          "aliases": [
+            "Swit S2620 Flexible 30x45cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "SWIT",
+          "model": "S-2630",
+          "aliases": [
+            "Swit S2630 Flexible 60x60cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "SWIT",
+          "model": "S-2712",
+          "aliases": [
+            "Swit S2712 RGBW"
+          ]
+        },
+        {
+          "manufacturer": "Tecpro",
+          "model": "Felloni Turbo",
+          "aliases": [
+            "Tecpro Felloni Turbo Bi-Color"
+          ]
+        },
+        {
+          "manufacturer": "Tecpro",
+          "model": "Felloni2 BI50HO",
+          "aliases": [
+            "Tecpro Felloni2 BI50HO 1x1ft 30x30cm Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "Velvet Light 1",
+          "aliases": [
+            "TheLight Velvet Light 1 1x1ft 30x30cm DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "Velvet Power 1",
+          "aliases": [
+            "TheLight Velvet Power 1 1x1ft 30x30cm DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "Velvet Light 2",
+          "aliases": [
+            "TheLight Velvet Light 2 2x1ft 60x30cm DMX Bicolor"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "Velvet Light 2 EVO",
+          "aliases": [
+            "TheLight Velvet Light 2 EVO 2x1ft 60x30cm DMX RGBWW"
+          ]
+        },
+        {
+          "manufacturer": "The Light",
+          "model": "Velvet Kosmos 400",
+          "aliases": [
+            "TheLight Velvet Kosmos 400 RGBW-CW/DMX/Wifi"
+          ]
+        },
+        {
+          "manufacturer": "Westcott",
+          "model": "Ice Light 5600K",
+          "aliases": [
+            "Westcott IceLight 5600K",
+            "Ice Light"
+          ]
+        }
+      ]
+    },
+    {
+      "category": [
+        "Lighting",
+        "LED Tubes"
+      ],
+      "entries": [
+        {
+          "manufacturer": "Astera",
+          "model": "AX1 PixelTube (8 Kit)",
+          "aliases": [
+            "Astera AX1 PixelTube RGBW 8fach Koffer",
+            "AX1 PixelTube"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "AX3 LightDrop (4 Kit)",
+          "aliases": [
+            "Astera AX3 LightDrop RGBW 4fach Koffer",
+            "AX3 LightDrop"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "Titan Tube (8 Kit)",
+          "aliases": [
+            "Astera Titan Tube RGBW 8fach Koffer",
+            "Titan Tube",
+            "Astera Titan Tubes"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "Helios Tube (8 Kit)",
+          "aliases": [
+            "Astera Helios Tube RGBW 8fach Koffer",
+            "Helios Tube"
+          ]
+        },
+        {
+          "manufacturer": "Astera",
+          "model": "Hyperion Tube (4 Kit)",
+          "aliases": [
+            "Astera Hyperion Tube RGBW 4fach Koffer",
+            "Hyperion Tube",
+            "Astera Hyperion Tubes"
+          ]
+        },
+        {
+          "manufacturer": "DMG Lumière",
+          "model": "DASH",
+          "aliases": [
+            "DMG Lumiere Dash RGBW/CRMX",
+            "DMG Dash"
+          ]
+        },
+        {
+          "manufacturer": "Soonwell",
+          "model": "Magic Tube (4 Kit)",
+          "aliases": [
+            "Soonwell Magic Tube RGBW 4er Kit"
+          ]
+        }
+      ]
+    }
+  ]
+}

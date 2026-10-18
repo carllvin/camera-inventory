@@ -21,9 +21,10 @@ import lenses from "./data/lenses.json";
 import power from "./data/power.json";
 import support from "./data/support.json";
 import video from "./data/video.json";
+import lighting from "./data/lighting.json";
 import { genericNamesDe } from "../../lib/i18n/de/catalog";
 
-export const STANDARD_CATALOG_VERSION = 9;
+export const STANDARD_CATALOG_VERSION = 10;
 
 export interface CatalogEntry {
   manufacturer: string;
@@ -131,7 +132,7 @@ function load(d: DataSection): CatalogSection {
   };
 }
 
-export const STANDARD_CATALOG: CatalogSection[] = [cameras, lenses, lensControl, video, power, support, cables].map((d) => load(d as unknown as DataSection));
+export const STANDARD_CATALOG: CatalogSection[] = [cameras, lenses, lensControl, video, power, support, cables, lighting].map((d) => load(d as unknown as DataSection));
 
 export function catalogSection(key: string) {
   return STANDARD_CATALOG.find((s) => s.key === key);
