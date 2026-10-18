@@ -87,6 +87,13 @@ select.input {
 }
 }
 
+/* Scrolling to an element (anchors, focus, "scroll into view") keeps it clear of the fixed mobile bottom navigation. */
+@media (max-width: 1023px) {
+  html {
+    scroll-padding-bottom: calc(env(safe-area-inset-bottom) + 6rem);
+  }
+}
+
 /* Safe-area padding for the mobile bottom navigation. */
 .pb-safe {
   padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);

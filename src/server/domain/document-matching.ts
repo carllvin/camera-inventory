@@ -179,7 +179,9 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
   const rows = await db.execute<{ id: string; name: string; manufacturer: string; model: string; score: number; model_hit: boolean; maker_hit: boolean; exact_hit: boolean }>(sql`
     WITH t AS (SELECT search_normalize(${text}) AS norm, search_compact(${text}) AS comp),
          o AS (SELECT search_normalize(${own}) AS norm, search_compact(${own}) AS comp),
-         d AS (SELECT search_compact(${line.description}) AS full, search_compact(${ownDescription}) AS own)
+         d AS (SELECT search_compact(${line.description}) AS full, search_compact(${ownDescription}) AS own),
+         mk AS (SELECT DISTINCT split_part(btrim(regexp_replace(search_normalize(manufacturer), '[^a-z0-9]+', ' ', 'g')), ' ', 1) AS w
+                FROM equipment_type WHERE workspace_id = ${ws} AND archived_at IS NULL)
     SELECT id, name, manufacturer, model,
       greatest(
         word_similarity(t.norm, search_text),
@@ -192,7 +194,13 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
       -- The printed text (or its part before "f./für/for") is exactly one of the type's names or aliases.
       (search_compact(name) IN (d.full, d.own) OR search_compact(manufacturer || ' ' || model) IN (d.full, d.own) OR search_compact(model) IN (d.full, d.own)
         OR EXISTS (SELECT 1 FROM unnest(aliases) a WHERE search_compact(a) IN (d.full, d.own))) AS exact_hit,
-      (length(search_normalize(manufacturer)) >= 2 AND (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || regexp_replace(search_normalize(manufacturer), '[^a-z0-9]+', ' ', 'g') || ' %')) AS maker_hit
+      ((length(search_normalize(manufacturer)) >= 2 AND (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || regexp_replace(search_normalize(manufacturer), '[^a-z0-9]+', ' ', 'g') || ' %'))
+        -- A maker the houses write in front of it ("ARRI Ultra Prime" for the ZEISS lens): an alias's first word that is
+        -- another type's maker (not its own: "Blackmagic Pocket …" for Blackmagic Design), and not part of this model.
+        OR EXISTS (SELECT 1 FROM (SELECT split_part(btrim(regexp_replace(search_normalize(a), '[^a-z0-9]+', ' ', 'g')), ' ', 1) AS w FROM unnest(aliases) a) x
+                   WHERE length(x.w) >= 3 AND x.w IN (SELECT w FROM mk)
+                     AND x.w <> split_part(btrim(regexp_replace(search_normalize(manufacturer), '[^a-z0-9]+', ' ', 'g')), ' ', 1) AND (' ' || regexp_replace(t.norm, '[^a-z0-9]+', ' ', 'g') || ' ') LIKE ('% ' || x.w || ' %')
+                     AND (' ' || regexp_replace(search_normalize(model), '[^a-z0-9]+', ' ', 'g') || ' ') NOT LIKE ('% ' || x.w || ' %'))) AS maker_hit
     FROM equipment_type, t, o, d
     WHERE workspace_id = ${ws} AND archived_at IS NULL
       AND (search_text % t.norm
@@ -238,10 +246,21 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
     return /\d/.test(m) && tokens.some((w) => !own.has(w) && ((w !== m && (w.startsWith(m) || m.startsWith(w)) && Math.min(w.length, m.length) >= 2) || otherNumber(w)));
   };
   candidates = candidates.filter((c) => !conflicts(c.model));
-  const [best, second] = candidates.sort((a, b) => b.score - a.score);
+  candidates.sort((a, b) => b.score - a.score);
+  // Two names almost equally close: the one whose model words are all on the line wins
+  // ("18mm Zeiss Supreme Prime T1.5" is the Supreme Prime, not the Supreme Prime Radiance).
+  // T-stops do not count: notes often leave them out.
+  const onLine = new Set(text.toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean));
+  const allOnLine = (model: string) =>
+    model.replace(/\bT\s?\d+(?:[.,]\d+)?(?:\s?-\s?T?\d+(?:[.,]\d+)?)?/gi, " ").toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean).every((w) => onLine.has(w));
+  const close = candidates.filter((c) => c.score >= candidates[0]!.score - 0.05);
+  const complete = close.filter((c) => allOnLine(c.model));
+  const winner = close.length > 1 && complete.length === 1 ? complete[0] : undefined;
+  if (winner) candidates = [winner, ...candidates.filter((c) => c !== winner)];
+  const [best, second] = candidates;
   if (!best || best.score < 0.5) return null;
   // Ambiguous: two types almost equally similar (e.g. TX vs RX) - let a person choose.
-  if (second && best.score - second.score < 0.05) return null;
+  if (second && !winner && best.score - second.score < 0.05) return null;
   return { id: best.id, name: best.name, score: clamp01(best.score), how: "similar name" };
 }
 

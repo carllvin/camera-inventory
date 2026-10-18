@@ -72,6 +72,23 @@ describe("findType", () => {
     expect((await findType(db, ctx.workspaceId, line("Sony Alpha 7R III")))?.name).not.toBe("Sony Alpha 7S III");
   });
 
+  it("between two close names, the one whose words are all on the line wins", async () => {
+    await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "Supreme Prime 18mm T1.5" });
+    await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "Supreme Prime Radiance 18mm T1.5" });
+    expect((await findType(db, ctx.workspaceId, line("18mm Zeiss Supreme Prime T1.5")))?.name).toBe("ZEISS Supreme Prime 18mm T1.5");
+    expect((await findType(db, ctx.workspaceId, line("Zeiss Supreme Prime Radiance 18mm")))?.name).toBe("ZEISS Supreme Prime Radiance 18mm T1.5");
+  });
+
+  it("a maker the rental house writes in front of another maker's product does not rule it out", async () => {
+    await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "Ultra Prime 100mm T1.9", aliases: "ARRI Ultra Prime 100mm" });
+    await createEquipmentType(db, ctx, { manufacturer: "ARRI", model: "Classic Macro 100mm T3" });
+    expect((await findType(db, ctx.workspaceId, line("ARRI Ultra Prime 100mm T1.9")))?.name).toBe("ZEISS Ultra Prime 100mm T1.9");
+    // The type's own maker in front of an alias is no extra hint: the 6K is still found.
+    await createEquipmentType(db, ctx, { manufacturer: "Blackmagic Design", model: "Pocket Cinema Camera", aliases: "Blackmagic Pocket Cinema Camera MFT" });
+    await createEquipmentType(db, ctx, { manufacturer: "Blackmagic Design", model: "Pocket Cinema Camera 6K", aliases: "BMPCC6K" });
+    expect((await findType(db, ctx.workspaceId, line("Blackmagic Pocket Cinema Camera 6K (BMPCC6K)")))?.name).toBe("Blackmagic Design Pocket Cinema Camera 6K");
+  });
+
   it("a catalog import teaches existing types the spellings rental houses use", async () => {
     const r = await importStandardCatalog(db, ctx, { sections: ["power"] });
     expect(r.aliasesAdded).toBeGreaterThan(0);
