@@ -61,6 +61,12 @@ describe("findType", () => {
     expect((await findType(db, ctx.workspaceId, line("Canon C700 FF")))?.name).not.toBe("Canon C70");
   });
 
+  it("a word of a longer model is not a different model number", async () => {
+    await createEquipmentType(db, ctx, { manufacturer: "Cooke", model: "S7/i 25mm T2" });
+    await createEquipmentType(db, ctx, { manufacturer: "Cooke", model: "5/i 25mm T1.4" });
+    expect((await findType(db, ctx.workspaceId, line("Cooke S7/i 25mm")))?.name).toBe("Cooke S7/i 25mm T2");
+  });
+
   it("a catalog import teaches existing types the spellings rental houses use", async () => {
     const r = await importStandardCatalog(db, ctx, { sections: ["power"] });
     expect(r.aliasesAdded).toBeGreaterThan(0);

@@ -216,9 +216,11 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
   }
   // A different model number on the line rules a type out ("C700" is not a "C70", "RX" not a "TX").
   const tokens = text.toUpperCase().split(/[^A-Z0-9]+/).filter((w) => /\d/.test(w));
+  // A word of the model itself is no conflict ("S7" in "Cooke S7/i 25mm" for the model "S7/i 25mm T2").
   const conflicts = (model: string) => {
     const m = compact(model);
-    return /\d/.test(m) && tokens.some((w) => w !== m && (w.startsWith(m) || m.startsWith(w)) && Math.min(w.length, m.length) >= 2);
+    const own = new Set(model.toUpperCase().split(/[^A-Z0-9]+/));
+    return /\d/.test(m) && tokens.some((w) => w !== m && !own.has(w) && (w.startsWith(m) || m.startsWith(w)) && Math.min(w.length, m.length) >= 2);
   };
   candidates = candidates.filter((c) => !conflicts(c.model));
   const [best, second] = candidates.sort((a, b) => b.score - a.score);

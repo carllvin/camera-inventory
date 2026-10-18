@@ -2954,6 +2954,99 @@
             "Marshall POV CV502-M",
             "CV502-M"
           ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA 35 Monochrome",
+          "aliases": [
+            "ALEXA 35 B+W",
+            "A35 Monochrome",
+            "Alexa 35 Mono"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA Mini LF Monochrome",
+          "aliases": [
+            "Mini LF Monochrome",
+            "ALEXA Mini LF B+W",
+            "Mini LF Mono"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA 65 Monochrome",
+          "aliases": [
+            "ALEXA 65 B+W",
+            "A65 Monochrome"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA XT Monochrome",
+          "aliases": [
+            "ALEXA XT B+W",
+            "XT Monochrome"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIFLEX 235",
+          "aliases": [
+            "Arri 235",
+            "ARRIFLEX 235 Kamera"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIFLEX 765",
+          "aliases": [
+            "Arri 765",
+            "ARRIFLEX 765 65mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIFLEX 416 Plus HS",
+          "aliases": [
+            "Arri 416 Plus HS",
+            "416 HS",
+            "ARRIFLEX 416 HS"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIFLEX 16 SR3 Advanced",
+          "aliases": [
+            "Arri SR3 Advanced",
+            "16SR 3 Advanced",
+            "SR3 Advanced"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARRIFLEX 16 SR3 High Speed",
+          "aliases": [
+            "Arri SR3 HS",
+            "16SR 3 High Speed",
+            "SR3 High Speed"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "D-21",
+          "aliases": [
+            "ARRIFLEX D-21",
+            "ARRI D21"
+          ]
+        },
+        {
+          "manufacturer": "Moviecam",
+          "model": "SL 35mm",
+          "aliases": [
+            "Moviecam SL",
+            "Moviecam Superlight"
+          ]
         }
       ]
     },

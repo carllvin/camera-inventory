@@ -1036,6 +1036,163 @@
           "mount": "PL",
           "format": "Super 35",
           "squeeze": "2x"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Hawk C-Series",
+          "focals": [
+            [
+              25,
+              null
+            ],
+            [
+              40,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              60,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              100,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Hawk C-Series",
+            "Hawk C Series",
+            "Vantage Hawk C"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "2x"
+        },
+        {
+          "manufacturer": "Vantage",
+          "series": "Hawk V-Series",
+          "focals": [
+            [
+              30,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              40,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              60,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              100,
+              null
+            ],
+            [
+              135,
+              null
+            ],
+            [
+              180,
+              null
+            ],
+            [
+              250,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Hawk V-Series",
+            "Hawk V Series"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "2x"
+        },
+        {
+          "manufacturer": "JDC",
+          "series": "Xtal Express Canon",
+          "focals": [
+            [
+              24,
+              null
+            ],
+            [
+              30,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              85,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Canon Xtal Express",
+            "JDC Xtal Express Canon"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "2x"
+        },
+        {
+          "manufacturer": "JDC",
+          "series": "Xtal Express Cooke",
+          "focals": [
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              100,
+              null
+            ],
+            [
+              200,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Cooke Xtal Express",
+            "JDC Xtal Express Cooke"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "2x"
         }
       ],
       "entries": [
@@ -1251,6 +1408,22 @@
           "specs": {
             "squeeze": "1.5x",
             "t_stop": "3.5"
+          }
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Ultra Wide Anamorphic Zoom 19-36mm T4.2",
+          "aliases": [
+            "ARRI AUWZ",
+            "AUWZ 19-36",
+            "ARRI Anamorphic Ultra Wide Zoom 19-36mm"
+          ],
+          "specs": {
+            "focal_length_mm": "19-36",
+            "t_stop": "4.2",
+            "mount": "PL",
+            "format": "Super 35",
+            "squeeze": "2x"
           }
         }
       ]
@@ -4584,6 +4757,434 @@
           ],
           "mount": "PL",
           "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Bausch & Lomb",
+          "series": "Super Baltar",
+          "focals": [
+            [
+              20,
+              "T2.3"
+            ],
+            [
+              25,
+              "T2.3"
+            ],
+            [
+              35,
+              "T2.3"
+            ],
+            [
+              50,
+              "T2.3"
+            ],
+            [
+              75,
+              "T2.3"
+            ],
+            [
+              100,
+              "T2.3"
+            ]
+          ],
+          "extraSeries": [
+            "Bausch & Lomb Super Baltar",
+            "B&L Super Baltar",
+            "Super Baltar"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "LOMO",
+          "series": "Illumina MkII",
+          "focals": [
+            [
+              18,
+              null
+            ],
+            [
+              25,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              85,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Lomo Illumina MkII",
+            "Lomo Illumina",
+            "LOMO Illumina S35 MKII"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "Canon",
+          "series": "Rangefinder Rehoused",
+          "focals": [
+            [
+              25,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              85,
+              null
+            ],
+            [
+              100,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Canon Rangefinder"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Cooke",
+          "series": "SK4",
+          "focals": [
+            [
+              6,
+              "T2"
+            ],
+            [
+              9.5,
+              "T2"
+            ],
+            [
+              12,
+              "T2"
+            ]
+          ],
+          "extraSeries": [
+            "Cooke SK4"
+          ],
+          "mount": "PL",
+          "format": "Super 16"
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "series": "DNA LF",
+          "focals": [
+            [
+              21,
+              null
+            ],
+            [
+              25,
+              null
+            ],
+            [
+              29,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              85,
+              null
+            ],
+            [
+              100,
+              null
+            ],
+            [
+              135,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "ARRI Rental DNA LF",
+            "ARRI DNA LF"
+          ],
+          "mount": "LPL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "series": "Moviecam",
+          "focals": [
+            [
+              16,
+              null
+            ],
+            [
+              20,
+              null
+            ],
+            [
+              24,
+              null
+            ],
+            [
+              28,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              40,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              60,
+              null
+            ],
+            [
+              85,
+              null
+            ],
+            [
+              100,
+              null
+            ],
+            [
+              135,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "ARRI Rental Moviecam",
+            "ARRI Moviecam"
+          ],
+          "mount": "LPL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "series": "Prime DNA",
+          "focals": [
+            [
+              28,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              45,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              55,
+              null
+            ],
+            [
+              60,
+              null
+            ],
+            [
+              65,
+              null
+            ],
+            [
+              70,
+              null
+            ],
+            [
+              80,
+              null
+            ],
+            [
+              110,
+              null
+            ],
+            [
+              150,
+              null
+            ],
+            [
+              200,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "ARRI Rental Prime DNA",
+            "ARRI Prime DNA"
+          ],
+          "mount": "XPL",
+          "format": "65 mm"
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "series": "Prime 65",
+          "focals": [
+            [
+              24,
+              null
+            ],
+            [
+              28,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              80,
+              null
+            ],
+            [
+              100,
+              null
+            ],
+            [
+              150,
+              null
+            ],
+            [
+              300,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "ARRI Rental Prime 65",
+            "ARRI Prime 65"
+          ],
+          "mount": "XPL",
+          "format": "65 mm"
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "series": "Prime 65 S",
+          "focals": [
+            [
+              35,
+              null
+            ],
+            [
+              45,
+              null
+            ],
+            [
+              55,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              90,
+              null
+            ],
+            [
+              120,
+              null
+            ],
+            [
+              150,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "ARRI Rental Prime 65 S",
+            "ARRI Prime 65 S"
+          ],
+          "mount": "XPL",
+          "format": "65 mm"
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "series": "Vintage 765",
+          "focals": [
+            [
+              30,
+              null
+            ],
+            [
+              40,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              60,
+              null
+            ],
+            [
+              80,
+              null
+            ],
+            [
+              100,
+              null
+            ],
+            [
+              110,
+              null
+            ],
+            [
+              120,
+              null
+            ],
+            [
+              150,
+              null
+            ],
+            [
+              250,
+              null
+            ],
+            [
+              350,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "ARRI Rental Vintage 765",
+            "ARRI Vintage 765"
+          ],
+          "mount": "XPL",
+          "format": "65 mm"
         }
       ],
       "entries": [
@@ -5327,6 +5928,37 @@
             "t_stop": "1.5",
             "mount": "PL"
           }
+        },
+        {
+          "manufacturer": "Innovision",
+          "model": "Probe II Plus",
+          "aliases": [
+            "Innovision Probe II+",
+            "Probe II+",
+            "Prope II Plus"
+          ]
+        },
+        {
+          "manufacturer": "Cinemagic",
+          "model": "Revolution Snorkel Lens System",
+          "aliases": [
+            "Cinemagic Revolution",
+            "Revolution Snorkel"
+          ]
+        },
+        {
+          "manufacturer": "Optex",
+          "model": "Excellence Snorkel Lens System",
+          "aliases": [
+            "Optex Excellence"
+          ]
+        },
+        {
+          "manufacturer": "Century",
+          "model": "Periscope Lens System",
+          "aliases": [
+            "Century Periscope"
+          ]
         }
       ]
     },
@@ -6636,6 +7268,66 @@
           ],
           "specs": {
             "t_stop": "5.6"
+          }
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Variable Prime VP1 16-30mm T2.2",
+          "aliases": [
+            "Zeiss Variable Prime VP1",
+            "VP1 16-30mm",
+            "ARRI/Zeiss Variable Prime 16-30mm"
+          ],
+          "specs": {
+            "focal_length_mm": "16-30",
+            "t_stop": "2.2",
+            "mount": "PL",
+            "format": "Super 35"
+          }
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Variable Prime VP2 29-60mm T2.2",
+          "aliases": [
+            "Zeiss Variable Prime VP2",
+            "VP2 29-60mm",
+            "ARRI/Zeiss Variable Prime 29-60mm"
+          ],
+          "specs": {
+            "focal_length_mm": "29-60",
+            "t_stop": "2.2",
+            "mount": "PL",
+            "format": "Super 35"
+          }
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Variable Prime VP3 55-105mm T2.2",
+          "aliases": [
+            "Zeiss Variable Prime VP3",
+            "VP3 55-105mm",
+            "ARRI/Zeiss Variable Prime 55-105mm"
+          ],
+          "specs": {
+            "focal_length_mm": "55-105",
+            "t_stop": "2.2",
+            "mount": "PL",
+            "format": "Super 35"
+          }
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Master Zoom 16.5-110mm T2.6",
+          "aliases": [
+            "ARRI/Zeiss Master Zoom 16.5-110mm",
+            "ARRI Master Zoom",
+            "Master Zoom 16.5-110"
+          ],
+          "specs": {
+            "focal_length_mm": "16.5-110",
+            "t_stop": "2.6",
+            "mount": "PL",
+            "format": "Super 35"
           }
         }
       ]

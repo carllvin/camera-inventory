@@ -1569,6 +1569,47 @@
             "Rowa 1200mm",
             "Rowa 1200mm (Wide Version)"
           ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "Hybrid IV Dolly",
+          "aliases": [
+            "Chapman Hybrid",
+            "Chapman Hybrid IV"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "PeeWee Dolly",
+          "aliases": [
+            "Chapman PeeWee",
+            "Chapman Pee Wee",
+            "PeeWee"
+          ]
+        },
+        {
+          "manufacturer": "Chapman",
+          "model": "Hustler Dolly",
+          "aliases": [
+            "Chapman Hustler"
+          ]
+        },
+        {
+          "manufacturer": "Fisher",
+          "model": "Model 10 Dolly",
+          "aliases": [
+            "Fisher 10",
+            "Fisher Dolly 10",
+            "Fisher #10"
+          ]
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "model": "Hover Dolly",
+          "aliases": [
+            "ARRI Hover Dolly",
+            "Hover Dolly with Delta Track"
+          ]
         }
       ]
     },
@@ -2023,6 +2064,47 @@
             "ABC Crane 120",
             "Leichtkran ABC Crane 120-9.0"
           ]
+        },
+        {
+          "manufacturer": "ABC",
+          "model": "Crane 100",
+          "aliases": [
+            "ABC Crane 100",
+            "Leichtkran ABC Crane 100"
+          ]
+        },
+        {
+          "manufacturer": "Technocrane",
+          "model": "Super TechnoCrane",
+          "aliases": [
+            "Super Technocrane",
+            "Supertechno",
+            "Super TechnoCrane 30"
+          ]
+        },
+        {
+          "manufacturer": "MovieBird",
+          "model": "MovieBird Telescopic Crane",
+          "aliases": [
+            "MovieBird",
+            "Movie Bird"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio Telescopic Crane",
+          "aliases": [
+            "Scorpio Crane",
+            "Scorpio Telescopic"
+          ]
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "model": "HEXATRON",
+          "aliases": [
+            "ARRI Hexatron",
+            "Hexatron Crane Base"
+          ]
         }
       ]
     },
@@ -2067,6 +2149,23 @@
           "model": "TR3 Remote Head",
           "aliases": [
             "Thoma TR3"
+          ]
+        },
+        {
+          "manufacturer": "SpaceCam",
+          "model": "M7 EVO",
+          "aliases": [
+            "SpaceCam M7",
+            "SpaceCam M7 EVO"
+          ]
+        },
+        {
+          "manufacturer": "Servicevision",
+          "model": "Scorpio Stabilized Head",
+          "aliases": [
+            "Scorpio Head",
+            "Scorpio 3-Axis Head",
+            "Scorpio Stabilized"
           ]
         }
       ]

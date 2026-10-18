@@ -1218,6 +1218,14 @@
             "Westcott IceLight 5600K",
             "Ice Light"
           ]
+        },
+        {
+          "manufacturer": "ARRI Rental",
+          "model": "BrikLok",
+          "aliases": [
+            "ARRI BrikLok",
+            "BrikLok LED"
+          ]
         }
       ]
     },
