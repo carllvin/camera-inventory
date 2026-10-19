@@ -370,7 +370,7 @@
             ],
             [
               36,
-              null
+              "T2.2"
             ],
             [
               42,
@@ -378,7 +378,7 @@
             ],
             [
               54,
-              null
+              "T2.2"
             ],
             [
               72,
@@ -390,7 +390,7 @@
             ],
             [
               138,
-              "T2.2"
+              "T2.6"
             ]
           ],
           "mount": "PL",
@@ -405,7 +405,12 @@
             "Atlas Mercury Anamorphic Primes",
             "Atlas Lens Mercury 1.5x Anamorphic",
             "Atlas Mercury 1.5x Anamorphic FF"
-          ]
+          ],
+          "formerly": {
+            "36": "Mercury 36mm",
+            "54": "Mercury 54mm",
+            "138": "Mercury 138mm T2.2"
+          }
         },
         {
           "manufacturer": "Vantage",
@@ -2505,7 +2510,8 @@
           ],
           "extraSeries": [
             "Zeiss Horizon Anamorphic",
-            "Zeiss Horizon 2x Anamorphic"
+            "Zeiss Horizon 2x Anamorphic",
+            "ZEISS Horizon Anamorphic Lenses"
           ],
           "mount": "LPL",
           "format": "Full Frame",
@@ -2535,6 +2541,362 @@
           "mount": "E",
           "format": "Full Frame",
           "squeeze": "1.5x"
+        },
+        {
+          "manufacturer": "Laowa",
+          "series": "Nanomorph LF",
+          "focals": [
+            [
+              32,
+              "T2.9"
+            ],
+            [
+              42,
+              "T2.9"
+            ],
+            [
+              55,
+              "T2.9"
+            ],
+            [
+              85,
+              "T2.9"
+            ]
+          ],
+          "extraSeries": [
+            "Laowa Nanomorph LF",
+            "Nanomorph LF 1.5x",
+            "Laowa Nanomorph LF 1.5x Anamorphic"
+          ],
+          "format": "Full Frame",
+          "squeeze": "1.5x"
+        },
+        {
+          "manufacturer": "Laowa",
+          "series": "Proteus Flex 2x",
+          "focals": [
+            [
+              20,
+              "T2"
+            ],
+            [
+              28,
+              "T2"
+            ],
+            [
+              35,
+              "T2"
+            ],
+            [
+              45,
+              "T2"
+            ],
+            [
+              60,
+              "T2"
+            ],
+            [
+              85,
+              "T2"
+            ],
+            [
+              100,
+              "T2"
+            ]
+          ],
+          "extraSeries": [
+            "Laowa Proteus Flex",
+            "Proteus Flex",
+            "Laowa Proteus Flex 2x Anamorphic"
+          ],
+          "mount": "PL",
+          "format": "Super 35",
+          "squeeze": "2x"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "IronStar",
+          "focals": [
+            [
+              35,
+              "T1.9"
+            ],
+            [
+              45,
+              "T1.9"
+            ],
+            [
+              60,
+              "T1.9"
+            ],
+            [
+              75,
+              "T1.9"
+            ],
+            [
+              100,
+              "T1.9"
+            ],
+            [
+              135,
+              "T1.9"
+            ]
+          ],
+          "extraSeries": [
+            "Sirui IronStar",
+            "Sirui Iron Star",
+            "Sirui IronStar 1.5x"
+          ],
+          "format": "Full Frame",
+          "squeeze": "1.5x"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "Astra",
+          "focals": [
+            [
+              50,
+              "T1.8"
+            ],
+            [
+              75,
+              "T1.8"
+            ],
+            [
+              100,
+              "T1.8"
+            ]
+          ],
+          "extraSeries": [
+            "Sirui Astra",
+            "Sirui Astra AF Anamorphic",
+            "Sirui Astra 1.33x"
+          ],
+          "format": "Full Frame",
+          "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "Saturn V2",
+          "focals": [
+            [
+              35,
+              "T2.9"
+            ],
+            [
+              50,
+              "T2.9"
+            ],
+            [
+              75,
+              "T2.9"
+            ]
+          ],
+          "extraSeries": [
+            "Sirui Saturn V2",
+            "Saturn V2 1.6x"
+          ],
+          "format": "Full Frame",
+          "squeeze": "1.6x"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "S35 AF Anamorphic 1.33x",
+          "focals": [
+            [
+              20,
+              "T1.8"
+            ],
+            [
+              40,
+              "T1.8"
+            ]
+          ],
+          "extraSeries": [
+            "Sirui 1.33x AF Anamorphic",
+            "Sirui S35 AF Anamorphic"
+          ],
+          "format": "Super 35",
+          "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "APS-C Anamorphic 1.33x",
+          "focals": [
+            [
+              24,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              75,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Sirui 1.33x Anamorphic",
+            "Sirui 1.33x APS-C Anamorphic",
+            "Sirui 24mm F2.8 1.33x",
+            "Sirui 35mm F1.8 1.33x",
+            "Sirui 50mm F1.8 1.33x",
+            "Sirui 75mm F1.8 1.33x"
+          ],
+          "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "Blazar",
+          "series": "Apex",
+          "focals": [
+            [
+              35,
+              "T1.8"
+            ],
+            [
+              50,
+              "T1.8"
+            ]
+          ],
+          "extraSeries": [
+            "Blazar Apex",
+            "Blazar Apex 1.33x AF",
+            "BLAZAR APEX"
+          ],
+          "mount": "E",
+          "format": "Super 35",
+          "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "Blazar",
+          "series": "Beetle",
+          "focals": [
+            [
+              32,
+              "T3.2"
+            ],
+            [
+              45,
+              "T3.2"
+            ],
+            [
+              65,
+              "T3.2"
+            ]
+          ],
+          "extraSeries": [
+            "Blazar Beetle",
+            "Blazar Beetle 1.33x",
+            "BLAZAR Beetle Pancake Anamorphic"
+          ],
+          "format": "Full Frame",
+          "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "Blazar",
+          "series": "Remus II",
+          "focals": [
+            [
+              50,
+              "T2.4"
+            ]
+          ],
+          "extraSeries": [
+            "Blazar Remus II",
+            "Blazar Remus 2"
+          ],
+          "mount": "PL",
+          "format": "Full Frame",
+          "squeeze": "1.5x"
+        },
+        {
+          "manufacturer": "Viltrox",
+          "series": "EPIC Maestro 1.33x Anamorphic",
+          "focals": [
+            [
+              25,
+              "T2"
+            ],
+            [
+              35,
+              "T2"
+            ],
+            [
+              50,
+              "T2"
+            ],
+            [
+              65,
+              "T2.8"
+            ],
+            [
+              75,
+              "T2"
+            ],
+            [
+              100,
+              "T2"
+            ],
+            [
+              135,
+              "T2.4"
+            ]
+          ],
+          "extraSeries": [
+            "Viltrox EPIC Maestro",
+            "EPIC Maestro",
+            "Viltrox EPIC Maestro No Flare"
+          ],
+          "mount": "PL",
+          "format": "Full Frame",
+          "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "Viltrox",
+          "series": "EPIC Memento 1.33x Anamorphic",
+          "focals": [
+            [
+              25,
+              "T2"
+            ],
+            [
+              35,
+              "T2"
+            ],
+            [
+              50,
+              "T2"
+            ],
+            [
+              65,
+              "T2.8"
+            ],
+            [
+              75,
+              "T2"
+            ],
+            [
+              100,
+              "T2"
+            ],
+            [
+              135,
+              "T2.4"
+            ]
+          ],
+          "extraSeries": [
+            "Viltrox EPIC Memento",
+            "EPIC Memento",
+            "Viltrox EPIC Memento Silver Flare"
+          ],
+          "mount": "PL",
+          "format": "Full Frame",
+          "squeeze": "1.33x"
         }
       ],
       "entries": [
@@ -2724,7 +3086,11 @@
           "model": "Iscorama 1.5x Anamorphic Adapter",
           "aliases": [
             "ISCORAMA 1,5x Squeeze Objektivvorsatz",
-            "Iscorama"
+            "Iscorama",
+            "ISCORAMA 54 CU-1.5x",
+            "Schneider ISCORAMA 54",
+            "ISCORAMA 54 CU-1.5x Anamorphic Front Adapter",
+            "ISCO4all"
           ],
           "specs": {
             "squeeze": "1.5x"
@@ -2975,6 +3341,217 @@
             "P+S Technik Technovision 35-70mm",
             "Technovision 35-70mm FF Anamorphic Zoom"
           ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Horizon Anamorphic 35mm T2.3",
+          "aliases": [
+            "Horizon Anamorphic 35",
+            "Zeiss Horizon Anamorphic 35mm",
+            "Zeiss Horizon 2x Anamorphic 35mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Horizon Anamorphic 100mm T2.3",
+          "aliases": [
+            "Horizon Anamorphic 100",
+            "Zeiss Horizon Anamorphic 100mm",
+            "Zeiss Horizon 2x Anamorphic 100mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Horizon Anamorphic 150mm T2.3",
+          "aliases": [
+            "Horizon Anamorphic 150",
+            "Zeiss Horizon Anamorphic 150mm",
+            "Zeiss Horizon 2x Anamorphic 150mm"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Horizon Anamorphic 200mm T2.9",
+          "aliases": [
+            "Horizon Anamorphic 200",
+            "Zeiss Horizon Anamorphic 200mm",
+            "Zeiss Horizon 2x Anamorphic 200mm"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Nanomorph 60mm T2.9 Macro",
+          "aliases": [
+            "Laowa Nanomorph 60mm Macro",
+            "Nanomorph 1.5x 60mm T2.9 Macro"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Nanomorph 20mm T2.2 MFT",
+          "aliases": [
+            "Laowa Nanomorph 20mm",
+            "Nanomorph 1.5x 20mm T2.2"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Sunlight 2x Anamorphic Zoom 40-80mm T4.5",
+          "aliases": [
+            "Laowa Sunlight 40-80mm",
+            "Laowa Sunlight 2x 40-80"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Sunlight 2x Anamorphic Zoom 70-135mm T4.5",
+          "aliases": [
+            "Laowa Sunlight 70-135mm",
+            "Laowa Sunlight 2x 70-135"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion 18mm T2",
+          "aliases": [
+            "Atlas Orion 18mm",
+            "Orion 18mm",
+            "ORIO-0018-300M",
+            "ORIO-0018-300S"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion 28mm T2",
+          "aliases": [
+            "Atlas Orion 28mm",
+            "Orion 28mm",
+            "ORIO-0028-300M",
+            "ORIO-0028-300S"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion 135mm T2.2",
+          "aliases": [
+            "Atlas Orion 135mm",
+            "Orion 135mm",
+            "ORIO-0135-300M",
+            "ORIO-0135-300S"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion 200mm T3.2",
+          "aliases": [
+            "Atlas Orion 200mm",
+            "Orion 200mm",
+            "ORIO-0200-300M",
+            "ORIO-0200-300S"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion Silver 18mm T2",
+          "aliases": [
+            "Atlas Orion Silver 18mm",
+            "N018SEM",
+            "N018SEI"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion Silver 21mm T2",
+          "aliases": [
+            "Atlas Orion Silver 21mm",
+            "N021SEM",
+            "N021SEI"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion Silver 25mm T2",
+          "aliases": [
+            "Atlas Orion Silver 25mm",
+            "N025SEM",
+            "N025SEI"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion Silver 28mm T2",
+          "aliases": [
+            "Atlas Orion Silver 28mm",
+            "N028SEM",
+            "N028SEI"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion Silver 135mm T2.2",
+          "aliases": [
+            "Atlas Orion Silver 135mm",
+            "N135SEM",
+            "N135SEI"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion Silver 200mm T3.2",
+          "aliases": [
+            "Atlas Orion Silver 200mm",
+            "N200SEM",
+            "N200SEI"
+          ]
+        },
+        {
+          "manufacturer": "Blazar",
+          "model": "Sentinel 35-60mm T2.2-2.8",
+          "aliases": [
+            "Blazar Sentinel",
+            "Blazar Sentinel 35-60mm",
+            "Blazar Sentinel Anamorphic Zoom"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Xeen Anamorphic 50mm T2.3",
+          "aliases": [
+            "XEEN Anamorphic 2x 50mm",
+            "Samyang Xeen Anamorphic 50mm"
+          ]
+        },
+        {
+          "manufacturer": "Viltrox",
+          "model": "EPIC 1.33x Anamorphic 25mm T2",
+          "aliases": [
+            "Viltrox EPIC 25mm T2.0 1.33x",
+            "Viltrox EPIC 25mm"
+          ]
+        },
+        {
+          "manufacturer": "Viltrox",
+          "model": "EPIC 1.33x Anamorphic 65mm T2.8 Macro",
+          "aliases": [
+            "Viltrox EPIC 65mm T2.8 Macro 1.33x",
+            "Viltrox EPIC 65mm"
+          ]
+        },
+        {
+          "manufacturer": "Viltrox",
+          "model": "EPIC 1.33x Anamorphic 100mm T2",
+          "aliases": [
+            "Viltrox EPIC 100mm T2.0 1.33x",
+            "Viltrox EPIC 100mm"
+          ]
+        },
+        {
+          "manufacturer": "Viltrox",
+          "model": "EPIC 1.33x Anamorphic 135mm T2.4",
+          "aliases": [
+            "Viltrox EPIC 135mm T2.4 1.33x",
+            "Viltrox EPIC 135mm"
+          ]
         }
       ]
     },
@@ -3003,7 +3580,9 @@
             "IBE PLx2 Extender",
             "PL 2x Extender IB/E",
             "Extender PL2X IB/E",
-            "Extender S35 2x IB/E PL2X"
+            "Extender S35 2x IB/E PL2X",
+            "IB/E PLx2 Extender",
+            "IBE PLx2"
           ],
           "specs": {
             "factor": "2x",
@@ -3113,7 +3692,8 @@
           "aliases": [
             "Tiffen Diopter +1 138",
             "Nahlinse +1 138mm",
-            "138 Diopter +1"
+            "138 Diopter +1",
+            "138CU1"
           ],
           "specs": {
             "diameter_mm": 138
@@ -3128,7 +3708,8 @@
             "Nahlinse +1/2 138mm",
             "138 Diopter +1/2",
             "Nahlinse/Diopter Tiffen 138mm Close Up +1/2",
-            "Tiffen 138mm Close Up +1/2"
+            "Tiffen 138mm Close Up +1/2",
+            "138CU12"
           ],
           "specs": {
             "diameter_mm": 138
@@ -3141,7 +3722,8 @@
           "aliases": [
             "Tiffen Diopter +2 138",
             "Nahlinse +2 138mm",
-            "138 Diopter +2"
+            "138 Diopter +2",
+            "138CU2"
           ],
           "specs": {
             "diameter_mm": 138
@@ -3154,7 +3736,8 @@
           "aliases": [
             "Tiffen Diopter +3 138",
             "Nahlinse +3 138mm",
-            "138 Diopter +3"
+            "138 Diopter +3",
+            "138CU3"
           ],
           "specs": {
             "diameter_mm": 138
@@ -3167,7 +3750,8 @@
           "aliases": [
             "Tiffen Split +1 138",
             "Split-Diopter +1 138mm",
-            "138 Split +1"
+            "138 Split +1",
+            "138SF1"
           ],
           "specs": {
             "diameter_mm": 138
@@ -3180,7 +3764,8 @@
           "aliases": [
             "Tiffen Split +1/2 138",
             "Split-Diopter +1/2 138mm",
-            "138 Split +1/2"
+            "138 Split +1/2",
+            "138SF12"
           ],
           "specs": {
             "diameter_mm": 138
@@ -3193,7 +3778,8 @@
           "aliases": [
             "Tiffen Split +2 138",
             "Split-Diopter +2 138mm",
-            "138 Split +2"
+            "138 Split +2",
+            "138SF2"
           ],
           "specs": {
             "diameter_mm": 138
@@ -3288,7 +3874,9 @@
             "IBE 2x PL VV Extender",
             "IB/E 2x PL VV Extender",
             "Verdoppler IBE PLx2 VV",
-            "Verdoppler IBE PLx2 VV (S35 bis Vista Vision)"
+            "Verdoppler IBE PLx2 VV (S35 bis Vista Vision)",
+            "IB/E PLx2VV",
+            "PLx2 VV Expander"
           ]
         },
         {
@@ -3297,7 +3885,9 @@
           "aliases": [
             "IB/E Optics HDx35 B4 to PL",
             "IBE HDx35",
-            "HDx35 MKIII"
+            "HDx35 MKIII",
+            "IB/E HDx35 Mark III",
+            "IBE HDx35 MKIII"
           ]
         },
         {
@@ -3335,7 +3925,11 @@
             "Atlas 1.6x Extender",
             "1.6x LF Expander",
             "Atlas 1.6x LF Expander",
-            "Atlas LF Expander 1.6x"
+            "Atlas LF Expander 1.6x",
+            "Atlas 1.6x LF Extender",
+            "ALC-16FFX",
+            "ALC-16XLPL",
+            "Atlas 1.6x LF Extender PL-LPL"
           ]
         },
         {
@@ -3344,7 +3938,11 @@
           "aliases": [
             "Extender FF 1.6x Tokina Cinema Expander",
             "Tokina Cinema Expander",
-            "Tokina 1.6x Expander"
+            "Tokina 1.6x Expander",
+            "TC-16EXP-PP",
+            "TC-16EXP-EP",
+            "TC-16EXP-PE",
+            "Tokina 1.6x Expander PL-PL"
           ]
         },
         {
@@ -3409,7 +4007,8 @@
           "model": "Mount Adapter EF-EOS R",
           "aliases": [
             "Mountadapter Canon RF Mount --> Canon EF",
-            "Canon EF-EOS R Adapter"
+            "Canon EF-EOS R Adapter",
+            "790-0683"
           ]
         },
         {
@@ -3534,7 +4133,632 @@
           "model": "PLx1.4 VV Extender",
           "aliases": [
             "IBE PLX1.4 VV EXTENDER - FULL FRAME (PL)",
-            "IB/E PLx1.4 VV"
+            "IB/E PLx1.4 VV",
+            "IB/E PLx1.4VV Expander",
+            "IBE PLx1.4VV"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Macrolux 114 +0.5",
+          "aliases": [
+            "Leitz MACROLUX 114 +0.5",
+            "Macrolux 114mm +1/2",
+            "Leitz Macrolux 114 +1/2 Diopter"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Macrolux 114 +1",
+          "aliases": [
+            "Leitz MACROLUX 114 +1",
+            "Macrolux 114mm +1",
+            "Leitz Macrolux 114 +1 Diopter"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Macrolux 114 +2",
+          "aliases": [
+            "Leitz MACROLUX 114 +2",
+            "Macrolux 114mm +2",
+            "Leitz Macrolux 114 +2 Diopter"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Macrolux 95 +0.5",
+          "aliases": [
+            "Leitz MACROLUX 95 +0.5",
+            "Macrolux 95mm +1/2",
+            "Leitz Macrolux 95 +1/2 Diopter"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Macrolux 95 +1",
+          "aliases": [
+            "Leitz MACROLUX 95 +1",
+            "Macrolux 95mm +1",
+            "Leitz Macrolux 95 +1 Diopter"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Macrolux 95 +2",
+          "aliases": [
+            "Leitz MACROLUX 95 +2",
+            "Macrolux 95mm +2",
+            "Leitz Macrolux 95 +2 Diopter"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Step-Down Ring 114mm to 95mm",
+          "aliases": [
+            "Leitz Step-Down Ring 114-95",
+            "STEP-DOWN RING Ø 114 mm → Ø 95 mm",
+            "Leitz Step Down Ring 114/95"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Step-Down Ring 114mm to 110mm",
+          "aliases": [
+            "Leitz Step-Down Ring 114-110",
+            "STEP-DOWN RING Ø 114 mm → Ø 110 mm",
+            "Leitz Step Down Ring 114/110"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "LPL to PL Adapter",
+          "aliases": [
+            "Leitz LPL to PL Mount Adapter",
+            "Leitz LPL-PL Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "L to PL / L to LPL Mount",
+          "aliases": [
+            "Leitz L to PL Mount",
+            "Leitz L to LPL Mount",
+            "Leitz L-PL Mount",
+            "Leitz L-LPL Mount"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "LPL Mount for Sony Venice",
+          "aliases": [
+            "Leitz LPL Mount Sony Venice",
+            "Leitz LPL Mount for Venice 2",
+            "Leitz LPL Mount Sony"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "M Mount for Sony Venice",
+          "aliases": [
+            "Leitz M Mount Sony Venice",
+            "Leitz M-Mount for Venice"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "LPL Mount for Sony Venice Extension System Mini",
+          "aliases": [
+            "Leitz LPL Mount Venice Extension System Mini"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "iD Mount",
+          "aliases": [
+            "Leitz iD Mount",
+            "Leitz ID Mount",
+            "Leitz iD Mount Summilux-C",
+            "Leitz iD Mount HUGO"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Mount Adapter PL-RF",
+          "aliases": [
+            "Canon PL-RF Adapter",
+            "Canon Mount Adapter PL-RF",
+            "PL-RF Mount Adapter",
+            "PL-RF",
+            "Canon PL-RF",
+            "Canon PL to RF Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Mount Adapter EF-EOS R 0.71x",
+          "aliases": [
+            "Canon EF-EOS R 0.71x",
+            "EF-EOS R 0.71x",
+            "Canon Speed Booster EF-EOS R 0.71x",
+            "Canon EF-EOSR 0.71x"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Control Ring Mount Adapter EF-EOS R",
+          "aliases": [
+            "Canon Control Ring Adapter EF-EOS R",
+            "Canon EF-EOS R Control Ring",
+            "CR-EF-EOSR"
+          ]
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "1.22x VV-65 Expander",
+          "aliases": [
+            "Tokina 1.22x Expander",
+            "Tokina VV-65 Expander",
+            "TC-122VV65LPL",
+            "Tokina 1.22x PL-LPL Expander"
+          ]
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "Cinema Zoom Stick",
+          "aliases": [
+            "Tokina Zoom Stick",
+            "KPC-1002-117"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "1.33x Front Anamorphic Adapter",
+          "aliases": [
+            "Laowa 1.33x Front Anamorphic",
+            "Laowa 1.33x Anamorphic Attachment"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "1.33x Rear Anamorphic Adapter",
+          "aliases": [
+            "Laowa 1.33x Rear Anamorphic",
+            "Laowa 1.33x Rear Adapter PL"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "1.4x Full Frame Expander",
+          "aliases": [
+            "Laowa 1.4x FF Expander",
+            "Laowa 1.4x Expander PL-PL"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "0.7x Focal Reducer for Probe",
+          "aliases": [
+            "Laowa 0.7x Focal Reducer",
+            "Laowa Probe Focal Reducer"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Octopus Adapter",
+          "aliases": [
+            "DZOFilm Octopus",
+            "DZO Octopus Adapter",
+            "DZO-ADPLEBLK",
+            "DZO-ADPLLBLK",
+            "DZO-ADPLDBLK",
+            "DZO-ADEFEBLK",
+            "DZO-ADEFRBLK",
+            "DZO-ADEFLBLK"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Octopus Adapter II",
+          "aliases": [
+            "DZOFilm Octopus II",
+            "DZO Octopus 2",
+            "DZO-AD2PLE",
+            "DZO-AD2PLRF",
+            "DZO-AD2PLZ",
+            "DZO-AD2PLL"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Marlin 1.4x Expander",
+          "aliases": [
+            "DZOFilm Marlin 1.4x",
+            "DZO Marlin Extender",
+            "DZO-EXP2PL-E",
+            "DZO-EXP2PL-RF",
+            "DZO-EXP2PL-L",
+            "DZO-EXP2PL-Z"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Marlin 1.6x Expander",
+          "aliases": [
+            "DZOFilm Marlin 1.6x",
+            "DZO Marlin 1.6x PL-PL"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "LF Expander 1.4x",
+          "aliases": [
+            "Atlas 1.4x LF Expander",
+            "ALC-14FFX",
+            "Atlas 1.4x Expander"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Orion 114mm Lens Support Clamp",
+          "aliases": [
+            "Atlas Orion Lens Support Clamp",
+            "Atlas x Tilta Orion Lens Support"
+          ]
+        },
+        {
+          "manufacturer": "Atlas",
+          "model": "Mercury 95mm Lens Support Clamp",
+          "aliases": [
+            "Atlas Mercury Lens Support Clamp",
+            "Atlas x Tilta Mercury Lens Support",
+            "TA-LS-AL-95"
+          ]
+        },
+        {
+          "manufacturer": "Sirui",
+          "model": "1.25x Anamorphic Adapter",
+          "aliases": [
+            "Sirui 1.25x Anamorphic Adapter",
+            "ADP125X"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "138mm Diopter +1/4",
+          "aliases": [
+            "Schneider Diopter Full +1/4 138mm"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "138mm Split Diopter +1/4",
+          "aliases": [
+            "Schneider Diopter Split +1/4 138mm",
+            "138mm Diopter Split +1/4",
+            "Schneider 138mm Diopter Split +1/4",
+            "Schneider Split +1/4 138",
+            "Schneider 138mm Split Diopter +1/4"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "138mm Split Diopter +3",
+          "aliases": [
+            "Schneider Diopter Split +3 138mm",
+            "138mm Diopter Split +3",
+            "Schneider 138mm Diopter Split +3",
+            "Schneider Split +3 138",
+            "Schneider 138mm Split Diopter +3"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "138mm Spot Diopter +1/2",
+          "aliases": [
+            "Schneider Diopter Spot +1/2",
+            "138mm Diopter Spot +1/2",
+            "Schneider 138mm Diopter Spot +1/2",
+            "Schneider Spot Diopter +1/2 138",
+            "Schneider 138mm Spot Diopter +1/2"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "138mm Spot Diopter +1",
+          "aliases": [
+            "Schneider Diopter Spot +1",
+            "138mm Diopter Spot +1",
+            "Schneider 138mm Diopter Spot +1",
+            "Schneider Spot Diopter +1 138",
+            "Schneider 138mm Spot Diopter +1"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "138mm Spot Diopter +2",
+          "aliases": [
+            "Schneider Diopter Spot +2",
+            "138mm Diopter Spot +2",
+            "Schneider 138mm Diopter Spot +2",
+            "Schneider Spot Diopter +2 138",
+            "Schneider 138mm Spot Diopter +2"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "4.5in Diopter +1/2",
+          "aliases": [
+            "Schneider 4.5\" Diopter +1/2",
+            "Schneider 4 1/2 Diopter +1/2"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "4.5in Diopter +1",
+          "aliases": [
+            "Schneider 4.5\" Diopter +1",
+            "Schneider 4 1/2 Diopter +1"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "4.5in Diopter +2",
+          "aliases": [
+            "Schneider 4.5\" Diopter +2",
+            "Schneider 4 1/2 Diopter +2"
+          ]
+        },
+        {
+          "manufacturer": "Viltrox",
+          "model": "ZMOVE PL Cine Lens Mount Adapter",
+          "aliases": [
+            "Viltrox PL Adapter",
+            "Viltrox ZMOVE PL-E",
+            "Viltrox ZMOVE PL-L",
+            "Viltrox ZMOVE PL-RF"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "VVx2 Raptor Extender",
+          "aliases": [
+            "IB/E VVx2",
+            "IBE VVx2 UMS Extender"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "PLx1.3VV-E Expander",
+          "aliases": [
+            "IB/E PLx1.3VV-E",
+            "IBE PLx1.3 VV E"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "PLx1.4 65-E Expander",
+          "aliases": [
+            "IB/E PLx1.4 65-E",
+            "IBE PLx1.4 65 Format"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "PLx1.6VV Expander",
+          "aliases": [
+            "IB/E PLx1.6VV",
+            "IBE PLx1.6 VV"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "LPLx2VV Extender",
+          "aliases": [
+            "IB/E LPLx2VV",
+            "IBE LPLx2 VV",
+            "IB/E LPL 2x Extender"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "PLx1.4 MKII Extender",
+          "aliases": [
+            "IB/E PLx1.4 Mark II",
+            "IBE PLx1.4 MII",
+            "IB/E 1.4x PL Extender S35"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "HDx2 MKII B4-PL Converter",
+          "aliases": [
+            "IB/E HDx2 Mark II",
+            "IBE HDx2 MII"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "HDx1.4 B4-PL Converter",
+          "aliases": [
+            "IB/E HDx1.4",
+            "IBE HDx1.4"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "HDx6K B4-PL Converter",
+          "aliases": [
+            "IB/E HDx6K",
+            "IBE HDx6K"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED RF to PL Adapter",
+          "aliases": [
+            "790-0738",
+            "RED RF to PL Adapter Pack",
+            "RED RF-PL Adapter"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED RF to PL Adapter w/ Electronic ND",
+          "aliases": [
+            "790-0744",
+            "RED RF to PL Adapter w/ Electronic ND Filter Pack",
+            "RED RF-PL eND Adapter"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED Z to PL Adapter",
+          "aliases": [
+            "790-0801",
+            "RED Z to PL Adapter Pack",
+            "RED Z-PL Adapter"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED Z to PL Adapter w/ Electronic ND",
+          "aliases": [
+            "790-0799",
+            "RED Z to PL Adapter w/ Electronic ND Filter Pack",
+            "RED Z-PL eND Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Drop-In Filter Mount Adapter EF-EOS R with Variable ND Filter A",
+          "aliases": [
+            "790-0681",
+            "Canon Drop-In Filter Mount Adapter EF-EOS R Variable ND",
+            "Canon Drop-In Variable ND Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "Drop-In Filter Mount Adapter EF-EOS R with Circular Polarizing Filter A",
+          "aliases": [
+            "Canon Drop-In Filter Mount Adapter EF-EOS R C-PL",
+            "Canon Drop-In Polarizer Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "MO-4E B4 Mount Adapter",
+          "aliases": [
+            "MO-4E",
+            "Canon MO-4E"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "MO-4P B4 Mount Adapter",
+          "aliases": [
+            "MO-4P",
+            "Canon MO-4P"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Diopter +1/8",
+          "aliases": [
+            "138CU18"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Letterbox Diopter +1 15mm",
+          "aliases": [
+            "138LETTER15BX1"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Letterbox Diopter +2 15mm",
+          "aliases": [
+            "138LETTER15BX2"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Letterbox Diopter +3 15mm",
+          "aliases": [
+            "138LETTER15BX3"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Letterbox Diopter +1 30mm",
+          "aliases": [
+            "138LETTER30BX1"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Letterbox Diopter +2 30mm",
+          "aliases": [
+            "138LETTER30BX2"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Letterbox Diopter +3 30mm",
+          "aliases": [
+            "138LETTER30BX3"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Strip Diopter +1 15mm",
+          "aliases": [
+            "138STRIP15MM1"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Strip Diopter +2 15mm",
+          "aliases": [
+            "138STRIP15MM2"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Strip Diopter +3 15mm",
+          "aliases": [
+            "138STRIP15MM3"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Strip Diopter +1 30mm",
+          "aliases": [
+            "138STRIP30MM1"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Strip Diopter +2 30mm",
+          "aliases": [
+            "138STRIP30MM2"
+          ]
+        },
+        {
+          "manufacturer": "Tiffen",
+          "model": "138mm Strip Diopter +3 30mm",
+          "aliases": [
+            "138STRIP30MM3"
+          ]
+        },
+        {
+          "manufacturer": "Schneider",
+          "model": "138mm Diopter Full +1/4",
+          "aliases": [
+            "Schneider Diopter +1/4 138",
+            "Schneider 138mm Diopter +1/4"
           ]
         }
       ]
@@ -4247,7 +5471,10 @@
           "extraSeries": [
             "Canon Sumire",
             "Sumire Prime",
-            "Canon Sumire PL"
+            "Canon Sumire PL",
+            "CN-E FP X",
+            "Canon Sumire Prime FP X",
+            "Canon CN-E FP X"
           ]
         },
         {
@@ -4660,7 +5887,8 @@
             "CP3XD "
           ],
           "extraSeries": [
-            "Compact Prime CP.3 XD"
+            "Compact Prime CP.3 XD",
+            "ZEISS CP.3 XD"
           ]
         },
         {
@@ -5008,7 +6236,10 @@
             "CNE "
           ],
           "extraSeries": [
-            "Canon CN-E"
+            "Canon CN-E",
+            "CN-E L F",
+            "Canon CN-E Prime",
+            "Canon CN-E Primes L F"
           ]
         },
         {
@@ -5077,7 +6308,7 @@
             ],
             [
               27,
-              null
+              "T1.4"
             ],
             [
               32,
@@ -5126,7 +6357,10 @@
             "S8i FF",
             "Cooke S8/i Primes",
             "Cooke S8/i FF Primes"
-          ]
+          ],
+          "formerly": {
+            "27": "S8/i 27mm"
+          }
         },
         {
           "manufacturer": "Cooke",
@@ -5386,7 +6620,9 @@
             "Leica Thalia",
             "Leitz Thalia",
             "Leitz Thalias",
-            "Leitz Thalia (65 System) Primes"
+            "Leitz Thalia (65 System) Primes",
+            "Leitz THALIA 65",
+            "Thalia 65"
           ]
         },
         {
@@ -6624,7 +7860,10 @@
             "ISCO spherical",
             "ISCO sperical",
             "ISCOspherical",
-            "Schneider ISCOspherical"
+            "Schneider ISCOspherical",
+            "ISCOsphericals 2.4 A+ EF",
+            "ISCOspherical A+",
+            "Schneider ISCOspherical 2.4 A+"
           ]
         },
         {
@@ -10300,6 +11539,782 @@
           ],
           "mount": "PL",
           "format": "Full Frame"
+        },
+        {
+          "manufacturer": "ZEISS",
+          "series": "Panoptes 65",
+          "focals": [
+            [
+              25,
+              "T2.2"
+            ],
+            [
+              35,
+              "T2.2"
+            ],
+            [
+              40,
+              "T2.2"
+            ],
+            [
+              45,
+              "T2.2"
+            ],
+            [
+              55,
+              "T2.2"
+            ],
+            [
+              70,
+              "T2.2"
+            ],
+            [
+              90,
+              "T2.2"
+            ],
+            [
+              110,
+              "T2.2"
+            ],
+            [
+              135,
+              "T2.2"
+            ],
+            [
+              180,
+              "T2.2"
+            ]
+          ],
+          "extraSeries": [
+            "ZEISS Panoptes 65",
+            "Zeiss Panoptes",
+            "Panoptes 65 Primes",
+            "Zeiss Panoptes 65 T2.2"
+          ],
+          "mount": "LPL",
+          "format": "65 mm"
+        },
+        {
+          "manufacturer": "Cooke",
+          "series": "Macro/i FF",
+          "focals": [
+            [
+              60,
+              "T2.5"
+            ],
+            [
+              90,
+              "T2.5"
+            ],
+            [
+              150,
+              "T2.5"
+            ]
+          ],
+          "extraSeries": [
+            "Cooke Macro/i FF",
+            "Cooke Macro/i",
+            "Macro/i Full Frame",
+            "Cooke Macro FF",
+            "Cooke Macro/i FF Primes"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Cooke",
+          "series": "Panchro 65/i",
+          "focals": [
+            [
+              30,
+              "T2.8"
+            ],
+            [
+              40,
+              "T2.8"
+            ],
+            [
+              55,
+              "T2.5"
+            ],
+            [
+              75,
+              "T2.5"
+            ],
+            [
+              100,
+              "T2.5"
+            ],
+            [
+              152,
+              "T2.9"
+            ]
+          ],
+          "extraSeries": [
+            "Cooke Panchro 65/i",
+            "Cooke Panchro/i 65",
+            "Panchro/i 65 Primes"
+          ],
+          "mount": "LPL",
+          "format": "65 mm"
+        },
+        {
+          "manufacturer": "Canon",
+          "series": "CN-R",
+          "focals": [
+            [
+              14,
+              "T3.1"
+            ],
+            [
+              20,
+              "T1.5"
+            ],
+            [
+              24,
+              "T1.5"
+            ],
+            [
+              35,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.3"
+            ],
+            [
+              85,
+              "T1.3"
+            ],
+            [
+              135,
+              "T2.2"
+            ]
+          ],
+          "extraSeries": [
+            "Canon CN-R",
+            "Canon CN-R Prime",
+            "CN-R L F",
+            "Canon CN-R RF Primes"
+          ],
+          "mount": "RF",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Tokina",
+          "series": "Vista-P",
+          "focals": [
+            [
+              18,
+              "T1.5"
+            ],
+            [
+              21,
+              "T1.5"
+            ],
+            [
+              25,
+              "T1.5"
+            ],
+            [
+              29,
+              "T1.5"
+            ],
+            [
+              35,
+              "T1.5"
+            ],
+            [
+              40,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.5"
+            ],
+            [
+              65,
+              "T1.5"
+            ],
+            [
+              85,
+              "T1.5"
+            ],
+            [
+              105,
+              "T1.5"
+            ],
+            [
+              135,
+              "T1.5"
+            ],
+            [
+              180,
+              "T1.5"
+            ]
+          ],
+          "extraSeries": [
+            "Tokina Vista-P",
+            "Tokina Vista-P Prime",
+            "Vista-P Prime T1.5",
+            "Tokina Vista P"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Tokina",
+          "series": "Vista-C",
+          "focals": [
+            [
+              18,
+              "T1.5"
+            ],
+            [
+              21,
+              "T1.5"
+            ],
+            [
+              25,
+              "T1.5"
+            ],
+            [
+              29,
+              "T1.5"
+            ],
+            [
+              35,
+              "T1.5"
+            ],
+            [
+              40,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.5"
+            ],
+            [
+              65,
+              "T1.5"
+            ],
+            [
+              85,
+              "T1.5"
+            ],
+            [
+              105,
+              "T1.5"
+            ],
+            [
+              135,
+              "T1.5"
+            ]
+          ],
+          "extraSeries": [
+            "Tokina Vista-C",
+            "Tokina Vista-C Prime",
+            "Vista-C Prime T1.5",
+            "Tokina Vista C"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Laowa",
+          "series": "Argus T1 Cine FF",
+          "focals": [
+            [
+              28,
+              "T1"
+            ],
+            [
+              35,
+              "T1"
+            ],
+            [
+              45,
+              "T1"
+            ]
+          ],
+          "extraSeries": [
+            "Laowa Argus T1 FF",
+            "Laowa Argus Cine FF",
+            "Argus T1 Full-Frame"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Laowa",
+          "series": "Argus T1 Cine S35",
+          "focals": [
+            [
+              18,
+              "T1"
+            ],
+            [
+              25,
+              "T1"
+            ],
+            [
+              33,
+              "T1"
+            ]
+          ],
+          "extraSeries": [
+            "Laowa Argus T1 S35",
+            "Laowa Argus Cine S35",
+            "Argus T1 Super35"
+          ],
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "Laowa",
+          "series": "Argus T1 Cine MFT",
+          "focals": [
+            [
+              18,
+              "T1"
+            ],
+            [
+              25,
+              "T1"
+            ]
+          ],
+          "extraSeries": [
+            "Laowa Argus T1 MFT",
+            "Laowa Argus Cine MFT"
+          ],
+          "mount": "MFT"
+        },
+        {
+          "manufacturer": "Laowa",
+          "series": "Sword Macro Cine",
+          "focals": [
+            [
+              15,
+              "T4.1"
+            ],
+            [
+              25,
+              "T2.9"
+            ],
+            [
+              35,
+              "T2.9"
+            ],
+            [
+              60,
+              "T2.9"
+            ],
+            [
+              100,
+              "T2.9"
+            ],
+            [
+              180,
+              "T4.6"
+            ]
+          ],
+          "extraSeries": [
+            "Laowa Sword",
+            "Laowa Sword Macro",
+            "Sword FF Macro Cine",
+            "Laowa Sword FF Macro Cine"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "series": "Vespid 2",
+          "focals": [
+            [
+              18,
+              "T1.9"
+            ],
+            [
+              24,
+              "T1.9"
+            ],
+            [
+              35,
+              "T1.9"
+            ],
+            [
+              50,
+              "T1.9"
+            ],
+            [
+              85,
+              "T1.9"
+            ],
+            [
+              105,
+              "T1.9"
+            ]
+          ],
+          "extraSeries": [
+            "DZOFilm Vespid 2",
+            "DZO Vespid 2",
+            "Vespid Prime 2",
+            "Vespid Prime2",
+            "DZOFilm Vespid Prime2"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "series": "Vespid Cyber",
+          "focals": [
+            [
+              35,
+              "T2.1"
+            ],
+            [
+              50,
+              "T2.1"
+            ],
+            [
+              75,
+              "T2.1"
+            ]
+          ],
+          "extraSeries": [
+            "DZOFilm Vespid Cyber",
+            "DZO Vespid Cyber"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "series": "Arles Lustre",
+          "focals": [
+            [
+              14,
+              null
+            ],
+            [
+              21,
+              null
+            ],
+            [
+              25,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              40,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              100,
+              null
+            ],
+            [
+              135,
+              null
+            ],
+            [
+              180,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "DZOFilm Arles Lustre",
+            "DZO Arles Lustre",
+            "Arles Lustre Desert Gold"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "Jupiter Macro",
+          "focals": [
+            [
+              24,
+              "T2"
+            ],
+            [
+              35,
+              "T2"
+            ],
+            [
+              50,
+              "T2"
+            ],
+            [
+              75,
+              "T2.8"
+            ],
+            [
+              100,
+              "T2.8"
+            ]
+          ],
+          "extraSeries": [
+            "Sirui Jupiter",
+            "Sirui Jupiter Macro",
+            "Sirui Jupiter Full-Frame Macro Cine"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "Night Walker",
+          "focals": [
+            [
+              16,
+              "T1.2"
+            ],
+            [
+              24,
+              "T1.2"
+            ],
+            [
+              35,
+              "T1.2"
+            ],
+            [
+              55,
+              "T1.2"
+            ],
+            [
+              75,
+              "T1.2"
+            ]
+          ],
+          "extraSeries": [
+            "Sirui Night Walker",
+            "Sirui Nightwalker",
+            "Night Walker T1.2 S35"
+          ],
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "Sirui",
+          "series": "Vision Prime 1",
+          "focals": [
+            [
+              15,
+              "T1.4"
+            ],
+            [
+              24,
+              "T1.4"
+            ],
+            [
+              35,
+              "T1.4"
+            ],
+            [
+              50,
+              "T1.4"
+            ],
+            [
+              75,
+              "T1.4"
+            ],
+            [
+              150,
+              "T1.4"
+            ]
+          ],
+          "extraSeries": [
+            "Sirui Vision Prime",
+            "Sirui Vision Prime 1",
+            "Vision Prime T1.4"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Schneider",
+          "series": "Xenon FF Cine-Tilt",
+          "focals": [
+            [
+              25,
+              "T2.1"
+            ],
+            [
+              35,
+              "T2.1"
+            ],
+            [
+              50,
+              "T2.1"
+            ],
+            [
+              75,
+              "T2.1"
+            ],
+            [
+              100,
+              "T2.1"
+            ]
+          ],
+          "extraSeries": [
+            "Schneider Cine-Tilt",
+            "Schneider Xenon FF Cine-Tilt",
+            "Xenon FF-Prime Cine-Tilt",
+            "Schneider Kreuznach Cine Tilt"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Schneider",
+          "series": "Cine-Xenar III",
+          "focals": [
+            [
+              18,
+              null
+            ],
+            [
+              25,
+              null
+            ],
+            [
+              35,
+              null
+            ],
+            [
+              50,
+              null
+            ],
+            [
+              75,
+              null
+            ],
+            [
+              95,
+              null
+            ]
+          ],
+          "extraSeries": [
+            "Schneider Cine-Xenar",
+            "Schneider Cine-Xenar III",
+            "Cine Xenar",
+            "Schneider-Kreuznach Cine-Xenar"
+          ],
+          "mount": "PL",
+          "format": "Super 35"
+        },
+        {
+          "manufacturer": "Samyang",
+          "series": "Xeen Meister",
+          "focals": [
+            [
+              14,
+              "T2.6"
+            ],
+            [
+              24,
+              "T1.3"
+            ],
+            [
+              35,
+              "T1.3"
+            ],
+            [
+              50,
+              "T1.3"
+            ],
+            [
+              85,
+              "T1.3"
+            ]
+          ],
+          "extraSeries": [
+            "XEEN Meister",
+            "Samyang Xeen Meister",
+            "Xeen Meister Cine Prime"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Samyang",
+          "series": "VDSLR MK2",
+          "focals": [
+            [
+              14,
+              "T3.1"
+            ],
+            [
+              24,
+              "T1.5"
+            ],
+            [
+              35,
+              "T1.5"
+            ],
+            [
+              50,
+              "T1.5"
+            ],
+            [
+              85,
+              "T1.5"
+            ],
+            [
+              135,
+              "T2.2"
+            ]
+          ],
+          "extraSeries": [
+            "Samyang VDSLR MK2",
+            "Samyang VDSLR II",
+            "Walimex Pro VDSLR MK2"
+          ],
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Samyang",
+          "series": "V-AF",
+          "focals": [
+            [
+              20,
+              "T1.9"
+            ],
+            [
+              24,
+              "T1.9"
+            ],
+            [
+              35,
+              "T1.9"
+            ],
+            [
+              45,
+              "T1.9"
+            ],
+            [
+              75,
+              "T1.9"
+            ],
+            [
+              100,
+              "T2.3"
+            ]
+          ],
+          "extraSeries": [
+            "Samyang V-AF",
+            "Samyang V-AF FE",
+            "V-AF FE"
+          ],
+          "mount": "E",
+          "format": "Full Frame"
         }
       ],
       "entries": [
@@ -10420,7 +12435,11 @@
             "TOKINA ATX Macro 100mm",
             "Tokina ATX Macro 100mm",
             "Tokina 100mm (Makro - Naheinstellgrenze 30cm, 1zu1)",
-            "Tokina 100mm Makro"
+            "Tokina 100mm Makro",
+            "Tokina 100mm T2.9 Macro",
+            "TC-M100P",
+            "TC-M100C",
+            "TC-M100S"
           ],
           "specs": {
             "focal_length_mm": 100,
@@ -11434,6 +13453,328 @@
             "IBE Raptorscope",
             "IB/E Raptorscope"
           ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Aatma 100mm T1.5",
+          "aliases": [
+            "Aatma 100",
+            "Zeiss Aatma 100mm",
+            "Zeiss Aatma 100mm T1.5"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Aatma 135mm T1.5",
+          "aliases": [
+            "Aatma 135",
+            "Zeiss Aatma 135mm",
+            "Zeiss Aatma 135mm T1.5"
+          ]
+        },
+        {
+          "manufacturer": "Cooke",
+          "model": "miniS4/i 21mm T2.8",
+          "aliases": [
+            "miniS4/i 21",
+            "Mini S4/i 21mm",
+            "Cooke miniS4/i 21mm",
+            "Cooke Mini S4i 21mm"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Thalia 20mm T3.6",
+          "aliases": [
+            "Thalia 20",
+            "Leitz Thalia 20mm",
+            "Leica Thalia 20mm",
+            "Thalia 65 20mm"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Thalia T 90mm T2.2",
+          "aliases": [
+            "Thalia 65 T 90mm",
+            "Leitz THALIA 65 T-90 mm",
+            "Thalia T-90",
+            "Leitz Thalia T 90mm"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "HUGO 75mm T2.1",
+          "aliases": [
+            "Hugo 75 T2.1",
+            "Leitz HUGO 75mm T2.1",
+            "Leitz Hugo LPL 75mm T2.1"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "HUGO 90mm T2.1",
+          "aliases": [
+            "Hugo 90 T2.1",
+            "Leitz HUGO 90mm T2.1",
+            "Leitz Hugo LPL 90mm T2.1"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CN-E 20mm T1.5",
+          "aliases": [
+            "CN-E20mm T1.5 L F",
+            "Canon CN-E 20mm",
+            "Canon CN-E20mm T1.5"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "Cine FF Classic 65mm T2.5",
+          "aliases": [
+            "Sigma FF Classic 65mm",
+            "Sigma Classic 65mm T2.5",
+            "Sigma 65mm T2.5 FF"
+          ]
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "Cinema Vista 180mm T1.5",
+          "aliases": [
+            "Tokina Vista 180mm",
+            "Tokina Vista Prime 180mm T1.5",
+            "KPC-3012PL",
+            "KPC-3012EF",
+            "KPC-3012E",
+            "Vista 180mm T1.5"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "9mm T5.8 VV Cine",
+          "aliases": [
+            "Laowa 9mm T5.8",
+            "Laowa 9mm T5.8 Zero-D VV Cine"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "10mm T2.9 Zero-D VV Cine",
+          "aliases": [
+            "Laowa 10mm T2.9",
+            "Laowa 10mm T2.9 Zero-D Cine"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "12mm T2.9 Lite Zero-D VV Cine",
+          "aliases": [
+            "Laowa 12mm T2.9 Lite",
+            "Laowa 12mm Lite Zero-D"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "14mm T2.6 Zero-D VV Cine",
+          "aliases": [
+            "Laowa 14mm T2.6",
+            "Laowa 14mm T2.6 Zero-D Cine"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "15mm T4.8 Zero-D Shift Cine",
+          "aliases": [
+            "Laowa 15mm Shift Cine",
+            "Laowa 15mm T4.8 Shift"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "20mm T4.1 Zero-D Shift Cine",
+          "aliases": [
+            "Laowa 20mm Shift Cine",
+            "Laowa 20mm T4.1 Shift"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Arles 18mm",
+          "aliases": [
+            "DZO Arles 18mm",
+            "DZOFilm Arles 18mm",
+            "DZO-SAP18MPL",
+            "DZO-SAP18IPL"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Xeen CF 16mm T2.6",
+          "aliases": [
+            "XEEN CF 16mm",
+            "Samyang Xeen CF 16mm"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Xeen CF 35mm T1.5",
+          "aliases": [
+            "XEEN CF 35mm",
+            "Samyang Xeen CF 35mm"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Xeen CF 135mm T2.2",
+          "aliases": [
+            "XEEN CF 135mm",
+            "Samyang Xeen CF 135mm"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "VDSLR 135mm T2.2",
+          "aliases": [
+            "Samyang 135mm T2.2 VDSLR ED UMC",
+            "Walimex Pro 135mm T2.2"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "VDSLR 100mm T3.1 Macro",
+          "aliases": [
+            "Samyang 100mm T3.1 VDSLR ED UMC Macro",
+            "Walimex Pro 100mm T3.1 Macro"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "VDSLR 16mm T2.2 CS",
+          "aliases": [
+            "Samyang 16mm T2.2 VDSLR ED AS UMC CS II",
+            "Walimex Pro 16mm T2.2"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "VDSLR 10mm T3.1 CS",
+          "aliases": [
+            "Samyang 10mm T3.1 VDSLR ED AS NCS CS II",
+            "Walimex Pro 10mm T3.1"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "VDSLR 12mm T3.1 Fisheye",
+          "aliases": [
+            "Samyang 12mm T3.1 VDSLR ED AS NCS Fish-eye"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "VDSLR 8mm T3.8 Fisheye CS",
+          "aliases": [
+            "Samyang 8mm T3.8 VDSLR UMC Fish-eye CS II",
+            "Walimex Pro 8mm T3.8 Fisheye"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Cine 12mm T2.2 NCS CS",
+          "aliases": [
+            "Samyang 12mm T2.2 Cine NCS CS",
+            "Walimex Pro 12mm T2.2"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Cine 21mm T1.5 ED AS UMC CS",
+          "aliases": [
+            "Samyang 21mm T1.5 Cine",
+            "Walimex Pro 21mm T1.5"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Cine 35mm T1.3 AS UMC CS",
+          "aliases": [
+            "Samyang 35mm T1.3 Cine",
+            "Walimex Pro 35mm T1.3"
+          ]
+        },
+        {
+          "manufacturer": "Samyang",
+          "model": "Cine 50mm T1.3 AS UMC CS",
+          "aliases": [
+            "Samyang 50mm T1.3 Cine",
+            "Walimex Pro 50mm T1.3"
+          ]
+        },
+        {
+          "manufacturer": "NiSi",
+          "model": "50mm T1 Prime",
+          "aliases": [
+            "NiSi 50mm T1",
+            "NiSi 50mm T1 Cine"
+          ]
+        },
+        {
+          "manufacturer": "NiSi",
+          "model": "65 Prime 16mm T2.9",
+          "aliases": [
+            "NiSi 65 Prime 16mm",
+            "NiSi 16mm T2.9 65"
+          ]
+        },
+        {
+          "manufacturer": "Viltrox",
+          "model": "MF 20mm T2.0 FF Cine",
+          "aliases": [
+            "Viltrox 20mm T2.0 Cine",
+            "Viltrox S 20mm T2.0"
+          ]
+        },
+        {
+          "manufacturer": "IBE Optics",
+          "model": "Raptor Macro 24mm T2.9",
+          "aliases": [
+            "IBE Raptor Macro 24mm",
+            "IB/E Raptor 24mm",
+            "Raptor 24mm"
+          ]
+        },
+        {
+          "manufacturer": "IBE Optics",
+          "model": "Raptor Macro S35 80mm T2.9",
+          "aliases": [
+            "IBE Raptor Macro S35 80mm",
+            "Raptor S35 80mm"
+          ]
+        },
+        {
+          "manufacturer": "IBE Optics",
+          "model": "Raptor Macro S35 120mm T2.9",
+          "aliases": [
+            "IBE Raptor Macro S35 120mm",
+            "Raptor S35 120mm"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "Raptor Scope FF",
+          "aliases": [
+            "IB/E Raptor Scope FF",
+            "IBE Raptor Scope FF"
+          ]
+        },
+        {
+          "manufacturer": "IB/E Optics",
+          "model": "Raptor Endo 24mm",
+          "aliases": [
+            "IB/E Raptor Scope Endo 24",
+            "IBE Raptor Endo 24mm"
+          ]
         }
       ]
     },
@@ -11924,7 +14265,9 @@
           "model": "CN-E 14.5-60mm T2.6",
           "aliases": [
             "CN-E 14.5-60",
-            "Canon 14.5-60"
+            "Canon 14.5-60",
+            "CN-E14.5-60mm T2.6 L S",
+            "CN-E14.5-60mm T2.6 L SP"
           ],
           "specs": {
             "mount": "PL / EF",
@@ -11937,7 +14280,9 @@
           "aliases": [
             "CN-E 15.5-47mm T2.8 L SP",
             "CN-E 15.5-47",
-            "Canon 15,5-47"
+            "Canon 15,5-47",
+            "CN-E15.5-47mm T2.8 L S",
+            "CN-E15.5-47mm T2.8 L SP"
           ],
           "specs": {
             "focal_length_mm": "15.5-47",
@@ -11953,7 +14298,8 @@
             "CN-E 18-80",
             "Canon 18-80",
             "Canon CN-E 18-80mm Cine Servo EF",
-            "CN-E18-80mm T4,4 L KAS S"
+            "CN-E18-80mm T4,4 L KAS S",
+            "CN-E18-80mm T4.4 L IS KAS S"
           ],
           "specs": {
             "focal_length_mm": "18-80",
@@ -11968,7 +14314,9 @@
             "CN-E 30-105mm T2.8 L SP",
             "CN-E 30-105",
             "Canon 30-105",
-            "Canon Zoom CN-E 30-105mm L SP"
+            "Canon Zoom CN-E 30-105mm L SP",
+            "CN-E30-105mm T2.8 L S",
+            "CN-E30-105mm T2.8 L SP"
           ],
           "specs": {
             "focal_length_mm": "30-105",
@@ -11982,7 +14330,9 @@
           "aliases": [
             "CN-E 30-300",
             "Canon 30-300",
-            "Canon Zoom CN-E30-300mm"
+            "Canon Zoom CN-E30-300mm",
+            "CN-E30-300mm T2.95-3.7 L S",
+            "CN-E30-300mm T2.95-3.7 L SP"
           ],
           "specs": {
             "mount": "PL / EF",
@@ -11995,7 +14345,8 @@
           "aliases": [
             "CN-E 70-200mm T4.4 L IS KAS S",
             "CN-E 70-200",
-            "Canon 70-200 Cine"
+            "Canon 70-200 Cine",
+            "CN-E70-200mm T4.4 L IS KAS S"
           ],
           "specs": {
             "focal_length_mm": "70-200",
@@ -12010,7 +14361,9 @@
             "CN-E 20-50mm T2.4 L F",
             "CN-E 14-35mm T1.7 L S",
             "Flex Zoom 14-35",
-            "Flex Zoom 20-50"
+            "Flex Zoom 20-50",
+            "CN-E20-50mm T2.4 L F (EF/PL)",
+            "CN-E14-35mm T1.7 L S/SP (EF/PL)"
           ],
           "specs": {
             "focal_length_mm": "20-50",
@@ -12025,7 +14378,9 @@
             "CN-E 45-135mm T2.4 L F",
             "CN-E 31.5-95mm T1.7 L S",
             "Flex Zoom 31.5-95",
-            "Flex Zoom 45-135"
+            "Flex Zoom 45-135",
+            "CN-E45-135mm T2.4 L F (EF/PL)",
+            "CN-E31.5-95mm T1.7 L S/SP (EF/PL)"
           ],
           "specs": {
             "focal_length_mm": "45-135",
@@ -12042,7 +14397,10 @@
             "CN10x25 IAS S 25-250mm T2.95",
             "Canon CN 10×25 25-250mm IAS S/P1",
             "Canon CN10x25 IAS S/P1",
-            "CN10x25 IAS S/P1"
+            "CN10x25 IAS S/P1",
+            "CN10 x 25 IAS S/E1",
+            "CN10x25 IAS S P1",
+            "CN10x25 IAS S E1"
           ],
           "specs": {
             "focal_length_mm": "25-250",
@@ -12061,7 +14419,9 @@
             "Canon Cine-Servo 50-1000",
             "Canon Zoom CN20x50 IAS 50-1000mm",
             "Canon Cine-Servo CN20x50",
-            "CANON Cine-Servo 50-1000mm"
+            "CANON Cine-Servo 50-1000mm",
+            "CN20x50 IAS H P1",
+            "CN20x50 IAS H E1"
           ],
           "specs": {
             "focal_length_mm": "50-1000",
@@ -12079,7 +14439,11 @@
             "Canon CN7x17 17-120mm KAS S",
             "Canon CN7x17 17-120mm T2.95 4K Cine-Servo",
             "Canon 17-120mm (PL-Mount)",
-            "Canon Cine-Servo 17-120mm"
+            "Canon Cine-Servo 17-120mm",
+            "CN7 x 17 KAS S/P1",
+            "CN7 x 17 KAS S/E1",
+            "CN7x17 KAS S P1",
+            "CN7x17 KAS S E1"
           ],
           "specs": {
             "mount": "PL / EF",
@@ -12092,7 +14456,9 @@
           "model": "CN8x15 IAS S 15-120mm T2.95-3.9",
           "aliases": [
             "CN8x15",
-            "Canon Cine-Servo 15-120"
+            "Canon Cine-Servo 15-120",
+            "CN8x15 IAS S (EF/PL)",
+            "CN8x15 IAS S"
           ],
           "specs": {
             "focal_length_mm": "15-120",
@@ -12170,7 +14536,10 @@
           "model": "Varotal/i FF 19-40mm T2.8",
           "aliases": [
             "Varotal 19-40",
-            "Cooke 19-40"
+            "Cooke 19-40",
+            "Varotal/i FF 19-40mm T2.9",
+            "Cooke Varotal/i FF 19-40mm",
+            "Cooke Zoom Varotal/i FF 19-40mm"
           ],
           "specs": {
             "mount": "PL",
@@ -12183,7 +14552,9 @@
           "aliases": [
             "Varotal 30-95",
             "Cooke 30-95",
-            "Cooke Zoom Varotal/i FF 30-95mm"
+            "Cooke Zoom Varotal/i FF 30-95mm",
+            "Varotal/i FF 30-95mm T2.9",
+            "Cooke Varotal/i FF 30-95mm"
           ],
           "specs": {
             "mount": "PL",
@@ -12197,7 +14568,8 @@
             "Varotal 85-215",
             "Cooke 85-215",
             "Varotal/i FF 85-215mm T2.8",
-            "Cooke Zoom Varotal/i FF 85-215mm"
+            "Cooke Zoom Varotal/i FF 85-215mm",
+            "Cooke Varotal/i FF 85-215mm"
           ],
           "specs": {
             "mount": "PL",
@@ -12214,7 +14586,8 @@
             "Catta Ace 18-35",
             "DZO Catta 18-35",
             "DZO Catta Ace 18-35mm",
-            "DZOFilm Catta Ace 18-35mm"
+            "DZOFilm Catta Ace 18-35mm",
+            "DZO-FFA1835-BLK"
           ],
           "specs": {
             "focal_length_mm": "18-35",
@@ -12229,7 +14602,8 @@
             "Catta Ace 35-80",
             "DZO Catta 35-80",
             "DZO Catta Ace 35-80mm",
-            "DZOFilm Catta Ace 35-80mm"
+            "DZOFilm Catta Ace 35-80mm",
+            "DZO-FFA3580-BLK"
           ],
           "specs": {
             "focal_length_mm": "35-80",
@@ -12244,7 +14618,8 @@
             "Catta Ace 70-135",
             "DZO Catta 70-135",
             "DZO Catta Ace 70-135mm",
-            "DZOFilm Catta Ace 70-135mm"
+            "DZOFilm Catta Ace 70-135mm",
+            "DZO-FFA70135-BLK"
           ],
           "specs": {
             "focal_length_mm": "70-135",
@@ -12259,7 +14634,8 @@
             "Pictor 12-25",
             "DZO Pictor 12-25",
             "DZO Pictor 12-25mm",
-            "DZO Film 12-25mm"
+            "DZO Film 12-25mm",
+            "DZO-7220004B"
           ],
           "specs": {
             "focal_length_mm": "12-25",
@@ -12274,7 +14650,8 @@
             "Pictor 14-30",
             "DZO Pictor 14-30",
             "DZO Pictor 14-30mm",
-            "DZO Film 14-30mm"
+            "DZO Film 14-30mm",
+            "DZO-7220003B"
           ],
           "specs": {
             "focal_length_mm": "14-30",
@@ -12289,7 +14666,8 @@
             "Pictor 20-55",
             "DZO Pictor 20-55",
             "DZO Pictor 20-55mm",
-            "DZO Film 20-55mm"
+            "DZO Film 20-55mm",
+            "DZO-7220002B"
           ],
           "specs": {
             "focal_length_mm": "20-55",
@@ -12304,7 +14682,8 @@
             "Pictor 50-125",
             "DZO Pictor 50-125",
             "DZO Pictor 50-125mm",
-            "DZO Film 50-125mm"
+            "DZO Film 50-125mm",
+            "DZO-7220001B"
           ],
           "specs": {
             "focal_length_mm": "50-125",
@@ -12318,7 +14697,9 @@
           "aliases": [
             "ZK2.5x14",
             "Cabrio 14-35",
-            "Fujinon Zoom Cabrio 14-35mm"
+            "Fujinon Zoom Cabrio 14-35mm",
+            "ZK14-35mm T2.9",
+            "Fujinon ZK2.5x14"
           ],
           "specs": {
             "focal_length_mm": "14-35",
@@ -12335,7 +14716,9 @@
             "ZK4.7x19",
             "Fujinon Zoom Cabrio 19-90mm",
             "FUJINON Cabrio 19-90mm",
-            "Fujinon ZK19-90mm Cabrio"
+            "Fujinon ZK19-90mm Cabrio",
+            "ZK19-90",
+            "Fujinon ZK4.7x19"
           ],
           "specs": {
             "mount": "PL",
@@ -12348,7 +14731,10 @@
           "aliases": [
             "XK6x20",
             "Cabrio 20-120",
-            "Fujinon Zoom Cabrio 20-120mm"
+            "Fujinon Zoom Cabrio 20-120mm",
+            "XK20-120mm T3.5",
+            "XK20-120",
+            "Fujinon XK6x20"
           ],
           "specs": {
             "focal_length_mm": "20-120",
@@ -12362,7 +14748,9 @@
           "model": "Cabrio 25-300mm T3.5-3.85",
           "aliases": [
             "Cabrio 25-300",
-            "ZK12x25"
+            "ZK12x25",
+            "ZK25-300",
+            "Fujinon ZK12x25"
           ],
           "specs": {
             "mount": "PL",
@@ -12375,7 +14763,9 @@
           "aliases": [
             "ZK3.5x85",
             "Cabrio 85-300",
-            "Fujinon Zoom Cabrio 85-300mm"
+            "Fujinon Zoom Cabrio 85-300mm",
+            "ZK85-300",
+            "Fujinon ZK3.5x85"
           ],
           "specs": {
             "focal_length_mm": "85-300",
@@ -12408,7 +14798,8 @@
             "HZK24-300",
             "Duvo Portable",
             "Duvo HZK24-300",
-            "Fujinon 24-300"
+            "Fujinon 24-300",
+            "Duvo24-300"
           ],
           "specs": {
             "focal_length_mm": "24-300",
@@ -12436,7 +14827,8 @@
             "MKX 18-55",
             "Fujinon MK18-55",
             "Fujinon Zoom MK 18-55mm",
-            "Fujinon MK 18-55mm"
+            "Fujinon MK 18-55mm",
+            "MK18-55mm T2.9"
           ],
           "specs": {
             "focal_length_mm": "18-55",
@@ -12464,7 +14856,9 @@
           "aliases": [
             "HK3.1x14.5",
             "Premier 14.5-45",
-            "Fujinon HK 14.5-45"
+            "Fujinon HK 14.5-45",
+            "HK14.5-45mm T2.0",
+            "Fujinon HK3.1x14.5"
           ],
           "specs": {
             "focal_length_mm": "14.5-45",
@@ -12479,7 +14873,9 @@
           "model": "Premier 18-85mm T2",
           "aliases": [
             "Premier 18-85",
-            "HK4.7x18"
+            "HK4.7x18",
+            "HK18-85mm T2.0",
+            "Fujinon HK4.7x18"
           ],
           "specs": {
             "mount": "PL",
@@ -12491,7 +14887,9 @@
           "model": "Premier 24-180mm T2.6",
           "aliases": [
             "Premier 24-180",
-            "HK7.5x24"
+            "HK7.5x24",
+            "HK24-180mm T2.6",
+            "Fujinon HK7.5x24"
           ],
           "specs": {
             "mount": "PL",
@@ -12504,7 +14902,9 @@
           "aliases": [
             "HK5.3x75",
             "Premier 75-400",
-            "Fujinon HK 75-400"
+            "Fujinon HK 75-400",
+            "HK75-400mm T2.8",
+            "Fujinon HK5.3x75"
           ],
           "specs": {
             "focal_length_mm": "75-400",
@@ -12520,7 +14920,8 @@
           "aliases": [
             "Premista 19-45",
             "Fuji Premista 19-45",
-            "Fujinon Premista XD/i FF 19-45mm"
+            "Fujinon Premista XD/i FF 19-45mm",
+            "Premista19-45mm T2.9"
           ],
           "specs": {
             "mount": "PL",
@@ -12536,7 +14937,8 @@
             "Fujinon Premista XD/i FF 28-100mm",
             "FUJINON Premista",
             "FUJINON Premista 28-100mm",
-            "Fujinon Prevista 28-100mm"
+            "Fujinon Prevista 28-100mm",
+            "Premista28-100mm T2.9"
           ],
           "specs": {
             "mount": "PL",
@@ -12549,7 +14951,8 @@
           "aliases": [
             "Premista 80-250",
             "Fuji Premista 80-250",
-            "Fujinon Premista XD/i FF 80-250mm"
+            "Fujinon Premista XD/i FF 80-250mm",
+            "Premista80-250mm T2.9-3.5"
           ],
           "specs": {
             "mount": "PL",
@@ -12653,7 +15056,13 @@
             "Tokina 11-20 Cine",
             "Cinema ATX 11-20",
             "TOKINA Cinema ATX",
-            "TOKINA Cinema ATX 11-20mm"
+            "TOKINA Cinema ATX 11-20mm",
+            "Tokina 11-20mm T2.9 Zoom",
+            "TC-1120PL",
+            "TC-1120EF",
+            "TC-1120E",
+            "TC-1120MFT",
+            "TC-1120F"
           ],
           "specs": {
             "focal_length_mm": "11-20",
@@ -12666,7 +15075,15 @@
           "model": "Cinema 16-28mm T3",
           "aliases": [
             "Tokina 16-28 Cine",
-            "Cinema ATX 16-28"
+            "Cinema ATX 16-28",
+            "Tokina Vista 16-28mm T3.0 MKII",
+            "Vista 16-28mm MKII",
+            "Tokina 16-28mm T3.0 MKII",
+            "KPC-1016PL",
+            "KPC-1016EF",
+            "KPC-1016E",
+            "TC-168S",
+            "Tokina 16-28mm T3.0 MKI"
           ],
           "specs": {
             "focal_length_mm": "16-28",
@@ -12679,7 +15096,12 @@
           "model": "Cinema 25-75mm T2.9",
           "aliases": [
             "Tokina 25-75 Cine",
-            "Tokina Cinema 25-75"
+            "Tokina Cinema 25-75",
+            "Tokina 25-75mm T2.9 Zoom",
+            "TC-2575PL",
+            "TC-2575EF",
+            "TC-2575E",
+            "TC-2575MFT"
           ],
           "specs": {
             "focal_length_mm": "25-75",
@@ -12692,7 +15114,15 @@
           "model": "Cinema 50-135mm T2.9",
           "aliases": [
             "Tokina 50-135 Cine",
-            "Cinema ATX 50-135"
+            "Cinema ATX 50-135",
+            "Tokina 50-135mm T2.9 MKII",
+            "Tokina 50-135mm MKII",
+            "TC-535MKIIP",
+            "TC-535MKIIEF",
+            "TC-535MKIIE",
+            "TC-535C",
+            "TC-535P",
+            "Tokina 50-135mm T2.9 MKI"
           ],
           "specs": {
             "focal_length_mm": "50-135",
@@ -12708,7 +15138,10 @@
             "Zeiss 15-30",
             "Zeiss Compact Zoom CZ.2 PL/EF 15-30mm",
             "Zeiss CZ 15-30mm/2.9",
-            "Zeiss Compact Zoom 15-30mm/2.9"
+            "Zeiss Compact Zoom 15-30mm/2.9",
+            "ZEISS Cinema Zoom 15-30mm",
+            "Cinema Zoom 15-30 mm",
+            "Zeiss Cinema Zoom 15-30"
           ],
           "specs": {
             "focal_length_mm": "15-30",
@@ -12726,7 +15159,10 @@
             "Zeiss Compact Zoom CZ.2 28-80mm",
             "Zeiss CZ 28-80mm/2.9",
             "Zeiss Compact Zoom 28-80mm/2.9",
-            "Zeiss Compact Zoom CZ.2 28-80mm PL/EF"
+            "Zeiss Compact Zoom CZ.2 28-80mm PL/EF",
+            "ZEISS Cinema Zoom 28-80mm",
+            "Cinema Zoom 28-80 mm",
+            "Zeiss Cinema Zoom 28-80"
           ],
           "specs": {
             "focal_length_mm": "28-80",
@@ -12743,7 +15179,10 @@
             "Zeiss 70-200",
             "Zeiss Compact Zoom CZ.2 70-200mm",
             "Zeiss CZ 70-200mm/2.9",
-            "Zeiss Compact Zoom 70-200mm/2.9"
+            "Zeiss Compact Zoom 70-200mm/2.9",
+            "ZEISS Cinema Zoom 70-200mm",
+            "Cinema Zoom 70-200 mm",
+            "Zeiss Cinema Zoom 70-200"
           ],
           "specs": {
             "focal_length_mm": "70-200",
@@ -12778,7 +15217,8 @@
             "Zeiss Lightweight Zoom LWZ3 21-100mm",
             "LWZ3",
             "Zeiss LWZ.3 21-100mm/2.9-3.9",
-            "Zeiss LWZ.3 21-100mm"
+            "Zeiss LWZ.3 21-100mm",
+            "ZEISS Lightweight Zoom LWZ.3 21-100 mm/T2.9-3.9 T*"
           ],
           "specs": {
             "format": "Super 35"
@@ -13018,7 +15458,9 @@
           "model": "X-Tract 18-28mm T8 Probe Zoom 0°",
           "aliases": [
             "DZO X-Tract 18-28mm T8 0°",
-            "DZOFILM X-TRACT 18-28mm T.8 FF 0°"
+            "DZOFILM X-TRACT 18-28mm T.8 FF 0°",
+            "DZO-X1828A",
+            "X-Tract 0°"
           ]
         },
         {
@@ -13026,7 +15468,9 @@
           "model": "X-Tract 18-28mm T8 Probe Zoom 90°",
           "aliases": [
             "DZO X-Tract 18-28mm T8 90°",
-            "DZOFILM X-TRACT 18-28mm T.8 FF 90°"
+            "DZOFILM X-TRACT 18-28mm T.8 FF 90°",
+            "DZO-X1828B",
+            "X-Tract 90°"
           ]
         },
         {
@@ -13034,7 +15478,9 @@
           "model": "X-Tract 18-28mm T8 Probe Zoom 360°",
           "aliases": [
             "DZO X-Tract 18-28mm T8 360°",
-            "DZOFILM X-TRACT 18-28mm T.8 FF 360°"
+            "DZOFILM X-TRACT 18-28mm T.8 FF 360°",
+            "DZO-X1828C",
+            "X-Tract 360°"
           ]
         },
         {
@@ -13286,7 +15732,10 @@
           "model": "Ranger 28-75mm T2.9",
           "aliases": [
             "Laowa Ranger 28-75mm",
-            "Laowa Ranger Zoom 28-75"
+            "Laowa Ranger Zoom 28-75",
+            "Laowa Ranger FF 28-75mm",
+            "Ranger FF 28-75mm T2.9",
+            "Ranger 28-75 Lite"
           ]
         },
         {
@@ -13294,7 +15743,10 @@
           "model": "Ranger 75-180mm T2.9",
           "aliases": [
             "Laowa Ranger 75-180mm",
-            "Laowa Ranger Zoom 75-180"
+            "Laowa Ranger Zoom 75-180",
+            "Laowa Ranger FF 75-180mm",
+            "Ranger FF 75-180mm T2.9",
+            "Ranger 75-180 Lite"
           ]
         },
         {
@@ -13411,7 +15863,9 @@
           "model": "HA18x7.6BERM",
           "aliases": [
             "Fujinon HA 18 x 7.6 BERM",
-            "Fujinon HA18x7.6"
+            "Fujinon HA18x7.6",
+            "HA18x7.6BERD",
+            "Fujinon HA18x7.6BERD"
           ]
         },
         {
@@ -13543,7 +15997,9 @@
           "aliases": [
             "Canon CN30x40 IAS J R1/P1",
             "Canon CN30x40",
-            "Canon Cine-Servo 40-1200mm"
+            "Canon Cine-Servo 40-1200mm",
+            "CN30×40 IAS J R1/P1",
+            "CN30x40 IAS J"
           ]
         },
         {
@@ -13552,7 +16008,9 @@
           "aliases": [
             "Canon CN5x11 IAS T R1/P1",
             "Canon CN5x11",
-            "Canon Cine-Servo 11-55mm"
+            "Canon Cine-Servo 11-55mm",
+            "CN5 x 11 IAS T (RF/PL)",
+            "CN5x11 IAS T RF"
           ]
         },
         {
@@ -13602,6 +16060,539 @@
           "aliases": [
             "Hawk 150-450",
             "Hawk 150-450 mm T2.8"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Supreme Zoom Radiance 15-30mm T2.9",
+          "aliases": [
+            "ZEISS Supreme Zoom Radiance 15-30mm",
+            "Supreme Zoom Radiance 15-30",
+            "Radiance 15-30 mm",
+            "Zeiss Radiance Zoom 15-30"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Supreme Zoom Radiance 28-80mm T2.9",
+          "aliases": [
+            "ZEISS Supreme Zoom Radiance 28-80mm",
+            "Supreme Zoom Radiance 28-80",
+            "Radiance 28-80 mm",
+            "Zeiss Radiance Zoom 28-80"
+          ]
+        },
+        {
+          "manufacturer": "ZEISS",
+          "model": "Supreme Zoom Radiance 70-200mm T2.9",
+          "aliases": [
+            "ZEISS Supreme Zoom Radiance 70-200mm",
+            "Supreme Zoom Radiance 70-200",
+            "Radiance 70-200 mm",
+            "Zeiss Radiance Zoom 70-200"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA13x4.5BERD",
+          "aliases": [
+            "UA13x4.5BERM",
+            "Fujinon UA13x4.5",
+            "UA13x4.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA14x4.5BERD",
+          "aliases": [
+            "UA14x4.5BERM",
+            "Fujinon UA14x4.5",
+            "UA14x4.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA18x5.5BERD",
+          "aliases": [
+            "UA18x5.5BERM",
+            "Fujinon UA18x5.5",
+            "UA18x5.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA18x7.6BERD",
+          "aliases": [
+            "UA18x7.6BERM",
+            "Fujinon UA18x7.6",
+            "UA18x7.6"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA22x8BERD",
+          "aliases": [
+            "UA22x8BERM",
+            "Fujinon UA22x8",
+            "UA22x8"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA23x7.6BERD",
+          "aliases": [
+            "UA23x7.6BERM",
+            "Fujinon UA23x7.6",
+            "UA23x7.6"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA24x7.8BERD",
+          "aliases": [
+            "UA24x7.8BERM",
+            "Fujinon UA24x7.8",
+            "UA24x7.8"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA46x9.5BERD",
+          "aliases": [
+            "Fujinon UA46x9.5",
+            "UA46x9.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "UA46x13.5BERD",
+          "aliases": [
+            "Fujinon UA46x13.5",
+            "UA46x13.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "HA14x4.5BERM",
+          "aliases": [
+            "HA14x4.5BERD",
+            "Fujinon HA14x4.5",
+            "HA14x4.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "HA18x5.5BERM",
+          "aliases": [
+            "HA18x5.5BERD",
+            "Fujinon HA18x5.5",
+            "HA18x5.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "HA23x7.6BERM",
+          "aliases": [
+            "HA23x7.6BERD",
+            "Fujinon HA23x7.6",
+            "HA23x7.6"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "ZA12x4.5BERM",
+          "aliases": [
+            "ZA12x4.5BEMD",
+            "Fujinon ZA12x4.5",
+            "ZA12x4.5"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "ZA17x7.6BERM",
+          "aliases": [
+            "ZA17x7.6BEMD",
+            "Fujinon ZA17x7.6",
+            "ZA17x7.6"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "ZA22x7.6BERM",
+          "aliases": [
+            "ZA22x7.6BEMD",
+            "Fujinon ZA22x7.6",
+            "ZA22x7.6"
+          ]
+        },
+        {
+          "manufacturer": "Fujinon",
+          "model": "XA17x7.6BERM",
+          "aliases": [
+            "XA17x7.6BRM",
+            "Fujinon XA17x7.6",
+            "XA17x7.6"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CN7x17 KAS T 17-120mm",
+          "aliases": [
+            "CN7 x 17 KAS T (RF/PL)",
+            "CN7x17 KAS T",
+            "Canon Cine-Servo 17-120mm RF",
+            "Canon CN7x17 KAS T RF"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ14ex4.3B",
+          "aliases": [
+            "Canon CJ14ex4.3B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ15ex4.3B",
+          "aliases": [
+            "Canon CJ15ex4.3B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ15ex8.5B",
+          "aliases": [
+            "Canon CJ15ex8.5B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ17ex6.2B",
+          "aliases": [
+            "UHDgc CJ17ex6.2B",
+            "Canon CJ17ex6.2B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ18ex7.6B",
+          "aliases": [
+            "Canon CJ18ex7.6B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ18ex28B",
+          "aliases": [
+            "Canon CJ18ex28B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ20ex5B",
+          "aliases": [
+            "UHDxs CJ20eX5B",
+            "Canon CJ20ex5B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ24ex7.5B",
+          "aliases": [
+            "Canon CJ24ex7.5B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ25ex7.6B",
+          "aliases": [
+            "Canon CJ25ex7.6B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ27ex7.3B IASE T",
+          "aliases": [
+            "Canon CJ27ex7.3B",
+            "CJ27ex7.3B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ45ex9.7B IASE-V H",
+          "aliases": [
+            "Canon CJ45ex9.7B",
+            "CJ45ex9.7B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CJ45ex13.6B IASE-V H",
+          "aliases": [
+            "Canon CJ45ex13.6B",
+            "CJ45ex13.6B",
+            "CJ45ex13.6B IASE-VH"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "HJ24ex7.5B",
+          "aliases": [
+            "Canon HJ24ex7.5B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "HJ40ex10B IASE-V H",
+          "aliases": [
+            "Canon HJ40ex10B",
+            "HJ40ex10B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "HJ40ex14B IASE-V H",
+          "aliases": [
+            "Canon HJ40ex14B",
+            "HJ40ex14B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "HJ18ex7.6B IRSE S",
+          "aliases": [
+            "HJ18ex7.6B IASE S",
+            "Canon HJ18ex7.6B",
+            "HJ18ex7.6B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "KJ20x8.2B IRSD",
+          "aliases": [
+            "KJ20x8.2B KRSD",
+            "KJ20x8.2B KTS",
+            "Canon KJ20x8.2B",
+            "KJ20x8.2B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "KJ17ex7.7B IRSE",
+          "aliases": [
+            "KJ17ex7.7B IASE S",
+            "KJ17ex7.7B ITS-ME",
+            "Canon KJ17ex7.7B",
+            "KJ17ex7.7B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "KJ22ex7.6B IRSE",
+          "aliases": [
+            "KJ22ex7.6B IASE S",
+            "KJ22ex7.6B ITS-ME",
+            "Canon KJ22ex7.6B",
+            "KJ22ex7.6B"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "KJ10ex4.5B IRSE S",
+          "aliases": [
+            "KJ10ex4.5B IASE S",
+            "Canon KJ10ex4.5B",
+            "KJ10ex4.5B"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "AF Cine 28-105mm T3 FF",
+          "aliases": [
+            "Sigma 28-105mm T3 FF",
+            "Sigma AF Cine 28-105",
+            "Sigma 28-105 Cine",
+            "Sigma AF Cine Line 28-105mm T3"
+          ]
+        },
+        {
+          "manufacturer": "Tokina",
+          "model": "Cinema 11-16mm T3",
+          "aliases": [
+            "Tokina Cinema 11-16mm T3.0",
+            "Tokina 11-16 Cine",
+            "Cinema ATX 11-16",
+            "Tokina 11-16mm T3.0 MKI",
+            "TC-116C",
+            "TC-116P"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Ranger S35 11-18mm T2.9",
+          "aliases": [
+            "Laowa Ranger S35 11-18mm",
+            "Ranger S35 11-18 Lite",
+            "Laowa Ranger 11-18mm T2.9"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Ranger S35 17-50mm T2.9",
+          "aliases": [
+            "Laowa Ranger S35 17-50mm",
+            "Ranger S35 17-50 Lite",
+            "Laowa Ranger 17-50mm T2.9"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Ranger S35 50-130mm T2.9",
+          "aliases": [
+            "Laowa Ranger S35 50-130mm",
+            "Ranger S35 50-130 Lite",
+            "Laowa Ranger 50-130mm T2.9"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Ranger FF 16-30mm T2.9",
+          "aliases": [
+            "Laowa Ranger 16-30mm",
+            "Laowa Ranger FF 16-30",
+            "Ranger 16-30mm T2.9 Lite"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "OOOM 25-100mm T2.9 Cine",
+          "aliases": [
+            "Laowa OOOM 25-100mm",
+            "Laowa OOOM 25-100",
+            "OOOM 25-100"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "OOOM 20-85mm T4 S35 Cine",
+          "aliases": [
+            "Laowa OOOM 20-85mm",
+            "OOOM 20-85"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "OOOM 14-60mm T2.9 MFT Cine",
+          "aliases": [
+            "Laowa OOOM 14-60mm",
+            "OOOM 14-60"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Ultima S35 12-120mm T4",
+          "aliases": [
+            "Laowa Ultima 12-120mm",
+            "Ultima 12-120"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Ultima FF 25-180mm T3.8",
+          "aliases": [
+            "Laowa Ultima 25-180mm",
+            "Ultima 25-180"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Ultima S35 25-600mm T4.2",
+          "aliases": [
+            "Laowa Ultima 25-600mm",
+            "Ultima 25-600"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Arles Zoom 25-75mm T2.6",
+          "aliases": [
+            "DZOFilm Arles 25-75mm",
+            "DZO Arles Zoom 25-75",
+            "DZO-AZ2575M",
+            "DZO-AZ2575I"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Arles Zoom 65-180mm T2.6",
+          "aliases": [
+            "DZOFilm Arles 65-180mm",
+            "DZO Arles Zoom 65-180",
+            "DZO-AZ65180M",
+            "DZO-AZ65180I"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Tango 18-90mm T2.9",
+          "aliases": [
+            "DZOFilm Tango 18-90mm",
+            "DZO Tango 18-90",
+            "DZO-T189029M",
+            "DZO-T189029I"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Tango 65-280mm T2.9-4",
+          "aliases": [
+            "DZOFilm Tango 65-280mm",
+            "DZO Tango 65-280",
+            "DZO-T6528029M",
+            "DZO-T6528029I"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Catta Zoom 18-35mm T2.9",
+          "aliases": [
+            "DZOFilm Catta 18-35mm",
+            "DZO Catta Zoom 18-35",
+            "Catta 18-35mm E-Mount"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Catta Zoom 35-80mm T2.9",
+          "aliases": [
+            "DZOFilm Catta 35-80mm",
+            "DZO Catta Zoom 35-80",
+            "Catta 35-80mm E-Mount"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "Catta Zoom 70-135mm T2.9",
+          "aliases": [
+            "DZOFilm Catta 70-135mm",
+            "DZO Catta Zoom 70-135",
+            "Catta 70-135mm E-Mount"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "LingLung 10-24mm T2.9",
+          "aliases": [
+            "DZOFilm Ling Lung 10-24mm",
+            "DZO LingLung 10-24"
+          ]
+        },
+        {
+          "manufacturer": "DZOFilm",
+          "model": "LingLung 20-70mm T2.9",
+          "aliases": [
+            "DZOFilm Ling Lung 20-70mm",
+            "DZO LingLung 20-70"
           ]
         }
       ]
@@ -15688,6 +18679,272 @@
           "aliases": [
             "Canon RF 5.2mm Dual Fisheye",
             "Canon RF 5.2mm Dual Fisheye Lens"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "14mm F1.4 DG DN Art",
+          "aliases": [
+            "Sigma 14mm F1.4 DG",
+            "Sigma 14mm F1.4 Art",
+            "Sigma 14mm 1.4 DG DN"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "15mm F1.4 DG DN Diagonal Fisheye Art",
+          "aliases": [
+            "Sigma 15mm F1.4 Fisheye",
+            "Sigma 15mm F1.4 DG DN Fisheye"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "35mm F1.2 DG DN Art",
+          "aliases": [
+            "Sigma 35mm F1.2 DG DN",
+            "Sigma 35mm 1.2 Art"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "35mm F1.2 DG II Art",
+          "aliases": [
+            "Sigma 35mm F1.2 DG II"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "35mm F1.4 DG II Art",
+          "aliases": [
+            "Sigma 35mm F1.4 DG II"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "50mm F1.2 DG DN Art",
+          "aliases": [
+            "Sigma 50mm F1.2 DG DN",
+            "Sigma 50mm 1.2 Art"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "85mm F1.2 DG Art",
+          "aliases": [
+            "Sigma 85mm F1.2 DG"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "135mm F1.4 DG Art",
+          "aliases": [
+            "Sigma 135mm F1.4 DG",
+            "Sigma 135mm 1.4 Art"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "28-45mm F1.8 DG DN Art",
+          "aliases": [
+            "Sigma 28-45mm F1.8",
+            "Sigma 28-45mm F1.8 DG DN"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "24-70mm F2.8 DG DN II Art",
+          "aliases": [
+            "Sigma 24-70mm F2.8 DG DN II",
+            "Sigma 24-70 DG DN II"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "17-40mm F1.8 DC Art",
+          "aliases": [
+            "Sigma 17-40mm F1.8 DC"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "35mm F1.4 DG HSM Art",
+          "aliases": [
+            "Sigma 35mm F1.4 Art",
+            "Sigma 35mm 1.4 DG HSM",
+            "Sigma Art 35mm 1.4 EF"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "50mm F1.4 DG HSM Art",
+          "aliases": [
+            "Sigma 50mm F1.4 Art",
+            "Sigma 50mm 1.4 DG HSM",
+            "Sigma Art 50mm 1.4 EF"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "85mm F1.4 DG HSM Art",
+          "aliases": [
+            "Sigma 85mm F1.4 Art",
+            "Sigma 85mm 1.4 DG HSM",
+            "Sigma Art 85mm 1.4 EF"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "24mm F1.4 DG HSM Art",
+          "aliases": [
+            "Sigma 24mm F1.4 Art",
+            "Sigma 24mm 1.4 DG HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "28mm F1.4 DG HSM Art",
+          "aliases": [
+            "Sigma 28mm F1.4 Art",
+            "Sigma 28mm 1.4 DG HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "40mm F1.4 DG HSM Art",
+          "aliases": [
+            "Sigma 40mm F1.4 Art",
+            "Sigma 40mm 1.4 DG HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "105mm F1.4 DG HSM Art",
+          "aliases": [
+            "Sigma 105mm F1.4 Art",
+            "Sigma 105mm 1.4 DG HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "135mm F1.8 DG HSM Art",
+          "aliases": [
+            "Sigma 135mm F1.8 Art",
+            "Sigma 135mm 1.8 DG HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "30mm F1.4 DC HSM Art",
+          "aliases": [
+            "Sigma 30mm F1.4 DC HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "70mm F2.8 DG Macro Art",
+          "aliases": [
+            "Sigma 70mm F2.8 Macro",
+            "Sigma 70mm Macro Art"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "12-24mm F4 DG HSM Art",
+          "aliases": [
+            "Sigma 12-24mm F4 Art",
+            "Sigma 12-24mm F4 DG HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "14-24mm F2.8 DG HSM Art",
+          "aliases": [
+            "Sigma 14-24mm F2.8 DG HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "24-70mm F2.8 DG OS HSM Art",
+          "aliases": [
+            "Sigma 24-70mm F2.8 DG OS HSM",
+            "Sigma 24-70mm Art EF"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "24-105mm F4 DG OS HSM Art",
+          "aliases": [
+            "Sigma 24-105mm F4 Art",
+            "Sigma 24-105mm F4 DG OS HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "70-200mm F2.8 DG OS HSM Sports",
+          "aliases": [
+            "Sigma 70-200mm F2.8 DG OS HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "120-300mm F2.8 DG OS HSM Sports",
+          "aliases": [
+            "Sigma 120-300mm F2.8",
+            "Sigma 120-300mm Sports"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "60-600mm F4.5-6.3 DG OS HSM Sports",
+          "aliases": [
+            "Sigma 60-600mm DG OS HSM"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "500mm F4 DG OS HSM Sports",
+          "aliases": [
+            "Sigma 500mm F4 Sports"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "200mm F2 DG OS Sports",
+          "aliases": [
+            "Sigma 200mm F2 DG OS",
+            "Sigma 200mm F2"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "300-600mm F4 DG OS Sports",
+          "aliases": [
+            "Sigma 300-600mm F4",
+            "Sigma 300-600mm F4 DG OS"
+          ]
+        },
+        {
+          "manufacturer": "Sigma",
+          "model": "500mm F5.6 DG DN OS Sports",
+          "aliases": [
+            "Sigma 500mm F5.6 DG DN OS"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Aksen 45mm f/2.8 1-5x Ultra Macro APO",
+          "aliases": [
+            "Laowa Aksen 45mm",
+            "Laowa Aksen 1-5x"
+          ]
+        },
+        {
+          "manufacturer": "Laowa",
+          "model": "Aksen 17.5mm f/1.7 5-10x Ultra Macro APO",
+          "aliases": [
+            "Laowa Aksen 17.5mm",
+            "Laowa Aksen 5-10x"
           ]
         }
       ],

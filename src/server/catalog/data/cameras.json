@@ -126,7 +126,9 @@
           "model": "Center Camera Handle CCH-4",
           "aliases": [
             "CCH-4",
-            "ARRI Griff CCH-4"
+            "ARRI Griff CCH-4",
+            "K2.0017270",
+            "Camera Center Handle CCH-4"
           ]
         },
         {
@@ -144,7 +146,9 @@
           "aliases": [
             "CBP-1",
             "Bridgeplate CBP-1",
-            "ARRI Compact Bridge Plate CBP-1 (2-tlg.)"
+            "ARRI Compact Bridge Plate CBP-1 (2-tlg.)",
+            "K2.0014894",
+            "Compact Bridge Plate CBP-1 19mm"
           ]
         },
         {
@@ -152,7 +156,9 @@
           "model": "Compact Bridge Plate CBP-2",
           "aliases": [
             "CBP-2",
-            "Bridgeplate CBP-2 15mm"
+            "Bridgeplate CBP-2 15mm",
+            "K2.0019441",
+            "Compact Bridge Plate CBP-2 15mm"
           ],
           "specs": {
             "rods": "15mm Studio"
@@ -163,7 +169,9 @@
           "model": "Compact Bridge Plate CBP-3",
           "aliases": [
             "CBP-3",
-            "Bridgeplate CBP-3 AMIRA"
+            "Bridgeplate CBP-3 AMIRA",
+            "K2.0019580",
+            "Compact Bridge Plate CBP-3 19mm for AMIRA"
           ],
           "specs": {
             "rods": "19mm"
@@ -186,7 +194,9 @@
           "model": "Compact Bridge Plate CBP-6",
           "aliases": [
             "CBP-6",
-            "Bridgeplate CBP-6 ALEXA 35"
+            "Bridgeplate CBP-6 ALEXA 35",
+            "K2.0023836",
+            "Compact Bridge Plate CBP-6 (15mm)"
           ],
           "specs": {
             "rods": "15mm"
@@ -229,7 +239,9 @@
             "EL-3",
             "K2.47767.0",
             "ARRI Lupenstütze EL-3 1-tlg.",
-            "Lupenstütze EL-3"
+            "Lupenstütze EL-3",
+            "KK.0005723",
+            "Eyepiece Leveler EL-3 Set"
           ],
           "specs": {
             "weight_kg": 0.298
@@ -382,7 +394,9 @@
           "aliases": [
             "LLS-1",
             "K2.0017029",
-            "Objektivstütze LLS-1"
+            "Objektivstütze LLS-1",
+            "KK.0047392",
+            "Lightweight Lens Support LLS-1 Set"
           ],
           "specs": {
             "rods": "15mm LWS"
@@ -438,7 +452,8 @@
           "manufacturer": "ARRI",
           "model": "Mini Adapter Plate MAP-2A",
           "aliases": [
-            "MAP-2A"
+            "MAP-2A",
+            "K2.0023839"
           ]
         },
         {
@@ -459,7 +474,8 @@
           "manufacturer": "ARRI",
           "model": "Mini Side Bracket MSB-3",
           "aliases": [
-            "MSB-3"
+            "MSB-3",
+            "K2.0023546"
           ]
         },
         {
@@ -498,7 +514,9 @@
             "PL-LPL Adapter",
             "PL to LPL",
             "LPL Adapter",
-            "PL auf LPL Adapter"
+            "PL auf LPL Adapter",
+            "K2.0016936",
+            "ARRI PL-to-LPL Adapter"
           ]
         },
         {
@@ -558,7 +576,9 @@
           "aliases": [
             "SAM-6 355",
             "K2.0048425",
-            "SAM-6"
+            "SAM-6",
+            "K2.0024508",
+            "Stabilizer Adapter Mount SAM-6"
           ]
         },
         {
@@ -567,7 +587,9 @@
           "aliases": [
             "K2.0014981",
             "ARRI Stabilizer Plate f. CBP",
-            "CBP Stabilizer Plate"
+            "CBP Stabilizer Plate",
+            "K2.0039803",
+            "Stabilizer Plate for CBP 355mm/14in"
           ]
         },
         {
@@ -584,7 +606,9 @@
           "model": "Support Rods 15mm 240mm",
           "aliases": [
             "15mm Rod 240mm ARRI",
-            "ARRI 15mm Stange 240mm"
+            "ARRI 15mm Stange 240mm",
+            "K2.66253.0",
+            "Support Rods 240mm/9.4in, Ø15mm"
           ],
           "specs": {
             "diameter_mm": 15,
@@ -598,7 +622,9 @@
           "model": "Support Rods 15mm 340mm",
           "aliases": [
             "15mm Rod 340mm ARRI",
-            "ARRI 15mm Stange 340mm"
+            "ARRI 15mm Stange 340mm",
+            "K2.66252.0",
+            "Support Rods 340mm, Ø15mm"
           ],
           "specs": {
             "diameter_mm": 15,
@@ -612,7 +638,9 @@
           "model": "Support Rods 15mm 440mm",
           "aliases": [
             "15mm Rod 440mm ARRI",
-            "ARRI 15mm Stange 440mm"
+            "ARRI 15mm Stange 440mm",
+            "K2.0001031",
+            "Support Rods 440mm/17.3in, Ø15mm"
           ],
           "specs": {
             "diameter_mm": 15,
@@ -626,7 +654,9 @@
           "model": "Support Rods 19mm 240mm",
           "aliases": [
             "19mm Rod 240mm ARRI",
-            "ARRI 19mm Stange 240mm"
+            "ARRI 19mm Stange 240mm",
+            "K2.66270.0",
+            "Support Rods 240mm/9.4in, Ø19mm"
           ],
           "specs": {
             "diameter_mm": 19,
@@ -640,7 +670,9 @@
           "model": "Support Rods 19mm 340mm",
           "aliases": [
             "19mm Rod 340mm ARRI",
-            "ARRI 19mm Stange 340mm"
+            "ARRI 19mm Stange 340mm",
+            "K2.66269.0",
+            "Support Rods 340mm/13.4in, Ø19mm"
           ],
           "specs": {
             "diameter_mm": 19,
@@ -654,7 +686,9 @@
           "model": "Support Rods 19mm 440mm",
           "aliases": [
             "19mm Rod 440mm ARRI",
-            "ARRI 19mm Stange 440mm"
+            "ARRI 19mm Stange 440mm",
+            "K2.0001022",
+            "Support Rods 440mm/17.3in, Ø19mm"
           ],
           "specs": {
             "diameter_mm": 19,
@@ -668,7 +702,9 @@
           "model": "Support Rods 19mm 540mm",
           "aliases": [
             "19mm Rod 540mm ARRI",
-            "ARRI 19mm Stange 540mm"
+            "ARRI 19mm Stange 540mm",
+            "K2.72028.0",
+            "Support Rods 540mm/21.3in, Ø19mm"
           ],
           "specs": {
             "diameter_mm": 19,
@@ -698,7 +734,8 @@
           "model": "Vertical Viewfinder Adapter for ALEXA Mini",
           "aliases": [
             "Vertical VF Adapter ALEXA Mini",
-            "MVF-1 Vertical Adapter"
+            "MVF-1 Vertical Adapter",
+            "K2.0019443"
           ]
         },
         {
@@ -706,7 +743,8 @@
           "model": "Viewfinder Adapter VFA-2",
           "aliases": [
             "VFA-2",
-            "Sucheradapter VFA-2"
+            "Sucheradapter VFA-2",
+            "K2.0001222"
           ]
         },
         {
@@ -721,7 +759,8 @@
           "model": "Viewfinder Attachment Bracket VAB-1",
           "aliases": [
             "VAB-1",
-            "AMIRA VF Bracket VAB-1"
+            "AMIRA VF Bracket VAB-1",
+            "K2.0001297"
           ]
         },
         {
@@ -766,7 +805,9 @@
           "aliases": [
             "VMB-5",
             "K2.0033859",
-            "Sucherhalter VMB-5"
+            "Sucherhalter VMB-5",
+            "KK.0034527",
+            "Viewfinder Mounting Set VMB-5"
           ]
         },
         {
@@ -949,7 +990,8 @@
           "aliases": [
             "RED Compact Top Handle and Extensions",
             "KOMODO-X Top Handle",
-            "Komodo-X Griff"
+            "Komodo-X Griff",
+            "790-0725"
           ]
         },
         {
@@ -957,7 +999,8 @@
           "model": "DSMC3 Adapter A",
           "aliases": [
             "Adapter A DSMC3",
-            "DSMC3 Monitor Adapter A"
+            "DSMC3 Monitor Adapter A",
+            "720-0069"
           ]
         },
         {
@@ -965,7 +1008,8 @@
           "model": "KOMODO Link Adaptor",
           "aliases": [
             "Komodo Link",
-            "Komodo Link Adapter"
+            "Komodo Link Adapter",
+            "720-0059"
           ]
         },
         {
@@ -973,7 +1017,8 @@
           "model": "KOMODO Outrigger Handle",
           "aliases": [
             "Komodo Outrigger",
-            "Komodo Seitengriff"
+            "Komodo Seitengriff",
+            "720-0057"
           ]
         },
         {
@@ -982,7 +1027,8 @@
           "aliases": [
             "RED Pro Gold Mount I/O Module",
             "Pro I/O Gold Mount",
-            "KOMODO-X Pro I/O Gold"
+            "KOMODO-X Pro I/O Gold",
+            "720-0064"
           ]
         },
         {
@@ -1000,7 +1046,8 @@
           "aliases": [
             "Raptor Expander Blade",
             "V-Raptor Expander",
-            "DSMC3 Expander Blade"
+            "DSMC3 Expander Blade",
+            "720-0060"
           ]
         },
         {
@@ -1167,7 +1214,8 @@
           "aliases": [
             "WC Mini LF UAK Pro",
             "Mini LF UAK 19mm",
-            "Wooden Camera Mini LF Kit"
+            "Wooden Camera Mini LF Kit",
+            "273800"
           ]
         },
         {
@@ -1176,7 +1224,8 @@
           "aliases": [
             "WC A35 Elite Kit",
             "Wooden Camera ALEXA 35 Elite",
-            "ALEXA 35 Elite Accessory System"
+            "ALEXA 35 Elite Accessory System",
+            "K10024"
           ]
         },
         {
@@ -1185,7 +1234,8 @@
           "aliases": [
             "WC Komodo-X Elite Kit",
             "Wooden Camera KOMODO-X Elite",
-            "KOMODO-X Elite Accessory System"
+            "KOMODO-X Elite Accessory System",
+            "K10025"
           ]
         },
         {
@@ -1194,7 +1244,9 @@
           "aliases": [
             "WC Burano Elite Kit",
             "Wooden Camera BURANO Elite",
-            "BURANO Elite Accessory System"
+            "BURANO Elite Accessory System",
+            "K10028",
+            "WC-K10028"
           ]
         },
         {
@@ -1203,7 +1255,8 @@
           "aliases": [
             "WC Venice 2 Elite Kit",
             "Wooden Camera VENICE 2 Elite",
-            "VENICE 2 Elite Accessory System"
+            "VENICE 2 Elite Accessory System",
+            "K10021"
           ]
         },
         {
@@ -1211,7 +1264,8 @@
           "model": "Top Plate System (ALEXA 35)",
           "aliases": [
             "WC A35 Top Plate",
-            "ALEXA 35 Top Plate System"
+            "ALEXA 35 Top Plate System",
+            "A00418"
           ]
         },
         {
@@ -1220,7 +1274,9 @@
           "aliases": [
             "WC Ultra Handle DSMC3",
             "Ultra Handle 4in Kit RED",
-            "Ultra Handle V-Raptor"
+            "Ultra Handle V-Raptor",
+            "A00504",
+            "Ultra Handle 4\" Kit for RED DSMC3"
           ]
         },
         {
@@ -1228,7 +1284,9 @@
           "model": "Rod Mounting Bracket RMB-3",
           "aliases": [
             "RMB-3",
-            "K2.0006186"
+            "K2.0006186",
+            "KK.0013311",
+            "Viewfinder Cross Pipe RMB-3 Set"
           ]
         },
         {
@@ -1236,7 +1294,9 @@
           "model": "Rod Mounting Bracket RMB-8",
           "aliases": [
             "RMB-8",
-            "K2.0034309"
+            "K2.0034309",
+            "KK.0037732",
+            "Rod Mounting Bracket RMB-8 Set"
           ]
         },
         {
@@ -1329,7 +1389,9 @@
           "model": "Bolt Sidekick LT",
           "aliases": [
             "Teradek Sidekick LT",
-            "Sidekick LT"
+            "Sidekick LT",
+            "10-1954",
+            "Bolt LT Sidekick 500"
           ]
         },
         {
@@ -1337,7 +1399,10 @@
           "model": "Link Wi-Fi Router",
           "aliases": [
             "Teradek Link (WiFi Router)",
-            "Teradek Link WiFi Router"
+            "Teradek Link WiFi Router",
+            "10-0050",
+            "10-0050-G",
+            "10-0050-V"
           ]
         },
         {
@@ -1352,7 +1417,8 @@
           "model": "503 UltraBright",
           "aliases": [
             "SmallHD 503 Ultra Bright",
-            "SmallHD 503"
+            "SmallHD 503",
+            "MON-503U"
           ]
         },
         {
@@ -1363,7 +1429,8 @@
             "SmallHD 703 UB",
             "SmallHD 703",
             "SmallHD 703 7in",
-            "SmallHD 703 Ultrabright 7in"
+            "SmallHD 703 Ultrabright 7in",
+            "MON-703U"
           ]
         },
         {
@@ -1415,7 +1482,9 @@
           "aliases": [
             "Blackmagic Ursa Mini Pro SSD Rekorder",
             "URSA Mini Pro SSD Recorder",
-            "BMD URSA SSD Recorder"
+            "BMD URSA SSD Recorder",
+            "Blackmagic URSA Mini Recorder",
+            "URSA Mini Recorder"
           ]
         },
         {
@@ -1482,7 +1551,8 @@
           "model": "Director's Monitor Cage v3",
           "aliases": [
             "Directors Monitor Cage v3 Wooden Camera",
-            "WC Director's Monitor Cage V3"
+            "WC Director's Monitor Cage V3",
+            "270000"
           ]
         },
         {
@@ -1518,6 +1588,3606 @@
             "XDCA-FS7 Extension Unit",
             "Sony XDCA-FS7 Extension Unit",
             "Sony XDCA-FS7 Erweiterungsmodul für PXW-FS7"
+          ]
+        },
+        {
+          "manufacturer": "Leitz",
+          "model": "Henri Director's Viewfinder System",
+          "aliases": [
+            "Leitz Henri",
+            "Leitz HENRI Kit",
+            "Leitz Henri Directors Viewfinder"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EU-V3 Expansion Unit",
+          "aliases": [
+            "Canon EU-V3",
+            "EU-V3",
+            "Expansion Unit Canon EU-V3",
+            "Expansion Unit 3"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "KOMODO Expander Module",
+          "aliases": [
+            "720-0058",
+            "RED KOMODO Expander Module",
+            "Komodo Expander"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "KOMODO Riser Plate",
+          "aliases": [
+            "790-0733",
+            "RED KOMODO Riser Plate"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "KOMODO Side Ribs",
+          "aliases": [
+            "790-0721",
+            "RED KOMODO Side Ribs"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "KOMODO Wing Grip",
+          "aliases": [
+            "790-0684",
+            "RED KOMODO Wing Grip",
+            "Komodo Wing Griff"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED 15mm Top Handle Bracket",
+          "aliases": [
+            "790-0747",
+            "RED 15mm Top Handle Rod Bracket"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED Production Grips",
+          "aliases": [
+            "790-0693",
+            "RED Production Grip",
+            "V-Raptor Production Grips"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR Side Ribs",
+          "aliases": [
+            "790-0691",
+            "RED V-RAPTOR Side Ribs"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR Quick Release Platform",
+          "aliases": [
+            "790-0692",
+            "V-RAPTOR Quick Release Platform Pack",
+            "V-RAPTOR QRP",
+            "RED QRP"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR Tactical Top Plate w/ Battery Adapter Plus",
+          "aliases": [
+            "790-0759",
+            "V-RAPTOR Tactical Top Plate",
+            "RED Tactical Top Plate"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR XL Riser Plate",
+          "aliases": [
+            "790-0714",
+            "RED V-RAPTOR XL Riser Plate"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR XL Rod Support Brackets",
+          "aliases": [
+            "790-0717",
+            "V-RAPTOR XL Top 15mm LWS Rod Support Bracket",
+            "V-RAPTOR XL Bottom 15mm LWS Rod Support Bracket"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR XL EF Mount",
+          "aliases": [
+            "725-0051",
+            "RED V-RAPTOR XL EF Mount"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED Cine-Broadcast Shoulder Mount",
+          "aliases": [
+            "790-0803",
+            "RED Shoulder Mount",
+            "Cine-Broadcast Shoulder Mount"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED V-RAPTOR Shoulder Mount Riser",
+          "aliases": [
+            "790-0797",
+            "V-RAPTOR Shoulder Mount Riser"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED Connect Module",
+          "aliases": [
+            "790-0741",
+            "RED Connect Module Pack"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "DSMC3 RED Touch 7.0\" Hood",
+          "aliases": [
+            "790-0701",
+            "RED Touch 7 Hood",
+            "DSMC3 LCD Hood"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "DSMC3 LCD Rigid Hinge Pack",
+          "aliases": [
+            "790-0749-01",
+            "DSMC3 LCD Rigid Hinge Upgrade Pack"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED EVF Mount",
+          "aliases": [
+            "790-0753",
+            "RED Compact EVF Mount"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED EVF Extension Arm",
+          "aliases": [
+            "790-0761",
+            "RED Compact EVF Extension Arm"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "PYXIS Rosette Plate",
+          "aliases": [
+            "Blackmagic PYXIS Rosette Plate"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "PYXIS Pro Grip",
+          "aliases": [
+            "Blackmagic PYXIS Pro Grip"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "PYXIS Pro Handle",
+          "aliases": [
+            "Blackmagic PYXIS Pro Handle"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "PYXIS Monitor Side Bracket",
+          "aliases": [
+            "Blackmagic PYXIS Monitor Side Bracket"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Handle",
+          "aliases": [
+            "Blackmagic URSA Cine Handle",
+            "URSA Cine Top Handle"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Baseplate 15",
+          "aliases": [
+            "Blackmagic URSA Cine Baseplate 15",
+            "URSA Cine Baseplate 15mm"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Baseplate 19",
+          "aliases": [
+            "Blackmagic URSA Cine Baseplate 19",
+            "URSA Cine Baseplate 19mm"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Battery Plate B Mount",
+          "aliases": [
+            "Blackmagic URSA Cine Battery Plate B Mnt",
+            "URSA Cine B-Mount Plate"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Battery Plate Gold",
+          "aliases": [
+            "Blackmagic URSA Cine Battery Plate Gold",
+            "URSA Cine Gold Mount Plate"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Battery Plate VLock",
+          "aliases": [
+            "Blackmagic URSA Cine Battery Plate VLock",
+            "URSA Cine V-Lock Plate"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Mount EF",
+          "aliases": [
+            "Blackmagic URSA Cine Mount EF",
+            "URSA Cine EF Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Mount PL",
+          "aliases": [
+            "Blackmagic URSA Cine Mount PL",
+            "URSA Cine PL Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Mount LPL",
+          "aliases": [
+            "Blackmagic URSA Cine Mount LPL",
+            "URSA Cine LPL Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Mount HC",
+          "aliases": [
+            "Blackmagic URSA Cine Mount HC",
+            "URSA Cine Hasselblad Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine Mount B4",
+          "aliases": [
+            "Blackmagic URSA Cine Mount B4",
+            "URSA Cine B4 Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini Pro PL Mount",
+          "aliases": [
+            "Blackmagic URSA Mini Pro PL Mount",
+            "UMP PL Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini Pro EF Mount",
+          "aliases": [
+            "Blackmagic URSA Mini Pro EF Mount",
+            "UMP EF Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini Pro F Mount",
+          "aliases": [
+            "Blackmagic URSA Mini Pro F Mount",
+            "UMP F Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini Pro B4 Mount",
+          "aliases": [
+            "Blackmagic URSA Mini Pro B4 Mount",
+            "UMP B4 Mount"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Gold Battery Plate",
+          "aliases": [
+            "Blackmagic URSA Gold Battery Plate"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA VLock Battery Plate",
+          "aliases": [
+            "Blackmagic URSA VLock Battery Plate",
+            "URSA V-Lock Battery Plate"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini Shoulder Kit",
+          "aliases": [
+            "Blackmagic URSA Mini Shoulder Kit",
+            "Blackmagic Shoulder Mount Kit"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Handgrip",
+          "aliases": [
+            "Blackmagic URSA Handgrip",
+            "URSA Mini Handgrip"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Pocket Camera Battery Grip",
+          "aliases": [
+            "Blackmagic Pocket Camera Battery Grip",
+            "BMPCC Battery Grip"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Pocket Camera Battery Pro Grip",
+          "aliases": [
+            "Blackmagic Pocket Camera Battery Pro Grip",
+            "Blackmagic Pocket Cinema Camera Battery Pro Grip",
+            "BMPCC Battery Pro Grip"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Camera Fiber Converter",
+          "aliases": [
+            "Blackmagic Camera Fiber Converter",
+            "BMD Camera Fiber Converter"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Studio Fiber Converter",
+          "aliases": [
+            "Blackmagic Studio Fiber Converter",
+            "BMD Studio Fiber Converter"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VREC1G Recording Module",
+          "aliases": [
+            "AU-VREC1G",
+            "VariCam Recording Module"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VEXT1G Extension Module",
+          "aliases": [
+            "AU-VEXT1G",
+            "VariCam Extension Module"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VSHL1G Shoulder Mount Module",
+          "aliases": [
+            "AU-VSHL1G",
+            "VariCam 35 Shoulder Mount"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VSHL2G Shoulder Mount Module",
+          "aliases": [
+            "AU-VSHL2G",
+            "VariCam LT Shoulder Mount"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VMPL1G PL Lens Mount Module",
+          "aliases": [
+            "AU-VMPL1G",
+            "VariCam LT PL Mount"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VGRP1G Grip Module",
+          "aliases": [
+            "AU-VGRP1G",
+            "VariCam LT Grip Module"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VCBL05G Extension Cable 5m",
+          "aliases": [
+            "AU-VCBL05G",
+            "VariCam Camera Module Extension Cable 5m"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VCBL20G Extension Cable 20m",
+          "aliases": [
+            "AU-VCBL20G",
+            "VariCam Camera Module Extension Cable 20m"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AK-HRP200G Remote Operation Panel",
+          "aliases": [
+            "AK-HRP200G",
+            "Panasonic ROP AK-HRP200"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AK-HRP250GJ Remote Operation Panel",
+          "aliases": [
+            "AK-HRP250GJ",
+            "AK-HRP250",
+            "Panasonic ROP AK-HRP250"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AK-HRP1010GJ Remote Operation Panel",
+          "aliases": [
+            "AK-HRP1010GJ",
+            "AK-HRP1010",
+            "Panasonic ROP AK-HRP1010"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "DMW-BGS1 Battery Grip",
+          "aliases": [
+            "DMW-BGS1",
+            "LUMIX S1H Battery Grip"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "XDCA-FX9",
+          "aliases": [
+            "Sony XDCA-FX9",
+            "XDCA-FX9 Extension Unit",
+            "FX9 Extension Unit"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "AXS-R5",
+          "aliases": [
+            "AXS-R5 Raw Recorder",
+            "Sony AXS-R5",
+            "R5 Recorder"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "GP-VR100",
+          "aliases": [
+            "Sony GP-VR100",
+            "GP-VR100 Grip"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EU-V1 Expansion Unit",
+          "aliases": [
+            "EU-V1",
+            "Canon EU-V1",
+            "Expansion Unit 1"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "LA-V1 LCD Attachment Unit",
+          "aliases": [
+            "LA-V1",
+            "Canon LA-V1"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "LA-V2 LCD Attachment Unit",
+          "aliases": [
+            "LA-V2",
+            "Canon LA-V2"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CL-V2 Clamp Base",
+          "aliases": [
+            "CL-V2",
+            "Canon CL-V2"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CM-V1 EF Cinema Lock Mount Kit",
+          "aliases": [
+            "CM-V1",
+            "Canon CM-V1",
+            "EF Cinema Lock Mount"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "PM-V1 PL Mount Kit",
+          "aliases": [
+            "PM-V1",
+            "Canon PM-V1",
+            "C300 Mark III PL Mount Kit"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "SG-1 Shoulder Style Grip Unit",
+          "aliases": [
+            "SG-1",
+            "Canon SG-1"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "SU-15 Shoulder Support Unit",
+          "aliases": [
+            "SU-15",
+            "Canon SU-15"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RD-1 Rod Clamp",
+          "aliases": [
+            "RD-1",
+            "Canon RD-1"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RC-V100 Remote Controller",
+          "aliases": [
+            "RC-V100",
+            "Canon RC-V100",
+            "Canon Remote RC-V100"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "BG-R20 Battery Grip",
+          "aliases": [
+            "BG-R20",
+            "Canon BG-R20"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember I/O Module",
+          "aliases": [
+            "910-00839",
+            "Freefly Ember I/O Module"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember Media Expander",
+          "aliases": [
+            "910-00788",
+            "Freefly Ember Media Expander"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember Lens Mount (Active EF)",
+          "aliases": [
+            "910-00787",
+            "Ember EF Mount",
+            "Freefly Ember Active EF Mount"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember Lens Mount (L-Mount)",
+          "aliases": [
+            "910-00918",
+            "Ember L-Mount",
+            "Freefly Ember L-Mount"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember Cheese Plate",
+          "aliases": [
+            "910-00715",
+            "Freefly Ember Cheese Plate"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember Cheese Plate Plus",
+          "aliases": [
+            "910-00785",
+            "Freefly Ember Cheese Plate Plus"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "MAVO Edge Control Grip",
+          "aliases": [
+            "Kinefinity MAVO Edge Control Grip"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "Kinefinity Active Top Handle",
+          "aliases": [
+            "Kine Active Top Handle"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "Kinefinity Active E Mount",
+          "aliases": [
+            "KineMOUNT Active E",
+            "Kinefinity E Mount"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Accessory System for Canon EOS C400",
+          "aliases": [
+            "K10031",
+            "K10032",
+            "WC C400 Elite Kit"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Accessory System for Canon EOS C80",
+          "aliases": [
+            "K10035",
+            "K10036",
+            "WC C80 Elite Kit"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Accessory System for Blackmagic URSA Cine 12K/17K",
+          "aliases": [
+            "K10041",
+            "WC URSA Cine Elite Kit"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Accessory System for FUJIFILM GFX ETERNA 55",
+          "aliases": [
+            "50-K10001",
+            "WC GFX ETERNA Elite Kit"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Accessory System for Sony Rialto Mini",
+          "aliases": [
+            "50-K10008"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Accessory System (Sony Rialto, Rialto 2, VENICE)",
+          "aliases": [
+            "A00309",
+            "WC Rialto Elite Kit"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Cage System for Sony FX6",
+          "aliases": [
+            "50-K10067",
+            "WC FX6 Elite Cage"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Cage System for Sony FX5",
+          "aliases": [
+            "50-K10072",
+            "WC FX5 Elite Cage"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Cage System for Canon EOS C50",
+          "aliases": [
+            "50-K10056"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "ARRI Alexa Mini LF Unified Accessory Kit (Base)",
+          "aliases": [
+            "273500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "ARRI Alexa Mini LF Unified Accessory Kit (Advanced)",
+          "aliases": [
+            "273600"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "ARRI Alexa Mini LF Unified Accessory Kit (Pro, 15mm Studio)",
+          "aliases": [
+            "273700"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "ARRI Alexa Mini Unified Accessory Kit (Pro, 19mm)",
+          "aliases": [
+            "227300",
+            "WC Alexa Mini UAK Pro"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "RED DSMC2 Accessory Kit (Base)",
+          "aliases": [
+            "264500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "RED DSMC2 Accessory Kit (Advanced)",
+          "aliases": [
+            "264600"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "RED DSMC2 Accessory Kit (Pro, 19mm)",
+          "aliases": [
+            "264700"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Sony FX9 Unified Accessory Kit (Advanced)",
+          "aliases": [
+            "275400"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Sony FX9 Unified Accessory Kit (Pro)",
+          "aliases": [
+            "275500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Sony FX6 Unified Accessory Kit (Base)",
+          "aliases": [
+            "283600"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Sony Venice Pro Accessory Kit (V-Mount)",
+          "aliases": [
+            "261200"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Sony Venice Pro Accessory Kit (Gold Mount)",
+          "aliases": [
+            "261300"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Canon C300mkIII / C500mkII Unified Accessory Kit (Pro)",
+          "aliases": [
+            "275000"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Canon C70 Unified Accessory Kit (Pro, V-Mount)",
+          "aliases": [
+            "288900"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Unified BMPCC4K / BMPCC6K Camera Cage",
+          "aliases": [
+            "264000",
+            "WC Pocket 4K Cage"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Base Plate System (ALEXA 35)",
+          "aliases": [
+            "A00416"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Side Rail System (ALEXA 35)",
+          "aliases": [
+            "A00417"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "ARCA Baseplate (ALEXA 35)",
+          "aliases": [
+            "A00360"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Viewfinder Adaptor Bracket (ALEXA 35 VMB-5)",
+          "aliases": [
+            "A00465"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Base Plate System for Sony BURANO",
+          "aliases": [
+            "A00601"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Top Plate System for Sony BURANO",
+          "aliases": [
+            "A00602"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Side Rail Set for Sony BURANO",
+          "aliases": [
+            "A00582"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Baseplate System (Sony VENICE, VENICE 2, Rialto)",
+          "aliases": [
+            "A00275",
+            "A00276",
+            "A00306",
+            "A00310"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Quick-Release Top Plate System (Sony VENICE, VENICE 2, Rialto)",
+          "aliases": [
+            "A00208"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Unified Baseplate (Alexa Mini / Mini LF)",
+          "aliases": [
+            "222300"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Unified Bridge Plate (19mm)",
+          "aliases": [
+            "223100"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Unified Bridge Plate (15mm Studio)",
+          "aliases": [
+            "223200"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Quick Release Bridge Plate (19mm)",
+          "aliases": [
+            "277000"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Quick Release Bridge Plate (15mm Studio)",
+          "aliases": [
+            "277100"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Unified Cage (Alexa Mini LF)",
+          "aliases": [
+            "273200"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Master Top Handle (Alexa Mini / Mini LF, Canon C700)",
+          "aliases": [
+            "248300"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "NATO Handle Plus V2",
+          "aliases": [
+            "263900"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Ultra Handle (Universal 3/8\"-16)",
+          "aliases": [
+            "A00104",
+            "A00337",
+            "A00338",
+            "A00426"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Ultra Handle (Sony VENICE)",
+          "aliases": [
+            "A00103",
+            "A00302",
+            "A00303",
+            "A00304"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Ultra Handle System (RED KOMODO-X)",
+          "aliases": [
+            "A00547"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Ultra Handle 5\" NATO Kit",
+          "aliases": [
+            "A00577"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Rosette Handle Kit (Rubber)",
+          "aliases": [
+            "171000"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Rosette Handle Kit (Brown Leather)",
+          "aliases": [
+            "170900"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Rosette Handle Kit (Wood Grip)",
+          "aliases": [
+            "242600"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Crossbar v3 (Pivoting ARRI Rosettes)",
+          "aliases": [
+            "270900"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Shoulder Rig v3 (Pro)",
+          "aliases": [
+            "270600",
+            "270700"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Shoulder Rig v3 (Base)",
+          "aliases": [
+            "270400",
+            "270500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Handheld Accessories Forward Control Kit",
+          "aliases": [
+            "EHA-FWD-BNDL"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Elite Handheld Accessories Rear Control Kit",
+          "aliases": [
+            "EHA-REAR-BNDL"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Wooden Camera Handgrip (Left)",
+          "aliases": [
+            "219400"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Wooden Camera Handgrip (Right)",
+          "aliases": [
+            "219300"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Handgrip Trigger Box (RED DSMC1, DSMC2)",
+          "aliases": [
+            "230700"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Universal Lens Support (15mm LW)",
+          "aliases": [
+            "175400"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Universal Lens Support (19mm/15mm Studio)",
+          "aliases": [
+            "175500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Unified Lens Adapter Support Kit",
+          "aliases": [
+            "227900"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Universal Ultra Arm v2",
+          "aliases": [
+            "278800",
+            "278900",
+            "279000",
+            "279100",
+            "WC-279000"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "NATO Lock Ultra Arm v2",
+          "aliases": [
+            "250500",
+            "250700"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Preston MDR3 / MDR4 Mounting Kit Ultra Arm v2",
+          "aliases": [
+            "251100"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Preston MDR4 Mounting Plate",
+          "aliases": [
+            "228900"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Preston MDR3 Mounting Plate",
+          "aliases": [
+            "250800"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Preston Light Ranger 2 VOU Mounting Kit",
+          "aliases": [
+            "230500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Dual Director's Monitor Cage v3",
+          "aliases": [
+            "271600"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Ultra QR Articulating Monitor Mount",
+          "aliases": [
+            "A20003",
+            "WC-A20003",
+            "Ultra QR Monitor Mount (Baby Pin, C-Stand)"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Monitor Hinge (SmallHD Smart 5, 3/8\"-16)",
+          "aliases": [
+            "A00267",
+            "WC-A00267"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "Monitor Hinge (SmallHD Smart 5, ARCA)",
+          "aliases": [
+            "A00265",
+            "WC-A00265"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 Base Kit for RED V-RAPTOR",
+          "aliases": [
+            "B4002.0150"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 Advanced Kit for RED V-RAPTOR",
+          "aliases": [
+            "B4002.0151"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 19mm Studio QR Bridgeplate",
+          "aliases": [
+            "B4003.1033"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 15mm LWS QR Baseplate Core",
+          "aliases": [
+            "B4003.1034"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 ARRI Standard Dovetail 12\"",
+          "aliases": [
+            "B4003.1017"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 ARRI Standard Dovetail 18\"",
+          "aliases": [
+            "B4003.1018"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 ARRI Standard Dovetail 24\"",
+          "aliases": [
+            "B4003.1019"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 15mm LWS Baseplate for Sony VENICE",
+          "aliases": [
+            "B4004.0032"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Sony VENICE 1 & 2 Base Cine Kit Mk II",
+          "aliases": [
+            "B4004.0058"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Sony VENICE 1 & 2 Expert Cine Kit Mk II",
+          "aliases": [
+            "B4004.0059"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField Sony BURANO Advanced Cine Kit",
+          "aliases": [
+            "B4004.0042"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField Sony BURANO Expert Cine Kit",
+          "aliases": [
+            "B4004.0044"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 Sony FX6 Base Kit",
+          "aliases": [
+            "B4004.0120"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 Sony FX6 Advanced Kit",
+          "aliases": [
+            "B4004.0121"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 Canon C400 Base Kit",
+          "aliases": [
+            "B4005.0143"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "LeftField 3 Canon C400 Advanced Kit",
+          "aliases": [
+            "B4005.0144"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Base Kit for RED KOMODO-X",
+          "aliases": [
+            "B4002.0026"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Advanced Kit for RED KOMODO-X",
+          "aliases": [
+            "B4002.0027"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Expert Kit for RED KOMODO-X",
+          "aliases": [
+            "B4002.0028"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Base Kit for Blackmagic URSA Cine",
+          "aliases": [
+            "B4007.0017"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Advanced Kit for Blackmagic URSA Cine",
+          "aliases": [
+            "B4007.0018"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Halo Universal Camera Cage",
+          "aliases": [
+            "B4013.1016"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "OpenRig Base Kit",
+          "aliases": [
+            "B4013.0017",
+            "OpenRig® Base Kit"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Titan Arm 2",
+          "aliases": [
+            "B3000.1016",
+            "BT Titan Arm 2"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Titan Arm 2 Ti",
+          "aliases": [
+            "B3000.1022",
+            "B3000.1024",
+            "BT Titan Arm 2 Ti"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Axl EVF Mount (ARRI) Base Kit",
+          "aliases": [
+            "B3020.0001",
+            "BT Axl EVF Mount ARRI"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Axl EVF Mount (Sony) Base Kit",
+          "aliases": [
+            "B3020.0003"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Universal Monitor Mount QR Kit (NATO Top, 3/8\"-16 Base)",
+          "aliases": [
+            "B3001.0110"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Universal Monitor Hinge (NATO)",
+          "aliases": [
+            "B3001.1017"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "KASBAH System 15mm LWS/19mm Hand Grip Kit",
+          "aliases": [
+            "B6000.0001"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "KASBAH System Shoulder Pad Kit",
+          "aliases": [
+            "B6000.0104"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "KASBAH Atman Shoulder Rig (ARRI Dovetail)",
+          "aliases": [
+            "B6000.0025",
+            "KASBAH Ātman Shoulder Rig"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Create Shoulder Rig Base Kit",
+          "aliases": [
+            "B6000.0021"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Chakra Wheel Grip Handle (ARRI Rosette)",
+          "aliases": [
+            "B4103.1001"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "D-Style Master Handle Mk II",
+          "aliases": [
+            "B4003.1149"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "NATO Top Handle 15mm Kit",
+          "aliases": [
+            "B4003.0005"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Create Top Handle Mk II",
+          "aliases": [
+            "B4013.1105"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Touch & Go Quick Release System",
+          "aliases": [
+            "B4003.0043"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Universal Timecode Mount",
+          "aliases": [
+            "B4003.1083"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "15mm LWS Lens Support Morrissey",
+          "aliases": [
+            "B3010.0003",
+            "B3010.0001",
+            "B3010.0002"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "19mm Studio Lens Support Marr",
+          "aliases": [
+            "B3010.1001"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Mini Axl (Sony FX6)",
+          "aliases": [
+            "B4004.0023"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Sony FX6 Top Plate Mk III",
+          "aliases": [
+            "B4004.1118"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Alexa Mini Sliding Baseplate Core",
+          "aliases": [
+            "B4001.1006"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Alexa Mini 15mm LWS QR",
+          "aliases": [
+            "B4001.1007"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Top Bar Bracket for RED DSMC3",
+          "aliases": [
+            "B4002.1066"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Sliding Top Plate for RED V-RAPTOR",
+          "aliases": [
+            "B4002.1053"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Sliding Top Plate for Sony BURANO",
+          "aliases": [
+            "B4004.1037"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "15mm Top Rod Console for Sony BURANO",
+          "aliases": [
+            "B4004.1043"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 15mm Titanium Rods 6\" Pair",
+          "aliases": [
+            "B1252.0010"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 15mm Titanium Rods 9\" Pair",
+          "aliases": [
+            "B1252.0011"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 15mm Titanium Rods 12\" Pair",
+          "aliases": [
+            "B1252.0012"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 15mm Titanium Rods 15\" Pair",
+          "aliases": [
+            "B1252.0013"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 15mm Titanium Rods 18\" Pair",
+          "aliases": [
+            "B1252.0014"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 19mm Titanium Rods 9\" Pair",
+          "aliases": [
+            "B1252.0005"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 19mm Titanium Rods 12\" Pair",
+          "aliases": [
+            "B1252.0006"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 19mm Titanium Rods 15\" Pair",
+          "aliases": [
+            "B1252.0007"
+          ]
+        },
+        {
+          "manufacturer": "Bright Tangerine",
+          "model": "Drumstix 19mm Titanium Rods 18\" Pair",
+          "aliases": [
+            "B1252.0008"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Full Camera Cage for Sony FX5",
+          "aliases": [
+            "TA-T108-FCC",
+            "TA-T108-FCC-B",
+            "Tilta FX5 Cage"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Full Camera Cage for BMPCC 6K Pro/G2",
+          "aliases": [
+            "TA-T11-FCC",
+            "TA-T11-FCC-B",
+            "Tilta BMPCC 6K Pro Cage"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Camera Cage for Canon C400 Pro Kit",
+          "aliases": [
+            "Tilta C400 Cage"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Camera Cage for Blackmagic PYXIS 6K Pro Kit",
+          "aliases": [
+            "Tilta PYXIS Cage"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Camera Cage for Canon C50 Base Kit",
+          "aliases": [
+            "Tilta C50 Cage"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Rotatable EVF Bracket for Sony BURANO",
+          "aliases": [
+            "ESR-T18-REB"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Lightweight Shoulder Rig",
+          "aliases": [
+            "TA-LSR-B",
+            "Tilta Lightweight Shoulder Rig"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 4D Hand Grips",
+          "aliases": [
+            "DJI Ronin 4D Hand Grips",
+            "Ronin 4D Handgriffe"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 4D Expansion Plate",
+          "aliases": [
+            "DJI Ronin 4D Expansion Plate"
+          ]
+        },
+        {
+          "manufacturer": "Chrosziel",
+          "model": "MA-BURPL-HR12 Burano PL Adapter",
+          "aliases": [
+            "MA-BURPL-HR12",
+            "Chrosziel Burano Mount Adapter",
+            "Chrosziel Burano PL Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Chrosziel",
+          "model": "MA-EPL-HR12 E-to-PL Adapter",
+          "aliases": [
+            "MA-EPL-HR12",
+            "Chrosziel E-PL Adapter"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Monitor Arm for Camera MAC-1",
+          "aliases": [
+            "K2.0048394",
+            "MAC-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Viewfinder Adapter VFA-4",
+          "aliases": [
+            "K2.0048510",
+            "VFA-4",
+            "K0.0055753"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Monitor Yoke Support MYS-1L",
+          "aliases": [
+            "K2.0051078",
+            "MYS-1L"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "CCM-1 Foldable Sunhood",
+          "aliases": [
+            "K2.0048983"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "CCM-1 Ethernet Adapter",
+          "aliases": [
+            "K2.0048980"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "PL Mount (LBUS)",
+          "aliases": [
+            "K2.0042651",
+            "ALEXA 35 PL Mount LBUS"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "PL Mount (Hirose)",
+          "aliases": [
+            "K2.0042652",
+            "ARRI PL Mount Hirose"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "PL LDS Lens Mount",
+          "aliases": [
+            "K2.0001107",
+            "PL LDS Mount"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Titanium PL LDS Mount with LBUS",
+          "aliases": [
+            "K2.0003216",
+            "Titanium PL LDS Mount"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "EF Lens Mount",
+          "aliases": [
+            "K2.0001103",
+            "ARRI EF Mount"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "B4 Lens Mount",
+          "aliases": [
+            "K2.0001237",
+            "ARRI B4 Mount"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "PL to B4 Lens Adapter",
+          "aliases": [
+            "K2.0001238",
+            "PL-B4 Adapter"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-Zero",
+          "aliases": [
+            "K2.0041201",
+            "SAM-Zero"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-1",
+          "aliases": [
+            "K2.0018851",
+            "SAM-1",
+            "Stabilizer Adapter Mount SAM-1 for ALEXA"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-2",
+          "aliases": [
+            "K2.0014215",
+            "SAM-2",
+            "Stabilizer Adapter Mount SAM-2 for ALEXA Mini",
+            "KK.0016116"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-3",
+          "aliases": [
+            "K2.0014630",
+            "SAM-3",
+            "Stabilizer Adapter Mount SAM-3 for AMIRA",
+            "KK.0016114"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-4",
+          "aliases": [
+            "K2.0033662",
+            "SAM-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-5",
+          "aliases": [
+            "K2.0024572",
+            "SAM-5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-6 450",
+          "aliases": [
+            "K2.0039405",
+            "SAM-6 450",
+            "Stabilizer Adapter Mount SAM-6 450mm/18in"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-7",
+          "aliases": [
+            "K2.0024511",
+            "SAM-7"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-8",
+          "aliases": [
+            "K2.0044479",
+            "SAM-8"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-9",
+          "aliases": [
+            "K2.0041949",
+            "SAM-9"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer Adapter Mount SAM-10",
+          "aliases": [
+            "K2.0049873",
+            "SAM-10"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Long Stabilizer Mount 15mm",
+          "aliases": [
+            "KK.0038971",
+            "Long Stabilizer Mount 15mm Mini/Mini LF"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Long Stabilizer Mount 19mm",
+          "aliases": [
+            "KK.0038972",
+            "Long Stabilizer Mount 19mm Mini/Mini LF"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact Lens Support CLS-1",
+          "aliases": [
+            "K2.0039089",
+            "CLS-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Dovetail Utility Base DUB-1",
+          "aliases": [
+            "K2.0039861",
+            "DUB-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Dovetail Utility Base DUB-2",
+          "aliases": [
+            "K2.0044813",
+            "DUB-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Dovetail Utility Base DUB-3",
+          "aliases": [
+            "K2.0040347",
+            "DUB-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Dovetail Utility Base DUB-4",
+          "aliases": [
+            "K2.0048797",
+            "DUB-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Balance Utility Dovetail BUD-2",
+          "aliases": [
+            "K2.0040036",
+            "BUD-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Balance Utility Dovetail BUD-3",
+          "aliases": [
+            "K2.0048463",
+            "BUD-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Attachment Bracket TAB-1",
+          "aliases": [
+            "K2.0041117",
+            "TAB-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bottom Dovetail Plate 150mm",
+          "aliases": [
+            "K2.0020427",
+            "Bottom Dovetail Plate 150mm/6in"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bottom Dovetail Plate 300mm",
+          "aliases": [
+            "K2.0015896",
+            "Bottom Dovetail Plate 300mm/12in"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bottom Dovetail Plate 450mm",
+          "aliases": [
+            "K2.0015950",
+            "Bottom Dovetail Plate 450mm/18in"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bottom Dovetail Plate 600mm",
+          "aliases": [
+            "K2.0015952",
+            "Bottom Dovetail Plate 600mm/24in"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Support Bracket RSB-15",
+          "aliases": [
+            "K2.0000437",
+            "RSB-15"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Support Bracket RSB-19",
+          "aliases": [
+            "K2.0000440",
+            "RSB-19"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bridge Plate Sled BPS-2",
+          "aliases": [
+            "K2.66260.0",
+            "BPS-2",
+            "KK.0005813"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Quick Release Baseplate QRP-1",
+          "aliases": [
+            "K2.0000399",
+            "QRP-1",
+            "QRP-1-Baseplate"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "QR-HD Cine Base Plate",
+          "aliases": [
+            "K2.47796.0",
+            "QR-HD Cine Base Plate, Basic Unit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Broadcast Bridge Plate Sled",
+          "aliases": [
+            "K2.47797.0"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Support Rods 15mm 140mm",
+          "aliases": [
+            "K2.66254.0",
+            "Support Rods 140mm, 5.5in, Ø15mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Support Rods 15mm 540mm",
+          "aliases": [
+            "K2.72029.0",
+            "Support Rods 540mm/21.3in, Ø15mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Support Rods 19mm 90mm",
+          "aliases": [
+            "K2.0016088",
+            "Support Rods 90mm/3.5in, Ø19 mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Support Rods 19mm 120mm",
+          "aliases": [
+            "K2.0040790",
+            "Support Rods 120 mm/4.7\", 19 mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Support Rods 19mm 150mm",
+          "aliases": [
+            "K2.0016090",
+            "Support Rods 150mm/5.9in, Ø19mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Support Rods 19mm 305mm",
+          "aliases": [
+            "K2.0041327",
+            "Support Rods 305 mm/12\", 19 mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Support Rods 19mm 430mm",
+          "aliases": [
+            "K2.0040791",
+            "Support Rods 430 mm/16.9\", 19 mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Cage Top Handle CTH-1",
+          "aliases": [
+            "K2.66227.0",
+            "CTH-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Cage Top Handle CTH-2",
+          "aliases": [
+            "K2.0054160",
+            "CTH-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Handle Extension Block HEB-2",
+          "aliases": [
+            "K2.72015.0",
+            "HEB-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Handle Extension Block HEB-3",
+          "aliases": [
+            "K2.0001017",
+            "HEB-3",
+            "Handle Extension Block long"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Camera Handle SCH-1",
+          "aliases": [
+            "K2.72016.0",
+            "SCH-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Adjustable Center Grip ACG-2",
+          "aliases": [
+            "K2.72022.0",
+            "ACG-2",
+            "Adjustable Center Grip Tall ACG-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Lightweight Camera Handle LCH-1",
+          "aliases": [
+            "K2.0024066",
+            "LCH-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bicycle Grip Adapter BGA-1",
+          "aliases": [
+            "K2.0034248",
+            "BGA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bicycle Grip Adapter BGA-2",
+          "aliases": [
+            "K2.0036623",
+            "BGA-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wooden Handgrip WHG-1",
+          "aliases": [
+            "K2.0024965",
+            "WHG-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wooden Handgrips WHG-2",
+          "aliases": [
+            "K2.0052124",
+            "WHG-2",
+            "Wooden Handgrips WHG-2 (Pair)"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wooden Handgrip WHG-3 Left",
+          "aliases": [
+            "K2.0054215",
+            "WHG-3 left"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wooden Handgrip WHG-3 Right",
+          "aliases": [
+            "K2.0054216",
+            "WHG-3 right"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Standard Grip Left SGL-1",
+          "aliases": [
+            "K2.0016317",
+            "SGL-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Standard Grip Right SGR-1",
+          "aliases": [
+            "K2.0016318",
+            "SGR-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Handgrip with On/Off Switch",
+          "aliases": [
+            "K2.66278.0",
+            "Handgrip with on/off switch Hirose 4-pin"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Handgrip Extension 80mm",
+          "aliases": [
+            "K2.0012913",
+            "K0.0012991"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Handgrip Extension 160mm",
+          "aliases": [
+            "K2.0012911",
+            "K0.0012992"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Handgrip Extension 240mm",
+          "aliases": [
+            "K2.0012917",
+            "K0.0012993"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Extension REX-25",
+          "aliases": [
+            "K2.0048040",
+            "REX-25"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Extension REX-40",
+          "aliases": [
+            "K2.0049430",
+            "REX-40",
+            "KK.0049433"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Mountable Run Stop Button MRS-1",
+          "aliases": [
+            "K2.0045006",
+            "MRS-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Lightweight Bridge Support LBS-2",
+          "aliases": [
+            "K2.66275.0",
+            "LBS-2",
+            "KK.0005674",
+            "LBS-2 Handgrip Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Lightweight Bridge Support LBS-3",
+          "aliases": [
+            "K2.0002355",
+            "LBS-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Bridge Support UBS-3",
+          "aliases": [
+            "K2.0013320",
+            "UBS-3",
+            "KK.0005675",
+            "UBS-3 Handgrip Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Shoulder Pad USP-2",
+          "aliases": [
+            "K2.66209.0",
+            "USP-2",
+            "Universal Shoulder Pad USP-2 for LWS"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Shoulder Pad CSP-1",
+          "aliases": [
+            "K2.0006807",
+            "CSP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact Shoulder Pad CSP-2",
+          "aliases": [
+            "K2.0024161",
+            "CSP-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Shoulder Pad SP-4",
+          "aliases": [
+            "K2.72083.0",
+            "SP-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Shoulder Set S-4",
+          "aliases": [
+            "K2.47093.0",
+            "Shoulder Set S-4 for BP-8/9/12/13"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Broadcast Shoulder Adapter BSA-1",
+          "aliases": [
+            "K2.0043749",
+            "BSA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Balance Harness Adapter BHA-1",
+          "aliases": [
+            "K2.0034554",
+            "BHA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Soft Pad TSP-1",
+          "aliases": [
+            "K2.0055229",
+            "TSP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Camera Side Bracket CSB-1L",
+          "aliases": [
+            "K2.0033573",
+            "CSB-1L"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Camera Side Bracket CSB-1R",
+          "aliases": [
+            "K2.0033571",
+            "CSB-1R"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Extension Bracket TEB-1",
+          "aliases": [
+            "K2.0024062",
+            "TEB-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rear Accessory Bracket RAB-2",
+          "aliases": [
+            "K2.0034183",
+            "RAB-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rear Accessory Bracket RAB-3",
+          "aliases": [
+            "K2.0049215",
+            "RAB-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rear Accessory Bracket RAB-4",
+          "aliases": [
+            "K2.0055159",
+            "RAB-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Accessory Bracket SAB-2",
+          "aliases": [
+            "K2.0014088",
+            "SAB-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Mounting Bracket RMB-2",
+          "aliases": [
+            "KK.0005807",
+            "RMB-2",
+            "Rod Mounting Bracket RMB-2 Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Mounting Bracket RMB-4",
+          "aliases": [
+            "K2.0013007",
+            "RMB-4",
+            "K0.0013013"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Mounting Bracket RMB-5",
+          "aliases": [
+            "K2.0014827",
+            "RMB-5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Mounting Bracket RMB-6",
+          "aliases": [
+            "K2.0020163",
+            "RMB-6",
+            "KK.0020673"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Mounting Bracket RMB-7",
+          "aliases": [
+            "K2.0023907",
+            "RMB-7"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Square Accessory Sleeve SAS-2",
+          "aliases": [
+            "K2.0047906",
+            "SAS-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Lightweight Support LWS-6",
+          "aliases": [
+            "K2.0023948",
+            "LWS-6"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Low Mode Support LMS-3",
+          "aliases": [
+            "K2.72023.0",
+            "LMS-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Low Mode Support LMS-4",
+          "aliases": [
+            "K2.0034178",
+            "LMS-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Adapter Plate UAP-1",
+          "aliases": [
+            "K2.72102.0",
+            "UAP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Adapter Plate UAP-2",
+          "aliases": [
+            "K2.0001221",
+            "UAP-2",
+            "K0.0001280"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Adapter Plate UAP-3",
+          "aliases": [
+            "K2.0034179",
+            "UAP-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Adapter Plate UAP-5",
+          "aliases": [
+            "K2.0052288",
+            "UAP-5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Mini Adapter Plate MAP-4",
+          "aliases": [
+            "K2.0047697",
+            "MAP-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bridge Plate Adapter BPA-2",
+          "aliases": [
+            "K2.66172.0",
+            "BPA-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Bridge Plate Adapter BPA-3",
+          "aliases": [
+            "K2.75006.0",
+            "BPA-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wedge Adapter WA-1",
+          "aliases": [
+            "K2.72002.0",
+            "WA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wedge Plate Adapter WPA-1",
+          "aliases": [
+            "K2.75000.0",
+            "WPA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact Bridge Plate CBP-4",
+          "aliases": [
+            "K2.0019582",
+            "CBP-4",
+            "Compact Bridge Plate CBP-4 15mm for AMIRA"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Compact Bridge Plate CBP-5",
+          "aliases": [
+            "K2.0023549",
+            "CBP-5",
+            "Compact Bridge Plate CBP-5 (19mm)"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Support Bracket 19mm for CBP",
+          "aliases": [
+            "K2.0033726"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rod Support Bracket 15mm for CBP",
+          "aliases": [
+            "K2.0033724"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "CBP Adapter for Ronin 2",
+          "aliases": [
+            "K2.0022842",
+            "CBP Adapter for Ronin2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Broadcast Plate for ALEXA Mini",
+          "aliases": [
+            "K2.0008509",
+            "Broadcast Plate for ALEXA Mini/ Mini LF"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Vertical Format Baseplate",
+          "aliases": [
+            "K2.0042610",
+            "ALEXA 35 Vertical Format Baseplate"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Vertical Format Adapters for ALEXA Mini",
+          "aliases": [
+            "K2.0019442",
+            "Vertical Format Adapters (4x brackets)",
+            "KK.0019829"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Vertical Top Plate for ALEXA Mini LF",
+          "aliases": [
+            "K2.0024165",
+            "KK.0024136"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Large Lens Adapter LLA-1",
+          "aliases": [
+            "K2.0050774",
+            "LLA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Live Production Handle LPH-2",
+          "aliases": [
+            "K2.0054985",
+            "LPH-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Tally Light Module TLM-1",
+          "aliases": [
+            "K2.0050656",
+            "TLM-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Touchdown Base Plate TBP-1",
+          "aliases": [
+            "K2.0049959",
+            "TBP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Touchdown Receiver Plate TRP-1",
+          "aliases": [
+            "K2.0049960",
+            "TRP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Lightweight Tripod Plate LTP-1",
+          "aliases": [
+            "K2.0055367",
+            "LTP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Lens Adapter Support LAS-1",
+          "aliases": [
+            "K2.0003899",
+            "LAS-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "External Power Adapter EPA-1",
+          "aliases": [
+            "K2.0034205",
+            "EPA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "General Purpose IO Box GPB-1",
+          "aliases": [
+            "K2.0007642",
+            "GPB-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "EXT Distribution Box EDB-2",
+          "aliases": [
+            "K2.0013145",
+            "EDB-2",
+            "EXT Distribution Box 2 EDB-2 ALEXA Mini"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Audio Extension Module AEM-1",
+          "aliases": [
+            "K2.0023750",
+            "AEM-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA Rain Protector ARP-1",
+          "aliases": [
+            "K2.72026.0",
+            "ARP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wetsuit for ALEXA Mini",
+          "aliases": [
+            "K2.0010053",
+            "ALEXA Mini Wetsuit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Wetsuit for ALEXA Mini LF",
+          "aliases": [
+            "K2.0036013",
+            "ALEXA Mini LF Wetsuit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA Studio LMS Feet",
+          "aliases": [
+            "K2.72093.0"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Rail Bar NRB-80",
+          "aliases": [
+            "K2.0051779",
+            "NRB-80"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Rail Clamp NRC-1",
+          "aliases": [
+            "K2.0047776",
+            "NRC-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Rail Adapter NRC-2",
+          "aliases": [
+            "K2.0048324",
+            "NRC-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Rail Clamp NRC-3",
+          "aliases": [
+            "K2.0049419",
+            "NRC-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Rail Clamp NRC-4",
+          "aliases": [
+            "K2.0047801",
+            "NRC-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Rail Clamp NRC-5",
+          "aliases": [
+            "K2.0047771",
+            "NRC-5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Rail Clamp NRC-6",
+          "aliases": [
+            "K2.0054184",
+            "NRC-6",
+            "NATO Rail Clamp NRC-6 (Rosette)"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Accessory Rail NAR-30",
+          "aliases": [
+            "K2.0047643",
+            "NAR-30"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Accessory Rail NAR-60",
+          "aliases": [
+            "K2.0047854",
+            "NAR-60"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "NATO Accessory Rail NAR-90",
+          "aliases": [
+            "K2.0047631",
+            "NAR-90"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Articulated Mounting Plate AMP-2",
+          "aliases": [
+            "KK.0053568",
+            "AMP-2",
+            "Articulated Mounting Plate AMP-2 Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Accessory Rail Cube ARC-1",
+          "aliases": [
+            "K2.0033852",
+            "ARC-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Accessory Rail Small ARS-1",
+          "aliases": [
+            "K2.0016751",
+            "ARS-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Mounting Arm UMA-120",
+          "aliases": [
+            "K2.65020.0",
+            "UMA-120"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Universal Mounting Arm UMA-240",
+          "aliases": [
+            "K2.41100.0",
+            "UMA-240"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Adapter RA-1",
+          "aliases": [
+            "K2.66174.0",
+            "RA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Adapter RA-2",
+          "aliases": [
+            "K2.65269.0",
+            "RA-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Adapter RA-3",
+          "aliases": [
+            "K2.65268.0",
+            "RA-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Adapter RA-4",
+          "aliases": [
+            "K2.0014825",
+            "RA-4",
+            "Rosette Adapter to 19mm, RA-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Adapter RA-5",
+          "aliases": [
+            "K2.0024563",
+            "RA-5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Adapter RA-6",
+          "aliases": [
+            "K2.0024574",
+            "RA-6"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rosette Adapter RA-7",
+          "aliases": [
+            "K2.0041744",
+            "RA-7"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "WHA-2 Rosette Bracket",
+          "aliases": [
+            "K2.52153.0",
+            "WHA-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Recorder Battery Hinge RBH-1",
+          "aliases": [
+            "K2.66189.0",
+            "RBH-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Adjustable Monitor Mount AMM-1",
+          "aliases": [
+            "K2.0014829",
+            "AMM-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Director's Monitor Support DMS-1",
+          "aliases": [
+            "KK.0015183",
+            "DMS-1",
+            "DMS-1 Adjustable Mount Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Lighting Spigot Adapter LSA-1",
+          "aliases": [
+            "K2.0014833",
+            "LSA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Viewfinder Cross Pipe",
+          "aliases": [
+            "K2.0013302"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "EVF Bracket for Sony DVF-EL200",
+          "aliases": [
+            "K2.0021525",
+            "KK.0022326"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "EVF Bracket for RED DSMC2 Viewfinder",
+          "aliases": [
+            "K2.0012522",
+            "KK.0012693"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "EVF Bracket for Zacuto Gratical",
+          "aliases": [
+            "K2.0008624",
+            "KK.0010048"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Plate BAP-1",
+          "aliases": [
+            "K2.0006471",
+            "BAP-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Plate BAP-2A",
+          "aliases": [
+            "K2.0023942",
+            "BAP-2A"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Back BAB-V",
+          "aliases": [
+            "K2.72010.0",
+            "BAB-V",
+            "Battery Adapter Back for V-lock BAB-V"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Back BAB-G",
+          "aliases": [
+            "K2.72003.0",
+            "BAB-G",
+            "Battery Adapter Back for Gold Mount BAB-G"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Top BAT-V",
+          "aliases": [
+            "K2.72011.0",
+            "BAT-V"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Top BAT-G",
+          "aliases": [
+            "K2.72006.0",
+            "BAT-G"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Back BAB-HV",
+          "aliases": [
+            "K2.0019453",
+            "BAB-HV",
+            "Battery Adapter Back High Load BAB-HV V-mount for ALEXA LF"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Back BAB-HG",
+          "aliases": [
+            "K2.0019456",
+            "BAB-HG",
+            "Battery Adapter Back High Load BAB-HG Gold-Mount for ALEXA LF"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Adapter Back BAB-LF",
+          "aliases": [
+            "K2.0034204",
+            "BAB-LF"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "B-Mount Battery Adapter",
+          "aliases": [
+            "K2.0023751",
+            "ALEXA 35 B-Mount Battery Adapter"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "B-Mount Adapter BMM-24-ALEX",
+          "aliases": [
+            "K2.0038613",
+            "BMM-24-ALEX",
+            "B-Mount Adapter ALEXA"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "B-Mount Adapter BMM-AMIRA",
+          "aliases": [
+            "K2.0038614",
+            "BMM-AMIRA"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "B-Mount Adapter Plate",
+          "aliases": [
+            "K2.0024113",
+            "ALEXA Mini B-Mount Adapter Plate"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Gold Mount Adapter Plate Mk II",
+          "aliases": [
+            "K2.0014533",
+            "Gold Mount Adapter Plate MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "V-Mount Adapter Plate Mk II",
+          "aliases": [
+            "K2.0014531",
+            "V-Mount Adapter Plate MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "V-Mount Battery Plate with Hot-Swap Buffer",
+          "aliases": [
+            "K2.0015840",
+            "V-mount battery plate with hot-swap buffer"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Gold Mount Battery Plate with Hot-Swap Buffer",
+          "aliases": [
+            "K2.0015859",
+            "Gold-mount battery plate with hot-swap buffer"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "AMIRA V-Lock Battery Adapter Plate",
+          "aliases": [
+            "K2.75002.0"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "AMIRA Gold Mount Battery Adapter Plate",
+          "aliases": [
+            "K2.75001.0"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Sony VENICE 1/2",
+          "aliases": [
+            "K2.0043699",
+            "ARRI Top Plate VENICE 1/2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Plate for Sony VENICE 1/2",
+          "aliases": [
+            "K2.0043726",
+            "ARRI Plate VENICE 1/2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Left for Sony VENICE 1/2",
+          "aliases": [
+            "K2.0043725",
+            "ARRI Side Bracket Left VENICE 1/2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Right for Sony VENICE 1/2",
+          "aliases": [
+            "K2.0043731",
+            "ARRI Side Bracket Right VENICE 1/2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Base Plate for Sony VENICE Extension Unit",
+          "aliases": [
+            "K2.0024564",
+            "ARRI Base Plate VENICE Extension Unit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Sony VENICE Extension Unit",
+          "aliases": [
+            "K2.0039457",
+            "ARRI Top Plate VENICE Extension Unit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Back Plate for Sony VENICE Extension Unit",
+          "aliases": [
+            "K2.0024573",
+            "ARRI Back Plate VENICE Extension Unit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Left for Sony VENICE Extension Unit",
+          "aliases": [
+            "K2.0024761",
+            "ARRI Side Bracket Left VENICE Extension Unit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Right for Sony VENICE Extension Unit",
+          "aliases": [
+            "K2.0024566",
+            "ARRI Side Bracket Right VENICE Extension Unit"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Base Plate for Sony VENICE Extension Mini",
+          "aliases": [
+            "K2.0054187",
+            "ARRI Base Plate VENICE Extension Mini"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Sony VENICE Extension Mini",
+          "aliases": [
+            "K2.0054520",
+            "ARRI Top Plate VENICE Extension Mini"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Back Plate for Sony VENICE Extension Mini",
+          "aliases": [
+            "K2.0054189",
+            "ARRI Back Plate VENICE Extension Mini"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket for Sony VENICE Extension Mini",
+          "aliases": [
+            "K2.0054179",
+            "ARRI Side Bracket VENICE Extension Mini"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Sony BURANO",
+          "aliases": [
+            "K2.0049751",
+            "ARRI Top Plate BURANO"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Left for Sony BURANO",
+          "aliases": [
+            "K2.0049816",
+            "ARRI Side Bracket Left BURANO"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Right for Sony BURANO",
+          "aliases": [
+            "K2.0049819",
+            "ARRI Side Bracket Right BURANO"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rear Side Bracket Right for Sony BURANO",
+          "aliases": [
+            "K2.0049904",
+            "ARRI Rear Side Bracket Right BURANO"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Sony FS7II/FX9",
+          "aliases": [
+            "K2.0034691",
+            "ARRI Top Plate FS7II/FX9"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Plate for Sony FS7II/FX9",
+          "aliases": [
+            "K2.0035830",
+            "ARRI Plate FS7II/FX9"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Left for Sony FS7II/FX9",
+          "aliases": [
+            "K2.0034727",
+            "ARRI Side Bracket Left FS7II/FX9"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Right for Sony FS7II/FX9",
+          "aliases": [
+            "K2.0034709",
+            "ARRI Side Bracket Right FS7II/FX9"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Viewfinder Bracket for Sony FS7II/FX9",
+          "aliases": [
+            "K2.0034657",
+            "ARRI Viewfinder Bracket FS7II/FX9"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Canon EOS C400",
+          "aliases": [
+            "K2.0051221",
+            "ARRI Top Plate EOS C400"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Plate for Canon EOS C400",
+          "aliases": [
+            "K2.0051262",
+            "ARRI Plate EOS C400"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Left for Canon EOS C400",
+          "aliases": [
+            "K2.0051222",
+            "ARRI Side Bracket Left EOS C400"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Right for Canon EOS C400",
+          "aliases": [
+            "K2.0051223",
+            "ARRI Side Bracket Right EOS C400"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rear Side Bracket Right for Canon EOS C400",
+          "aliases": [
+            "K2.0051224",
+            "ARRI Rear Side Bracket Right EOS C400"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Canon C300 MkIII/C500 MkII",
+          "aliases": [
+            "K2.0033441",
+            "ARRI Top Plate C300 MkIII/C500 MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Plate for Canon C300 MkIII/C500 MkII",
+          "aliases": [
+            "K2.0033439",
+            "ARRI Plate C300 MkIII/C500 MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Left for Canon C300 MkIII/C500 MkII",
+          "aliases": [
+            "K2.0037185",
+            "ARRI Side Bracket Left C300 MkIII/C500 MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket Right for Canon C300 MkIII/C500 MkII",
+          "aliases": [
+            "K2.0037183",
+            "ARRI Side Bracket Right C300 MkIII/C500 MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Canon C300 MkII",
+          "aliases": [
+            "K2.0006859",
+            "ARRI Top Plate C300 MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Cine Plate for Canon C300 MkII",
+          "aliases": [
+            "K2.0006864",
+            "ARRI Cine Plate C300 MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Broadcast Plate for Canon C300 MkII",
+          "aliases": [
+            "K2.0006797",
+            "ARRI Broadcast Plate C300 MkII"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Canon C700",
+          "aliases": [
+            "K2.0013229",
+            "ARRI Top Plate C700"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Plate for Canon C700",
+          "aliases": [
+            "K2.0013191",
+            "ARRI Plate C700"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Canon C200",
+          "aliases": [
+            "K2.0015513",
+            "ARRI Top Plate C200"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Adapter Plate for Canon C200",
+          "aliases": [
+            "K2.0015518",
+            "ARRI Adapter Plate C200"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Panasonic EVA1",
+          "aliases": [
+            "K2.0015880",
+            "ARRI Top Plate EVA1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Plate for Panasonic EVA1",
+          "aliases": [
+            "K2.0015883",
+            "ARRI Plate EVA1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Panasonic VariCam",
+          "aliases": [
+            "K2.0009694",
+            "ARRI Top Plate VariCam"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Plate for Panasonic VariCam",
+          "aliases": [
+            "K2.0009593",
+            "ARRI Plate VariCam"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Viewfinder Bracket for Panasonic VariCam",
+          "aliases": [
+            "K2.0010580",
+            "ARRI Viewfinder Bracket VariCam"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for RED DSMC2",
+          "aliases": [
+            "K2.0009664",
+            "ARRI Top Plate RED DSMC2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Cine Plate for RED DSMC2",
+          "aliases": [
+            "K2.0008886",
+            "ARRI Cine Plate RED DSMC2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Broadcast Plate for RED DSMC2",
+          "aliases": [
+            "K2.0009614",
+            "ARRI Broadcast Plate RED DSMC2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Handle for RED DSMC2",
+          "aliases": [
+            "K2.0008903",
+            "ARRI Top Handle RED DSMC2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Monitor Bracket for RED DSMC2",
+          "aliases": [
+            "K2.0009582",
+            "ARRI Monitor Bracket RED DSMC2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top Plate for Fujifilm Eterna 55",
+          "aliases": [
+            "K2.0055230",
+            "ARRI Top Plate Eterna 55"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Base Plate for Fujifilm Eterna 55",
+          "aliases": [
+            "K2.0055233",
+            "ARRI Base Plate Eterna 55"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Side Bracket for Fujifilm Eterna 55",
+          "aliases": [
+            "K2.0055235",
+            "ARRI Side Bracket Eterna 55"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Rear Side Bracket Right for Fujifilm Eterna 55",
+          "aliases": [
+            "K2.0055362",
+            "ARRI Rear Side Bracket Right Eterna 55"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Top NATO Rail for Fujifilm Eterna 55",
+          "aliases": [
+            "K2.0055237",
+            "ARRI Top NATO Rail Eterna 55"
           ]
         }
       ]
@@ -1807,7 +5477,6 @@
           "model": "AMIRA",
           "aliases": [
             "Amira Body",
-            "ARRI Amira Live",
             "Amira Kamera"
           ],
           "specs": {
@@ -1890,7 +5559,12 @@
           "model": "PYXIS 12K",
           "aliases": [
             "Pyxis 12K Kamera",
-            "BMD Pyxis 12K"
+            "BMD Pyxis 12K",
+            "Blackmagic PYXIS 12K EF",
+            "Blackmagic PYXIS 12K PL",
+            "PYXIS 12K EF",
+            "PYXIS 12K PL",
+            "PYXIS 12K L-Mount"
           ],
           "specs": {
             "sensor": "Full Frame 12K RGBW (36 x 24 mm)",
@@ -1906,7 +5580,12 @@
             "Pyxis 6K Kamera",
             "BMD Pyxis 6K",
             "Blackmagic Pyxis 6K PL/EF",
-            "Blackmagic Pyxis 6K"
+            "Blackmagic Pyxis 6K",
+            "Blackmagic PYXIS 6K EF",
+            "Blackmagic PYXIS 6K PL",
+            "PYXIS 6K EF",
+            "PYXIS 6K PL",
+            "PYXIS 6K L-Mount"
           ],
           "specs": {
             "sensor": "Full Frame 6K"
@@ -2148,7 +5827,8 @@
           "model": "Ember S2.5K",
           "aliases": [
             "Ember 2.5K",
-            "Ember S2.5K High Speed"
+            "Ember S2.5K High Speed",
+            "950-00146"
           ],
           "specs": {
             "sensor": "Super 35 2.5K global shutter",
@@ -2163,7 +5843,8 @@
             "Freefly Ember",
             "Ember S5K High Speed",
             "FreeFly Ember S5K HS",
-            "Freefly Ember S5K high-speed camera"
+            "Freefly Ember S5K high-speed camera",
+            "950-00145"
           ],
           "specs": {
             "sensor": "Super 35 5K global shutter",
@@ -2324,7 +6005,8 @@
           "aliases": [
             "Varicam Pure Kamera",
             "VariCam 35 Pure",
-            "AU-VCXRAW2"
+            "AU-VCXRAW2",
+            "AU-VCXRAW2 V-RAW 2.0 Recorder"
           ],
           "specs": {
             "sensor": "Super 35 4K",
@@ -2475,7 +6157,10 @@
             "Komodo-X Kamera",
             "RED Komodo-X",
             "RED Komodo X",
-            "Komodo-X"
+            "Komodo-X",
+            "710-0417-00",
+            "KOMODO-X RF Mount",
+            "RED KOMODO-X RF"
           ],
           "specs": {
             "sensor": "6K Super 35 global shutter",
@@ -2486,7 +6171,9 @@
           "manufacturer": "RED",
           "model": "KOMODO-X Z Mount",
           "aliases": [
-            "Komodo X Z"
+            "Komodo X Z",
+            "710-0420-00",
+            "KOMODO-X Z"
           ],
           "specs": {
             "sensor": "6K Super 35 global shutter",
@@ -2534,7 +6221,10 @@
           "model": "V-RAPTOR [X] 8K VV",
           "aliases": [
             "V-Raptor X",
-            "Raptor X"
+            "Raptor X",
+            "710-0402-03",
+            "V-RAPTOR [X] RF Mount",
+            "RED V-RAPTOR [X]"
           ],
           "specs": {
             "sensor": "8K VV global shutter",
@@ -2546,7 +6236,8 @@
           "model": "V-RAPTOR [X] Z Mount",
           "aliases": [
             "V-Raptor X Z",
-            "Raptor X Z Mount"
+            "Raptor X Z Mount",
+            "710-0435"
           ],
           "specs": {
             "sensor": "8K VV global shutter",
@@ -2558,7 +6249,8 @@
           "model": "V-RAPTOR 8K S35",
           "aliases": [
             "V-Raptor S35",
-            "Raptor 8K S35"
+            "Raptor 8K S35",
+            "710-0345-00"
           ],
           "specs": {
             "sensor": "8K Super 35",
@@ -2587,7 +6279,10 @@
           "model": "V-RAPTOR XL [X] 8K VV",
           "aliases": [
             "V-Raptor XL X",
-            "Raptor XL X"
+            "Raptor XL X",
+            "710-0394",
+            "V-RAPTOR XL [X]",
+            "RED V-RAPTOR XL [X]"
           ],
           "specs": {
             "sensor": "8K VV global shutter",
@@ -2641,7 +6336,8 @@
           "aliases": [
             "ILME-FR7",
             "FR7 PTZ",
-            "Sony FR7 PTZ Kamera"
+            "Sony FR7 PTZ Kamera",
+            "ILME-FR7K"
           ],
           "specs": {
             "sensor": "Full Frame",
@@ -2653,7 +6349,8 @@
           "model": "FX2",
           "aliases": [
             "ILME-FX2",
-            "FX2 Kamera"
+            "FX2 Kamera",
+            "ILME-FX2B"
           ],
           "specs": {
             "sensor": "Full Frame 33MP",
@@ -2665,7 +6362,9 @@
           "model": "FX3",
           "aliases": [
             "ILME-FX3",
-            "FX3 Kamera"
+            "FX3 Kamera",
+            "ILME-FX3A",
+            "FX3A"
           ],
           "specs": {
             "sensor": "Full Frame",
@@ -2677,7 +6376,8 @@
           "model": "FX30",
           "aliases": [
             "ILME-FX30",
-            "FX30 Kamera"
+            "FX30 Kamera",
+            "ILME-FX30B"
           ],
           "specs": {
             "sensor": "APS-C",
@@ -2690,7 +6390,8 @@
           "aliases": [
             "ILME-FX6",
             "ILME-FX6V",
-            "FX6 Kamera"
+            "FX6 Kamera",
+            "ILME-FX6VK"
           ],
           "specs": {
             "sensor": "Full Frame",
@@ -2702,7 +6403,8 @@
           "model": "FX9",
           "aliases": [
             "PXW-FX9",
-            "FX9 Kamera"
+            "FX9 Kamera",
+            "PXW-FX9K"
           ],
           "specs": {
             "sensor": "Full Frame 6K",
@@ -3027,14 +6729,16 @@
           "manufacturer": "Sony",
           "model": "PXW-FS5",
           "aliases": [
-            "FS5"
+            "FS5",
+            "PXW-FS5K"
           ]
         },
         {
           "manufacturer": "Sony",
           "model": "PXW-FS7",
           "aliases": [
-            "FS7"
+            "FS7",
+            "PXW-FS7K"
           ]
         },
         {
@@ -3045,7 +6749,9 @@
             "FS7II",
             "PXW-FS7II",
             "Sony FS7 Mark II",
-            "Sony FS7 MKII"
+            "Sony FS7 MKII",
+            "PXW-FS7M2",
+            "PXW-FS7M2K"
           ]
         },
         {
@@ -3141,7 +6847,8 @@
           "manufacturer": "Sony",
           "model": "HXR-NX5E",
           "aliases": [
-            "HXR-NX5"
+            "HXR-NX5",
+            "HXR-NX5R"
           ]
         },
         {
@@ -3387,7 +7094,9 @@
             "Sony FX5",
             "SONY FX5",
             "Sony FX5 Body",
-            "Sony Cinema Line FX5"
+            "Sony Cinema Line FX5",
+            "ILME-FX5",
+            "ILME-FX5B"
           ]
         },
         {
@@ -3874,7 +7583,10 @@
           "model": "V-RAPTOR XE 8K VV",
           "aliases": [
             "Red V-Raptor XE",
-            "RED V-RAPTOR XE"
+            "RED V-RAPTOR XE",
+            "710-0450",
+            "V-RAPTOR XE RF Mount",
+            "RED V-RAPTOR XE RF"
           ]
         },
         {
@@ -3883,6 +7595,266 @@
           "aliases": [
             "Sony Z300",
             "Sony PXW Z300"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "V-RAPTOR XE Z Mount",
+          "aliases": [
+            "710-0445",
+            "RED V-RAPTOR XE Z Mount",
+            "V-Raptor XE Z"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Cine 12K LF 100G",
+          "aliases": [
+            "Blackmagic URSA Cine 12K LF 100G",
+            "URSA Cine 12K 100G",
+            "URSA Cine 12K LF 100G Body"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Mini Pro 12K OLPF",
+          "aliases": [
+            "Blackmagic URSA Mini Pro 12K OLPF",
+            "UMP 12K OLPF"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "URSA Broadcast G2",
+          "aliases": [
+            "Blackmagic URSA Broadcast G2",
+            "BMD URSA Broadcast G2"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Studio Camera 6K Pro",
+          "aliases": [
+            "Blackmagic Studio Camera 6K Pro",
+            "BMD Studio Camera 6K Pro"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Studio Camera 4K Pro G2",
+          "aliases": [
+            "Blackmagic Studio Camera 4K Pro G2",
+            "BMD Studio Camera 4K Pro G2"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Studio Camera 4K Plus G2",
+          "aliases": [
+            "Blackmagic Studio Camera 4K Plus G2",
+            "BMD Studio Camera 4K Plus G2"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-FS5 II",
+          "aliases": [
+            "PXW-FS5M2",
+            "PXW-FS5M2K",
+            "FS5 II",
+            "FS5M2",
+            "Sony FS5 Mark II"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-X400",
+          "aliases": [
+            "Sony PXW-X400",
+            "X400",
+            "PXW-X400KC",
+            "PXW-X400KF"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-Z450",
+          "aliases": [
+            "Sony PXW-Z450",
+            "Z450",
+            "PXW-Z450KC"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-Z750",
+          "aliases": [
+            "Sony PXW-Z750",
+            "Z750"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "HXR-NX800",
+          "aliases": [
+            "Sony HXR-NX800",
+            "NX800"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "HXR-NX80",
+          "aliases": [
+            "Sony HXR-NX80",
+            "NX80"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "HXR-NX100",
+          "aliases": [
+            "Sony HXR-NX100",
+            "NX100"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-X70",
+          "aliases": [
+            "Sony PXW-X70",
+            "X70"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-X200",
+          "aliases": [
+            "Sony PXW-X200",
+            "X200"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-X160",
+          "aliases": [
+            "Sony PXW-X160",
+            "X160"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PXW-X180",
+          "aliases": [
+            "Sony PXW-X180",
+            "X180"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PMW-100",
+          "aliases": [
+            "Sony PMW-100"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "PMW-160",
+          "aliases": [
+            "Sony PMW-160"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EOS C100 Mark II",
+          "aliases": [
+            "C100 Mark II",
+            "C100 MkII",
+            "C100 II",
+            "Canon C100 Mark 2"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EOS C100",
+          "aliases": [
+            "C100",
+            "Canon C100",
+            "C100 Mark I"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EOS C700",
+          "aliases": [
+            "C700",
+            "Canon C700",
+            "EOS C700 PL",
+            "EOS C700 EF"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "EOS C700 GS PL",
+          "aliases": [
+            "C700 GS PL",
+            "Canon C700 Global Shutter",
+            "C700 GS"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "VISTA 6K",
+          "aliases": [
+            "Kinefinity VISTA",
+            "Kinefinity VISTA 6K",
+            "VISTA Camera"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "MAVO LF",
+          "aliases": [
+            "Kinefinity MAVO LF",
+            "KineMAX MAVO LF"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "MAVO 6K S35",
+          "aliases": [
+            "Kinefinity MAVO 6K",
+            "MAVO S35 6K"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "TERRA 4K",
+          "aliases": [
+            "Kinefinity TERRA 4K"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "TERRA 6K",
+          "aliases": [
+            "Kinefinity TERRA 6K"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA 35 Live Xtreme",
+          "aliases": [
+            "K0.0056965",
+            "ARRI ALEXA 35 Live Xtreme",
+            "A35 Live Xtreme"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "AMIRA Live",
+          "aliases": [
+            "ARRI AMIRA Live",
+            "AMIRA Live Multicam"
           ]
         }
       ]
@@ -3909,7 +7881,9 @@
           "model": "AV PRO CFast 2.0 256GB",
           "aliases": [
             "Angelbird CFast 256GB",
-            "AV PRO CFast 256"
+            "AV PRO CFast 256",
+            "K2.0021432",
+            "Angelbird CFast 2.0 Card 256GB"
           ],
           "specs": {
             "capacity": "256GB"
@@ -3925,7 +7899,9 @@
             "Angelbird CFast 512GB",
             "AV PRO CFast 512",
             "Speicherkarte CFast 2.0 512GB Angelbird AV PRO CF",
-            "Angelbird AV PRO CF 512GB"
+            "Angelbird AV PRO CF 512GB",
+            "AV512CFSM2",
+            "AVP512CF"
           ],
           "specs": {
             "capacity": "512GB"
@@ -3948,7 +7924,9 @@
           "model": "AV PRO CFexpress B 2TB",
           "aliases": [
             "Angelbird CFexpress 2TB",
-            "AV PRO CFe B 2TB"
+            "AV PRO CFe B 2TB",
+            "AVP2T0CFXBMK2",
+            "AV PRO CFexpress B MK2 2TB"
           ],
           "specs": {
             "capacity": "2TB"
@@ -4042,7 +8020,9 @@
           "model": "CFexpress Type B Reader",
           "aliases": [
             "Codex CFexpress Reader",
-            "Codex CFe B Reader USB4"
+            "Codex CFe B Reader USB4",
+            "CX.0001206",
+            "Codex CFexpress Type B Reader USB4"
           ]
         },
         {
@@ -4050,7 +8030,10 @@
           "model": "Compact Drive 1TB",
           "aliases": [
             "CCD 1TB",
-            "Codex CD 1TB"
+            "Codex CD 1TB",
+            "CX.0001002",
+            "CompactDrive 1TB",
+            "Codex CompactDrive 1TB Orange"
           ],
           "specs": {
             "capacity": "1TB"
@@ -4061,7 +8044,10 @@
           "model": "Compact Drive 2TB",
           "aliases": [
             "CCD 2TB",
-            "Codex CD 2TB"
+            "Codex CD 2TB",
+            "CX.0001073",
+            "CompactDrive 2TB",
+            "Codex CompactDrive 2TB Yellow"
           ],
           "specs": {
             "capacity": "2TB"
@@ -4080,7 +8066,9 @@
           "manufacturer": "Codex",
           "model": "Compact Drive Case",
           "aliases": [
-            "Compact Drive Hülle"
+            "Compact Drive Hülle",
+            "K2.0040306",
+            "CODEX Compact Drive case (spare)"
           ],
           "bulk": true
         },
@@ -4089,7 +8077,9 @@
           "model": "Compact Drive Express 1TB",
           "aliases": [
             "CCD Express 1TB",
-            "Compact Drive Express"
+            "Compact Drive Express",
+            "CX.0001090",
+            "CompactDrive Express 1TB"
           ],
           "specs": {
             "capacity": "1TB"
@@ -4106,7 +8096,9 @@
             "Codex Reader USB-C",
             "CODEX Compact Drive Reader (USB-C)",
             "Lesegerät ARRI Codex Compact Drive",
-            "ARRI Codex Compact Drive Reader"
+            "ARRI Codex Compact Drive Reader",
+            "CX.0001005",
+            "CompactDrive Reader USB-C"
           ]
         },
         {
@@ -4277,7 +8269,8 @@
           "manufacturer": "RED",
           "model": "MINI-MAG 480GB",
           "aliases": [
-            "RED MINI-MAG 480"
+            "RED MINI-MAG 480",
+            "750-0090"
           ],
           "specs": {
             "capacity": "480GB"
@@ -4311,7 +8304,10 @@
           "model": "PRO CFexpress 1TB",
           "aliases": [
             "RED CFexpress 1TB",
-            "RED Pro CFE 1TB"
+            "RED Pro CFE 1TB",
+            "RED PRO CFexpress v4 1TB",
+            "RED PRO CFexpress 1 TB",
+            "RED PRO CFexpress v4 Type B 1TB"
           ],
           "specs": {
             "capacity": "1TB"
@@ -4322,7 +8318,9 @@
           "model": "PRO CFexpress 2TB",
           "aliases": [
             "RED CFexpress 2TB",
-            "RED Pro CFE 2TB"
+            "RED Pro CFE 2TB",
+            "RED PRO CFexpress 2 TB",
+            "RED PRO CFexpress v4 Type B 2TB"
           ],
           "specs": {
             "capacity": "2TB"
@@ -4344,7 +8342,9 @@
           "model": "PRO CFexpress v4 Type B Card Reader",
           "aliases": [
             "RED CFexpress v4 Reader",
-            "RED PRO CFe v4 Reader"
+            "RED PRO CFe v4 Reader",
+            "750-0105",
+            "RED CFexpress v4 Type B Card Reader"
           ]
         },
         {
@@ -4361,7 +8361,9 @@
           "model": "Extreme PRO CFast 2.0 128GB",
           "aliases": [
             "SanDisk CFast 128GB",
-            "SanDisk CFast 2.0 128"
+            "SanDisk CFast 2.0 128",
+            "K2.0003623",
+            "SanDisk Extreme Pro CFast2.0 card 128GB"
           ],
           "specs": {
             "capacity": "128GB"
@@ -4372,7 +8374,9 @@
           "model": "Extreme PRO CFast 2.0 256GB",
           "aliases": [
             "SanDisk CFast 256GB",
-            "SanDisk CFast 2.0 256"
+            "SanDisk CFast 2.0 256",
+            "K2.0015640",
+            "SanDisk Extreme Pro CFast2.0 card 256GB"
           ],
           "specs": {
             "capacity": "256GB"
@@ -4629,7 +8633,9 @@
           "model": "SBP-256E",
           "aliases": [
             "SxS PRO+ 256GB",
-            "SxS 256GB E Series"
+            "SxS 256GB E Series",
+            "K2.0014951",
+            "Sony SxS PRO+ card 256GB"
           ],
           "specs": {
             "capacity": "256GB"
@@ -4913,6 +8919,649 @@
             "Festplatte extern Lacie Rugged mini USB3.0 5TB",
             "LaCie Rugged Mini 5TB"
           ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "PRO CFexpress v4 2TB",
+          "aliases": [
+            "750-0104",
+            "RED PRO CFexpress v4 2TB"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Blackmagic Media Module 16TB",
+          "aliases": [
+            "URSA Cine Media Module 16TB",
+            "BMD Media Module 16TB"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "Blackmagic Media Dock Ultra",
+          "aliases": [
+            "Media Dock Ultra",
+            "BMD Media Dock Ultra"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "expressP2 AU-XP0512DG 512GB",
+          "aliases": [
+            "AU-XP0512DG",
+            "expressP2 512GB D Series"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "expressP2 AU-XP0512CG 512GB",
+          "aliases": [
+            "AU-XP0512CG",
+            "expressP2 512GB C Series"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "expressP2 AU-XP0256CG 256GB",
+          "aliases": [
+            "AU-XP0256CG",
+            "expressP2 256GB C Series"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "expressP2 AU-XP0256BG 256GB",
+          "aliases": [
+            "AU-XP0256BG",
+            "expressP2 256GB B Series"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "P2 card AJ-P2E060FG 64GB",
+          "aliases": [
+            "AJ-P2E060FG",
+            "P2 Card 64GB F Series"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "P2 card AJ-P2E030FG 32GB",
+          "aliases": [
+            "AJ-P2E030FG",
+            "P2 Card 32GB F Series"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "microP2 AJ-P2M064BG 64GB",
+          "aliases": [
+            "AJ-P2M064BG",
+            "microP2 64GB B Series"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-XPD1 expressP2 Drive",
+          "aliases": [
+            "AU-XPD1",
+            "expressP2 Drive"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-XPD3 expressP2 Drive",
+          "aliases": [
+            "AU-XPD3",
+            "expressP2 Drive XPD3"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "AXS-A256S24 256GB",
+          "aliases": [
+            "AXS-A256S24",
+            "AXS 256GB S24"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBP-120F",
+          "aliases": [
+            "SxS PRO X 120GB",
+            "SBP-120F SxS"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBP-240F",
+          "aliases": [
+            "SxS PRO X 240GB",
+            "SBP-240F SxS"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBAC-T40",
+          "aliases": [
+            "Sony SBAC-T40",
+            "SxS Reader Thunderbolt"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBAC-US30",
+          "aliases": [
+            "Sony SBAC-US30",
+            "SxS Reader USB 3.0"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBAC-UT100",
+          "aliases": [
+            "Sony SBAC-UT100",
+            "SxS Reader USB 3.1"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember External SSD 4TB",
+          "aliases": [
+            "910-00789",
+            "Freefly External SSD (4TB)"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember External SSD with Pre-Record 1.28TB",
+          "aliases": [
+            "910-00843",
+            "External SSD with Pre-Record (1.28TB)"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Ember External SSD with Pre-Record 2.56TB",
+          "aliases": [
+            "910-00845",
+            "External SSD with Pre-Record (2.56TB)"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "KineMAG Nano 1TB",
+          "aliases": [
+            "Kinefinity KineMAG Nano 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "KineMAG Nano 2TB",
+          "aliases": [
+            "Kinefinity KineMAG Nano 2TB"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type A Elite 256GB",
+          "aliases": [
+            "CX.0001230",
+            "Codex CFexpress A Elite 256GB",
+            "Codex Elite 256GB CFexpress Type A"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type A Elite 512GB",
+          "aliases": [
+            "CX.0001210",
+            "Codex CFexpress A Elite 512GB",
+            "Codex Elite 512GB CFexpress Type A"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type A Elite 1TB",
+          "aliases": [
+            "CX.0001211",
+            "Codex CFexpress A Elite 1TB",
+            "Codex Elite 1TB CFexpress Type A"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type A Excel 256GB",
+          "aliases": [
+            "CX.0001207",
+            "Codex CFexpress A Excel 256GB",
+            "Codex Excel 256GB CFexpress Type A"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type A Excel 512GB",
+          "aliases": [
+            "CX.0001208",
+            "Codex CFexpress A Excel 512GB",
+            "Codex Excel 512GB CFexpress Type A"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type A Excel 1TB",
+          "aliases": [
+            "CX.0001209",
+            "Codex CFexpress A Excel 1TB",
+            "Codex Excel 1TB CFexpress Type A"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type B Elite 1TB",
+          "aliases": [
+            "CX.0001215",
+            "Codex CFexpress B Elite 1TB",
+            "Codex Elite 1TB CFexpress Type B"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type B Elite 2TB",
+          "aliases": [
+            "CX.0001216",
+            "Codex CFexpress B Elite 2TB",
+            "Codex Elite 2TB CFexpress Type B"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type B Excel 512GB",
+          "aliases": [
+            "CX.0001212",
+            "Codex CFexpress B Excel 512GB",
+            "Codex Excel 512GB CFexpress Type B"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type B Excel 1TB",
+          "aliases": [
+            "CX.0001213",
+            "Codex CFexpress B Excel 1TB",
+            "Codex Excel 1TB CFexpress Type B"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "CFexpress Type B Excel 2TB",
+          "aliases": [
+            "CX.0001214",
+            "Codex CFexpress B Excel 2TB",
+            "Codex Excel 2TB CFexpress Type B"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFast 2.0 1TB",
+          "aliases": [
+            "AVP1TBCF",
+            "Angelbird AV PRO CFast 2.0 1TB",
+            "Angelbird CFast 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO AR 256 CFast 2.0",
+          "aliases": [
+            "AVP256CFAR",
+            "Angelbird AV PRO AR 256 CFast 2.0",
+            "ARRI AV PRO AR 256",
+            "Angelbird ARRI CFast 256GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress B 4TB",
+          "aliases": [
+            "AVP4T0CFXBMK2",
+            "Angelbird AV PRO CFexpress B 4TB",
+            "AV PRO CFexpress B MK2 4TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO XT CFexpress B 660GB",
+          "aliases": [
+            "AVP660CFXBMK2XT",
+            "Angelbird AV PRO XT CFexpress B 660GB",
+            "AV PRO CFexpress B XT MK2 660GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO XT CFexpress B 1320GB",
+          "aliases": [
+            "AVP1T3CFXBMK2XT",
+            "Angelbird AV PRO XT CFexpress B 1320GB",
+            "AV PRO CFexpress B XT MK2 1320GB",
+            "AV PRO XT 1.3TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SE CFexpress B v4 256GB",
+          "aliases": [
+            "AV256CFXBSE",
+            "Angelbird AV PRO SE CFexpress B v4 256GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SE CFexpress B v4 512GB",
+          "aliases": [
+            "AVP512CFXBSEMK2",
+            "Angelbird AV PRO SE CFexpress B v4 512GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SE CFexpress B v4 1TB",
+          "aliases": [
+            "AVP1T0CFXBSEMK2",
+            "Angelbird AV PRO SE CFexpress B v4 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SE CFexpress B v4 2TB",
+          "aliases": [
+            "AVP2T0CFXBSEMK2",
+            "Angelbird AV PRO SE CFexpress B v4 2TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SE CFexpress B v4 4TB",
+          "aliases": [
+            "AVP4T0CFXBSEMK2",
+            "Angelbird AV PRO SE CFexpress B v4 4TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress A v4 MK2 256GB",
+          "aliases": [
+            "AVP256CFXAMK2",
+            "Angelbird AV PRO CFexpress A v4 MK2 256GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress A v4 MK2 512GB",
+          "aliases": [
+            "AVP512CFXAMK2",
+            "Angelbird AV PRO CFexpress A v4 MK2 512GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress A v4 MK2 1TB",
+          "aliases": [
+            "AVP1T0CFXAMK2",
+            "Angelbird AV PRO CFexpress A v4 MK2 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress A v4 MK3 400GB",
+          "aliases": [
+            "AV400CXAM3",
+            "Angelbird AV PRO CFexpress A v4 MK3 400GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress A v4 MK3 800GB",
+          "aliases": [
+            "AV800CXAM3",
+            "Angelbird AV PRO CFexpress A v4 MK3 800GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress A v4 MK3 1600GB",
+          "aliases": [
+            "AV1T6CXAM3",
+            "Angelbird AV PRO CFexpress A v4 MK3 1600GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO CFexpress A v4 SE MK3 200GB",
+          "aliases": [
+            "AV200CXASEM3",
+            "Angelbird AV PRO CFexpress A v4 SE MK3 200GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SE CFexpress A 160GB",
+          "aliases": [
+            "AVP160CFXASE",
+            "Angelbird AV PRO SE CFexpress A 160GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SE CFexpress A 330GB",
+          "aliases": [
+            "AVP330CFXASE",
+            "Angelbird AV PRO SE CFexpress A 330GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V60 MK2 64GB",
+          "aliases": [
+            "AVP064SDMK2V60",
+            "Angelbird AV PRO SD V60 MK2 64GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V60 MK2 128GB",
+          "aliases": [
+            "AVP128SDMK2V60",
+            "Angelbird AV PRO SD V60 MK2 128GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V60 MK2 256GB",
+          "aliases": [
+            "AVP256SDMK2V60",
+            "Angelbird AV PRO SD V60 MK2 256GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V60 MK2 512GB",
+          "aliases": [
+            "AVP512SDMK2V60",
+            "Angelbird AV PRO SD V60 MK2 512GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V60 MK2 1TB",
+          "aliases": [
+            "AVP1T0SDMK2V60",
+            "Angelbird AV PRO SD V60 MK2 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V90 MK2 64GB",
+          "aliases": [
+            "AVP064SDMK2V90",
+            "Angelbird AV PRO SD V90 MK2 64GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V90 MK2 128GB",
+          "aliases": [
+            "AVP128SDMK2V90",
+            "Angelbird AV PRO SD V90 MK2 128GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V90 MK2 256GB",
+          "aliases": [
+            "AVP256SDMK2V90",
+            "Angelbird AV PRO SD V90 MK2 256GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO SD V90 MK2 512GB",
+          "aliases": [
+            "AVP512SDMK2V90",
+            "Angelbird AV PRO SD V90 MK2 512GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO MK3 SSD 1TB",
+          "aliases": [
+            "AVP1000MK3",
+            "Angelbird AV PRO MK3 SSD 1TB",
+            "Angelbird AV PRO MK3 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AV PRO MK3 SSD 2TB",
+          "aliases": [
+            "AVP2000MK3",
+            "Angelbird AV PRO MK3 SSD 2TB",
+            "Angelbird AV PRO MK3 2TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AtomX SSDmini 1TB",
+          "aliases": [
+            "ATOMXMINI1000PK",
+            "Angelbird AtomX SSDmini 1TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "AtomX SSDmini 2TB",
+          "aliases": [
+            "ATOMXMINI2000PK",
+            "Angelbird AtomX SSDmini 2TB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "CFast 2.0 Card Reader",
+          "aliases": [
+            "CFS31PK",
+            "Angelbird CFast 2.0 Card Reader",
+            "Angelbird CFast Reader"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "CFexpress A Card Reader PKT",
+          "aliases": [
+            "CFXACRPKT",
+            "Angelbird CFexpress A Card Reader PKT",
+            "Angelbird CFexpress A Reader"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "CFexpress B Card Reader PKT",
+          "aliases": [
+            "CFXBCRPKT",
+            "Angelbird CFexpress B Card Reader PKT",
+            "Angelbird CFexpress B Reader PKT"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "Performance Card Reader CFexpress B",
+          "aliases": [
+            "CFXBCRP",
+            "Angelbird Performance Card Reader CFexpress B",
+            "Angelbird CFexpress B Performance Reader"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "SD Card Reader PKT",
+          "aliases": [
+            "SDCRPKT",
+            "Angelbird SD Card Reader PKT",
+            "Angelbird SD Reader"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "CFexpress B Recording Module",
+          "aliases": [
+            "KBRMCFXB",
+            "Angelbird CFexpress B Recording Module",
+            "KBRMCFXBRB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "SD Recording Module",
+          "aliases": [
+            "KBRMSD",
+            "Angelbird SD Recording Module",
+            "KBRMSDRB"
+          ]
+        },
+        {
+          "manufacturer": "SanDisk",
+          "model": "Extreme PRO CFast 2.0 512GB",
+          "aliases": [
+            "K2.0016648",
+            "SanDisk CFast 512GB",
+            "SanDisk Extreme Pro CFast2.0 card 512GB"
+          ]
+        },
+        {
+          "manufacturer": "Angelbird",
+          "model": "CFast 2.0 Card Reader USB-C",
+          "aliases": [
+            "K2.0024245",
+            "Angelbird CFast 2.0 Card Reader (USB-C)",
+            "Angelbird CFast Reader USB-C"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "XR Capture Drive Adapter",
+          "aliases": [
+            "K2.0008430",
+            "CODEX XR Capture Drive Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Codex",
+          "model": "SxS to SXR Adapter",
+          "aliases": [
+            "K2.0006338",
+            "CODEX SxS to SXR adapter"
+          ]
         }
       ]
     },
@@ -4928,7 +9577,9 @@
           "name": "ARRI CCM-1 Camera Control Monitor",
           "aliases": [
             "Camera Control Monitor CCM-1",
-            "ARRI CCM"
+            "ARRI CCM",
+            "KK.0048851",
+            "Camera Control Monitor CCM-1 Set"
           ]
         },
         {
@@ -4957,7 +9608,9 @@
           "name": "ARRI MVF-1 Multi Viewfinder",
           "aliases": [
             "Multi Viewfinder MVF-1",
-            "ARRI Sucher MVF-1"
+            "ARRI Sucher MVF-1",
+            "K2.0005861",
+            "ALEXA Mini Viewfinder MVF-1"
           ]
         },
         {
@@ -4967,7 +9620,9 @@
           "aliases": [
             "Multi Viewfinder MVF-2",
             "ARRI Multiviewfinder MVF-2",
-            "ARRI Sucher MVF-2"
+            "ARRI Sucher MVF-2",
+            "K0.0042899",
+            "MVF-2 Viewfinder Set"
           ]
         },
         {
@@ -5071,7 +9726,10 @@
           "aliases": [
             "RED Touch 7",
             "DSMC3 Touch 7",
-            "RED 7 Zoll LCD"
+            "RED 7 Zoll LCD",
+            "730-0029-E",
+            "DSMC3 RED Touch 7.0\"",
+            "DSMC3 RED Touch 7.0 LCD"
           ],
           "specs": {
             "screen_in": 7
@@ -5145,6 +9803,142 @@
           "aliases": [
             "Alphatron Electronic View Finder EVF-035W-3G",
             "Alphatron EVF-035W"
+          ]
+        },
+        {
+          "manufacturer": "RED",
+          "model": "RED Compact EVF",
+          "aliases": [
+            "790-0762",
+            "RED Compact EVF Pack",
+            "RED Compact Sucher"
+          ]
+        },
+        {
+          "manufacturer": "Blackmagic Design",
+          "model": "PYXIS Monitor EVF Kit",
+          "aliases": [
+            "Blackmagic PYXIS Monitor EVF Kit"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VCVF20GJ",
+          "aliases": [
+            "AU-VCVF20G",
+            "VariCam LT Viewfinder",
+            "VariCam LT Sucher"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AU-VCVF2GJ",
+          "aliases": [
+            "VariCam 35 Viewfinder",
+            "VariCam Electronic HD Color Viewfinder"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "DVF-EL1",
+          "aliases": [
+            "Sony DVF-EL1",
+            "FX5 OLED Viewfinder",
+            "FX2 Sucher"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "LM-V1",
+          "aliases": [
+            "LCD Monitor LM-V1",
+            "Canon LM-V1"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "EAGLE SDI e-Viewfinder",
+          "aliases": [
+            "Kinefinity EAGLE SDI",
+            "Eagle SDI EVF"
+          ]
+        },
+        {
+          "manufacturer": "Kinefinity",
+          "model": "EAGLE HDMI e-Viewfinder",
+          "aliases": [
+            "Kinefinity EAGLE HDMI",
+            "Eagle HDMI EVF"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "UVF Mount (Alexa Mini / Mini LF)",
+          "aliases": [
+            "207300"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "AIR EVF Mount (ARRI Alexa Mini MVF-1 / Mini LF MVF-2)",
+          "aliases": [
+            "248500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "AIR EVF Extension Arm (ARRI Alexa Mini MVF-1 / Mini LF MVF-2)",
+          "aliases": [
+            "249500"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "AIR EVF Mount (RED DSMC2 EVF)",
+          "aliases": [
+            "248400"
+          ]
+        },
+        {
+          "manufacturer": "Wooden Camera",
+          "model": "AIR EVF Extension Arm (Sony Venice DVF-EL200)",
+          "aliases": [
+            "259100"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Camera Control Panel CCP-1",
+          "aliases": [
+            "K2.0008151",
+            "CCP-1",
+            "K0.0010097"
+          ]
+        }
+      ]
+    },
+    {
+      "category": [
+        "Camera",
+        "Matte Boxes & Filters"
+      ],
+      "entries": [
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA PL S35 FSND Filter Set",
+          "aliases": [
+            "K2.72139.0",
+            "ALEXA PL S35 FSND Filter Set, Full",
+            "K2.72137.0",
+            "K2.72138.0"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ALEXA LPL LF FSND Filter Set",
+          "aliases": [
+            "K2.0018790",
+            "ALEXA LPL LF FSND Filter Set, Full"
           ]
         }
       ]

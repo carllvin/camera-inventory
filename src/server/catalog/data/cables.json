@@ -97,7 +97,9 @@
      "aliases": [
       "LBUS 0.35m",
       "LBUS 35cm",
-      "LBUS angled 0.35m"
+      "LBUS angled 0.35m",
+      "K2.0013042",
+      "Cable LBUS (angled) - LBUS (straight) (0.35m/1.15ft)"
      ],
      "specs": {
       "length_m": 0.35
@@ -112,7 +114,9 @@
       "LBUS 0.5m",
       "LBUS 50cm",
       "Kabel LBUS lang (0.5m)",
-      "Kabel LBUS lang"
+      "Kabel LBUS lang",
+      "K2.0006751",
+      "Cable LBUS - LBUS (0.5m/1.5ft)"
      ],
      "specs": {
       "length_m": 0.5
@@ -138,7 +142,9 @@
      "name": "ARRI Cable LBUS (angled) - LBUS (straight) 1 m",
      "aliases": [
       "LBUS 1m",
-      "LBUS angled 1m"
+      "LBUS angled 1m",
+      "K2.0013041",
+      "Cable LBUS (angled) - LBUS (straight) (1m/3.3ft)"
      ],
      "specs": {
       "length_m": 1
@@ -178,7 +184,9 @@
      "name": "ARRI Cable LBUS - LBUS 6 m",
      "aliases": [
       "LBUS 6m",
-      "LBUS 20ft"
+      "LBUS 20ft",
+      "K2.0006755",
+      "Cable LBUS - LBUS (6m/20ft)"
      ],
      "specs": {
       "length_m": 6
@@ -193,7 +201,9 @@
       "Cable LBUS D-Tap",
       "LBUS D-Tap",
       "LBUS Power Cable",
-      "K2.0006758"
+      "K2.0006758",
+      "K2.0006757",
+      "Cable LBUS - D-Tap (1.2m/4ft)"
      ],
      "bulk": true
     },
@@ -203,7 +213,9 @@
      "name": "ARRI Cable LBUS - RS",
      "aliases": [
       "Cable LBUS RS",
-      "LBUS RS"
+      "LBUS RS",
+      "K2.0006759",
+      "Cable LBUS - RS (0.8m/2.6ft)"
      ],
      "bulk": true
     },
@@ -630,6 +642,1102 @@
       "CUB-1 Cine Tape Cable"
      ],
      "bulk": true
+    },
+    {
+     "manufacturer": "RED",
+     "model": "DSMC3 RMI Cable",
+     "aliases": [
+      "790-0702",
+      "RED DSMC3 RMI Cable"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED EVF Cable Right-to-Straight",
+     "aliases": [
+      "790-0642",
+      "EVF Cable Right-to-Straight"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED EXT-to-Timecode Cable",
+     "aliases": [
+      "790-0674",
+      "RED EXT-to-Timecode Cable 3'"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED 9-Pin EXT-to-Flying Lead Cable",
+     "aliases": [
+      "790-0685",
+      "RED 9-Pin EXT-to-Flying Lead Cable 1.3'"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED GIG-E Right-to-CAT5E Ethernet Cable",
+     "aliases": [
+      "790-0655",
+      "RED GIG-E Right-to-CAT5E Ethernet Cable (9')"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "UN-5 Unit Cable",
+     "aliases": [
+      "UN-5",
+      "Canon UN-5"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "UN-10 Unit Cable",
+     "aliases": [
+      "UN-10",
+      "Canon UN-10"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "RR-10 8-pin Remote Cable",
+     "aliases": [
+      "RR-10",
+      "Canon RR-10"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "RR-100 8-pin Remote Cable",
+     "aliases": [
+      "RR-100",
+      "Canon RR-100"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Straight Motor Cable",
+     "aliases": [
+      "11-1460",
+      "11-1462",
+      "11-1463"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Right Angle Motor Cable",
+     "aliases": [
+      "11-1388",
+      "11-1389",
+      "11-1390"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Straight to Right Angle Motor Cable",
+     "aliases": [
+      "11-1391",
+      "11-1468"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Run/Stop Cable ARRI (MDR.X/MDR.S)",
+     "aliases": [
+      "11-1476"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Run/Stop Cable LANC (MDR.X/MDR.S)",
+     "aliases": [
+      "11-1478"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Run/Stop Cable Sony F55 (MDR.X/MDR.S)",
+     "aliases": [
+      "11-1477"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Run/Stop Cable RED DSMC3 (MDR.X/MDR.S)",
+     "aliases": [
+      "11-1504",
+      "11-1140"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT CTRL Cable RED (MDR.X/MDR.S)",
+     "aliases": [
+      "11-1480",
+      "11-1481"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Mini Ext Cable ALEXA (MDR.X/MDR.S)",
+     "aliases": [
+      "11-1479"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT 5-Pin USB Cable for CTRL.1/3",
+     "aliases": [
+      "11-1470"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Latitude Camera Control Cable ALEXA Mini",
+     "aliases": [
+      "11-1374"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Latitude Camera Control Cable RED DSMC2",
+     "aliases": [
+      "11-1383",
+      "11-1384"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Cinetape Daisychain Cable",
+     "aliases": [
+      "11-1605"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RT Interface Cable for CineTape",
+     "aliases": [
+      "11-1473"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Locking 10-Pin ARRI to Ethernet Camera Control Cable",
+     "aliases": [
+      "17-4311"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "RED CTRL 4-pin to 5-pin USB Cable",
+     "aliases": [
+      "CBL-CNTRL-RED-CTRL-18",
+      "CBL-CNTRL-RED-CTRL-36"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "ARRI ALEXA Camera Control Cable (Right Angle)",
+     "aliases": [
+      "CBL-ETH-ARRI-R-ANGLE-39IN/1M"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "HU4 to Digital Micro Force Cable 4765-L",
+     "aliases": [
+      "4765-L"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Digital Micro Force to MDR-3 Cable 4765",
+     "aliases": [
+      "4765"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "MDR-3/MDR-4 to CineTape Cable 4742",
+     "aliases": [
+      "4742"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "MDR-3/MDR-4 to Light Ranger Serial Cable 6015",
+     "aliases": [
+      "6015"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "HU4 to MDR-3 Command Cable 7100",
+     "aliases": [
+      "7100"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston RED Camera Control Cable 4750",
+     "aliases": [
+      "4750"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston Canon C500/C300 LANC Cable 4757",
+     "aliases": [
+      "4757"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston F55/Varicam 4-pin Hirose Cable 4755",
+     "aliases": [
+      "4755"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston RS/Power 3-pin Fischer Cable 4799",
+     "aliases": [
+      "4799"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston RED BNC Run/Stop Cable 4746",
+     "aliases": [
+      "4746"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "MDR-3 Clockit to Timecode Cable 4731",
+     "aliases": [
+      "4731"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-IN",
+     "aliases": [
+      "A80280",
+      "Ambient LTC-IN",
+      "Timecodekabel BNC auf Lemo 5-Pol"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-IN35",
+     "aliases": [
+      "A80282",
+      "Ambient LTC-IN35",
+      "Timecodekabel 3,5mm auf Lemo 5-Pol"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-IN-DIN",
+     "aliases": [
+      "A81009",
+      "Ambient LTC-IN-DIN",
+      "Timecodekabel DIN 1.0/2.3 auf Lemo 5-Pol"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-IN/Epic",
+     "aliases": [
+      "A80281",
+      "Ambient LTC-IN/Epic",
+      "Timecodekabel BNC auf Lemo 4-Pol Epic"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-OUT",
+     "aliases": [
+      "A80287",
+      "Ambient LTC-OUT",
+      "Timecodekabel Lemo 5-Pol auf BNC"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-OUT35",
+     "aliases": [
+      "A80290",
+      "Ambient LTC-OUT35",
+      "Timecodekabel Lemo 5-Pol auf 3,5mm"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-OUT-DIN",
+     "aliases": [
+      "A80975",
+      "Ambient LTC-OUT-DIN",
+      "Timecodekabel Lemo 5-Pol auf DIN 1.0/2.3"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-OUT/TA3F",
+     "aliases": [
+      "A80289",
+      "Ambient LTC-OUT/TA3F",
+      "Timecodekabel Lemo 5-Pol auf TA3F"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-OUT-SNY",
+     "aliases": [
+      "A80984",
+      "Ambient LTC-OUT-SNY",
+      "Timecodekabel Sony Multiport"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LTC-OUTX2",
+     "aliases": [
+      "A81070",
+      "Ambient LTC-OUTX2",
+      "Timecodekabel Lemo 5-Pol auf 2x BNC"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "SYNC-OUT",
+     "aliases": [
+      "A80549",
+      "Ambient SYNC-OUT",
+      "Sync Genlock Kabel Lemo 5-Pol auf BNC"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "TC-SYNC",
+     "aliases": [
+      "A80345",
+      "Ambient TC-SYNC",
+      "Timecode- und Sync-Kabel Lockit"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "TC-SYNC-5P",
+     "aliases": [
+      "A81007",
+      "Ambient TC-SYNC-5P",
+      "Timecode & Sync Kabel 5-Pol"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "TC-SYNC-KMD",
+     "aliases": [
+      "A80929",
+      "Ambient TC-SYNC-KMD",
+      "Lockit Sync + TC Kabel RED Komodo"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "TC-SYNC-RED",
+     "aliases": [
+      "A80548",
+      "Ambient TC-SYNC-RED",
+      "Lockit Sync + TC Kabel RED DSMC2"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "ACN-TC-RCP",
+     "aliases": [
+      "A80027",
+      "Ambient ACN-TC-RCP",
+      "Timecode- und Metadatenkabel RED"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "ACN-CP",
+     "aliases": [
+      "A80962",
+      "Ambient ACN-CP",
+      "Metadateninterfacekabel Objektive"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "TC-IO-35",
+     "aliases": [
+      "A80498",
+      "Ambient TC-IO-35",
+      "NanoLockit Timecode Spiralkabel"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C01 3.5 mm to RED 4-Pin",
+     "aliases": [
+      "Tentacle C01",
+      "Tentacle C01 - 3.5 mm to RED 4-Pin",
+      "Tentacle Cable C01"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C02 3.5 mm to LEMO 5-Pin",
+     "aliases": [
+      "Tentacle C02",
+      "Tentacle C02 - 3.5 mm to LEMO 5-Pin",
+      "Tentacle Cable C02"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C03 LEMO 5-Pin to 3.5 mm",
+     "aliases": [
+      "Tentacle C03",
+      "Tentacle C03 - LEMO 5-Pin to 3.5 mm",
+      "Tentacle Cable C03"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C04 3.5 mm to XLR (M)",
+     "aliases": [
+      "Tentacle C04",
+      "Tentacle C04 - 3.5 mm to XLR (M)",
+      "Tentacle Cable C04"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C06 3.5 mm to BNC",
+     "aliases": [
+      "Tentacle C06",
+      "Tentacle C06 - 3.5 mm to BNC",
+      "Tentacle Cable C06"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C07 3.5 mm to DSLR",
+     "aliases": [
+      "Tentacle C07",
+      "Tentacle C07 - 3.5 mm to DSLR",
+      "Tentacle Cable C07"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C08 3.5 mm to 90° BNC",
+     "aliases": [
+      "Tentacle C08",
+      "Tentacle C08 - 3.5 mm to 90° BNC",
+      "Tentacle Cable C08"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C09 3.5 mm to TA3",
+     "aliases": [
+      "Tentacle C09",
+      "Tentacle C09 - 3.5 mm to TA3",
+      "Tentacle Cable C09"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C12 3.5 mm to TRRS",
+     "aliases": [
+      "Tentacle C12",
+      "Tentacle C12 - 3.5 mm to TRRS",
+      "Tentacle Cable C12"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C13 3.5 mm to ARRI ALEXA Mini",
+     "aliases": [
+      "Tentacle C13",
+      "Tentacle C13 - 3.5 mm to ARRI ALEXA Mini",
+      "Tentacle Cable C13"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C15 3.5 mm & Microphone to Camera",
+     "aliases": [
+      "Tentacle C15",
+      "Tentacle C15 - 3.5 mm & Microphone to Camera",
+      "Tentacle Cable C15"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C16 3.5 mm & Bodypack Receiver to Camera",
+     "aliases": [
+      "Tentacle C16",
+      "Tentacle C16 - 3.5 mm & Bodypack Receiver to Camera",
+      "Tentacle Cable C16"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C19 3.5 mm to LEMO 3-Pin",
+     "aliases": [
+      "Tentacle C19",
+      "Tentacle C19 - 3.5 mm to LEMO 3-Pin",
+      "Tentacle Cable C19"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C21 3.5 mm to RED 9-Pin",
+     "aliases": [
+      "Tentacle C21",
+      "Tentacle C21 - 3.5 mm to RED 9-Pin",
+      "Tentacle Cable C21"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C22 3.5 mm to DIN 1.0/2.3",
+     "aliases": [
+      "Tentacle C22",
+      "Tentacle C22 - 3.5 mm to DIN 1.0/2.3",
+      "Tentacle Cable C22"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C23 3.5 mm to USB-C",
+     "aliases": [
+      "Tentacle C23",
+      "Tentacle C23 - 3.5 mm to USB-C",
+      "Tentacle Cable C23"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "C25 3.5 mm to Flash Synchro Socket",
+     "aliases": [
+      "Tentacle C25",
+      "Tentacle C25 - 3.5 mm to Flash Synchro Socket",
+      "Tentacle Cable C25"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C13 Locking 3.5mm to 5-Pin Right Angle",
+     "aliases": [
+      "DTS0272D60",
+      "Deity C13",
+      "Deity C13 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C14 Locking 3.5mm to 5-Pin LEMO",
+     "aliases": [
+      "DTS0286D60",
+      "Deity C14",
+      "Deity C14 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C15 Locking 3.5mm to BNC",
+     "aliases": [
+      "DTS0272D62",
+      "Deity C15",
+      "Deity C15 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C16 Locking 3.5mm to 4-Pin LEMO RED DSMC2",
+     "aliases": [
+      "DTS0308D60",
+      "Deity C16",
+      "Deity C16 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C17 Locking 3.5mm to 9-Pin RED Komodo",
+     "aliases": [
+      "DTS0308D61",
+      "Deity C17",
+      "Deity C17 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C19 Locking 3.5mm to Canon R5 C / C400",
+     "aliases": [
+      "DTS0308D63",
+      "Deity C19",
+      "Deity C19 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C20 5-Pin Timecode to Locking 3.5mm",
+     "aliases": [
+      "DTS0308D64",
+      "Deity C20",
+      "Deity C20 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "C23 Locking 3.5mm to Sony Mirrorless",
+     "aliases": [
+      "DTS0308D65",
+      "Deity C23",
+      "Deity C23 Timecode Cable"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "AMIRA to CCP-1 Cable 0.5 m",
+     "aliases": [
+      "K2.0012228"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "AMIRA to CCP-1 Cable 1.5 m",
+     "aliases": [
+      "K2.0012235"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable ALEXA Mini/AMIRA EXT to GPB-1",
+     "aliases": [
+      "K2.0007736"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "12/20pin Hirose ENG Lens Cable Short",
+     "aliases": [
+      "K2.0001268"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - LCS (5p)",
+     "aliases": [
+      "K2.0034580",
+      "Cable CAM 7p LCS 5p"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p f) - CAM (7p m) 0.3 m",
+     "aliases": [
+      "K2.0023832",
+      "Cable CAM (7p, f) – CAM (7p, m) (0.3m/1ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - EXT (16p) 0.8 m",
+     "aliases": [
+      "K2.0015755",
+      "Cable CAM (7p) – EXT (16p) (0.8m/2.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - ENG (12p) 0.3 m",
+     "aliases": [
+      "K2.0015759",
+      "Cable CAM (7p) – ENG (12p) (0.3m/1ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - LANC/D-Tap 0.6 m",
+     "aliases": [
+      "K2.0015757",
+      "Cable CAM (7p) – LANC/D-Tap (0.6m/2ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - Sony VENICE/F55 CTRL/D-Tap 0.6 m",
+     "aliases": [
+      "K2.0018814",
+      "Cable CAM (7p) – Sony VENICE/F55 CTRL/D-Tap (0.6m/2ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (7p) - Sony Remote (8p)/D-Tap 0.8 m",
+     "aliases": [
+      "K2.0047268"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (10p) - RS (3p) 0.5 m",
+     "aliases": [
+      "K2.0001606",
+      "Cable CAM (10p) - RS (3p) (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (10p) - D-Tap 0.5 m",
+     "aliases": [
+      "K2.0002682",
+      "Cable CAM (10p) - D-Tap (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (10p) - LANC/D-Tap 0.5 m",
+     "aliases": [
+      "K2.0001999",
+      "Cable CAM (10p) - LANC/D-Tap (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (10p) - Sony F5/F55",
+     "aliases": [
+      "K2.0001997",
+      "Cable CAM (10p) - Sony F5/55"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (10p) - RED EPIC/D-Tap",
+     "aliases": [
+      "K2.0001998"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (10p) - RED WEAPON 0.5 m",
+     "aliases": [
+      "K2.0013723",
+      "Cable CAM (10p) - Red WEAPON (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - EXT (16p)",
+     "aliases": [
+      "K2.0005951"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - LANC 0.5 m",
+     "aliases": [
+      "K2.0002919",
+      "Cable CAM (16p) - LANC (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - F65 0.5 m",
+     "aliases": [
+      "K2.0002656",
+      "Cable CAM (16p) - F65 (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - RED EPIC 0.5 m",
+     "aliases": [
+      "K2.0002855",
+      "Cable CAM (16p) - RED EPIC (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - RED WEAPON 0.5 m",
+     "aliases": [
+      "K2.0012626",
+      "Cable CAM (16p) - RED Weapon (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CAM (16p) - Cooke/i 0.7 m",
+     "aliases": [
+      "K2.65012.0",
+      "Cable CAM (16p) - Cooke/i (0.7m/2.3ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable LENS/ENG (12p) - Fujinon ZK 0.5 m",
+     "aliases": [
+      "K2.0003418",
+      "Cable LENS/ENG (12p) - Fujinon ZK lenses (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable LENS/ENG (12p) - Hi (12p) Analog",
+     "aliases": [
+      "K2.0022328"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CLM-3 (7p) - CLM/FIZ (12p) 0.8 m",
+     "aliases": [
+      "K2.65145.0",
+      "Cable CLM-3 (7p) - CLM/FIZ (12p) (0,8m/2.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable UDM - SERIAL (4p) 0.5 m",
+     "aliases": [
+      "K2.0025324",
+      "Cable UDM – SERIAL (4p) (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable UDM - SERIAL (4p) 0.8 m",
+     "aliases": [
+      "K2.0041172",
+      "Cable UDM - SERIAL (4p) (0.8m/2.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable UDM - SERIAL (7p) 1.5 m",
+     "aliases": [
+      "K2.65144.0",
+      "Cable UDM - SERIAL (7p) (1.5m/5ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable UDM - RS (3p) 1.5 m",
+     "aliases": [
+      "K2.65240.0",
+      "Cable UDM - RS (3p) (1.5m/5ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable UDM - EXT (16p) 0.5 m",
+     "aliases": [
+      "K2.65261.0",
+      "Cable UDM - EXT (16p) (0.5m/1.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable UDM - D-Tap 0.8 m",
+     "aliases": [
+      "K2.0023553",
+      "Cable UDM - D-Tap (0.8m/2.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable CineTape - SERIAL (4p) 0.8 m",
+     "aliases": [
+      "K2.0044396",
+      "Cable CineTape – SERIAL (4p) (0.8m/2.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable RS/PWR IN - LANC",
+     "aliases": [
+      "K2.0049984",
+      "Cable RS/PWR IN – LANC"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LBUS Cable Angled-EXT (6p) 0.8 m",
+     "aliases": [
+      "K2.0012628",
+      "Cable LBUS (angled) - EXT (6p) (straight) (0.8m/2.6ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable LBUS - cmotion cdistance 0.2 m",
+     "aliases": [
+      "K2.0048534",
+      "Cable LBUS - cmotion cdistance (0.2m/8in)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "LCS Cable Drum Extension 75 m",
+     "aliases": [
+      "K2.41389.0",
+      "LCS Cable Drum Extension (75m/250ft)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH FS CAN Bus Cable 0.3 m",
+     "aliases": [
+      "K2.0037788",
+      "SRH FS CAN Bus Cable, 0,3m/0,98ft"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH FS CAN Bus Cable 1 m",
+     "aliases": [
+      "K2.0033762",
+      "SRH FS CAN Bus Cable, 1 m/ 3.2'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH FS CAN Bus Cable 5 m",
+     "aliases": [
+      "K2.0037701",
+      "SRH FS CAN Bus Cable, 5 m/16.4'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH FS CAN Bus Cable 10 m",
+     "aliases": [
+      "K2.0019302",
+      "SRH FS CAN Bus Cable, 10 m/32.8'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH FS CAN Bus Cable 25 m",
+     "aliases": [
+      "K2.0019301",
+      "SRH FS CAN Bus Cable, 25 m/82'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH FS CAN Bus Coupler",
+     "aliases": [
+      "K2.0019300",
+      "SRH FS CAN Bus Coupler, 0.2 m/0.65'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "TRH-2 Ring Main Cable Standard 0.65 m",
+     "aliases": [
+      "K2.0042631",
+      "TRH-2 Ring Main Cable, Standard, 0.65 m/25.5\""
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "TRH-2 Ring Main Cable Long 0.75 m",
+     "aliases": [
+      "K2.0042681",
+      "TRH-2 Ring Main Cable, Long, 0.75 m/29.5\""
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "TRINITY 2 Joystick Cable 0.75 m",
+     "aliases": [
+      "K2.0043861",
+      "TRINITY 2 Joystick Cable, 75 cm/29.5\""
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "TRINITY 2 Joystick Cable 1.25 m",
+     "aliases": [
+      "K2.0043975",
+      "TRINITY 2 Joystick Cable, 1.25 m/49\""
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ARTEMIS Post Main Cable 3B 16-pin",
+     "aliases": [
+      "K2.0040332",
+      "Post Main Cable, 3B, 16-pin"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ARTEMIS Post Main Cable 3B 10-pin",
+     "aliases": [
+      "K2.0010552",
+      "Post Main Cable, 3B, 10-pin"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "DMX Data Cable XLR 5 2.5 m",
+     "aliases": [
+      "L2.0033530",
+      "DMX data cable, 2.5 m (XLR 5)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "DMX Data Cable XLR 5 5 m",
+     "aliases": [
+      "L2.0033531",
+      "DMX data cable, 5 m (XLR 5)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "DMX Data Cable XLR 5 10 m",
+     "aliases": [
+      "L2.0033532",
+      "DMX data cable, 10 m (XLR 5)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Orbiter Control Panel Cable 5 m",
+     "aliases": [
+      "L2.0033799",
+      "Cable for Control Panel, 5 m / 16.4 ft."
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Orbiter Control Panel Cable 15 m",
+     "aliases": [
+      "L2.0033800",
+      "Cable for Control Panel, 15 m / 49.2 ft."
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel Remote USB Cable 5 m",
+     "aliases": [
+      "L2.0013861",
+      "SkyPanel Remote USB Cable, 5 m"
+     ]
     }
    ]
   },
@@ -684,10 +1792,7 @@
      "aliases": [
       "KC-50-S",
       "ARRI Kabel Power KC-50-S",
-      "KC-50",
-      "K2.75007.0",
-      "ARRI Kabel Power KC-50-S 24V straight f. Alexa Mini/LF/35/Amira",
-      "ARRI K2.75007.0 Power Cable Straight 2m KC-50"
+      "ARRI Kabel Power KC-50-S 24V straight f. Alexa Mini/LF/35/Amira"
      ],
      "bulk": true
     },
@@ -974,6 +2079,410 @@
       "PRCD-S / Schukokabel mit FI-Schalter",
       "PRCD-S Safety Cable",
       "PRCD-S Schutzschalter"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED 3-Pin XLR-to-4-Pin 2B DC Power Cable",
+     "aliases": [
+      "790-0665",
+      "3-Pin XLR-to-4-Pin 2B DC Power Cable 10'"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED PTap-to-Power Cable",
+     "aliases": [
+      "790-0675",
+      "RED P-Tap to Power Cable"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "2-pin LEMO to 2-pin LEMO Cable 36\"",
+     "aliases": [
+      "11-0737",
+      "Teradek 2-Pin Power Cable 91cm"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Teradek 2-pin to XLR Power Cable",
+     "aliases": [
+      "11-0319",
+      "11-0337",
+      "Teradek 2-Pin To XLR Power Cable"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "2-pin LEMO to P-Tap Cable 18\"",
+     "aliases": [
+      "11-0119",
+      "Teradek 2-Pin to P-Tap 45cm"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "2-pin LEMO to P-Tap Cable 36\"",
+     "aliases": [
+      "11-0137",
+      "Teradek 2-Pin to P-Tap 91cm"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Right Angle 2-pin to PowerTap Cable 9\"",
+     "aliases": [
+      "11-0110"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "4-pin to 2-pin Cable ALEXA 18\"",
+     "aliases": [
+      "11-0718",
+      "18\" 4-Pin Connector to 2-Pin Connector (Alexa)"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "3-Pin to 2-Pin Power Cable",
+     "aliases": [
+      "11-1492"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "3-Pin to P-Tap Power Cable",
+     "aliases": [
+      "11-1490"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Right-Angle D-Tap to 2-pin Power Cable 18\"",
+     "aliases": [
+      "17-3001"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "2-pin to 2-pin Power Cable 18\"",
+     "aliases": [
+      "CBL-PWR-2PIN-2PIN-18"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "2-pin to 2-pin Power Cable 36\"",
+     "aliases": [
+      "CBL-PWR-2PIN-2PIN-36"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "4-pin XLR to D-Tap Power Cable",
+     "aliases": [
+      "PWR-XLR-DTAP"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston 4-pin XLR 12V Power Cable 4640",
+     "aliases": [
+      "4640"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston 3-pin XLR 24V Power Cable 4625",
+     "aliases": [
+      "4625"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston D-Tap Power Cable 4641",
+     "aliases": [
+      "4641"
+     ]
+    },
+    {
+     "manufacturer": "Preston",
+     "model": "Preston 3-pin Fischer Power Cable 4699",
+     "aliases": [
+      "4699"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Power Cable Coiled KC-29",
+     "aliases": [
+      "K2.44693.0",
+      "KC-29"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "AMIRA Power Cable KC-50 2 m",
+     "aliases": [
+      "K2.75007.0",
+      "AMIRA Power Cable Straight 2m/6.6in KC-50",
+      "KC-50",
+      "ARRI K2.75007.0 Power Cable Straight 2m KC-50"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 ALEXA 35/Mini/AMIRA 24 V 8-pin",
+     "aliases": [
+      "K2.0039443",
+      "Cam Pwr Gen.2, ALEXA 35, Mini, AMIRA, 24 V, 8-pin"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 ALEXA Mini/AMIRA 12 V 8-pin",
+     "aliases": [
+      "K2.0039447",
+      "Cam Pwr Gen.2, ALEXA Mini, AMIRA, 12 V, 8-pin"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 ALEXA LF 24 V 2-pin Fischer",
+     "aliases": [
+      "K2.0039446",
+      "Cam Pwr Gen.2, ALEXA LF, 24 V, 2-pin Fischer"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 4-pin XLR 12 V",
+     "aliases": [
+      "K2.0039448",
+      "Cam Pwr Gen.2, 4-pin XLR, 12 V"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 4-pin XLR 12 V 90°",
+     "aliases": [
+      "K2.0040329",
+      "Cam Pwr Gen.2, 4-pin XLR, 12 V, 90° elbow"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 RED Monstro 12 V",
+     "aliases": [
+      "K2.0039449",
+      "Cam Pwr Gen.2, RED Monstro, 12 V"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 RED Ranger 24 V",
+     "aliases": [
+      "K2.0039450",
+      "Cam Pwr Gen.2, RED Ranger, 24 V"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cam Pwr Gen.2 Sony VENICE 4-pin XLR 24 V",
+     "aliases": [
+      "K2.0039451",
+      "Cam Pwr Gen.2, SONY VENICE, 4-pin XLR, 24 V"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Monitor Power 12 V Lemo 0B 2-pin",
+     "aliases": [
+      "K2.0010546",
+      "Monitor Power, 12 V, Lemo 0B 2-pin"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Monitor Power 12 V Lemo 0B 2-pin to 5-pin",
+     "aliases": [
+      "K2.0044374",
+      "Monitor Power, 12 V, Lemo 0B 2-pin to 5-pin"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH High-Capacity Battery Power Cable 12 V 4-pin XLR 10 m",
+     "aliases": [
+      "K2.0021428"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH High-Capacity Battery Power Cable 24 V 3-pin XLR 10 m",
+     "aliases": [
+      "K2.0021427"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH High-Capacity Battery Power Cable 12 V 4-pin XLR 20 m",
+     "aliases": [
+      "K2.0021430"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SRH High-Capacity Battery Power Cable 24 V 3-pin XLR 20 m",
+     "aliases": [
+      "K2.0021429"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "ERM Power Cable",
+     "aliases": [
+      "K2.0033761",
+      "ERM Power Cable, ERM-2400 & ERM-900"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel DC Cable XLR 0.5 m",
+     "aliases": [
+      "L2.0007492",
+      "DC Cable 0.5 m (XLR) SkyPanel"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel DC Cable XLR 1 m",
+     "aliases": [
+      "L2.0007491",
+      "DC Cable 1 m (XLR) SkyPanel"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel DC Cable XLR 3 m",
+     "aliases": [
+      "L2.0007493",
+      "DC Cable 3 m (XLR) SkyPanel"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel DC Cable XLR 10 m",
+     "aliases": [
+      "L2.0007494",
+      "DC Cable 10 m (XLR) SkyPanel"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel DC Cable XLR 15 m",
+     "aliases": [
+      "L2.0007860",
+      "DC Cable 15 m (XLR) SkyPanel"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel S360 DC Cable 4-Pin 5 m",
+     "aliases": [
+      "L2.0016030",
+      "DC Cable 5 m (4-Pin) SkyPanel S360"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel S360 DC Cable 4-Pin 10 m",
+     "aliases": [
+      "L2.0016031",
+      "DC Cable 10 m (4-Pin) SkyPanel S360"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mains Cable powerCON TRUE1 TOP / Schuko 3 m",
+     "aliases": [
+      "L2.0007516",
+      "Mains Cable, 3 m, powerCON TRUE1 TOP / Schuko (16 A)"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Mains Cable powerCON TRUE1 / Schuko with Line Switch 3 m",
+     "aliases": [
+      "L2.0001486",
+      "Mains cable, 3 m, powerCON TRUE1 / Schuko, with line switch"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel S360 Mains Cable powerCON 32A / Schuko 3 m",
+     "aliases": [
+      "L2.0015784",
+      "Mains cable S360, 3 m, powerCON 32A / Schuko"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Daisy Chain Cable powerCON TRUE1 TOP 3 m",
+     "aliases": [
+      "L2.0010633",
+      "Daisy Chain Cable, 3 m, powerCON TRUE1 TOP / CE"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Daisy Chain Cable powerCON TRUE1 TOP 0.8 m",
+     "aliases": [
+      "L2.0049353",
+      "Daisy Chain Cable, 0.8 m, powerCON TRUE1 TOP / CE"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Omnibar Power & Data Cable 0.65 m",
+     "aliases": [
+      "L2.0052533",
+      "Power & Data Cable 0.65m"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Omnibar Power & Data Cable 1.3 m",
+     "aliases": [
+      "L2.0052534",
+      "Power & Data Cable 1.3m"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Omnibar Power & Data Cable 2.5 m",
+     "aliases": [
+      "L2.0052535",
+      "Power & Data Cable 2.5m"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Omnibar Power & Data Cable 5 m",
+     "aliases": [
+      "L2.0052536",
+      "Power & Data Cable 5m"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Omnibar Power & Data Cable 10 m",
+     "aliases": [
+      "L2.0056627",
+      "Power & Data Cable 10m"
      ]
     }
    ]
@@ -1277,6 +2786,153 @@
      "aliases": [
       "ARRI K2.0023915 VF-Kabel (0,35 m)",
       "K2.0023915"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED 3BNC-to-00 Sync Cable",
+     "aliases": [
+      "790-0643",
+      "3BNC-to-00 Sync Cable"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "MC-5U Monitor Cable",
+     "aliases": [
+      "MC-5U",
+      "Canon MC-5U"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "12G-SDI Cable 18\"",
+     "aliases": [
+      "11-0849",
+      "Teradek 12G-SDI Cable 45cm"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "12G-SDI Cable 120\"",
+     "aliases": [
+      "11-1596",
+      "Teradek 12G-SDI Cable 305cm"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "3G-SDI Coiled Cable 10\"",
+     "aliases": [
+      "11-0040"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "12G-SDI Cable 36\"",
+     "aliases": [
+      "CBL-SGL-SDI-12G-36"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "12G-SDI Cable 120\" (SmallHD)",
+     "aliases": [
+      "CBL-SGL-SDI-12G-120"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Thin 3G-SDI Cable 24\"",
+     "aliases": [
+      "CBL-SGL-BNC-BNC-MM-THIN-24"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "4K HDMI Cable 36\"",
+     "aliases": [
+      "CBL-SGL-HDMI-4K-36"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable ALEXA Mini to MVF-1 0.5 m",
+     "aliases": [
+      "K2.0009367",
+      "Cable ALEXA Mini to MVF-1 0,5m/19in"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable ALEXA Mini to MVF-1 0.75 m",
+     "aliases": [
+      "K2.0008135",
+      "Cable ALEXA Mini to MVF-1 0,75m/29in"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable ALEXA Mini to MVF-1 1.5 m",
+     "aliases": [
+      "K2.0009169",
+      "Cable ALEXA Mini to MVF-1 1,5m/59in"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "AMIRA Viewfinder Cable 0.5 m",
+     "aliases": [
+      "K2.0007750",
+      "AMIRA Viewfinder Cable Short 0.5m/1.6'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "AMIRA Viewfinder Cable 1.0 m",
+     "aliases": [
+      "K2.0007751",
+      "AMIRA Viewfinder Cable Med 1.0m/3.3'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "AMIRA Viewfinder Cable 3 m",
+     "aliases": [
+      "K2.0009003",
+      "AMIRA Viewfinder Cable Long 3m/9.8'"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable StarliteHD5-ARRI EXT Angled",
+     "aliases": [
+      "K2.0008662",
+      "Cable StarliteHD5-ARRI Ext angled"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Cable StarliteHD5-ARRI EXT Straight",
+     "aliases": [
+      "K2.0008663",
+      "Cable StarliteHD5-ARRI Ext straight"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "12G HD SDI BNC Cable 0.63 m",
+     "aliases": [
+      "K2.0041984",
+      "12G HD SDI BNC Cable, 0.63 m/25\""
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "12G HD SDI BNC Cable 1.3 m",
+     "aliases": [
+      "K2.0051086",
+      "12G HD SDI BNC Cable, 1,3m/51,2in"
      ]
     }
    ]

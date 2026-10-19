@@ -95,7 +95,9 @@
           "aliases": [
             "Super Clamp",
             "Mafer Clamp",
-            "Manfrotto 035"
+            "Manfrotto 035",
+            "035RL",
+            "Super Clamp 035RL"
           ]
         },
         {
@@ -470,7 +472,9 @@
           "aliases": [
             "Tilta Hydra Alien Car Mount",
             "Tilta Hydra Alien Pro Kit",
-            "Hydra Alien"
+            "Hydra Alien",
+            "HDA-T18",
+            "Hydra Alien Pro Car Mounting System"
           ]
         },
         {
@@ -495,6 +499,202 @@
           "aliases": [
             "Manfrotto FigRig",
             "Manfrotto 595B Fig Rig"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Hydra Articulating Car Mounting System",
+          "aliases": [
+            "HDA-T11",
+            "Tilta Hydra Arm"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Hydra Alien Mini",
+          "aliases": [
+            "HDA-T15-C",
+            "Hydra Alien Mini Ultimate Kit"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Panther Vibration Isolator",
+          "aliases": [
+            "PANTHER Vibration Isolator"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "ISO Dampener Pro",
+          "aliases": [
+            "Panther ISO Dampener PRO"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "VacuRigg",
+          "aliases": [
+            "Panther VacuRigg"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "038 Double Super Clamp",
+          "aliases": [
+            "Manfrotto 038"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "043 Sky Hook Gaffer Grip",
+          "aliases": [
+            "Manfrotto 043"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "2.5\" Hollywood Grip Head",
+          "aliases": [
+            "350580",
+            "B350580",
+            "Matthews Grip Head"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "4.5\" Grip Head",
+          "aliases": [
+            "349581",
+            "B349581",
+            "Lollipop",
+            "Matthews Lollipop"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Arm 40\" with Grip Head",
+          "aliases": [
+            "655040",
+            "B655040",
+            "Matthews Gobo Arm 40\""
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Arm 20\" with Grip Head",
+          "aliases": [
+            "655020",
+            "B655020"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Super Mafer",
+          "aliases": [
+            "540004",
+            "B540004",
+            "Matthews Super Mafer"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Matthellini 2\" Center Jaw",
+          "aliases": [
+            "420100",
+            "BC420100",
+            "Matthellini"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Matthellini 3\" Center Jaw",
+          "aliases": [
+            "420101",
+            "BC420101"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Matthellini 2\" End Jaw",
+          "aliases": [
+            "420110",
+            "BC420110"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Matthellini 6\" End Jaw",
+          "aliases": [
+            "420210",
+            "BC420210"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Mini Matthellini",
+          "aliases": [
+            "420112-S15"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Magic Finger",
+          "aliases": [
+            "388210",
+            "Matthews Magic Finger"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Infinity Arm",
+          "aliases": [
+            "429627",
+            "Matthews Infinity Arm"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "MAX Menace Arm",
+          "aliases": [
+            "B377700",
+            "Menace Arm"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Mini MAX",
+          "aliases": [
+            "B377701"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Baby Double Header",
+          "aliases": [
+            "429581"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Junior Triple Header",
+          "aliases": [
+            "429617"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Baby Plate 6\"",
+          "aliases": [
+            "B429065",
+            "Matthews Baby Plate"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Quacker Clamp",
+          "aliases": [
+            "429042"
           ]
         }
       ]
@@ -535,7 +735,9 @@
           "model": "Apple Box Full",
           "aliases": [
             "Apple Box",
-            "Full Apple"
+            "Full Apple",
+            "259535",
+            "Matthews Full Apple Box"
           ],
           "bulk": true
         },
@@ -543,7 +745,9 @@
           "manufacturer": "Generic",
           "model": "Apple Box Half",
           "aliases": [
-            "Half Apple"
+            "Half Apple",
+            "259536",
+            "Matthews Half Apple Box"
           ],
           "bulk": true
         },
@@ -552,7 +756,9 @@
           "model": "Apple Box Pancake",
           "aliases": [
             "Pancake",
-            "Eighth Apple"
+            "Eighth Apple",
+            "259538",
+            "Matthews Eighth Apple Box"
           ],
           "bulk": true
         },
@@ -560,7 +766,9 @@
           "manufacturer": "Generic",
           "model": "Apple Box Quarter",
           "aliases": [
-            "Quarter Apple"
+            "Quarter Apple",
+            "259537",
+            "Matthews Quarter Apple Box"
           ],
           "bulk": true
         },
@@ -570,7 +778,11 @@
           "aliases": [
             "Hollywood C-Stand",
             "Matthews Century Stand",
-            "Matthews C-Stand"
+            "Matthews C-Stand",
+            "756040",
+            "B756040",
+            "339758",
+            "Matthews 40\" C+Stand"
           ],
           "bulk": true
         },
@@ -651,6 +863,232 @@
           "aliases": [
             "Avenger D600 Mini Boom Arm"
           ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "007BSU Senior Stand",
+          "aliases": [
+            "Manfrotto 007BSU"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "007CSU Senior Stand",
+          "aliases": [
+            "Manfrotto 007CSU"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "007BUAC Senior Stand",
+          "aliases": [
+            "Manfrotto 007BUAC"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "008BU Cine Stand",
+          "aliases": [
+            "Manfrotto 008BU"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "008BUAC Cine Stand",
+          "aliases": [
+            "Manfrotto 008BUAC"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "008BSU Cine Stand",
+          "aliases": [
+            "Manfrotto 008BSU"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "070CSU Follow Spot Stand",
+          "aliases": [
+            "Manfrotto 070CSU"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "025BS Super Boom",
+          "aliases": [
+            "Manfrotto 025BS",
+            "Manfrotto Super Boom"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Matthews C-Stand 20\" Sliding Leg",
+          "aliases": [
+            "756020",
+            "B756020",
+            "Matthews 20\" C-Stand"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Pro 40\" C-Stand",
+          "aliases": [
+            "339567"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Combo Double Riser",
+          "aliases": [
+            "369673",
+            "B369673",
+            "Matthews Combo Stand"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Combo Triple Riser",
+          "aliases": [
+            "366165",
+            "B366165"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Low Boy Combo",
+          "aliases": [
+            "366066",
+            "B366066"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Beefy Baby Triple Riser",
+          "aliases": [
+            "387031",
+            "B387031",
+            "Beefy Baby"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hollywood Baby Jr. Triple Riser",
+          "aliases": [
+            "H386020",
+            "BH386020"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Junior Stand Double Riser Rolling",
+          "aliases": [
+            "H386022"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Junior Stand Triple Riser Rolling",
+          "aliases": [
+            "H386033"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Senior Stand Double Riser Rolling",
+          "aliases": [
+            "H386027"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Mombo Combo",
+          "aliases": [
+            "377584",
+            "Daddy Long Legs"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Medium Overhead Roller Stand",
+          "aliases": [
+            "H377573",
+            "BH377573"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Hi-Hi Overhead Roller Stand",
+          "aliases": [
+            "H377574"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Preemie Baby",
+          "aliases": [
+            "386044"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Monitor Stand II",
+          "aliases": [
+            "249562"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Slider Stand",
+          "aliases": [
+            "249561"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "MERF Stand",
+          "aliases": [
+            "B387489"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Super Vator III",
+          "aliases": [
+            "521003"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Low Boy Vator III",
+          "aliases": [
+            "521001"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Baby Boom",
+          "aliases": [
+            "427801",
+            "Matthews Baby Boom"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Mini Boom",
+          "aliases": [
+            "427802",
+            "B427802",
+            "Matthews Mini Boom"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Junior Boom",
+          "aliases": [
+            "427803",
+            "Matthews Junior Boom"
+          ]
         }
       ]
     },
@@ -724,7 +1162,9 @@
           "manufacturer": "ARRI",
           "model": "360 EVO",
           "aliases": [
-            "SRH 360 EVO"
+            "SRH 360 EVO",
+            "KK.0050103",
+            "360 EVO Basic Set"
           ],
           "specs": {
             "payload_kg": 30
@@ -734,7 +1174,11 @@
           "manufacturer": "ARRI",
           "model": "Artemis 2",
           "aliases": [
-            "ARRI Artemis"
+            "ARRI Artemis",
+            "KK.0044424",
+            "ARTEMIS 2 1.8in Standard Post Basic Set",
+            "KK.0044510",
+            "ARTEMIS 2 Shorty"
           ]
         },
         {
@@ -742,7 +1186,10 @@
           "model": "Maxima",
           "aliases": [
             "Maxima Gimbal",
-            "MAXIMA MX"
+            "MAXIMA MX",
+            "K0.0013398",
+            "K0.0013399",
+            "MAXIMA Handheld Pro Set"
           ]
         },
         {
@@ -761,7 +1208,9 @@
           "manufacturer": "ARRI",
           "model": "SRH-360",
           "aliases": [
-            "Stabilized Remote Head 360"
+            "Stabilized Remote Head 360",
+            "KK.0044436",
+            "SRH-360 Basic Set"
           ]
         },
         {
@@ -780,7 +1229,9 @@
           "manufacturer": "ARRI",
           "model": "Trinity 2",
           "aliases": [
-            "ARRI Trinity"
+            "ARRI Trinity",
+            "KK.0044429",
+            "TRINITY 2 Basic Set"
           ]
         },
         {
@@ -935,7 +1386,9 @@
           "name": "Tilta Float Handheld Support System",
           "aliases": [
             "Float Handheld Support System",
-            "Tilta Float Vest"
+            "Tilta Float Vest",
+            "GSS-T01",
+            "Tilta Float Handheld Gimbal Support System"
           ]
         },
         {
@@ -1083,7 +1536,10 @@
           "manufacturer": "DJI",
           "model": "Master Wheels",
           "aliases": [
-            "DJI Master Wheels"
+            "DJI Master Wheels",
+            "Master Wheels 3-Axis",
+            "Master Wheels 2-Axis",
+            "DJI Master Wheels 3-Axis"
           ]
         },
         {
@@ -1105,7 +1561,9 @@
           "manufacturer": "Tilta",
           "model": "Advanced Ring Grip for DJI RS",
           "aliases": [
-            "Tilta Advanced Ring Grip"
+            "Tilta Advanced Ring Grip",
+            "TGA-ARG",
+            "Advanced Ring Grip for DJI Ronin"
           ]
         },
         {
@@ -1259,6 +1717,646 @@
           "aliases": [
             "Glidecam Devin Graham Signature Series"
           ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "MoVI Controller",
+          "aliases": [
+            "Freefly MoVI Controller",
+            "Movi Controller",
+            "Mōvi Controller"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "MoVI Wheels",
+          "aliases": [
+            "Freefly MoVI Wheels",
+            "Movi Wheels",
+            "Mōvi Wheels"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "MoVI Ring Pro II",
+          "aliases": [
+            "910-00343",
+            "Mōvi Ring Pro II",
+            "Freefly Ring"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "MoVI XL Top Handle",
+          "aliases": [
+            "910-00279",
+            "Freefly XL Top Handle"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "MoVI XL to Mitchell Adapter",
+          "aliases": [
+            "910-00245",
+            "Mōvi XL to Mitchell Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Freefly",
+          "model": "Toad in the Hole M3 Quick Release Receiver",
+          "aliases": [
+            "910-00625",
+            "Freefly Toad in the Hole",
+            "Toad in the Hole"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Basic Ring Grip Plus for DJI Ronin",
+          "aliases": [
+            "Tilta Basic Ring Grip Plus"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Lightweight Gimbal Support Vest",
+          "aliases": [
+            "GSS-T04",
+            "Tilta Gimbal Vest"
+          ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Top Handle for DJI Ronin 4D",
+          "aliases": [
+            "ES-T09-TH"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin-M",
+          "aliases": [
+            "DJI Ronin-M",
+            "DJI Ronin M"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin-MX",
+          "aliases": [
+            "DJI Ronin-MX",
+            "DJI Ronin MX"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin-SC",
+          "aliases": [
+            "DJI Ronin-SC",
+            "DJI Ronin SC"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS 3",
+          "aliases": [
+            "DJI RS 3",
+            "DJI RS3",
+            "Ronin RS 3"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS 3 Mini",
+          "aliases": [
+            "DJI RS 3 Mini",
+            "DJI RS3 Mini"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS 5",
+          "aliases": [
+            "DJI RS 5",
+            "DJI RS5"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Grip",
+          "aliases": [
+            "DJI Ronin 2 Grip"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Remote Controller",
+          "aliases": [
+            "DJI Ronin 2 Remote Controller",
+            "Ronin 2 Fernbedienung"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Top Handle",
+          "aliases": [
+            "DJI Ronin 2 Top Handle"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Universal Mount",
+          "aliases": [
+            "DJI Ronin 2 Universal Mount"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Power Hub",
+          "aliases": [
+            "DJI Ronin 2 Power Hub"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Dual TB50 Battery Mount",
+          "aliases": [
+            "Ronin 2 Battery Mount",
+            "DJI Ronin 2 Dual TB50 Battery Mount"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Extended Camera Base Plate",
+          "aliases": [
+            "DJI Ronin 2 Extended Camera Base Plate"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Extended Top Cross Bar",
+          "aliases": [
+            "DJI Ronin 2 Extended Top Cross Bar"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Mitchell Mount Adapter",
+          "aliases": [
+            "DJI Ronin 2 Mitchell Mount Adapter"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Counterweight Set",
+          "aliases": [
+            "DJI Ronin 2 Counter Weight Set"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Classic Handlebar",
+          "aliases": [
+            "DJI Ronin 2 Classic Handlebar"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Connect for Ready Rig",
+          "aliases": [
+            "DJI Ronin 2 Ready Rig Connect"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Universal Tripod Adapter",
+          "aliases": [
+            "DJI Ronin 2 Tripod Adapter"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 C-Stand Bracket",
+          "aliases": [
+            "DJI Ronin 2 C-Stand Bracket"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 150mm Ball Mount Adapter",
+          "aliases": [
+            "DJI Ronin 2 Ball Mount Adapter"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Tilt Axis Extension Block",
+          "aliases": [
+            "DJI Ronin 2 Tilt Axis Extension"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 Thumb Controller",
+          "aliases": [
+            "DJI Ronin 2 Thumb Controller"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "Ronin 2 15mm Focus Rod Mount",
+          "aliases": [
+            "DJI Ronin 2 Rod Mount"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS BG70 High-Capacity Battery Grip",
+          "aliases": [
+            "DJI RS BG70",
+            "BG70 Battery Grip"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS BG30 Grip",
+          "aliases": [
+            "DJI Ronin BG30 Grip",
+            "BG30 Grip"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS BG21 Grip",
+          "aliases": [
+            "DJI RS BG21 Grip"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS Briefcase Handle",
+          "aliases": [
+            "DJI RS Briefcase Handle",
+            "DJI R Briefcase Handle"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS Intelligent Tracking Module",
+          "aliases": [
+            "DJI RS Intelligent Tracking Module"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS Enhanced Intelligent Tracking Module",
+          "aliases": [
+            "DJI RS Enhanced Intelligent Tracking Module"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS Lower Quick-Release Plate (2024)",
+          "aliases": [
+            "DJI RS Lower Quick-Release Plate"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS Pro Lower Quick-Release Plate (2024)",
+          "aliases": [
+            "DJI RS Pro Lower Quick-Release Plate"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS Upper Quick-Release Plate (2024)",
+          "aliases": [
+            "DJI RS Upper Quick-Release Plate"
+          ]
+        },
+        {
+          "manufacturer": "DJI",
+          "model": "RS Extended Grip",
+          "aliases": [
+            "DJI RS Extended Grip"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS 2 Live",
+          "aliases": [
+            "K0.0052694",
+            "ARTEMIS 2 Live Ready to Shoot Set",
+            "KK.0052630"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS 2 Volt Post",
+          "aliases": [
+            "KK.0044425",
+            "ARTEMIS 2 Volt",
+            "KK.0049907"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "TRINITY Live",
+          "aliases": [
+            "KK.0044512",
+            "TRINITY Live Upgrade Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS Vest",
+          "aliases": [
+            "K2.0010333",
+            "artemis Vest"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS Carbon Spring Arm 23kg",
+          "aliases": [
+            "KK.0020297",
+            "ARTEMIS Carbon Spring Arm, 23 kg/50.7 lb, Pro Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS Carbon Spring Arm 30kg",
+          "aliases": [
+            "K0.0037441",
+            "artemis Carbon Spring Arm, 30kg/66.1lb"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS Super Post Gen.2 16-pin",
+          "aliases": [
+            "KK.0041404",
+            "ARTEMIS Super Post, Gen.2, 1.8\", 3B, 16-pin"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS Super Post Gen.2 10-pin",
+          "aliases": [
+            "KK.0041403",
+            "ARTEMIS Super Post, Gen.2, 1.8\", 3B, 10-pin"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS Carbon Center Post 1.8\"",
+          "aliases": [
+            "K2.0010489",
+            "ARTEMIS Carbon Center Post, 1.8\""
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS Post Extension 1.8\" 16-pin",
+          "aliases": [
+            "K2.0041976"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Mounting Base BMS-1",
+          "aliases": [
+            "K2.0037707",
+            "BMS-1",
+            "BMS-1, Battery Mounting Base, Gen.2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Mounting Base BMS-2",
+          "aliases": [
+            "K2.0039300",
+            "BMS-2",
+            "BMS-2, Battery Mounting Base, Gen.2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Mounting System BMS-3",
+          "aliases": [
+            "KK.0049408",
+            "BMS-3",
+            "BMS-3, Pro Set, V-Mount",
+            "KK.0049409"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Battery Hanger BHM-3",
+          "aliases": [
+            "K2.0052045",
+            "BHM-3",
+            "BHM-3 ARTEMIS 2 Live Battery Hanger Plate"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS 2 Top Stage TST-1",
+          "aliases": [
+            "K2.0039687",
+            "TST-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ARTEMIS 2 Bottom Stage BST-1",
+          "aliases": [
+            "K2.0039977",
+            "BST-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Master Grip TRINITY 2",
+          "aliases": [
+            "K0.0044362",
+            "Master Grip TRINITY 2, One Controller Set",
+            "K0.0044363"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Radio Adapter TRINITY 2 RAT-1",
+          "aliases": [
+            "K2.0038704",
+            "RAT-1",
+            "K0.0047466"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "TRINITY 2 Pan Axis",
+          "aliases": [
+            "KK.0051466",
+            "Pan Axis for TRINITY 2, Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "External Joystick EJS-1",
+          "aliases": [
+            "K2.0049229",
+            "EJS-1",
+            "EJS-1, External Joystick, Broadcast",
+            "KK.0051103"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "External Jog-Wheels EJW-1",
+          "aliases": [
+            "K2.0049230",
+            "EJW-1",
+            "KK.0051102"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Multi Support Plate MSP-1",
+          "aliases": [
+            "K2.0015385",
+            "MSP-1",
+            "MSP-1, Multi Support Plate for TRINITY"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Monitor Mounting Adapter MMA-1",
+          "aliases": [
+            "K2.0051654",
+            "MMA-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Monitor Mounting Adapter MMA-2",
+          "aliases": [
+            "K2.0050835",
+            "MMA-2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Monitor Mounting Adapter MMA-3",
+          "aliases": [
+            "K2.0050825",
+            "MMA-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Low Mode Monitor Mounting Adapter MMA-4",
+          "aliases": [
+            "K2.0050573",
+            "MMA-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer System Bracket SSB-1",
+          "aliases": [
+            "K2.0035956",
+            "SSB-1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer System Bracket SSB-2 19mm",
+          "aliases": [
+            "K2.0038537",
+            "SSB-2 19mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer System Bracket SSB-2 15mm",
+          "aliases": [
+            "K2.0038618",
+            "SSB-2 15mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer System Bracket SSB-3",
+          "aliases": [
+            "K2.0037912",
+            "SSB-3"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer System Bracket SSB-4",
+          "aliases": [
+            "K2.0044225",
+            "SSB-4"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Counterweight Bracket SSB-5",
+          "aliases": [
+            "KK.0043882",
+            "SSB-5"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer System Bracket SSB-6",
+          "aliases": [
+            "KK.0049354",
+            "SSB-6"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Stabilizer System Bracket SSB-7",
+          "aliases": [
+            "KK.0049407",
+            "SSB-7"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "CSS Clamp Bridge CCB-2",
+          "aliases": [
+            "K2.0049885",
+            "CCB-2",
+            "CCB-2, CSS Clamp Bridge-2, 52, 19mm"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "TRINITY Skater",
+          "aliases": [
+            "K2.0049637"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "MAXIMA Wireless Remote",
+          "aliases": [
+            "K2.0010337",
+            "Wireless Remote for MAXIMA, TRINITY Gen.1"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "MAXIMA Thumb Controller",
+          "aliases": [
+            "K2.0010424",
+            "Thumb Controller for MAXIMA"
+          ]
         }
       ]
     },
@@ -1284,7 +2382,9 @@
         {
           "manufacturer": "Cartoni",
           "model": "Focus 22",
-          "aliases": [],
+          "aliases": [
+            "HF2200"
+          ],
           "specs": {
             "payload_kg": "3-22"
           }
@@ -1295,22 +2395,25 @@
           "aliases": [
             "Cartoni Lambda",
             "Lambda 25 3rd Axis",
-            "Lambda Nodal Head"
+            "Lambda Nodal Head",
+            "HL2500"
           ]
         },
         {
           "manufacturer": "Cartoni",
           "model": "Master MK2",
           "aliases": [
-            "Cartoni Master",
             "Master MKII",
-            "Cartoni Master MK II"
+            "Cartoni Master MK II",
+            "H541"
           ]
         },
         {
           "manufacturer": "Cartoni",
           "model": "Maxima 30",
-          "aliases": [],
+          "aliases": [
+            "HM3100"
+          ],
           "specs": {
             "payload_kg": "3-30"
           }
@@ -1462,7 +2565,8 @@
           "manufacturer": "Sachtler",
           "model": "Cine 20",
           "aliases": [
-            "Cine20 Fluid Head"
+            "Cine20 Fluid Head",
+            "1911"
           ],
           "specs": {
             "payload_kg": "2-22"
@@ -1473,7 +2577,8 @@
           "model": "Cine 30",
           "aliases": [
             "Sachtler Cine 30 (2024)",
-            "Cine 30 SpeedBalance"
+            "Cine 30 SpeedBalance",
+            "3007"
           ],
           "specs": {
             "payload_kg": "3-32"
@@ -1484,7 +2589,8 @@
           "model": "Cine 30 HD",
           "aliases": [
             "Sachtler Cine 30",
-            "Cine30"
+            "Cine30",
+            "3006"
           ],
           "specs": {
             "mount": "150mm bowl"
@@ -1493,7 +2599,9 @@
         {
           "manufacturer": "Sachtler",
           "model": "Cine 50",
-          "aliases": [],
+          "aliases": [
+            "6003"
+          ],
           "specs": {
             "payload_kg": "10-50"
           }
@@ -1504,7 +2612,8 @@
           "aliases": [
             "Cine 7+7",
             "Sachtler 1910",
-            "Cine 7 plus 7"
+            "Cine 7 plus 7",
+            "1910"
           ],
           "discontinued": true
         },
@@ -1514,7 +2623,8 @@
           "aliases": [
             "Sachtler Video 18",
             "Video18",
-            "18 S2"
+            "18 S2",
+            "1811"
           ],
           "discontinued": true
         },
@@ -1532,7 +2642,8 @@
           "model": "Video 25 Plus",
           "aliases": [
             "Sachtler Video 25",
-            "Video 25+"
+            "Video 25+",
+            "2500P"
           ]
         },
         {
@@ -1688,7 +2799,8 @@
           "manufacturer": "Cartoni",
           "model": "Spinhead",
           "aliases": [
-            "CARTONI Spinhead"
+            "CARTONI Spinhead",
+            "H533"
           ]
         },
         {
@@ -1696,14 +2808,16 @@
           "model": "aktiv8",
           "aliases": [
             "Sachtler flowtech aktiv8",
-            "Sachtler aktiv8"
+            "Sachtler aktiv8",
+            "S2068S"
           ]
         },
         {
           "manufacturer": "Sachtler",
           "model": "Video 20 S1",
           "aliases": [
-            "Sachtler Video 20 S1"
+            "Sachtler Video 20 S1",
+            "2010"
           ]
         },
         {
@@ -1774,7 +2888,8 @@
           "model": "FSB 4",
           "aliases": [
             "Stativkopf Sachtler FSB4",
-            "Sachtler FSB4"
+            "Sachtler FSB4",
+            "0307"
           ]
         },
         {
@@ -1856,7 +2971,8 @@
           "model": "Nitrotech 612",
           "aliases": [
             "Manfrotto Nitrotech 612",
-            "Manfrotto N12"
+            "Manfrotto N12",
+            "MVH612AH"
           ]
         },
         {
@@ -1903,7 +3019,8 @@
           "model": "Focus 8",
           "aliases": [
             "CARTONI FOCUS 8 TRIPOD KIT (75MM)",
-            "Cartoni Focus 8"
+            "Cartoni Focus 8",
+            "HF0800"
           ]
         },
         {
@@ -1911,7 +3028,8 @@
           "model": "Focus 10",
           "aliases": [
             "CARTONI FOCUS 10 TRIPOD KIT (100MM)",
-            "Cartoni Focus 10"
+            "Cartoni Focus 10",
+            "HF1000"
           ]
         },
         {
@@ -1919,7 +3037,8 @@
           "model": "Focus 12",
           "aliases": [
             "CARTONI FOCUS 12 TRIPOD (100MM)",
-            "Cartoni Focus 12"
+            "Cartoni Focus 12",
+            "HF1200"
           ]
         },
         {
@@ -1927,7 +3046,634 @@
           "model": "Focus 18",
           "aliases": [
             "CARTONI FOCUS 18 TRIPOD KIT (100MM)",
-            "Cartoni Focus 18"
+            "Cartoni Focus 18",
+            "HF1800"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv6",
+          "aliases": [
+            "S2064S",
+            "Sachtler aktiv6"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv8T",
+          "aliases": [
+            "S2068T",
+            "Sachtler aktiv8T"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv10",
+          "aliases": [
+            "S2072S",
+            "Sachtler aktiv10"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv10T",
+          "aliases": [
+            "S2072T",
+            "Sachtler aktiv10T"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv12T",
+          "aliases": [
+            "S2074T",
+            "Sachtler aktiv12T"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv14T",
+          "aliases": [
+            "S2076T",
+            "Sachtler aktiv14T"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv16T",
+          "aliases": [
+            "S2086T",
+            "Sachtler aktiv16T"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv18T",
+          "aliases": [
+            "S2088T",
+            "Sachtler aktiv18T"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 6 Mk II",
+          "aliases": [
+            "S2065-0001",
+            "Sachtler FSB 6 Mk II",
+            "FSB6 MkII"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 8 Mk II",
+          "aliases": [
+            "S2069-0001",
+            "Sachtler FSB 8 Mk II",
+            "FSB8 MkII"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 10 Mk II",
+          "aliases": [
+            "S2073-0001",
+            "Sachtler FSB 10 Mk II",
+            "FSB10 MkII"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 14T Mk II",
+          "aliases": [
+            "S2077-0002",
+            "Sachtler FSB 14T Mk II"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 16T Mk II",
+          "aliases": [
+            "S2087-0002",
+            "Sachtler FSB 16T Mk II"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "FSB 18T Mk II",
+          "aliases": [
+            "S2089-0002",
+            "Sachtler FSB 18T Mk II"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ace XL Mk II",
+          "aliases": [
+            "S2170-0001",
+            "Sachtler Ace XL Mk II",
+            "Sachtler Ace XL"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ace M Mk II",
+          "aliases": [
+            "Sachtler Ace M Mk II"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 25 Plus FB",
+          "aliases": [
+            "2501P",
+            "Sachtler Video 25 Plus FB"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 60 Plus",
+          "aliases": [
+            "6000",
+            "6001",
+            "Sachtler Video 60 Plus"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 75 Plus",
+          "aliases": [
+            "7500",
+            "7501",
+            "Sachtler Video 75 Plus"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Video 90 FB",
+          "aliases": [
+            "8092",
+            "Sachtler Video 90"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Sachtler Mitchell Base",
+          "aliases": [
+            "1275-1010"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Adapter 75/100",
+          "aliases": [
+            "3906",
+            "Sachtler Adapter 75/100"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Adapter 100/150",
+          "aliases": [
+            "3901",
+            "Sachtler Adapter 100/150"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Adapter 100/Cine 150",
+          "aliases": [
+            "S2350-2044"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Bowl Adaptor 100 mm to 4-bolt flat base",
+          "aliases": [
+            "3330-16"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Bowl Adaptor 150 mm to 4-bolt flat base",
+          "aliases": [
+            "3330-17"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv bowl connector 75mm",
+          "aliases": [
+            "S2080-0001",
+            "S2080-0012"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "aktiv bowl connector 100mm",
+          "aliases": [
+            "S2080-0002",
+            "S2080-0013"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Touch & Go Plate 16",
+          "aliases": [
+            "1064"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Touch & Go Plate 35",
+          "aliases": [
+            "3051"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Touch & Go Plate S",
+          "aliases": [
+            "0364"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Touch & Go Plate DV",
+          "aliases": [
+            "0264"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Sideload Plate HD",
+          "aliases": [
+            "3060"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Sideload Plate M",
+          "aliases": [
+            "1164"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Pan bar HD right (telescopic)",
+          "aliases": [
+            "3370"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Pan bar HD left (telescopic)",
+          "aliases": [
+            "3371"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Pan bar Movie right (telescopic)",
+          "aliases": [
+            "3170"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Pan bar Plus right (telescopic)",
+          "aliases": [
+            "3270"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Pan bar DV right (telescopic)",
+          "aliases": [
+            "3470"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Front pan bar HD",
+          "aliases": [
+            "3372"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "SpeedLevel Clamp",
+          "aliases": [
+            "S2044-0001"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Quickfix",
+          "aliases": [
+            "3910",
+            "Sachtler Quickfix"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Frontbox Adaptor",
+          "aliases": [
+            "3921"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "C20S",
+          "aliases": [
+            "H513",
+            "Cartoni C20S",
+            "C20 S"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "C20S 150",
+          "aliases": [
+            "H513150",
+            "Cartoni C20S 150mm"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "C20S Dutch Head",
+          "aliases": [
+            "H513D"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "C40S",
+          "aliases": [
+            "H514",
+            "Cartoni C40S"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "C40S Dutch Head",
+          "aliases": [
+            "H514D"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "C60S",
+          "aliases": [
+            "H523",
+            "Cartoni C60S"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Master 25",
+          "aliases": [
+            "HM2500",
+            "Cartoni Master 25"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Master 30",
+          "aliases": [
+            "HM3000",
+            "Cartoni Master 30"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Master 40",
+          "aliases": [
+            "HM4000",
+            "Cartoni Master 40"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Master 65",
+          "aliases": [
+            "HM6500",
+            "Cartoni Master 65"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Cartoni Master",
+          "aliases": [
+            "H530",
+            "Cartoni Master (H530)"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Maxima 40",
+          "aliases": [
+            "H570",
+            "Cartoni Maxima 40"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Maxima 50",
+          "aliases": [
+            "HM5000",
+            "Cartoni Maxima 50"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Magnum Head",
+          "aliases": [
+            "H580",
+            "Cartoni Magnum"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Omega",
+          "aliases": [
+            "H519",
+            "Cartoni Omega"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Sigma",
+          "aliases": [
+            "H522",
+            "Cartoni Sigma"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Delta",
+          "aliases": [
+            "H516",
+            "Cartoni Delta"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Gamma",
+          "aliases": [
+            "H518",
+            "Cartoni Gamma"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Alfa",
+          "aliases": [
+            "H517",
+            "Cartoni Alfa"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Focus HD",
+          "aliases": [
+            "H529",
+            "Cartoni Focus HD"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Focus 8S",
+          "aliases": [
+            "HF08S0",
+            "Cartoni Focus 8S"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Mixo 21",
+          "aliases": [
+            "HM2100",
+            "Cartoni Mixo 21"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Lambda 10",
+          "aliases": [
+            "HL1000",
+            "Cartoni Lambda 10"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Lambda 15",
+          "aliases": [
+            "Cartoni Lambda 15"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Lambda 50",
+          "aliases": [
+            "HL5000",
+            "Cartoni Lambda 50"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Lambda Twin 3D",
+          "aliases": [
+            "H562",
+            "Cartoni Lambda Twin 3D"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Lambda Total Dutch",
+          "aliases": [
+            "HL2500-TD",
+            "Lambda 25 Total Dutch"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Spinhead Cine Style",
+          "aliases": [
+            "H534CS",
+            "Cartoni Spinhead Cinestyle"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Spinhead Euro Style",
+          "aliases": [
+            "H534ES",
+            "Cartoni Spinhead Eurostyle"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Smarthead",
+          "aliases": [
+            "H535",
+            "Cartoni Smarthead"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Airfloater",
+          "aliases": [
+            "H561",
+            "Cartoni Airfloater"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "Nitrotech 608",
+          "aliases": [
+            "MVH608AH",
+            "Manfrotto Nitrotech N8 608",
+            "Manfrotto Nitrotech 608"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "500X",
+          "aliases": [
+            "MVH500XAH",
+            "Manfrotto 500X"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "502X",
+          "aliases": [
+            "MVH502XAH",
+            "Manfrotto 502X"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "504X",
+          "aliases": [
+            "MVH504XAH",
+            "Manfrotto 504X"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "509HD",
+          "aliases": [
+            "Manfrotto 509",
+            "Manfrotto 509HD"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "526-1",
+          "aliases": [
+            "Manfrotto 526",
+            "Manfrotto 526-1"
           ]
         }
       ]
@@ -2347,7 +4093,8 @@
           "model": "Dolly S",
           "aliases": [
             "Sachtler Dolly S",
-            "Sachtler Dolly S for 100mm/150mm"
+            "Sachtler Dolly S for 100mm/150mm",
+            "7065"
           ]
         },
         {
@@ -2370,7 +4117,8 @@
           "model": "Doorway Dolly",
           "aliases": [
             "MATTHEWS DOORWAY DOLLY",
-            "Matthews Doorway Dolly"
+            "Matthews Doorway Dolly",
+            "395100"
           ]
         },
         {
@@ -2378,7 +4126,8 @@
           "model": "Western Dolly",
           "aliases": [
             "MATTHEWS WESTERN DOLLY",
-            "Matthews Western Dolly"
+            "Matthews Western Dolly",
+            "395047"
           ]
         },
         {
@@ -2445,6 +4194,176 @@
             "Ronford-Baker Rolling Spider",
             "Ronford rolling spider"
           ]
+        },
+        {
+          "manufacturer": "Tilta",
+          "model": "Boulder Camera Cart",
+          "aliases": [
+            "TC-T01",
+            "Tilta Boulder Camera Cart",
+            "Tilta Kamerawagen Boulder"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Dolly Cine",
+          "aliases": [
+            "7085",
+            "Sachtler Dolly Cine"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Dolly DV 75",
+          "aliases": [
+            "7063"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Dolly DV 100",
+          "aliases": [
+            "7067"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Dolly XL",
+          "aliases": [
+            "7080",
+            "Sachtler Dolly XL"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Dolly flowtech Standard",
+          "aliases": [
+            "S2055-0001"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Dolly flowtech Studio",
+          "aliases": [
+            "S2057-0001"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Hot Pod Dolly",
+          "aliases": [
+            "7066"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Dolly Standard",
+          "aliases": [
+            "D734",
+            "Cartoni Dolly Standard"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Dolly Heavy Duty",
+          "aliases": [
+            "D736",
+            "Cartoni Dolly Heavy Duty"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Dolly Lightweight",
+          "aliases": [
+            "D733",
+            "Cartoni Dolly Lightweight"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "X-Type Dolly",
+          "aliases": [
+            "Panther X-Type",
+            "PANTHER X-Type"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "S-Type Evo Dolly",
+          "aliases": [
+            "Panther S-Type EVO",
+            "S-Type EVO"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Buddy Plus Dolly",
+          "aliases": [
+            "Panther Buddy Plus",
+            "Buddy Plus"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Universal Dolly",
+          "aliases": [
+            "Panther Universal Dolly"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Vario Slider",
+          "aliases": [
+            "Panther Vario Slider"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Tower II",
+          "aliases": [
+            "Panther Tower II",
+            "Panther Tower"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "127 Basic Dolly",
+          "aliases": [
+            "Manfrotto 127",
+            "Manfrotto 127VS"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Dutti Dolly",
+          "aliases": [
+            "395400",
+            "B395400",
+            "Matthews Dutti Dolly"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Matthews Slider",
+          "aliases": [
+            "377742",
+            "377743",
+            "377744"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Round-d-Round Dolly",
+          "aliases": [
+            "395300"
+          ]
+        },
+        {
+          "manufacturer": "Matthews",
+          "model": "Centipede II",
+          "aliases": [
+            "395205"
+          ]
         }
       ]
     },
@@ -2484,7 +4403,8 @@
           "aliases": [
             "Cartoni Red Lock",
             "T631/2",
-            "Red Lock 3-Tube Tripod"
+            "Red Lock 3-Tube Tripod",
+            "T6312"
           ],
           "specs": {
             "mount": "100mm bowl"
@@ -2628,7 +4548,9 @@
           "model": "ENG 2 CF",
           "aliases": [
             "Sachtler ENG 2",
-            "ENG 2 CF Stativ"
+            "ENG 2 CF Stativ",
+            "5386",
+            "Tripod ENG 2 CF"
           ],
           "specs": {
             "mount": "100mm bowl"
@@ -2638,7 +4560,11 @@
           "manufacturer": "Sachtler",
           "model": "flowtech 100",
           "aliases": [
-            "Sachtler Flowtech"
+            "Sachtler Flowtech",
+            "5585",
+            "5587",
+            "Tripod flowtech 100 MS",
+            "Tripod flowtech 100 GS"
           ],
           "specs": {
             "mount": "100mm bowl",
@@ -2649,7 +4575,10 @@
           "manufacturer": "Sachtler",
           "model": "flowtech 75",
           "aliases": [
-            "FT75"
+            "FT75",
+            "4585",
+            "4587",
+            "flowtech 75 aktiv"
           ],
           "specs": {
             "mount": "75mm bowl"
@@ -2660,7 +4589,9 @@
           "model": "Speed Lock CF",
           "aliases": [
             "Sachtler Speedlock",
-            "Speed Lock Carbon"
+            "Speed Lock Carbon",
+            "5590",
+            "Tripod Speed Lock CF HD"
           ]
         },
         {
@@ -2874,6 +4805,490 @@
           "aliases": [
             "Stativ O'Connor 60L 2-fach (Carbon)",
             "OConnor 60L"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod 75/2 AL Mk II",
+          "aliases": [
+            "S2172-0001",
+            "Sachtler 75/2 AL Mk II"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod 75/2 CF Mk II",
+          "aliases": [
+            "S2171-0001",
+            "Sachtler 75/2 CF Mk II"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod 75/2 AL HD",
+          "aliases": [
+            "S2034-0001",
+            "Sachtler 75/2 AL HD"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod CF 100 L",
+          "aliases": [
+            "5382",
+            "Sachtler CF 100 L"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod CF 100 M",
+          "aliases": [
+            "5351",
+            "Sachtler CF 100 M"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod Cine 150 long",
+          "aliases": [
+            "6290",
+            "Sachtler Cine 150 Long"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod Cine 150 medium",
+          "aliases": [
+            "6250",
+            "Sachtler Cine 150 Medium"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod Cine 2000 short",
+          "aliases": [
+            "6232",
+            "Sachtler Cine 2000 Short"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod DA 100 K",
+          "aliases": [
+            "5122",
+            "Sachtler DA 100 K"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod DA 150 K",
+          "aliases": [
+            "6132",
+            "Sachtler DA 150 K"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod DA 150 medium",
+          "aliases": [
+            "6157",
+            "Sachtler DA 150 M"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod EFP 2 CF",
+          "aliases": [
+            "6386",
+            "Sachtler EFP 2 CF"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod EFP 2 D",
+          "aliases": [
+            "6186",
+            "Sachtler EFP 2 D"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod ENG 2 D",
+          "aliases": [
+            "5186",
+            "Sachtler ENG 2 D"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod ENG 2 CF heavy duty",
+          "aliases": [
+            "5390",
+            "Sachtler ENG 2 CF HD"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Tripod OB 2000",
+          "aliases": [
+            "6481",
+            "Sachtler OB 2000"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Hot Pod CF 10",
+          "aliases": [
+            "5385/10",
+            "Sachtler Hot Pod 10"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Hot Pod CF 14",
+          "aliases": [
+            "5385/14",
+            "Sachtler Hot Pod 14"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Pedestal C I",
+          "aliases": [
+            "4191",
+            "Sachtler Ped C I"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Pedestal C III",
+          "aliases": [
+            "5195",
+            "Sachtler Ped C III"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Vario Ped 1-70",
+          "aliases": [
+            "S2302-0001",
+            "Sachtler Vario Ped 1"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Vario Ped 2-80",
+          "aliases": [
+            "S2303-0001",
+            "Sachtler Vario Ped 2"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ground spreader SP 75",
+          "aliases": [
+            "7001",
+            "Sachtler SP 75"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ground spreader SP 100",
+          "aliases": [
+            "7002",
+            "Sachtler SP 100"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ground spreader SP 100/150",
+          "aliases": [
+            "7003",
+            "Sachtler SP 100/150"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ground spreader SP 150 EX",
+          "aliases": [
+            "7013",
+            "Sachtler SP 150 EX"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ground spreader Cine",
+          "aliases": [
+            "7023",
+            "Sachtler Bodenspinne Cine"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Ground spreader flowtech",
+          "aliases": [
+            "S2058-0001",
+            "Sachtler flowtech Ground Spreader"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Mid-level spreader 75",
+          "aliases": [
+            "S2036-1200"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Mid-level spreader 100/150",
+          "aliases": [
+            "7007"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Mid-level spreader Cine",
+          "aliases": [
+            "7027"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Mid-level spreader flowtech75",
+          "aliases": [
+            "S2082-1000"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Mid-level spreader flowtech100",
+          "aliases": [
+            "S2056-0001"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Mini ground spreader 100",
+          "aliases": [
+            "7002K"
+          ]
+        },
+        {
+          "manufacturer": "Sachtler",
+          "model": "Mini ground spreader 150",
+          "aliases": [
+            "7003K"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "SDS 100 Tripod",
+          "aliases": [
+            "T7282",
+            "Cartoni SDS 100"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "SDS Carbon 100 Tripod",
+          "aliases": [
+            "T7282C",
+            "Cartoni SDS Carbon 100"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "SDS 75 Tripod",
+          "aliases": [
+            "T7292",
+            "Cartoni SDS 75"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Stabilo Carbon 100 Tripod",
+          "aliases": [
+            "T640C1",
+            "Cartoni Stabilo 100"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Stabilo Carbon 75 Tripod",
+          "aliases": [
+            "T640C7",
+            "Cartoni Stabilo 75"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Red Lock 75 Tripod",
+          "aliases": [
+            "T6302",
+            "Cartoni Red Lock 75"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Smart Stop 2-Stage Tripod 100mm",
+          "aliases": [
+            "T6282",
+            "T6282C",
+            "Cartoni Smart Stop 100"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "EFP 100 Tripod",
+          "aliases": [
+            "T723",
+            "Cartoni EFP Tripod"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "EFP Baby 100 Tripod",
+          "aliases": [
+            "T723B",
+            "Cartoni EFP Baby"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "ENG Baby 100 Tripod",
+          "aliases": [
+            "T722B",
+            "Cartoni ENG Baby"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Studio Tripod 150mm",
+          "aliases": [
+            "T724",
+            "Cartoni Studio Tripod"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Studio Baby Tripod 150mm",
+          "aliases": [
+            "T724B",
+            "Cartoni Studio Baby"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Studio Tripod Mitchell Base",
+          "aliases": [
+            "T724M",
+            "Cartoni Studio Tripod Mitchell"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Heavy Duty Tripod 150mm",
+          "aliases": [
+            "T625",
+            "Cartoni Heavy Duty Tripod"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Heavy Duty Tripod Mitchell Base",
+          "aliases": [
+            "T625M"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Heavy Duty Baby Tripod",
+          "aliases": [
+            "T625B"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Pedestal P70",
+          "aliases": [
+            "P070",
+            "Cartoni P70"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Pedestal P90",
+          "aliases": [
+            "P090",
+            "Cartoni P90"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Hi-Hat 100mm",
+          "aliases": [
+            "AH847",
+            "Cartoni Hi-Hat 100"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Bazooka Basket 150mm",
+          "aliases": [
+            "AH846",
+            "Cartoni Bazooka 150"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Bazooka Basket 100mm",
+          "aliases": [
+            "AH845",
+            "Cartoni Bazooka 100"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Mid-Level Spreader S708",
+          "aliases": [
+            "S708"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Studio Mid-Level Spreader",
+          "aliases": [
+            "SMS2S01"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "528XB",
+          "aliases": [
+            "Manfrotto 528XB"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "536 MPRO",
+          "aliases": [
+            "Manfrotto 536",
+            "Manfrotto MPRO 536"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "545GB",
+          "aliases": [
+            "Manfrotto 545GB",
+            "Manfrotto 545"
+          ]
+        },
+        {
+          "manufacturer": "Manfrotto",
+          "model": "117B",
+          "aliases": [
+            "Manfrotto 117B"
           ]
         }
       ]
@@ -3237,6 +5652,59 @@
             "GFM GF-Jib",
             "GF Jib"
           ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "Cartoni Minijib J100",
+          "aliases": [
+            "J100",
+            "Cartoni Minijib"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "JIBo Fluid",
+          "aliases": [
+            "J103",
+            "Cartoni JIBo Fluid"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Foxy Pro Crane",
+          "aliases": [
+            "Panther Foxy Pro",
+            "Foxy Pro"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Foxy Pro Jib",
+          "aliases": [
+            "Panther Foxy Pro Jib"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Pixy Plus Crane",
+          "aliases": [
+            "Panther Pixy Plus",
+            "Pixy Plus"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Vario Jib Pro",
+          "aliases": [
+            "Panther Vario Jib Pro"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Super Jib II",
+          "aliases": [
+            "Panther Super Jib II"
+          ]
         }
       ]
     },
@@ -3370,6 +5838,191 @@
           "aliases": [
             "Mo-Sys Lambda",
             "Mo-sys engineering Mo-Sys Lambda"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "E-Cube",
+          "aliases": [
+            "H601",
+            "Cartoni e-Cube"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "E-Cube 2",
+          "aliases": [
+            "Cartoni e-Cube 2"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "E-Cube 7",
+          "aliases": [
+            "H602",
+            "Cartoni e-Cube 7"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "E-Rem 25",
+          "aliases": [
+            "H566",
+            "Cartoni e-Rem 25"
+          ]
+        },
+        {
+          "manufacturer": "Cartoni",
+          "model": "U-Rem 10",
+          "aliases": [
+            "H600",
+            "Cartoni U-Rem 10"
+          ]
+        },
+        {
+          "manufacturer": "Panther",
+          "model": "Trixy Remote System",
+          "aliases": [
+            "Panther Trixy",
+            "Trixy"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Digital Remote Wheel DRW-1",
+          "aliases": [
+            "KK.0051504",
+            "DRW-1",
+            "DRW-1 Digital Remote Wheel, Single Wheel Set",
+            "KK.0053982",
+            "KK.0021211"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Remote Control Panel RCP-3",
+          "aliases": [
+            "KK.0051503",
+            "RCP-3",
+            "RCP-3, Controller, 19mm Mounting Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Digital Encoder Head DEH-1",
+          "aliases": [
+            "K2.0022594",
+            "DEH-1",
+            "DEH-1 Digital Encoder Head"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Digital Encoder Head DEH-2",
+          "aliases": [
+            "K2.0044672",
+            "DEH-2",
+            "DEH-2, Digital Encoder Head 2"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Digital Encoder Pedal DEP-1",
+          "aliases": [
+            "KK.0039160",
+            "DEP-1",
+            "DEP-1, Digital Encoder Pedal, Pro Set"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SRH Standard Joystick",
+          "aliases": [
+            "K2.0039880",
+            "Standard Joystick for SRH Remote Control Panel"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SRH Microforce Joystick",
+          "aliases": [
+            "K2.0039882",
+            "Microforce Joystick for SRH Remote Control Panel"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SRH Broadcast Joystick",
+          "aliases": [
+            "K2.0039881",
+            "Broadcast Joystick for SRH Remote Control Panel"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SRH Focus/Zoom Set",
+          "aliases": [
+            "K0.0019595",
+            "Focus/Zoom Set for SRH Remote Control Panel"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "Vibration Isolator for SRH Gen.2",
+          "aliases": [
+            "KK.0039359",
+            "Vibration Isolator for SRH, Gen.2, Metric, Basic Set",
+            "KK.0041936"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "SRH Mitchell Mount",
+          "aliases": [
+            "K2.0019298",
+            "SRH Mitchell Mount, Metric"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "CSS Mitchell Base Plate",
+          "aliases": [
+            "K2.0050433"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ERM-2400 Radio Module SRH",
+          "aliases": [
+            "K2.0037428",
+            "ERM-2400, SRH, Single Module",
+            "KK.0040049"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ERM-900 Radio Module SRH",
+          "aliases": [
+            "K2.0037425",
+            "ERM-900, SRH, Single Module",
+            "KK.0040050"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "ERM-2400 Radio Module LCS",
+          "aliases": [
+            "K2.0037440",
+            "ERM-2400,LCS, Single Module",
+            "KK.0040048"
+          ]
+        },
+        {
+          "manufacturer": "ARRI",
+          "model": "CSS IP-Box Set",
+          "aliases": [
+            "K2.0052050",
+            "CSS IP-Box Set, TX / RX"
           ]
         }
       ]

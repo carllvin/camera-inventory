@@ -40,7 +40,8 @@
      "manufacturer": "Teradek",
      "model": "Serv Pro",
      "aliases": [
-      "Teradek Serv"
+      "Teradek Serv",
+      "10-0654"
      ]
     },
     {
@@ -177,7 +178,8 @@
      "manufacturer": "Teradek",
      "model": "COLR",
      "aliases": [
-      "Teradek COLR"
+      "Teradek COLR",
+      "10-0070"
      ]
     },
     {
@@ -223,6 +225,145 @@
      "aliases": [
       "Sound Devices Pix 240",
       "Sound Devices PIX240i"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Video Assist 5\" 3G",
+     "aliases": [
+      "Blackmagic Video Assist 5 3G",
+      "BMD Video Assist 5 3G",
+      "Video Assist 5\" 3G"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Micro Converter SDI to HDMI 12G",
+     "aliases": [
+      "Blackmagic Micro Converter SDI to HDMI 12G",
+      "BMD Micro Converter SDI-HDMI 12G",
+      "Micro Converter SDI to HDMI 12G wPSU"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Micro Converter HDMI to SDI 12G",
+     "aliases": [
+      "Blackmagic Micro Converter HDMI to SDI 12G",
+      "BMD Micro Converter HDMI-SDI 12G",
+      "Micro Converter HDMI to SDI 12G wPSU"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Micro Converter BiDirectional SDI/HDMI 12G",
+     "aliases": [
+      "Blackmagic Micro Converter BiDirectional SDI/HDMI 12G",
+      "Micro Converter BiDirectional SDI/HDMI 12G wPSU"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Micro Converter SDI to HDMI 3G",
+     "aliases": [
+      "Blackmagic Micro Converter SDI to HDMI 3G",
+      "BMD Micro Converter SDI-HDMI 3G",
+      "Micro Converter SDI to HDMI 3G wPSU"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Mini Converter SDI to HDMI 6G",
+     "aliases": [
+      "Blackmagic Mini Converter SDI to HDMI 6G",
+      "BMD Mini Converter SDI-HDMI 6G"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Mini Converter HDMI to SDI 6G",
+     "aliases": [
+      "Blackmagic Mini Converter HDMI to SDI 6G",
+      "BMD Mini Converter HDMI-SDI 6G"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Mini Converter SDI Distribution 4K",
+     "aliases": [
+      "Blackmagic Mini Converter SDI Distribution 4K",
+      "BMD SDI Distribution 4K"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Mini Converter SDI Distribution",
+     "aliases": [
+      "Blackmagic Mini Converter SDI Distribution",
+      "BMD SDI Distribution"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Mini Converter UpDownCross HD",
+     "aliases": [
+      "Blackmagic Mini Converter UpDownCross HD",
+      "BMD UpDownCross"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Mini Converter Sync Generator",
+     "aliases": [
+      "Blackmagic Mini Converter Sync Generator",
+      "BMD Sync Generator"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "Mini Converter Optical Fiber 12G",
+     "aliases": [
+      "Blackmagic Mini Converter Optical Fiber 12G"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Serv 4K",
+     "aliases": [
+      "10-2870",
+      "Teradek Serv 4K"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Serv Micro",
+     "aliases": [
+      "10-0744",
+      "Teradek Serv Micro"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "COLR Duo",
+     "aliases": [
+      "10-0072",
+      "Teradek COLR Duo"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "BoxIO",
+     "aliases": [
+      "FSI BoxIO",
+      "Flanders BoxIO"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "AtomX SDI Module",
+     "aliases": [
+      "Atomos AtomX SDI",
+      "AtomX SDI"
      ]
     }
    ]
@@ -488,7 +629,9 @@
      "manufacturer": "SmallHD",
      "model": "1303 HDR",
      "aliases": [
-      "1303"
+      "1303",
+      "MON-1303HDR",
+      "1303 HDR Production Monitor"
      ],
      "specs": {
       "screen_in": 13,
@@ -526,7 +669,8 @@
      "manufacturer": "SmallHD",
      "model": "703 Bolt",
      "aliases": [
-      "703 Bolt Wireless Monitor"
+      "703 Bolt Wireless Monitor",
+      "MON-703BOLT-VM"
      ],
      "specs": {
       "screen_in": 7,
@@ -537,7 +681,9 @@
     {
      "manufacturer": "SmallHD",
      "model": "Action 5",
-     "aliases": [],
+     "aliases": [
+      "16-0590"
+     ],
      "specs": {
       "screen_in": 5.5,
       "resolution": "1920x1080"
@@ -548,7 +694,9 @@
      "model": "Cine 13",
      "aliases": [
       "SmallHD 13",
-      "Cine 13 4K"
+      "Cine 13 4K",
+      "MON-CINE-13",
+      "Cine 13\" 4K High-Bright Monitor"
      ],
      "specs": {
       "screen_in": 13,
@@ -560,7 +708,9 @@
      "model": "Cine 18",
      "aliases": [
       "SmallHD 18",
-      "Cine 18 4K High Bright"
+      "Cine 18 4K High Bright",
+      "16-1801",
+      "Cine 18\" 4K High-Bright Monitor"
      ],
      "specs": {
       "screen_in": 18,
@@ -572,7 +722,8 @@
      "model": "Cine 24",
      "aliases": [
       "MON-CINE-24",
-      "Cine 24 4K High Bright"
+      "Cine 24 4K High Bright",
+      "Cine 24\" 4K High-Bright Monitor"
      ],
      "specs": {
       "screen_in": 24,
@@ -583,7 +734,8 @@
      "manufacturer": "SmallHD",
      "model": "Cine 5",
      "aliases": [
-      "MON-CINE-5"
+      "MON-CINE-5",
+      "16-0526"
      ],
      "specs": {
       "screen_in": 5,
@@ -595,7 +747,8 @@
      "model": "Cine 7",
      "aliases": [
       "SmallHD 7",
-      "Cine 7 Monitor"
+      "Cine 7 Monitor",
+      "MON-CINE7"
      ],
      "specs": {
       "screen_in": 7,
@@ -616,7 +769,9 @@
     {
      "manufacturer": "SmallHD",
      "model": "Indie 7",
-     "aliases": [],
+     "aliases": [
+      "MON-INDIE-7"
+     ],
      "specs": {
       "screen_in": 7,
       "resolution": "1920x1080"
@@ -625,7 +780,9 @@
     {
      "manufacturer": "SmallHD",
      "model": "Ultra 5",
-     "aliases": [],
+     "aliases": [
+      "16-0527"
+     ],
      "specs": {
       "screen_in": 5,
       "resolution": "1920x1080"
@@ -634,7 +791,9 @@
     {
      "manufacturer": "SmallHD",
      "model": "Ultra 7",
-     "aliases": [],
+     "aliases": [
+      "16-0727"
+     ],
      "specs": {
       "screen_in": 7
      }
@@ -643,7 +802,8 @@
      "manufacturer": "SmallHD",
      "model": "Vision 17",
      "aliases": [
-      "MON-VISION-17"
+      "MON-VISION-17",
+      "Vision 17\" 4K HDR Monitor"
      ],
      "specs": {
       "screen_in": 17.3,
@@ -654,7 +814,8 @@
      "manufacturer": "SmallHD",
      "model": "Vision 24",
      "aliases": [
-      "MON-VISION-24"
+      "MON-VISION-24",
+      "Vision 24\" 4K HDR Monitor"
      ],
      "specs": {
       "screen_in": 24,
@@ -870,7 +1031,8 @@
      "aliases": [
       "small HD Acryl Schutzglas 13\"",
       "SmallHD 1303 Acrylic Protector",
-      "SmallHD Schutzglas 13\""
+      "SmallHD Schutzglas 13\"",
+      "ACC-SP-1300-ACR"
      ],
      "bulk": true
     },
@@ -909,7 +1071,8 @@
      "aliases": [
       "small HD Sunhood 13\" + 6x Schraube",
       "SmallHD 1303 Sunhood",
-      "SmallHD Sunhood 13\""
+      "SmallHD Sunhood 13\"",
+      "ACC-HOOD-1300"
      ],
      "bulk": true
     },
@@ -993,7 +1156,9 @@
      "aliases": [
       "SmallHD Ultra 10 Bolt RX",
       "SmallHD Ultra 10 Bolt 6 RX 750 Kit",
-      "SmallHD Ultra 10"
+      "SmallHD Ultra 10",
+      "16-1002-GM",
+      "16-1002-VM"
      ]
     },
     {
@@ -1056,7 +1221,8 @@
      "model": "1703 P3X",
      "aliases": [
       "SmallHD 1703",
-      "Small HD 1703 P3X"
+      "Small HD 1703 P3X",
+      "MON-1703-P3X"
      ]
     },
     {
@@ -1263,7 +1429,9 @@
      "aliases": [
       "Transvideo Starlite HD5-ARRI Oled 5in",
       "Transvideo Starlite HD5-ARRI 5\" OLED",
-      "Transvideo StarliteHD5 ARRI"
+      "Transvideo StarliteHD5 ARRI",
+      "K2.0006960",
+      "Transvideo StarliteHD5-ARRI OLED Monitor"
      ]
     },
     {
@@ -1340,7 +1508,8 @@
      "model": "Cine 8",
      "aliases": [
       "Vaxis Cine 8",
-      "Vaxis Cine 8 Wireless Monitor"
+      "Vaxis Cine 8 Wireless Monitor",
+      "Storm Cine 8"
      ]
     },
     {
@@ -1466,7 +1635,9 @@
      "model": "Focus 5",
      "aliases": [
       "SmallHD Focus 5 Zoll HDMI",
-      "SmallHD Focus 5in"
+      "SmallHD Focus 5in",
+      "MON-FOCUS",
+      "FOCUS Camera-Top Monitor"
      ]
     },
     {
@@ -1474,7 +1645,8 @@
      "model": "Focus 5 SDI",
      "aliases": [
       "SmallHD Focus 5 Zoll SDI",
-      "SmallHD Focus SDI"
+      "SmallHD Focus SDI",
+      "MON-FOCUS-SDI"
      ]
     },
     {
@@ -1634,6 +1806,949 @@
       "Panasonic BT-LH910",
       "Panasonic BT-LH910GJ 9\""
      ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "PYXIS Monitor",
+     "aliases": [
+      "Blackmagic PYXIS Monitor",
+      "Blackmagic PYXIS Monitor Kit",
+      "PYXIS Monitor Kit"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "SmartView Duo",
+     "aliases": [
+      "Blackmagic SmartView Duo",
+      "BMD SmartView Duo"
+     ]
+    },
+    {
+     "manufacturer": "Blackmagic Design",
+     "model": "SmartScope Duo 4K",
+     "aliases": [
+      "Blackmagic SmartScope Duo 4K",
+      "BMD SmartScope Duo"
+     ]
+    },
+    {
+     "manufacturer": "Kinefinity",
+     "model": "KineMON-7U2",
+     "aliases": [
+      "KineMON-7U2 Ultra-Bright 7\" Monitor",
+      "Kinefinity KineMON 7U2"
+     ]
+    },
+    {
+     "manufacturer": "Kinefinity",
+     "model": "KineMON-5U2",
+     "aliases": [
+      "KineMON-5U2 Ultra-Bright Monitor",
+      "Kinefinity KineMON 5U2"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "502 On-Camera Monitor",
+     "aliases": [
+      "MON-502",
+      "SmallHD 502 Full HD",
+      "502 Full HD On-Camera Monitor"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "1703 P3",
+     "aliases": [
+      "MON-1703-P3",
+      "1703 P3 Studio Monitor",
+      "SmallHD 1703 P3"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 10",
+     "aliases": [
+      "16-1001",
+      "SmallHD Ultra 10 Monitor"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 10 Bolt 6 RX 1500",
+     "aliases": [
+      "16-1003-GM",
+      "16-1003-VM",
+      "SmallHD Ultra 10 Bolt 6 RX 1500ft"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 5 Bolt 6 RX 750",
+     "aliases": [
+      "16-0528-GM",
+      "16-0528-VM",
+      "Ultra 5 Bolt 6 RX 750 Kit"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 5 Bolt 6 TX 750",
+     "aliases": [
+      "16-0529"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 7 Bolt 6 RX",
+     "aliases": [
+      "16-0728-GM",
+      "SMHD-16-0730-GM",
+      "SmallHD Ultra 7 Bolt 6 RX 750"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 7 Bolt 6 TX",
+     "aliases": [
+      "16-0729",
+      "SMHD-16-0731",
+      "SmallHD Ultra 7 Bolt 6 TX 750"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 7 Bolt 4K RX",
+     "aliases": [
+      "MON-CINE7-BOLT4K-GM",
+      "MON-CINE7-BOLT4K-VM"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Indie 7 Bolt 4K RX",
+     "aliases": [
+      "MON-INDIE-7-BOLT-4K-GM",
+      "MON-INDIE-7-BOLT-4K-VM"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "702 Touch Bolt 4K RX",
+     "aliases": [
+      "MON-702-Touch-BOLT-4K-GM",
+      "MON-702-Touch-BOLT-4K-VM"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus 7 Bolt 500 RX",
+     "aliases": [
+      "MON-FOCUS7-BOLT-500-RX"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus Bolt 500 RX",
+     "aliases": [
+      "MON-FOCUS-BOLT-500-RX"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus Bolt 500 TX",
+     "aliases": [
+      "MON-FOCUS-BOLT-500-TX"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus Bolt Sidekick RX",
+     "aliases": [
+      "MON-FOCUS-BOLT-SIDEKICK-RX"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus Pro",
+     "aliases": [
+      "MON-FOCUS-PRO",
+      "SmallHD Focus Pro 5"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus Pro OLED",
+     "aliases": [
+      "MON-FOCUS-PRO-OLED"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus OLED",
+     "aliases": [
+      "MON-FOCUS-OLED",
+      "SmallHD Focus OLED HDMI"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus OLED SDI",
+     "aliases": [
+      "MON-FOCUS-OLED-SDI"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "OLED 16",
+     "aliases": [
+      "16-1601",
+      "SmallHD OLED 16"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "OLED 22",
+     "aliases": [
+      "MON-OLED-22",
+      "OLED 22\" 4K Reference Monitor"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "OLED 27",
+     "aliases": [
+      "16-2701",
+      "OLED 27\" 4K Reference Monitor"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Quantum 27",
+     "aliases": [
+      "16-2702",
+      "SmallHD Quantum 27"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Quantum 32",
+     "aliases": [
+      "16-3201",
+      "SmallHD Quantum 32"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 7 Sunhood",
+     "aliases": [
+      "17-1233",
+      "SMHD-17-1233"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 10 Sunhood",
+     "aliases": [
+      "17-1235",
+      "SMHD-17-1235"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for Cine 5 / Indie 5",
+     "aliases": [
+      "17-1232",
+      "SMHD-17-1232"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for Ultra 5",
+     "aliases": [
+      "17-1231"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sun Hood for Cine 13",
+     "aliases": [
+      "17-1230"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sun Hood for Cine 18",
+     "aliases": [
+      "17-1227"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for Cine 24 and Vision 24",
+     "aliases": [
+      "ACC-HOOD-4K-24",
+      "24\" Sunhood"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for Vision 17",
+     "aliases": [
+      "ACC-HOOD-4K-17"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for 1700 Series",
+     "aliases": [
+      "ACC-HOOD-1700"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood for 703 Bolt",
+     "aliases": [
+      "ACC-HOOD-703BOLT"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood Cage Combo for 703 UltraBright",
+     "aliases": [
+      "ACC-HOOD-703U"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sunhood Cage Combo for 503 UltraBright",
+     "aliases": [
+      "ACC-HOOD-503U"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Focus Sun Shade",
+     "aliases": [
+      "ACC-HOOD-FOCUS-5"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra Screen Protector for Ultra 7",
+     "aliases": [
+      "17-1069",
+      "17-1070"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra Screen Protector for Ultra 10",
+     "aliases": [
+      "17-1074",
+      "17-1075"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 13 Deluxe Locking Screen Protector",
+     "aliases": [
+      "17-1052"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 18 Deluxe Locking Screen Protector",
+     "aliases": [
+      "17-1057",
+      "SMHD-17-1057"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Cine 24 Deluxe Locking Screen Protector",
+     "aliases": [
+      "17-1079"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Tilt Arm 7\"",
+     "aliases": [
+      "ACC-MT-TILTARM-7",
+      "7\" Tilt Arm Mounting Solution"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "C-Stand Mount with VESA",
+     "aliases": [
+      "ACC-MT-CSTAND"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "4K Monitor Feet (Set)",
+     "aliases": [
+      "ACC-MT-FEET-4K"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "17\" & 24\" Production Monitor Feet",
+     "aliases": [
+      "ACC-MT-FEET-17-24"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Yoke for Ultra 10",
+     "aliases": [
+      "17-5010"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Top Handle for Ultra 10",
+     "aliases": [
+      "17-5009"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Ultra 10 Front Handle",
+     "aliases": [
+      "17-5002"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Premium Monitor Handle for 4K Monitors",
+     "aliases": [
+      "17-5413"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Monitor Handles + Neck Strap",
+     "aliases": [
+      "ACC-HANDLES"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Rack Mount for Cine 13",
+     "aliases": [
+      "ACC-MT-RACK-CINE-13"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Rack Mount for Cine 18",
+     "aliases": [
+      "17-5003"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Rack Mount for Cine 24",
+     "aliases": [
+      "ACC-MT-RACK-CINE-24"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Wireless Remote for On-Camera Monitors",
+     "aliases": [
+      "ACC-REMOTE-BT-1"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for ARRI (Ultra / Cine 7)",
+     "aliases": [
+      "18-2001"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for ARRI (Cine 5)",
+     "aliases": [
+      "18-2000"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for Sony BURANO / VENICE (Ultra / Cine 7)",
+     "aliases": [
+      "18-2012"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for Sony FX6 (Ultra / Cine 7)",
+     "aliases": [
+      "18-2008"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for RED DSMC2 (Cine 5 / Ultra)",
+     "aliases": [
+      "18-2017"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for RED DSMC2 (Cine 7 / Indie 7 / 702 Touch)",
+     "aliases": [
+      "18-2018"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for RED RCP2 (Cine 5 / Ultra)",
+     "aliases": [
+      "18-2015"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for RED RCP2 (Cine 7 / Indie 7 / 702 Touch)",
+     "aliases": [
+      "18-2007"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Camera Control Kit for Canon C300mkIII/C500mkII/C400/C70/C80 (Ultra / Cine 7)",
+     "aliases": [
+      "18-2019"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "High-Bright Remote Monitor Holder",
+     "aliases": [
+      "DJI High-Bright Remote Monitor Holder"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Mars M1 Enhanced",
+     "aliases": [
+      "Hollyland Mars M1 Enhanced"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Pyro 5",
+     "aliases": [
+      "Hollyland Pyro 5"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Pyro 5 4K",
+     "aliases": [
+      "Hollyland Pyro 5 4K"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Pyro 7 Ultra",
+     "aliases": [
+      "Hollyland Pyro 7 Ultra"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm Monitor",
+     "aliases": [
+      "Vaxis Storm Monitor"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 072 Pro",
+     "aliases": [
+      "Vaxis Storm 072 Pro",
+      "Vaxis 072"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 058 Pro",
+     "aliases": [
+      "Vaxis Storm 058 Pro",
+      "Vaxis 058"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "F-10H",
+     "aliases": [
+      "TVLogic F-10H",
+      "F10H",
+      "10\" HDR High Brightness Field Monitor"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "FX-5",
+     "aliases": [
+      "TVLogic FX-5"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "FX-7",
+     "aliases": [
+      "TVLogic FX-7",
+      "FX7"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "SVM-130P",
+     "aliases": [
+      "TVLogic SVM-130P"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "SVM-183P",
+     "aliases": [
+      "TVLogic SVM-183P"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "SVM-183S",
+     "aliases": [
+      "TVLogic SVM-183S"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "SVM-243S",
+     "aliases": [
+      "TVLogic SVM-243S"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "SVM-323S",
+     "aliases": [
+      "TVLogic SVM-323S"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-096A",
+     "aliases": [
+      "TVLogic LVM-096A"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-180A",
+     "aliases": [
+      "TVLogic LVM-180A"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LVM-246A",
+     "aliases": [
+      "TVLogic LVM-246A"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LEM-271P",
+     "aliases": [
+      "TVLogic LEM-271P"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LEM-321P",
+     "aliases": [
+      "TVLogic LEM-321P"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-180P",
+     "aliases": [
+      "TVLogic LXM-180P"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-180P-FM",
+     "aliases": [
+      "TVLogic LXM-180P-FM"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-180U",
+     "aliases": [
+      "TVLogic LXM-180U"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-240P",
+     "aliases": [
+      "TVLogic LXM-240P"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-240P-FM",
+     "aliases": [
+      "TVLogic LXM-240P-FM"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-240U",
+     "aliases": [
+      "TVLogic LXM-240U"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-320P",
+     "aliases": [
+      "TVLogic LXM-320P"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LXM-550U",
+     "aliases": [
+      "TVLogic LXM-550U"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-095G",
+     "aliases": [
+      "TVLogic LUM-095G"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-096G",
+     "aliases": [
+      "TVLogic LUM-096G"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-313G-A1",
+     "aliases": [
+      "TVLogic LUM-313G",
+      "LUM-313G"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-328G",
+     "aliases": [
+      "TVLogic LUM-328G"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-430M3",
+     "aliases": [
+      "TVLogic LUM-430M3"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-550M3",
+     "aliases": [
+      "TVLogic LUM-550M3"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "LUM-550H",
+     "aliases": [
+      "TVLogic LUM-550H"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "R-5T",
+     "aliases": [
+      "TVLogic R-5T"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "R-7D",
+     "aliases": [
+      "TVLogic R-7D"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "R-9D",
+     "aliases": [
+      "TVLogic R-9D"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "RKM-270A",
+     "aliases": [
+      "TVLogic RKM-270A"
+     ]
+    },
+    {
+     "manufacturer": "TVLogic",
+     "model": "XVM-177A",
+     "aliases": [
+      "TVLogic XVM-177A"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM211",
+     "aliases": [
+      "FSI DM211",
+      "Flanders DM211"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM220",
+     "aliases": [
+      "FSI DM220",
+      "Flanders DM220"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM231",
+     "aliases": [
+      "FSI DM231",
+      "Flanders DM231"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "DM242",
+     "aliases": [
+      "FSI DM242",
+      "Flanders DM242"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP270C",
+     "aliases": [
+      "FSI XMP270C"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP310C",
+     "aliases": [
+      "FSI XMP310C"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP550C",
+     "aliases": [
+      "FSI XMP550C"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP551",
+     "aliases": [
+      "FSI XMP551"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "XMP651",
+     "aliases": [
+      "FSI XMP651"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun Studio 2",
+     "aliases": [
+      "Atomos Shogun Studio 2"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun Flame",
+     "aliases": [
+      "Atomos Shogun Flame"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja Flame",
+     "aliases": [
+      "Atomos Ninja Flame"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja Inferno",
+     "aliases": [
+      "Atomos Ninja Inferno"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja Assassin",
+     "aliases": [
+      "Atomos Ninja Assassin"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Samurai Blade",
+     "aliases": [
+      "Atomos Samurai Blade"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shinobi SDI",
+     "aliases": [
+      "Atomos Shinobi SDI"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shinobi II",
+     "aliases": [
+      "Atomos Shinobi II"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Live Production Monitor LPM-1",
+     "aliases": [
+      "LPM-1"
+     ]
     }
    ]
   },
@@ -1678,7 +2793,10 @@
      "aliases": [
       "ACN-LS2",
       "Lockit Slate 2",
-      "Timecode-Klappe Ambient"
+      "Timecode-Klappe Ambient",
+      "A80952",
+      "LockitSlate Take 2",
+      "LockitSlate Take 2 ACN-LS2"
      ]
     },
     {
@@ -1686,14 +2804,20 @@
      "model": "Lockit+",
      "aliases": [
       "Lockit Plus",
-      "ACL 205"
+      "ACL 205",
+      "ACN-LP",
+      "A81080",
+      "Lockit+ ACN-LP"
      ]
     },
     {
      "manufacturer": "Ambient",
      "model": "LockitBT",
      "aliases": [
-      "Lockit Bluetooth"
+      "Lockit Bluetooth",
+      "ACN-LB",
+      "A81063",
+      "LockitBT ACN-LB"
      ]
     },
     {
@@ -1707,7 +2831,10 @@
      "manufacturer": "Ambient",
      "model": "NanoLockit",
      "aliases": [
-      "ACN-NL"
+      "ACN-NL",
+      "ACN-NL-L",
+      "A80613",
+      "NanoLockit ACN-NL-L"
      ]
     },
     {
@@ -1735,7 +2862,10 @@
      "manufacturer": "Deity",
      "model": "TC-1",
      "aliases": [
-      "Deity Timecode Box"
+      "Deity Timecode Box",
+      "DTT0272D80",
+      "Deity TC-1 Wireless Timecode Box",
+      "TC-1 Wireless Timecode Box Generator"
      ]
     },
     {
@@ -1780,6 +2910,139 @@
      "aliases": [
       "Tentacle Track E",
       "Tentacle Track"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "Lockit ACN-CL",
+     "aliases": [
+      "ACN-CL",
+      "A80546",
+      "Ambient Lockit ACN-CL",
+      "Lockit Timecode & Sync Generator"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LockitModule ACN-LM",
+     "aliases": [
+      "ACN-LM",
+      "A80614",
+      "Lockit Module"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "RF Scanner Antenna ACN-RF",
+     "aliases": [
+      "ACN-RF",
+      "A80958",
+      "Lockit+ RF Scanner Antenne"
+     ]
+    },
+    {
+     "manufacturer": "Ambient",
+     "model": "LockitSlate Handle LS-HG1",
+     "aliases": [
+      "LS-HG1",
+      "A80279",
+      "Handgriff LockitSlate"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "Sync E mkII",
+     "aliases": [
+      "Tentacle Sync E mk2",
+      "SYNC E mkII",
+      "Tentacle SYNC E mk II"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "Timebar Timecode Slate",
+     "aliases": [
+      "Tentacle Timecode Slate",
+      "TIMEBAR Timecode Slate",
+      "Tentacle Slate"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "Track E2",
+     "aliases": [
+      "Tentacle Track E2",
+      "TRACK E2"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "Sync Original",
+     "aliases": [
+      "Tentacle Sync Original",
+      "Tentacle ORIGINAL"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "A06-B Bracket",
+     "aliases": [
+      "Tentacle A06-B",
+      "Tentacle Sync E Bracket"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "A06-CSM Cold Shoe Bracket",
+     "aliases": [
+      "Tentacle A06-CSM"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "A06-QRM Quick Release Bracket",
+     "aliases": [
+      "Tentacle A06-QRM"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "A07 Mad Clamp",
+     "aliases": [
+      "Tentacle A07",
+      "Tentacle Mad Clamp 15mm"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "A11 Timebar Bracket",
+     "aliases": [
+      "Tentacle A11"
+     ]
+    },
+    {
+     "manufacturer": "Tentacle Sync",
+     "model": "A13 Slate Handle",
+     "aliases": [
+      "Tentacle A13"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "TC-SL1 Timecode Slate",
+     "aliases": [
+      "TC-SL1",
+      "DTT0286D81",
+      "Deity TC-SL1",
+      "Deity Timecode Slate"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "TC-1 Cold Shoe Adapter",
+     "aliases": [
+      "DS0606039H",
+      "Deity TC-1 Cold Shoe"
      ]
     }
    ]
@@ -1934,7 +3197,11 @@
      "model": "Bolt 4K 1500 RX",
      "aliases": [
       "Teradek Bolt 4K 1500 Receiver",
-      "Teradek Bolt 4K 1500 Empfänger"
+      "Teradek Bolt 4K 1500 Empfänger",
+      "10-2112",
+      "10-2112-G",
+      "10-2112-V",
+      "Bolt 4K 12G-SDI 1500 RX"
      ],
      "specs": {
       "range_m": 450
@@ -1946,7 +3213,11 @@
      "model": "Bolt 4K 1500 TX",
      "aliases": [
       "Teradek Bolt 4K 1500 Transmitter",
-      "Teradek Bolt 4K 1500 Sender"
+      "Teradek Bolt 4K 1500 Sender",
+      "10-2111",
+      "10-2111-G",
+      "10-2111-V",
+      "Bolt 4K 12G-SDI 1500 TX"
      ],
      "specs": {
       "range_m": 450
@@ -1958,7 +3229,11 @@
      "model": "Bolt 4K 750 RX",
      "aliases": [
       "Teradek Bolt 4K 750 Receiver",
-      "Teradek Bolt 4K 750 Empfänger"
+      "Teradek Bolt 4K 750 Empfänger",
+      "10-2102",
+      "10-2102-G",
+      "10-2102-V",
+      "Bolt 4K 12G-SDI 750 RX"
      ],
      "specs": {
       "range_m": 230
@@ -1970,7 +3245,11 @@
      "model": "Bolt 4K 750 TX",
      "aliases": [
       "Teradek Bolt 4K 750 Transmitter",
-      "Teradek Bolt 4K 750 Sender"
+      "Teradek Bolt 4K 750 Sender",
+      "10-2101",
+      "10-2101-G",
+      "10-2101-V",
+      "Bolt 4K 12G-SDI 750 TX"
      ],
      "specs": {
       "range_m": 230
@@ -1982,7 +3261,11 @@
      "model": "Bolt 4K LT 1500 RX",
      "aliases": [
       "Teradek Bolt 4K LT 1500 Receiver",
-      "Teradek Bolt 4K LT 1500 Empfänger"
+      "Teradek Bolt 4K LT 1500 Empfänger",
+      "10-2212",
+      "10-2212-G",
+      "10-2212-V",
+      "Bolt 4K LT 3G-SDI 1500 Receiver"
      ],
      "specs": {
       "range_m": 450
@@ -1994,7 +3277,9 @@
      "model": "Bolt 4K LT 1500 TX",
      "aliases": [
       "Teradek Bolt 4K LT 1500 Transmitter",
-      "Teradek Bolt 4K LT 1500 Sender"
+      "Teradek Bolt 4K LT 1500 Sender",
+      "10-2211",
+      "Bolt 4K LT 1500 3G-SDI Transmitter"
      ],
      "specs": {
       "range_m": 450
@@ -2006,7 +3291,11 @@
      "model": "Bolt 4K LT 750 RX",
      "aliases": [
       "Teradek Bolt 4K LT 750 Receiver",
-      "Teradek Bolt 4K LT 750 Empfänger"
+      "Teradek Bolt 4K LT 750 Empfänger",
+      "10-2202",
+      "10-2202-G",
+      "10-2202-V",
+      "Bolt 4K LT 3G-SDI 750 Receiver"
      ],
      "specs": {
       "range_m": 230
@@ -2030,7 +3319,11 @@
      "model": "Bolt 4K LT MAX RX",
      "aliases": [
       "Teradek Bolt 4K LT MAX Receiver",
-      "Teradek Bolt 4K LT MAX Empfänger"
+      "Teradek Bolt 4K LT MAX Empfänger",
+      "10-2222",
+      "10-2222-G",
+      "10-2222-V",
+      "Bolt 4K LT 3G-SDI MAX Receiver"
      ],
      "discontinued": true
     },
@@ -2039,7 +3332,9 @@
      "model": "Bolt 4K LT MAX TX",
      "aliases": [
       "Teradek Bolt 4K LT MAX Transmitter",
-      "Teradek Bolt 4K LT MAX Sender"
+      "Teradek Bolt 4K LT MAX Sender",
+      "10-2221",
+      "Bolt 4K LT 3G-SDI MAX Transmitter"
      ],
      "discontinued": true
     },
@@ -2048,7 +3343,10 @@
      "model": "Bolt 4K MAX RX",
      "aliases": [
       "Teradek Bolt 4K MAX Receiver",
-      "Teradek Bolt 4K MAX Empfänger"
+      "Teradek Bolt 4K MAX Empfänger",
+      "10-2122-G",
+      "10-2122-V",
+      "Bolt 4K 12G-SDI MAX RX"
      ],
      "discontinued": true
     },
@@ -2057,7 +3355,10 @@
      "model": "Bolt 4K MAX TX",
      "aliases": [
       "Teradek Bolt 4K MAX Transmitter",
-      "Teradek Bolt 4K MAX Sender"
+      "Teradek Bolt 4K MAX Sender",
+      "10-2121-G",
+      "10-2121-V",
+      "Bolt 4K 12G-SDI MAX TX"
      ],
      "discontinued": true
     },
@@ -2066,7 +3367,11 @@
      "model": "Bolt 6 LT 1500 RX",
      "aliases": [
       "Teradek Bolt 6 LT 1500 Receiver",
-      "Teradek Bolt 6 LT 1500 Empfänger"
+      "Teradek Bolt 6 LT 1500 Empfänger",
+      "10-2272",
+      "10-2272-G",
+      "10-2272-V",
+      "Bolt 6 LT 1500 Receiver"
      ],
      "specs": {
       "range_m": 450
@@ -2077,7 +3382,9 @@
      "model": "Bolt 6 LT 1500 TX",
      "aliases": [
       "Teradek Bolt 6 LT 1500 Transmitter",
-      "Teradek Bolt 6 LT 1500 Sender"
+      "Teradek Bolt 6 LT 1500 Sender",
+      "10-2271",
+      "Bolt 6 LT 1500 Transmitter"
      ],
      "specs": {
       "range_m": 450
@@ -2090,7 +3397,14 @@
       "Bolt LT RX",
       "Bolt 6 LT RX",
       "Teradek Bolt 6 LT 750 Receiver",
-      "Teradek Bolt 6 LT 750 Empfänger"
+      "Teradek Bolt 6 LT 750 Empfänger",
+      "10-2262",
+      "10-2262-G",
+      "10-2262-V",
+      "10-2264",
+      "10-2264-G",
+      "10-2264-V",
+      "Bolt 6 LT 750 Receiver"
      ],
      "specs": {
       "range_m": 230
@@ -2103,7 +3417,11 @@
       "Bolt LT TX",
       "Bolt 6 LT TX",
       "Teradek Bolt 6 LT 750 Transmitter",
-      "Teradek Bolt 6 LT 750 Sender"
+      "Teradek Bolt 6 LT 750 Sender",
+      "10-2261",
+      "10-2263-I",
+      "Bolt 6 LT 750 Transmitter",
+      "Bolt LT 750 TX"
      ],
      "specs": {
       "range_m": 230
@@ -2114,7 +3432,11 @@
      "model": "Bolt 6 LT MAX RX",
      "aliases": [
       "Teradek Bolt 6 LT MAX Receiver",
-      "Teradek Bolt 6 LT MAX Empfänger"
+      "Teradek Bolt 6 LT MAX Empfänger",
+      "10-2282",
+      "10-2282-G",
+      "10-2282-V",
+      "Bolt 6 LT 3G-SDI/HDMI RX MAX"
      ]
     },
     {
@@ -2122,7 +3444,9 @@
      "model": "Bolt 6 LT MAX TX",
      "aliases": [
       "Teradek Bolt 6 LT MAX Transmitter",
-      "Teradek Bolt 6 LT MAX Sender"
+      "Teradek Bolt 6 LT MAX Sender",
+      "10-2281",
+      "Bolt 6 LT 3G-SDI/HDMI TX MAX"
      ]
     },
     {
@@ -2132,7 +3456,11 @@
       "Bolt 1500 RX",
       "Bolt6 1500 RX",
       "Teradek Bolt 6 XT 1500 Receiver",
-      "Teradek Bolt 6 XT 1500 Empfänger"
+      "Teradek Bolt 6 XT 1500 Empfänger",
+      "10-2312",
+      "10-2312-G",
+      "10-2312-V",
+      "Bolt 6 XT 12G-SDI/HDMI RX 1500FT"
      ],
      "specs": {
       "range_m": 450
@@ -2145,7 +3473,11 @@
       "Bolt 1500 TX",
       "Bolt6 1500 TX",
       "Teradek Bolt 6 XT 1500 Transmitter",
-      "Teradek Bolt 6 XT 1500 Sender"
+      "Teradek Bolt 6 XT 1500 Sender",
+      "10-2311",
+      "10-2311-G",
+      "10-2311-V",
+      "Bolt 6 XT 12G-SDI/HDMI TX 1500FT"
      ],
      "specs": {
       "range_m": 450
@@ -2159,7 +3491,11 @@
       "Bolt RX",
       "Bolt750 RX",
       "Teradek Bolt 6 XT 750 Receiver",
-      "Teradek Bolt 6 XT 750 Empfänger"
+      "Teradek Bolt 6 XT 750 Empfänger",
+      "10-2302",
+      "10-2302-G",
+      "10-2302-V",
+      "Bolt 6 XT 750 Receiver"
      ],
      "specs": {
       "range_m": 230
@@ -2173,7 +3509,11 @@
       "Bolt TX",
       "Bolt750 TX",
       "Teradek Bolt 6 XT 750 Transmitter",
-      "Teradek Bolt 6 XT 750 Sender"
+      "Teradek Bolt 6 XT 750 Sender",
+      "10-2301",
+      "10-2301-G",
+      "10-2301-V",
+      "Bolt 6 XT 750 Transmitter"
      ],
      "specs": {
       "range_m": 230
@@ -2184,7 +3524,10 @@
      "model": "Bolt 6 XT MAX RX",
      "aliases": [
       "Teradek Bolt 6 XT MAX Receiver",
-      "Teradek Bolt 6 XT MAX Empfänger"
+      "Teradek Bolt 6 XT MAX Empfänger",
+      "10-2322-G",
+      "10-2322-V",
+      "Bolt 6 XT MAX Receiver"
      ]
     },
     {
@@ -2192,7 +3535,10 @@
      "model": "Bolt 6 XT MAX TX",
      "aliases": [
       "Teradek Bolt 6 XT MAX Transmitter",
-      "Teradek Bolt 6 XT MAX Sender"
+      "Teradek Bolt 6 XT MAX Sender",
+      "10-2321-G",
+      "10-2321-V",
+      "Bolt 6 XT MAX Transmitter"
      ]
     },
     {
@@ -2258,7 +3604,8 @@
      "model": "Storm 3000 TX",
      "aliases": [
       "Vaxis Storm 3000 Transmitter",
-      "Vaxis Storm 3000 Sender"
+      "Vaxis Storm 3000 Sender",
+      "Storm 3000 Kit"
      ]
     },
     {
@@ -2266,7 +3613,11 @@
      "model": "Bolt 6 Antenna Array",
      "aliases": [
       "TERADEK Bolt 6 Antenna Array",
-      "Teradek Antenna Array"
+      "Teradek Antenna Array",
+      "11-0888-G",
+      "11-0888-V",
+      "Teradek Antenna Array Gold Mount",
+      "Teradek Antenna Array V-Mount"
      ]
     },
     {
@@ -2336,14 +3687,16 @@
      "model": "Ace 500 TX",
      "aliases": [
       "Teradek Ace 500 Sender",
-      "Videofunkstrecke HD (HDMI) Teradek Ace 500"
+      "Videofunkstrecke HD (HDMI) Teradek Ace 500",
+      "10-1806"
      ]
     },
     {
      "manufacturer": "Teradek",
      "model": "Ace 500 RX",
      "aliases": [
-      "Teradek Ace 500 Empfänger"
+      "Teradek Ace 500 Empfänger",
+      "10-1807"
      ]
     },
     {
@@ -2351,14 +3704,18 @@
      "model": "Ace 750 TX",
      "aliases": [
       "Teradek Ace 750 Sender",
-      "Videofunkstrecke 4K (HDMI) Teradek Ace 750"
+      "Videofunkstrecke 4K (HDMI) Teradek Ace 750",
+      "10-2241",
+      "Ace 750 Transmitter"
      ]
     },
     {
      "manufacturer": "Teradek",
      "model": "Ace 750 RX",
      "aliases": [
-      "Teradek Ace 750 Empfänger"
+      "Teradek Ace 750 Empfänger",
+      "10-2242",
+      "Ace 750 Receiver"
      ]
     },
     {
@@ -2407,7 +3764,9 @@
      "manufacturer": "Teradek",
      "model": "Cube 755",
      "aliases": [
-      "Teradek Cube 755"
+      "Teradek Cube 755",
+      "10-0755",
+      "Cube 755 HEVC Encoder"
      ]
     },
     {
@@ -2433,7 +3792,10 @@
      "model": "Bolt Pro 2000 TX",
      "aliases": [
       "Teradek Bolt Pro 2000",
-      "Teradek Bolt 2000 Pro Set"
+      "Teradek Bolt 2000 Pro Set",
+      "10-0991",
+      "Bolt 2000 3G-SDI/HDMI Transmitter",
+      "Teradek Bolt 2000 TX"
      ]
     },
     {
@@ -2459,6 +3821,668 @@
      "aliases": [
       "Paralinx Tomahawk 2000feet",
       "Paralinx Tomahawk 2000"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CBK-WA100",
+     "aliases": [
+      "Sony CBK-WA100",
+      "CBK-WA100 Wireless Adapter"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 7 750 TX",
+     "aliases": [
+      "10-2701",
+      "Teradek Bolt 7 750 TX",
+      "Bolt 7 750 Transmitter",
+      "Bolt 7 750 Sender"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 7 750 RX",
+     "aliases": [
+      "10-2702",
+      "Teradek Bolt 7 750 RX",
+      "Bolt 7 750 Receiver",
+      "Bolt 7 750 Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 7 1500 TX",
+     "aliases": [
+      "10-2711",
+      "Teradek Bolt 7 1500 TX",
+      "Bolt 7 1500 Transmitter",
+      "Bolt 7 1500 Sender"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 7 1500 RX",
+     "aliases": [
+      "10-2712",
+      "Teradek Bolt 7 1500 RX",
+      "Bolt 7 1500 Receiver",
+      "Bolt 7 1500 Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 7 MAX TX",
+     "aliases": [
+      "10-2721",
+      "Teradek Bolt 7 MAX TX",
+      "Bolt 7 Max Transmitter",
+      "Bolt 7 MAX Sender"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 7 MAX RX",
+     "aliases": [
+      "10-2722",
+      "Teradek Bolt 7 MAX RX",
+      "Bolt 7 Max Receiver",
+      "Bolt 7 MAX Empfänger"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 XT 10K RX",
+     "aliases": [
+      "10-2324-G",
+      "10-2324-V",
+      "Bolt 6 10K RX",
+      "Teradek Bolt 6 10K Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "RF-X",
+     "aliases": [
+      "10-2350",
+      "Teradek RF-X"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT HDMI 750 TX",
+     "aliases": [
+      "10-2206",
+      "Teradek Bolt 4K LT HDMI 750 Transmitter"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K LT HDMI 750 RX",
+     "aliases": [
+      "10-2207",
+      "10-2207-G",
+      "10-2207-V",
+      "Teradek Bolt 4K LT HDMI 750 Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT HDMI 750 TX",
+     "aliases": [
+      "10-2266",
+      "Teradek Bolt 6 LT HDMI 750 Transmitter"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 LT HDMI 750 RX",
+     "aliases": [
+      "10-2267",
+      "10-2267-G",
+      "10-2267-V",
+      "Teradek Bolt 6 LT HDMI 750 Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K Monitor Module 750 TX",
+     "aliases": [
+      "10-2138-7",
+      "Bolt 4K Monitor Module 750 TX for SmallHD Smart 7"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K Monitor Module 1500 TX",
+     "aliases": [
+      "10-2238-7",
+      "Bolt 4K Monitor Module 1500 TX for SmallHD Smart 7"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K Monitor Module 750 RX",
+     "aliases": [
+      "10-2139-G7",
+      "10-2139-V7",
+      "Bolt 4K RX Monitor Module"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K Monitor Module 1500 RX",
+     "aliases": [
+      "10-2239-G7",
+      "10-2239-V7",
+      "Bolt 4K Monitor Module 1500 Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 Monitor Module 750 TX",
+     "aliases": [
+      "10-2198-7",
+      "Bolt 6 Monitor Module Transmitter 750"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 Monitor Module 1500 TX",
+     "aliases": [
+      "10-2298-7",
+      "Bolt 6 Monitor Module Transmitter 1500"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 Monitor Module 750 RX",
+     "aliases": [
+      "10-2199-G7",
+      "10-2199-V7",
+      "10-2199-G7I",
+      "10-2199-V7I",
+      "Bolt 6 Monitor Module Receiver 750"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 6 Monitor Module 1500 RX",
+     "aliases": [
+      "10-2299-G7",
+      "10-2299-V7",
+      "Bolt 6 Monitor Module Receiver 1500"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Mobile RX",
+     "aliases": [
+      "10-2248",
+      "10-2249",
+      "Teradek Bolt Mobile Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Pro 2000 RX",
+     "aliases": [
+      "10-0992",
+      "Bolt 2000 3G-SDI/HDMI Receiver",
+      "Teradek Bolt 2000 RX"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 1000 DSMC2 TX",
+     "aliases": [
+      "10-0968",
+      "Bolt 1000 DSMC2 Wireless TX",
+      "Teradek Bolt RED DSMC2 1000"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 3000 DSMC2 TX",
+     "aliases": [
+      "10-0998",
+      "Bolt 3000 DSMC2 Wireless TX",
+      "Teradek Bolt RED DSMC2 3000"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 10K TX/RX Set",
+     "aliases": [
+      "10-1999-1G",
+      "10-1999-1V",
+      "Bolt 10K 3G-SDI/HDMI Video Transceiver Set",
+      "Teradek Bolt 10K"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Spark 4K TX",
+     "aliases": [
+      "10-1856",
+      "Spark 4K Transmitter"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Spark 4K RX",
+     "aliases": [
+      "10-1857",
+      "Spark 4K Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Ace 800 TX",
+     "aliases": [
+      "10-1816",
+      "Teradek Ace 800 Transmitter"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Ace 800 RX",
+     "aliases": [
+      "10-1817",
+      "Teradek Ace 800 Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Ace Micro TX",
+     "aliases": [
+      "10-2246",
+      "Teradek Ace Micro"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Link Pro",
+     "aliases": [
+      "10-0051",
+      "10-0051-G",
+      "10-0051-V",
+      "Teradek Link Pro"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Link AX",
+     "aliases": [
+      "10-0065",
+      "10-0065-G",
+      "10-0065-V",
+      "Teradek Link AX"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Node II",
+     "aliases": [
+      "10-0028-1-A",
+      "10-0028-1-C",
+      "10-0028-1-L",
+      "Teradek Node II"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Node 5G",
+     "aliases": [
+      "10-0033-A",
+      "10-0033-C",
+      "10-0033-L",
+      "Teradek Node 5G"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Prism Flex Mk II Encoder",
+     "aliases": [
+      "10-2856",
+      "Teradek Prism Flex Encoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Prism Flex Mk II Decoder",
+     "aliases": [
+      "10-2858",
+      "Teradek Prism Flex Decoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Prism Mobile 5G",
+     "aliases": [
+      "10-2857-25Q",
+      "10-2857-25QG",
+      "10-2857-25QV",
+      "Prism Mobile 5G Dual 5G-Q HEVC/AVC Encoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 605",
+     "aliases": [
+      "10-0605",
+      "Cube 605 H.264 Encoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 625",
+     "aliases": [
+      "10-0645",
+      "Cube 625 H.264 Decoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 655",
+     "aliases": [
+      "10-0655",
+      "Cube 655 H.264 Encoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 675",
+     "aliases": [
+      "10-0675",
+      "Cube 675 H.264 Decoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 705",
+     "aliases": [
+      "10-0715",
+      "Cube 705 HEVC Encoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 725",
+     "aliases": [
+      "10-0735",
+      "Teradek Cube 725 Decoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cube 775",
+     "aliases": [
+      "10-0775",
+      "Teradek Cube 775 Decoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Vidiu X",
+     "aliases": [
+      "10-0235",
+      "Teradek VidiU X"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Wave Monitor-Encoder",
+     "aliases": [
+      "10-0264",
+      "Teradek Wave Monitor-Encoder"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Array 4K Panel Antenna",
+     "aliases": [
+      "11-0857",
+      "Teradek Array 4K"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "6GHz V Antenna",
+     "aliases": [
+      "11-0901",
+      "11-0927",
+      "Teradek 6GHz V-Antenne"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "6GHz Flexible H Antenna",
+     "aliases": [
+      "11-0902",
+      "11-0904"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Flexible 5/6GHz V-Antenna",
+     "aliases": [
+      "11-1147",
+      "11-1148"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K H Antenna (Mushroom)",
+     "aliases": [
+      "11-0865",
+      "11-0882",
+      "Replacement Bolt 4K Wireless Horizontally Polarized Mushroom Antennas"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt 4K/6 RX Antenna Extension Kit 20ft",
+     "aliases": [
+      "11-1597-20",
+      "Antenna Extension Kit 6m"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Antenna Extension Kit 4x SMA 6ft",
+     "aliases": [
+      "11-1597-6"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Mounting Bracket for Bolt 4K Transmitter",
+     "aliases": [
+      "11-0856"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Mount for Bolt 6 LT Transmitter",
+     "aliases": [
+      "A20020"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Offset Mount for Bolt 6 LT Transmitter",
+     "aliases": [
+      "A20019"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Offset Mount and V-Lock Kit for Bolt 6 LT Transmitter",
+     "aliases": [
+      "K20004"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cage for Bolt 6 LT Transmitter",
+     "aliases": [
+      "A40047"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Wireless Camera Control Starter Kit for Bolt 4K",
+     "aliases": [
+      "11-0898",
+      "11-0899"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Wireless Camera Control Adapters (Bolt 4K)",
+     "aliases": [
+      "11-0891",
+      "11-0892",
+      "11-0893",
+      "11-0894"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Sidearm Transmitter Mounting Bracket",
+     "aliases": [
+      "11-0813"
+     ]
+    },
+    {
+     "manufacturer": "Paralinx",
+     "model": "Tomahawk2",
+     "aliases": [
+      "10-1289",
+      "10-1291",
+      "Paralinx Tomahawk2",
+      "Paralinx Tomahawk 2"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "SDR Transmission 2",
+     "aliases": [
+      "DJI SDR Transmission 2"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Ronin 4D Video Transmitter",
+     "aliases": [
+      "DJI Ronin 4D Video Transmitter",
+      "Ronin 4D Bildübertragung"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Transmission High-Gain Antenna",
+     "aliases": [
+      "DJI Transmission High-Gain Antenna"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Mars 300 Pro",
+     "aliases": [
+      "Hollyland Mars 300 Pro",
+      "Mars 300 Pro Set"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Cosmo C1",
+     "aliases": [
+      "Hollyland Cosmo C1"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Cosmo C2",
+     "aliases": [
+      "Hollyland Cosmo C2"
+     ]
+    },
+    {
+     "manufacturer": "Hollyland",
+     "model": "Pyro Ultra",
+     "aliases": [
+      "Hollyland Pyro Ultra"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 800",
+     "aliases": [
+      "Vaxis Storm 800"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 3000 DV",
+     "aliases": [
+      "Vaxis Storm 3000 DV"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 3000 DG",
+     "aliases": [
+      "Vaxis Storm 3000 DG"
+     ]
+    },
+    {
+     "manufacturer": "Vaxis",
+     "model": "Storm 1000XR RX",
+     "aliases": [
+      "Storm 1000XR Receiver",
+      "Vaxis Storm 1000XR"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Wireless Video Transmitter WVT-1",
+     "aliases": [
+      "KK.0015009",
+      "WVT-1",
+      "ARRI WVS Transmitter",
+      "KK.0015008"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Wireless Video Receiver WVR-1",
+     "aliases": [
+      "KK.0015010",
+      "WVR-1",
+      "ARRI WVS Receiver",
+      "KK.0015115"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Wireless Video Receiver WVR-1s",
+     "aliases": [
+      "KK.0024403",
+      "WVR-1s",
+      "KK.0024475"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Wireless Video System Basic Set",
+     "aliases": [
+      "KK.0015011",
+      "ARRI WVS Set",
+      "Complete Wireless Video Basic Set",
+      "KK.0024404"
      ]
     }
    ]

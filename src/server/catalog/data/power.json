@@ -14,7 +14,8 @@
      "model": "Dionic 26V 240Wh B-Mount",
      "aliases": [
       "Dionic 26V 240 B-Mount",
-      "Anton Bauer Dionic B-Mount 240"
+      "Anton Bauer Dionic B-Mount 240",
+      "8675-0178"
      ],
      "specs": {
       "mount": "B-Mount",
@@ -26,7 +27,8 @@
      "model": "Dionic 26V 98Wh B-Mount",
      "aliases": [
       "Dionic 26V 98 B-Mount",
-      "Anton Bauer Dionic B-Mount 98"
+      "Anton Bauer Dionic B-Mount 98",
+      "8675-0177"
      ],
      "specs": {
       "mount": "B-Mount",
@@ -37,7 +39,10 @@
      "manufacturer": "Anton/Bauer",
      "model": "Dionic XT150",
      "aliases": [
-      "Anton Bauer XT150"
+      "Anton Bauer XT150",
+      "8675-0127",
+      "8675-0128",
+      "Dionic XT 150"
      ],
      "specs": {
       "mount": "V-Mount / Gold Mount"
@@ -47,7 +52,10 @@
      "manufacturer": "Anton/Bauer",
      "model": "Dionic XT90",
      "aliases": [
-      "Anton Bauer XT90"
+      "Anton Bauer XT90",
+      "8675-0125",
+      "8675-0126",
+      "Dionic XT 90"
      ],
      "specs": {
       "mount": "V-Mount / Gold Mount"
@@ -57,7 +65,10 @@
      "manufacturer": "Anton/Bauer",
      "model": "Titon 150",
      "aliases": [
-      "8675-0138"
+      "8675-0138",
+      "8675-0137",
+      "Titon 150 Gold Mount",
+      "Titon 150 V-Mount"
      ],
      "specs": {
       "mount": "V-Mount / Gold Mount",
@@ -68,7 +79,9 @@
      "manufacturer": "Anton/Bauer",
      "model": "Titon 240",
      "aliases": [
-      "Titon 240 Akku"
+      "Titon 240 Akku",
+      "Titon 240 Gold Mount",
+      "Titon 240 V-Mount"
      ],
      "specs": {
       "mount": "V-Mount / Gold Mount"
@@ -79,7 +92,10 @@
      "model": "Titon 90",
      "aliases": [
       "Anton Bauer 90",
-      "8675-0131"
+      "8675-0131",
+      "8675-0132",
+      "Titon 90 Gold Mount",
+      "Titon 90 V-Mount"
      ],
      "specs": {
       "mount": "V-Mount / Gold Mount",
@@ -90,7 +106,9 @@
      "manufacturer": "Anton/Bauer",
      "model": "Titon Micro 150",
      "aliases": [
-      "Titon Micro 150 Akku"
+      "Titon Micro 150 Akku",
+      "8675-0165",
+      "8675-0168"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -101,7 +119,9 @@
      "manufacturer": "Anton/Bauer",
      "model": "Titon SL 150",
      "aliases": [
-      "Titon SL 150 Akku"
+      "Titon SL 150 Akku",
+      "8675-0157",
+      "8675-0158"
      ],
      "specs": {
       "mount": "V-Mount / Gold Mount",
@@ -124,7 +144,9 @@
      "manufacturer": "Anton/Bauer",
      "model": "Titon SL 90",
      "aliases": [
-      "Titon SL 90 Akku"
+      "Titon SL 90 Akku",
+      "8675-0115",
+      "8675-0116"
      ],
      "specs": {
       "mount": "V-Mount / Gold Mount",
@@ -135,7 +157,9 @@
      "manufacturer": "bebob",
      "model": "A150micro",
      "aliases": [
-      "A150 Gold Mount"
+      "A150 Gold Mount",
+      "A150microC",
+      "bebob A150microC"
      ],
      "specs": {
       "mount": "Gold Mount",
@@ -147,7 +171,8 @@
      "model": "A155RM-Cine",
      "aliases": [
       "A155RM",
-      "bebob A155 Cine"
+      "bebob A155 Cine",
+      "A155RMcine"
      ],
      "specs": {
       "mount": "Gold Mount",
@@ -159,7 +184,8 @@
      "model": "A290RM-Cine",
      "aliases": [
       "A290RM",
-      "bebob A290 Cine"
+      "bebob A290 Cine",
+      "A290RMcine"
      ],
      "specs": {
       "mount": "Gold Mount"
@@ -169,7 +195,9 @@
      "manufacturer": "bebob",
      "model": "A45micro",
      "aliases": [
-      "A45 Gold Mount"
+      "A45 Gold Mount",
+      "A45microC",
+      "bebob A45microC"
      ],
      "specs": {
       "mount": "Gold Mount",
@@ -181,7 +209,8 @@
      "model": "A90RM-Cine",
      "aliases": [
       "A90RM",
-      "bebob A90 Cine"
+      "bebob A90 Cine",
+      "A90RMcine"
      ],
      "specs": {
       "mount": "Gold Mount",
@@ -192,7 +221,9 @@
      "manufacturer": "bebob",
      "model": "A98micro",
      "aliases": [
-      "A98 Gold Mount"
+      "A98 Gold Mount",
+      "A98microC",
+      "bebob A98microC"
      ],
      "specs": {
       "mount": "Gold Mount",
@@ -270,7 +301,8 @@
      "manufacturer": "bebob",
      "model": "V150micro",
      "aliases": [
-      "V150microC"
+      "V150microC",
+      "bebob V150microC"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -283,7 +315,8 @@
      "aliases": [
       "V155RM",
       "bebob V155 Cine",
-      "BEBOB V-Mount Akku 155Wh V155RM Cine"
+      "BEBOB V-Mount Akku 155Wh V155RM Cine",
+      "V155RMcine"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -294,7 +327,8 @@
      "manufacturer": "bebob",
      "model": "V200micro",
      "aliases": [
-      "V200microC"
+      "V200microC",
+      "bebob V200microC"
      ],
      "specs": {
       "mount": "V-Mount"
@@ -304,7 +338,8 @@
      "manufacturer": "bebob",
      "model": "V240micro",
      "aliases": [
-      "V240microC"
+      "V240microC",
+      "bebob V240microC"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -320,7 +355,8 @@
       "V-Mount 290",
       "V290RM",
       "bebob V290 Cine",
-      "BEBOB V-Mount Akku 290Wh V290RM Cine"
+      "BEBOB V-Mount Akku 290Wh V290RM Cine",
+      "V290RMcine"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -331,7 +367,8 @@
      "manufacturer": "bebob",
      "model": "V45micro",
      "aliases": [
-      "V45microC"
+      "V45microC",
+      "bebob V45microC"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -343,7 +380,8 @@
      "model": "V90RM-Cine",
      "aliases": [
       "V90RM",
-      "bebob V90 Cine"
+      "bebob V90 Cine",
+      "V90RMcine"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -354,7 +392,6 @@
      "manufacturer": "bebob",
      "model": "V98micro",
      "aliases": [
-      "Bebob V98",
       "V98microC",
       "BEBOB V-Mount Akku 98Wh V98micro",
       "Bebob V98 - 14.4V - 98Wh - Akku - V-Mount"
@@ -470,7 +507,9 @@
      "aliases": [
       "HLX-360MXS",
       "HLX-360MXB",
-      "Helix 360"
+      "Helix 360",
+      "HLX-360MXG",
+      "Helix Max 360 Series"
      ],
      "specs": {
       "capacity_wh": 367,
@@ -533,7 +572,9 @@
      "model": "NANO-V150X",
      "aliases": [
       "NanoX V150",
-      "Nano X 150"
+      "Nano X 150",
+      "NANO-G150X",
+      "Nano X Micro 150Wh"
      ],
      "specs": {
       "mount": "V-Mount"
@@ -543,7 +584,9 @@
      "manufacturer": "Core SWX",
      "model": "NANO-V50",
      "aliases": [
-      "Core Nano 50"
+      "Core Nano 50",
+      "NANO-G50",
+      "Nano Micro 50Wh"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -556,7 +599,9 @@
      "aliases": [
       "NanoX V98",
       "Nano X 98",
-      "Core NanoX 98"
+      "Core NanoX 98",
+      "NANO-G98X",
+      "Nano X Micro 98Wh"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -870,7 +915,8 @@
      "model": "SL-F70",
      "aliases": [
       "IDX NP-F 70",
-      "SL-F70 Akku"
+      "SL-F70 Akku",
+      "SL-F70PD"
      ],
      "specs": {
       "mount": "Sony L-Series (NP-F)"
@@ -904,7 +950,8 @@
      "manufacturer": "SWIT",
      "model": "PB-R290S+",
      "aliases": [
-      "SWIT V-Mount Akku 290Wh PB-R290S+"
+      "SWIT V-Mount Akku 290Wh PB-R290S+",
+      "PB-R290S"
      ],
      "specs": {
       "mount": "V-Mount",
@@ -976,7 +1023,8 @@
       "Bebob Cube",
       "bebob Cube 1200",
       "Akku Bebob Cube 1200",
-      "Bebob Cube 1200 Wh"
+      "Bebob Cube 1200 Wh",
+      "bebob Cube 1200 Akku"
      ]
     },
     {
@@ -1098,7 +1146,8 @@
      "model": "AG-VBR89G",
      "aliases": [
       "Akku Panasonic AG-VBR89G",
-      "AG-VBR89 EVA1 Akku"
+      "AG-VBR89 EVA1 Akku",
+      "AG-VBR89"
      ]
     },
     {
@@ -1274,7 +1323,8 @@
      "manufacturer": "IDX",
      "model": "SB-U98",
      "aliases": [
-      "IDX SB-U98 14,4V 96Wh BP-U Li-Ion Akku mit Doppel D-Tap und USB"
+      "IDX SB-U98 14,4V 96Wh BP-U Li-Ion Akku mit Doppel D-Tap und USB",
+      "SB-U98PD"
      ]
     },
     {
@@ -1309,6 +1359,867 @@
       "SONY BP-U100 BATTERY (BP-U)",
       "Sony BP-U 100"
      ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "REDVOLT BP",
+     "aliases": [
+      "740-0052",
+      "RED REDVOLT BP",
+      "Redvolt BP Akku"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "REDVOLT MICRO-V",
+     "aliases": [
+      "740-0053",
+      "REDVOLT MICRO Batteries",
+      "RED Micro-V",
+      "REDVOLT Micro V-Lock"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "REDVOLT MICRO-G",
+     "aliases": [
+      "REDVOLT MICRO Gold Mount",
+      "RED Micro-G"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "REDVOLT XL-V",
+     "aliases": [
+      "740-0055",
+      "REDVOLT XL Batteries",
+      "RED XL-V",
+      "REDVOLT XL V-Lock"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "REDVOLT XL-G",
+     "aliases": [
+      "REDVOLT XL Gold Mount",
+      "RED XL-G"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "REDVOLT NANO-V",
+     "aliases": [
+      "740-0059",
+      "RED Nano-V"
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "AG-VBR59G",
+     "aliases": [
+      "AG-VBR59",
+      "Panasonic AG-VBR59 Akku"
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "AG-VBR118G",
+     "aliases": [
+      "AG-VBR118",
+      "Panasonic AG-VBR118 Akku"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BP-U70",
+     "aliases": [
+      "Sony BP-U70",
+      "BPU 70",
+      "Akku BPU 70"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BP-FL75",
+     "aliases": [
+      "Sony BP-FL75"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BP-GL65A",
+     "aliases": [
+      "Sony BP-GL65A"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "NP-SA100",
+     "aliases": [
+      "Sony NP-SA100"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "BP-A60",
+     "aliases": [
+      "Canon BP-A60",
+      "Akku Canon BP-A60"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "BP-A30N",
+     "aliases": [
+      "Canon BP-A30N"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "BP-A60N",
+     "aliases": [
+      "Canon BP-A60N"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "LP-E6P",
+     "aliases": [
+      "Canon LP-E6P",
+      "Akku Canon LP-E6P"
+     ]
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "Wave Replacement Battery",
+     "aliases": [
+      "910-00673",
+      "Freefly Wave Battery"
+     ]
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "SL4-Ground Battery",
+     "aliases": [
+      "910-00653",
+      "Freefly SL4 Battery",
+      "MoVI Pro SL4 Akku"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "TB50 Intelligent Battery",
+     "aliases": [
+      "DJI TB50",
+      "Ronin 2 TB50 Intelligent Battery",
+      "TB50 Akku"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "V98",
+     "aliases": [
+      "bebob V98",
+      "bebob V98 V-Mount 95Wh"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "V150",
+     "aliases": [
+      "bebob V150",
+      "bebob V150 V-Mount 143Wh"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "V200",
+     "aliases": [
+      "bebob V200",
+      "bebob V200 V-Mount 190Wh"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "A98",
+     "aliases": [
+      "bebob A98",
+      "bebob A98 Gold Mount 95Wh"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "A150",
+     "aliases": [
+      "bebob A150",
+      "bebob A150 Gold Mount 143Wh"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "A200",
+     "aliases": [
+      "bebob A200",
+      "bebob A200 Gold Mount 190Wh"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "A200microC",
+     "aliases": [
+      "bebob A200microC",
+      "A200micro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "A240microC",
+     "aliases": [
+      "bebob A240microC",
+      "A240micro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "MLmicro",
+     "aliases": [
+      "bebob MLmicro",
+      "bebob ML micro Buffer"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "B90cineML",
+     "aliases": [
+      "bebob B90cineML",
+      "B90 cine ML"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "B155cineML",
+     "aliases": [
+      "bebob B155cineML",
+      "B155 cine ML"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Cube 1200/700",
+     "aliases": [
+      "bebob Cube 1200/700",
+      "Cube 1200 700"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Ultra 99",
+     "aliases": [
+      "HLX-99UMXB",
+      "HLX-99UMXG",
+      "HLX-99UMXV",
+      "Core SWX Ultra 99"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Ultra 160",
+     "aliases": [
+      "HLX-160UMXB",
+      "HLX-160UMXG",
+      "HLX-160UMXV",
+      "Core SWX Ultra 160"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Ultra 300",
+     "aliases": [
+      "HLX-300UMXB",
+      "HLX-300UMXG",
+      "HLX-300UMXV",
+      "Core SWX Ultra 300"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Ultra 400",
+     "aliases": [
+      "HLX-400UMXB",
+      "HLX-400UMXG",
+      "HLX-400UMXV",
+      "Core SWX Ultra 400"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Max 275",
+     "aliases": [
+      "HLX-275MXB",
+      "Helix 275 Max"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "HyperCore G3 99",
+     "aliases": [
+      "HCG3-99V",
+      "HCG3-99AG",
+      "Hypercore G3 99Wh"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "HyperCore G3 150",
+     "aliases": [
+      "HCG3-150V",
+      "HCG3-150AG",
+      "Hypercore G3 150Wh"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "XCell 99",
+     "aliases": [
+      "XCL-99V",
+      "Core SWX XCell 99Wh"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "XCell 150",
+     "aliases": [
+      "XCL-150V",
+      "Core SWX XCell 150Wh"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Apex 360 LV",
+     "aliases": [
+      "APX-360V",
+      "Core SWX Apex 360"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Apex 360 HV",
+     "aliases": [
+      "APX-360HV"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "NANO-U98X",
+     "aliases": [
+      "Core SWX 98Wh BP-U Battery",
+      "NANO-U98MX"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "NANO-C98X",
+     "aliases": [
+      "Core SWX 98Wh BPA Battery",
+      "NANO-C98MX"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Nano X Snap 99",
+     "aliases": [
+      "NANO-XS99V",
+      "NANO-XS99G"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "PowerBase Edge Snap",
+     "aliases": [
+      "PBE-SNAP",
+      "PB Edge Snap"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Renegade",
+     "aliases": [
+      "RNG7",
+      "Core SWX Renegade Power Station"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Renegade XL",
+     "aliases": [
+      "RNG-XL1",
+      "Core SWX Renegade XL"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "CUE-J98",
+     "aliases": [
+      "IDX CUE-J98"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "CUE-J150",
+     "aliases": [
+      "IDX CUE-J150"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "CUE-J198",
+     "aliases": [
+      "IDX CUE-J198"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "CUE-J300",
+     "aliases": [
+      "IDX CUE-J300",
+      "CUE-D300"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "HV-160B",
+     "aliases": [
+      "IDX HV-160B",
+      "IDX CinePower B-Mount 160"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "HV-320B",
+     "aliases": [
+      "IDX HV-320B",
+      "IDX CinePower B-Mount 320"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "IM-98G",
+     "aliases": [
+      "IDX IM-98G"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "IM-220G",
+     "aliases": [
+      "IDX IM-220G"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "ZEN-C98G",
+     "aliases": [
+      "IDX ZEN-C98G",
+      "IDX Zenith 98"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "ZEN-C150G",
+     "aliases": [
+      "IDX ZEN-C150G",
+      "IDX Zenith 150"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "NP-9X",
+     "aliases": [
+      "IDX NP-9X"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "SB-U50PD",
+     "aliases": [
+      "IDX SB-U50PD"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "SL-F30",
+     "aliases": [
+      "IDX SL-F30"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Dionic 26V 240Wh Gold Mount Plus",
+     "aliases": [
+      "8675-0156",
+      "Dionic 26V 240 Gold Mount Plus"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Dionic 26V 98Wh Gold Mount Plus",
+     "aliases": [
+      "8675-0155",
+      "Dionic 26V 98 Gold Mount Plus"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Digital G190",
+     "aliases": [
+      "8675-0094",
+      "Anton Bauer Digital 190 Gold Mount"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Digital V190",
+     "aliases": [
+      "8675-0097",
+      "Anton Bauer Digital 190 V-Mount"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "HyTRON 140",
+     "aliases": [
+      "8675-0079",
+      "Anton Bauer Hytron 140"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "GO 90",
+     "aliases": [
+      "8675-0161",
+      "8675-0162",
+      "Anton Bauer GO 90"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Titon Micro 45",
+     "aliases": [
+      "8675-0163",
+      "8675-0166"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Titon Micro 90",
+     "aliases": [
+      "8675-0164",
+      "8675-0167"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Titon Base",
+     "aliases": [
+      "8675-0169",
+      "Anton Bauer Titon Base"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "NP-F976",
+     "aliases": [
+      "8675-0109",
+      "Anton Bauer NP-F976 7.2V"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "VCLX NM2",
+     "aliases": [
+      "8675-0174",
+      "Anton Bauer VCLX NM2"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "VCLX LI 1600",
+     "aliases": [
+      "8675-0175"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-M50",
+     "aliases": [
+      "Mini V-Lok 50Wh",
+      "Hawk-Woods VL-M50"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-M150D",
+     "aliases": [
+      "Mini V-Lok 150Wh Data",
+      "Hawk-Woods VL-M150D"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-90HP",
+     "aliases": [
+      "VL-90H",
+      "Hawk-Woods VL-90HP"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-150HP",
+     "aliases": [
+      "VL-150H",
+      "Hawk-Woods VL-150HP"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-175HP",
+     "aliases": [
+      "VL-175H",
+      "Hawk-Woods VL-175HP"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-95N",
+     "aliases": [
+      "Hawk-Woods VL-95N"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-70",
+     "aliases": [
+      "Hawk-Woods VL-70"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-175",
+     "aliases": [
+      "Hawk-Woods VL-175"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-190",
+     "aliases": [
+      "Hawk-Woods VL-190"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-M98-14",
+     "aliases": [
+      "Mini G-Lok 98 14.4V"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-M98-26",
+     "aliases": [
+      "Mini G-Lok 98 26V"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-M150-14",
+     "aliases": [
+      "Mini G-Lok 150 14.4V"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-M150-26",
+     "aliases": [
+      "Mini G-Lok 150 26V"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "XB2-450",
+     "aliases": [
+      "X-Boxx XB2-450"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "XB2-680",
+     "aliases": [
+      "X-Boxx XB2-680"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "XB2-900",
+     "aliases": [
+      "X-Boxx XB2-900"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "BP-75U",
+     "aliases": [
+      "Hawk-Woods BP-75U"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "MINO-S70",
+     "aliases": [
+      "SWIT MINO-S70"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "MINO-S210",
+     "aliases": [
+      "SWIT MINO-S210"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "MINO-A140",
+     "aliases": [
+      "SWIT MINO-A140"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "MINO-A210",
+     "aliases": [
+      "SWIT MINO-A210"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-M146S",
+     "aliases": [
+      "SWIT PB-M146S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-S98A",
+     "aliases": [
+      "SWIT PB-S98A"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-S146A",
+     "aliases": [
+      "SWIT PB-S146A"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-S220A",
+     "aliases": [
+      "SWIT PB-S220A"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-R220S",
+     "aliases": [
+      "SWIT PB-R220S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PB-H290S",
+     "aliases": [
+      "SWIT PB-H290S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "HB-C420S",
+     "aliases": [
+      "SWIT HB-C420S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "CIMO-98S",
+     "aliases": [
+      "SWIT CIMO-98S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "CIMO-160S",
+     "aliases": [
+      "SWIT CIMO-160S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "CIMO-200S",
+     "aliases": [
+      "SWIT CIMO-200S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "CIMO-290S",
+     "aliases": [
+      "SWIT CIMO-290S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "CIMO-D290S",
+     "aliases": [
+      "SWIT CIMO-D290S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "BIVO-200",
+     "aliases": [
+      "SWIT BIVO-200"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "BIVO-290",
+     "aliases": [
+      "SWIT BIVO-290"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-8183A",
+     "aliases": [
+      "SWIT S-8183A"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-8113A",
+     "aliases": [
+      "SWIT S-8113A"
+     ]
+    },
+    {
+     "manufacturer": "Kino Flo",
+     "model": "BlockBattery KF21",
+     "aliases": [
+      "Kino Flo BAT-KF21",
+      "BAT-KF21",
+      "Kino Flo Block Battery"
+     ]
     }
    ]
   },
@@ -1324,7 +2235,8 @@
      "aliases": [
       "LP4 B-Mount",
       "Dionic LP4 Quad B-Mount Ladegerät",
-      "Anton Bauer LP4 B-Mount"
+      "Anton Bauer LP4 B-Mount",
+      "8475-0148"
      ],
      "specs": {
       "mount": "B-Mount"
@@ -1335,7 +2247,9 @@
      "model": "LP2 Dual",
      "aliases": [
       "Anton Bauer LP2",
-      "LP2 Ladegerät"
+      "LP2 Ladegerät",
+      "8475-0125",
+      "8475-0127"
      ],
      "specs": {
       "mount": "Gold Mount"
@@ -1346,7 +2260,9 @@
      "model": "LP4 Quad",
      "aliases": [
       "Anton Bauer LP4",
-      "LP4 Ladegerät"
+      "LP4 Ladegerät",
+      "8475-0126",
+      "8475-0128"
      ],
      "specs": {
       "mount": "Gold Mount"
@@ -1356,7 +2272,8 @@
      "manufacturer": "Anton/Bauer",
      "model": "VM2",
      "aliases": [
-      "VM2 Dual V-Mount Charger"
+      "VM2 Dual V-Mount Charger",
+      "8475-0143"
      ],
      "specs": {
       "mount": "V-Mount"
@@ -1543,7 +2460,10 @@
      "model": "GPM-X2S",
      "aliases": [
       "GPM-X2S Mini Dual Charger",
-      "Core GPM X2S"
+      "Core GPM X2S",
+      "GPM-X2A",
+      "GPM-X2B",
+      "Travel Dual Charger"
      ],
      "specs": {
       "mount": "V-Mount"
@@ -1811,6 +2731,532 @@
      "aliases": [
       "Sony AC-VQ1050D Dual NP-F L Type Ladegerät"
      ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED Compact Dual Gold Mount Charger",
+     "aliases": [
+      "740-0058",
+      "RED Dual Gold Mount Charger"
+     ]
+    },
+    {
+     "manufacturer": "Panasonic",
+     "model": "AG-BRD50",
+     "aliases": [
+      "Panasonic AG-BRD50 Charger",
+      "AG-BRD50 Ladegerät"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BC-U2A",
+     "aliases": [
+      "Sony BC-U2A",
+      "BC-U2A Ladegerät"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BC-L90",
+     "aliases": [
+      "Sony BC-L90"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BC-ZD1",
+     "aliases": [
+      "Sony BC-ZD1",
+      "NP-FZ100 Dual Charger"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BC-SAD1",
+     "aliases": [
+      "Sony BC-SAD1",
+      "NP-SA100 Charger"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "CG-A20",
+     "aliases": [
+      "Canon CG-A20",
+      "Ladegerät Canon CG-A20"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "LC-E6",
+     "aliases": [
+      "Canon LC-E6",
+      "LC-E6E"
+     ]
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "Wave Charger and AC Power Supply",
+     "aliases": [
+      "910-00674",
+      "Freefly Wave Charger"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AS2",
+     "aliases": [
+      "bebob AS2",
+      "AS2 Dual Gold Mount Charger"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AS2-RL",
+     "aliases": [
+      "bebob AS2-RL"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AS4-RL",
+     "aliases": [
+      "bebob AS4-RL"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VS2-RL",
+     "aliases": [
+      "bebob VS2-RL"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VS4-RL",
+     "aliases": [
+      "bebob VS4-RL"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VGN4",
+     "aliases": [
+      "bebob VGN4",
+      "bebob VGN4 Wall Charger"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VGN8micro",
+     "aliases": [
+      "bebob VGN8micro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AGN4",
+     "aliases": [
+      "bebob AGN4"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AGN8micro",
+     "aliases": [
+      "bebob AGN8micro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "BGN4",
+     "aliases": [
+      "bebob BGN4",
+      "bebob BGN4 B-Mount Wall Charger"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "S1micro",
+     "aliases": [
+      "bebob S1micro",
+      "bebob D-Tap Charger S1micro"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Mach4 Quad",
+     "aliases": [
+      "MACH-Q4S",
+      "MACH-Q4A",
+      "MACH-4B",
+      "Core SWX Mach4"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Mach4 Micro Quad",
+     "aliases": [
+      "MACH-Q4MSi",
+      "MACH-Q4MAi",
+      "MACH-Q4MBi"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Mach Dual",
+     "aliases": [
+      "MACH-D2S",
+      "MACH-D2A",
+      "MACH-D2B"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "GT8 Quad",
+     "aliases": [
+      "GT8-Q4S",
+      "GT8-Q4A",
+      "GT8-Q4B",
+      "GT8 Quad for Helix Max & Ultra"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Fleet Mini Quad",
+     "aliases": [
+      "FLEET-Q4Smini",
+      "FLEET-Q4Amini"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Fleet Micro Dual",
+     "aliases": [
+      "FLEET-DM2S",
+      "FLEET-DM2A"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Travel Quad Charger",
+     "aliases": [
+      "GP-X4S",
+      "GP-X4A"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "X2 Charger LV",
+     "aliases": [
+      "GP-X2RV"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "X2 Charger HV",
+     "aliases": [
+      "GP-X2RHV"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "BL-4SX",
+     "aliases": [
+      "IDX BL-4SX",
+      "IDX B-Mount Charger BL-4SX"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "MC-2SG",
+     "aliases": [
+      "IDX MC-2SG"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "MC-2U",
+     "aliases": [
+      "IDX MC-2U"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "LC-2A",
+     "aliases": [
+      "IDX LC-2A"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "JL-2PLUS",
+     "aliases": [
+      "IDX JL-2PLUS",
+      "JL-2Plus"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "UC-PD1",
+     "aliases": [
+      "IDX UC-PD1"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "UC-PD2",
+     "aliases": [
+      "IDX UC-PD2"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "UC-PD3",
+     "aliases": [
+      "IDX UC-PD3"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "UC-PD6",
+     "aliases": [
+      "IDX UC-PD6"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "GM2",
+     "aliases": [
+      "8475-0141",
+      "Anton/Bauer GM2 Charger"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "GM4 Micro Charger",
+     "aliases": [
+      "8475-0144",
+      "GM4 4-Position Micro Battery Charger"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "VM4 Micro Charger",
+     "aliases": [
+      "8475-0145",
+      "VM4 4-Position Micro Battery Charger"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Performance Dual",
+     "aliases": [
+      "8475-0120",
+      "8475-0122",
+      "Anton Bauer Performance Dual Charger"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Performance Quad",
+     "aliases": [
+      "8475-0119",
+      "8475-0121",
+      "Anton Bauer Performance Quad Charger"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Quad 6A V-Mount Charger",
+     "aliases": [
+      "8475-0149",
+      "QUAD 6A VM Charger"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Quad 6A Gold Mount Plus Charger",
+     "aliases": [
+      "8475-0138",
+      "Gold Mount Plus Quad 6A"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "TWIN Charger",
+     "aliases": [
+      "8475-0073",
+      "Anton Bauer TWIN"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "VCLX 2 Charger",
+     "aliases": [
+      "8475-0146"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Cine VCLX Charger",
+     "aliases": [
+      "8475-0109"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "P-Tap Charger",
+     "aliases": [
+      "8475-0142",
+      "Anton Bauer P-Tap Charger"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "L-Series Single Charger",
+     "aliases": [
+      "8475-0131",
+      "7.2V L-Series Single Charger"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-MX1",
+     "aliases": [
+      "Hawk-Woods VL-MX1"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-MX2",
+     "aliases": [
+      "Hawk-Woods VL-MX2"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-MX4",
+     "aliases": [
+      "Hawk-Woods VL-MX4"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-MX8",
+     "aliases": [
+      "Hawk-Woods VL-MX8"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-2X2",
+     "aliases": [
+      "Hawk-Woods VL-2X2"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-2X2C",
+     "aliases": [
+      "Hawk-Woods VL-2X2C"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-2X2",
+     "aliases": [
+      "Hawk-Woods GL-2X2"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-4X4",
+     "aliases": [
+      "Hawk-Woods GL-4X4",
+      "G-Lok 4-Channel Charger"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "XB-25C",
+     "aliases": [
+      "Hawk-Woods XB-25C",
+      "X-Boxx Charger"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "XBA-25C",
+     "aliases": [
+      "Hawk-Woods XBA-25C"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "XBA-25D",
+     "aliases": [
+      "Hawk-Woods XBA-25D"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-3822S",
+     "aliases": [
+      "SWIT S-3822S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-3822A",
+     "aliases": [
+      "SWIT S-3822A"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-3822B",
+     "aliases": [
+      "SWIT S-3822B"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "S-3812S",
+     "aliases": [
+      "SWIT S-3812S"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PC-P430A",
+     "aliases": [
+      "SWIT PC-P430A"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "PC-U130B2",
+     "aliases": [
+      "SWIT PC-U130B2"
+     ]
+    },
+    {
+     "manufacturer": "Kino Flo",
+     "model": "BlockBattery Single Charger BAT-BC1U",
+     "aliases": [
+      "Kino Flo BAT-BC1U",
+      "BAT-BC1U"
+     ]
+    },
+    {
+     "manufacturer": "Kino Flo",
+     "model": "BlockBattery Dual Charger BAT-BC2U",
+     "aliases": [
+      "Kino Flo BAT-BC2U",
+      "BAT-BC2U"
+     ]
     }
    ]
   },
@@ -1825,7 +3271,8 @@
      "model": "Cine VCLX",
      "aliases": [
       "VCLX",
-      "Anton Bauer VCLX Blockakku"
+      "Anton Bauer VCLX Blockakku",
+      "8675-0051"
      ],
      "specs": {
       "capacity_wh": 630
@@ -1903,7 +3350,9 @@
      "manufacturer": "bebob",
      "model": "Coco-Double",
      "aliases": [
-      "Coco-Double 48V"
+      "Coco-Double 48V",
+      "Coco-Double-B48",
+      "bebob Coco-Double-B48"
      ]
     },
     {
@@ -1928,7 +3377,9 @@
      "model": "Maverick",
      "aliases": [
       "Maverick 630",
-      "Core Maverick Blockakku"
+      "Core Maverick Blockakku",
+      "MV6",
+      "Core SWX Maverick MV6"
      ],
      "specs": {
       "capacity_wh": 630
@@ -2077,7 +3528,8 @@
      "model": "V-Mount Battery Bracket for Smart 7 Series",
      "aliases": [
       "SmallHD Cine 7 V-Mount Plate",
-      "Smart 7 V-Mount Bracket"
+      "Smart 7 V-Mount Bracket",
+      "PWR-ADP-C7T-VM"
      ]
     },
     {
@@ -2143,6 +3595,1439 @@
       "PESS Energy WATTMAN",
       "PESS WATTMAN 6kW",
       "Wattman 6kW 10kWh"
+     ]
+    },
+    {
+     "manufacturer": "RED",
+     "model": "RED AC Power Adaptor",
+     "aliases": [
+      "740-0047",
+      "RED AC Power Adaptor 270W",
+      "KOMODO AC Power Adaptor 45W",
+      "DSMC AC Power Adaptor 150W"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "AC-DN10",
+     "aliases": [
+      "Sony AC-DN10",
+      "AC-DN10A"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "CA-CP300B Compact Power Adapter",
+     "aliases": [
+      "CA-CP300B",
+      "Canon CA-CP300B"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "CA-946 Compact Power Adapter",
+     "aliases": [
+      "CA-946",
+      "Canon CA-946"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "DR-E6C DC Coupler",
+     "aliases": [
+      "DR-E6C",
+      "Canon DR-E6C"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "DR-E6P DC Coupler",
+     "aliases": [
+      "DR-E6P",
+      "Canon DR-E6P"
+     ]
+    },
+    {
+     "manufacturer": "Freefly",
+     "model": "MoVI Pro to TB50/TB55 Battery Adapter",
+     "aliases": [
+      "910-00617",
+      "Mōvi Pro to TB50/TB55 Battery Adapter"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Pro Battery Plate 14V Gold Mount",
+     "aliases": [
+      "11-0852",
+      "11-0853"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Pro Battery Plate 14V V-Mount",
+     "aliases": [
+      "11-0854",
+      "11-0855"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Pro Battery Plate 26V",
+     "aliases": [
+      "11-0933",
+      "11-0934",
+      "Pro Battery Plate (26V) Gold Mount Plus"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Pro Battery Plate for Antenna Array (26V)",
+     "aliases": [
+      "11-0935"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cradle for Bolt 6 LT Transmitter Gold Mount",
+     "aliases": [
+      "A40048"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cradle for Bolt 6 LT Transmitter V-Mount",
+     "aliases": [
+      "A00054"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cradle for Bolt 6 LT Transmitter V-Mount to Gold Mount",
+     "aliases": [
+      "A00138"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cradle for Bolt 6 LT Transmitter B-Mount",
+     "aliases": [
+      "A00648"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Cradle for Bolt 6 LT Transmitter Gold Mount Plus (26V)",
+     "aliases": [
+      "A00685"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Battery Cradle for Bolt 7 TX",
+     "aliases": [
+      "11-1610",
+      "11-1611",
+      "11-1612"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Battery Cradle for Bolt 7 RX",
+     "aliases": [
+      "11-1613",
+      "11-1614",
+      "11-1615"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Single Battery Plate Mount 14.4V",
+     "aliases": [
+      "11-0764",
+      "11-0765",
+      "11-0792",
+      "11-0793"
+     ]
+    },
+    {
+     "manufacturer": "Teradek",
+     "model": "Bolt Dual Battery Plate Mount 14.4V",
+     "aliases": [
+      "11-0760",
+      "11-0761",
+      "11-0768",
+      "11-0769",
+      "11-0790",
+      "11-0791"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Dual V-Mount Battery Bracket for 4K Monitors",
+     "aliases": [
+      "PWR-ADP-BB-4K-DUALVM",
+      "SmallHD Dual V-Mount Battery Bracket (14v/26v)"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Dual Gold Mount Plus Battery Bracket for 4K Monitors",
+     "aliases": [
+      "PWR-ADP-BB-4K-DUALGM",
+      "SmallHD Dual Gold Mount Battery Bracket (14v/26v)"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Gold Mount Battery Bracket for 703 Bolt / UltraBright",
+     "aliases": [
+      "PWR-ADP-UB-GM"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "V-Mount Battery Bracket for 703 Bolt / UltraBright",
+     "aliases": [
+      "PWR-ADP-UB-VM"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sony L-Series Battery Bracket for UltraBright Series",
+     "aliases": [
+      "PWR-ADP-UB-SONY"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Sony L-Series Battery Bracket for 703 Bolt",
+     "aliases": [
+      "PWR-ADP-BOLT-SONY"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Micro Battery Plate for Ultra Series 12V",
+     "aliases": [
+      "WC-A00022",
+      "WC-A00023",
+      "WC-A00645",
+      "A00022",
+      "A00023",
+      "A00645"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "Micro Battery Plate for Ultra 7 B-Mount 24V",
+     "aliases": [
+      "WC-A00610",
+      "A00610"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "24V Power Supply (OLED 22, Cine 24, Vision 17)",
+     "aliases": [
+      "17-3201"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "24V Power Supply (Cine 13, Cine 18)",
+     "aliases": [
+      "17-3200"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "15V / 180W Power Supply (Cine 13, Cine 18, OLED 16)",
+     "aliases": [
+      "17-3202"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "4-pin XLR AC/DC Power Adapter 15V",
+     "aliases": [
+      "PWR-ADP-XLR-15V-6A"
+     ]
+    },
+    {
+     "manufacturer": "SmallHD",
+     "model": "3-Pin XLR Power Supply 30V (Vision 24)",
+     "aliases": [
+      "PWR-ADP-XLR-3PIN-30V-12A"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (ALEXA Mini / Mini LF, V-Mount)",
+     "aliases": [
+      "209200",
+      "WC D-Box Mini V-Mount"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (ALEXA Mini / Mini LF, Gold Mount)",
+     "aliases": [
+      "209100",
+      "WC D-Box Mini Gold Mount"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box Plus (ALEXA Mini / Mini LF, V-Mount)",
+     "aliases": [
+      "253700"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box Plus (ALEXA Mini / Mini LF, Gold Mount)",
+     "aliases": [
+      "253600"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (Sony VENICE, VENICE 2)",
+     "aliases": [
+      "258000",
+      "258100"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (Sony BURANO)",
+     "aliases": [
+      "A00543",
+      "A00590"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (RED KOMODO-X)",
+     "aliases": [
+      "A00457",
+      "A00497"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (RED DSMC2, V-Mount)",
+     "aliases": [
+      "233900"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (RED DSMC2, Gold Mount)",
+     "aliases": [
+      "234000"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (URSA Mini, V-Mount)",
+     "aliases": [
+      "239500"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (URSA Mini, Gold Mount)",
+     "aliases": [
+      "239600"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (2pin Kit, V-Mount)",
+     "aliases": [
+      "200100"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "D-Box (2pin Kit, Gold Mount)",
+     "aliases": [
+      "200200"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "B-Box System (Sony BURANO)",
+     "aliases": [
+      "A00598"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "B-Box Kit (RED KOMODO, KOMODO-X, V-RAPTOR)",
+     "aliases": [
+      "A00546"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "B-Mount D-Box System for Sony VENICE",
+     "aliases": [
+      "A00719"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "A-Box (ALEXA Mini LF, ALEXA 35)",
+     "aliases": [
+      "271500"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "A-Box (RED V-Raptor, KOMODO-X, ARRI ALEXA Mini)",
+     "aliases": [
+      "207700"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "A-Box (Sony VENICE, VENICE 2)",
+     "aliases": [
+      "257400"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Battery Slide Pro V-Mount (Sony FX9)",
+     "aliases": [
+      "275900"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Battery Slide Pro Gold Mount (Sony FX9)",
+     "aliases": [
+      "276000"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "Battery Slide Pro (Canon C400, C300mkIII, C500mkII)",
+     "aliases": [
+      "282200",
+      "282300"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "ARRI Alexa LF 24V Sharkfin Battery Bracket (V-Mount)",
+     "aliases": [
+      "262900"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "ARRI Alexa LF 24V Sharkfin Battery Bracket (Gold Mount)",
+     "aliases": [
+      "262800"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "ARRI Alexa 65 / SXT 24V Sharkfin Battery Bracket (V-Mount)",
+     "aliases": [
+      "269500"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "ARRI Alexa 65 / SXT 24V Sharkfin Battery Bracket (Gold Mount)",
+     "aliases": [
+      "269400"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "1 to 3 Mini Power Splitter (2-pin)",
+     "aliases": [
+      "258600"
+     ]
+    },
+    {
+     "manufacturer": "Wooden Camera",
+     "model": "24V Power Supply (ARRI Amira / ALEXA Mini / Mini LF / ALEXA 35)",
+     "aliases": [
+      "231200"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Transmission V-Mount Battery Adapter",
+     "aliases": [
+      "DJI Transmission V-Mount Battery Adapter"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "Transmission Gold Mount Battery Adapter",
+     "aliases": [
+      "DJI Transmission Gold Mount Battery Adapter"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "High-Bright Remote Monitor V-Mount Battery Adapter",
+     "aliases": [
+      "DJI High-Bright Remote Monitor V-Mount Battery Adapter"
+     ]
+    },
+    {
+     "manufacturer": "DJI",
+     "model": "High-Bright Remote Monitor Gold Mount Battery Adapter",
+     "aliases": [
+      "DJI High-Bright Remote Monitor Gold Mount Battery Adapter"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "Chassis Mounted V-Mount Power Plate",
+     "aliases": [
+      "V-MOUNT-PLATE.CM",
+      "FSI V-Mount Plate"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "Chassis Mounted Gold Mount Power Plate",
+     "aliases": [
+      "AB-PLATE.CM",
+      "FSI Gold Mount Plate"
+     ]
+    },
+    {
+     "manufacturer": "Flanders Scientific",
+     "model": "Standalone V-Mount Power Plate with XLR",
+     "aliases": [
+      "VMOUNT-PLATE"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "V2AB",
+     "aliases": [
+      "bebob V2AB",
+      "bebob V-Mount to Gold Mount Adapter"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AB2V",
+     "aliases": [
+      "bebob AB2V",
+      "bebob Gold Mount to V-Mount Adapter"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "B2V-Raptor-XL",
+     "aliases": [
+      "bebob B2V-Raptor-XL",
+      "B2V Raptor XL"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "BMM12",
+     "aliases": [
+      "bebob BMM12",
+      "bebob B-Mount Plate 12V"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "BMM24",
+     "aliases": [
+      "bebob BMM24",
+      "bebob B-Mount Plate 24V"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "BMM24-Alex",
+     "aliases": [
+      "bebob BMM24-Alex",
+      "bebob B-Mount Plate Alexa"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "BMM24-Amira",
+     "aliases": [
+      "bebob BMM24-Amira"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "BMM24-Power-Beltclip",
+     "aliases": [
+      "bebob BMM24 Power Beltclip 24V"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMM-Venice",
+     "aliases": [
+      "bebob AMM-Venice",
+      "bebob Gold Mount Plate Venice"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VMMmicro",
+     "aliases": [
+      "bebob VMMmicro",
+      "bebob Vmicro Plate"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VMMmicro-DTap-DTap",
+     "aliases": [
+      "bebob VMMmicro-DTap-DTap"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VMMmicro-DTap-LEMO",
+     "aliases": [
+      "bebob VMMmicro-DTap-LEMO"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VMMmicro-DTap-USB",
+     "aliases": [
+      "bebob VMMmicro-DTap-USB"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VMMmicro-HR4-USB",
+     "aliases": [
+      "bebob VMMmicro-HR4-USB"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VMMmicro-HR4-USB-C",
+     "aliases": [
+      "bebob VMMmicro-HR4-USB-C"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "VMMmicro-Standholder",
+     "aliases": [
+      "bebob VMMmicro-Standholder"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMMmicro",
+     "aliases": [
+      "bebob AMMmicro",
+      "bebob Amicro Plate"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMMmicro-DTap-DTap",
+     "aliases": [
+      "bebob AMMmicro-DTap-DTap"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMMmicro-DTap-LEMO",
+     "aliases": [
+      "bebob AMMmicro-DTap-LEMO"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMMmicro-DTap-USB",
+     "aliases": [
+      "bebob AMMmicro-DTap-USB"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMMmicro-HR4-USB",
+     "aliases": [
+      "bebob AMMmicro-HR4-USB"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMMmicro-Standholder",
+     "aliases": [
+      "bebob AMMmicro-Standholder"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "AMF-Amicro2",
+     "aliases": [
+      "bebob AMF-Amicro2",
+      "bebob Amicro Hotswap Plate"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-15V III",
+     "aliases": [
+      "bebob Coco-15V III",
+      "Coco 15V III"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-15Vmicro",
+     "aliases": [
+      "bebob Coco-15Vmicro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-15Amicro",
+     "aliases": [
+      "bebob Coco-15Amicro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-Modo-V",
+     "aliases": [
+      "bebob Coco-Modo-V",
+      "bebob Komodo V-Mount Adapter"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-Modo-A",
+     "aliases": [
+      "bebob Coco-Modo-A"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-Vmicro2",
+     "aliases": [
+      "bebob Coco-Vmicro2"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-Amicro2",
+     "aliases": [
+      "bebob Coco-Amicro2"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Coco-A2Vmicro2",
+     "aliases": [
+      "bebob Coco-A2Vmicro2"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "CocoV2BP-U",
+     "aliases": [
+      "bebob CocoV2BP-U",
+      "bebob Coco V2BP-U"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "CocoA2BP-U",
+     "aliases": [
+      "bebob CocoA2BP-U"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Powerbase-Vmicro",
+     "aliases": [
+      "bebob Powerbase-Vmicro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Powerbase-Amicro",
+     "aliases": [
+      "bebob Powerbase-Amicro"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Micro-Beltclip",
+     "aliases": [
+      "bebob Micro-Beltclip"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Cube-Standholder",
+     "aliases": [
+      "bebob Cube-Standholder",
+      "bebob Cube Stand Holder"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Cube-AK-48-SP",
+     "aliases": [
+      "bebob Cube-AK-48-SP",
+      "bebob Cube SkyPanel Cable 48V"
+     ]
+    },
+    {
+     "manufacturer": "bebob",
+     "model": "Cube-AK-24-XLR3",
+     "aliases": [
+      "bebob Cube-AK-24-XLR3"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Sharkfin Plate",
+     "aliases": [
+      "HLX-TS-SFF",
+      "HLX-TA-SFF",
+      "HLX-TB-SFF"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Sharkfin Plate",
+     "aliases": [
+      "GP-TS",
+      "GP-TA",
+      "Core SWX Sharkfin"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Alexa 35 Direct Connect Plate",
+     "aliases": [
+      "HLX-BABV-S35",
+      "HLX-BABG-S35"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Venice Plate",
+     "aliases": [
+      "HLX-VEN-V",
+      "HLX-VEN-G",
+      "HLX-VEN-VP",
+      "HLX-VEN-GP2"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "PMC Plate for Sony Burano",
+     "aliases": [
+      "PMC-BUR-V",
+      "PMC-BUR-G",
+      "PMC-BUR-VK",
+      "PMC-BUR-GK"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Sony PXW-FX9 Plate",
+     "aliases": [
+      "CXV-FX9",
+      "CXA-FX9"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Sony PXW-FX6 Plate",
+     "aliases": [
+      "CXVM-FX6",
+      "CXAM-FX6"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Plate for RED Komodo",
+     "aliases": [
+      "CXV-KOMU",
+      "CXA-KOMU"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Micro Battery Hotswap Plate",
+     "aliases": [
+      "GP-TSMICRO",
+      "GP-TAMICRO"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Cube Plus",
+     "aliases": [
+      "CUBE-PLV",
+      "CUBE-PLA"
+     ]
+    },
+    {
+     "manufacturer": "Core SWX",
+     "model": "Helix Teradek Caddy",
+     "aliases": [
+      "HLX-CATK-V",
+      "HLX-CATK-G",
+      "HLX-CATK-B"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "P-V2",
+     "aliases": [
+      "IDX P-V2",
+      "IDX V-Mount Plate P-V2"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "P-Vmicro",
+     "aliases": [
+      "IDX P-Vmicro"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "A-Vmicro2PD",
+     "aliases": [
+      "IDX A-Vmicro2PD",
+      "IDX Imicro Hotswap Plate"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "A-HS30B",
+     "aliases": [
+      "IDX A-HS30B",
+      "IDX B-Mount Hotswap Plate"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "A-DCFX9",
+     "aliases": [
+      "IDX A-DCFX9"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "MD-NBV",
+     "aliases": [
+      "IDX MD-NBV"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "IA-300HV",
+     "aliases": [
+      "IDX IA-300HV",
+      "IDX 28V Power Supply"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "IA-200a",
+     "aliases": [
+      "IDX IA-200a",
+      "IDX IA-200A"
+     ]
+    },
+    {
+     "manufacturer": "IDX",
+     "model": "IA-70a",
+     "aliases": [
+      "IDX IA-70a",
+      "IDX IA-70A"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QR-GOLD",
+     "aliases": [
+      "8375-0081",
+      "Anton Bauer QR Gold"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QRC-GOLD",
+     "aliases": [
+      "8375-0094"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QR-HOTSWAP-GM",
+     "aliases": [
+      "8075-0023",
+      "QR Hotswap GM"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QR HOTSWAP-AR",
+     "aliases": [
+      "8075-0183"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QR HOTSWAP-LF",
+     "aliases": [
+      "8075-0243"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QRC-MINI",
+     "aliases": [
+      "8375-0207"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QRC-4K-S",
+     "aliases": [
+      "8375-0184"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QRC-LG",
+     "aliases": [
+      "8375-0176"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "QRC-DUAL-PT",
+     "aliases": [
+      "8375-0165"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Universal V-Mount Plate",
+     "aliases": [
+      "8375-0200",
+      "Anton Bauer Universal V-Mount"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "26V Plate ARRI LF/65/SXT Gold Mount Plus",
+     "aliases": [
+      "8075-0253"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Gold Mount 24V Sharkfin Bracket ARRI LF",
+     "aliases": [
+      "8075-0260"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "V-Mount 24V Sharkfin Bracket ARRI LF",
+     "aliases": [
+      "8075-0261"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "V-Mount Battery Bracket Alexa Mini",
+     "aliases": [
+      "8075-0259",
+      "V-Mount Battery Bracket (Alexa Mini/ Mini LF)"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "GM+ Hotswap Bracket",
+     "aliases": [
+      "8075-0352"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Converter 26V to 14V Gold Mount+ to V-Mount",
+     "aliases": [
+      "8375-0241"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Converter 26V to 14V Gold Mount+ to Gold-Mount",
+     "aliases": [
+      "8375-0240"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "MATRIX Cheese Plate",
+     "aliases": [
+      "8075-0200"
+     ]
+    },
+    {
+     "manufacturer": "Anton/Bauer",
+     "model": "Eden 2.5kWh",
+     "aliases": [
+      "8875-0007",
+      "Anton Bauer Eden"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-CA2",
+     "aliases": [
+      "Hawk-Woods VL-CA2"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-CA4",
+     "aliases": [
+      "Hawk-Woods VL-CA4"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-CA4X",
+     "aliases": [
+      "Hawk-Woods VL-CA4X"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-CA7",
+     "aliases": [
+      "Hawk-Woods VL-CA7"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-CA8",
+     "aliases": [
+      "Hawk-Woods VL-CA8"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-SV1",
+     "aliases": [
+      "Hawk-Woods VL-SV1",
+      "Hawk-Woods Venice Adaptor"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-HS1",
+     "aliases": [
+      "Hawk-Woods VL-HS1"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-CFM1A",
+     "aliases": [
+      "Hawk-Woods VL-CFM1A"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-DC6",
+     "aliases": [
+      "Hawk-Woods VL-DC6"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VLM-DC6",
+     "aliases": [
+      "Hawk-Woods VLM-DC6"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VLM-C53",
+     "aliases": [
+      "Hawk-Woods VLM-C53"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VLM-C53B",
+     "aliases": [
+      "Hawk-Woods VLM-C53B"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-OCIR",
+     "aliases": [
+      "Hawk-Woods VL-OCIR"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-A1",
+     "aliases": [
+      "Hawk-Woods VL-A1"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "VL-AS1",
+     "aliases": [
+      "Hawk-Woods VL-AS1"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-14HS",
+     "aliases": [
+      "Hawk-Woods GL-14HS",
+      "G-Lok Hot-swap Adaptor"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-26SW",
+     "aliases": [
+      "Hawk-Woods GL-26SW"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-14P",
+     "aliases": [
+      "Hawk-Woods GL-14P"
+     ]
+    },
+    {
+     "manufacturer": "Hawk-Woods",
+     "model": "GL-26P",
+     "aliases": [
+      "Hawk-Woods GL-26P"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "KA-B30B",
+     "aliases": [
+      "SWIT KA-B30B",
+      "SWIT B-Mount Hotswap Plate"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "KA-S20B",
+     "aliases": [
+      "SWIT KA-S20B"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "KA-S30B",
+     "aliases": [
+      "SWIT KA-S30B"
+     ]
+    },
+    {
+     "manufacturer": "SWIT",
+     "model": "KA-A30B",
+     "aliases": [
+      "SWIT KA-A30B"
+     ]
+    },
+    {
+     "manufacturer": "Aputure",
+     "model": "2-Bay Battery Power Station",
+     "aliases": [
+      "Aputure 2-Bay Battery Power Station",
+      "APD0170A3B",
+      "APE0170A3B"
+     ]
+    },
+    {
+     "manufacturer": "Aputure",
+     "model": "INFINIBAR Battery Power Station",
+     "aliases": [
+      "Aputure INFINIBAR Battery Power Station"
+     ]
+    },
+    {
+     "manufacturer": "Aputure",
+     "model": "INFINIBAR 330W Power Adapter Kit",
+     "aliases": [
+      "Aputure INFINIBAR 330W (24V) Power Adapter Kit",
+      "AP40300AX6"
+     ]
+    },
+    {
+     "manufacturer": "Nanlite",
+     "model": "V-Mount Battery Grip BT-BG-V",
+     "aliases": [
+      "Nanlite BT-BG-V"
+     ]
+    },
+    {
+     "manufacturer": "Nanlite",
+     "model": "V-Mount Battery Grip with 4-Pin XLR BT-BG-XLR4II",
+     "aliases": [
+      "Nanlite BT-BG-XLR4II",
+      "Nanlite BT-BG-XLR4"
+     ]
+    },
+    {
+     "manufacturer": "Nanlux",
+     "model": "Evoke 600C V-Mount Battery Power Station BT-BPS-EVM",
+     "aliases": [
+      "Nanlux BT-BPS-EVM"
+     ]
+    },
+    {
+     "manufacturer": "Litepanels",
+     "model": "Gemini Dual Battery Bracket V-Mount",
+     "aliases": [
+      "Litepanels Gemini Dual Battery Bracket V Mount",
+      "900-3618"
+     ]
+    },
+    {
+     "manufacturer": "Litepanels",
+     "model": "Gemini Dual Battery Bracket Gold Mount",
+     "aliases": [
+      "Litepanels Gemini Dual Battery Bracket Gold Mount",
+      "900-3617"
+     ]
+    },
+    {
+     "manufacturer": "Litepanels",
+     "model": "Gemini 1x1 Battery Bracket V-Mount",
+     "aliases": [
+      "Litepanels Battery Bracket V-Mount Gemini 1x1",
+      "900-3704"
+     ]
+    },
+    {
+     "manufacturer": "Litepanels",
+     "model": "Astra A/B V-Mount Battery Bracket",
+     "aliases": [
+      "Litepanels A/B V-Mount Battery Bracket",
+      "900-3508"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "SPD-1 Smart Power Distributor",
+     "aliases": [
+      "SPD-1",
+      "DTE0287D90",
+      "Deity SPD-1"
+     ]
+    },
+    {
+     "manufacturer": "Deity",
+     "model": "SPD Mini",
+     "aliases": [
+      "DTE0331D90",
+      "Deity SPD Mini Compact Power Distro"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "B-Mount Power Splitting Box",
+     "aliases": [
+      "K2.0024114"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "VMicro Power Splitting Box",
+     "aliases": [
+      "K2.0024116",
+      "Vmicro Power Splitting Box"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Hand Unit AC Power Supply HPS-1",
+     "aliases": [
+      "K2.0000425",
+      "HPS-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Receiver Power Supply RPS-1",
+     "aliases": [
+      "K2.0014774",
+      "RPS-1"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel S30 Power Supply Unit",
+     "aliases": [
+      "L2.0007886",
+      "Power Supply Unit for SkyPanel S30",
+      "SkyPanel S30 PSU"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel S60/S120 Power Supply Unit",
+     "aliases": [
+      "L2.0012492",
+      "Power Supply Unit for SkyPanel S60/S120-C",
+      "SkyPanel S60 PSU",
+      "SkyPanel S120 PSU"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "SkyPanel S360 Power Supply Unit",
+     "aliases": [
+      "L2.0015249",
+      "Power Supply Unit for SkyPanel S360-C",
+      "SkyPanel S360 PSU"
+     ]
+    },
+    {
+     "manufacturer": "ARRI",
+     "model": "Omnibar Universal Power Supply / Charger",
+     "aliases": [
+      "L2.0052530",
+      "Omnibar Charger"
      ]
     }
    ]
