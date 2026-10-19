@@ -172,3 +172,14 @@ test("delete equipment types: one from its page, several from the list", async (
   await go(page, "/equipment/types?q=alexa%2035&select=1");
   await expect(page.getByLabel("Select ARRI ALEXA 35")).toBeDisabled();
 });
+
+test("a lens series is one card; a click opens its focal lengths", async ({ page }) => {
+  await login(page);
+  await go(page, "/equipment/types?q=signature%20prime");
+  const focals = page.getByRole("list", { name: "Focal lengths of ARRI Signature Prime" });
+  await expect(focals).toBeHidden();
+  await page.locator("summary", { hasText: "Signature Prime" }).click();
+  await expect(focals).toBeVisible();
+  await focals.getByRole("link", { name: /^35 mm/ }).click();
+  await expect(page.getByRole("heading", { name: "ARRI Signature Prime 35mm T1.8" })).toBeVisible();
+});
