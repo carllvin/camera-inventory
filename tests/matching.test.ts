@@ -77,6 +77,10 @@ describe("findType", () => {
     await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "Supreme Prime Radiance 18mm T1.5" });
     expect((await findType(db, ctx.workspaceId, line("18mm Zeiss Supreme Prime T1.5")))?.name).toBe("ZEISS Supreme Prime 18mm T1.5");
     expect((await findType(db, ctx.workspaceId, line("Zeiss Supreme Prime Radiance 18mm")))?.name).toBe("ZEISS Supreme Prime Radiance 18mm T1.5");
+    // Model words written together on the line ("CP3" for "CP.3") count too; the XD has a word the line lacks.
+    await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "CP.3 35mm T2.1", aliases: "Compact Prime CP.3 35mm" });
+    await createEquipmentType(db, ctx, { manufacturer: "ZEISS", model: "CP.3 XD 35mm T2.1", aliases: ["Compact Prime CP.3 XD 35mm", "ZEISS CP.3 XD 35mm", "CP3 XD 35mm"] });
+    expect((await findType(db, ctx.workspaceId, line("Zeiss Compact Prime CP3 35mm")))?.name).toBe("ZEISS CP.3 35mm T2.1");
   });
 
   it("a maker the rental house writes in front of another maker's product does not rule it out", async () => {

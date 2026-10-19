@@ -249,11 +249,15 @@ export async function findType(db: DbOrTx, ws: string, line: Pick<ProposedLine, 
   candidates.sort((a, b) => b.score - a.score);
   // Two names almost equally close: the one whose model words are all on the line wins
   // ("18mm Zeiss Supreme Prime T1.5" is the Supreme Prime, not the Supreme Prime Radiance).
-  // T-stops do not count: notes often leave them out.
+  // T-stops do not count: notes often leave them out. Words written together count too ("CP3" for "CP.3").
+  // When the closest name has a word the line lacks ("XD"), a complete one a little further away still wins.
   const onLine = new Set(text.toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean));
-  const allOnLine = (model: string) =>
-    model.replace(/\bT\s?\d+(?:[.,]\d+)?(?:\s?-\s?T?\d+(?:[.,]\d+)?)?/gi, " ").toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean).every((w) => onLine.has(w));
-  const close = candidates.filter((c) => c.score >= candidates[0]!.score - 0.05);
+  const allOnLine = (model: string) => {
+    const w = model.replace(/\bT\s?\d+(?:[.,]\d+)?(?:\s?-\s?T?\d+(?:[.,]\d+)?)?/gi, " ").toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
+    return w.every((x, i) => onLine.has(x) || onLine.has(x + (w[i + 1] ?? "")) || onLine.has((w[i - 1] ?? "") + x));
+  };
+  const window = candidates[0] && !allOnLine(candidates[0].model) ? 0.15 : 0.05;
+  const close = candidates.filter((c) => c.score >= candidates[0]!.score - window);
   const complete = close.filter((c) => allOnLine(c.model));
   const winner = close.length > 1 && complete.length === 1 ? complete[0] : undefined;
   if (winner) candidates = [winner, ...candidates.filter((c) => c !== winner)];
