@@ -5279,6 +5279,301 @@
             "L2.0056270",
             "DoPchoice SNAPBAG® for ARRI Omnibar 4ft"
           ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Ledzilla Softbox 12cm",
+          "aliases": [
+            "DLOBML-SBX12",
+            "Dedolight LEDZILLA Softbox 12cm"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H800M Modular Butterfly Frame 8x8",
+          "aliases": [
+            "H800M",
+            "Avenger H800M"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H1200M Modular Frame 12x12",
+          "aliases": [
+            "H1200M",
+            "Avenger H1200M",
+            "H1200M Modular Overhead Frame 12x12"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H2000M Modular Frame 20x20",
+          "aliases": [
+            "H2000M",
+            "Avenger H2000M",
+            "H2000M Modular Overhead Frame 20x20"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H2006 Fold Away Frame 6x6",
+          "aliases": [
+            "H2006",
+            "Avenger H2006",
+            "H2006 Folding Butterfly Frame 6x6"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H2008 Fold Away Frame 8x8",
+          "aliases": [
+            "H2008",
+            "Avenger H2008",
+            "H2008 Overhead Frame 8x8"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H2508 Fold Away Frame 8x8",
+          "aliases": [
+            "H2508",
+            "Avenger H2508"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H2512 Fold Away Frame 12x12",
+          "aliases": [
+            "H2512",
+            "Avenger H2512"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I650B Solid Black Flag 18x24",
+          "aliases": [
+            "I650B",
+            "Avenger I650B",
+            "I650B Flag 18x24\" Solid"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I750B Solid Black Flag 24x36",
+          "aliases": [
+            "I750B",
+            "Avenger I750B",
+            "I750B Flag 24x36\" Solid"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I750D Scrim Black 24x36",
+          "aliases": [
+            "I750D",
+            "Avenger I750D"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I750S Scrim Black 24x36",
+          "aliases": [
+            "I750S",
+            "Avenger I750S"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I1010 Meat Axe Flag 30x36",
+          "aliases": [
+            "I1010",
+            "Avenger I1010",
+            "I1010 Meat Axe Flag 75x90cm"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I920K Textile Silk 12x12",
+          "aliases": [
+            "I920K",
+            "Avenger I920K"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I8030CB Mounting Stirrup 39in",
+          "aliases": [
+            "I8030CB",
+            "Avenger I8030CB"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Ledzilla Barndoor Head DLADML-BD8",
+          "aliases": [
+            "DLADML-BD8",
+            "Dedolight Ledzilla 4-Flügeltor"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Imager Iris DPIR",
+          "aliases": [
+            "DPIR",
+            "Dedolight Imager Iris"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DLED4 Handle DLHAND",
+          "aliases": [
+            "DLHAND",
+            "Dedolight Handgriff DLED4"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "V-Lock Battery Holder DLBCA-V",
+          "aliases": [
+            "DLBCA-V",
+            "Dedolight V-Lock Akkuhalter"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Power Supply 12V Anton Bauer DT4.0-1BAT/AB",
+          "aliases": [
+            "DT4.0-1BAT/AB",
+            "Dedolight Netzteil DT4.0-1BAT/AB"
+          ]
+        },
+        {
+          "manufacturer": "Creamsource",
+          "model": "Vortex8 Honeycomb",
+          "aliases": [
+            "Creamsource Vortex 8 Honeycomb",
+            "Vortex8 Richtgitter"
+          ]
+        },
+        {
+          "manufacturer": "Creamsource",
+          "model": "Vortex8 Dome Diffuser",
+          "aliases": [
+            "Creamsource Vortex 8 Dome Diffuser"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H600M Overhead Frame 6x6",
+          "aliases": [
+            "Avenger H600M",
+            "Avenger Modular Frame 6x6"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "H2012 Overhead Frame 12x12",
+          "aliases": [
+            "Avenger H2012"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I600B Flag 12x18\" Solid",
+          "aliases": [
+            "Avenger I600B"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I600S Single Scrim 12x18\"",
+          "aliases": [
+            "Avenger I600S"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I650S Single Scrim 18x24\"",
+          "aliases": [
+            "Avenger I650S"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I650D Double Scrim 18x24\"",
+          "aliases": [
+            "Avenger I650D"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I750K Silk 24x36\"",
+          "aliases": [
+            "Avenger I750K"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I780B Flag 30x36\" Solid",
+          "aliases": [
+            "Avenger I780B"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I790D Double Scrim 48x48\"",
+          "aliases": [
+            "Avenger I790D"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I790K Silk 48x48\"",
+          "aliases": [
+            "Avenger I790K"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I1021 Cutter 45x120cm",
+          "aliases": [
+            "Avenger I1021"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I1023 Cutter 102x102cm",
+          "aliases": [
+            "Avenger I1023"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I1024 Cutter 120x120cm",
+          "aliases": [
+            "Avenger I1024"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I1031 Cutter Flag 120x120cm",
+          "aliases": [
+            "Avenger I1031"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I1030 Floppy Cutter 24x72\"",
+          "aliases": [
+            "Avenger I1030"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "I4834 Oval Reflector 120x90cm",
+          "aliases": [
+            "Avenger I4834"
+          ]
         }
       ]
     },
@@ -6802,6 +7097,15 @@
           "aliases": [
             "ARRI LoCaster 2 Plus",
             "LoCaster 2+"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "Ledzilla DLOBML-BI",
+          "aliases": [
+            "DLOBML-BI",
+            "Dedolight LEDZILLA Bi-Color",
+            "Ledzilla Bi-Color"
           ]
         }
       ]

@@ -403,7 +403,10 @@
           "model": "D200 Grip Head 2.5\"",
           "aliases": [
             "Avenger D200",
-            "D200 Grip Head"
+            "D200 Grip Head",
+            "D200B",
+            "Avenger D200 Grip Head 2 1/2\"",
+            "Avenger D200B"
           ],
           "bulk": true
         },
@@ -412,7 +415,10 @@
           "model": "D400 Jumbo Grip Head 4.5\"",
           "aliases": [
             "Avenger D400",
-            "D400 Jumbo Grip Head"
+            "D400 Jumbo Grip Head",
+            "D400B",
+            "Avenger D400B Jumbo Grip Head",
+            "Avenger D400B"
           ],
           "bulk": true
         },
@@ -696,6 +702,566 @@
           "aliases": [
             "429042"
           ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C100 Junior Pipe Clamp",
+          "aliases": [
+            "Avenger C100",
+            "Avenger C100 Junior Pipe Clamp"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C150 C-Clamp",
+          "aliases": [
+            "C150",
+            "Avenger C150",
+            "C150 Swivel C-Clamp"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C337 Quick Action Junior Clamp",
+          "aliases": [
+            "C337",
+            "Avenger C337",
+            "C337 Quick Action Clamp 28mm"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C345K Barrel Clamp with T-Knob",
+          "aliases": [
+            "C345K",
+            "C345BK",
+            "Avenger C345K"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C1000 Ceiling Scissor Clamp",
+          "aliases": [
+            "C1000",
+            "Avenger C1000"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C1005 Scissor Clip with Cable Safety",
+          "aliases": [
+            "C1005",
+            "Avenger C1005"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C1575B Super Clamp",
+          "aliases": [
+            "C1575B",
+            "Avenger C1575B",
+            "Avenger Super Clamp"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4461 MP Eye Coupler",
+          "aliases": [
+            "C4461",
+            "Avenger C4461"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4462-1 MP Eye Coupler",
+          "aliases": [
+            "C4462-1",
+            "Avenger C4462"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4463-1 MP Eye Coupler with Ring",
+          "aliases": [
+            "C4463-1",
+            "Avenger C4463"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4465-1 Eye Coupler MP",
+          "aliases": [
+            "C4465-1",
+            "Avenger C4465"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C463-1 LP Eye Coupler with Ring",
+          "aliases": [
+            "C463-1",
+            "Avenger C463",
+            "C463-1 LP Eye Coupler",
+            "Avenger C463-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C482 LP Swivel Eye Coupler",
+          "aliases": [
+            "C482",
+            "Avenger C482",
+            "C482 Swivel Double Coupler"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4486 Truss Support 200-400",
+          "aliases": [
+            "C4486",
+            "Avenger C4486"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C500 Pelican Gaffer Grip",
+          "aliases": [
+            "Avenger C500",
+            "Avenger Gaffer Grip",
+            "C500 Pelican Gaffer Clamp"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D050 T-Tops Set of 6",
+          "aliases": [
+            "D050",
+            "Avenger D050"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D220 Baby Grip Helper",
+          "aliases": [
+            "D220",
+            "Avenger D220"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D230 Super Clamp Grip Head",
+          "aliases": [
+            "D230",
+            "Avenger D230",
+            "D230 Grip Head with Super Clamp"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D244N Friction Arm",
+          "aliases": [
+            "D244N",
+            "Avenger D244N"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D250 Gag Gobo Grip Head",
+          "aliases": [
+            "D250",
+            "Avenger D250"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D500 20in Extension Grip Arm",
+          "aliases": [
+            "D500",
+            "D500B",
+            "Avenger D500",
+            "D500 Extension Grip Arm 20\""
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D520 40in Extension Arm",
+          "aliases": [
+            "D520",
+            "D520B",
+            "Avenger D520",
+            "D520 Extension Grip Arm 40\""
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E200 Stand Adapter",
+          "aliases": [
+            "E200",
+            "Avenger E200",
+            "E200 Stand Adapter Spigot 16/28mm"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E250 5/8in Baby Pin",
+          "aliases": [
+            "E250",
+            "Avenger E250",
+            "E250 Double Baby Pin"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E300 5/8in Stud with 1/4in",
+          "aliases": [
+            "E300",
+            "Avenger E300"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E390 TVMP Adapter",
+          "aliases": [
+            "E390",
+            "Avenger E390"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E600 Snap In Pin",
+          "aliases": [
+            "E600",
+            "E600C",
+            "Avenger E600"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E610 Baby Pin",
+          "aliases": [
+            "E610",
+            "Avenger E610"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E650 6in Pin with Collar",
+          "aliases": [
+            "E650",
+            "Avenger E650"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E700 Baby Drop Down Pin",
+          "aliases": [
+            "E700",
+            "Avenger E700"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F100 Junior Offset Arm",
+          "aliases": [
+            "F100",
+            "Avenger F100"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F300 Junior Wall Plate",
+          "aliases": [
+            "F300",
+            "Avenger F300"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F301 Baby Wall Plate",
+          "aliases": [
+            "F301",
+            "Avenger F301"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F600 Baby Offset Arm 16mm",
+          "aliases": [
+            "F600",
+            "Avenger F600",
+            "F600 Baby Offset Arm"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F800 Baby Wall Plate",
+          "aliases": [
+            "F800",
+            "Avenger F800",
+            "F800 Baby Plate 3\""
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F805 Baby Wall Plate",
+          "aliases": [
+            "F805",
+            "Avenger F805",
+            "F805 Baby Plate 6\""
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F808 Baby Wall Plate",
+          "aliases": [
+            "F808",
+            "Avenger F808",
+            "F808 Baby Wall Plate with Pin"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F809 Baby Plate with 16mm 90°",
+          "aliases": [
+            "F809",
+            "Avenger F809",
+            "F809 Angle Baby Plate"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F810 Baby Plate with 16mm Swivel",
+          "aliases": [
+            "F810",
+            "Avenger F810",
+            "F810 Swivel Baby Plate"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F830 Swivelling Adapter",
+          "aliases": [
+            "F830",
+            "Avenger F830",
+            "F830 Baby to Junior Swivel Pin"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F831TH Swivelling Adapter",
+          "aliases": [
+            "F831TH",
+            "Avenger F831TH"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F900 Baby Triple Header",
+          "aliases": [
+            "F900",
+            "Avenger F900"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F1000 Pump Cup with Baby Pin",
+          "aliases": [
+            "F1000",
+            "Avenger F1000"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F1504 Foamcore Fork 16mm Pin",
+          "aliases": [
+            "F1504",
+            "Avenger F1504",
+            "F1504 Foamcore Fork with Pin"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D100 Grip Head 2.5\"",
+          "aliases": [
+            "Avenger D100"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D420 Jumbo Gag Gobo Grip Head",
+          "aliases": [
+            "Avenger D420"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "D700B Reflector Holder",
+          "aliases": [
+            "Avenger D700B"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C827 Drop Arm",
+          "aliases": [
+            "Avenger C827"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C888UH Telescopic Hanger with Universal Head",
+          "aliases": [
+            "Avenger C888UH",
+            "C888UH"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F1200 Column Outrigger 16/28mm",
+          "aliases": [
+            "Avenger F1200"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C210 Baby Pipe Clamp",
+          "aliases": [
+            "Avenger C210"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C1100 Special Adapter 16mm",
+          "aliases": [
+            "Avenger C1100"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C1525 Gaffer Grip",
+          "aliases": [
+            "Avenger C1525"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C338 Quick Action Clamp Baby Pin",
+          "aliases": [
+            "Avenger C338"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C345K-1 Barrel Clamp T-Knob",
+          "aliases": [
+            "Avenger C345K-1",
+            "C345BK-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4460-1 MP Eye Coupler",
+          "aliases": [
+            "Avenger C4460-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4461-1 MP Eye Coupler 28mm Spigot",
+          "aliases": [
+            "Avenger C4461-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4462-1 Swivel Eye Coupler 16mm",
+          "aliases": [
+            "Avenger C4462-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4464-1 Eye Coupler M12",
+          "aliases": [
+            "Avenger C4464-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4465-1 MP Eye Coupler 28mm Bushing",
+          "aliases": [
+            "Avenger C4465-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C4560-1 Slim Eye Coupler",
+          "aliases": [
+            "Avenger C4560-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C462-1 LP Eye Coupler 16mm Spigot",
+          "aliases": [
+            "Avenger C462-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C465-1 LP Eye Coupler 28mm Bushing",
+          "aliases": [
+            "Avenger C465-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C590 Conka Bonka Extensions",
+          "aliases": [
+            "Avenger C590"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C622 Stand Extension 16cm",
+          "aliases": [
+            "Avenger C622"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C624 Stand Extension 27cm",
+          "aliases": [
+            "Avenger C624"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "E600C Hex Spigot 16mm",
+          "aliases": [
+            "Avenger E600C"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F1500 Foamcore Clamp",
+          "aliases": [
+            "Avenger F1500"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F1501 Poly Holder 16mm Receiver",
+          "aliases": [
+            "Avenger F1501"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "F1521 Poly Holder 16mm Pin",
+          "aliases": [
+            "Avenger F1521"
+          ]
         }
       ]
     },
@@ -709,7 +1275,8 @@
           "manufacturer": "Avenger",
           "model": "C-Stand 20\"",
           "aliases": [
-            "C Stand 20 inch"
+            "C Stand 20 inch",
+            "Avenger C-Stand 18"
           ],
           "bulk": true
         },
@@ -717,7 +1284,10 @@
           "manufacturer": "Avenger",
           "model": "C-Stand 30\"",
           "aliases": [
-            "C Stand 30 inch"
+            "C Stand 30 inch",
+            "A2025F",
+            "A2025FCB",
+            "Avenger C-Stand 25"
           ],
           "bulk": true
         },
@@ -726,7 +1296,8 @@
           "model": "C-Stand 40\"",
           "aliases": [
             "C Stand",
-            "Century Stand"
+            "Century Stand",
+            "Avenger C-Stand 33"
           ],
           "bulk": true
         },
@@ -854,14 +1425,19 @@
           "model": "D650 Junior Boom Arm",
           "aliases": [
             "Avenger D650 Junior Boom Arm",
-            "Manfrotto Avenger Junior Boom D650"
+            "Manfrotto Avenger Junior Boom D650",
+            "D650"
           ]
         },
         {
           "manufacturer": "Avenger",
           "model": "D600 Mini Boom Arm",
           "aliases": [
-            "Avenger D600 Mini Boom Arm"
+            "Avenger D600 Mini Boom Arm",
+            "D600",
+            "D600CB",
+            "Avenger D600CB Mini Boom Arm",
+            "Avenger D600CB"
           ]
         },
         {
@@ -1089,6 +1665,554 @@
             "427803",
             "Matthews Junior Boom"
           ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A0010 Baby Stand 10",
+          "aliases": [
+            "A0010",
+            "Avenger A0010"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A0025B Baby Stand 25 Alu",
+          "aliases": [
+            "A0025B",
+            "Avenger A0025B"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A0030B Baby Alu Stand 30",
+          "aliases": [
+            "A0030B",
+            "Avenger A0030B",
+            "A0030B Baby Stand 30 Aluminium",
+            "Avenger Baby Stand 30"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A0030CS Baby Steel Stand 30",
+          "aliases": [
+            "A0030CS",
+            "Avenger A0030CS"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A0040B Baby Alu Stand 40",
+          "aliases": [
+            "A0040B",
+            "Avenger A0040B"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A0040CS Baby Steel Stand 40",
+          "aliases": [
+            "A0040CS",
+            "Avenger A0040CS"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A1010CS Combo Stand 10 Steel",
+          "aliases": [
+            "A1010CS",
+            "Avenger A1010CS",
+            "Avenger Combo Stand 10"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A1020B Combo Stand 20 Alu",
+          "aliases": [
+            "A1020B",
+            "Avenger A1020B"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A1020CS Combo Stand 20 Steel",
+          "aliases": [
+            "A1020CS",
+            "Avenger A1020CS",
+            "Avenger Combo Stand 20"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A1035B Combo Stand 35 Alu",
+          "aliases": [
+            "A1035B",
+            "Avenger A1035B"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A1035CS Combo Stand 35 Steel",
+          "aliases": [
+            "A1035CS",
+            "Avenger A1035CS",
+            "Avenger Combo Stand 35"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2007CB C-Stand Mini Base",
+          "aliases": [
+            "A2007CB",
+            "Avenger A2007CB"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2009 C-Stand Base",
+          "aliases": [
+            "A2009",
+            "A2009CB",
+            "Avenger A2009"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2014 C-Stand Column 14",
+          "aliases": [
+            "A2014",
+            "A2014CB",
+            "Avenger A2014",
+            "Avenger C-Stand Säule 14"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2020CB C-Stand Column 20",
+          "aliases": [
+            "A2020CB",
+            "Avenger A2020CB"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2029 C-Stand Column 29",
+          "aliases": [
+            "A2029",
+            "A2029CB",
+            "Avenger A2029"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2016D C-Stand 16 Detachable",
+          "aliases": [
+            "A2016D",
+            "A2016DCB",
+            "Avenger A2016D",
+            "A2016D C-Stand 16 Detachable Base",
+            "Avenger C-Stand 16"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2018F C-Stand 18",
+          "aliases": [
+            "A2018F",
+            "A2018FCB",
+            "Avenger A2018F"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2018L C-Stand 18 Sliding Leg",
+          "aliases": [
+            "A2018L",
+            "A2018LCB",
+            "Avenger A2018L"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2025L C-Stand 25 Sliding Leg",
+          "aliases": [
+            "A2025L",
+            "A2025LCB",
+            "Avenger A2025L"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2030D C-Stand 30 Detachable",
+          "aliases": [
+            "A2030D",
+            "A2030DCB",
+            "Avenger A2030D",
+            "A2030DKIT",
+            "A2030DCBKIT",
+            "A2030D C-Stand 40\" Turtle Base",
+            "Avenger 40\" Turtle Base C-Stand"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2033F C-Stand 33 Fixed Leg",
+          "aliases": [
+            "A2033F",
+            "A2033FCB",
+            "Avenger A2033F",
+            "A2033FKIT",
+            "A2033FCBKIT"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2033L C-Stand 33 Sliding Leg",
+          "aliases": [
+            "A2033L",
+            "A2033LCB",
+            "Avenger A2033L",
+            "A2033LKIT"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A3043CS Overhead Stand 43",
+          "aliases": [
+            "A3043CS",
+            "Avenger A3043CS",
+            "A3043CS Overhead Stand with Wheels",
+            "Avenger Overhead Stand 43"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A3058CS Overhead Stand",
+          "aliases": [
+            "A3058CS",
+            "Avenger A3058CS",
+            "A3058CS Overhead Stand 58",
+            "Avenger Overhead Stand 5.8m"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A3065CS Overhead Stand Steel",
+          "aliases": [
+            "A3065CS",
+            "Avenger A3065CS",
+            "A3065CS Overhead Stand with Grip Head"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A4039CS Combi Boom Stand",
+          "aliases": [
+            "A4039CS",
+            "Avenger A4039CS"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5012 Roller 12 Folding Base",
+          "aliases": [
+            "A5012",
+            "Avenger A5012",
+            "A5012 Roller Stand 12",
+            "Avenger Roller Stand 12"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5017 Roller 17 Folding Base",
+          "aliases": [
+            "A5017",
+            "Avenger A5017",
+            "A5017 Roller Stand 17",
+            "Avenger Roller Stand 17"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5029 Roller 29 Low Base",
+          "aliases": [
+            "A5029",
+            "Avenger A5029",
+            "A5029 Roller Stand 29 Low Base",
+            "Avenger Roller Stand 29"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5033 Roller 33 Folding Base",
+          "aliases": [
+            "A5033",
+            "Avenger A5033",
+            "A5033 Roller Stand 33 Folding Base",
+            "Avenger Roller Stand 33"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5034 Roller 34 Folding Base",
+          "aliases": [
+            "A5034",
+            "Avenger A5034"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5036CS Roller 36 Low Base",
+          "aliases": [
+            "A5036CS",
+            "Avenger A5036CS",
+            "A5036CS Roller Stand 36 Low Base",
+            "Avenger Roller Stand 36"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5042CS Roller 42 Low Base",
+          "aliases": [
+            "A5042CS",
+            "Avenger A5042CS",
+            "A5042CS Roller Stand 42 Low Base",
+            "Avenger Roller Stand 42"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B150-1 Strato Safe Stand",
+          "aliases": [
+            "B150-1",
+            "Avenger B150"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B6026CS Wind Up Stand 26",
+          "aliases": [
+            "B6026CS",
+            "Avenger B6026CS",
+            "Avenger Wind Up 26"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B6029X Super Wind Up 29 Low",
+          "aliases": [
+            "B6029X",
+            "Avenger B6029X"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B6039CS Wind Up Low Boy 2R",
+          "aliases": [
+            "B6039CS",
+            "Avenger B6039CS",
+            "B6039CS Wind Up Stand 39",
+            "Avenger Wind Up 39"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "C626 Long Steel Stand Extension",
+          "aliases": [
+            "C626",
+            "Avenger C626",
+            "C626 Stand Extension 52cm"
+          ]
+        },
+        {
+          "manufacturer": "Dedolight",
+          "model": "DST Light Stand",
+          "aliases": [
+            "DST",
+            "Dedolight DST",
+            "Dedolight Leuchtenstativ"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2022D C-Stand 30\" Turtle Base",
+          "aliases": [
+            "Avenger A2022D",
+            "A2022DCB",
+            "Avenger 30\" Turtle Base C-Stand",
+            "A2022DCB C-Stand 22 Detachable",
+            "Avenger A2022DCB"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2007 C-Stand Turtle Base 75cm",
+          "aliases": [
+            "Avenger A2007",
+            "Avenger C-Stand Turtle Base A2007"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A2009CB C-Stand Turtle Base 95cm",
+          "aliases": [
+            "Avenger A2009CB",
+            "Avenger C-Stand Turtle Base A2009CB"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A0017 Baby Stand 17",
+          "aliases": [
+            "Avenger A0017",
+            "Avenger Baby Stand 17"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Baby Stand 10 Steel",
+          "aliases": [
+            "Avenger Baby Stand 10"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Baby Stand 25 Aluminium Black",
+          "aliases": [
+            "Avenger Baby Stand 25"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Baby Stand 35 Aluminium Black",
+          "aliases": [
+            "Avenger Baby Stand 35"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Baby Stand 40 Steel",
+          "aliases": [
+            "Avenger Baby Stand 40"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A1045CS Combo Stand 45 Steel",
+          "aliases": [
+            "Avenger A1045CS",
+            "A1045B",
+            "Avenger Combo Stand 45",
+            "A1045CS Combo Stand 45",
+            "A1045CS"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A3042CS Overhead Stand 42",
+          "aliases": [
+            "Avenger A3042CS",
+            "Avenger Overhead Stand 42"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Overhead Stand 59 Steel",
+          "aliases": [
+            "Avenger Overhead Stand 59"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A4050CS Boom Stand",
+          "aliases": [
+            "Avenger A4050CS",
+            "Avenger Boom Stand 50",
+            "A4050CS Combi Boom Stand",
+            "A4050CS"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A4041B Boom Stand Aluminium",
+          "aliases": [
+            "Avenger A4041B",
+            "Avenger Boom Stand 41"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Boom Stand 39 Steel",
+          "aliases": [
+            "Avenger Boom Stand 39",
+            "Avenger Baby Combi Boom Stand"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Roller Stand 34 Folding Base",
+          "aliases": [
+            "Avenger Roller Stand 34"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A5043 Roller Stand 43",
+          "aliases": [
+            "Avenger A5043",
+            "Avenger Roller Stand 43"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B6030CS Wind Up Stand 30",
+          "aliases": [
+            "Avenger B6030CS",
+            "Avenger Wind Up 30"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B6040X Super Wind Up Stand 40",
+          "aliases": [
+            "Avenger B6040X",
+            "Avenger Super Wind Up 40",
+            "B6040X Wind Up Stainless Steel",
+            "B6040X"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "Super Wind Up 29 Low Base",
+          "aliases": [
+            "Avenger Super Wind Up 29"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B7030FF Buccaneer Stand",
+          "aliases": [
+            "Avenger B7030FF",
+            "Avenger Buccaneer"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "B150P-1 Strato Safe Crank Up Stand",
+          "aliases": [
+            "Avenger B150P-1"
+          ]
+        },
+        {
+          "manufacturer": "Avenger",
+          "model": "A9000N Wheel Set",
+          "aliases": [
+            "Avenger A9000N",
+            "A9000NB",
+            "Avenger Rädersatz",
+            "A9000N Wheel Set with Brakes",
+            "A9000N"
+          ]
         }
       ]
     },
@@ -1279,7 +2403,11 @@
         {
           "manufacturer": "Easyrig",
           "model": "Minimax",
-          "aliases": [],
+          "aliases": [
+            "MM100",
+            "Easyrig Easy-Minimax",
+            "Easy-Minimax"
+          ],
           "specs": {
             "payload_kg": "2-7"
           }
@@ -1288,7 +2416,19 @@
           "manufacturer": "Easyrig",
           "model": "Vario 5",
           "aliases": [
-            "Easyrig"
+            "Easyrig",
+            "EASY-VC582",
+            "EASY-VC582A",
+            "EASY-VC582B",
+            "EASY-VCF582",
+            "EASY-VCF582-Q",
+            "EASY-VG582",
+            "EASY-VG582A",
+            "EASY-VG582B",
+            "EASY-VG582ST",
+            "EASY-VG583A",
+            "EASY-VG583STQ",
+            "Easyrig 5 Vario"
           ],
           "specs": {
             "payload_kg": "5-17"
@@ -1299,7 +2439,10 @@
           "model": "Vario 5 Strong",
           "aliases": [
             "Easyrig Strong",
-            "Vario 5 Strong Support"
+            "Vario 5 Strong Support",
+            "Easyrig 5 Vario STRONG",
+            "Vario 5 STRONG Cine Weste",
+            "Vario 5 STRONG Gimbal Weste"
           ],
           "specs": {
             "payload_kg": "13.6-24.9"
@@ -1424,7 +2567,8 @@
           "aliases": [
             "EASYRIG Gimbalrig Weste",
             "Easyrig Gimbalrig Vest",
-            "Easyrig Gimbal Weste"
+            "Easyrig Gimbal Weste",
+            "EASY-G002"
           ]
         },
         {
@@ -1436,7 +2580,9 @@
             "Easyrig Stabil Arm",
             "STABIL G2",
             "STABIL G3",
-            "STABIL G3 Dampening Arm"
+            "STABIL G3 Dampening Arm",
+            "ST000",
+            "Easyrig STABIL G3 ST000"
           ],
           "specs": {
             "note": "gimbal support / dampening arm for Vario 5 and Cinema 3 (G2 foldable, G3 pin-free lock, 5-25 kg)"
@@ -1447,7 +2593,9 @@
           "model": "EasyTilt",
           "aliases": [
             "EASYRIG EasyTilt",
-            "Easyrig Gimbal Tilt Kit"
+            "Easyrig Gimbal Tilt Kit",
+            "ET000",
+            "Easyrig EasyTilt ET000"
           ],
           "specs": {
             "note": "crossbar 680 mm, spindles, ring with ball stud"
@@ -1635,7 +2783,11 @@
           "model": "Cinema 3 400N",
           "aliases": [
             "Easyrig Cinema 3 400N",
-            "EasyRig Cinema 3 400N"
+            "EasyRig Cinema 3 400N",
+            "EASY342",
+            "EASY342A",
+            "EASY342B",
+            "EASY-G342A"
           ]
         },
         {
@@ -1643,7 +2795,10 @@
           "model": "Cinema 3 500N",
           "aliases": [
             "Easyrig Cinema 3 500N",
-            "Cinema 3 EasyRig 500N"
+            "Cinema 3 EasyRig 500N",
+            "EASY352",
+            "EASY352A",
+            "EASY-G352A"
           ]
         },
         {
@@ -1651,7 +2806,9 @@
           "model": "Cinema 3 700N",
           "aliases": [
             "Easyrig Cinema 3 700N",
-            "Cinema 3 EasyRig 700N"
+            "Cinema 3 EasyRig 700N",
+            "EASY372",
+            "EASY-G372A"
           ]
         },
         {
@@ -2357,6 +3514,221 @@
             "K2.0010424",
             "Thumb Controller for MAXIMA"
           ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Vario 6",
+          "aliases": [
+            "Easyrig Vario 6",
+            "Easyrig Vario6",
+            "Vario 6 4-14kg",
+            "EASY-VC672A",
+            "EASY-VC672B",
+            "EASY-VCF672A",
+            "EASY-VCF672B",
+            "EASY-VG672A",
+            "EASY-VG672B",
+            "EASY-VGF672A",
+            "EASY-VGF672B"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "STABIL Light",
+          "aliases": [
+            "STL000",
+            "Easyrig STABIL Light",
+            "Easyrig Stabil Light Minimax"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "STABIL Medium",
+          "aliases": [
+            "Easyrig STABIL Medium",
+            "Easyrig Stabil Medium Vario 6"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Quick Release EA033-Q",
+          "aliases": [
+            "EA033-Q",
+            "Easyrig Quick Release",
+            "Easyrig Schnellwechsel Kamerahaken"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Spacer EA033-S",
+          "aliases": [
+            "EA033-S",
+            "Easyrig Spacer"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Padded Belt Extender EA160",
+          "aliases": [
+            "EA160",
+            "Easyrig Padded Belt Extender"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cheese Plate EA060 (Cinema 3)",
+          "aliases": [
+            "EA060",
+            "Easyrig Cheese Plate Cinema 3"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cheese Plate V6060 (Vario 6)",
+          "aliases": [
+            "V6060",
+            "Easyrig Cheese Plate Vario 6"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cheese Plate MM060 (Minimax)",
+          "aliases": [
+            "MM060",
+            "Easyrig Cheese Plate Minimax"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Umbrella with Holder EA055",
+          "aliases": [
+            "EA055",
+            "Easyrig Umbrella",
+            "Easyrig Schirm"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Umbrella with Holder MM055 (Minimax)",
+          "aliases": [
+            "MM055",
+            "Easyrig Umbrella Minimax"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema Vest",
+          "aliases": [
+            "Easyrig Cinema Vest",
+            "Easyrig Cinema Weste"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema Flex Vest",
+          "aliases": [
+            "Easyrig Cinema Flex Vest",
+            "Easyrig Cinema Flex Weste"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Minimax Flex Vest",
+          "aliases": [
+            "Easyrig Minimax Flex Vest"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Upper Support Bar Ext. +130mm V6000A (Vario 6)",
+          "aliases": [
+            "V6000A"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Upper Support Bar Ext. +230mm V6000B (Vario 6)",
+          "aliases": [
+            "V6000B"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Shock Absorber 750N V6221-7 (Vario 6)",
+          "aliases": [
+            "V6221-7"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema 3 200N",
+          "aliases": [
+            "EASY322A",
+            "Easyrig 3 200N"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema 3 300N",
+          "aliases": [
+            "EASY332",
+            "EASY332A",
+            "EASY332B",
+            "EASY-G332A",
+            "Easyrig 3 300N"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cinema 3 600N",
+          "aliases": [
+            "EASY362",
+            "EASY-G362A",
+            "Easyrig 3 600N"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "STABIL Light Arm",
+          "aliases": [
+            "EASY-STL000",
+            "STABIL Light Dampening & Foldable Arm"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Upper Bar Extended 130mm EASY000A",
+          "aliases": [
+            "EASY000A",
+            "Easyrig upper bar extended 130mm"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Upper Bar Extended 230mm EASY000B",
+          "aliases": [
+            "EASY000B",
+            "Easyrig upper bar extended 230mm"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Quick Release Camera Hook EASY033-Q",
+          "aliases": [
+            "EASY033-Q",
+            "Easyrig Quick Release Camera Hook"
+          ]
+        },
+        {
+          "manufacturer": "Easyrig",
+          "model": "Cheese Plate for Sony VENICE V060",
+          "aliases": [
+            "V060",
+            "Easyrig V060 Cheese Plate",
+            "Easyrig Cheese Plate für Sony VENICE",
+            "Cheese Plate V060 (Vario 5)",
+            "Easyrig Cheese Plate Vario 5"
+          ]
         }
       ]
     },
@@ -2480,7 +3852,13 @@
           "name": "O'Connor Ultimate 1040",
           "aliases": [
             "O'Connor 1040",
-            "Ultimate 1040"
+            "Ultimate 1040",
+            "C1265-0001",
+            "OConnor Ultimate 1040",
+            "Ultimate 1040 Fluid Head Package",
+            "OConnor 1040",
+            "OConnor Ultimate 1040 Fluid-Head",
+            "Ultimate 1040 Fluid Head"
           ],
           "specs": {
             "payload_kg": 20
@@ -2491,7 +3869,11 @@
           "model": "120EX Fluid Head",
           "name": "O'Connor 120EX",
           "aliases": [
-            "O'Connor 120"
+            "O'Connor 120",
+            "C1225-0001",
+            "C1225-0003",
+            "OConnor 120EX",
+            "120EX Fluid Head Package"
           ]
         },
         {
@@ -2501,7 +3883,12 @@
           "aliases": [
             "O Connor Ultimate 2560 Stativkopf",
             "OConnor Ultimate 2560",
-            "O'Connor Ultimate 2560"
+            "O'Connor Ultimate 2560",
+            "C1260-0001",
+            "C1260-0002",
+            "Ultimate 2560 Fluid Head Package",
+            "OConnor 2560",
+            "OConnor Ultimate 2560 Fluid Kopf"
           ]
         },
         {
@@ -2510,7 +3897,13 @@
           "name": "O'Connor 2575D",
           "aliases": [
             "O'Connor 2575",
-            "2575D"
+            "2575D",
+            "C1234-0005",
+            "C1234-0006",
+            "Ultimate 2575D Fluid Head Package",
+            "OConnor Ultimate 2575D",
+            "Ultimate 2575D",
+            "OConnor Ultimate 2575D Fluid Head"
           ],
           "specs": {
             "payload_kg": 60
@@ -2522,7 +3915,13 @@
           "name": "O'Connor 2575E",
           "aliases": [
             "2575E",
-            "Ultimate 2575E"
+            "Ultimate 2575E",
+            "C1275-0001",
+            "C1275-0002",
+            "2575E Platinum Edition",
+            "OConnor 2575E Platinum",
+            "OConnor Ultimate 2575E",
+            "OConnor 2575E Fluidkopf"
           ]
         },
         {
@@ -2696,7 +4095,9 @@
             "OCONNOR Quick Release Plate",
             "2575-120",
             "O'Connor Euro Quick Release 120mm",
-            "O'Connor Schnellwechselplatte"
+            "O'Connor Schnellwechselplatte",
+            "OConnor Euro Style Quick Release",
+            "Euro Style Quick Release 2575-120"
           ],
           "bulk": true
         },
@@ -2707,7 +4108,9 @@
             "OCONNOR Schwenkarm kurz",
             "2575-137",
             "O'Connor Pan Handle 12\"",
-            "O'Connor Pan Bar short"
+            "O'Connor Pan Bar short",
+            "OConnor Pan Handle 2575-137",
+            "Pan handle for 2065, 2575 & 120EX"
           ],
           "specs": {
             "length_mm": 305,
@@ -2722,7 +4125,9 @@
             "OCONNOR Schwenkarm lang",
             "2575-107",
             "O'Connor Large Pan Handle 16.5\"",
-            "O'Connor Pan Bar long"
+            "O'Connor Pan Bar long",
+            "OConnor Large Pan Handle",
+            "Large Pan Handle for 2065, 2575 & 120EX"
           ],
           "specs": {
             "length_mm": 420,
@@ -2737,7 +4142,9 @@
             "OCONNOR Flatbase Adapter",
             "O'Connor Flat Base Adapter",
             "OCMB",
-            "O'Connor Mitchell Base"
+            "O'Connor Mitchell Base",
+            "C1275-1010",
+            "OConnor Mitchell Base C1275-1010"
           ],
           "bulk": true
         },
@@ -2747,7 +4154,9 @@
           "aliases": [
             "OCONNOR Feststellschraube",
             "O'Connor Mitchell Tie-Down",
-            "O'Connor Feststellschraube Flatbase"
+            "O'Connor Feststellschraube Flatbase",
+            "C1234-1018",
+            "OConnor Mitchell Tiedown"
           ],
           "bulk": true
         },
@@ -2782,7 +4191,8 @@
           "aliases": [
             "08414",
             "O'Connor 150mm Ball Base",
-            "O'Connor 150er Halbschale Adapter"
+            "O'Connor 150er Halbschale Adapter",
+            "OConnor 150mm Ball Base"
           ],
           "bulk": true
         },
@@ -3675,6 +5085,204 @@
             "Manfrotto 526",
             "Manfrotto 526-1"
           ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Mitchell Base 08281",
+          "aliases": [
+            "08281",
+            "OConnor Mitchell Base"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Mitchell Base for 120EX",
+          "aliases": [
+            "OConnor Mitchell Base 120EX"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "100mm Ball Base 08365",
+          "aliases": [
+            "08365",
+            "OConnor 100mm Ball Base"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Large Euro Plate 08285",
+          "aliases": [
+            "08285",
+            "OConnor Large Euro Plate",
+            "OConnor 120mm Euro Plate"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Mini Euro Plate 08427",
+          "aliases": [
+            "08427",
+            "OConnor Mini Euro Plate",
+            "OConnor 80mm Euro Plate"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Large Euro Quick Release 1030-268",
+          "aliases": [
+            "1030-268",
+            "OConnor Large Euro Quick Release 1030"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Mini Euro Quick Release for 1030 & 1040",
+          "aliases": [
+            "OConnor Mini Euro Quick Release"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Side Load Quick Release for 1030D/Ds",
+          "aliases": [
+            "OConnor Side Load Quick Release"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Slide Plate Assembly V4045-1901",
+          "aliases": [
+            "V4045-1901",
+            "OConnor Slide Plate Assembly"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Pan Handle 1030-246",
+          "aliases": [
+            "1030-246",
+            "OConnor Pan Handle 1030 1040",
+            "Pan Handle for 1030 1030-246",
+            "OConnor 1030-246 Pan Handle"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Pan Handle Extension 2575-135",
+          "aliases": [
+            "2575-135",
+            "OConnor Pan Handle Extension 2575-135"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Front End Handle for 2065, 2575 & 120EX",
+          "aliases": [
+            "OConnor Front End Handle"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Front End Handle Small Rosette C1260-1010",
+          "aliases": [
+            "C1260-1010",
+            "OConnor 2560 Front End Handle"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Geared Platform Plate Assembly C1225-1007",
+          "aliases": [
+            "C1225-1007",
+            "OConnor Geared Platform Plate 120EX"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "ARRI Style Dovetail Plate for 1030/1040",
+          "aliases": [
+            "OConnor ARRI Dovetail Plate 1030 1040"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "ARRI Style 12in Dovetail Plate",
+          "aliases": [
+            "OConnor ARRI style 12\" Dovetail Plate",
+            "OConnor ARRI Dovetail 12in"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Rosette Adapter",
+          "aliases": [
+            "OConnor Rosette Adapter",
+            "OConnor Rosette Adaptor"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Eyepiece Leveler Bracket",
+          "aliases": [
+            "OConnor Eyepiece Leveler",
+            "OConnor Eyepiece Leveller Bracket"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Studio Pedestal / Tripod Adaptor",
+          "aliases": [
+            "OConnor Pedestal Adaptor",
+            "OConnor Studio Pedestal Adapter"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Assistant's Front Box Mount",
+          "aliases": [
+            "OConnor Front Box Mount"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Front End Handle 08409",
+          "aliases": [
+            "08409",
+            "OConnor 08409 Front End Handle"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Side Load Quick Release C1248-1001",
+          "aliases": [
+            "C1248-1001",
+            "OConnor Side Load Quick Release 1030D"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Rosette Adapter C1249-1000",
+          "aliases": [
+            "C1249-1000",
+            "OConnor Rosetten-Adapter"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "12in Dovetail Adapter Plate C1249-1001",
+          "aliases": [
+            "C1249-1001",
+            "OConnor 12\" Dovetail Stativ-Adapterplatte"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Dovetail Adapter Plate 1030/1040 C1249-1002",
+          "aliases": [
+            "C1249-1002",
+            "OConnor Dovetail Stativ-Adapterplatte"
+          ]
         }
       ]
     },
@@ -4364,6 +5972,24 @@
           "aliases": [
             "395205"
           ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "DCM Dolly",
+          "aliases": [
+            "OConnor DCM Dolly",
+            "OConnor Dolly 30L 60L",
+            "DCM Dolly C1261-0001",
+            "C1261-0001"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "DCL Dolly",
+          "aliases": [
+            "OConnor DCL Dolly",
+            "OConnor Dolly Cine HD"
+          ]
         }
       ]
     },
@@ -4438,8 +6064,7 @@
           "model": "Hi-Hat 100mm Bowl",
           "aliases": [
             "Hi Hat 100",
-            "High Hat 100mm",
-            "Hihat 100mm"
+            "High Hat 100mm"
           ],
           "specs": {
             "mount": "100mm bowl"
@@ -4451,8 +6076,7 @@
           "model": "Hi-Hat 150mm Bowl",
           "aliases": [
             "Hi Hat 150",
-            "High Hat 150mm",
-            "Hihat 150mm"
+            "High Hat 150mm"
           ],
           "specs": {
             "mount": "150mm bowl"
@@ -4488,7 +6112,14 @@
             "OConnor Sticks",
             "Standard Legs",
             "Cine HD Legs",
-            "O'Connor Cine HD Stativ"
+            "O'Connor Cine HD Stativ",
+            "C1221-0001",
+            "C1221-0003",
+            "Cine HD Mitchell",
+            "Cine HD 150mm",
+            "OConnor Cine HD Tall",
+            "OConnor Cine HD tall Tripod",
+            "Cine HD Tall Tripod"
           ],
           "specs": {
             "mount": "150mm bowl"
@@ -4499,7 +6130,8 @@
           "model": "flowtech 100",
           "name": "O'Connor flowtech 100 Tripod",
           "aliases": [
-            "flowtech100 OConnor"
+            "flowtech100 OConnor",
+            "flowtech100 OConnor Edition"
           ],
           "specs": {
             "mount": "100mm bowl",
@@ -4796,7 +6428,10 @@
           "model": "30L Tripod",
           "aliases": [
             "O'Connor Stativ 30L Carbon (100er)",
-            "OConnor 30L"
+            "OConnor 30L",
+            "C1251-0001",
+            "30L Carbon Fiber Tripod",
+            "OConnor 30L Carbon"
           ]
         },
         {
@@ -4804,7 +6439,12 @@
           "model": "60L Tripod",
           "aliases": [
             "Stativ O'Connor 60L 2-fach (Carbon)",
-            "OConnor 60L"
+            "OConnor 60L",
+            "C1255-0001",
+            "C1255-0002",
+            "60L Carbon Fiber Tripod",
+            "OConnor 60L Mitchell",
+            "OConnor 60L 150mm"
           ]
         },
         {
@@ -5289,6 +6929,124 @@
           "model": "117B",
           "aliases": [
             "Manfrotto 117B"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "120EXe Fluid Head",
+          "aliases": [
+            "C1226-0001",
+            "C1226-1000",
+            "OConnor 120EXe",
+            "120EXe Fluid Head Package",
+            "120EX Encoded"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Cine HD Baby Tripod",
+          "aliases": [
+            "C1221-0002",
+            "C1221-0004",
+            "OConnor Cine HD Baby",
+            "Cine HD Baby Mitchell",
+            "Cine HD Baby 150mm",
+            "O'Connor Cine HD Baby",
+            "OConnor Cine HD Baby Tripod",
+            "Cine HD Baby Tripod (Mitchell)",
+            "OConnor Cine HD Baby (Mitchell)"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "flowtech 100 GS",
+          "aliases": [
+            "C1266-0004",
+            "OConnor flowtech100 GS",
+            "flowtech 100 Ground Spreader"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "flowtech 100 MS",
+          "aliases": [
+            "C1266-0003",
+            "OConnor flowtech100 MS",
+            "flowtech 100 Mid-Level Spreader"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Cine HD Floor Spreader C1222-0015",
+          "aliases": [
+            "C1222-0015",
+            "OConnor Cine HD Floor Spreader"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "30L/60L Mid-Level Spreader C1252-0001",
+          "aliases": [
+            "C1252-0001",
+            "OConnor Mid-Level Spreader 30L 60L",
+            "OConnor MLS"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "30L/60L Floor Spreader C1258-0001",
+          "aliases": [
+            "C1258-0001",
+            "OConnor Floor Spreader 30L 60L"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "HiHat 100mm",
+          "aliases": [
+            "OConnor HiHat 100mm",
+            "O'Connor Hi Hat 100mm"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "HiHat 150mm",
+          "aliases": [
+            "OConnor HiHat 150mm",
+            "O'Connor Hi Hat 150mm"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "HiHat Mitchell",
+          "aliases": [
+            "OConnor HiHat Mitchell",
+            "O'Connor Hi Hat Mitchell"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "LowHat Mitchell",
+          "aliases": [
+            "OConnor LowHat Mitchell",
+            "O'Connor Low Hat Mitchell"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Hi-Hat 150mm C1250-0002",
+          "aliases": [
+            "C1250-0002",
+            "OConnor HiHat 150 mm",
+            "OConnor Hi Hat 150mm"
+          ]
+        },
+        {
+          "manufacturer": "OConnor",
+          "model": "Floor Spreader for Cine HD Tripods",
+          "aliases": [
+            "OConnor Floor Spreader Cine HD",
+            "OConnor Bodenspinne Cine HD"
           ]
         }
       ]

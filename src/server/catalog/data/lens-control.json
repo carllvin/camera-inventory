@@ -13900,6 +13900,13 @@
       "K2.45505.0",
       "Reflex Prevention Ring Ø156mm"
      ]
+    },
+    {
+     "manufacturer": "OConnor",
+     "model": "Reduction Ring 114-95mm",
+     "aliases": [
+      "OConnor Reduktionsring 114-95mm"
+     ]
     }
    ]
   },
@@ -17514,6 +17521,56 @@
       "K2.65260.0",
       "Mini Follow Focus MFF-2 HD base",
       "KK.0005772"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "ZSG-C10 Zoom Grip",
+     "aliases": [
+      "ZSG-C10",
+      "1715C003",
+      "Canon ZSG-C10",
+      "Canon Zoomgriff ZSG-C10"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "FPM-420D Focus Servo Module",
+     "aliases": [
+      "FPM-420D",
+      "Canon FPM-420D"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "FFM-100 Focus Flex Module",
+     "aliases": [
+      "FFM-100",
+      "Canon FFM-100"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "PZ-E2 Power Zoom Adapter",
+     "aliases": [
+      "PZ-E2",
+      "Canon PZ-E2"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "PZ-E2B Power Zoom Adapter",
+     "aliases": [
+      "PZ-E2B",
+      "Canon PZ-E2B"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "MS-15 Semi Servo Focus Control",
+     "aliases": [
+      "MS-15",
+      "Canon MS-15"
      ]
     }
    ]

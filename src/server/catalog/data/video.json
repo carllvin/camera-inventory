@@ -130,7 +130,9 @@
      "manufacturer": "Atomos",
      "model": "Ninja TX",
      "aliases": [
-      "Atomos Ninja TX"
+      "Atomos Ninja TX",
+      "ATOMNJTX01",
+      "Atomos Ninja TX 5\" Monitor-Recorder"
      ]
     },
     {
@@ -363,7 +365,43 @@
      "model": "AtomX SDI Module",
      "aliases": [
       "Atomos AtomX SDI",
-      "AtomX SDI"
+      "AtomX SDI",
+      "ATOMXSDI01",
+      "Atomos X SDI Module"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja Phone",
+     "aliases": [
+      "ATOMNJAPB01",
+      "Atomos Ninja Phone"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Connect for Ninja V/V+",
+     "aliases": [
+      "ATOMCON003",
+      "Atomos Connect für Ninja V oder V+",
+      "Atomos Connect Ninja V"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "AtomX Cast",
+     "aliases": [
+      "ATOMXCST01",
+      "Atomos AtomX Cast"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Nexus HDMI to USB Converter",
+     "aliases": [
+      "ATOMNEXU01",
+      "Atomos Nexus",
+      "Atomos Nexus HDMI zu USB Konverter"
      ]
     }
    ]
@@ -378,7 +416,9 @@
      "manufacturer": "Atomos",
      "model": "Ninja",
      "aliases": [
-      "Ninja (2023)"
+      "Ninja (2023)",
+      "ATOMNJA004",
+      "Atomos Ninja 5,2\" 4K HDMI Monitor/Recorder"
      ],
      "specs": {
       "screen_in": 5,
@@ -388,7 +428,10 @@
     {
      "manufacturer": "Atomos",
      "model": "Ninja Ultra",
-     "aliases": [],
+     "aliases": [
+      "ATOMNJAU01",
+      "Atomos Ninja Ultra 5,2\" 4K HDMI Monitor/Recorder"
+     ],
      "specs": {
       "screen_in": 5,
       "resolution": "1920x1080"
@@ -430,7 +473,11 @@
      "manufacturer": "Atomos",
      "model": "Shogun 7",
      "aliases": [
-      "Atomos Shogun"
+      "Atomos Shogun",
+      "ATOMSHG701",
+      "Shogun Classic",
+      "Atomos Shogun Classic",
+      "Atomos Shogun Classic 4K Recorder / Monitor"
      ],
      "specs": {
       "screen_in": 7,
@@ -441,7 +488,8 @@
      "manufacturer": "Atomos",
      "model": "Shogun Connect",
      "aliases": [
-      "Shogun Connect 7"
+      "Shogun Connect 7",
+      "ATOMSHGCO1"
      ],
      "specs": {
       "screen_in": 7,
@@ -460,7 +508,10 @@
     {
      "manufacturer": "Atomos",
      "model": "Shogun Ultra",
-     "aliases": [],
+     "aliases": [
+      "ATOMSHGU01",
+      "Atomos Shogun Ultra 7\" Monitor-Recorder"
+     ],
      "specs": {
       "screen_in": 7,
       "resolution": "1920x1200"
@@ -480,7 +531,10 @@
      "model": "Sumo 19 SE",
      "aliases": [
       "Atomos Sumo SE 4K HDR Produktionsmonitor/Recorder 19”",
-      "Atomos Sumo SE 19"
+      "Atomos Sumo SE 19",
+      "ATOMSUMSE1",
+      "Atomos Sumo19 SE",
+      "Sumo19 SE"
      ],
      "specs": {
       "screen_in": 19
@@ -826,7 +880,8 @@
      "manufacturer": "Sony",
      "model": "BVM-HX310",
      "aliases": [
-      "Trimaster HX310"
+      "Trimaster HX310",
+      "Sony BVM-HX310 Trimaster"
      ],
      "specs": {
       "screen_in": 31
@@ -2740,7 +2795,9 @@
      "manufacturer": "Atomos",
      "model": "Shinobi II",
      "aliases": [
-      "Atomos Shinobi II"
+      "Atomos Shinobi II",
+      "ATOMSHB003",
+      "Atomos Shinobi II 5\""
      ]
     },
     {
@@ -2748,6 +2805,178 @@
      "model": "Live Production Monitor LPM-1",
      "aliases": [
       "LPM-1"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja TX GO",
+     "aliases": [
+      "ATOMNJTX02",
+      "Atomos Ninja TX GO"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Ninja RAW",
+     "aliases": [
+      "ATOMNJRW01",
+      "Atomos Ninja RAW"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shinobi 7 II",
+     "aliases": [
+      "ATOMSHB005",
+      "Atomos Shinobi 7 II",
+      "Atomos Shinobi 7 II 7\""
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shinobi 7 RX",
+     "aliases": [
+      "ATOMSHBRX1",
+      "Atomos Shinobi 7 RX",
+      "Atomos Shinobi 7 RX HDR Monitor"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shinobi GO",
+     "aliases": [
+      "Atomos Shinobi GO",
+      "Atomos Shinobi GO 5\" Monitor"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun AV-19",
+     "aliases": [
+      "ATOMSHGAV1",
+      "Atomos Shogun AV-19",
+      "Shogun AV-19 Rack-Mount Monitor-Recorder-Switcher"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Shogun AV-19M",
+     "aliases": [
+      "ATOMSHGAVM",
+      "Atomos Shogun AV-19M",
+      "Atomos Shogun AV-19M Rack 4K 19\""
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Sumo PRO-19",
+     "aliases": [
+      "ATOMSMPR19",
+      "Atomos Sumo PRO-19",
+      "Atomos Sumo PRO-19 Monitor-Recorder-Switcher",
+      "Sumo Pro 19"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Sunhood for Shogun 7",
+     "aliases": [
+      "ATOMSUN008",
+      "Atomos Sonnenblende für Shogun 7",
+      "Atomos Sunhood Shogun 7",
+      "Shogun 7 Sunhood"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Sunhood for Ninja V / Shinobi / Shinobi SDI",
+     "aliases": [
+      "ATOMSUN007",
+      "Atomos Sonnenblende für Ninja V, Shinobi und Shinobi SDI",
+      "Atomos Sunhood Ninja V",
+      "Sunhood for Ninja V",
+      "Atomos Sunhood für Ninja V",
+      "Atomos Ninja V Sunhood"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Sunhood for Shinobi II",
+     "aliases": [
+      "ATOMSUN009",
+      "Atomos Sonnenblende für Shinobi II",
+      "Atomos Sunhood for Shinobi II",
+      "Shinobi GO Sunhood"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "RM-DP5 Remote Control Monitor",
+     "aliases": [
+      "RM-DP5",
+      "Sony RM-DP5",
+      "Sony Remote Control Monitor RM-DP5"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "RM-DP7 Remote Control Monitor",
+     "aliases": [
+      "RM-DP7",
+      "Sony RM-DP7",
+      "Sony Remote Control Monitor RM-DP7"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Sunhood for Sumo 19",
+     "aliases": [
+      "Atomos Sumo19 Sunhood",
+      "Sumo19 Sunhood"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Black Sun Hood for Flame Series",
+     "aliases": [
+      "Atomos Black Sun Hood für Flame Series"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "AtomX 5\"/7\" Monitor Mount",
+     "aliases": [
+      "Atomos AtomX 5\" / 7\" MONITOR MOUNT",
+      "AtomX Monitor Mount"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BVM-HX1710",
+     "aliases": [
+      "BVM-HX1710N",
+      "Trimaster HX1710"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "BVM-HX3110",
+     "aliases": [
+      "Trimaster HX3110"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "LMD-A180",
+     "aliases": [
+      "Sony LMD A180"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "LMD-A220",
+     "aliases": [
+      "Sony LMD A220"
      ]
     }
    ]
@@ -2848,14 +3077,21 @@
     {
      "manufacturer": "Atomos",
      "model": "UltraSync Blue",
-     "aliases": []
+     "aliases": [
+      "AtomX Ultrasync Blue",
+      "Atomos AtomX Ultrasync Blue"
+     ]
     },
     {
      "manufacturer": "Atomos",
      "model": "UltraSync One",
      "aliases": [
       "Ultrasync",
-      "UltraSync 1"
+      "UltraSync 1",
+      "ATOMXSYON1",
+      "ATOMXSYON1-ROW",
+      "Atomos AtomX UltraSync ONE",
+      "AtomX Ultrasync One"
      ]
     },
     {
@@ -3043,6 +3279,39 @@
      "aliases": [
       "DS0606039H",
       "Deity TC-1 Cold Shoe"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "UltraSync ONE to BNC Timecode/Genlock Cable",
+     "aliases": [
+      "ATOMXCAB02",
+      "Atomos UltraSync ONE zu BNC Timecode/Genlock Kabel"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "UltraSync ONE to 5-pin LEMO Timecode Cable",
+     "aliases": [
+      "ATOMXCAB04",
+      "Atomos UltraSync ONE zu 5-pin LEMO Timecode Output Kabel"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "UltraSync ONE 3.5mm Timecode Input Cable",
+     "aliases": [
+      "ATOMXCAB05",
+      "Atomos Timecode-Kabel für UltraSync One 3,5mm Eingang"
+     ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "VMC-BNCU1 Timecode Cable",
+     "aliases": [
+      "VMC-BNCU1",
+      "Sony VMC-BNCU1",
+      "Sony VMC-BNCU1 Timecode Kabel"
      ]
     }
    ]
@@ -4483,6 +4752,38 @@
       "ARRI WVS Set",
       "Complete Wireless Video Basic Set",
       "KK.0024404"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "TX 4K Wireless Video Transmitter",
+     "aliases": [
+      "Atomos TX 4K",
+      "Atomos TX 4K Wireless Video Transmitter"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "RX 4K Wireless Video Receiver",
+     "aliases": [
+      "Atomos RX 4K",
+      "Atomos RX 4K Wireless Video Receiver"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos TX 4K/HD Wireless Transmitter",
+     "aliases": [
+      "Atomos TX",
+      "Atomos TX 4K/HD Wireless Video Monitoring (Transmitter only)"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos RX 4K/HD Wireless Receiver",
+     "aliases": [
+      "Atomos RX",
+      "Atomos RX 4K/HD Wireless Video Monitoring (Receiver only)"
      ]
     }
    ]

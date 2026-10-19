@@ -2897,6 +2897,28 @@
           "mount": "PL",
           "format": "Full Frame",
           "squeeze": "1.33x"
+        },
+        {
+          "manufacturer": "Blazar",
+          "series": "Great Joy",
+          "focals": [
+            [
+              50,
+              "T2.9"
+            ],
+            [
+              85,
+              "T2.9"
+            ]
+          ],
+          "extraSeries": [
+            "Blazar Great Joy",
+            "Great Joy 1.8x",
+            "Blazar Great Joy 1.8x Anamorphic"
+          ],
+          "mount": "PL",
+          "format": "Full Frame",
+          "squeeze": "1.8x"
         }
       ],
       "entries": [
@@ -4008,7 +4030,8 @@
           "aliases": [
             "Mountadapter Canon RF Mount --> Canon EF",
             "Canon EF-EOS R Adapter",
-            "790-0683"
+            "790-0683",
+            "EF-EOS R-Objektivadapter"
           ]
         },
         {
@@ -4290,7 +4313,8 @@
           "aliases": [
             "Canon Control Ring Adapter EF-EOS R",
             "Canon EF-EOS R Control Ring",
-            "CR-EF-EOSR"
+            "CR-EF-EOSR",
+            "EF-EOS R Adapter mit Steuerungsring"
           ]
         },
         {
@@ -4759,6 +4783,28 @@
           "aliases": [
             "Schneider Diopter +1/4 138",
             "Schneider 138mm Diopter +1/4"
+          ]
+        },
+        {
+          "manufacturer": "Blazar",
+          "model": "Great Joy 1.35x Anamorphic Adapter",
+          "aliases": [
+            "Blazar Great Joy 1.35x Adapter"
+          ]
+        },
+        {
+          "manufacturer": "Blazar",
+          "model": "Great Joy NERO 1.5x Anamorphic Adapter",
+          "aliases": [
+            "Blazar NERO 1.5x",
+            "Great Joy NERO"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "LA-EA5",
+          "aliases": [
+            "Sony LA-EA5 Mount Adapter"
           ]
         }
       ]
@@ -12315,6 +12361,90 @@
           ],
           "mount": "E",
           "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Tribe7",
+          "series": "Blackwing7 S-Tuned",
+          "focals": [
+            [
+              27,
+              "T1.9"
+            ],
+            [
+              37,
+              "T1.9"
+            ],
+            [
+              47,
+              "T1.9"
+            ],
+            [
+              57,
+              "T1.9"
+            ],
+            [
+              77,
+              "T1.8"
+            ],
+            [
+              107,
+              "T1.8"
+            ],
+            [
+              137,
+              "T1.9"
+            ]
+          ],
+          "extraSeries": [
+            "Blackwing7 S Tuned",
+            "Blackwing-7 S-Tuned",
+            "Tribe7 Blackwing7 S-Tuned",
+            "BW7 S"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
+        },
+        {
+          "manufacturer": "Tribe7",
+          "series": "Blackwing7 X-Tuned",
+          "focals": [
+            [
+              27,
+              "T1.9"
+            ],
+            [
+              37,
+              "T1.9"
+            ],
+            [
+              47,
+              "T1.9"
+            ],
+            [
+              57,
+              "T1.9"
+            ],
+            [
+              77,
+              "T1.8"
+            ],
+            [
+              107,
+              "T1.8"
+            ],
+            [
+              137,
+              "T1.9"
+            ]
+          ],
+          "extraSeries": [
+            "Blackwing7 X Tuned",
+            "Blackwing-7 X-Tuned",
+            "Tribe7 Blackwing7 X-Tuned",
+            "BW7 X"
+          ],
+          "mount": "PL",
+          "format": "Full Frame"
         }
       ],
       "entries": [
@@ -14299,7 +14429,9 @@
             "Canon 18-80",
             "Canon CN-E 18-80mm Cine Servo EF",
             "CN-E18-80mm T4,4 L KAS S",
-            "CN-E18-80mm T4.4 L IS KAS S"
+            "CN-E18-80mm T4.4 L IS KAS S",
+            "1714C003",
+            "Canon CN-E 18-80mm T4.4 L IS Cine-Servo"
           ],
           "specs": {
             "focal_length_mm": "18-80",
@@ -14346,7 +14478,9 @@
             "CN-E 70-200mm T4.4 L IS KAS S",
             "CN-E 70-200",
             "Canon 70-200 Cine",
-            "CN-E70-200mm T4.4 L IS KAS S"
+            "CN-E70-200mm T4.4 L IS KAS S",
+            "2568C003",
+            "Canon CN-E 70-200mm T4.4 L IS Cine-Servo"
           ],
           "specs": {
             "focal_length_mm": "70-200",
@@ -14363,7 +14497,12 @@
             "Flex Zoom 14-35",
             "Flex Zoom 20-50",
             "CN-E20-50mm T2.4 L F (EF/PL)",
-            "CN-E14-35mm T1.7 L S/SP (EF/PL)"
+            "CN-E14-35mm T1.7 L S/SP (EF/PL)",
+            "CN-E20-50 T2.4 L F",
+            "CN-E20-50 T2.4 L FP",
+            "CN-E20-50mm T2.4 L FP",
+            "CN-E14-35mm T1.7 L SP",
+            "CN-E14-35 L S"
           ],
           "specs": {
             "focal_length_mm": "20-50",
@@ -14380,7 +14519,12 @@
             "Flex Zoom 31.5-95",
             "Flex Zoom 45-135",
             "CN-E45-135mm T2.4 L F (EF/PL)",
-            "CN-E31.5-95mm T1.7 L S/SP (EF/PL)"
+            "CN-E31.5-95mm T1.7 L S/SP (EF/PL)",
+            "CN-E45-135 T2.4 L F",
+            "CN-E45-135 T2.4 L FP",
+            "CN-E45-135mm T2.4 L FP",
+            "CN-E31.5-95mm T1.7 L SP",
+            "CN-E31.5-95 L S"
           ],
           "specs": {
             "focal_length_mm": "45-135",
@@ -14400,7 +14544,8 @@
             "CN10x25 IAS S/P1",
             "CN10 x 25 IAS S/E1",
             "CN10x25 IAS S P1",
-            "CN10x25 IAS S E1"
+            "CN10x25 IAS S E1",
+            "CN10x25 IAS S/E1"
           ],
           "specs": {
             "focal_length_mm": "25-250",
@@ -14421,7 +14566,9 @@
             "Canon Cine-Servo CN20x50",
             "CANON Cine-Servo 50-1000mm",
             "CN20x50 IAS H P1",
-            "CN20x50 IAS H E1"
+            "CN20x50 IAS H E1",
+            "CN20x50 IAS H/E1",
+            "CN20x50 IAS H/P1"
           ],
           "specs": {
             "focal_length_mm": "50-1000",
@@ -14458,7 +14605,9 @@
             "CN8x15",
             "Canon Cine-Servo 15-120",
             "CN8x15 IAS S (EF/PL)",
-            "CN8x15 IAS S"
+            "CN8x15 IAS S",
+            "CN8x15 IAS S E1",
+            "CN8x15 IAS S P1"
           ],
           "specs": {
             "focal_length_mm": "15-120",
@@ -15960,7 +16109,8 @@
           "model": "CJ20ex7.8B IASE",
           "aliases": [
             "CANON CJ20EX7.8BIASE 4K",
-            "Canon CJ20ex7.8B"
+            "Canon CJ20ex7.8B",
+            "CJ20ex7.8B IASE-S"
           ]
         },
         {
@@ -15999,7 +16149,9 @@
             "Canon CN30x40",
             "Canon Cine-Servo 40-1200mm",
             "CN30×40 IAS J R1/P1",
-            "CN30x40 IAS J"
+            "CN30x40 IAS J",
+            "CN30x40 IAS J P1",
+            "CN30x40 IAS J R1"
           ]
         },
         {
@@ -16010,7 +16162,9 @@
             "Canon CN5x11",
             "Canon Cine-Servo 11-55mm",
             "CN5 x 11 IAS T (RF/PL)",
-            "CN5x11 IAS T RF"
+            "CN5x11 IAS T RF",
+            "CN5x11 IAS T/P1",
+            "CN5x11 IAS T/R1"
           ]
         },
         {
@@ -16248,7 +16402,8 @@
           "manufacturer": "Canon",
           "model": "CJ14ex4.3B",
           "aliases": [
-            "Canon CJ14ex4.3B"
+            "Canon CJ14ex4.3B",
+            "CJ14ex4.3B IASE-S"
           ]
         },
         {
@@ -16262,7 +16417,8 @@
           "manufacturer": "Canon",
           "model": "CJ15ex8.5B",
           "aliases": [
-            "Canon CJ15ex8.5B"
+            "Canon CJ15ex8.5B",
+            "CJ15ex8.5B KRSE-V-S"
           ]
         },
         {
@@ -16270,21 +16426,25 @@
           "model": "CJ17ex6.2B",
           "aliases": [
             "UHDgc CJ17ex6.2B",
-            "Canon CJ17ex6.2B"
+            "Canon CJ17ex6.2B",
+            "CJ17ex6.2B IASE-S"
           ]
         },
         {
           "manufacturer": "Canon",
           "model": "CJ18ex7.6B",
           "aliases": [
-            "Canon CJ18ex7.6B"
+            "Canon CJ18ex7.6B",
+            "CJ18ex7.6B IASE-S",
+            "CJ18ex7.6B KASE"
           ]
         },
         {
           "manufacturer": "Canon",
           "model": "CJ18ex28B",
           "aliases": [
-            "Canon CJ18ex28B"
+            "Canon CJ18ex28B",
+            "CJ18ex28B IASE-S"
           ]
         },
         {
@@ -16299,14 +16459,16 @@
           "manufacturer": "Canon",
           "model": "CJ24ex7.5B",
           "aliases": [
-            "Canon CJ24ex7.5B"
+            "Canon CJ24ex7.5B",
+            "CJ24ex7.5B IASE-S"
           ]
         },
         {
           "manufacturer": "Canon",
           "model": "CJ25ex7.6B",
           "aliases": [
-            "Canon CJ25ex7.6B"
+            "Canon CJ25ex7.6B",
+            "CJ25ex7.6B IASE-S"
           ]
         },
         {
@@ -16383,7 +16545,8 @@
             "KJ17ex7.7B IASE S",
             "KJ17ex7.7B ITS-ME",
             "Canon KJ17ex7.7B",
-            "KJ17ex7.7B"
+            "KJ17ex7.7B",
+            "KJ17ex7.7B IASE"
           ]
         },
         {
@@ -16393,7 +16556,8 @@
             "KJ22ex7.6B IASE S",
             "KJ22ex7.6B ITS-ME",
             "Canon KJ22ex7.6B",
-            "KJ22ex7.6B"
+            "KJ22ex7.6B",
+            "KJ22ex7.6B IASE"
           ]
         },
         {
@@ -16402,7 +16566,9 @@
           "aliases": [
             "KJ10ex4.5B IASE S",
             "Canon KJ10ex4.5B",
-            "KJ10ex4.5B"
+            "KJ10ex4.5B",
+            "KJ10ex4.5B IASE-A",
+            "KJ10ex4.5B IRSE-A"
           ]
         },
         {
@@ -16593,6 +16759,24 @@
           "aliases": [
             "DZOFilm Ling Lung 20-70mm",
             "DZO LingLung 20-70"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "FE C 16-35mm T3.1 G",
+          "aliases": [
+            "SELC1635G",
+            "Sony FE C 16-35mm T3.1 G",
+            "Sony FE C 16-35 T3.1",
+            "Sony 16-35mm T3.1 Cine",
+            "Sony SELC1635G 16-35mm T3.1 G Cinema"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "KJ13x6B KRSD",
+          "aliases": [
+            "Canon KJ13x6B"
           ]
         }
       ]

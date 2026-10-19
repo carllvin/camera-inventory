@@ -1127,7 +1127,8 @@
           "aliases": [
             "CBK-3610XS",
             "Rialto 1",
-            "VENICE Extension System"
+            "VENICE Extension System",
+            "CBK-3610XS Rialto Camera Extension System"
           ]
         },
         {
@@ -2011,7 +2012,8 @@
           "model": "AU-VSHL2G Shoulder Mount Module",
           "aliases": [
             "AU-VSHL2G",
-            "VariCam LT Shoulder Mount"
+            "VariCam LT Shoulder Mount",
+            "AU-VSHL2"
           ]
         },
         {
@@ -2019,7 +2021,8 @@
           "model": "AU-VMPL1G PL Lens Mount Module",
           "aliases": [
             "AU-VMPL1G",
-            "VariCam LT PL Mount"
+            "VariCam LT PL Mount",
+            "AU-VMPL1"
           ]
         },
         {
@@ -5189,6 +5192,57 @@
             "K2.0055237",
             "ARRI Top NATO Rail Eterna 55"
           ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RC-IP300 PTZ Remote Controller",
+          "aliases": [
+            "RC-IP300",
+            "Canon RC-IP300"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "RC-IP1000 PTZ Remote Controller",
+          "aliases": [
+            "RC-IP1000",
+            "Canon RC-IP1000"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "XLR-H1 Handle Unit",
+          "aliases": [
+            "XLR-H1",
+            "XLRH1",
+            "Sony XLR-H1",
+            "Sony XLR-H1 Griff für FX3/FX30"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "XLR-H2 Handle Unit",
+          "aliases": [
+            "XLR-H2",
+            "XLRH2B",
+            "Sony XLR-H2",
+            "Sony Handgriff XLR-H2"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "VCT-FSA5",
+          "aliases": [
+            "Sony VCT-FSA5 Baseplate"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "OCELLUS ASR-CT1",
+          "aliases": [
+            "ASR-CT1",
+            "Sony OCELLUS"
+          ]
         }
       ]
     },
@@ -5687,7 +5741,9 @@
             "Canon C300 Mark 3",
             "Canon C300 Mark III PL/EF-Mount",
             "Canon C300 Mk III",
-            "C300 Mk III"
+            "C300 Mk III",
+            "3795C003",
+            "Canon EOS C300 EF Mark III"
           ],
           "specs": {
             "sensor": "Super 35 4K",
@@ -5701,7 +5757,8 @@
             "C400",
             "Canon C400 Kamera",
             "Canon C400 RF",
-            "EOS C400 Body"
+            "EOS C400 Body",
+            "6388C003"
           ],
           "specs": {
             "sensor": "Full Frame 6K",
@@ -5713,7 +5770,8 @@
           "model": "EOS C50",
           "aliases": [
             "C50",
-            "Canon C50 Kamera"
+            "Canon C50 Kamera",
+            "7034C003"
           ],
           "specs": {
             "sensor": "Full Frame 7K",
@@ -5731,7 +5789,10 @@
             "EOS C500 MKII PL",
             "Canon C500 Mark II PL/EF-Mount",
             "C500 II",
-            "C500 II Body"
+            "C500 II Body",
+            "3794C003",
+            "EOS C500 II",
+            "Cinema EOS C500 MK II"
           ],
           "specs": {
             "sensor": "Full Frame 5.9K",
@@ -5771,7 +5832,9 @@
             "C80",
             "Canon C80 Kamera",
             "Canon C80 RF",
-            "EOS C80 Body"
+            "EOS C80 Body",
+            "6389C003",
+            "Canon EOS C80 Camcorder"
           ],
           "specs": {
             "sensor": "Full Frame 6K",
@@ -5953,7 +6016,8 @@
           "model": "LUMIX BS1H",
           "aliases": [
             "DC-BS1H",
-            "BS1H"
+            "BS1H",
+            "DC-BS1HE"
           ],
           "specs": {
             "sensor": "Full Frame 6K",
@@ -6337,7 +6401,9 @@
             "ILME-FR7",
             "FR7 PTZ",
             "Sony FR7 PTZ Kamera",
-            "ILME-FR7K"
+            "ILME-FR7K",
+            "ILMEFR7",
+            "Sony ILME FR7"
           ],
           "specs": {
             "sensor": "Full Frame",
@@ -6350,7 +6416,8 @@
           "aliases": [
             "ILME-FX2",
             "FX2 Kamera",
-            "ILME-FX2B"
+            "ILME-FX2B",
+            "ILMEFX2B"
           ],
           "specs": {
             "sensor": "Full Frame 33MP",
@@ -6364,7 +6431,8 @@
             "ILME-FX3",
             "FX3 Kamera",
             "ILME-FX3A",
-            "FX3A"
+            "FX3A",
+            "ILMEFX3AB"
           ],
           "specs": {
             "sensor": "Full Frame",
@@ -6377,7 +6445,8 @@
           "aliases": [
             "ILME-FX30",
             "FX30 Kamera",
-            "ILME-FX30B"
+            "ILME-FX30B",
+            "ILMEFX30B"
           ],
           "specs": {
             "sensor": "APS-C",
@@ -6391,7 +6460,9 @@
             "ILME-FX6",
             "ILME-FX6V",
             "FX6 Kamera",
-            "ILME-FX6VK"
+            "ILME-FX6VK",
+            "ILMEFX6V",
+            "Sony ILME-FX6V Camcorder"
           ],
           "specs": {
             "sensor": "Full Frame",
@@ -7096,7 +7167,9 @@
             "Sony FX5 Body",
             "Sony Cinema Line FX5",
             "ILME-FX5",
-            "ILME-FX5B"
+            "ILME-FX5B",
+            "ILMEFX5BB",
+            "Sony ILME-FX5 Gehäuse"
           ]
         },
         {
@@ -7222,7 +7295,8 @@
           "aliases": [
             "Sony PXW-Z200",
             "Sony Z200",
-            "SONY PXW-Z200 KIT (1\")"
+            "SONY PXW-Z200 KIT (1\")",
+            "PXWZ200B"
           ]
         },
         {
@@ -7698,7 +7772,8 @@
           "model": "HXR-NX800",
           "aliases": [
             "Sony HXR-NX800",
-            "NX800"
+            "NX800",
+            "HXRNX800B"
           ]
         },
         {
@@ -7855,6 +7930,302 @@
           "aliases": [
             "ARRI AMIRA Live",
             "AMIRA Live Multicam"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "XF605",
+          "aliases": [
+            "5076C003",
+            "Canon XF605",
+            "Canon XF 605",
+            "Canon XF605 Camcorder"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "XA60",
+          "aliases": [
+            "5733C003",
+            "Canon XA60"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "XA65",
+          "aliases": [
+            "5732C003",
+            "Canon XA65"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "XA70",
+          "aliases": [
+            "5736C003",
+            "Canon XA70"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "XA75",
+          "aliases": [
+            "5735C003",
+            "Canon XA75"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CR-N100",
+          "aliases": [
+            "Canon CR-N100",
+            "Canon CR-N100 w. Autotracking",
+            "Canon CR-N100 Autotracking Lite"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CR-N300",
+          "aliases": [
+            "Canon CR-N300",
+            "Canon CR-N300 Autotracking"
+          ]
+        },
+        {
+          "manufacturer": "Canon",
+          "model": "CR-N500",
+          "aliases": [
+            "Canon CR-N500",
+            "Canon CR-N500 Autotracking"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AG-CX10",
+          "aliases": [
+            "AG-CX10ES",
+            "Panasonic AG-CX10"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AG-CX18",
+          "aliases": [
+            "AG-CX18EJ",
+            "Panasonic AG-CX18",
+            "Panasonic CX18"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AG-CX20",
+          "aliases": [
+            "AG-CX20EJ",
+            "Panasonic AG-CX20",
+            "Panasonic CX20"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AJ-CX4000",
+          "aliases": [
+            "AJ-CX4000GJ",
+            "Panasonic AJ-CX4000"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "HC-X1200",
+          "aliases": [
+            "HC-X1200E",
+            "Panasonic HC-X1200"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "HC-X1600",
+          "aliases": [
+            "HC-X1600E",
+            "Panasonic HC-X1600",
+            "Panasonic HC-X1600E Semipro 4K Camcorder"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "HC-X2",
+          "aliases": [
+            "HC-X2E",
+            "Panasonic HC-X2",
+            "Panasonic HC-X2E Camcorder"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "HC-X20",
+          "aliases": [
+            "HC-X20E",
+            "Panasonic HC-X20",
+            "Panasonic HC-X20E Camcorder"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AW-UE4",
+          "aliases": [
+            "AW-UE4KG",
+            "Panasonic AW-UE4"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AW-UE40",
+          "aliases": [
+            "AW-UE40WEJ",
+            "AW-UE40KEJ",
+            "Panasonic AW-UE40"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AW-UE70",
+          "aliases": [
+            "AW-UE70KEJ",
+            "AW-UE70WEJ",
+            "Panasonic AW-UE70"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX GH7",
+          "aliases": [
+            "DC-GH7",
+            "DC-GH7E",
+            "GH7",
+            "Panasonic Lumix GH7"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX GH5 II",
+          "aliases": [
+            "DC-GH5M2",
+            "DC-GH5M2E",
+            "GH5 II",
+            "GH5 Mark II",
+            "Panasonic LUMIX DC-GH5 Mark II",
+            "GH5M2"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S5II",
+          "aliases": [
+            "DC-S5M2",
+            "DC-S5M2E",
+            "S5II",
+            "S5 Mark II",
+            "Panasonic Lumix S5II",
+            "S5 II"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S5IIX",
+          "aliases": [
+            "DC-S5M2X",
+            "DC-S5M2XE",
+            "S5IIX",
+            "Panasonic Lumix S5IIX",
+            "S5 II X"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S1II",
+          "aliases": [
+            "DC-S1M2",
+            "DC-S1M2E",
+            "S1II",
+            "Panasonic Lumix S1II",
+            "S1 II"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S1IIE",
+          "aliases": [
+            "DC-S1M2ES",
+            "DC-S1M2ESE",
+            "S1IIE",
+            "Panasonic Lumix S1IIE"
+          ]
+        },
+        {
+          "manufacturer": "Z CAM",
+          "model": "E2-S6G",
+          "aliases": [
+            "Z-CAM E2-S6G",
+            "Z CAM E2-S6G",
+            "ZCAM S6G"
+          ]
+        },
+        {
+          "manufacturer": "Z CAM",
+          "model": "E2-F6 Mark II",
+          "aliases": [
+            "Z CAM E2-F6 Mark II",
+            "Z CAM E2-F6 Mark II 6K Cinema Kamera",
+            "ZCAM F6 Mark II"
+          ]
+        },
+        {
+          "manufacturer": "Z CAM",
+          "model": "E2-M4 Mark II",
+          "aliases": [
+            "Z CAM E2-M4 Mark II",
+            "Z CAM E2-M4 Mark II 4K Cinema Kamera",
+            "ZCAM M4 Mark II"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AG-CX350",
+          "aliases": [
+            "AG-CX350EJ",
+            "Panasonic CX350"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AG-CX370",
+          "aliases": [
+            "AG-CX370EJ",
+            "Panasonic CX370"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AJ-PX5100",
+          "aliases": [
+            "AJ-PX5100GJ"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S1RII",
+          "aliases": [
+            "DC-S1RM2",
+            "DC-S1RM2E",
+            "S1RII",
+            "S1R II"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "LUMIX S9",
+          "aliases": [
+            "DC-S9",
+            "Panasonic Lumix S9"
           ]
         }
       ]
@@ -8178,7 +8549,8 @@
           "aliases": [
             "PG05.5",
             "ProGrade Dual Reader",
-            "PGRWCFXSDANA"
+            "PGRWCFXSDANA",
+            "CFexpress Type B and SDXC UHS-II Dual-slot Card Reader USB 3.2 Gen 2"
           ]
         },
         {
@@ -8194,7 +8566,8 @@
           "model": "CFexpress Type B Cobalt 325GB",
           "aliases": [
             "ProGrade Cobalt 325GB",
-            "ProGrade CFe B 325"
+            "ProGrade CFe B 325",
+            "CFexpress 2.0 Type B Cobalt 1700 325GB"
           ],
           "specs": {
             "capacity": "325GB"
@@ -8205,7 +8578,8 @@
           "model": "CFexpress Type B Cobalt 650GB",
           "aliases": [
             "ProGrade Cobalt 650GB",
-            "ProGrade CFe B 650"
+            "ProGrade CFe B 650",
+            "CFexpress 2.0 Type B Cobalt 1700 650GB"
           ],
           "specs": {
             "capacity": "650GB"
@@ -8216,7 +8590,9 @@
           "model": "CFexpress Type B Gold 128GB",
           "aliases": [
             "ProGrade Gold 128GB",
-            "ProGrade CFe B 128"
+            "ProGrade CFe B 128",
+            "PGCFX128GBPNA",
+            "CFexpress 2.0 Type B Gold 1700 128GB"
           ],
           "specs": {
             "capacity": "128GB"
@@ -8227,7 +8603,9 @@
           "model": "CFexpress Type B Gold 1TB",
           "aliases": [
             "ProGrade Gold 1TB",
-            "ProGrade CFe B 1TB"
+            "ProGrade CFe B 1TB",
+            "PGCFX1TBASNA",
+            "CFexpress 2.0 Type B Gold 1700 1TB"
           ],
           "specs": {
             "capacity": "1TB"
@@ -8238,7 +8616,9 @@
           "model": "CFexpress Type B Gold 256GB",
           "aliases": [
             "ProGrade Gold 256GB",
-            "ProGrade CFe B 256"
+            "ProGrade CFe B 256",
+            "PGCFX256GAPNA",
+            "CFexpress 2.0 Type B Gold 1700 256GB"
           ],
           "specs": {
             "capacity": "256GB"
@@ -8249,7 +8629,9 @@
           "model": "CFexpress Type B Gold 512GB",
           "aliases": [
             "ProGrade Gold 512GB",
-            "ProGrade CFe B 512"
+            "ProGrade CFe B 512",
+            "PGCFX512GASNA",
+            "CFexpress 2.0 Type B Gold 1700 512GB"
           ],
           "specs": {
             "capacity": "512GB"
@@ -9005,7 +9387,8 @@
           "model": "AU-XPD1 expressP2 Drive",
           "aliases": [
             "AU-XPD1",
-            "expressP2 Drive"
+            "expressP2 Drive",
+            "AU-XPD1E"
           ]
         },
         {
@@ -9013,7 +9396,8 @@
           "model": "AU-XPD3 expressP2 Drive",
           "aliases": [
             "AU-XPD3",
-            "expressP2 Drive XPD3"
+            "expressP2 Drive XPD3",
+            "AU-XPD3EJ"
           ]
         },
         {
@@ -9455,7 +9839,8 @@
           "model": "AtomX SSDmini 1TB",
           "aliases": [
             "ATOMXMINI1000PK",
-            "Angelbird AtomX SSDmini 1TB"
+            "Angelbird AtomX SSDmini 1TB",
+            "Atomos ATOM X SSDmini 1TB by Angelbird"
           ]
         },
         {
@@ -9561,6 +9946,455 @@
           "aliases": [
             "K2.0006338",
             "CODEX SxS to SXR adapter"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress Type B Gold 2TB",
+          "aliases": [
+            "PGCFX2TBASNA",
+            "ProGrade Gold 2TB",
+            "CFexpress 2.0 Type B Gold 1700 2TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type B Gold 240GB",
+          "aliases": [
+            "PGCFX240GBTNA",
+            "ProGrade CFexpress 4.0 Gold 240GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type B Gold 512GB",
+          "aliases": [
+            "PGCFX512GATNA",
+            "ProGrade CFexpress 4.0 Gold 512GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type B Gold 1TB",
+          "aliases": [
+            "PGCFX1TBATNA",
+            "ProGrade CFexpress 4.0 Gold 1TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type B Gold 2TB",
+          "aliases": [
+            "PGCFX2TBATNA",
+            "ProGrade CFexpress 4.0 Gold 2TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type B Iridium 400GB",
+          "aliases": [
+            "PGCFX400GIPNA",
+            "ProGrade CFexpress 4.0 Iridium 400GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type B Iridium 800GB",
+          "aliases": [
+            "PGCFX800GIPNA",
+            "ProGrade CFexpress 4.0 Iridium 800GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type B Iridium 1.6TB",
+          "aliases": [
+            "PGCFX1600GITNA",
+            "ProGrade CFexpress 4.0 Iridium 1.6TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 2.0 Type A Gold 120GB",
+          "aliases": [
+            "PGCFXA120GENA",
+            "ProGrade CFexpress Type A Gold 120GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 2.0 Type A Gold 240GB",
+          "aliases": [
+            "PGCFXA240GENA",
+            "ProGrade CFexpress Type A Gold 240GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 2.0 Type A Gold 480GB",
+          "aliases": [
+            "PGCFXA480GENA",
+            "ProGrade CFexpress Type A Gold 480GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 2.0 Type A Gold 960GB",
+          "aliases": [
+            "PGCFXA960GENA",
+            "ProGrade CFexpress Type A Gold 960GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type A Iridium 480GB",
+          "aliases": [
+            "PGCFXA480GIPNA",
+            "ProGrade CFexpress Type A Iridium 480GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type A Iridium 960GB",
+          "aliases": [
+            "PGCFXA960GIPNA",
+            "ProGrade CFexpress Type A Iridium 960GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type A Iridium Dual VPG 512GB",
+          "aliases": [
+            "PGCFXA512GIDNA"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress 4.0 Type A Iridium Dual VPG 1TB",
+          "aliases": [
+            "PGCFXA1TBIDNA"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V90 300R Iridium 128GB",
+          "aliases": [
+            "PGSD128GBIKNA",
+            "ProGrade SD V90 Iridium 128GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V90 300R Iridium 256GB",
+          "aliases": [
+            "PGSD256GBIKNA",
+            "ProGrade SD V90 Iridium 256GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V90 300R Iridium 512GB",
+          "aliases": [
+            "PGSD512GBIKNA",
+            "ProGrade SD V90 Iridium 512GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V90 300R Iridium 1TB",
+          "aliases": [
+            "PGSD1TBIKNA",
+            "ProGrade SD V90 Iridium 1TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V60 250R Gold 128GB",
+          "aliases": [
+            "PGSD128GBKNA",
+            "ProGrade SD V60 Gold 128GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V60 250R Gold 256GB",
+          "aliases": [
+            "PGSD256GBKNA",
+            "ProGrade SD V60 Gold 256GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V60 250R Gold 512GB",
+          "aliases": [
+            "PGSD512GBKNA",
+            "ProGrade SD V60 Gold 512GB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SDXC UHS-II V60 250R Gold 1TB",
+          "aliases": [
+            "PGSD1TBKNA",
+            "ProGrade SD V60 Gold 1TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress Type B Single-Slot Reader PG05.6",
+          "aliases": [
+            "PGRWCFXDNA",
+            "PG05.6",
+            "ProGrade CFexpress B Reader USB 4.0"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress Type B & SD Dual-Slot Reader PG05.7",
+          "aliases": [
+            "PGRWCFXSDDNA",
+            "PG05.7",
+            "ProGrade Dual Reader USB 4.0"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress Type A & SD Dual-Slot Reader PG09",
+          "aliases": [
+            "PGRWCFXTASDANA",
+            "PG09",
+            "ProGrade CFexpress A / SD Reader"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress Type A Single-Slot Reader PG09.6",
+          "aliases": [
+            "PGRWCFXTADNA",
+            "PG09.6"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress Type A & SD Dual-Slot Reader PG09.7",
+          "aliases": [
+            "PGRWCFXTASDDNA",
+            "PG09.7"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SD UHS-II Dual-Slot Reader PG08",
+          "aliases": [
+            "PGRWSDHCXCANA",
+            "PG08",
+            "ProGrade SD Dual Reader"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFast & SD UHS-II Dual-Slot Reader PG02",
+          "aliases": [
+            "PGRWCFASDANA",
+            "PG02",
+            "ProGrade CFast/SD Reader"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "CFexpress Type A Mobile Reader PGM12",
+          "aliases": [
+            "PGRWCFXTAMANA",
+            "PGM12"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "SD/microSD Mobile Reader PGM0.5",
+          "aliases": [
+            "PGRWSDUSDAUS",
+            "PGM0.5"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "External SSD PG10 2TB",
+          "aliases": [
+            "PGWFD2TBANA",
+            "ProGrade PG10 2TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "External SSD PG10 4TB",
+          "aliases": [
+            "PGWFD4TBANA",
+            "PGWFD4TBCNA",
+            "ProGrade PG10 4TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "External SSD PG10 8TB",
+          "aliases": [
+            "PGWFD8TBCNA",
+            "ProGrade PG10 8TB"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "Pro Mini SSD PG10.5 1TB",
+          "aliases": [
+            "PGMWFD1TBANA"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "Pro Mini SSD PG10.5 2TB",
+          "aliases": [
+            "PGMWFD2TBANA"
+          ]
+        },
+        {
+          "manufacturer": "ProGrade",
+          "model": "Pro Mini SSD PG10.5 4TB",
+          "aliases": [
+            "PGMWFD4TBANA"
+          ]
+        },
+        {
+          "manufacturer": "Atomos",
+          "model": "Master Caddy II",
+          "aliases": [
+            "ATOMCAD112",
+            "Atomos Master Caddy II",
+            "Atomos Master Caddy II (5 Pack)"
+          ]
+        },
+        {
+          "manufacturer": "Atomos",
+          "model": "Master Caddy III",
+          "aliases": [
+            "ATOMCAD113",
+            "Atomos Master Caddy III",
+            "Master Caddy III (5 Pack)"
+          ]
+        },
+        {
+          "manufacturer": "Atomos",
+          "model": "USB 2.0 & 3.0 Docking Station",
+          "aliases": [
+            "ATOMDCK003",
+            "Atomos USB 2.0 & 3.0 Docking Station",
+            "Atomos Docking Station USB 3.0",
+            "Atomos Docking Station USB 2.0/3.0",
+            "Atomos Docking Station USB2.0/USB3.0"
+          ]
+        },
+        {
+          "manufacturer": "Atomos",
+          "model": "USB-C 3.1 Powered Docking Station",
+          "aliases": [
+            "ATOMDCK004",
+            "Atomos USB-C 3.1 Powered Docking Station",
+            "Atomos USB-C Docking Station"
+          ]
+        },
+        {
+          "manufacturer": "Atomos",
+          "model": "AtomX SSDmini Handle",
+          "aliases": [
+            "ATOMXSSDH1",
+            "Atomos AtomX SSDmini Handle"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "MEAD-SD02 SD Card Adapter",
+          "aliases": [
+            "MEAD-SD02",
+            "Sony MEAD-SD02",
+            "Sony SD-Kartenadapter XDCAM EX"
+          ]
+        },
+        {
+          "manufacturer": "Atomos",
+          "model": "AtomX USB-C 3.1 Docking Station",
+          "aliases": [
+            "Atomos AtomX USB-C 3.1 Docking Station"
+          ]
+        },
+        {
+          "manufacturer": "Atomos",
+          "model": "USB4 CFexpress Card Reader",
+          "aliases": [
+            "Atomos USB4 CFexpress Card Reader",
+            "Atomos CFexpress Type B Reader"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBP-120G",
+          "aliases": [
+            "SxS PRO X 120GB G Series"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SBP-240G",
+          "aliases": [
+            "SxS PRO X 240GB G Series"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "SR-512S25",
+          "aliases": [
+            "SR Memory 512GB",
+            "SRMemory S25 512GB"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "CEB-G240T",
+          "aliases": [
+            "Sony CEB-G240T"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "CEB-G480T",
+          "aliases": [
+            "Sony CEB-G480T"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "CEB-G960T",
+          "aliases": [
+            "Sony CEB-G960T"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "CEB-G1920T",
+          "aliases": [
+            "Sony CEB-G1920T"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "MRW-G3",
+          "aliases": [
+            "Sony CFexpress Type A Reader MRW-G3"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AJ-P2AD1G microP2 Adapter",
+          "aliases": [
+            "AJ-P2AD1G",
+            "microP2 Adapter"
           ]
         }
       ]
@@ -9691,7 +10525,9 @@
           "name": "Canon EVF-V50 OLED Viewfinder",
           "aliases": [
             "C300 Sucher",
-            "C500 Mark II Sucher"
+            "C500 Mark II Sucher",
+            "3938C001",
+            "Canon EVF-V50 OLED-Farbsucher"
           ]
         },
         {
@@ -9699,7 +10535,9 @@
           "model": "EVF-V70",
           "name": "Canon EVF-V70 Viewfinder",
           "aliases": [
-            "C700 Sucher"
+            "C700 Sucher",
+            "1753C001",
+            "Canon EVF-V70 OLED-Sucher"
           ]
         },
         {
@@ -9844,7 +10682,9 @@
           "aliases": [
             "Sony DVF-EL1",
             "FX5 OLED Viewfinder",
-            "FX2 Sucher"
+            "FX2 Sucher",
+            "DVFEL1B",
+            "Sony OLED-Sucher DVF-EL1"
           ]
         },
         {
@@ -9913,6 +10753,29 @@
             "K2.0008151",
             "CCP-1",
             "K0.0010097"
+          ]
+        },
+        {
+          "manufacturer": "Sony",
+          "model": "CBK-VF02",
+          "aliases": [
+            "Sony CBK-VF02 LCD Viewfinder"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AJ-CVF25GJ",
+          "aliases": [
+            "AJ-CVF25",
+            "Panasonic AJ-CVF25 LCD Viewfinder"
+          ]
+        },
+        {
+          "manufacturer": "Panasonic",
+          "model": "AJ-CVF70GJ",
+          "aliases": [
+            "AJ-CVF70",
+            "Panasonic AJ-CVF70 OLED Viewfinder"
           ]
         }
       ]

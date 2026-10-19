@@ -1738,6 +1738,13 @@
       "L2.0013861",
       "SkyPanel Remote USB Cable, 5 m"
      ]
+    },
+    {
+     "manufacturer": "Sony",
+     "model": "CBK-12C3621",
+     "aliases": [
+      "VENICE Extension System Mini Cable 12m"
+     ]
     }
    ]
   },
@@ -2484,6 +2491,36 @@
       "L2.0056627",
       "Power & Data Cable 10m"
      ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "D-Tap to DC Coiled Cable",
+     "aliases": [
+      "ATOMDTPCB2",
+      "Atomos D-Tap zu DC Adapterkabel Spirale",
+      "Atomos D-Tap Kabel"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos D-Tap to DC Coiled Cable CB2",
+     "aliases": [
+      "Atomos DC D-Tap Powercable coiled CB2"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos USB-C PD to 2.1mm DC Power Cable",
+     "aliases": [
+      "Atomos USB-C PD to DC Cable"
+     ]
+    },
+    {
+     "manufacturer": "Dedolight",
+     "model": "DC Cable Anton Bauer 0.55m DDCC-DTAPL",
+     "aliases": [
+      "DDCC-DTAPL"
+     ]
     }
    ]
   },
@@ -2933,6 +2970,42 @@
      "aliases": [
       "K2.0051086",
       "12G HD SDI BNC Cable, 1,3m/51,2in"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos Micro HDMI 4K60p Coiled Cable 30cm",
+     "aliases": [
+      "4K60C1",
+      "ATOM4K60C1",
+      "Atomos Micro HDMI 4K60p 30cm"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos Mini HDMI 4K60p Coiled Cable 30cm",
+     "aliases": [
+      "4K60C3",
+      "ATOM4K60C3",
+      "Atomos Mini HDMI 4K60p 30cm"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos Mini HDMI 4K60p Coiled Cable 40cm",
+     "aliases": [
+      "4K60C4",
+      "ATOM4K60C4",
+      "Atomos Mini HDMI 4K60p 40cm"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos Full HDMI 4K60p Coiled Cable 40cm",
+     "aliases": [
+      "4K60C6",
+      "ATOM4K60C6",
+      "Atomos Full HDMI 4K60p 40cm"
      ]
     }
    ]

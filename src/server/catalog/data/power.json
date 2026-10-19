@@ -1113,7 +1113,8 @@
      "model": "BP-A30",
      "aliases": [
       "Akku Canon BP-A30",
-      "Canon BP-A30"
+      "Canon BP-A30",
+      "0868C002"
      ]
     },
     {
@@ -1418,7 +1419,9 @@
      "model": "AG-VBR59G",
      "aliases": [
       "AG-VBR59",
-      "Panasonic AG-VBR59 Akku"
+      "Panasonic AG-VBR59 Akku",
+      "AG-VBR59E",
+      "AG-VBR59EC"
      ]
     },
     {
@@ -1464,21 +1467,24 @@
      "model": "BP-A60",
      "aliases": [
       "Canon BP-A60",
-      "Akku Canon BP-A60"
+      "Akku Canon BP-A60",
+      "0870C002"
      ]
     },
     {
      "manufacturer": "Canon",
      "model": "BP-A30N",
      "aliases": [
-      "Canon BP-A30N"
+      "Canon BP-A30N",
+      "6663C001"
      ]
     },
     {
      "manufacturer": "Canon",
      "model": "BP-A60N",
      "aliases": [
-      "Canon BP-A60N"
+      "Canon BP-A60N",
+      "6664C001"
      ]
     },
     {
@@ -2220,6 +2226,58 @@
       "BAT-KF21",
       "Kino Flo Block Battery"
      ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "NP-F 2600mAh 2-Cell Battery",
+     "aliases": [
+      "ATOMBAT001",
+      "Atomos 2600mAh 2-Zell-Akku NP-570",
+      "Atomos NP-570"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "NP-F 5200mAh 4-Cell Battery",
+     "aliases": [
+      "ATOMBAT003",
+      "Atomos 5200mAh 4-Zell-Akku NP-750",
+      "Atomos NP-750"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "NP-F 7800mAh 6-Cell Battery",
+     "aliases": [
+      "ATOMBAT004",
+      "Atomos 7800mAh 6-Zell-Akku NP-960",
+      "Atomos NP-960"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "BP-820",
+     "aliases": [
+      "8597B002",
+      "Canon BP-820",
+      "Canon BP-820 Akku"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "BP-828",
+     "aliases": [
+      "8598B002",
+      "Canon BP-828",
+      "Canon Akku BP-828"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos 5200mAh NP-F Battery",
+     "aliases": [
+      "Atomos 5200mAh Battery NP-F Mount"
+     ]
     }
    ]
   },
@@ -2608,7 +2666,8 @@
      "model": "CG-A10",
      "aliases": [
       "Ladegerät Canon für Canon BP-A (CG-A10)",
-      "Canon CG-A10"
+      "Canon CG-A10",
+      "0872C003"
      ]
     },
     {
@@ -2745,7 +2804,10 @@
      "model": "AG-BRD50",
      "aliases": [
       "Panasonic AG-BRD50 Charger",
-      "AG-BRD50 Ladegerät"
+      "AG-BRD50 Ladegerät",
+      "AG-BRD50E",
+      "AG-BRD50EC Dual Charger",
+      "AG-BRD50EC"
      ]
     },
     {
@@ -3257,6 +3319,13 @@
       "Kino Flo BAT-BC2U",
       "BAT-BC2U"
      ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Atomos Fast Battery Charger & Power Supply",
+     "aliases": [
+      "Atomos Fast Charger NP-F"
+     ]
     }
    ]
   },
@@ -3644,7 +3713,8 @@
      "model": "DR-E6P DC Coupler",
      "aliases": [
       "DR-E6P",
-      "Canon DR-E6P"
+      "Canon DR-E6P",
+      "6576C001"
      ]
     },
     {
@@ -5028,6 +5098,36 @@
      "aliases": [
       "L2.0052530",
       "Omnibar Charger"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "AtomX Battery Eliminator",
+     "aliases": [
+      "ATOMDCA001",
+      "Atomos AtomX Battery Eliminator",
+      "Atomos Battery Eliminator",
+      "Atomos NP-F Battery Eliminator"
+     ]
+    },
+    {
+     "manufacturer": "Atomos",
+     "model": "Locking AC Power Adaptor",
+     "aliases": [
+      "ATOMPWR012",
+      "Atomos Locking AC Power Adaptor",
+      "Atomos Netzteil",
+      "Atomos AC Power Adaptor"
+     ]
+    },
+    {
+     "manufacturer": "Canon",
+     "model": "CA-CP200L Compact Power Adapter",
+     "aliases": [
+      "CA-CP200L",
+      "3100C003",
+      "Canon CA-CP200L",
+      "Canon Netzadapter CA-CP200L"
      ]
     }
    ]
