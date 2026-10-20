@@ -15,7 +15,7 @@ import * as s from "../db/schema";
 import { DomainError, notFound, requireRole, type Ctx } from "./context";
 import { autoPickImage, type PickerDeps } from "./image-picker";
 
-export const IMAGE_JOB_LIMITS = [25, 50, 100, 250, 500] as const;
+export const IMAGE_JOB_LIMITS = [25, 50, 100, 250, 500, 1000, 2500, 5000] as const;
 const STALE_MINUTES = 5;
 
 export const imageJobInput = z.object({
@@ -155,11 +155,13 @@ export async function runImageJob(db: DbOrTx, ctx: Ctx, deps: PickerDeps, jobId:
     let result: "applied" | "has_image" | "not_confident" | "download_failed" | "error";
     let note: string | null = null;
     let photoId: string | null = null;
+    let searched = true;
     try {
       const r = await autoPickImage(db, ctx, deps, item.equipmentTypeId);
       if (r.applied) {
         result = "applied";
         photoId = r.photo.id;
+        searched = r.source === "search";
       } else if (r.reason === "has-image") result = "has_image";
       else if (r.reason === "download-failed" || r.reason === "no-source") result = "download_failed";
       else {
@@ -187,7 +189,8 @@ export async function runImageJob(db: DbOrTx, ctx: Ctx, deps: PickerDeps, jobId:
       await db.update(s.imageJob).set({ status: "failed", lastError: note, finishedAt: new Date(), updatedAt: new Date() }).where(eq(s.imageJob.id, jobId));
       return;
     }
-    if (delayMs > 0) await sleep(delayMs);
+    // Only the search API has a rate limit: catalog pictures go one after the other.
+    if (delayMs > 0 && searched) await sleep(delayMs);
   }
 }
 

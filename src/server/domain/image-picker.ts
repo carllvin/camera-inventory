@@ -229,7 +229,7 @@ export async function autoPickImage(db: DbOrTx, ctx: Ctx, deps: PickerDeps, type
   if (image) {
     try {
       const photo = await importImage(db, ctx, deps, typeId, image.url, { sourceUrl: image.page ?? image.url, attribution: `catalog · ${hostOf(image.page ?? image.url)}` });
-      return { applied: true as const, photo };
+      return { applied: true as const, photo, source: "catalog" as const };
     } catch {
       // The site refused the download: fall back to the search.
     }
@@ -249,7 +249,7 @@ export async function autoPickImage(db: DbOrTx, ctx: Ctx, deps: PickerDeps, type
   for (const c of usable.slice(0, 3)) {
     try {
       const photo = await importImage(db, ctx, deps, typeId, c.imageUrl, { sourceUrl: c.pageUrl ?? c.imageUrl, attribution: `auto-selected · ${c.sourceDomain ?? "web"}` });
-      return { applied: true as const, photo };
+      return { applied: true as const, photo, source: "search" as const };
     } catch {
       // Site refused the download: try the next good candidate.
     }
