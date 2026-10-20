@@ -19,8 +19,10 @@ export async function getDashboard(db: DbOrTx, ctx: Ctx) {
       (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND project_id IS NOT NULL) AS on_projects,
       (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND status = 'in_use') AS in_use,
       (SELECT coalesce(sum(quantity),0)::int FROM equipment_item WHERE workspace_id = ${ctx.workspaceId} AND status = 'missing') AS missing,
-      (SELECT count(*)::int FROM issue WHERE workspace_id = ${ctx.workspaceId} AND status IN ('open','in_progress')) AS open_issues,
-      (SELECT count(*)::int FROM document WHERE workspace_id = ${ctx.workspaceId} AND status IN ('uploaded','processing','extracted')) AS pending_documents
+      (SELECT count(*)::int FROM issue i WHERE i.workspace_id = ${ctx.workspaceId} AND i.status IN ('open','in_progress')
+        AND NOT EXISTS (SELECT 1 FROM project p WHERE p.id = i.project_id AND p.archived_at IS NOT NULL)) AS open_issues,
+      (SELECT count(*)::int FROM document d WHERE d.workspace_id = ${ctx.workspaceId} AND d.status IN ('uploaded','processing','extracted')
+        AND NOT EXISTS (SELECT 1 FROM project p WHERE p.id = d.project_id AND p.archived_at IS NOT NULL)) AS pending_documents
   `);
   const recent = await listActivity(db, ctx, { limit: 12 });
   const issues = await listIssues(db, ctx, { openOnly: true, limit: 6 });
@@ -67,6 +69,7 @@ export async function listActivity(db: DbOrTx, ctx: Ctx, opts: { projectId?: str
 export async function listIssues(db: DbOrTx, ctx: Ctx, opts: { projectId?: string; openOnly?: boolean; limit?: number } = {}) {
   const where: SQL[] = [eq(s.issue.workspaceId, ctx.workspaceId)];
   if (opts.projectId) where.push(eq(s.issue.projectId, opts.projectId));
+  else where.push(sql`${s.project.archivedAt} IS NULL`); // a deleted project's issues only show on that project
   if (opts.openOnly) where.push(inArray(s.issue.status, ["open", "in_progress"]));
   return db
     .select({
@@ -99,6 +102,7 @@ export async function listIssues(db: DbOrTx, ctx: Ctx, opts: { projectId?: strin
 export async function listDocuments(db: DbOrTx, ctx: Ctx, opts: { projectId?: string } = {}) {
   const where: SQL[] = [eq(s.document.workspaceId, ctx.workspaceId)];
   if (opts.projectId) where.push(eq(s.document.projectId, opts.projectId));
+  else where.push(sql`${s.project.archivedAt} IS NULL`); // a deleted project's documents only show on that project
   return db
     .select({
       id: s.document.id,

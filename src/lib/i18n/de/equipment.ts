@@ -5,7 +5,7 @@ export const equipment: Dict = {
   "Equipment": "Equipment",
   "Equipment · {project}": "Equipment · {project}",
   "Equipment on the project chosen in the top bar": "Equipment des oben gewählten Projekts",
-  "Every physical item, across all projects and rental houses": "Alle Geräte, über alle Projekte und Verleihe",
+  "Every physical item, across all projects and rental houses. Returned equipment shows with the status filter “Returned”.": "Alle Geräte, über alle Projekte und Verleihe. Zurückgegebenes zeigt der Statusfilter „Zurückgegeben“.",
   "Add equipment": "Equipment hinzufügen",
   "Items": "Geräte",
   "Equipment types": "Equipment-Typen",

@@ -36,6 +36,8 @@ export const itemFilters = z.object({
   caseId: z.preprocess((v) => (v === "" ? null : v), z.union([z.uuid(), z.literal("none")]).nullable().optional()),
   equipmentTypeId: optionalUuid,
   location: z.preprocess((v) => (v === "" ? null : v), z.enum(["on_project", "off_project"]).nullable().optional()),
+  /** Leave out what went back to the rental house (unless a status is chosen). */
+  hideReturned: z.boolean().optional(),
   q: optionalText(200),
   limit: z.coerce.number().int().min(1).max(500).default(200),
 });
@@ -56,6 +58,7 @@ export async function listItems(db: DbOrTx, ctx: Ctx, rawFilters: ItemFilters = 
   if (f.rentalHouseId === "owned") where.push(isNull(s.equipmentItem.rentalHouseId));
   else if (f.rentalHouseId) where.push(eq(s.equipmentItem.rentalHouseId, f.rentalHouseId));
   if (f.status) where.push(eq(s.equipmentItem.status, f.status));
+  else if (f.hideReturned) where.push(ne(s.equipmentItem.status, "returned"));
   if (f.caseId === "none") where.push(isNull(s.equipmentItem.caseId));
   else if (f.caseId) where.push(eq(s.equipmentItem.caseId, f.caseId));
   if (f.equipmentTypeId) where.push(eq(s.equipmentItem.equipmentTypeId, f.equipmentTypeId));

@@ -4,6 +4,7 @@ import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
 import { diff, recordEvent } from "./audit";
 import { DomainError, notFound, pgErrorOf, requireRole, type Ctx } from "./context";
+import { removeEquipment } from "./project-removal";
 import { optionalDate, optionalText, requiredText } from "./validation";
 
 export const PROJECT_STATUSES = s.projectStatus.enumValues;
@@ -137,9 +138,11 @@ export async function createProject(db: DbOrTx, ctx: Ctx, input: ProjectInput) {
 /**
  * Delete a project: it is archived, never removed, so equipment history, documents and
  * sets keep pointing at it. Gone from lists, the project switcher and document matching;
- * restore brings it back. Refused while equipment is still on the project.
+ * restore brings it back. Equipment still on the project is refused, unless
+ * `returnEquipment`: then everything is taken off first like a return without a note
+ * (rented gear "returned", own gear "available") and its sets are closed.
  */
-export async function deleteProject(db: DbOrTx, ctx: Ctx, id: string) {
+export async function deleteProject(db: DbOrTx, ctx: Ctx, id: string, opts: { returnEquipment?: boolean } = {}) {
   requireRole(ctx, "admin");
   return db.transaction(async (tx) => {
     const [p] = await tx.select().from(s.project).where(and(eq(s.project.id, id), eq(s.project.workspaceId, ctx.workspaceId))).for("update");
@@ -148,7 +151,13 @@ export async function deleteProject(db: DbOrTx, ctx: Ctx, id: string) {
     const [{ pieces }] = (await tx.execute<{ pieces: number }>(
       sql`SELECT coalesce(sum(quantity), 0)::int AS pieces FROM equipment_item WHERE project_id = ${id}`,
     )) as unknown as [{ pieces: number }];
-    if (pieces > 0) {
+    if (pieces > 0 && opts.returnEquipment) {
+      const [items, cases] = await Promise.all([
+        tx.select({ id: s.equipmentItem.id }).from(s.equipmentItem).where(eq(s.equipmentItem.projectId, id)),
+        tx.select({ id: s.equipmentCase.id }).from(s.equipmentCase).where(and(eq(s.equipmentCase.projectId, id), isNull(s.equipmentCase.archivedAt))),
+      ]);
+      await removeEquipment(tx, ctx, { projectId: id, reason: "returned", note: "Project deleted" }, { items: items.map((i) => ({ id: i.id })), caseIds: cases.map((c) => c.id) });
+    } else if (pieces > 0) {
       throw new DomainError("CONFLICT", `${p.name} still has ${pieces} piece${pieces === 1 ? "" : "s"} of equipment. Return or remove ${pieces === 1 ? "it" : "them"} first.`);
     }
     const now = new Date();

@@ -36,7 +36,8 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
   const projectId = project?.id;
   const { view: _view, sort: _sort, select: _select, projectId: _p, ...filterParams } = sp;
   const [items, { flat: categories }, rentalHouses, cases] = await Promise.all([
-    listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, limit: LIMIT }),
+    // Returned equipment is history: only listed when asked for with the status filter.
+    listItems(db, ctx, { ...(filterParams as ItemFilters), projectId, hideReturned: true, limit: LIMIT }),
     getCategoryTree(db, ctx),
     listRentalHouses(db, ctx),
     // All projects: every active set (cards and grouping work the same as for one project).
@@ -47,7 +48,7 @@ export default async function EquipmentPage({ searchParams }: { searchParams: Pr
     <>
       <PageHeader
         title={project ? t("Equipment · {project}", { project: project.name }) : t("Equipment")}
-        subtitle={project ? (fromUrl ? t("Equipment on this project") : t("Equipment on the project chosen in the top bar")) : t("Every physical item, across all projects and rental houses")}
+        subtitle={project ? (fromUrl ? t("Equipment on this project") : t("Equipment on the project chosen in the top bar")) : t("Every physical item, across all projects and rental houses. Returned equipment shows with the status filter “Returned”.")}
         back={fromUrl ? { href: `/projects/${fromUrl.project.id}`, label: fromUrl.project.name } : undefined}
         actions={
           hasRole(ctx, "member") &&

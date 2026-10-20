@@ -155,7 +155,7 @@ export async function bulkEquipmentAction(projectId: string | null, _: ActionSta
 
 export async function deleteProjectAction(id: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
-    await deleteProject(getDb(), await getCtx(), id);
+    await deleteProject(getDb(), await getCtx(), id, { returnEquipment: fd.get("returnEquipment") === "1" });
     revalidatePath("/", "layout");
     redirect("/projects");
   });

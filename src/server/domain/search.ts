@@ -61,7 +61,7 @@ export async function globalSearch(db: DbOrTx, ctx: Ctx, rawQuery: string, limit
         GREATEST(CASE WHEN search_normalize(concat_ws(' ', c.name, c.code, c.barcode)) LIKE '%' || params.nq || '%' THEN 1.0 ELSE 0 END,
                  word_similarity(params.nq, search_normalize(concat_ws(' ', c.name, c.code)))), c.project_id
       FROM equipment_case c JOIN project p ON p.id = c.project_id, params
-      WHERE c.workspace_id = ${ws} AND c.archived_at IS NULL
+      WHERE c.workspace_id = ${ws} AND c.archived_at IS NULL AND p.archived_at IS NULL
         AND (search_normalize(concat_ws(' ', c.name, c.code, c.barcode)) LIKE '%' || params.nq || '%'
              OR params.nq <% search_normalize(concat_ws(' ', c.name, c.code)))
       ORDER BY 5 DESC LIMIT ${limitPerKind}

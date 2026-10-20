@@ -106,6 +106,7 @@ export interface CaseSummary {
 export async function listCases(db: DbOrTx, ctx: Ctx, opts: { projectId?: string } = {}): Promise<CaseSummary[]> {
   const where = [eq(s.equipmentCase.workspaceId, ctx.workspaceId), isNull(s.equipmentCase.archivedAt)];
   if (opts.projectId) where.push(eq(s.equipmentCase.projectId, opts.projectId));
+  else where.push(isNull(s.project.archivedAt)); // a deleted project's sets only show on that project
   const cases = await db
     .select({
       id: s.equipmentCase.id,
