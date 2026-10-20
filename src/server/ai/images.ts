@@ -125,7 +125,7 @@ export class ClaudeImageRanker implements ImageRanker {
       type: "text",
       text: `Product: ${product.name} (manufacturer: ${product.manufacturer}, model: ${product.model}${product.aliases.length ? `, also called: ${product.aliases.join(", ")}` : ""}).
 
-Score every candidate as the catalog reference image for exactly this product. Best: the exact product (not a sibling model, not an accessory or a rig built around it), shown alone, on a plain light background, no watermark or overlaid text, sharp, product filling most of the frame. Images from the manufacturer's own site are usually the best choice.`,
+Score every candidate as the catalog reference image for exactly this product. Best: the exact product (not a sibling model, not an accessory or a rig built around it), shown alone, cut out (transparent) or on a plain white background, no watermark or overlaid text, sharp, product filling most of the frame. Images from the manufacturer's own site are usually the best choice.`,
     });
     const stream = this.client.beta.messages.stream({
       model: this.model,

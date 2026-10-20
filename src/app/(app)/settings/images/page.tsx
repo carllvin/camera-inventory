@@ -36,8 +36,9 @@ export default async function AutomaticImagesPage() {
   const ctx = await getCtx();
   const db = getDb();
   const isAdmin = hasRole(ctx, "admin");
-  const available = imageJobAvailability(getPickerDeps());
-  const { job, review, recentlyApplied, eligible } = await getImageJobOverview(db, ctx);
+  const deps = getPickerDeps();
+  const available = imageJobAvailability(deps);
+  const { job, review, recentlyApplied, eligible } = await getImageJobOverview(db, ctx, deps);
   const running = job?.status === "running";
   const [t, f] = await Promise.all([getT(), getFormat()]);
   const STATUS = statusOf(t);
@@ -50,14 +51,16 @@ export default async function AutomaticImagesPage() {
       <div className="grid max-w-3xl grid-cols-1 gap-6">
         <Card className="p-5">
           <p className="text-sm text-muted">
-            {available.ok && available.aiChecked
+            {available.ok && !available.searches
+              ? t("For each equipment type without an image, the server downloads the manufacturer's product picture from the catalog. Types the catalog has no picture for are not part of the run; choose their image by hand on the type's image page.")
+              : available.ok && available.aiChecked
               ? t(
                   "For each equipment type without an image, the server searches the web, lets the AI check the results and keeps the best one only if it clearly shows exactly that product. Uncertain cases are listed below for you to choose by hand.",
                 )
               : t(
                   "For each equipment type without an image, the server searches the web and takes the first result (the next one if a site refuses the download). Types without any result are listed below.",
                 )}{" "}
-            {t("Images are downloaded into your own storage; you can change any of them on the type's image page. Each type costs one image search.")}
+            {available.ok && available.searches && deps.catalog && t("The manufacturer's product picture from the catalog is used first when there is one.")} {t("Cut-out pictures and pictures on a white background are preferred.")} {t("Images are downloaded into your own storage; you can change any of them on the type's image page. Each type costs one image search.")}
           </p>
           {!available.ok ? (
             <p className="mt-4 rounded-lg bg-warn/10 px-3 py-2 text-sm text-warn">{available.reason} {t("Add the key to the server's .env and restart the app.")}</p>

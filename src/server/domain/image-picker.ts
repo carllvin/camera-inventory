@@ -7,6 +7,8 @@ import { z } from "zod";
 import type { DbOrTx } from "../db/client";
 import * as s from "../db/schema";
 import { ImageSearchError, type ImageRanker, type ImageSearchProvider } from "../ai/images";
+import type { CatalogImage } from "../catalog/images";
+import { backgroundRank, detectBackground, type ImageBackground } from "../media/background";
 import { fetchRemoteImage, type SafeFetchOptions } from "../media/safe-fetch";
 import type { StorageProvider } from "../storage";
 import { DomainError, notFound, requireRole, type Ctx } from "./context";
@@ -14,11 +16,17 @@ import { addPhoto } from "./photos";
 
 /** Auto-apply only when the AI is quite sure the image shows exactly this product. */
 export const AUTO_PICK_SCORE = 0.85;
+/** How much a cut-out or white background lifts an AI score when sorting. */
+const CLEAN_BACKGROUND_BONUS = 0.05;
+/** Without AI ranking, a clean background may move up only among the first results (later ones are often other products). */
+const CLEAN_BACKGROUND_WINDOW = 5;
 const CACHE_DAYS = 14;
 
 export interface PickerDeps {
   search: ImageSearchProvider | null;
   ranker: ImageRanker | null;
+  /** The catalog's manufacturer picture for a type (see catalog/images). */
+  catalog?: (t: { manufacturer: string; model: string }) => CatalogImage | null;
   storage: StorageProvider;
   fetchOptions?: SafeFetchOptions;
 }
@@ -119,9 +127,14 @@ export async function searchCandidates(db: DbOrTx, ctx: Ctx, deps: PickerDeps, t
       console.error("image ranking failed", err); // ranking is a nice-to-have
     }
   }
-  const ordered = results
-    .map((r, i) => ({ r, i, score: scores.get(i)?.score ?? null, note: scores.get(i)?.note ?? null }))
-    .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || a.i - b.i);
+  // Look at each thumbnail's border: product shots that are cut out or on white come first.
+  const backgrounds = await Promise.all(results.map((r) => backgroundOf(r.thumbnailUrl ?? r.imageUrl, deps.fetchOptions)));
+  const clean = (i: number) => backgroundRank(backgrounds[i]) <= 1;
+  const sortScore = (o: { i: number; score: number | null }) => (o.score ?? -1) + (clean(o.i) ? CLEAN_BACKGROUND_BONUS : 0);
+  const rows = results.map((r, i) => ({ r, i, score: scores.get(i)?.score ?? null, note: scores.get(i)?.note ?? null, background: backgrounds[i] ?? null }));
+  const ordered = scores.size
+    ? rows.sort((a, b) => sortScore(b) - sortScore(a) || a.i - b.i)
+    : [...rows.slice(0, CLEAN_BACKGROUND_WINDOW).sort((a, b) => backgroundRank(a.background) - backgroundRank(b.background) || a.i - b.i), ...rows.slice(CLEAN_BACKGROUND_WINDOW)];
 
   return db.transaction(async (tx) => {
     await tx.delete(s.imageCandidate).where(and(eq(s.imageCandidate.workspaceId, ctx.workspaceId), eq(s.imageCandidate.equipmentTypeId, typeId)));
@@ -144,10 +157,20 @@ export async function searchCandidates(db: DbOrTx, ctx: Ctx, deps: PickerDeps, t
           rank,
           score: o.score,
           aiNote: o.note,
+          background: o.background,
         })),
       )
       .returning();
   });
+}
+
+async function backgroundOf(url: string, fetchOptions?: SafeFetchOptions): Promise<ImageBackground | null> {
+  try {
+    const img = await fetchRemoteImage(url, { timeoutMs: 6000, maxBytes: 3 * 1024 * 1024, ...fetchOptions });
+    return await detectBackground(img.bytes);
+  } catch {
+    return null; // unreachable thumbnail: simply not checked
+  }
 }
 
 async function importImage(db: DbOrTx, ctx: Ctx, deps: PickerDeps, typeId: string, imageUrl: string, meta: { sourceUrl: string | null; attribution: string | null }) {
@@ -164,6 +187,22 @@ export async function applyCandidate(db: DbOrTx, ctx: Ctx, deps: PickerDeps, typ
     .where(and(eq(s.imageCandidate.id, candidateId), eq(s.imageCandidate.workspaceId, ctx.workspaceId), eq(s.imageCandidate.equipmentTypeId, typeId)));
   if (!c) notFound("Image");
   return importImage(db, ctx, deps, typeId, c.imageUrl, { sourceUrl: c.pageUrl ?? c.imageUrl, attribution: c.sourceDomain });
+}
+
+const hostOf = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "web";
+  }
+};
+
+/** Use the catalog's manufacturer picture as the type's main reference image. */
+export async function applyCatalogImage(db: DbOrTx, ctx: Ctx, deps: PickerDeps, typeId: string) {
+  requireRole(ctx, "member");
+  const image = deps.catalog?.(await getType(db, ctx, typeId));
+  if (!image) notFound("Catalog image");
+  return importImage(db, ctx, deps, typeId, image.url, { sourceUrl: image.page ?? image.url, attribution: `catalog · ${hostOf(image.page ?? image.url)}` });
 }
 
 /** Use an image address the user copied (e.g. from Google Images). */
@@ -185,9 +224,27 @@ export async function autoPickImage(db: DbOrTx, ctx: Ctx, deps: PickerDeps, type
     .where(and(eq(s.photo.equipmentTypeId, typeId), eq(s.photo.kind, "reference"), isNull(s.photo.removedAt)))
     .limit(1);
   if (existing) return { applied: false as const, reason: "has-image" };
+  // The catalog's manufacturer picture was chosen and checked by hand: it comes before any search.
+  const image = deps.catalog?.(await getType(db, ctx, typeId));
+  if (image) {
+    try {
+      const photo = await importImage(db, ctx, deps, typeId, image.url, { sourceUrl: image.page ?? image.url, attribution: `catalog · ${hostOf(image.page ?? image.url)}` });
+      return { applied: true as const, photo };
+    } catch {
+      // The site refused the download: fall back to the search.
+    }
+  }
+  if (!deps.search) return { applied: false as const, reason: image ? "download-failed" : "no-source" };
   const candidates = await searchCandidates(db, ctx, deps, typeId, null);
-  // With AI ranking: only confident matches. Without: the search engine's first results, in order.
-  const usable = deps.ranker ? candidates.filter((x) => x.score !== null && x.score >= AUTO_PICK_SCORE) : candidates;
+  // With AI ranking: only confident matches, a cut-out or white-background one first.
+  // Without: the stored order (search order, clean backgrounds moved up among the first results).
+  const usable = deps.ranker
+    ? candidates
+        .filter((x) => x.score !== null && x.score >= AUTO_PICK_SCORE)
+        .map((c, i) => ({ c, i }))
+        .sort((a, b) => backgroundRank(a.c.background) - backgroundRank(b.c.background) || a.i - b.i)
+        .map((x) => x.c)
+    : candidates;
   if (usable.length === 0) return { applied: false as const, reason: "not-confident", candidates: candidates.length };
   for (const c of usable.slice(0, 3)) {
     try {
@@ -208,4 +265,14 @@ export async function getCandidateThumbForUser(db: DbOrTx, userId: string, candi
     .innerJoin(s.workspaceMember, and(eq(s.workspaceMember.workspaceId, s.imageCandidate.workspaceId), eq(s.workspaceMember.userId, userId)))
     .where(eq(s.imageCandidate.id, candidateId));
   return row?.url ?? null;
+}
+
+/** Catalog picture address of a type, for the member-only thumbnail proxy. */
+export async function getCatalogImageForUser(db: DbOrTx, userId: string, typeId: string, catalog: PickerDeps["catalog"]) {
+  const [t] = await db
+    .select({ manufacturer: s.equipmentType.manufacturer, model: s.equipmentType.model })
+    .from(s.equipmentType)
+    .innerJoin(s.workspaceMember, and(eq(s.workspaceMember.workspaceId, s.equipmentType.workspaceId), eq(s.workspaceMember.userId, userId)))
+    .where(eq(s.equipmentType.id, typeId));
+  return (t && catalog?.(t)?.url) ?? null;
 }

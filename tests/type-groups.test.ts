@@ -121,3 +121,17 @@ describe("listEquipmentTypeGroups", () => {
     );
   });
 });
+
+describe("catalog pictures", () => {
+  it("are found by model, or by lens series for every focal length", async () => {
+    const { catalogImageLookup } = await import("../src/server/catalog/images");
+    const { find } = catalogImageLookup({
+      entries: { "ARRI|ALEXA 35": { url: "https://x/a35.png" } },
+      series: { "ARRI|Signature Prime": { url: "https://x/sp.png", background: "white" } },
+    });
+    expect(find({ manufacturer: "ARRI", model: "Alexa-35" })?.url).toBe("https://x/a35.png");
+    expect(find({ manufacturer: "ARRI", model: "Signature Prime 47mm T1.8" })?.url).toBe("https://x/sp.png");
+    expect(find({ manufacturer: "ZEISS", model: "Signature Prime 47mm T1.8" })).toBeNull();
+    expect(find({ manufacturer: "ARRI", model: "ALEXA Mini" })).toBeNull();
+  });
+});

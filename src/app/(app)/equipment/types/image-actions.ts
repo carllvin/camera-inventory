@@ -6,7 +6,7 @@ import { runAction, type ActionState } from "@/server/actions";
 import { getPickerDeps } from "@/server/ai/picker-deps";
 import { getCtx } from "@/server/auth/context";
 import { getDb } from "@/server/db/client";
-import { applyCandidate, applyImageUrl, autoPickImage, searchCandidates } from "@/server/domain/image-picker";
+import { applyCandidate, applyCatalogImage, applyImageUrl, autoPickImage, searchCandidates } from "@/server/domain/image-picker";
 import { setPrimaryReferencePhoto } from "@/server/domain/photos";
 
 const refresh = (typeId: string) => {
@@ -25,6 +25,14 @@ export async function searchImagesAction(typeId: string, _: ActionState, fd: For
 export async function useCandidateAction(typeId: string, candidateId: string, _: ActionState, fd: FormData): Promise<ActionState> {
   return runAction(fd, async () => {
     await applyCandidate(getDb(), await getCtx(), getPickerDeps(), typeId, z.uuid().parse(candidateId));
+    refresh(typeId);
+    return "Image saved as the reference image.";
+  });
+}
+
+export async function useCatalogImageAction(typeId: string, _: ActionState, fd: FormData): Promise<ActionState> {
+  return runAction(fd, async () => {
+    await applyCatalogImage(getDb(), await getCtx(), getPickerDeps(), typeId);
     refresh(typeId);
     return "Image saved as the reference image.";
   });

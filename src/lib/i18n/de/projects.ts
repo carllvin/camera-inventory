@@ -283,6 +283,9 @@ export const projects: Dict = {
     "Für jeden Equipment-Typ ohne Bild sucht der Server im Web, lässt die KI die Ergebnisse prüfen und behält das beste nur, wenn es eindeutig genau dieses Produkt zeigt. Unsichere Fälle stehen unten zur Auswahl von Hand.",
   "For each equipment type without an image, the server searches the web and takes the first result (the next one if a site refuses the download). Types without any result are listed below.":
     "Für jeden Equipment-Typ ohne Bild sucht der Server im Web und nimmt das erste Ergebnis (das nächste, wenn eine Website den Download verweigert). Typen ohne Ergebnis stehen unten.",
+  "For each equipment type without an image, the server downloads the manufacturer's product picture from the catalog. Types the catalog has no picture for are not part of the run; choose their image by hand on the type's image page.": "Für jeden Gerätetyp ohne Bild lädt der Server das Produktbild des Herstellers aus dem Katalog. Typen, für die der Katalog kein Bild hat, sind nicht Teil des Laufs; wähle ihr Bild auf der Bildseite des Typs von Hand.",
+  "The manufacturer's product picture from the catalog is used first when there is one.": "Gibt es im Katalog ein Produktbild des Herstellers, wird zuerst dieses verwendet.",
+  "Cut-out pictures and pictures on a white background are preferred.": "Freigestellte Bilder und Bilder auf weißem Hintergrund werden bevorzugt.",
   "Images are downloaded into your own storage; you can change any of them on the type's image page. Each type costs one image search.":
     "Bilder werden in den eigenen Speicher geladen und lassen sich auf der Bildseite des Typs jederzeit ändern. Jeder Typ kostet eine Bildsuche.",
   "Add the key to the server's .env and restart the app.": "Den Schlüssel in die .env des Servers eintragen und die App neu starten.",

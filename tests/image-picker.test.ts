@@ -11,7 +11,7 @@ import * as s from "../src/server/db/schema";
 import type { ImageRanker, ImageSearchProvider } from "../src/server/ai/images";
 import { BraveImageSearch } from "../src/server/ai/images";
 import type { Ctx } from "../src/server/domain/context";
-import { applyCandidate, applyImageUrl, autoPickImage, defaultImageQuery, searchCandidates, type PickerDeps } from "../src/server/domain/image-picker";
+import { applyCandidate, applyCatalogImage, applyImageUrl, autoPickImage, defaultImageQuery, searchCandidates, type PickerDeps } from "../src/server/domain/image-picker";
 import { listPhotos, setPrimaryReferencePhoto } from "../src/server/domain/photos";
 import { fetchRemoteImage, isPublicAddress } from "../src/server/media/safe-fetch";
 import { LocalStorage } from "../src/server/storage";
@@ -23,16 +23,29 @@ let dir: string;
 let f: Fixture;
 let ctx: Ctx;
 let png: Buffer;
+let scene: Buffer;
 let searches = 0;
 
 beforeAll(async () => {
   png = await sharp({ create: { width: 400, height: 300, channels: 3, background: "#ffffff" } }).png().toBuffer();
+  scene = await sharp({ create: { width: 400, height: 300, channels: 3, background: "#5a7d3c" } }).jpeg().toBuffer();
   server = http.createServer((req, res) => {
+    if (req.url?.startsWith("/scene")) return res.writeHead(200, { "content-type": "image/jpeg" }).end(scene);
     if (req.url?.startsWith("/img")) return res.writeHead(200, { "content-type": "image/png" }).end(png);
     if (req.url === "/svg") return res.writeHead(200, { "content-type": "image/svg+xml" }).end("<svg/>");
     if (req.url === "/html") return res.writeHead(200, { "content-type": "text/html" }).end("<html/>");
     if (req.url === "/big") return res.writeHead(200, { "content-type": "image/png", "content-length": String(50 * 1024 * 1024) }).end();
     if (req.url === "/redirect") return res.writeHead(302, { location: "/img/1.png" }).end();
+    if (req.url?.startsWith("/brave-scene")) {
+      return res.writeHead(200, { "content-type": "application/json" }).end(
+        JSON.stringify({
+          results: [
+            { title: "On set", url: "https://blog.example/set", properties: { url: `${base}/scene/0.jpg` }, meta_url: { hostname: "blog.example" } },
+            { title: "Packshot", url: "https://maker.example/p", properties: { url: `${base}/img/packshot.png` }, meta_url: { hostname: "maker.example" } },
+          ],
+        }),
+      );
+    }
     if (req.url?.startsWith("/brave")) {
       searches++;
       return res.writeHead(200, { "content-type": "application/json" }).end(
@@ -147,6 +160,33 @@ describe("reference image picker", () => {
     await expect(searchCandidates(db, ctx, deps({ search: null as unknown as ImageSearchProvider }), f.cableType.id, null)).rejects.toThrow(/not configured/);
     const other = await makeFixture();
     await expect(searchCandidates(db, { workspaceId: other.ws.id, userId: other.user.id, role: "owner" }, deps(), f.camType.id, null)).rejects.toThrow(/not found/);
+  });
+});
+
+describe("clean backgrounds and catalog pictures", () => {
+  it("without AI ranking, a white-background picture moves ahead of a scene among the first results", async () => {
+    const [t] = await db.insert(s.equipmentType).values({ workspaceId: ctx.workspaceId, manufacturer: "ARRI", model: "SXU-1", name: "ARRI SXU-1" }).returning();
+    const found = await searchCandidates(db, ctx, deps({ ranker: null, search: new BraveImageSearch("k", `${base}/brave-scene`) }), t!.id, null);
+    expect(found.map((c) => [c.sourceDomain, c.background])).toEqual([
+      ["maker.example", "white"],
+      ["blog.example", "other"],
+    ]);
+  });
+
+  it("uses the catalog's manufacturer picture first, also without any image search", async () => {
+    const [t] = await db.insert(s.equipmentType).values({ workspaceId: ctx.workspaceId, manufacturer: "ARRI", model: "WCU-4", name: "ARRI WCU-4" }).returning();
+    const catalog = (x: { manufacturer: string; model: string }) => (x.model === "WCU-4" ? { url: `${base}/img/wcu4.png`, page: "https://www.arri.com/wcu-4" } : null);
+    const before = searches;
+    const r = await autoPickImage(db, ctx, deps({ catalog }), t!.id);
+    expect(r.applied).toBe(true);
+    expect(searches).toBe(before); // no search spent
+    const [p] = await db.select().from(s.photo).where(and(eq(s.photo.equipmentTypeId, t!.id), eq(s.photo.isPrimary, true)));
+    expect(p).toMatchObject({ attribution: "catalog · arri.com", sourceUrl: "https://www.arri.com/wcu-4" });
+    // By hand from the image page; nothing in the catalog: not found. No source at all: nothing applied.
+    expect((await applyCatalogImage(db, ctx, deps({ catalog }), t!.id)).isPrimary).toBe(true);
+    await expect(applyCatalogImage(db, ctx, deps({ catalog }), f.cableType.id)).rejects.toThrow(/not found/);
+    const [u] = await db.insert(s.equipmentType).values({ workspaceId: ctx.workspaceId, manufacturer: "ARRI", model: "RIA-1", name: "ARRI RIA-1" }).returning();
+    expect(await autoPickImage(db, ctx, deps({ catalog, search: null }), u!.id)).toMatchObject({ applied: false, reason: "no-source" });
   });
 });
 

@@ -1,0 +1,1 @@
+ALTER TABLE "image_candidate" ADD COLUMN "background" text;

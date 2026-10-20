@@ -23,17 +23,20 @@ export const imageJobInput = z.object({
   limit: z.coerce.number().int().refine((n) => (IMAGE_JOB_LIMITS as readonly number[]).includes(n), "Choose a limit").default(50),
 });
 
-export function imageJobAvailability(deps: Pick<PickerDeps, "search" | "ranker">) {
-  if (!deps.search) return { ok: false as const, reason: "Image search is not configured (BRAVE_SEARCH_API_KEY)." };
-  return { ok: true as const, aiChecked: Boolean(deps.ranker) };
+type JobDeps = Pick<PickerDeps, "search" | "ranker" | "catalog">;
+
+/** Without a search key the job can still use the catalog's manufacturer pictures. */
+export function imageJobAvailability(deps: JobDeps) {
+  if (!deps.search && !deps.catalog) return { ok: false as const, reason: "Image search is not configured (BRAVE_SEARCH_API_KEY)." };
+  return { ok: true as const, aiChecked: Boolean(deps.search && deps.ranker), searches: Boolean(deps.search) };
 }
 
 const hasReferenceImage = (typeId: ReturnType<typeof sql>) =>
   sql`EXISTS (SELECT 1 FROM photo p WHERE p.equipment_type_id = ${typeId} AND p.kind = 'reference' AND p.removed_at IS NULL)`;
 const hasItems = sql`EXISTS (SELECT 1 FROM equipment_item i WHERE i.equipment_type_id = "equipment_type"."id")`;
 
-/** Types a new job would process: no image yet, not tried before without success. */
-function eligibleTypes(db: DbOrTx, ws: string, scope: "in_use" | "all") {
+/** Types a new job would process: no image yet, not tried before without success; without a search only those with a catalog picture. */
+async function eligibleTypes(db: DbOrTx, ws: string, scope: "in_use" | "all", deps: JobDeps) {
   const where = [
     eq(s.equipmentType.workspaceId, ws),
     isNull(s.equipmentType.archivedAt),
@@ -47,20 +50,21 @@ function eligibleTypes(db: DbOrTx, ws: string, scope: "in_use" | "all") {
     ),
   ];
   if (scope === "in_use") where.push(hasItems);
-  return db
-    .select({ id: s.equipmentType.id })
+  const types = await db
+    .select({ id: s.equipmentType.id, manufacturer: s.equipmentType.manufacturer, model: s.equipmentType.model })
     .from(s.equipmentType)
     .where(and(...where))
     .orderBy(desc(hasItems), asc(s.equipmentType.manufacturer), asc(s.equipmentType.model));
+  return deps.search ? types : types.filter((t) => deps.catalog?.(t));
 }
 
-export async function countEligibleTypes(db: DbOrTx, ctx: Ctx) {
-  const [inUse, all] = await Promise.all([eligibleTypes(db, ctx.workspaceId, "in_use"), eligibleTypes(db, ctx.workspaceId, "all")]);
+export async function countEligibleTypes(db: DbOrTx, ctx: Ctx, deps: JobDeps) {
+  const [inUse, all] = await Promise.all([eligibleTypes(db, ctx.workspaceId, "in_use", deps), eligibleTypes(db, ctx.workspaceId, "all", deps)]);
   return { in_use: inUse.length, all: all.length };
 }
 
 /** Create a job with its list of types. The caller runs it (in the background). */
-export async function startImageJob(db: DbOrTx, ctx: Ctx, deps: Pick<PickerDeps, "search" | "ranker">, input: z.input<typeof imageJobInput>) {
+export async function startImageJob(db: DbOrTx, ctx: Ctx, deps: JobDeps, input: z.input<typeof imageJobInput>) {
   requireRole(ctx, "admin");
   const available = imageJobAvailability(deps);
   if (!available.ok) throw new DomainError("VALIDATION", available.reason);
@@ -71,7 +75,7 @@ export async function startImageJob(db: DbOrTx, ctx: Ctx, deps: Pick<PickerDeps,
     if (running) throw new DomainError("CONFLICT", "A search is already running. Wait for it or cancel it.");
     // A new search replaces an interrupted or failed one that was not resumed.
     await closeUnfinishedJobs(tx, ctx.workspaceId);
-    const types = (await eligibleTypes(tx, ctx.workspaceId, scope)).slice(0, limit);
+    const types = (await eligibleTypes(tx, ctx.workspaceId, scope, deps)).slice(0, limit);
     if (types.length === 0) {
       throw new DomainError("VALIDATION", scope === "in_use" ? "Every equipment type with items already has an image (or is waiting in the review list)." : "Every equipment type already has an image (or is waiting in the review list).");
     }
@@ -157,7 +161,7 @@ export async function runImageJob(db: DbOrTx, ctx: Ctx, deps: PickerDeps, jobId:
         result = "applied";
         photoId = r.photo.id;
       } else if (r.reason === "has-image") result = "has_image";
-      else if (r.reason === "download-failed") result = "download_failed";
+      else if (r.reason === "download-failed" || r.reason === "no-source") result = "download_failed";
       else {
         result = "not_confident";
         note = "candidates" in r && r.candidates === 0 ? "No search results" : "No result was a confident match";
@@ -188,7 +192,7 @@ export async function runImageJob(db: DbOrTx, ctx: Ctx, deps: PickerDeps, jobId:
 }
 
 /** Latest job, its progress, and the types that still need a person to choose an image. */
-export async function getImageJobOverview(db: DbOrTx, ctx: Ctx) {
+export async function getImageJobOverview(db: DbOrTx, ctx: Ctx, deps: JobDeps) {
   await releaseStaleImageJobs(db, ctx.workspaceId);
   const [job] = await db.select().from(s.imageJob).where(eq(s.imageJob.workspaceId, ctx.workspaceId)).orderBy(desc(s.imageJob.createdAt)).limit(1);
   const review = await db
@@ -221,7 +225,7 @@ export async function getImageJobOverview(db: DbOrTx, ctx: Ctx) {
         .orderBy(desc(s.imageJobItem.processedAt))
         .limit(24)
     : [];
-  return { job: job ?? null, review: review.sort((a, b) => a.name.localeCompare(b.name)), recentlyApplied: recent, eligible: await countEligibleTypes(db, ctx) };
+  return { job: job ?? null, review: review.sort((a, b) => a.name.localeCompare(b.name)), recentlyApplied: recent, eligible: await countEligibleTypes(db, ctx, deps) };
 }
 
 /** Put a reviewed type back so the next job tries it again (e.g. after renaming it). */

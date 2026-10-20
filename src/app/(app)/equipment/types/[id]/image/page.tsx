@@ -12,7 +12,7 @@ import { defaultImageQuery, googleImagesUrl, listCandidates } from "@/server/dom
 import { listPhotos } from "@/server/domain/photos";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { getT, getTN } from "@/server/i18n";
-import { searchImagesAction, setPrimaryAction, useCandidateAction, useImageUrlAction } from "../../image-actions";
+import { searchImagesAction, setPrimaryAction, useCandidateAction, useCatalogImageAction, useImageUrlAction } from "../../image-actions";
 
 export async function generateMetadata() {
   const t = await getT();
@@ -29,11 +29,35 @@ export default async function TypeImagePage({ params }: { params: Promise<{ id: 
   const [et, photos, candidates] = await Promise.all([orNotFound(getEquipmentType(db, ctx, id)), listPhotos(db, ctx, { equipmentTypeId: id }), listCandidates(db, ctx, id)]);
   const deps = getPickerDeps();
   const query = candidates[0]?.query ?? defaultImageQuery(et);
+  const catalogImage = deps.catalog?.(et) ?? null;
   return (
     <>
       <PageHeader title={t("Reference image")} subtitle={tn(et.name)} back={{ href: `/equipment/types/${id}`, label: tn(et.name) }} />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="min-w-0 space-y-6">
+          {catalogImage && (
+            <Card>
+              <CardHeader title={t("Manufacturer picture")} />
+              <div className="flex flex-wrap items-center gap-4 p-4">
+                <div className="flex aspect-[4/3] w-48 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-accent bg-gradient-to-b from-white to-zinc-100">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- proxied catalog picture */}
+                  <img src={`/api/types/${id}/catalog-image`} alt={t("Manufacturer picture of {name}", { name: tn(et.name) })} className="h-full w-full object-contain p-1.5 mix-blend-multiply" />
+                </div>
+                <div className="min-w-0 flex-1 space-y-2 text-sm">
+                  <p className="text-muted">{t("The product picture from the catalog, taken from the manufacturer's or a dealer's site.")}</p>
+                  {catalogImage.page && (
+                    <a href={catalogImage.page} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-muted hover:underline">
+                      {new URL(catalogImage.page).hostname.replace(/^www\./, "")} <ExternalLink className="size-3" />
+                    </a>
+                  )}
+                  <ActionForm action={useCatalogImageAction.bind(null, id)}>
+                    <SubmitButton pendingText={t("Saving…")}>{t("Use this image")}</SubmitButton>
+                  </ActionForm>
+                </div>
+              </div>
+            </Card>
+          )}
+
           <Card>
             <CardHeader title={t("Find an image")} />
             <div className="space-y-4 p-4">
@@ -77,6 +101,9 @@ export default async function TypeImagePage({ params }: { params: Promise<{ id: 
                             {c.sourceDomain ?? t("web")}
                             {c.width && c.height ? ` · ${c.width}×${c.height}` : ""}
                           </div>
+                          {(c.background === "transparent" || c.background === "white") && (
+                            <Badge tone="ok">{c.background === "transparent" ? t("cut out") : t("white background")}</Badge>
+                          )}
                           {c.aiNote && <div className={cn("line-clamp-2 text-[11px]", c.score !== null && c.score >= 0.7 ? "text-muted" : "text-warn")}>{c.aiNote}</div>}
                           <ActionForm action={useCandidateAction.bind(null, id, c.id)}>
                             <SubmitButton variant={suggested ? "primary" : "secondary"} className="w-full !py-1.5 text-xs" pendingText={t("Saving…")}>

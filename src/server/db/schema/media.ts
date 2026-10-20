@@ -112,6 +112,8 @@ export const imageCandidate = pgTable(
     /** 0–1 suitability from the AI ranking (null when not ranked). */
     score: real(),
     aiNote: text(),
+    /** What is behind the product: transparent, white or other (null when it could not be checked). */
+    background: text({ enum: ["transparent", "white", "other"] }),
     fetchedAt: createdAt(),
   },
   (t) => [

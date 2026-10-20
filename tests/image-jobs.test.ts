@@ -16,6 +16,7 @@ import {
   getImageJobOverview,
   releaseStaleImageJobs,
   resumeImageJob,
+  imageJobAvailability,
   retryImageSearch,
   runImageJob,
   startImageJob,
@@ -85,14 +86,14 @@ async function setup() {
 describe("automatic image jobs", () => {
   it("processes in-use types, adds confident images, lists the rest for review", async () => {
     const { ctx, used, obscure } = await setup();
-    const before = await getImageJobOverview(db, ctx);
+    const before = await getImageJobOverview(db, ctx, deps());
     expect(before.eligible).toEqual({ in_use: 3, all: 5 }); // ALEXA 35, Bolt, Obscure | + VENICE 2, BNC
 
     const job = await startImageJob(db, ctx, deps(), { scope: "in_use", limit: 25 });
     expect(job.total).toBe(3);
     await runImageJob(db, ctx, deps(), job.id, { delayMs: 0 });
 
-    const o = await getImageJobOverview(db, ctx);
+    const o = await getImageJobOverview(db, ctx, deps());
     expect(o.job).toMatchObject({ status: "done", processed: 3, applied: 2 });
     expect(o.review.map((r) => r.id)).toEqual([obscure.id]);
     expect(o.recentlyApplied.map((r) => r.id)).toContain(used.id);
@@ -105,7 +106,21 @@ describe("automatic image jobs", () => {
 
     // "Try again next run" puts the reviewed type back.
     await retryImageSearch(db, ctx, obscure.id);
-    expect((await getImageJobOverview(db, ctx)).eligible.in_use).toBe(1);
+    expect((await getImageJobOverview(db, ctx, deps())).eligible.in_use).toBe(1);
+  });
+
+  it("without an image search, takes the catalog's manufacturer pictures for the types that have one", async () => {
+    const { ctx, used } = await setup();
+    const catalog = (t: { manufacturer: string; model: string }) => (t.manufacturer === "Teradek" ? { url: `${base}/img/bolt.png`, page: "https://teradek.com/bolt-6" } : null);
+    const noSearch = deps({ search: null, ranker: null, catalog });
+    expect(imageJobAvailability(deps({ search: null, ranker: null }))).toMatchObject({ ok: false });
+    expect(imageJobAvailability(noSearch)).toMatchObject({ ok: true, searches: false });
+    expect((await getImageJobOverview(db, ctx, noSearch)).eligible).toEqual({ in_use: 1, all: 1 });
+    const job = await startImageJob(db, ctx, noSearch, { scope: "all", limit: 25 });
+    await runImageJob(db, ctx, noSearch, job.id, { delayMs: 0 });
+    expect((await getImageJobOverview(db, ctx, noSearch)).job).toMatchObject({ status: "done", processed: 1, applied: 1 });
+    const [photo] = await db.select().from(s.photo).where(and(eq(s.photo.equipmentTypeId, used.id), eq(s.photo.kind, "reference")));
+    expect(photo!.attribution).toBe("catalog · teradek.com");
   });
 
   it("respects the limit, one running job at a time, cancel and resume", async () => {
@@ -143,7 +158,7 @@ describe("automatic image jobs", () => {
     const plain = deps({ ranker: null });
     const job = await startImageJob(db, ctx, plain, { scope: "in_use", limit: 25 });
     await runImageJob(db, ctx, plain, job.id, { delayMs: 0 });
-    const o = await getImageJobOverview(db, ctx);
+    const o = await getImageJobOverview(db, ctx, deps());
     expect(o.job).toMatchObject({ status: "done", processed: 3, applied: 3 });
     expect(o.review).toHaveLength(0);
     const [photo] = await db.select().from(s.photo).where(and(eq(s.photo.equipmentTypeId, obscure.id), eq(s.photo.kind, "reference")));
@@ -158,7 +173,7 @@ describe("automatic image jobs", () => {
     const [j] = await db.select().from(s.imageJob).where(eq(s.imageJob.id, job.id));
     expect(j).toMatchObject({ status: "failed", processed: 3, lastError: "quota exceeded" });
     // Technical errors don't land in the "choose by hand" list; the types stay eligible.
-    const o = await getImageJobOverview(db, ctx);
+    const o = await getImageJobOverview(db, ctx, deps());
     expect(o.review).toHaveLength(0);
     expect(o.eligible.all).toBe(5);
 
