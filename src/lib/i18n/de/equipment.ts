@@ -96,6 +96,7 @@ export const equipment: Dict = {
   "cut out": "freigestellt",
   "white background": "weißer Hintergrund",
   "Manufacturer picture": "Herstellerbild",
+  "Use manufacturer picture": "Herstellerbild übernehmen",
   "Manufacturer picture of {name}": "Herstellerbild von {name}",
   "The product picture from the catalog, taken from the manufacturer's or a dealer's site.": "Das Produktbild aus dem Katalog, von der Seite des Herstellers oder eines Händlers.",
   "{n} sizes": "{n} Größen",

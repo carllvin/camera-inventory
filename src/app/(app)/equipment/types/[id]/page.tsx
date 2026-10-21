@@ -10,7 +10,7 @@ import { hasRole } from "@/server/domain/context";
 import { listItems } from "@/server/domain/equipment-items";
 import { getEquipmentType } from "@/server/domain/equipment-types";
 import { getPickerDeps } from "@/server/ai/picker-deps";
-import { autoPickAction } from "../image-actions";
+import { autoPickAction, useCatalogImageAction } from "../image-actions";
 import { deleteTypesAction, restoreTypeAction } from "../../actions";
 import { assertUuid, orNotFound } from "@/server/pages";
 import { getT, getTN } from "@/server/i18n";
@@ -23,7 +23,9 @@ export default async function TypePage({ params }: { params: Promise<{ id: strin
   const db = getDb();
   const [et, items] = await Promise.all([orNotFound(getEquipmentType(db, ctx, id)), listItems(db, ctx, { equipmentTypeId: id, limit: 500 })]);
   const primary = et.photos[0];
-  const canSearch = Boolean(getPickerDeps().search);
+  const deps = getPickerDeps();
+  const canSearch = Boolean(deps.search);
+  const catalogImage = deps.catalog?.(et) ?? null;
   const deleted = Boolean(et.archivedAt);
   const canEdit = hasRole(ctx, "member") && !deleted;
   const onProject = items.filter((i) => i.projectId).reduce((n, i) => n + i.quantity, 0);
@@ -61,7 +63,14 @@ export default async function TypePage({ params }: { params: Promise<{ id: strin
             </span>
             {canEdit && (
               <span className="flex items-center gap-2">
-                {!primary && canSearch && (
+                {!primary && catalogImage && (
+                  <ActionForm action={useCatalogImageAction.bind(null, id)}>
+                    <SubmitButton variant="ghost" className="!px-2 !py-1 text-xs" pendingText={t("Saving…")}>
+                      {t("Use manufacturer picture")}
+                    </SubmitButton>
+                  </ActionForm>
+                )}
+                {!primary && !catalogImage && canSearch && (
                   <ActionForm action={autoPickAction.bind(null, id)}>
                     <SubmitButton variant="ghost" className="!px-2 !py-1 text-xs" pendingText={t("Searching…")}>
                       {t("Find automatically")}
